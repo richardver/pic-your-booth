@@ -1,0 +1,825 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Playlist Convertor — Spotify to DJ-Ready MP3s</title>
+<meta name="description" content="Open-source CLI tool that converts Spotify playlists into DJ-ready MP3s with BPM, key detection, Camelot wheel, mix points, and Rekordbox/Serato export.">
+<meta property="og:title" content="Playlist Convertor">
+<meta property="og:description" content="Spotify playlist URL to DJ-ready MP3s for Rekordbox & Serato">
+<meta property="og:image" content="share-card.svg">
+<meta property="og:type" content="website">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap');
+
+  :root {
+    --bg: #08080d;
+    --bg-card: #0e0e16;
+    --bg-hover: #131320;
+    --border: #1a1a2a;
+    --border-light: #252538;
+    --text: #e0e0e8;
+    --text-dim: #8888a0;
+    --text-muted: #44445a;
+    --green: #28e214;
+    --blue: #0064ff;
+    --cyan: #00e5ff;
+    --magenta: #ff00aa;
+    --purple: #a855f7;
+    --orange: #ff6b00;
+    --yellow: #facc15;
+    --red: #ef4444;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Inter', -apple-system, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 80% 50% at 20% 0%, rgba(40,226,20,0.04) 0%, transparent 60%),
+      radial-gradient(ellipse 60% 50% at 80% 100%, rgba(0,100,255,0.04) 0%, transparent 60%),
+      radial-gradient(ellipse 50% 30% at 50% 50%, rgba(255,0,170,0.02) 0%, transparent 60%);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .w { max-width: 1080px; margin: 0 auto; padding: 0 28px; position: relative; z-index: 1; }
+
+  a { color: var(--cyan); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+
+  code {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.85em;
+    background: rgba(255,255,255,0.04);
+    border: 1px solid var(--border);
+    padding: 2px 7px;
+    border-radius: 5px;
+    color: var(--cyan);
+  }
+
+  .divider {
+    height: 1px;
+    background: linear-gradient(to right, transparent, var(--border), transparent);
+    margin: 24px 0;
+  }
+
+  /* ────── HERO ────── */
+  .hero {
+    text-align: center;
+    padding: 90px 0 70px;
+  }
+
+  .badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(40,226,20,0.06);
+    border: 1px solid rgba(40,226,20,0.18);
+    border-radius: 100px;
+    padding: 6px 20px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--green);
+    margin-bottom: 32px;
+  }
+
+  .badge .pulse {
+    width: 6px; height: 6px;
+    background: var(--green);
+    border-radius: 50%;
+    animation: blink 2s ease-in-out infinite;
+  }
+  @keyframes blink {
+    0%,100% { opacity:1; } 50% { opacity:0.3; }
+  }
+
+  .hero h1 {
+    font-size: clamp(40px, 6vw, 64px);
+    font-weight: 900;
+    letter-spacing: -0.035em;
+    line-height: 1.05;
+    margin-bottom: 24px;
+    background: linear-gradient(135deg, #fff 10%, var(--cyan) 60%, var(--green) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .hero .subtitle {
+    font-size: 20px;
+    color: var(--text-dim);
+    max-width: 640px;
+    margin: 0 auto 40px;
+    line-height: 1.7;
+  }
+  .hero .subtitle strong { color: var(--text); font-weight: 600; }
+
+  /* Pipeline arrow strip */
+  .pipeline-strip {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0;
+    flex-wrap: wrap;
+    margin-bottom: 40px;
+  }
+
+  .ps-step {
+    display: flex;
+    align-items: center;
+    gap: 0;
+  }
+
+  .ps-box {
+    padding: 10px 20px;
+    border-radius: 10px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 13px;
+    font-weight: 700;
+    white-space: nowrap;
+    border: 1px solid;
+  }
+
+  .ps-arrow {
+    font-size: 18px;
+    color: var(--text-muted);
+    padding: 0 8px;
+  }
+
+  .ps-1 { background: rgba(40,226,20,0.08); border-color: rgba(40,226,20,0.2); color: var(--green); }
+  .ps-2 { background: rgba(0,229,255,0.08); border-color: rgba(0,229,255,0.2); color: var(--cyan); }
+  .ps-3 { background: rgba(168,85,247,0.08); border-color: rgba(168,85,247,0.2); color: var(--purple); }
+  .ps-4 { background: rgba(255,0,170,0.08); border-color: rgba(255,0,170,0.2); color: var(--magenta); }
+  .ps-5 { background: rgba(0,100,255,0.08); border-color: rgba(0,100,255,0.2); color: var(--blue); }
+
+  /* Install block */
+  .install-block {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 14px 28px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 14px;
+  }
+  .install-block .prompt { color: var(--green); }
+  .install-block .cmd { color: #fff; }
+
+  /* ────── SECTIONS ────── */
+  section { padding: 60px 0; }
+
+  .sec-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin-bottom: 14px;
+  }
+  .sec-label .bar { width: 24px; height: 2px; border-radius: 1px; }
+
+  section h2 {
+    font-size: 32px;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    margin-bottom: 10px;
+  }
+
+  section > .w > p.desc {
+    color: var(--text-dim);
+    font-size: 16px;
+    max-width: 580px;
+    margin-bottom: 40px;
+  }
+
+  /* ────── FEATURE GRID ────── */
+  .features {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(310px, 1fr));
+    gap: 16px;
+  }
+
+  .feat {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 26px;
+    transition: border-color 0.2s, transform 0.15s;
+  }
+  .feat:hover { border-color: var(--border-light); transform: translateY(-2px); }
+
+  .feat-icon {
+    width: 42px; height: 42px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    margin-bottom: 16px;
+  }
+
+  .feat h3 { font-size: 16px; font-weight: 700; margin-bottom: 6px; }
+  .feat p { font-size: 14px; color: var(--text-dim); line-height: 1.6; }
+
+  .feat.green .feat-icon { background: rgba(40,226,20,0.1); }
+  .feat.green h3 { color: var(--green); }
+  .feat.cyan .feat-icon { background: rgba(0,229,255,0.1); }
+  .feat.cyan h3 { color: var(--cyan); }
+  .feat.purple .feat-icon { background: rgba(168,85,247,0.1); }
+  .feat.purple h3 { color: var(--purple); }
+  .feat.magenta .feat-icon { background: rgba(255,0,170,0.1); }
+  .feat.magenta h3 { color: var(--magenta); }
+  .feat.blue .feat-icon { background: rgba(0,100,255,0.1); }
+  .feat.blue h3 { color: var(--blue); }
+  .feat.orange .feat-icon { background: rgba(255,107,0,0.1); }
+  .feat.orange h3 { color: var(--orange); }
+  .feat.yellow .feat-icon { background: rgba(250,204,21,0.1); }
+  .feat.yellow h3 { color: var(--yellow); }
+  .feat.red .feat-icon { background: rgba(239,68,68,0.1); }
+  .feat.red h3 { color: var(--red); }
+
+  /* ────── PIPELINE DETAIL ────── */
+  .flow {
+    display: grid;
+    gap: 0;
+    counter-reset: fl;
+  }
+
+  .fl {
+    display: grid;
+    grid-template-columns: 52px 1fr;
+    gap: 0 18px;
+    counter-increment: fl;
+  }
+
+  .fl-mark {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .fl-num {
+    width: 38px; height: 38px;
+    border-radius: 11px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 14px;
+    font-weight: 700;
+    flex-shrink: 0;
+  }
+
+  .fl-line { width: 2px; flex: 1; min-height: 16px; }
+  .fl:last-child .fl-line { display: none; }
+
+  .fl-body { padding-bottom: 28px; }
+  .fl:last-child .fl-body { padding-bottom: 0; }
+  .fl-body h3 { font-size: 15px; font-weight: 700; margin-bottom: 4px; padding-top: 7px; }
+  .fl-body p { font-size: 13.5px; color: var(--text-dim); line-height: 1.6; }
+
+  .fl[data-c="green"] .fl-num { background: rgba(40,226,20,0.1); color: var(--green); border: 1px solid rgba(40,226,20,0.2); }
+  .fl[data-c="green"] .fl-line { background: linear-gradient(to bottom, rgba(40,226,20,0.2), rgba(40,226,20,0.03)); }
+  .fl[data-c="green"] h3 { color: var(--green); }
+
+  .fl[data-c="cyan"] .fl-num { background: rgba(0,229,255,0.1); color: var(--cyan); border: 1px solid rgba(0,229,255,0.2); }
+  .fl[data-c="cyan"] .fl-line { background: linear-gradient(to bottom, rgba(0,229,255,0.2), rgba(0,229,255,0.03)); }
+  .fl[data-c="cyan"] h3 { color: var(--cyan); }
+
+  .fl[data-c="purple"] .fl-num { background: rgba(168,85,247,0.1); color: var(--purple); border: 1px solid rgba(168,85,247,0.2); }
+  .fl[data-c="purple"] .fl-line { background: linear-gradient(to bottom, rgba(168,85,247,0.2), rgba(168,85,247,0.03)); }
+  .fl[data-c="purple"] h3 { color: var(--purple); }
+
+  .fl[data-c="magenta"] .fl-num { background: rgba(255,0,170,0.1); color: var(--magenta); border: 1px solid rgba(255,0,170,0.2); }
+  .fl[data-c="magenta"] .fl-line { background: linear-gradient(to bottom, rgba(255,0,170,0.2), rgba(255,0,170,0.03)); }
+  .fl[data-c="magenta"] h3 { color: var(--magenta); }
+
+  .fl[data-c="blue"] .fl-num { background: rgba(0,100,255,0.1); color: var(--blue); border: 1px solid rgba(0,100,255,0.2); }
+  .fl[data-c="blue"] .fl-line { background: linear-gradient(to bottom, rgba(0,100,255,0.2), rgba(0,100,255,0.03)); }
+  .fl[data-c="blue"] h3 { color: var(--blue); }
+
+  .fl[data-c="orange"] .fl-num { background: rgba(255,107,0,0.1); color: var(--orange); border: 1px solid rgba(255,107,0,0.2); }
+  .fl[data-c="orange"] .fl-line { background: linear-gradient(to bottom, rgba(255,107,0,0.2), rgba(255,107,0,0.03)); }
+  .fl[data-c="orange"] h3 { color: var(--orange); }
+
+  /* ────── TERMINAL ────── */
+  .term {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    overflow: hidden;
+  }
+
+  .term-bar {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    padding: 11px 16px;
+    border-bottom: 1px solid var(--border);
+    background: rgba(255,255,255,0.015);
+  }
+
+  .term-dot { width: 10px; height: 10px; border-radius: 50%; }
+  .term-dot.r { background: #ff5f57; }
+  .term-dot.y { background: #febc2e; }
+  .term-dot.g { background: #28c840; }
+  .term-bar span { font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--text-muted); margin-left: 8px; }
+
+  .term-body {
+    padding: 20px 24px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 13px;
+    line-height: 1.8;
+    overflow-x: auto;
+  }
+
+  .term-body .p { color: var(--green); }        /* prompt */
+  .term-body .c { color: #fff; }                /* command */
+  .term-body .f { color: var(--cyan); }          /* flag */
+  .term-body .u { color: var(--magenta); }       /* url */
+  .term-body .o { color: var(--text-dim); }      /* output */
+  .term-body .cm { color: var(--text-muted); font-style: italic; }
+  .term-body .wq { color: var(--cyan); font-weight: 600; }
+  .term-body .wa { color: var(--yellow); }
+  .term-body .s { color: var(--text-muted); }
+
+  .terms-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+  @media (max-width: 760px) { .terms-grid { grid-template-columns: 1fr; } }
+
+  /* ────── OUTPUT TABLE ────── */
+  .out-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+    margin-top: 20px;
+  }
+
+  .out-table th {
+    text-align: left;
+    padding: 10px 16px;
+    font-weight: 600;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--text-muted);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .out-table td {
+    padding: 12px 16px;
+    border-bottom: 1px solid rgba(255,255,255,0.03);
+    vertical-align: top;
+  }
+
+  .out-table tr:last-child td { border-bottom: none; }
+
+  .out-table .file { font-family: 'JetBrains Mono', monospace; font-size: 12px; }
+  .out-table .dim { color: var(--text-dim); }
+
+  /* ────── WAVEFORM ────── */
+  .waveform-wrap {
+    margin: 40px auto 0;
+    max-width: 800px;
+  }
+
+  /* ────── FOOTER ────── */
+  footer {
+    text-align: center;
+    padding: 60px 0 40px;
+    color: var(--text-muted);
+    font-size: 13px;
+  }
+  footer .heart { color: var(--magenta); }
+
+  /* ────── RESPONSIVE ────── */
+  @media (max-width: 600px) {
+    .pipeline-strip { flex-direction: column; gap: 8px; }
+    .ps-arrow { transform: rotate(90deg); padding: 0; }
+    .features { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ═══════════ HERO ═══════════ -->
+<div class="w">
+  <div class="hero">
+    <div class="badge"><span class="pulse"></span> Open Source DJ Tool</div>
+    <h1>Playlist Convertor</h1>
+    <p class="subtitle">
+      Paste a <strong>Spotify playlist URL</strong>, get a folder of <strong>DJ-ready MP3s</strong>
+      with BPM, key, Camelot codes, mix point hot cues, and a Rekordbox XML &mdash;
+      plug in your USB and play.
+    </p>
+
+    <div class="pipeline-strip">
+      <div class="ps-step">
+        <div class="ps-box ps-1">Spotify URL</div>
+        <div class="ps-arrow">&rarr;</div>
+      </div>
+      <div class="ps-step">
+        <div class="ps-box ps-2">Download</div>
+        <div class="ps-arrow">&rarr;</div>
+      </div>
+      <div class="ps-step">
+        <div class="ps-box ps-3">Analyze</div>
+        <div class="ps-arrow">&rarr;</div>
+      </div>
+      <div class="ps-step">
+        <div class="ps-box ps-4">Tag &amp; Cue</div>
+        <div class="ps-arrow">&rarr;</div>
+      </div>
+      <div class="ps-step">
+        <div class="ps-box ps-5">Export</div>
+      </div>
+    </div>
+
+    <div class="install-block">
+      <span class="prompt">$</span>
+      <span class="cmd">pip install playlist-convertor</span>
+    </div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- ═══════════ FEATURES ═══════════ -->
+<section>
+  <div class="w">
+    <div class="sec-label" style="color:var(--green);"><div class="bar" style="background:var(--green);"></div> Features</div>
+    <h2>Everything a DJ Needs</h2>
+    <p class="desc">From Spotify to the booth. Every step automated, every format supported.</p>
+
+    <div class="features">
+      <div class="feat green">
+        <div class="feat-icon">
+          <svg width="22" height="22" fill="none" stroke="var(--green)" stroke-width="2"><circle cx="11" cy="11" r="9"/><path d="M11 7v4l3 2"/></svg>
+        </div>
+        <h3>BPM Detection</h3>
+        <p>librosa beat tracking with auto-normalization to DJ range (60&ndash;180 BPM). Halves or doubles to avoid false readings from complex rhythms.</p>
+      </div>
+
+      <div class="feat cyan">
+        <div class="feat-icon">
+          <svg width="22" height="22" fill="none" stroke="var(--cyan)" stroke-width="2"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>
+        </div>
+        <h3>Key Detection</h3>
+        <p>Krumhansl-Schmuckler algorithm over CQT chroma features. Returns key name + confidence score for all 24 major/minor keys.</p>
+      </div>
+
+      <div class="feat purple">
+        <div class="feat-icon">
+          <svg width="22" height="22" fill="none" stroke="var(--purple)" stroke-width="2"><circle cx="11" cy="11" r="9"/><path d="M11 2v4M11 16v4M2 11h4M16 11h4"/></svg>
+        </div>
+        <h3>Camelot Wheel</h3>
+        <p>Automatic mapping to Camelot notation (1A&ndash;12B). Compatible key lookup for harmonic mixing &mdash; same number, &plusmn;1, or relative major/minor.</p>
+      </div>
+
+      <div class="feat magenta">
+        <div class="feat-icon">
+          <svg width="22" height="22" fill="none" stroke="var(--magenta)" stroke-width="2"><path d="M4 11h14"/><path d="M4 7h14"/><path d="M4 15h14"/><circle cx="7" cy="11" r="2" fill="var(--magenta)"/><circle cx="17" cy="11" r="2" fill="var(--magenta)"/></svg>
+        </div>
+        <h3>Mix Point Detection</h3>
+        <p>Energy-based analysis finds where the intro ends and outro begins. Beat-snapped, confidence-scored, written as Rekordbox hot cues A (green) and B (blue).</p>
+      </div>
+
+      <div class="feat blue">
+        <div class="feat-icon">
+          <svg width="22" height="22" fill="none" stroke="var(--blue)" stroke-width="2"><rect x="2" y="3" width="18" height="14" rx="2"/><path d="M8 20h6M11 17v3"/></svg>
+        </div>
+        <h3>Rekordbox XML</h3>
+        <p>Full collection + playlist XML with BPM, key, Tonality, and POSITION_MARK hot cues. Import once, sync to USB, ready for CDJs.</p>
+      </div>
+
+      <div class="feat orange">
+        <div class="feat-icon">
+          <svg width="22" height="22" fill="none" stroke="var(--orange)" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+        </div>
+        <h3>Serato Compatible</h3>
+        <p>M3U8 playlist export for Serato crate import (File &gt; Import Crate). ID3v2.3 tags, CBR validation, genre separator checks. Files pass Serato's format scanner without manual fixing.</p>
+      </div>
+
+      <div class="feat yellow">
+        <div class="feat-icon">
+          <svg width="22" height="22" fill="none" stroke="var(--yellow)" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg>
+        </div>
+        <h3>DJ Set Builder</h3>
+        <p>Build sets from your library. Filter by BPM range, Camelot key (with harmonic neighbors), playlist, or search. Auto-generates set names.</p>
+      </div>
+
+      <div class="feat purple">
+        <div class="feat-icon">
+          <svg width="22" height="22" fill="none" stroke="var(--purple)" stroke-width="2"><path d="M3 12h4l3-9 4 18 3-9h4"/></svg>
+        </div>
+        <h3><a href="auto-set-builder.html" style="color:var(--purple);">Auto Set Builder</a></h3>
+        <p>Automated DJ set sequencing using harmonic mixing, BPM progression, and 5 energy arc presets. Exports Rekordbox XML or Serato M3U8 playlist directly &mdash; no file copying. Includes fun DJ commentary per transition. <a href="auto-set-builder.html">Learn more &rarr;</a></p>
+      </div>
+
+      <div class="feat green">
+        <div class="feat-icon">
+          <svg width="22" height="22" fill="none" stroke="var(--green)" stroke-width="2"><circle cx="11" cy="11" r="9"/><path d="M8 11l2 2 4-4"/></svg>
+        </div>
+        <h3>DJ Research</h3>
+        <p>Search Spotify by artist or DJ name and download their top tracks &mdash; no playlist URL needed. The wizard lets you choose between a Spotify playlist or artist research.</p>
+      </div>
+
+      <div class="feat magenta" style="border-color:rgba(255,0,170,0.15);">
+        <div class="feat-icon">
+          <svg width="22" height="22" fill="none" stroke="var(--magenta)" stroke-width="2"><path d="M12 20V10M18 20V4M6 20v-4"/></svg>
+        </div>
+        <h3>Energy Analysis</h3>
+        <p>Estimates track energy (1&ndash;10) from RMS loudness (40%), spectral brightness (30%), and onset density (30%). Powers the Auto Set Builder's energy arc matching.</p>
+      </div>
+
+      <div class="feat red">
+        <div class="feat-icon">
+          <svg width="22" height="22" fill="none" stroke="var(--red)" stroke-width="2"><path d="M4 4h14v14H4z" rx="2"/><path d="M4 4l14 14M18 4L4 18"/></svg>
+        </div>
+        <h3>FAT32 Safe</h3>
+        <p>All filenames stripped of illegal characters, accents transliterated via Unidecode, paths capped at 255 chars. Works on every CDJ and controller.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ═══════════ PIPELINE ═══════════ -->
+<section>
+  <div class="w">
+    <div class="sec-label" style="color:var(--cyan);"><div class="bar" style="background:var(--cyan);"></div> Pipeline</div>
+    <h2>How It Works</h2>
+    <p class="desc">Seven stages from URL to USB. Fully parallel downloads, sequential analysis, optional auto-sequencing, one XML at the end.</p>
+
+    <div class="flow">
+      <div class="fl" data-c="green">
+        <div class="fl-mark"><div class="fl-num">1</div><div class="fl-line"></div></div>
+        <div class="fl-body">
+          <h3>Fetch Playlist Metadata</h3>
+          <p>Scrapes the Spotify embed page (<code>open.spotify.com/embed/playlist/...</code>) to extract track titles, artists, URIs, durations, and artwork URLs. No API key required &mdash; bypasses Spotify's restricted Development Mode.</p>
+        </div>
+      </div>
+
+      <div class="fl" data-c="cyan">
+        <div class="fl-mark"><div class="fl-num">2</div><div class="fl-line"></div></div>
+        <div class="fl-body">
+          <h3>Download Audio</h3>
+          <p>4 parallel workers via <code>spotdl</code> (which wraps <code>yt-dlp</code> + <code>ffmpeg</code>). Each track is matched on YouTube, downloaded as audio, and converted to MP3 at your chosen bitrate. Skips tracks already in the library.</p>
+        </div>
+      </div>
+
+      <div class="fl" data-c="purple">
+        <div class="fl-mark"><div class="fl-num">3</div><div class="fl-line"></div></div>
+        <div class="fl-body">
+          <h3>Analyze BPM, Key &amp; Mix Points</h3>
+          <p>librosa loads each file at 22050 Hz mono. Beat tracking detects BPM, CQT chroma + Krumhansl-Schmuckler finds the key, and RMS energy analysis locates mix-in/mix-out points. All results are beat-grid snapped.</p>
+        </div>
+      </div>
+
+      <div class="fl" data-c="magenta">
+        <div class="fl-mark"><div class="fl-num">4</div><div class="fl-line"></div></div>
+        <div class="fl-body">
+          <h3>Tag MP3s</h3>
+          <p>mutagen writes ID3v2.3 tags: title, artist, album, year, genre, cover art, BPM (<code>TBPM</code>), key (<code>TKEY</code>), Camelot (<code>TXXX:CamelotKey</code>), and mix points (<code>TXXX:MixInPoint</code> / <code>MixOutPoint</code>).</p>
+        </div>
+      </div>
+
+      <div class="fl" data-c="blue">
+        <div class="fl-mark"><div class="fl-num">5</div><div class="fl-line"></div></div>
+        <div class="fl-body">
+          <h3>Export Rekordbox XML</h3>
+          <p>Generates a Rekordbox-compatible XML with full collection + playlist. Includes <code>POSITION_MARK</code> hot cues for mix points (green A = mix in, blue B = mix out). Drop the XML into Rekordbox and sync to USB.</p>
+        </div>
+      </div>
+
+      <div class="fl" data-c="orange">
+        <div class="fl-mark"><div class="fl-num">6</div><div class="fl-line"></div></div>
+        <div class="fl-body">
+          <h3>Organize &amp; Archive</h3>
+          <p>Files are renamed with track numbers, folder gets the BPM range appended (e.g. <code>2026-02-28_Luca_rekordbox_120-128bpm</code>). Everything is tracked in <code>.library.json</code> for deduplication and set building across sessions.</p>
+        </div>
+      </div>
+
+      <div class="fl" data-c="purple">
+        <div class="fl-mark"><div class="fl-num">7</div><div class="fl-line"></div></div>
+        <div class="fl-body">
+          <h3>Auto-Sequence Sets</h3>
+          <p>Optional: <code>pconv set auto</code> sequences a DJ set from your library using harmonic mixing (4-tier Camelot distance), BPM progression, and energy arc presets. Greedy algorithm scores every candidate across 4 weighted criteria. Generates Rekordbox XML and/or Serato M3U8 playlist referencing original files &mdash; no file copying.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ═══════════ USAGE ═══════════ -->
+<section>
+  <div class="w">
+    <div class="sec-label" style="color:var(--magenta);"><div class="bar" style="background:var(--magenta);"></div> Usage</div>
+    <h2>Two Ways to Run</h2>
+    <p class="desc">Interactive wizard for hands-on sessions, CLI flags for automation and scripts.</p>
+
+    <div class="terms-grid">
+      <div class="term">
+        <div class="term-bar">
+          <div class="term-dot r"></div><div class="term-dot y"></div><div class="term-dot g"></div>
+          <span>Interactive Wizard</span>
+        </div>
+        <div class="term-body">
+          <span class="p">$</span> <span class="c">pconv</span><br><br>
+          <span class="wq">How would you like to start?</span><br>
+          <span class="o">&nbsp; 1 Spotify Playlist URL</span><br>
+          <span class="o">&nbsp; 2 DJ / Artist Research</span><br>
+          <span class="o">&nbsp; Choose:</span> <span class="wa">1</span><br><br>
+          <span class="wq">Spotify playlist URL:</span><br>
+          <span class="u">https://open.spotify.com/playlist/3cEY...</span><br><br>
+          <span class="wq">Target DJ software:</span><br>
+          <span class="o">&nbsp; 1 Rekordbox</span><br>
+          <span class="o">&nbsp; 2 Serato</span><br>
+          <span class="o">&nbsp; 3 Both</span><br>
+          <span class="o">&nbsp; Choose:</span> <span class="wa">1</span><br><br>
+          <span class="wq">Analyze BPM & key?</span> <span class="wa">Yes</span><br>
+          <span class="wq">Detect mix-in/mix-out?</span> <span class="wa">Yes</span><br><br>
+          <span class="s">&boxdr;&boxh;&boxh; Ready to download &boxh;&boxh;&boxh;&boxh;&boxh;&boxh;&boxh;&boxh;&boxh;&boxh;&boxdl;</span><br>
+          <span class="s">&boxv;</span> <span class="o">Analyze:  yes + mix points</span> <span class="s">&boxv;</span><br>
+          <span class="s">&boxur;&boxh;&boxh;&boxh;&boxh;&boxh;&boxh;&boxh;&boxh;&boxh;&boxh;&boxh;&boxh;&boxh;&boxh;&boxh;&boxh;&boxh;&boxh;&boxh;&boxh;&boxh;&boxh;&boxh;&boxh;&boxh;&boxh;&boxh;&boxh;&boxul;</span>
+        </div>
+      </div>
+
+      <div class="term">
+        <div class="term-bar">
+          <div class="term-dot r"></div><div class="term-dot y"></div><div class="term-dot g"></div>
+          <span>Command Line</span>
+        </div>
+        <div class="term-body">
+          <span class="cm"># Quick download</span><br>
+          <span class="p">$</span> <span class="c">pconv download</span> <span class="u">URL</span><br><br>
+          <span class="cm"># Full analysis + mix points</span><br>
+          <span class="p">$</span> <span class="c">pconv download</span> <span class="f">--analyze-mix-points</span> <span class="u">URL</span><br><br>
+          <span class="cm"># Auto set builder</span><br>
+          <span class="p">$</span> <span class="c">pconv set auto</span> <span class="f">--minutes</span> <span class="c">60</span> <span class="f">--preset</span> <span class="c">peak-time</span><br><br>
+          <span class="cm"># Manual set builder</span><br>
+          <span class="p">$</span> <span class="c">pconv set new</span><br>
+          <span class="p">$</span> <span class="c">pconv set add</span> <span class="f">--bpm</span> <span class="c">120-128</span><br>
+          <span class="p">$</span> <span class="c">pconv set add</span> <span class="f">--key</span> <span class="c">8A</span><br>
+          <span class="p">$</span> <span class="c">pconv set save</span><br><br>
+          <span class="cm"># Library</span><br>
+          <span class="p">$</span> <span class="c">pconv library list</span> <span class="f">--sort</span> <span class="c">bpm</span><br>
+          <span class="p">$</span> <span class="c">pconv library search</span> <span class="c">"afrobeats"</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ═══════════ OUTPUT ═══════════ -->
+<section>
+  <div class="w">
+    <div class="sec-label" style="color:var(--blue);"><div class="bar" style="background:var(--blue);"></div> Output</div>
+    <h2>What You Get</h2>
+    <p class="desc">One folder, ready for USB. Files, XML, and library tracking.</p>
+
+    <div class="term">
+      <div class="term-bar">
+        <div class="term-dot r"></div><div class="term-dot y"></div><div class="term-dot g"></div>
+        <span>output/</span>
+      </div>
+      <div class="term-body">
+<span class="o">output/</span><br>
+<span class="o">&boxur;&boxh;&boxh; 2026-02-28_Luca_rekordbox_120-128bpm/</span><br>
+<span class="o">&nbsp;&nbsp;&nbsp;&nbsp;&boxvr;&boxh;&boxh;</span> <span class="c">01 - CKay, Olamide - WAHALA.mp3</span><br>
+<span class="o">&nbsp;&nbsp;&nbsp;&nbsp;&boxvr;&boxh;&boxh;</span> <span class="c">02 - SPINALL, Fireboy DML - Sere.mp3</span><br>
+<span class="o">&nbsp;&nbsp;&nbsp;&nbsp;&boxvr;&boxh;&boxh;</span> <span class="c">03 - Burna Boy - Last Last.mp3</span><br>
+<span class="o">&nbsp;&nbsp;&nbsp;&nbsp;&boxvr;&boxh;&boxh;</span> <span class="c">04 - Tems - Free Mind.mp3</span><br>
+<span class="o">&nbsp;&nbsp;&nbsp;&nbsp;&boxvr;&boxh;&boxh;</span> <span class="s">...</span><br>
+<span class="o">&nbsp;&nbsp;&nbsp;&nbsp;&boxvr;&boxh;&boxh;</span> <span class="f">Luca.xml</span> <span class="s">&larr; Rekordbox import</span><br>
+<span class="o">&nbsp;&nbsp;&nbsp;&nbsp;&boxur;&boxh;&boxh;</span> <span class="f">Luca.m3u8</span> <span class="s">&larr; Serato import (File &gt; Import Crate)</span><br>
+<span class="o">&boxur;&boxh;&boxh; .library.json</span> <span class="s">&larr; tracks, playlists, mix points</span>
+      </div>
+    </div>
+
+    <table class="out-table">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Title</th>
+          <th>BPM</th>
+          <th>Key</th>
+          <th>Camelot</th>
+          <th>Mix In</th>
+          <th>Mix Out</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="dim">01</td>
+          <td>WAHALA</td>
+          <td class="file">124</td>
+          <td class="dim">Ab minor</td>
+          <td style="color:var(--cyan); font-weight:700;">1A</td>
+          <td style="color:var(--green); font-family:'JetBrains Mono',monospace; font-size:12px;">0:32</td>
+          <td style="color:var(--blue); font-family:'JetBrains Mono',monospace; font-size:12px;">3:05</td>
+        </tr>
+        <tr>
+          <td class="dim">02</td>
+          <td>Sere</td>
+          <td class="file">120</td>
+          <td class="dim">Eb major</td>
+          <td style="color:var(--cyan); font-weight:700;">3B</td>
+          <td style="color:var(--green); font-family:'JetBrains Mono',monospace; font-size:12px;">0:16</td>
+          <td style="color:var(--blue); font-family:'JetBrains Mono',monospace; font-size:12px;">3:22</td>
+        </tr>
+        <tr>
+          <td class="dim">03</td>
+          <td>Last Last</td>
+          <td class="file">128</td>
+          <td class="dim">F minor</td>
+          <td style="color:var(--cyan); font-weight:700;">4A</td>
+          <td style="color:var(--green); font-family:'JetBrains Mono',monospace; font-size:12px;">0:24</td>
+          <td style="color:var(--blue); font-family:'JetBrains Mono',monospace; font-size:12px;">2:48</td>
+        </tr>
+        <tr>
+          <td class="dim">04</td>
+          <td>Free Mind</td>
+          <td class="file">122</td>
+          <td class="dim">Bb major</td>
+          <td style="color:var(--cyan); font-weight:700;">6B</td>
+          <td style="color:var(--green); font-family:'JetBrains Mono',monospace; font-size:12px;">0:28</td>
+          <td style="color:var(--blue); font-family:'JetBrains Mono',monospace; font-size:12px;">3:40</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ═══════════ TECH STACK ═══════════ -->
+<section>
+  <div class="w">
+    <div class="sec-label" style="color:var(--purple);"><div class="bar" style="background:var(--purple);"></div> Under the Hood</div>
+    <h2>Tech Stack</h2>
+    <p class="desc">Python CLI, battle-tested audio libraries, no cloud dependencies.</p>
+
+    <div class="features" style="grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));">
+      <div class="feat purple" style="padding:20px;">
+        <h3 style="font-size:14px;">spotdl + yt-dlp</h3>
+        <p style="font-size:13px;">Audio sourced from YouTube. Patched for Spotify API field removals.</p>
+      </div>
+      <div class="feat cyan" style="padding:20px;">
+        <h3 style="font-size:14px;">librosa + NumPy</h3>
+        <p style="font-size:13px;">BPM, key, and mix point analysis. All local, no API calls.</p>
+      </div>
+      <div class="feat green" style="padding:20px;">
+        <h3 style="font-size:14px;">mutagen</h3>
+        <p style="font-size:13px;">ID3v2.3 tagging. TBPM, TKEY, TXXX, APIC cover art.</p>
+      </div>
+      <div class="feat magenta" style="padding:20px;">
+        <h3 style="font-size:14px;">Click + Rich</h3>
+        <p style="font-size:13px;">CLI framework + terminal UI with progress bars and tables.</p>
+      </div>
+      <div class="feat blue" style="padding:20px;">
+        <h3 style="font-size:14px;">Unidecode</h3>
+        <p style="font-size:13px;">Accent transliteration for FAT32-safe filenames on CDJs.</p>
+      </div>
+      <div class="feat orange" style="padding:20px;">
+        <h3 style="font-size:14px;">ffmpeg</h3>
+        <p style="font-size:13px;">Audio transcoding backend. MP3, FLAC, WAV output.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="w">
+    <p>Playlist Convertor <span style="color:var(--green);">v0.1.0</span></p>
+    <p style="margin-top:6px;">Made with <span class="heart">&hearts;</span> for DJs who want their crates ready before they arrive.</p>
+  </div>
+</footer>
+
+</body>
+</html>

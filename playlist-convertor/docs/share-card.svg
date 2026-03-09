@@ -1,0 +1,243 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#08080d"/>
+      <stop offset="100%" style="stop-color:#0d0d18"/>
+    </linearGradient>
+    <linearGradient id="title-grad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#ffffff"/>
+      <stop offset="50%" style="stop-color:#00e5ff"/>
+      <stop offset="100%" style="stop-color:#28e214"/>
+    </linearGradient>
+    <linearGradient id="wave-green" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#28e214;stop-opacity:0.9"/>
+      <stop offset="100%" style="stop-color:#28e214;stop-opacity:0.2"/>
+    </linearGradient>
+    <linearGradient id="wave-blue" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#0064ff;stop-opacity:0.2"/>
+      <stop offset="100%" style="stop-color:#0064ff;stop-opacity:0.9"/>
+    </linearGradient>
+    <linearGradient id="wave-body" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#28e214;stop-opacity:0.15"/>
+      <stop offset="25%" style="stop-color:#ffffff;stop-opacity:0.12"/>
+      <stop offset="75%" style="stop-color:#ffffff;stop-opacity:0.12"/>
+      <stop offset="100%" style="stop-color:#0064ff;stop-opacity:0.15"/>
+    </linearGradient>
+    <filter id="glow-green">
+      <feGaussianBlur stdDeviation="6" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="glow-blue">
+      <feGaussianBlur stdDeviation="6" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="glow-cyan">
+      <feGaussianBlur stdDeviation="4" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <radialGradient id="orb-green" cx="15%" cy="25%" r="40%">
+      <stop offset="0%" style="stop-color:#28e214;stop-opacity:0.07"/>
+      <stop offset="100%" style="stop-color:#28e214;stop-opacity:0"/>
+    </radialGradient>
+    <radialGradient id="orb-blue" cx="85%" cy="75%" r="40%">
+      <stop offset="0%" style="stop-color:#0064ff;stop-opacity:0.06"/>
+      <stop offset="100%" style="stop-color:#0064ff;stop-opacity:0"/>
+    </radialGradient>
+    <radialGradient id="orb-magenta" cx="50%" cy="15%" r="35%">
+      <stop offset="0%" style="stop-color:#ff00aa;stop-opacity:0.04"/>
+      <stop offset="100%" style="stop-color:#ff00aa;stop-opacity:0"/>
+    </radialGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <rect width="1200" height="630" fill="url(#orb-green)"/>
+  <rect width="1200" height="630" fill="url(#orb-blue)"/>
+  <rect width="1200" height="630" fill="url(#orb-magenta)"/>
+
+  <!-- Subtle grid -->
+  <g opacity="0.03">
+    <line x1="0" y1="0" x2="0" y2="630" stroke="#fff" stroke-width="1" transform="translate(100,0)"/>
+    <line x1="0" y1="0" x2="0" y2="630" stroke="#fff" stroke-width="1" transform="translate(200,0)"/>
+    <line x1="0" y1="0" x2="0" y2="630" stroke="#fff" stroke-width="1" transform="translate(300,0)"/>
+    <line x1="0" y1="0" x2="0" y2="630" stroke="#fff" stroke-width="1" transform="translate(400,0)"/>
+    <line x1="0" y1="0" x2="0" y2="630" stroke="#fff" stroke-width="1" transform="translate(500,0)"/>
+    <line x1="0" y1="0" x2="0" y2="630" stroke="#fff" stroke-width="1" transform="translate(600,0)"/>
+    <line x1="0" y1="0" x2="0" y2="630" stroke="#fff" stroke-width="1" transform="translate(700,0)"/>
+    <line x1="0" y1="0" x2="0" y2="630" stroke="#fff" stroke-width="1" transform="translate(800,0)"/>
+    <line x1="0" y1="0" x2="0" y2="630" stroke="#fff" stroke-width="1" transform="translate(900,0)"/>
+    <line x1="0" y1="0" x2="0" y2="630" stroke="#fff" stroke-width="1" transform="translate(1000,0)"/>
+    <line x1="0" y1="0" x2="0" y2="630" stroke="#fff" stroke-width="1" transform="translate(1100,0)"/>
+  </g>
+
+  <!-- Waveform background area -->
+  <rect x="60" y="340" width="1080" height="120" rx="10" fill="#0e0e16" stroke="#1a1a2a" stroke-width="1"/>
+
+  <!-- Waveform - upper half (mirrored) -->
+  <path d="M80,400 Q95,398 110,395 Q130,390 150,382 Q170,370 190,358 Q210,345 230,340 Q250,338 270,336 Q320,332 370,328 Q420,325 470,323 Q520,322 570,322 Q620,323 670,325 Q720,328 770,332 Q820,336 870,340 Q890,345 910,358 Q930,370 950,382 Q970,390 990,395 Q1010,398 1030,399 Q1060,400 1090,400 Q1110,400 1120,400" fill="none" stroke="url(#wave-body)" stroke-width="1.5"/>
+  <!-- Waveform - lower half -->
+  <path d="M80,400 Q95,402 110,405 Q130,410 150,418 Q170,430 190,442 Q210,455 230,460 Q250,462 270,464 Q320,468 370,472 Q420,475 470,477 Q520,478 570,478 Q620,477 670,475 Q720,472 770,468 Q820,464 870,460 Q890,455 910,442 Q930,430 950,418 Q970,410 990,405 Q1010,402 1030,401 Q1060,400 1090,400 Q1110,400 1120,400" fill="none" stroke="url(#wave-body)" stroke-width="1.5"/>
+
+  <!-- Intro waveform (green) -->
+  <path d="M80,400 Q95,398 110,395 Q130,390 150,382 Q170,370 190,358 Q210,345 230,340 Q240,338 250,337" fill="none" stroke="#28e214" stroke-width="2" filter="url(#glow-green)" opacity="0.8"/>
+  <path d="M80,400 Q95,402 110,405 Q130,410 150,418 Q170,430 190,442 Q210,455 230,460 Q240,462 250,463" fill="none" stroke="#28e214" stroke-width="2" filter="url(#glow-green)" opacity="0.8"/>
+
+  <!-- Outro waveform (blue) -->
+  <path d="M950,418 Q970,410 990,405 Q1010,402 1030,401 Q1060,400 1090,400 Q1110,400 1120,400" fill="none" stroke="#0064ff" stroke-width="2" filter="url(#glow-blue)" opacity="0.8"/>
+  <path d="M950,382 Q970,390 990,395 Q1010,398 1030,399 Q1060,400 1090,400 Q1110,400 1120,400" fill="none" stroke="#0064ff" stroke-width="2" filter="url(#glow-blue)" opacity="0.8"/>
+
+  <!-- Mix In marker -->
+  <line x1="250" y1="345" x2="250" y2="455" stroke="#28e214" stroke-width="2" stroke-dasharray="5 3" filter="url(#glow-green)"/>
+  <rect x="237" y="348" width="26" height="18" rx="4" fill="#28e214"/>
+  <text x="250" y="361" text-anchor="middle" font-family="monospace" font-size="12" font-weight="800" fill="#000">A</text>
+
+  <!-- Mix Out marker -->
+  <line x1="950" y1="345" x2="950" y2="455" stroke="#0064ff" stroke-width="2" stroke-dasharray="5 3" filter="url(#glow-blue)"/>
+  <rect x="937" y="348" width="26" height="18" rx="4" fill="#0064ff"/>
+  <text x="950" y="361" text-anchor="middle" font-family="monospace" font-size="12" font-weight="800" fill="#fff">B</text>
+
+  <!-- Waveform labels -->
+  <text x="250" y="340" text-anchor="middle" font-family="monospace" font-size="10" font-weight="700" fill="#28e214">MIX IN</text>
+  <text x="950" y="340" text-anchor="middle" font-family="monospace" font-size="10" font-weight="700" fill="#0064ff">MIX OUT</text>
+
+  <!-- Time markers -->
+  <text x="80" y="472" font-family="monospace" font-size="9" fill="#44445a">0:00</text>
+  <text x="370" y="472" font-family="monospace" font-size="9" fill="#44445a">1:20</text>
+  <text x="580" y="472" font-family="monospace" font-size="9" fill="#44445a">2:30</text>
+  <text x="800" y="472" font-family="monospace" font-size="9" fill="#44445a">3:40</text>
+  <text x="1085" y="472" font-family="monospace" font-size="9" fill="#44445a">4:52</text>
+
+  <!-- ═══ Top content ═══ -->
+
+  <!-- Badge -->
+  <rect x="60" y="52" width="220" height="30" rx="15" fill="none" stroke="#28e214" stroke-width="1" opacity="0.4"/>
+  <circle cx="78" cy="67" r="4" fill="#28e214" opacity="0.9"/>
+  <text x="92" y="72" font-family="'Inter', 'Helvetica Neue', sans-serif" font-size="11" font-weight="700" fill="#28e214" letter-spacing="1.5">OPEN SOURCE DJ TOOL</text>
+
+  <!-- Title -->
+  <text x="60" y="140" font-family="'Inter', 'Helvetica Neue', sans-serif" font-size="58" font-weight="900" fill="url(#title-grad)" letter-spacing="-2">Playlist Convertor</text>
+
+  <!-- Subtitle -->
+  <text x="60" y="180" font-family="'Inter', 'Helvetica Neue', sans-serif" font-size="20" font-weight="400" fill="#8888a0">
+    Spotify playlist URL
+    <tspan fill="#44445a" dx="4">&#8594;</tspan>
+    <tspan fill="#c0c0d0" dx="4">DJ-ready MP3s</tspan>
+    <tspan fill="#44445a" dx="4">&#8594;</tspan>
+    <tspan fill="#c0c0d0" dx="4">Rekordbox / Serato</tspan>
+  </text>
+
+  <!-- Feature pills row 1 -->
+  <g transform="translate(60, 220)">
+    <!-- BPM Detection -->
+    <rect x="0" y="0" width="138" height="34" rx="8" fill="#111119" stroke="#1e1e2e" stroke-width="1"/>
+    <circle cx="18" cy="17" r="5" fill="#28e214" opacity="0.7"/>
+    <text x="30" y="22" font-family="'Inter', sans-serif" font-size="13" font-weight="600" fill="#d0d0e0">BPM Detection</text>
+
+    <!-- Key Detection -->
+    <rect x="150" y="0" width="130" height="34" rx="8" fill="#111119" stroke="#1e1e2e" stroke-width="1"/>
+    <circle cx="168" cy="17" r="5" fill="#00e5ff" opacity="0.7"/>
+    <text x="180" y="22" font-family="'Inter', sans-serif" font-size="13" font-weight="600" fill="#d0d0e0">Key Detection</text>
+
+    <!-- Camelot Wheel -->
+    <rect x="292" y="0" width="142" height="34" rx="8" fill="#111119" stroke="#1e1e2e" stroke-width="1"/>
+    <circle cx="310" cy="17" r="5" fill="#a855f7" opacity="0.7"/>
+    <text x="322" y="22" font-family="'Inter', sans-serif" font-size="13" font-weight="600" fill="#d0d0e0">Camelot Wheel</text>
+
+    <!-- Mix Points -->
+    <rect x="446" y="0" width="120" height="34" rx="8" fill="#111119" stroke="#1e1e2e" stroke-width="1"/>
+    <circle cx="464" cy="17" r="5" fill="#ff00aa" opacity="0.7"/>
+    <text x="476" y="22" font-family="'Inter', sans-serif" font-size="13" font-weight="600" fill="#d0d0e0">Mix Points</text>
+  </g>
+
+  <!-- Feature pills row 2 -->
+  <g transform="translate(60, 264)">
+    <!-- Hot Cues -->
+    <rect x="0" y="0" width="108" height="34" rx="8" fill="#111119" stroke="#1e1e2e" stroke-width="1"/>
+    <circle cx="18" cy="17" r="5" fill="#ff6b00" opacity="0.7"/>
+    <text x="30" y="22" font-family="'Inter', sans-serif" font-size="13" font-weight="600" fill="#d0d0e0">Hot Cues</text>
+
+    <!-- Set Builder -->
+    <rect x="120" y="0" width="120" height="34" rx="8" fill="#111119" stroke="#1e1e2e" stroke-width="1"/>
+    <circle cx="138" cy="17" r="5" fill="#facc15" opacity="0.7"/>
+    <text x="150" y="22" font-family="'Inter', sans-serif" font-size="13" font-weight="600" fill="#d0d0e0">Set Builder</text>
+
+    <!-- FAT32 Safe -->
+    <rect x="252" y="0" width="120" height="34" rx="8" fill="#111119" stroke="#1e1e2e" stroke-width="1"/>
+    <circle cx="270" cy="17" r="5" fill="#4ade80" opacity="0.7"/>
+    <text x="282" y="22" font-family="'Inter', sans-serif" font-size="13" font-weight="600" fill="#d0d0e0">FAT32 Safe</text>
+
+    <!-- ID3v2.3 -->
+    <rect x="384" y="0" width="100" height="34" rx="8" fill="#111119" stroke="#1e1e2e" stroke-width="1"/>
+    <circle cx="402" cy="17" r="5" fill="#60a5fa" opacity="0.7"/>
+    <text x="414" y="22" font-family="'Inter', sans-serif" font-size="13" font-weight="600" fill="#d0d0e0">ID3v2.3</text>
+  </g>
+
+  <!-- Right side: Pipeline arrows -->
+  <g transform="translate(770, 55)">
+    <rect x="0" y="0" width="370" height="260" rx="12" fill="#0e0e16" stroke="#1a1a2a" stroke-width="1"/>
+
+    <!-- Step 1 -->
+    <rect x="20" y="18" width="145" height="36" rx="8" fill="rgba(40,226,20,0.08)" stroke="rgba(40,226,20,0.2)" stroke-width="1"/>
+    <text x="36" y="41" font-family="monospace" font-size="12" font-weight="700" fill="#28e214">Spotify URL</text>
+
+    <!-- Arrow -->
+    <text x="175" y="41" font-family="monospace" font-size="14" fill="#44445a">&#8594;</text>
+
+    <!-- Step 2 -->
+    <rect x="195" y="18" width="155" height="36" rx="8" fill="rgba(0,229,255,0.08)" stroke="rgba(0,229,255,0.2)" stroke-width="1"/>
+    <text x="211" y="41" font-family="monospace" font-size="12" font-weight="700" fill="#00e5ff">spotdl + yt-dlp</text>
+
+    <!-- Arrow down -->
+    <text x="270" y="73" font-family="monospace" font-size="14" fill="#44445a">&#8595;</text>
+
+    <!-- Step 3 -->
+    <rect x="195" y="80" width="155" height="36" rx="8" fill="rgba(168,85,247,0.08)" stroke="rgba(168,85,247,0.2)" stroke-width="1"/>
+    <text x="211" y="103" font-family="monospace" font-size="12" font-weight="700" fill="#a855f7">librosa analyze</text>
+
+    <!-- Arrow down -->
+    <text x="270" y="135" font-family="monospace" font-size="14" fill="#44445a">&#8595;</text>
+
+    <!-- Step 4 -->
+    <rect x="195" y="142" width="155" height="36" rx="8" fill="rgba(255,0,170,0.08)" stroke="rgba(255,0,170,0.2)" stroke-width="1"/>
+    <text x="211" y="165" font-family="monospace" font-size="12" font-weight="700" fill="#ff00aa">ID3 tag + cues</text>
+
+    <!-- Arrow down -->
+    <text x="270" y="197" font-family="monospace" font-size="14" fill="#44445a">&#8595;</text>
+
+    <!-- Step 5a -->
+    <rect x="20" y="204" width="155" height="36" rx="8" fill="rgba(0,100,255,0.08)" stroke="rgba(0,100,255,0.2)" stroke-width="1"/>
+    <text x="36" y="227" font-family="monospace" font-size="12" font-weight="700" fill="#0064ff">Rekordbox XML</text>
+
+    <!-- Step 5b -->
+    <rect x="195" y="204" width="155" height="36" rx="8" fill="rgba(255,107,0,0.08)" stroke="rgba(255,107,0,0.2)" stroke-width="1"/>
+    <text x="211" y="227" font-family="monospace" font-size="12" font-weight="700" fill="#ff6b00">USB / CDJ ready</text>
+  </g>
+
+  <!-- Bottom bar -->
+  <line x1="60" y1="510" x2="1140" y2="510" stroke="#1a1a2a" stroke-width="1"/>
+
+  <!-- Tech logos / text -->
+  <text x="60" y="540" font-family="'Inter', sans-serif" font-size="12" font-weight="500" fill="#44445a">BUILT WITH</text>
+  <g transform="translate(60, 555)">
+    <rect x="0" y="0" width="70" height="26" rx="6" fill="#111119" stroke="#1e1e2e" stroke-width="1"/>
+    <text x="35" y="17" text-anchor="middle" font-family="monospace" font-size="11" font-weight="600" fill="#6b6b80">Python</text>
+
+    <rect x="80" y="0" width="66" height="26" rx="6" fill="#111119" stroke="#1e1e2e" stroke-width="1"/>
+    <text x="113" y="17" text-anchor="middle" font-family="monospace" font-size="11" font-weight="600" fill="#6b6b80">spotdl</text>
+
+    <rect x="156" y="0" width="68" height="26" rx="6" fill="#111119" stroke="#1e1e2e" stroke-width="1"/>
+    <text x="190" y="17" text-anchor="middle" font-family="monospace" font-size="11" font-weight="600" fill="#6b6b80">librosa</text>
+
+    <rect x="234" y="0" width="74" height="26" rx="6" fill="#111119" stroke="#1e1e2e" stroke-width="1"/>
+    <text x="271" y="17" text-anchor="middle" font-family="monospace" font-size="11" font-weight="600" fill="#6b6b80">mutagen</text>
+
+    <rect x="318" y="0" width="60" height="26" rx="6" fill="#111119" stroke="#1e1e2e" stroke-width="1"/>
+    <text x="348" y="17" text-anchor="middle" font-family="monospace" font-size="11" font-weight="600" fill="#6b6b80">Click</text>
+
+    <rect x="388" y="0" width="56" height="26" rx="6" fill="#111119" stroke="#1e1e2e" stroke-width="1"/>
+    <text x="416" y="17" text-anchor="middle" font-family="monospace" font-size="11" font-weight="600" fill="#6b6b80">Rich</text>
+  </g>
+
+  <!-- Version -->
+  <text x="1140" y="590" text-anchor="end" font-family="monospace" font-size="12" font-weight="600" fill="#28e214" opacity="0.5">v0.1.0</text>
+</svg>

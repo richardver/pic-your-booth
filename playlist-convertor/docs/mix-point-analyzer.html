@@ -1,0 +1,981 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mix Point Analyzer — Playlist Convertor</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+  :root {
+    --bg-deep: #0a0a0f;
+    --bg-card: #111119;
+    --bg-card-hover: #16161f;
+    --border: #1e1e2e;
+    --text: #e0e0e8;
+    --text-dim: #6b6b80;
+    --text-muted: #44445a;
+    --neon-green: #28e214;
+    --neon-blue: #0064ff;
+    --neon-cyan: #00e5ff;
+    --neon-magenta: #ff00aa;
+    --neon-purple: #a855f7;
+    --neon-orange: #ff6b00;
+    --neon-yellow: #facc15;
+    --green-glow: 0 0 20px rgba(40, 226, 20, 0.3);
+    --blue-glow: 0 0 20px rgba(0, 100, 255, 0.3);
+    --cyan-glow: 0 0 20px rgba(0, 229, 255, 0.2);
+    --magenta-glow: 0 0 20px rgba(255, 0, 170, 0.2);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Inter', -apple-system, sans-serif;
+    background: var(--bg-deep);
+    color: var(--text);
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+
+  /* ── Animated background ── */
+  body::before {
+    content: '';
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background:
+      radial-gradient(ellipse 80% 60% at 20% 10%, rgba(0, 100, 255, 0.06) 0%, transparent 70%),
+      radial-gradient(ellipse 60% 50% at 80% 90%, rgba(255, 0, 170, 0.05) 0%, transparent 70%),
+      radial-gradient(ellipse 50% 40% at 50% 50%, rgba(40, 226, 20, 0.03) 0%, transparent 70%);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .container {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 0 24px;
+    position: relative;
+    z-index: 1;
+  }
+
+  /* ── Hero ── */
+  .hero {
+    text-align: center;
+    padding: 80px 0 60px;
+    position: relative;
+  }
+
+  .hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(40, 226, 20, 0.08);
+    border: 1px solid rgba(40, 226, 20, 0.2);
+    border-radius: 100px;
+    padding: 6px 18px;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--neon-green);
+    margin-bottom: 28px;
+  }
+
+  .hero-badge .dot {
+    width: 6px; height: 6px;
+    background: var(--neon-green);
+    border-radius: 50%;
+    animation: pulse-dot 2s ease-in-out infinite;
+  }
+
+  @keyframes pulse-dot {
+    0%, 100% { opacity: 1; box-shadow: 0 0 4px var(--neon-green); }
+    50% { opacity: 0.4; box-shadow: none; }
+  }
+
+  .hero h1 {
+    font-size: clamp(36px, 5vw, 56px);
+    font-weight: 900;
+    letter-spacing: -0.03em;
+    line-height: 1.1;
+    margin-bottom: 20px;
+    background: linear-gradient(135deg, #fff 0%, var(--neon-cyan) 50%, var(--neon-green) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .hero p {
+    font-size: 18px;
+    color: var(--text-dim);
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.7;
+  }
+
+  .hero p strong {
+    color: var(--text);
+    font-weight: 600;
+  }
+
+  /* ── Waveform visual ── */
+  .waveform-visual {
+    margin: 50px auto 0;
+    max-width: 700px;
+    position: relative;
+  }
+
+  .waveform-svg {
+    width: 100%;
+    height: auto;
+  }
+
+  .wv-bg { fill: var(--bg-card); rx: 12; }
+  .wv-wave { fill: none; stroke-width: 1.5; }
+  .wv-wave-body { stroke: rgba(255,255,255,0.15); }
+  .wv-wave-intro { stroke: var(--neon-green); filter: drop-shadow(0 0 4px rgba(40,226,20,0.4)); }
+  .wv-wave-outro { stroke: var(--neon-blue); filter: drop-shadow(0 0 4px rgba(0,100,255,0.4)); }
+  .wv-marker { stroke-width: 1.5; stroke-dasharray: 4 3; }
+  .wv-marker-green { stroke: var(--neon-green); }
+  .wv-marker-blue { stroke: var(--neon-blue); }
+  .wv-label { font-family: 'JetBrains Mono', monospace; font-size: 9px; font-weight: 600; }
+  .wv-label-green { fill: var(--neon-green); }
+  .wv-label-blue { fill: var(--neon-blue); }
+  .wv-time { font-family: 'JetBrains Mono', monospace; font-size: 8px; fill: var(--text-dim); }
+  .wv-cue {
+    rx: 3;
+    filter: drop-shadow(0 0 6px rgba(40,226,20,0.5));
+  }
+  .wv-cue-blue { filter: drop-shadow(0 0 6px rgba(0,100,255,0.5)); }
+
+  /* ── Section styling ── */
+  section { padding: 50px 0; }
+
+  .section-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+  }
+
+  .section-label .line {
+    width: 24px; height: 1px;
+  }
+
+  section h2 {
+    font-size: 28px;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    margin-bottom: 12px;
+  }
+
+  section > .container > p {
+    color: var(--text-dim);
+    font-size: 15px;
+    max-width: 560px;
+    margin-bottom: 36px;
+  }
+
+  /* ── Flow diagram ── */
+  .flow {
+    display: grid;
+    gap: 0;
+    position: relative;
+    counter-reset: flow-step;
+  }
+
+  .flow-step {
+    display: grid;
+    grid-template-columns: 56px 1fr;
+    gap: 0 20px;
+    counter-increment: flow-step;
+    position: relative;
+  }
+
+  .flow-step-marker {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+  }
+
+  .flow-step-number {
+    width: 40px; height: 40px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 14px;
+    font-weight: 700;
+    position: relative;
+    z-index: 2;
+    flex-shrink: 0;
+  }
+
+  .flow-step-line {
+    width: 2px;
+    flex: 1;
+    min-height: 20px;
+  }
+
+  .flow-step:last-child .flow-step-line { display: none; }
+
+  .flow-step-content {
+    padding-bottom: 32px;
+  }
+
+  .flow-step:last-child .flow-step-content { padding-bottom: 0; }
+
+  .flow-step-content h3 {
+    font-size: 16px;
+    font-weight: 700;
+    margin-bottom: 6px;
+    padding-top: 8px;
+  }
+
+  .flow-step-content p {
+    font-size: 14px;
+    color: var(--text-dim);
+    line-height: 1.65;
+  }
+
+  .flow-step-content code {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    background: rgba(255,255,255,0.05);
+    border: 1px solid var(--border);
+    padding: 2px 7px;
+    border-radius: 4px;
+    color: var(--neon-cyan);
+  }
+
+  /* Flow color themes */
+  .flow-step[data-color="green"] .flow-step-number {
+    background: rgba(40, 226, 20, 0.12);
+    color: var(--neon-green);
+    border: 1px solid rgba(40, 226, 20, 0.25);
+  }
+  .flow-step[data-color="green"] .flow-step-line { background: linear-gradient(to bottom, rgba(40,226,20,0.25), rgba(40,226,20,0.05)); }
+  .flow-step[data-color="green"] h3 { color: var(--neon-green); }
+
+  .flow-step[data-color="cyan"] .flow-step-number {
+    background: rgba(0, 229, 255, 0.12);
+    color: var(--neon-cyan);
+    border: 1px solid rgba(0, 229, 255, 0.25);
+  }
+  .flow-step[data-color="cyan"] .flow-step-line { background: linear-gradient(to bottom, rgba(0,229,255,0.25), rgba(0,229,255,0.05)); }
+  .flow-step[data-color="cyan"] h3 { color: var(--neon-cyan); }
+
+  .flow-step[data-color="purple"] .flow-step-number {
+    background: rgba(168, 85, 247, 0.12);
+    color: var(--neon-purple);
+    border: 1px solid rgba(168, 85, 247, 0.25);
+  }
+  .flow-step[data-color="purple"] .flow-step-line { background: linear-gradient(to bottom, rgba(168,85,247,0.25), rgba(168,85,247,0.05)); }
+  .flow-step[data-color="purple"] h3 { color: var(--neon-purple); }
+
+  .flow-step[data-color="blue"] .flow-step-number {
+    background: rgba(0, 100, 255, 0.12);
+    color: var(--neon-blue);
+    border: 1px solid rgba(0, 100, 255, 0.25);
+  }
+  .flow-step[data-color="blue"] .flow-step-line { background: linear-gradient(to bottom, rgba(0,100,255,0.25), rgba(0,100,255,0.05)); }
+  .flow-step[data-color="blue"] h3 { color: var(--neon-blue); }
+
+  .flow-step[data-color="magenta"] .flow-step-number {
+    background: rgba(255, 0, 170, 0.12);
+    color: var(--neon-magenta);
+    border: 1px solid rgba(255, 0, 170, 0.25);
+  }
+  .flow-step[data-color="magenta"] .flow-step-line { background: linear-gradient(to bottom, rgba(255,0,170,0.25), rgba(255,0,170,0.05)); }
+  .flow-step[data-color="magenta"] h3 { color: var(--neon-magenta); }
+
+  .flow-step[data-color="orange"] .flow-step-number {
+    background: rgba(255, 107, 0, 0.12);
+    color: var(--neon-orange);
+    border: 1px solid rgba(255, 107, 0, 0.25);
+  }
+  .flow-step[data-color="orange"] .flow-step-line { background: linear-gradient(to bottom, rgba(255,107,0,0.25), rgba(255,107,0,0.05)); }
+  .flow-step[data-color="orange"] h3 { color: var(--neon-orange); }
+
+  /* ── Config cards ── */
+  .config-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 16px;
+  }
+
+  .config-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 20px;
+    transition: border-color 0.2s, background 0.2s;
+  }
+
+  .config-card:hover {
+    border-color: rgba(0, 229, 255, 0.2);
+    background: var(--bg-card-hover);
+  }
+
+  .config-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 8px;
+  }
+
+  .config-card-name {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--neon-cyan);
+  }
+
+  .config-card-value {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 13px;
+    font-weight: 700;
+    padding: 2px 10px;
+    border-radius: 6px;
+    background: rgba(255,255,255,0.04);
+    border: 1px solid var(--border);
+  }
+
+  .config-card p {
+    font-size: 13px;
+    color: var(--text-dim);
+    line-height: 1.55;
+  }
+
+  /* ── Output cards ── */
+  .output-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+  }
+
+  @media (max-width: 700px) {
+    .output-grid { grid-template-columns: 1fr; }
+  }
+
+  .output-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 24px;
+    text-align: center;
+    transition: border-color 0.2s, transform 0.2s;
+  }
+
+  .output-card:hover {
+    transform: translateY(-2px);
+  }
+
+  .output-card-icon {
+    width: 48px; height: 48px;
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 14px;
+    font-size: 22px;
+  }
+
+  .output-card h3 {
+    font-size: 15px;
+    font-weight: 700;
+    margin-bottom: 6px;
+  }
+
+  .output-card p {
+    font-size: 13px;
+    color: var(--text-dim);
+    line-height: 1.55;
+  }
+
+  .output-card.green { border-color: rgba(40,226,20,0.15); }
+  .output-card.green:hover { border-color: rgba(40,226,20,0.35); }
+  .output-card.green .output-card-icon { background: rgba(40,226,20,0.1); }
+  .output-card.green h3 { color: var(--neon-green); }
+
+  .output-card.blue { border-color: rgba(0,100,255,0.15); }
+  .output-card.blue:hover { border-color: rgba(0,100,255,0.35); }
+  .output-card.blue .output-card-icon { background: rgba(0,100,255,0.1); }
+  .output-card.blue h3 { color: var(--neon-blue); }
+
+  .output-card.purple { border-color: rgba(168,85,247,0.15); }
+  .output-card.purple:hover { border-color: rgba(168,85,247,0.35); }
+  .output-card.purple .output-card-icon { background: rgba(168,85,247,0.1); }
+  .output-card.purple h3 { color: var(--neon-purple); }
+
+  /* ── CLI section ── */
+  .cli-block {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    overflow: hidden;
+  }
+
+  .cli-titlebar {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 16px;
+    background: rgba(255,255,255,0.02);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .cli-dot {
+    width: 10px; height: 10px;
+    border-radius: 50%;
+  }
+  .cli-dot.r { background: #ff5f57; }
+  .cli-dot.y { background: #febc2e; }
+  .cli-dot.g { background: #28c840; }
+
+  .cli-titlebar span {
+    font-size: 12px;
+    color: var(--text-muted);
+    margin-left: 8px;
+    font-family: 'JetBrains Mono', monospace;
+  }
+
+  .cli-body {
+    padding: 20px 24px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 13px;
+    line-height: 1.8;
+    overflow-x: auto;
+  }
+
+  .cli-body .prompt { color: var(--neon-green); }
+  .cli-body .cmd { color: #fff; }
+  .cli-body .flag { color: var(--neon-cyan); }
+  .cli-body .url { color: var(--neon-magenta); }
+  .cli-body .comment { color: var(--text-muted); font-style: italic; }
+  .cli-body .output { color: var(--text-dim); }
+  .cli-body .wizard-q { color: var(--neon-cyan); font-weight: 600; }
+  .cli-body .wizard-a { color: var(--neon-yellow); }
+  .cli-body .sep { color: var(--text-muted); }
+
+  /* ── Hot cue demo ── */
+  .hotcue-demo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 28px;
+    padding: 40px 20px;
+    flex-wrap: wrap;
+  }
+
+  .hotcue {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .hotcue-pad {
+    width: 72px; height: 72px;
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 20px;
+    font-weight: 800;
+    transition: transform 0.15s, box-shadow 0.15s;
+    cursor: default;
+    position: relative;
+  }
+
+  .hotcue-pad:hover {
+    transform: scale(1.08);
+  }
+
+  .hotcue-pad.green {
+    background: linear-gradient(135deg, rgba(40,226,20,0.25), rgba(40,226,20,0.1));
+    border: 2px solid var(--neon-green);
+    color: var(--neon-green);
+    box-shadow: var(--green-glow);
+  }
+  .hotcue-pad.green:hover { box-shadow: 0 0 30px rgba(40,226,20,0.5); }
+
+  .hotcue-pad.blue {
+    background: linear-gradient(135deg, rgba(0,100,255,0.25), rgba(0,100,255,0.1));
+    border: 2px solid var(--neon-blue);
+    color: var(--neon-blue);
+    box-shadow: var(--blue-glow);
+  }
+  .hotcue-pad.blue:hover { box-shadow: 0 0 30px rgba(0,100,255,0.5); }
+
+  .hotcue-pad.empty {
+    background: rgba(255,255,255,0.02);
+    border: 2px solid var(--border);
+    color: var(--text-muted);
+  }
+
+  .hotcue-label {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+  }
+  .hotcue-label.green { color: var(--neon-green); }
+  .hotcue-label.blue { color: var(--neon-blue); }
+  .hotcue-label.dim { color: var(--text-muted); }
+
+  .hotcue-time {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: var(--text-dim);
+  }
+
+  /* ── Divider ── */
+  .divider {
+    height: 1px;
+    background: linear-gradient(to right, transparent, var(--border), transparent);
+    margin: 20px 0;
+  }
+
+  /* ── Footer ── */
+  footer {
+    text-align: center;
+    padding: 50px 0;
+    color: var(--text-muted);
+    font-size: 13px;
+  }
+
+  footer a {
+    color: var(--text-dim);
+    text-decoration: none;
+    border-bottom: 1px solid var(--border);
+    transition: color 0.2s, border-color 0.2s;
+  }
+  footer a:hover {
+    color: var(--neon-cyan);
+    border-color: var(--neon-cyan);
+  }
+
+  /* ── XML preview ── */
+  .xml-block {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 20px 24px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    line-height: 1.7;
+    overflow-x: auto;
+    margin-top: 16px;
+  }
+
+  .xml-block .tag { color: var(--neon-cyan); }
+  .xml-block .attr { color: var(--neon-purple); }
+  .xml-block .val { color: var(--neon-yellow); }
+  .xml-block .val-green { color: var(--neon-green); }
+  .xml-block .val-blue { color: var(--neon-blue); }
+  .xml-block .comment { color: var(--text-muted); }
+</style>
+</head>
+<body>
+
+<!-- ═══════════════════ HERO ═══════════════════ -->
+<div class="container">
+  <div class="hero">
+    <div class="hero-badge"><span class="dot"></span> New Feature</div>
+    <h1>Mix Point Analyzer</h1>
+    <p>
+      Automatically detect <strong>where to mix in</strong> and <strong>where to mix out</strong>
+      of every track. Hot cues land straight on your CDJs — no manual prep needed.
+    </p>
+
+    <!-- Waveform illustration -->
+    <div class="waveform-visual">
+      <svg class="waveform-svg" viewBox="0 0 700 140" xmlns="http://www.w3.org/2000/svg">
+        <rect class="wv-bg" x="0" y="0" width="700" height="140" rx="12"/>
+
+        <!-- Time axis -->
+        <text class="wv-time" x="30" y="130">0:00</text>
+        <text class="wv-time" x="165" y="130">0:32</text>
+        <text class="wv-time" x="340" y="130">1:45</text>
+        <text class="wv-time" x="510" y="130">3:05</text>
+        <text class="wv-time" x="650" y="130">3:48</text>
+
+        <!-- Waveform body (quiet) -->
+        <path class="wv-wave wv-wave-body" d="M30,70 Q50,68 60,65 Q70,62 80,58 Q90,54 100,50 Q110,46 120,42 Q130,38 140,35 Q150,33 160,32 Q170,31 180,30 Q230,28 280,27 Q330,26 380,27 Q430,28 480,30 Q500,32 510,35 Q520,38 530,42 Q540,50 550,55 Q560,60 580,63 Q600,65 620,67 Q640,68 660,69 Q670,70 680,70"/>
+        <path class="wv-wave wv-wave-body" d="M30,70 Q50,72 60,75 Q70,78 80,82 Q90,86 100,90 Q110,94 120,98 Q130,102 140,105 Q150,107 160,108 Q170,109 180,110 Q230,112 280,113 Q330,114 380,113 Q430,112 480,110 Q500,108 510,105 Q520,102 530,98 Q540,90 550,85 Q560,80 580,77 Q600,75 620,73 Q640,72 660,71 Q670,70 680,70"/>
+
+        <!-- Intro highlight (green) -->
+        <path class="wv-wave wv-wave-intro" d="M30,70 Q50,68 60,65 Q70,62 80,58 Q90,54 100,50 Q110,46 120,42 Q130,38 140,35 Q150,33 160,32 Q170,31 175,30"/>
+        <path class="wv-wave wv-wave-intro" d="M30,70 Q50,72 60,75 Q70,78 80,82 Q90,86 100,90 Q110,94 120,98 Q130,102 140,105 Q150,107 160,108 Q170,109 175,110"/>
+
+        <!-- Outro highlight (blue) -->
+        <path class="wv-wave wv-wave-outro" d="M525,42 Q535,50 545,55 Q555,60 575,63 Q595,65 615,67 Q635,68 655,69 Q665,70 680,70"/>
+        <path class="wv-wave wv-wave-outro" d="M525,98 Q535,90 545,85 Q555,80 575,77 Q595,75 615,73 Q635,72 655,71 Q665,70 680,70"/>
+
+        <!-- Mix In marker -->
+        <line class="wv-marker wv-marker-green" x1="175" y1="14" x2="175" y2="120"/>
+        <rect class="wv-cue" x="165" y="10" width="20" height="16" fill="rgba(40,226,20,0.9)" rx="3"/>
+        <text class="wv-label" x="170" y="21" fill="#000" font-weight="800">A</text>
+        <text class="wv-label wv-label-green" x="155" y="9">MIX IN</text>
+
+        <!-- Mix Out marker -->
+        <line class="wv-marker wv-marker-blue" x1="525" y1="14" x2="525" y2="120"/>
+        <rect class="wv-cue wv-cue-blue" x="515" y="10" width="20" height="16" fill="rgba(0,100,255,0.9)" rx="3"/>
+        <text class="wv-label" x="520" y="21" fill="#fff" font-weight="800">B</text>
+        <text class="wv-label wv-label-blue" x="502" y="9">MIX OUT</text>
+
+        <!-- Energy threshold line -->
+        <line x1="30" y1="38" x2="680" y2="38" stroke="rgba(255,255,255,0.08)" stroke-width="1" stroke-dasharray="3 4"/>
+        <line x1="30" y1="102" x2="680" y2="102" stroke="rgba(255,255,255,0.08)" stroke-width="1" stroke-dasharray="3 4"/>
+        <text class="wv-time" x="682" y="41" fill="rgba(255,255,255,0.15)" font-size="7">70%</text>
+      </svg>
+    </div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- ═══════════════════ HOW IT WORKS ═══════════════════ -->
+<section>
+  <div class="container">
+    <div class="section-label" style="color: var(--neon-green);">
+      <div class="line" style="background: var(--neon-green);"></div>
+      How It Works
+    </div>
+    <h2>The Analysis Pipeline</h2>
+    <p>Energy-based detection finds where the track's body begins and ends, snaps to the beat grid, and writes hot cues directly into your Rekordbox XML.</p>
+
+    <div class="flow">
+      <div class="flow-step" data-color="green">
+        <div class="flow-step-marker">
+          <div class="flow-step-number">1</div>
+          <div class="flow-step-line"></div>
+        </div>
+        <div class="flow-step-content">
+          <h3>Load Audio</h3>
+          <p>Track is loaded at <code>22050 Hz</code> mono — same sample rate used for BPM and key detection. Tracks under 60 seconds are skipped automatically.</p>
+        </div>
+      </div>
+
+      <div class="flow-step" data-color="cyan">
+        <div class="flow-step-marker">
+          <div class="flow-step-number">2</div>
+          <div class="flow-step-line"></div>
+        </div>
+        <div class="flow-step-content">
+          <h3>Compute Energy Envelope</h3>
+          <p>RMS energy is calculated frame-by-frame, then smoothed with a <code>4-second</code> window to eliminate transient spikes. The middle 50% of the track establishes the <strong>body median</strong> — the reference energy level.</p>
+        </div>
+      </div>
+
+      <div class="flow-step" data-color="purple">
+        <div class="flow-step-marker">
+          <div class="flow-step-number">3</div>
+          <div class="flow-step-line"></div>
+        </div>
+        <div class="flow-step-content">
+          <h3>Find Energy Crossings</h3>
+          <p><strong>Mix In:</strong> Scan from the start — find the first moment energy stays above 70% of body median for 8 consecutive beats. That's where the track's energy commits.<br>
+          <strong>Mix Out:</strong> Scan backward from the end — find where energy last sustains above the threshold before dropping into the outro.</p>
+        </div>
+      </div>
+
+      <div class="flow-step" data-color="blue">
+        <div class="flow-step-marker">
+          <div class="flow-step-number">4</div>
+          <div class="flow-step-line"></div>
+        </div>
+        <div class="flow-step-content">
+          <h3>Snap to Beat Grid</h3>
+          <p>Raw positions are quantized to the nearest beat using the track's detected BPM. Mix-in is clamped to the first third, mix-out to the last third — no false positives in the body.</p>
+        </div>
+      </div>
+
+      <div class="flow-step" data-color="magenta">
+        <div class="flow-step-marker">
+          <div class="flow-step-number">5</div>
+          <div class="flow-step-line"></div>
+        </div>
+        <div class="flow-step-content">
+          <h3>Score Confidence</h3>
+          <p>Each point gets a confidence score (0–1) based on the energy contrast at the boundary. Sharp transitions = high confidence. Flat or ambiguous tracks fall back to <code>16 beats</code> from start/end.</p>
+        </div>
+      </div>
+
+      <div class="flow-step" data-color="orange">
+        <div class="flow-step-marker">
+          <div class="flow-step-number">6</div>
+          <div class="flow-step-line"></div>
+        </div>
+        <div class="flow-step-content">
+          <h3>Write Everywhere</h3>
+          <p>Mix points are stored as <code>TXXX</code> ID3 tags on the MP3, as <code>POSITION_MARK</code> hot cues in the Rekordbox XML, and in the local <code>.library.json</code> for the set builder.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ═══════════════════ REKORDBOX OUTPUT ═══════════════════ -->
+<section>
+  <div class="container">
+    <div class="section-label" style="color: var(--neon-blue);">
+      <div class="line" style="background: var(--neon-blue);"></div>
+      Rekordbox Output
+    </div>
+    <h2>Hot Cues on Your CDJs</h2>
+    <p>Import the XML and your mix points are ready — color-coded, named, and on the right beat.</p>
+
+    <div class="hotcue-demo">
+      <div class="hotcue">
+        <div class="hotcue-pad green">A</div>
+        <div class="hotcue-label green">Mix In</div>
+        <div class="hotcue-time">0:32.500</div>
+      </div>
+      <div class="hotcue">
+        <div class="hotcue-pad blue">B</div>
+        <div class="hotcue-label blue">Mix Out</div>
+        <div class="hotcue-time">3:05.250</div>
+      </div>
+      <div class="hotcue">
+        <div class="hotcue-pad empty">C</div>
+        <div class="hotcue-label dim">Available</div>
+        <div class="hotcue-time">&mdash;</div>
+      </div>
+      <div class="hotcue">
+        <div class="hotcue-pad empty">D</div>
+        <div class="hotcue-label dim">Available</div>
+        <div class="hotcue-time">&mdash;</div>
+      </div>
+      <div class="hotcue">
+        <div class="hotcue-pad empty">E</div>
+        <div class="hotcue-label dim">Available</div>
+        <div class="hotcue-time">&mdash;</div>
+      </div>
+      <div class="hotcue">
+        <div class="hotcue-pad empty">F</div>
+        <div class="hotcue-label dim">Available</div>
+        <div class="hotcue-time">&mdash;</div>
+      </div>
+      <div class="hotcue">
+        <div class="hotcue-pad empty">G</div>
+        <div class="hotcue-label dim">Available</div>
+        <div class="hotcue-time">&mdash;</div>
+      </div>
+      <div class="hotcue">
+        <div class="hotcue-pad empty">H</div>
+        <div class="hotcue-label dim">Available</div>
+        <div class="hotcue-time">&mdash;</div>
+      </div>
+    </div>
+
+    <div class="xml-block">
+      <span class="comment">&lt;!-- Generated inside your playlist XML --&gt;</span><br>
+      <span class="tag">&lt;TRACK</span> <span class="attr">TrackID</span>=<span class="val">"1"</span> <span class="attr">Name</span>=<span class="val">"WAHALA"</span> <span class="attr">AverageBpm</span>=<span class="val">"124.00"</span> ...<span class="tag">&gt;</span><br>
+      &nbsp;&nbsp;<span class="tag">&lt;POSITION_MARK</span><br>
+      &nbsp;&nbsp;&nbsp;&nbsp;<span class="attr">Name</span>=<span class="val-green">"Mix In"</span>
+      <span class="attr">Type</span>=<span class="val">"0"</span>
+      <span class="attr">Start</span>=<span class="val-green">"32.500"</span>
+      <span class="attr">Num</span>=<span class="val">"0"</span><br>
+      &nbsp;&nbsp;&nbsp;&nbsp;<span class="attr">Red</span>=<span class="val">"40"</span>
+      <span class="attr">Green</span>=<span class="val">"226"</span>
+      <span class="attr">Blue</span>=<span class="val">"20"</span> <span class="tag">/&gt;</span><br>
+      &nbsp;&nbsp;<span class="tag">&lt;POSITION_MARK</span><br>
+      &nbsp;&nbsp;&nbsp;&nbsp;<span class="attr">Name</span>=<span class="val-blue">"Mix Out"</span>
+      <span class="attr">Type</span>=<span class="val">"0"</span>
+      <span class="attr">Start</span>=<span class="val-blue">"185.250"</span>
+      <span class="attr">Num</span>=<span class="val">"1"</span><br>
+      &nbsp;&nbsp;&nbsp;&nbsp;<span class="attr">Red</span>=<span class="val">"0"</span>
+      <span class="attr">Green</span>=<span class="val">"100"</span>
+      <span class="attr">Blue</span>=<span class="val">"255"</span> <span class="tag">/&gt;</span><br>
+      <span class="tag">&lt;/TRACK&gt;</span>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ═══════════════════ USAGE ═══════════════════ -->
+<section>
+  <div class="container">
+    <div class="section-label" style="color: var(--neon-magenta);">
+      <div class="line" style="background: var(--neon-magenta);"></div>
+      Usage
+    </div>
+    <h2>Two Ways to Enable</h2>
+    <p>Toggle it in the interactive wizard or fire it from the command line.</p>
+
+    <!-- Wizard -->
+    <div class="cli-block" style="margin-bottom: 20px;">
+      <div class="cli-titlebar">
+        <div class="cli-dot r"></div>
+        <div class="cli-dot y"></div>
+        <div class="cli-dot g"></div>
+        <span>Interactive Wizard</span>
+      </div>
+      <div class="cli-body">
+        <span class="prompt">$</span> <span class="cmd">pconv</span><br><br>
+        <span class="wizard-q">Spotify playlist URL:</span> <span class="url">https://open.spotify.com/playlist/3cEYp...</span><br>
+        <span class="wizard-q">Target DJ software:</span> <span class="wizard-a">1</span> <span class="output">(Rekordbox)</span><br>
+        <span class="wizard-q">Analyze BPM & key?</span> <span class="wizard-a">Yes</span><br>
+        <span class="wizard-q">Detect mix-in/mix-out points?</span> <span class="wizard-a">Yes</span> <span class="output">(hot cues for Rekordbox)</span><br><br>
+        <span class="sep">┌─────────────────────────────────┐</span><br>
+        <span class="sep">│</span> <span class="output">URL:      open.spotify.com/...</span>  <span class="sep">│</span><br>
+        <span class="sep">│</span> <span class="output">Target:   rekordbox</span>            <span class="sep">│</span><br>
+        <span class="sep">│</span> <span class="output">Quality:  192k mp3</span>             <span class="sep">│</span><br>
+        <span class="sep">│</span> <span class="output">Analyze:  yes + mix points</span>     <span class="sep">│</span><br>
+        <span class="sep">└─────────────────────────────────┘</span>
+      </div>
+    </div>
+
+    <!-- CLI -->
+    <div class="cli-block">
+      <div class="cli-titlebar">
+        <div class="cli-dot r"></div>
+        <div class="cli-dot y"></div>
+        <div class="cli-dot g"></div>
+        <span>Command Line</span>
+      </div>
+      <div class="cli-body">
+        <span class="comment"># Download + analyze + detect mix points</span><br>
+        <span class="prompt">$</span> <span class="cmd">pconv download</span> <span class="flag">--analyze-mix-points</span> <span class="url">https://open.spotify.com/playlist/3cEYp...</span><br><br>
+        <span class="comment"># Full options</span><br>
+        <span class="prompt">$</span> <span class="cmd">pconv download</span> <span class="flag">--analyze-mix-points</span> <span class="flag">-v</span> <span class="flag">-t</span> <span class="cmd">rekordbox</span> <span class="url">URL</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ═══════════════════ TUNING ═══════════════════ -->
+<section>
+  <div class="container">
+    <div class="section-label" style="color: var(--neon-purple);">
+      <div class="line" style="background: var(--neon-purple);"></div>
+      Tuning
+    </div>
+    <h2>Configuration</h2>
+    <p>All constants live in <code>config.py</code>. Tweak these to match your genre and mixing style.</p>
+
+    <div class="config-grid">
+      <div class="config-card">
+        <div class="config-card-header">
+          <div class="config-card-name">ENERGY_THRESHOLD</div>
+          <div class="config-card-value">0.70</div>
+        </div>
+        <p>Fraction of body median energy needed to consider a section "active". Lower it for ambient/minimal tracks, raise for EDM.</p>
+      </div>
+
+      <div class="config-card">
+        <div class="config-card-header">
+          <div class="config-card-name">SUSTAIN_BEATS</div>
+          <div class="config-card-value">8</div>
+        </div>
+        <p>How many consecutive beats must stay above threshold. Prevents false triggers from one-off hits or fills.</p>
+      </div>
+
+      <div class="config-card">
+        <div class="config-card-header">
+          <div class="config-card-name">SMOOTHING_SECONDS</div>
+          <div class="config-card-value">4.0</div>
+        </div>
+        <p>RMS smoothing window. Larger values ignore short breaks in energy. Smaller catches rapid buildups.</p>
+      </div>
+
+      <div class="config-card">
+        <div class="config-card-header">
+          <div class="config-card-name">MIN_TRACK_DURATION</div>
+          <div class="config-card-value">60s</div>
+        </div>
+        <p>Tracks shorter than this are skipped. Interludes, intros, and skits don't need mix points.</p>
+      </div>
+
+      <div class="config-card">
+        <div class="config-card-header">
+          <div class="config-card-name">FALLBACK_BEATS</div>
+          <div class="config-card-value">16</div>
+        </div>
+        <p>When energy is flat or detection fails, default to 16 beats from start/end. Safe for most 4/4 music.</p>
+      </div>
+
+      <div class="config-card">
+        <div class="config-card-header">
+          <div class="config-card-name">POSITION_LIMITS</div>
+          <div class="config-card-value">33% / 67%</div>
+        </div>
+        <p>Mix-in is clamped to the first third of the track, mix-out to the last third. Prevents mid-track false positives.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ═══════════════════ WHERE IT LANDS ═══════════════════ -->
+<section>
+  <div class="container">
+    <div class="section-label" style="color: var(--neon-orange);">
+      <div class="line" style="background: var(--neon-orange);"></div>
+      Where Data Lands
+    </div>
+    <h2>Three Destinations</h2>
+    <p>Mix points are written to every place you'd want them.</p>
+
+    <div class="output-grid">
+      <div class="output-card green">
+        <div class="output-card-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="color: var(--neon-green);">
+            <path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/>
+          </svg>
+        </div>
+        <h3>MP3 Tags</h3>
+        <p>ID3v2.3 TXXX frames:<br><code style="font-size:11px; background:rgba(40,226,20,0.08); border-color:rgba(40,226,20,0.2); color:var(--neon-green);">MixInPoint</code> and <code style="font-size:11px; background:rgba(40,226,20,0.08); border-color:rgba(40,226,20,0.2); color:var(--neon-green);">MixOutPoint</code><br>embedded in the file itself.</p>
+      </div>
+
+      <div class="output-card blue">
+        <div class="output-card-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="color: var(--neon-blue);">
+            <rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8"/><path d="M12 17v4"/>
+          </svg>
+        </div>
+        <h3>Rekordbox XML</h3>
+        <p><code style="font-size:11px; background:rgba(0,100,255,0.08); border-color:rgba(0,100,255,0.2); color:var(--neon-blue);">POSITION_MARK</code> elements on each track. Hot cue A (green) and B (blue) ready to import.</p>
+      </div>
+
+      <div class="output-card purple">
+        <div class="output-card-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="color: var(--neon-purple);">
+            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M16 13H8"/><path d="M16 17H8"/><path d="M10 9H8"/>
+          </svg>
+        </div>
+        <h3>Library JSON</h3>
+        <p><code style="font-size:11px; background:rgba(168,85,247,0.08); border-color:rgba(168,85,247,0.2); color:var(--neon-purple);">mix_in</code> and <code style="font-size:11px; background:rgba(168,85,247,0.08); border-color:rgba(168,85,247,0.2); color:var(--neon-purple);">mix_out</code> fields in <code style="font-size:11px;">.library.json</code> for the set builder.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    playlist-convertor &middot; Mix Point Analyzer<br>
+    <span style="font-size: 12px; margin-top: 4px; display: inline-block;">
+      Built with <a href="https://librosa.org">librosa</a> &middot;
+      <a href="https://mutagen.readthedocs.io">mutagen</a> &middot;
+      <a href="https://rekordbox.com">Rekordbox</a> XML 1.0.0
+    </span>
+  </div>
+</footer>
+
+</body>
+</html>

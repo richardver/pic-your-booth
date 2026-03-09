@@ -1,0 +1,999 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Auto Set Builder — AI-Powered DJ Set Sequencing | Playlist Convertor</title>
+<meta name="description" content="Auto Set Builder uses harmonic mixing, BPM progression, and energy arc presets to sequence DJ sets from your library. Greedy Camelot-guided algorithm with 5 energy presets, transition quality ratings, and Rekordbox XML export.">
+<meta property="og:title" content="Auto Set Builder — Playlist Convertor">
+<meta property="og:description" content="Automated DJ set sequencing with harmonic mixing, energy arcs, and Rekordbox export">
+<meta property="og:image" content="share-card.svg">
+<meta property="og:type" content="website">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is Auto Set Builder?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Auto Set Builder is a feature of Playlist Convertor that automatically sequences DJ sets from your music library using harmonic mixing (Camelot wheel), BPM progression, and energy arc presets. It scores every track transition across 4 criteria and outputs a Rekordbox XML or Serato M3U8 playlist."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How does Auto Set Builder differ from DJ.Studio or Mixed In Key?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Auto Set Builder closes the full loop: Spotify URL to USB-ready sequenced set in one tool. DJ.Studio and Mixed In Key require pre-analyzed Rekordbox libraries. Playlist Convertor handles download, BPM/key analysis, energy estimation, harmonic sequencing, and Rekordbox XML export in a single pipeline."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What energy arc presets are available?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Five built-in presets: Warm-Up (energy 2-7, opening sets), Peak Time (3-10, classic 4-act arc peaking at 2/3), Marathon (2-10, waves with increasing intensity for 3h+ sets), Chill (2-5, lounge/after-party), and Closer (7-3, wind-down last set)."
+      }
+    }
+  ]
+}
+</script>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap');
+
+  :root {
+    --bg: #08080d;
+    --bg-card: #0e0e16;
+    --bg-hover: #131320;
+    --border: #1a1a2a;
+    --border-light: #252538;
+    --text: #e0e0e8;
+    --text-dim: #8888a0;
+    --text-muted: #44445a;
+    --green: #28e214;
+    --blue: #0064ff;
+    --cyan: #00e5ff;
+    --magenta: #ff00aa;
+    --purple: #a855f7;
+    --orange: #ff6b00;
+    --yellow: #facc15;
+    --red: #ef4444;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Inter', -apple-system, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 80% 50% at 20% 0%, rgba(168,85,247,0.04) 0%, transparent 60%),
+      radial-gradient(ellipse 60% 50% at 80% 100%, rgba(255,0,170,0.04) 0%, transparent 60%),
+      radial-gradient(ellipse 50% 30% at 50% 50%, rgba(40,226,20,0.02) 0%, transparent 60%);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .w { max-width: 1080px; margin: 0 auto; padding: 0 28px; position: relative; z-index: 1; }
+
+  a { color: var(--cyan); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+
+  code {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.85em;
+    background: rgba(255,255,255,0.04);
+    border: 1px solid var(--border);
+    padding: 2px 7px;
+    border-radius: 5px;
+    color: var(--cyan);
+  }
+
+  .divider {
+    height: 1px;
+    background: linear-gradient(to right, transparent, var(--border), transparent);
+    margin: 24px 0;
+  }
+
+  /* ---- NAV ---- */
+  .nav {
+    padding: 18px 0;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 13px;
+  }
+  .nav a { color: var(--text-dim); }
+  .nav a:hover { color: var(--text); }
+  .nav .sep { color: var(--text-muted); }
+  .nav .current { color: var(--purple); font-weight: 600; }
+
+  /* ---- HERO ---- */
+  .hero {
+    text-align: center;
+    padding: 60px 0 50px;
+  }
+
+  .badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(168,85,247,0.06);
+    border: 1px solid rgba(168,85,247,0.18);
+    border-radius: 100px;
+    padding: 6px 20px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--purple);
+    margin-bottom: 32px;
+  }
+
+  .badge .pulse {
+    width: 6px; height: 6px;
+    background: var(--purple);
+    border-radius: 50%;
+    animation: blink 2s ease-in-out infinite;
+  }
+  @keyframes blink {
+    0%,100% { opacity:1; } 50% { opacity:0.3; }
+  }
+
+  .hero h1 {
+    font-size: clamp(36px, 5vw, 56px);
+    font-weight: 900;
+    letter-spacing: -0.035em;
+    line-height: 1.1;
+    margin-bottom: 24px;
+    background: linear-gradient(135deg, #fff 10%, var(--purple) 50%, var(--magenta) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .hero .subtitle {
+    font-size: 18px;
+    color: var(--text-dim);
+    max-width: 700px;
+    margin: 0 auto 20px;
+    line-height: 1.7;
+  }
+  .hero .subtitle strong { color: var(--text); font-weight: 600; }
+
+  .hero .lead {
+    font-size: 15px;
+    color: var(--text-dim);
+    max-width: 680px;
+    margin: 0 auto 40px;
+    line-height: 1.7;
+  }
+
+  /* ---- SECTIONS ---- */
+  section { padding: 50px 0; }
+
+  .sec-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin-bottom: 14px;
+  }
+  .sec-label .bar { width: 24px; height: 2px; border-radius: 1px; }
+
+  section h2 {
+    font-size: 30px;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    margin-bottom: 10px;
+  }
+
+  section > .w > p.desc {
+    color: var(--text-dim);
+    font-size: 15px;
+    max-width: 620px;
+    margin-bottom: 36px;
+  }
+
+  /* ---- COMPETITIVE ADVANTAGE ---- */
+  .advantage-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-bottom: 20px;
+  }
+  @media (max-width: 700px) { .advantage-grid { grid-template-columns: 1fr; } }
+
+  .adv-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 28px;
+    transition: border-color 0.2s, transform 0.15s;
+  }
+  .adv-card:hover { border-color: var(--border-light); transform: translateY(-2px); }
+  .adv-card.full { grid-column: 1 / -1; }
+
+  .adv-card .label {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+  }
+  .adv-card h3 { font-size: 18px; font-weight: 700; margin-bottom: 8px; }
+  .adv-card p { font-size: 14px; color: var(--text-dim); line-height: 1.65; }
+  .adv-card .stat {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 28px;
+    font-weight: 800;
+    margin-bottom: 4px;
+  }
+
+  /* ---- COMPARISON TABLE ---- */
+  .cmp-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+    margin-top: 16px;
+  }
+
+  .cmp-table th {
+    text-align: left;
+    padding: 12px 16px;
+    font-weight: 600;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--text-muted);
+    border-bottom: 1px solid var(--border);
+  }
+  .cmp-table th:first-child { padding-left: 0; }
+
+  .cmp-table td {
+    padding: 14px 16px;
+    border-bottom: 1px solid rgba(255,255,255,0.03);
+    vertical-align: top;
+  }
+  .cmp-table td:first-child { padding-left: 0; font-weight: 500; }
+  .cmp-table tr:last-child td { border-bottom: none; }
+
+  .cmp-table .yes { color: var(--green); }
+  .cmp-table .no { color: var(--text-muted); }
+  .cmp-table .partial { color: var(--yellow); }
+  .cmp-table .us { color: var(--purple); font-weight: 700; }
+
+  /* ---- PRESET CARDS ---- */
+  .presets-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
+    gap: 14px;
+  }
+
+  .preset-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 22px;
+    text-align: center;
+    transition: border-color 0.2s;
+  }
+  .preset-card:hover { border-color: var(--border-light); }
+  .preset-card h4 { font-size: 15px; font-weight: 700; margin-bottom: 6px; }
+  .preset-card .energy-desc { font-size: 12px; color: var(--text-dim); margin-bottom: 12px; }
+
+  .spark {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 16px;
+    letter-spacing: 2px;
+    line-height: 1;
+  }
+  .spark-label {
+    font-size: 10px;
+    color: var(--text-muted);
+    margin-top: 6px;
+    font-family: 'JetBrains Mono', monospace;
+  }
+
+  /* ---- TERMINAL ---- */
+  .term {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    overflow: hidden;
+  }
+
+  .term-bar {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    padding: 11px 16px;
+    border-bottom: 1px solid var(--border);
+    background: rgba(255,255,255,0.015);
+  }
+
+  .term-dot { width: 10px; height: 10px; border-radius: 50%; }
+  .term-dot.r { background: #ff5f57; }
+  .term-dot.y { background: #febc2e; }
+  .term-dot.g { background: #28c840; }
+  .term-bar span { font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--text-muted); margin-left: 8px; }
+
+  .term-body {
+    padding: 20px 24px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12.5px;
+    line-height: 1.75;
+    overflow-x: auto;
+  }
+
+  .term-body .p { color: var(--green); }
+  .term-body .c { color: #fff; }
+  .term-body .f { color: var(--cyan); }
+  .term-body .u { color: var(--magenta); }
+  .term-body .o { color: var(--text-dim); }
+  .term-body .g { color: var(--green); }
+  .term-body .y { color: var(--yellow); }
+  .term-body .r { color: var(--red); }
+  .term-body .pr { color: var(--purple); }
+  .term-body .cm { color: var(--text-muted); font-style: italic; }
+  .term-body .wq { color: var(--cyan); font-weight: 600; }
+
+  /* ---- SET TABLE ---- */
+  .set-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+    margin: 20px 0;
+  }
+
+  .set-table th {
+    text-align: left;
+    padding: 10px 14px;
+    font-weight: 600;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--text-muted);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .set-table td {
+    padding: 11px 14px;
+    border-bottom: 1px solid rgba(255,255,255,0.03);
+    vertical-align: middle;
+  }
+  .set-table tr:last-child td { border-bottom: none; }
+
+  .set-table .dim { color: var(--text-dim); }
+  .set-table .mono { font-family: 'JetBrains Mono', monospace; font-size: 12px; }
+  .set-table .cam { color: var(--cyan); font-weight: 700; font-family: 'JetBrains Mono', monospace; }
+
+  .energy-bar {
+    display: inline-flex;
+    gap: 1px;
+    vertical-align: middle;
+  }
+  .energy-bar .block {
+    width: 6px;
+    height: 14px;
+    border-radius: 2px;
+  }
+  .energy-bar .block.on { background: var(--purple); }
+  .energy-bar .block.off { background: rgba(168,85,247,0.12); }
+
+  .trans-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    padding: 3px 10px;
+    border-radius: 6px;
+    font-size: 11px;
+    font-weight: 600;
+    font-family: 'JetBrains Mono', monospace;
+  }
+  .trans-badge.green { background: rgba(40,226,20,0.08); color: var(--green); border: 1px solid rgba(40,226,20,0.2); }
+  .trans-badge.yellow { background: rgba(250,204,21,0.08); color: var(--yellow); border: 1px solid rgba(250,204,21,0.2); }
+  .trans-badge.red { background: rgba(239,68,68,0.08); color: var(--red); border: 1px solid rgba(239,68,68,0.2); }
+
+  /* ---- ALGORITHM STEPS ---- */
+  .algo-steps {
+    display: grid;
+    gap: 0;
+    counter-reset: algo;
+  }
+
+  .algo-step {
+    display: grid;
+    grid-template-columns: 48px 1fr;
+    gap: 0 16px;
+    counter-increment: algo;
+  }
+
+  .algo-mark {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .algo-num {
+    width: 36px; height: 36px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 13px;
+    font-weight: 700;
+    flex-shrink: 0;
+    background: rgba(168,85,247,0.1);
+    color: var(--purple);
+    border: 1px solid rgba(168,85,247,0.2);
+  }
+
+  .algo-line { width: 2px; flex: 1; min-height: 14px; background: linear-gradient(to bottom, rgba(168,85,247,0.2), rgba(168,85,247,0.03)); }
+  .algo-step:last-child .algo-line { display: none; }
+
+  .algo-body { padding-bottom: 24px; }
+  .algo-step:last-child .algo-body { padding-bottom: 0; }
+  .algo-body h3 { font-size: 15px; font-weight: 700; margin-bottom: 4px; padding-top: 6px; color: var(--purple); }
+  .algo-body p { font-size: 13.5px; color: var(--text-dim); line-height: 1.6; }
+
+  /* ---- SPEC TABLE ---- */
+  .spec-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+  }
+  .spec-table td {
+    padding: 10px 16px;
+    border-bottom: 1px solid rgba(255,255,255,0.03);
+  }
+  .spec-table td:first-child {
+    font-weight: 600;
+    width: 240px;
+    color: var(--text);
+  }
+  .spec-table td:last-child {
+    color: var(--text-dim);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+  }
+
+  /* ---- FOOTER ---- */
+  footer {
+    text-align: center;
+    padding: 60px 0 40px;
+    color: var(--text-muted);
+    font-size: 13px;
+  }
+  footer .heart { color: var(--magenta); }
+
+  @media (max-width: 600px) {
+    .presets-grid { grid-template-columns: 1fr 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<div class="w">
+  <div class="nav">
+    <a href="index.html">Playlist Convertor</a>
+    <span class="sep">/</span>
+    <span class="current">Auto Set Builder</span>
+  </div>
+</div>
+
+<!-- HERO -->
+<div class="w">
+  <div class="hero">
+    <div class="badge"><span class="pulse"></span> New Feature</div>
+    <h1>Auto Set Builder</h1>
+    <p class="subtitle">
+      Auto Set Builder sequences DJ sets from your library using <strong>harmonic mixing</strong>,
+      <strong>BPM progression</strong>, and <strong>energy arc presets</strong> &mdash;
+      the same techniques professionals use, automated in seconds.
+    </p>
+    <p class="lead">
+      It scores every possible track transition across 4 weighted criteria (harmonic compatibility, BPM arc, energy arc, BPM smoothness),
+      selects the optimal sequence using a greedy Camelot-guided algorithm, and exports Rekordbox XML or Serato-compatible files. From Spotify playlist to
+      USB-ready sequenced set in one pipeline. Includes fun DJ commentary per transition &mdash; opener lines, quality-rated quips, peak energy callouts, and closer lines.
+    </p>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- WHY BOOK US -->
+<section>
+  <div class="w">
+    <div class="sec-label" style="color:var(--magenta);"><div class="bar" style="background:var(--magenta);"></div> Why Book Us</div>
+    <h2>What Sets Us Apart</h2>
+    <p class="desc">Every DJ picks songs. We engineer sets. Here's why that matters for your event.</p>
+
+    <div class="advantage-grid">
+      <div class="adv-card">
+        <div class="label" style="color:var(--purple);">Harmonic Mixing</div>
+        <h3>Every Transition is Key-Matched</h3>
+        <p>Our 4-tier Camelot wheel algorithm scores every possible transition between tracks. Adjacent tracks are harmonically compatible &mdash; no clashing keys, no jarring frequency collisions. The dancefloor hears seamless progressions, not random key jumps.</p>
+      </div>
+
+      <div class="adv-card">
+        <div class="label" style="color:var(--magenta);">Energy Architecture</div>
+        <h3>Sets Follow a Dramatic Arc</h3>
+        <p>We don't just shuffle tracks by BPM. Every set follows a deliberate energy arc &mdash; warm-up, build, peak at 2/3, and close &mdash; shaped from audio analysis of RMS loudness, spectral brightness, and rhythmic intensity. The crowd feels the journey, not a playlist on shuffle.</p>
+      </div>
+
+      <div class="adv-card">
+        <div class="label" style="color:var(--green);">Precision</div>
+        <div class="stat" style="color:var(--green);">4 Criteria</div>
+        <h3>Scored Per Transition</h3>
+        <p>Harmonic compatibility (35%), BPM arc adherence (25%), energy arc adherence (25%), BPM smoothness (15%). Every track placement is mathematically optimized, not guesswork.</p>
+      </div>
+
+      <div class="adv-card">
+        <div class="label" style="color:var(--cyan);">Speed</div>
+        <div class="stat" style="color:var(--cyan);">60 min</div>
+        <h3>Set Built in Seconds</h3>
+        <p>What takes most DJs 30-60 minutes of manual sequencing &mdash; matching keys, smoothing BPM, shaping energy &mdash; happens automatically. More time preparing for the unique moments, less time on logistics.</p>
+      </div>
+
+      <div class="adv-card full">
+        <div class="label" style="color:var(--orange);">Closed Loop</div>
+        <h3>No Other Tool Does This End-to-End</h3>
+        <p>DJ.Studio and SetFlow require pre-analyzed Rekordbox libraries. Mixed In Key scores energy but doesn't build sets. Beatport doesn't sequence. We close the entire loop: <strong>Spotify URL &rarr; Download &rarr; BPM/Key Analysis &rarr; Energy Estimation &rarr; Harmonic Sequencing &rarr; Rekordbox XML &rarr; USB</strong>. One command, zero manual steps between playlist and performance.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- COMPARISON -->
+<section>
+  <div class="w">
+    <div class="sec-label" style="color:var(--cyan);"><div class="bar" style="background:var(--cyan);"></div> Comparison</div>
+    <h2>How Does Auto Set Builder Compare?</h2>
+    <p class="desc">Feature comparison against popular DJ preparation and sequencing tools.</p>
+
+    <div class="term" style="padding:0;">
+      <table class="cmp-table">
+        <thead>
+          <tr>
+            <th>Feature</th>
+            <th class="us">Playlist Convertor</th>
+            <th>DJ.Studio</th>
+            <th>Mixed In Key</th>
+            <th>Beatport / Manual</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Download from Spotify URL</td>
+            <td class="yes">Yes</td>
+            <td class="no">No</td>
+            <td class="no">No</td>
+            <td class="no">No</td>
+          </tr>
+          <tr>
+            <td>BPM Detection</td>
+            <td class="yes">Yes (librosa)</td>
+            <td class="yes">Yes</td>
+            <td class="yes">Yes</td>
+            <td class="partial">Metadata only</td>
+          </tr>
+          <tr>
+            <td>Key Detection</td>
+            <td class="yes">Yes (Krumhansl-Schmuckler)</td>
+            <td class="yes">Yes</td>
+            <td class="yes">Yes</td>
+            <td class="partial">Metadata only</td>
+          </tr>
+          <tr>
+            <td>Energy Estimation</td>
+            <td class="yes">Yes (RMS + spectral + onset)</td>
+            <td class="partial">Basic</td>
+            <td class="yes">Yes (1-10 score)</td>
+            <td class="no">No</td>
+          </tr>
+          <tr>
+            <td>Harmonic Sequencing</td>
+            <td class="yes">4-tier Camelot algorithm</td>
+            <td class="yes">Yes</td>
+            <td class="partial">Suggestions only</td>
+            <td class="no">Manual</td>
+          </tr>
+          <tr>
+            <td>Energy Arc Presets</td>
+            <td class="yes">5 presets (warm-up to closer)</td>
+            <td class="no">No</td>
+            <td class="no">No</td>
+            <td class="no">Manual</td>
+          </tr>
+          <tr>
+            <td>Transition Quality Rating</td>
+            <td class="yes">Green / Yellow / Red</td>
+            <td class="yes">Yes</td>
+            <td class="no">No</td>
+            <td class="no">No</td>
+          </tr>
+          <tr>
+            <td>Rekordbox XML Export</td>
+            <td class="yes">Yes (with hot cues)</td>
+            <td class="yes">Yes</td>
+            <td class="no">No</td>
+            <td class="no">No</td>
+          </tr>
+          <tr>
+            <td>Serato M3U8 Export</td>
+            <td class="yes">Yes (M3U8 + ID3v2.3 validation)</td>
+            <td class="partial">Basic</td>
+            <td class="no">No</td>
+            <td class="no">No</td>
+          </tr>
+          <tr>
+            <td>Full Pipeline (URL to USB)</td>
+            <td class="yes" style="font-weight:700;">Yes &mdash; one command</td>
+            <td class="no">Requires pre-analyzed library</td>
+            <td class="no">Requires existing files</td>
+            <td class="no">Many manual steps</td>
+          </tr>
+          <tr>
+            <td>Price</td>
+            <td class="yes">Free &amp; open source</td>
+            <td class="partial">$4.49/mo</td>
+            <td class="partial">$58 one-time</td>
+            <td class="partial">$1.49+ per track</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- PRESETS -->
+<section>
+  <div class="w">
+    <div class="sec-label" style="color:var(--purple);"><div class="bar" style="background:var(--purple);"></div> Presets</div>
+    <h2>5 Energy Arc Presets</h2>
+    <p class="desc">Each preset defines a target energy curve that shapes BPM progression and track selection across the set.</p>
+
+    <div class="presets-grid">
+      <div class="preset-card">
+        <h4 style="color:var(--green);">Warm-Up</h4>
+        <p class="energy-desc">Opening set, gentle build</p>
+        <div class="spark" style="color:var(--green);">&#9602;&#9603;&#9605;&#9607;&#9606;</div>
+        <div class="spark-label">Energy 2&rarr;7</div>
+      </div>
+
+      <div class="preset-card" style="border-color:rgba(168,85,247,0.3);">
+        <h4 style="color:var(--purple);">Peak Time</h4>
+        <p class="energy-desc">Classic 4-act arc, peak at 2/3</p>
+        <div class="spark" style="color:var(--purple);">&#9603;&#9605;&#9607;&#9608;&#9607;&#9605;</div>
+        <div class="spark-label">Energy 3&rarr;10&rarr;5</div>
+      </div>
+
+      <div class="preset-card">
+        <h4 style="color:var(--magenta);">Marathon</h4>
+        <p class="energy-desc">Waves, 3h+ sets</p>
+        <div class="spark" style="color:var(--magenta);">&#9602;&#9604;&#9603;&#9605;&#9607;&#9605;&#9607;&#9608;&#9607;&#9604;</div>
+        <div class="spark-label">Energy 2&rarr;10&rarr;4</div>
+      </div>
+
+      <div class="preset-card">
+        <h4 style="color:var(--cyan);">Chill</h4>
+        <p class="energy-desc">Lounge / after-party</p>
+        <div class="spark" style="color:var(--cyan);">&#9602;&#9603;&#9604;&#9605;&#9604;&#9603;</div>
+        <div class="spark-label">Energy 2&rarr;5&rarr;3</div>
+      </div>
+
+      <div class="preset-card">
+        <h4 style="color:var(--orange);">Closer</h4>
+        <p class="energy-desc">Last set, wind down</p>
+        <div class="spark" style="color:var(--orange);">&#9607;&#9608;&#9607;&#9606;&#9604;&#9603;</div>
+        <div class="spark-label">Energy 7&rarr;9&rarr;3</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- EXAMPLE SET -->
+<section>
+  <div class="w">
+    <div class="sec-label" style="color:var(--green);"><div class="bar" style="background:var(--green);"></div> Example Output</div>
+    <h2>What a Sequenced Set Looks Like</h2>
+    <p class="desc">A 60-minute peak-time set with transition quality ratings and energy levels.</p>
+
+    <table class="set-table">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Title</th>
+          <th>Artist</th>
+          <th>BPM</th>
+          <th>Camelot</th>
+          <th>Energy</th>
+          <th>Transition</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="dim">1</td>
+          <td>Sere</td>
+          <td class="dim">SPINALL, Fireboy DML</td>
+          <td class="mono">120</td>
+          <td class="cam">5B</td>
+          <td>
+            <div class="energy-bar">
+              <div class="block on"></div><div class="block on"></div><div class="block on"></div><div class="block on"></div>
+              <div class="block off"></div><div class="block off"></div><div class="block off"></div><div class="block off"></div><div class="block off"></div><div class="block off"></div>
+            </div>
+          </td>
+          <td></td>
+        </tr>
+        <tr>
+          <td class="dim">2</td>
+          <td>Free Mind</td>
+          <td class="dim">Tems</td>
+          <td class="mono">122</td>
+          <td class="cam">6B</td>
+          <td>
+            <div class="energy-bar">
+              <div class="block on"></div><div class="block on"></div><div class="block on"></div><div class="block on"></div><div class="block on"></div>
+              <div class="block off"></div><div class="block off"></div><div class="block off"></div><div class="block off"></div><div class="block off"></div>
+            </div>
+          </td>
+          <td><span class="trans-badge green">5B&rarr;6B +2bpm perfect</span></td>
+        </tr>
+        <tr>
+          <td class="dim">3</td>
+          <td>Last Last</td>
+          <td class="dim">Burna Boy</td>
+          <td class="mono">124</td>
+          <td class="cam">7A</td>
+          <td>
+            <div class="energy-bar">
+              <div class="block on"></div><div class="block on"></div><div class="block on"></div><div class="block on"></div><div class="block on"></div><div class="block on"></div><div class="block on"></div>
+              <div class="block off"></div><div class="block off"></div><div class="block off"></div>
+            </div>
+          </td>
+          <td><span class="trans-badge green">6B&rarr;7A +2bpm perfect</span></td>
+        </tr>
+        <tr>
+          <td class="dim">4</td>
+          <td>WAHALA</td>
+          <td class="dim">CKay, Olamide</td>
+          <td class="mono">126</td>
+          <td class="cam">8A</td>
+          <td>
+            <div class="energy-bar">
+              <div class="block on"></div><div class="block on"></div><div class="block on"></div><div class="block on"></div><div class="block on"></div><div class="block on"></div><div class="block on"></div><div class="block on"></div><div class="block on"></div>
+              <div class="block off"></div>
+            </div>
+          </td>
+          <td><span class="trans-badge green">7A&rarr;8A +2bpm perfect</span></td>
+        </tr>
+        <tr>
+          <td class="dim">5</td>
+          <td>Essence</td>
+          <td class="dim">Wizkid ft. Tems</td>
+          <td class="mono">127</td>
+          <td class="cam">9A</td>
+          <td>
+            <div class="energy-bar">
+              <div class="block on"></div><div class="block on"></div><div class="block on"></div><div class="block on"></div><div class="block on"></div><div class="block on"></div><div class="block on"></div><div class="block on"></div><div class="block on"></div><div class="block on"></div>
+            </div>
+          </td>
+          <td><span class="trans-badge green">8A&rarr;9A +1bpm perfect</span></td>
+        </tr>
+        <tr>
+          <td class="dim">6</td>
+          <td>Love Nwantiti</td>
+          <td class="dim">CKay</td>
+          <td class="mono">125</td>
+          <td class="cam">10A</td>
+          <td>
+            <div class="energy-bar">
+              <div class="block on"></div><div class="block on"></div><div class="block on"></div><div class="block on"></div><div class="block on"></div><div class="block on"></div><div class="block on"></div><div class="block on"></div>
+              <div class="block off"></div><div class="block off"></div>
+            </div>
+          </td>
+          <td><span class="trans-badge green">9A&rarr;10A -2bpm perfect</span></td>
+        </tr>
+        <tr>
+          <td class="dim">7</td>
+          <td>Loaded</td>
+          <td class="dim">Tiwa Savage</td>
+          <td class="mono">122</td>
+          <td class="cam">11B</td>
+          <td>
+            <div class="energy-bar">
+              <div class="block on"></div><div class="block on"></div><div class="block on"></div><div class="block on"></div><div class="block on"></div><div class="block on"></div>
+              <div class="block off"></div><div class="block off"></div><div class="block off"></div><div class="block off"></div>
+            </div>
+          </td>
+          <td><span class="trans-badge yellow">10A&rarr;11B -3bpm ok</span></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div style="display:flex; gap:24px; margin-top:12px; flex-wrap:wrap;">
+      <div style="font-size:12px; color:var(--text-dim);">
+        <span style="color:var(--purple); font-family:'JetBrains Mono',monospace;">Target:</span>
+        &#9602;&#9603;&#9605;&#9607;&#9608;&#9607;&#9605;
+      </div>
+      <div style="font-size:12px; color:var(--text-dim);">
+        <span style="color:var(--cyan); font-family:'JetBrains Mono',monospace;">Actual:</span>
+        &#9604;&#9605;&#9607;&#9607;&#9608;&#9607;&#9606;
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ALGORITHM -->
+<section>
+  <div class="w">
+    <div class="sec-label" style="color:var(--purple);"><div class="bar" style="background:var(--purple);"></div> Algorithm</div>
+    <h2>How Does the Sequencing Algorithm Work?</h2>
+    <p class="desc">Greedy Camelot-guided selection with energy arc enforcement. Each slot is filled by scoring every remaining candidate across 4 weighted criteria.</p>
+
+    <div class="algo-steps">
+      <div class="algo-step">
+        <div class="algo-mark"><div class="algo-num">1</div><div class="algo-line"></div></div>
+        <div class="algo-body">
+          <h3>Filter Library</h3>
+          <p>Select analyzed tracks matching BPM range, playlists, and file existence. Typically 20-200 candidates from a DJ's library.</p>
+        </div>
+      </div>
+
+      <div class="algo-step">
+        <div class="algo-mark"><div class="algo-num">2</div><div class="algo-line"></div></div>
+        <div class="algo-body">
+          <h3>Calculate Slot Count</h3>
+          <p>Set duration &divide; effective track time (track length minus 30-second transition overlap) = number of tracks needed. A 60-minute set needs approximately 20 tracks at 3.5 minutes each.</p>
+        </div>
+      </div>
+
+      <div class="algo-step">
+        <div class="algo-mark"><div class="algo-num">3</div><div class="algo-line"></div></div>
+        <div class="algo-body">
+          <h3>Generate Slot Targets</h3>
+          <p>For each position, interpolate the preset's energy curve and BPM progression curve. The Peak Time preset targets energy 3 at position 0%, rising to 10 at position 65%, easing to 5 at 100%.</p>
+        </div>
+      </div>
+
+      <div class="algo-step">
+        <div class="algo-mark"><div class="algo-num">4</div><div class="algo-line"></div></div>
+        <div class="algo-body">
+          <h3>Greedy Selection</h3>
+          <p>For each slot, score every remaining candidate across 4 criteria: <strong>harmonic compatibility</strong> with previous track (weight 0.35), <strong>BPM proximity</strong> to arc target (0.25), <strong>energy proximity</strong> to arc target (0.25), and <strong>BPM smoothness</strong> from previous track (0.15). Pick the highest-scoring candidate.</p>
+        </div>
+      </div>
+
+      <div class="algo-step">
+        <div class="algo-mark"><div class="algo-num">5</div><div class="algo-line"></div></div>
+        <div class="algo-body">
+          <h3>Score Transitions</h3>
+          <p>Rate each adjacency: <span style="color:var(--green);">green</span> = tier 1 harmony + &le;3 BPM jump, <span style="color:var(--yellow);">yellow</span> = tier 2 + &le;6 BPM, <span style="color:var(--red);">red</span> = tier 3-4 or large jump. A well-sequenced set averages 70%+ green transitions.</p>
+        </div>
+      </div>
+
+      <div class="algo-step">
+        <div class="algo-mark"><div class="algo-num">6</div><div class="algo-line"></div></div>
+        <div class="algo-body">
+          <h3>Export</h3>
+          <p>Generate a Rekordbox XML and/or Serato M3U8 playlist referencing the original file locations &mdash; no file copying needed. Files are saved directly in <code>output/</code> with an <code>autoset_</code> prefix (e.g. <code>autoset_peak-time_60min.xml</code> or <code>.m3u8</code>). Import the M3U8 into Serato via File &gt; Import Crate. Ready for USB.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- USAGE -->
+<section>
+  <div class="w">
+    <div class="sec-label" style="color:var(--green);"><div class="bar" style="background:var(--green);"></div> Usage</div>
+    <h2>How to Build an Auto Set</h2>
+    <p class="desc">Interactive wizard or one-line command. Both produce the same output.</p>
+
+    <div class="term">
+      <div class="term-bar">
+        <div class="term-dot r"></div><div class="term-dot y"></div><div class="term-dot g"></div>
+        <span>pconv set auto</span>
+      </div>
+      <div class="term-body">
+<span class="cm"># One-line command</span><br>
+<span class="p">$</span> <span class="c">pconv set auto</span> <span class="f">--minutes</span> <span class="c">60</span> <span class="f">--preset</span> <span class="c">peak-time</span> <span class="f">--bpm-min</span> <span class="c">120</span> <span class="f">--bpm-max</span> <span class="c">130</span> <span class="f">-t</span> <span class="c">rekordbox</span><br><br>
+<span class="cm"># Or use the interactive wizard</span><br>
+<span class="p">$</span> <span class="c">pconv set auto</span><br><br>
+<span class="wq">How long is your set? (minutes):</span> <span class="c">60</span><br><br>
+<span class="wq">Energy arc preset:</span><br>
+<span class="o">&nbsp; 1 Warm-Up &mdash; Opening set, gentle build (energy 2-7)</span><br>
+<span class="o">&nbsp; 2 Peak Time &mdash; Classic 4-act arc (energy 3-10)</span><br>
+<span class="o">&nbsp; 3 Marathon &mdash; Waves, 3h+ sets (energy 2-10)</span><br>
+<span class="o">&nbsp; 4 Chill &mdash; Lounge / after-party (energy 2-5)</span><br>
+<span class="o">&nbsp; 5 Closer &mdash; Wind down (energy 7-3)</span><br>
+<span class="o">&nbsp; Choose:</span> <span class="pr">2</span><br><br>
+<span class="wq">BPM range?</span> <span class="c">120-130</span><br>
+<span class="wq">Starting Camelot key?</span> <span class="c">8A</span><br>
+<span class="wq">Filter to playlists?</span> <span class="c">Luca</span><br><br>
+<span class="wq">Target DJ software:</span><br>
+<span class="o">&nbsp; 1 Rekordbox</span><br>
+<span class="o">&nbsp; 2 Serato</span><br>
+<span class="o">&nbsp; 3 Both</span><br>
+<span class="o">&nbsp; Choose:</span> <span class="pr">1</span><br><br>
+<span class="o">Building set...</span><br>
+<span class="g">Set built: 20 tracks, ~58 min</span><br>
+<span class="g">14 smooth</span> <span class="y">4 workable</span> <span class="r">1 rough</span><br>
+<span class="o">Rekordbox XML: output/autoset_peak-time_60min.xml</span><br>
+<span class="cm"># Or for Serato target:</span><br>
+<span class="o">Serato M3U8: output/autoset_peak-time_60min.m3u8</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- SPECIFICATIONS -->
+<section>
+  <div class="w">
+    <div class="sec-label" style="color:var(--cyan);"><div class="bar" style="background:var(--cyan);"></div> Specifications</div>
+    <h2>Technical Specifications</h2>
+    <p class="desc">Concrete values, not vague claims.</p>
+
+    <div class="term" style="padding:0;">
+      <table class="spec-table">
+        <tbody>
+          <tr><td>Scoring weights</td><td>Harmonic 0.35, BPM arc 0.25, Energy arc 0.25, BPM smooth 0.15</td></tr>
+          <tr><td>Harmonic tiers</td><td>Tier 1 (score 1.0), Tier 2 (0.6), Tier 3 (0.3), Tier 4 (0.0)</td></tr>
+          <tr><td>Energy estimation</td><td>RMS loudness 40% + spectral centroid 30% + onset density 30%</td></tr>
+          <tr><td>Energy scale</td><td>Integer 1-10 (normalized with configurable ceilings per genre)</td></tr>
+          <tr><td>Energy presets</td><td>5 built-in: warm-up, peak-time, marathon, chill, closer</td></tr>
+          <tr><td>Transition overlap</td><td>30 seconds (configurable)</td></tr>
+          <tr><td>Track duration fallback</td><td>210 seconds (3.5 min) when actual duration unavailable</td></tr>
+          <tr><td>Audio sample rate</td><td>22050 Hz mono (same as BPM/key analysis)</td></tr>
+          <tr><td>Camelot wheel positions</td><td>12-position circular, modes A (minor) and B (major)</td></tr>
+          <tr><td>Transition ratings</td><td>Green (tier &le;1, &Delta;BPM &le;3), Yellow (tier &le;2, &le;6), Red (else)</td></tr>
+          <tr><td>Output format</td><td>Rekordbox XML and/or Serato M3U8 referencing original files (no copying)</td></tr>
+          <tr><td>Export filenames</td><td>autoset_{preset}_{minutes}min.xml / .m3u8 in output/ root</td></tr>
+          <tr><td>Target software</td><td>Rekordbox, Serato, or Both (via --target / wizard)</td></tr>
+          <tr><td>DJ commentary</td><td>Random quips per transition: opener, green/yellow/red, peak, closer</td></tr>
+          <tr><td>BPM fallback energy</td><td>Linear mapping: 70 BPM &rarr; ~2, 128 BPM &rarr; ~7, 150 BPM &rarr; ~9</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="w">
+    <p>Playlist Convertor <span style="color:var(--purple);">Auto Set Builder</span></p>
+    <p style="margin-top:6px;">Made with <span class="heart">&hearts;</span> for DJs who engineer their sets, not just play them.</p>
+    <p style="margin-top:10px;"><a href="index.html">&larr; Back to Playlist Convertor</a></p>
+  </div>
+</footer>
+
+</body>
+</html>
