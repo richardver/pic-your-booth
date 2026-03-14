@@ -12,7 +12,7 @@ Review the provided content against Pic Your Booth brand guidelines.
 
 ## Process
 
-1. Read `knowledge/brand.md` for the full brand guide
+1. Read `knowledge/brand/brand.md` for the full brand guide
 2. Identify which segment the content targets (Magic Mirror / iPad / DJ Combo)
 3. Score the content on: tone, messaging, CTA clarity, value proposition, Dutch quality
 4. Provide Pass / Revise / Reject verdict with specific feedback

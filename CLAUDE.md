@@ -31,37 +31,46 @@ WordPress, HubSpot, Zapier, Meta Ads, Google Analytics, Google Workspace
 
 ```
 pic-your-booth/
-├── CLAUDE.md                          ← You are here (loaded every session)
+├── CLAUDE.md                              ← You are here (loaded every session)
 ├── .claude/
-│   ├── agents/                        ← Specialist agents (auto-discovered)
-│   │   ├── brand-guardian.md          — Brand quality gate
-│   │   ├── designer.md               — UI/UX, visual design, frontend
-│   │   ├── meta-ads-specialist.md    — Meta Ads campaigns & copy
-│   │   ├── social-creative.md        — Social media content & DJ profiles
-│   │   └── website-designer.md       — WordPress pages, CRO, forms
-│   ├── skills/                        ← Invocable with /skill-name
-│   │   ├── brand-audit/SKILL.md      — /brand-audit — Review content for brand fit
-│   │   ├── landing-page-audit/SKILL.md — /landing-page-audit — 55-item CRO audit
-│   │   ├── ad-campaign/SKILL.md      — /ad-campaign — Create Meta Ads campaigns
-│   │   └── content-plan/SKILL.md     — /content-plan — Social media planning
+│   ├── agents/                            ← Specialist agents (auto-discovered)
+│   │   ├── brand-guardian.md              — Brand quality gate
+│   │   ├── designer.md                   — UI/UX, visual design, frontend
+│   │   ├── meta-ads-specialist.md        — Meta Ads campaigns & copy
+│   │   ├── social-creative.md            — Social media content & DJ profiles
+│   │   └── website-designer.md           — WordPress pages, CRO, forms
+│   ├── skills/                            ← Invocable with /skill-name
+│   │   ├── brand-audit/SKILL.md          — /brand-audit
+│   │   ├── landing-page-audit/SKILL.md   — /landing-page-audit
+│   │   ├── ad-campaign/SKILL.md          — /ad-campaign
+│   │   └── content-plan/SKILL.md         — /content-plan
 │   └── rules/
-│       └── brand-voice.md            — Always-active brand voice rules
-├── knowledge/                         ← Reference files (agents load these)
-│   ├── brand.md                       — Mission, vision, tone, segments, positioning
-│   ├── design-system.md              — Tokens, colors, typography, components
-│   ├── ui-ux-principles.md           — UX guidelines, accessibility, responsive
-│   ├── website-design-landing-pages.md — Page structure, hero formulas, CTAs
-│   ├── website-design-cro.md         — 55-item audit checklist, scoring rubric
-│   ├── landing-page-forms-personalization.md — Forms, personalization, email sequences
-│   ├── meta-ads.md                   — Campaign structure, audiences, benchmarks
-│   ├── ad-copy-frameworks.md         — Copy specs, hooks, testing methodology
-│   ├── creative-testing-and-fatigue.md — Testing framework, fatigue management
-│   ├── social-creatives.md           — Platform guides, content pillars, specs
-│   ├── video-marketing.md            — Video specs, production, distribution
-│   ├── marketing-psychology-pricing.md — Anchoring, Cialdini, Fogg, objection handling
-│   ├── marketing-psychology-buyer-journey.md — JTBD, journey map, psychographics
-│   ├── marketing-psychology-viral-retention.md — Viral loops, referrals, retention
-│   └── ab-testing.md                 — ICE framework, sample sizes, test methodology
+│       └── brand-voice.md                — Always-active brand voice rules
+│
+├── knowledge/
+│   ├── brand/                             ← Brand identity
+│   │   └── brand.md                      — Mission, vision, tone, segments, positioning
+│   ├── dj-profiles/                       ← DJ personal brands
+│   │   └── luca-dj-gianni.md             — DJ Gianni brand, music style, social bios
+│   ├── photobooth/                        ← Website & conversion
+│   │   ├── website-design-landing-pages.md — Page structure, hero formulas, CTAs
+│   │   ├── website-design-cro.md         — 55-item audit checklist, scoring rubric
+│   │   └── landing-page-forms-personalization.md — Forms, personalization, email sequences
+│   ├── marketing/                         ← Ads, social, psychology
+│   │   ├── meta-ads.md                   — Campaign structure, audiences, benchmarks
+│   │   ├── ad-copy-frameworks.md         — Copy specs, hooks, testing methodology
+│   │   ├── creative-testing-and-fatigue.md — Testing framework, fatigue management
+│   │   ├── social-creatives.md           — Platform guides, content pillars, specs
+│   │   ├── video-marketing.md            — Video specs, production, distribution
+│   │   ├── marketing-psychology-pricing.md — Anchoring, Cialdini, Fogg, objections
+│   │   ├── marketing-psychology-buyer-journey.md — JTBD, journey map, psychographics
+│   │   ├── marketing-psychology-viral-retention.md — Viral loops, referrals, retention
+│   │   └── ab-testing.md                 — ICE framework, sample sizes, test methodology
+│   └── design/                            ← UI/UX & design system
+│       ├── design-system.md              — Tokens, colors, typography, components
+│       ├── ui-ux-principles.md           — UX guidelines, accessibility, responsive
+│       ├── pym-design-tokens.json        — Design token values (JSON)
+│       └── pym-design-system-web.html    — Design system web reference
 ```
 
 ## Quick Commands

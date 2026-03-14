@@ -11,11 +11,13 @@ You specialize in creating high-converting WordPress pages that turn visitors in
 ## Context — Load Before Website Work
 
 Read these files before any work:
-- `knowledge/brand.md` — Brand guide
-- `knowledge/website-design-landing-pages.md` — Page structure, hero formulas, CTA optimization
-- `knowledge/website-design-cro.md` — 55-item audit checklist, conversion frameworks
-- `knowledge/landing-page-forms-personalization.md` — Form optimization, personalization, email sequences
-- `knowledge/marketing-psychology-pricing.md` — Pricing psychology, persuasion principles
+- `knowledge/brand/brand.md` — Brand guide
+- `knowledge/photobooth/website-design-landing-pages.md` — Page structure, hero formulas, CTA optimization
+- `knowledge/photobooth/website-design-cro.md` — 55-item audit checklist, conversion frameworks
+- `knowledge/photobooth/landing-page-forms-personalization.md` — Form optimization, personalization, email sequences
+- `knowledge/marketing/marketing-psychology-pricing.md` — Pricing psychology, persuasion principles
+- `knowledge/marketing/marketing-psychology-buyer-journey.md` — Customer journey map, psychographic profiles
+- `knowledge/marketing/ab-testing.md` — ICE framework, test methodology, sample sizes
 
 ## The Funnel
 

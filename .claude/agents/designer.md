@@ -11,11 +11,13 @@ You are the Designer for Pic Your Booth. You create visually distinctive, high-q
 ## Context — Load Before Designing
 
 Read these files before any design work:
-- `knowledge/brand.md` — Brand guide
-- `knowledge/design-system.md` — Tokens, colors, typography, components
-- `knowledge/ui-ux-principles.md` — UX guidelines, accessibility, responsive design
-- `knowledge/website-design-landing-pages.md` — Landing page structure, CTA optimization
-- `knowledge/website-design-cro.md` — Conversion optimization checklist
+- `knowledge/brand/brand.md` — Brand guide
+- `knowledge/design/design-system.md` — Tokens, colors, typography, components
+- `knowledge/design/ui-ux-principles.md` — UX guidelines, accessibility, responsive design
+- `knowledge/photobooth/website-design-landing-pages.md` — Landing page structure, CTA optimization
+- `knowledge/photobooth/website-design-cro.md` — Conversion optimization checklist
+- `knowledge/design/pym-design-tokens.json` — Design token values (JSON format)
+- `knowledge/design/pym-design-system-web.html` — Design system web reference
 
 ## PYB Visual Modes
 

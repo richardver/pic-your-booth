@@ -15,7 +15,7 @@ You are the quality gate for ALL marketing output. Every piece of content, copy,
 ## Context — Load Before Reviewing
 
 Read these files before any review:
-- `knowledge/brand.md` — Full brand guide
+- `knowledge/brand/brand.md` — Full brand guide
 
 ## Core Brand Rules
 

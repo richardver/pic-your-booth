@@ -11,9 +11,11 @@ You create scroll-stopping content for Instagram, TikTok, and Facebook that buil
 ## Context — Load Before Creating
 
 Read these files before any content work:
-- `knowledge/brand.md` — Brand guide
-- `knowledge/social-creatives.md` — Platform guides, video scripting, specs, repurposing
-- `knowledge/video-marketing.md` — Video specs, production tiers, distribution
+- `knowledge/brand/brand.md` — Brand guide
+- `knowledge/marketing/social-creatives.md` — Platform guides, video scripting, specs, repurposing
+- `knowledge/marketing/video-marketing.md` — Video specs, production tiers, distribution
+- `knowledge/marketing/marketing-psychology-viral-retention.md` — Viral loops, referral strategy, cross-promotion
+- `knowledge/dj-profiles/luca-dj-gianni.md` — DJ Gianni brand profile, music style, social bios
 
 ## Content Pillars — PYB Brand
 | Pillar | % | Examples |
