@@ -4,100 +4,101 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Pic Your Booth — Photobooth Design System</title>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
   /* ═══════════════════════════════════════════
-     PHOTOBOOTH DESIGN TOKENS
-     Cinematic dark + warm gold. Premium event atmosphere.
-     Connected to PYM parent (navy base, muted-red accent).
+     PIC YOUR BOOTH — UNIFIED DESIGN TOKENS
+
+     One cohesive visual identity for all products.
+     Extends PYM parent brand (Poppins, navy, warm-white, muted-red).
+     Premium vs accessible = content & imagery, not theme switching.
      ═══════════════════════════════════════════ */
   :root {
-    /* Brand Colors — PYM Photobooth */
-    --pb-deep-black: #0a0a0c;
-    --pb-dark-surface: #141416;
-    --pb-card: #1a1a1e;
-    --pb-border: rgba(255,255,255,0.07);
-    --pb-gold: #c9a84c;
-    --pb-gold-light: #dfc06a;
-    --pb-gold-dim: rgba(201,168,76,0.15);
-    --pb-warm-white: #f5f0e8;
-    --pb-cream: #e8dfd2;
-    --pb-muted: rgba(245,240,232,0.45);
-    --pb-subtle: rgba(245,240,232,0.12);
-
-    /* PYM Heritage */
+    /* ── PYM Heritage (from parent brand) ── */
     --pym-navy: #100e34;
+    --pym-navy-90: rgba(16,14,52,0.9);
+    --pym-navy-60: rgba(16,14,52,0.6);
+    --pym-navy-30: rgba(16,14,52,0.3);
+    --pym-navy-10: rgba(16,14,52,0.1);
     --pym-red: #ff494a;
+    --pym-red-hover: #ff6162;
+    --pym-red-dim: rgba(255,73,74,0.08);
+    --pym-white: #ffffff;
+    --pym-off-white: #f7f7fa;
+    --pym-warm-white: #f4f1ef;
+    --pym-warm-beige: #e8e0db;
 
-    /* Semantic */
-    --pb-success: #4caf50;
-    --pb-warning: #f5a623;
-    --pb-error: #ef4444;
+    /* ── PYB Photobooth Extensions ── */
+    --pb-cream: #faf8f5;
+    --pb-warm-bg: #f6f2ee;
+    --pb-gold: #b8962e;
+    --pb-gold-dim: rgba(184,150,46,0.1);
+    --pb-gold-badge: #d4a72c;
+    --pb-success: #2d8a4e;
+    --pb-success-dim: rgba(45,138,78,0.08);
 
-    /* Spacing */
+    /* ── Semantic (Unified) ── */
+    --bg: var(--pb-cream);
+    --bg-alt: var(--pym-warm-white);
+    --fg: var(--pym-navy);
+    --fg-muted: var(--pym-navy-60);
+    --fg-subtle: var(--pym-navy-30);
+    --card: var(--pym-white);
+    --card-hover: var(--pym-off-white);
+    --border: var(--pym-warm-beige);
+    --border-subtle: rgba(16,14,52,0.06);
+    --primary: var(--pym-red);
+    --primary-hover: var(--pym-red-hover);
+    --on-primary: var(--pym-white);
+    --ring: var(--pym-navy);
+
+    /* ── Spacing ── */
     --sp-1: 4px; --sp-2: 8px; --sp-3: 12px; --sp-4: 16px;
-    --sp-6: 24px; --sp-8: 32px; --sp-10: 40px; --sp-12: 48px;
-    --sp-16: 64px; --sp-20: 80px; --sp-24: 96px;
+    --sp-5: 20px; --sp-6: 24px; --sp-8: 32px; --sp-10: 40px;
+    --sp-12: 48px; --sp-16: 64px; --sp-20: 80px; --sp-24: 96px;
 
-    /* Radius */
-    --r-sm: 6px; --r-md: 10px; --r-lg: 16px; --r-xl: 24px; --r-pill: 999px;
+    /* ── Radius ── */
+    --r-xs: 4px; --r-sm: 8px; --r-md: 12px; --r-lg: 16px; --r-xl: 20px; --r-pill: 999px;
 
-    /* Fonts */
-    --font-display: 'Cormorant Garamond', serif;
-    --font-body: 'DM Sans', sans-serif;
+    /* ── Typography ── */
+    --font: 'Poppins', system-ui, -apple-system, sans-serif;
 
-    /* Shadows */
-    --shadow-card: 0 8px 32px rgba(0,0,0,0.4);
-    --shadow-glow: 0 0 60px rgba(201,168,76,0.08);
-    --shadow-deep: 0 24px 80px rgba(0,0,0,0.6);
-  }
+    /* ── Shadows ── */
+    --shadow-sm: 0 1px 3px rgba(16,14,52,0.04), 0 1px 2px rgba(16,14,52,0.02);
+    --shadow-md: 0 4px 12px rgba(16,14,52,0.06), 0 1px 4px rgba(16,14,52,0.03);
+    --shadow-lg: 0 12px 40px rgba(16,14,52,0.08), 0 4px 12px rgba(16,14,52,0.04);
+    --shadow-xl: 0 24px 64px rgba(16,14,52,0.10), 0 8px 24px rgba(16,14,52,0.05);
 
-  /* Light theme for iPad Photobooth pages */
-  [data-theme="light"] {
-    --bg: #faf8f4; --fg: #1a1a1e;
-    --card-bg: #ffffff; --card-fg: #1a1a1e;
-    --surface: #f0ece4; --border-light: #e0d8cc;
-    --primary: var(--pb-gold); --on-primary: #1a1a1e;
-    --muted-text: rgba(26,26,30,0.5);
-    --accent: var(--pym-red); --on-accent: #fff;
-  }
-
-  /* Dark theme for Magic Mirror XL pages */
-  [data-theme="dark"] {
-    --bg: var(--pb-deep-black); --fg: var(--pb-warm-white);
-    --card-bg: var(--pb-card); --card-fg: var(--pb-warm-white);
-    --surface: var(--pb-dark-surface); --border-light: var(--pb-border);
-    --primary: var(--pb-gold); --on-primary: var(--pb-deep-black);
-    --muted-text: var(--pb-muted);
-    --accent: var(--pym-red); --on-accent: #fff;
+    /* ── Doc chrome (design system page itself) ── */
+    --doc-bg: #0d0b1a;
+    --doc-surface: rgba(255,255,255,0.03);
+    --doc-border: rgba(255,255,255,0.06);
+    --doc-text: #f7f7fa;
+    --doc-muted: rgba(247,247,250,0.45);
+    --doc-subtle: rgba(247,247,250,0.15);
+    --doc-accent: var(--pym-red);
   }
 
   /* ═══════════════════════════════════════════
-     BASE
+     BASE — Design system documentation layer
      ═══════════════════════════════════════════ */
   * { margin: 0; padding: 0; box-sizing: border-box; }
 
   body {
-    font-family: var(--font-body);
-    background: var(--pb-deep-black);
-    color: var(--pb-warm-white);
+    font-family: var(--font);
+    background: var(--doc-bg);
+    color: var(--doc-text);
     -webkit-font-smoothing: antialiased;
     overflow-x: hidden;
   }
 
-  ::selection { background: rgba(201,168,76,0.3); color: var(--pb-warm-white); }
+  ::selection { background: rgba(255,73,74,0.25); color: var(--doc-text); }
 
-  /* ═══════════════════════════════════════════
-     GRAIN TEXTURE — cinematic film feel
-     ═══════════════════════════════════════════ */
-  body::before {
-    content: '';
-    position: fixed;
-    inset: 0;
-    z-index: 9999;
-    pointer-events: none;
-    opacity: 0.025;
-    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      transition-duration: 0.01ms !important;
+    }
   }
 
   /* ═══════════════════════════════════════════
@@ -105,101 +106,66 @@
      ═══════════════════════════════════════════ */
   .hero {
     position: relative;
-    padding: 140px 60px 100px;
+    padding: 120px 60px 80px;
     text-align: center;
     overflow: hidden;
-    background: linear-gradient(180deg, #0f0d1a 0%, var(--pb-deep-black) 100%);
+    background: linear-gradient(180deg, var(--pym-navy) 0%, var(--doc-bg) 100%);
+    border-bottom: 1px solid var(--doc-border);
   }
 
   .hero::after {
     content: '';
     position: absolute;
-    top: -200px; left: 50%; transform: translateX(-50%);
-    width: 800px; height: 800px;
-    background: radial-gradient(circle, rgba(201,168,76,0.06) 0%, transparent 70%);
+    top: -150px; left: 50%; transform: translateX(-50%);
+    width: 700px; height: 700px;
+    background: radial-gradient(circle, rgba(255,73,74,0.04) 0%, transparent 65%);
     pointer-events: none;
   }
 
   .hero-badge {
     display: inline-flex;
     align-items: center;
-    gap: 10px;
-    padding: 8px 20px;
+    gap: 8px;
+    padding: 7px 18px;
     border-radius: var(--r-pill);
-    border: 1px solid rgba(201,168,76,0.2);
-    background: rgba(201,168,76,0.05);
+    border: 1px solid var(--doc-border);
+    background: var(--doc-surface);
     font-size: 11px;
-    font-weight: 600;
-    color: var(--pb-gold);
-    letter-spacing: 2px;
+    font-weight: 500;
+    color: var(--doc-muted);
+    letter-spacing: 1.5px;
     text-transform: uppercase;
-    margin-bottom: 40px;
+    margin-bottom: 32px;
     animation: fadeIn 0.8s ease both;
   }
 
-  .hero-badge .diamond {
-    width: 6px; height: 6px;
-    background: var(--pb-gold);
-    transform: rotate(45deg);
+  .hero-badge .dot {
+    width: 6px; height: 6px; border-radius: 50%;
+    background: var(--pym-red);
+    animation: pulse 2s ease infinite;
   }
 
   .hero h1 {
-    font-family: var(--font-display);
-    font-size: clamp(56px, 7vw, 96px);
-    font-weight: 300;
-    letter-spacing: -1px;
-    line-height: 0.95;
-    color: var(--pb-warm-white);
-    margin-bottom: 24px;
-    animation: fadeInUp 0.9s ease 0.1s both;
+    font-size: clamp(40px, 5.5vw, 72px);
+    font-weight: 600;
+    letter-spacing: -1.5px;
+    line-height: 1;
+    color: var(--doc-text);
+    margin-bottom: 16px;
+    animation: fadeInUp 0.8s ease 0.1s both;
   }
 
-  .hero h1 em {
-    font-style: italic;
-    font-weight: 400;
-    color: var(--pb-gold);
-  }
+  .hero h1 span { color: var(--pym-red); }
 
   .hero .subtitle {
-    font-size: 17px;
+    font-size: 16px;
     font-weight: 300;
-    color: var(--pb-muted);
-    max-width: 480px;
-    margin: 0 auto 48px;
+    color: var(--doc-muted);
+    max-width: 520px;
+    margin: 0 auto;
     line-height: 1.7;
-    animation: fadeInUp 0.9s ease 0.2s both;
+    animation: fadeInUp 0.8s ease 0.2s both;
   }
-
-  .theme-pills {
-    display: inline-flex;
-    gap: 4px;
-    padding: 4px;
-    border-radius: var(--r-pill);
-    border: 1px solid var(--pb-border);
-    background: rgba(255,255,255,0.02);
-    animation: fadeInUp 0.9s ease 0.3s both;
-  }
-
-  .theme-pills button {
-    font-family: var(--font-body);
-    font-size: 12px;
-    font-weight: 500;
-    padding: 10px 24px;
-    border-radius: var(--r-pill);
-    border: none;
-    background: transparent;
-    color: var(--pb-muted);
-    cursor: pointer;
-    transition: all 0.25s ease;
-    letter-spacing: 0.3px;
-  }
-
-  .theme-pills button.active {
-    background: var(--pb-gold);
-    color: var(--pb-deep-black);
-  }
-
-  .theme-pills button:hover:not(.active) { color: var(--pb-warm-white); }
 
   /* ═══════════════════════════════════════════
      SECTIONS
@@ -209,7 +175,7 @@
     margin: 0 auto;
     padding: var(--sp-20) 60px;
     position: relative;
-    animation: fadeInUp 0.7s ease both;
+    animation: fadeInUp 0.6s ease both;
   }
 
   .section + .section::before {
@@ -217,24 +183,22 @@
     position: absolute;
     top: 0; left: 60px; right: 60px;
     height: 1px;
-    background: linear-gradient(90deg, transparent, var(--pb-border), transparent);
+    background: linear-gradient(90deg, transparent, var(--doc-border), transparent);
   }
 
   .section-label {
-    font-family: var(--font-body);
     font-size: 10px;
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 3px;
-    color: var(--pb-gold);
-    margin-bottom: 12px;
+    color: var(--doc-accent);
+    margin-bottom: 8px;
   }
 
   .section-title {
-    font-family: var(--font-display);
-    font-size: clamp(32px, 4vw, 48px);
-    font-weight: 400;
-    color: var(--pb-warm-white);
+    font-size: clamp(28px, 3vw, 40px);
+    font-weight: 600;
+    color: var(--doc-text);
     letter-spacing: -0.5px;
     margin-bottom: 12px;
   }
@@ -242,265 +206,266 @@
   .section-desc {
     font-size: 15px;
     font-weight: 300;
-    color: var(--pb-muted);
-    max-width: 520px;
+    color: var(--doc-muted);
+    max-width: 560px;
     line-height: 1.7;
     margin-bottom: 48px;
   }
 
   @media (max-width: 768px) {
-    .section { padding: 60px 24px; }
-    .hero { padding: 100px 24px 60px; }
+    .section { padding: 48px 20px; }
+    .hero { padding: 80px 20px 60px; }
   }
 
   /* ═══════════════════════════════════════════
-     BROWSER FRAME
+     PRINCIPLE CARDS
+     ═══════════════════════════════════════════ */
+  .principle-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+  }
+
+  @media (max-width: 900px) { .principle-grid { grid-template-columns: 1fr; } }
+
+  .principle-card {
+    background: var(--doc-surface);
+    border: 1px solid var(--doc-border);
+    border-radius: var(--r-lg);
+    padding: var(--sp-6);
+  }
+
+  .principle-card .pc-number {
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--pym-red);
+    margin-bottom: var(--sp-3);
+    letter-spacing: 1px;
+  }
+
+  .principle-card h3 {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--doc-text);
+    margin-bottom: var(--sp-2);
+  }
+
+  .principle-card p {
+    font-size: 13px;
+    color: var(--doc-muted);
+    line-height: 1.6;
+  }
+
+  /* ═══════════════════════════════════════════
+     BROWSER FRAME — Shows actual PYB website screens
      ═══════════════════════════════════════════ */
   .browser-frame {
     border-radius: var(--r-xl);
-    border: 1px solid var(--pb-border);
+    border: 1px solid var(--doc-border);
     overflow: hidden;
-    background: var(--pb-dark-surface);
-    box-shadow: var(--shadow-deep), var(--shadow-glow);
-    transition: transform 0.3s ease-out;
+    background: var(--doc-surface);
+    box-shadow: 0 40px 100px rgba(0,0,0,0.4), 0 0 0 1px rgba(255,255,255,0.02);
     max-width: 1024px;
     margin: 0 auto;
+    transition: transform 0.3s ease-out, box-shadow 0.3s ease-out;
   }
 
-  .browser-frame:hover { transform: translateY(-4px); }
-
-  @media (prefers-reduced-motion: reduce) {
-    .browser-frame, .service-card, .package-card, .section {
-      transition: none !important;
-      animation: none !important;
-    }
+  .browser-frame:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 48px 120px rgba(0,0,0,0.5), 0 0 0 1px rgba(255,255,255,0.03);
   }
 
   .browser-bar {
     display: flex;
     align-items: center;
     gap: 12px;
-    padding: 14px 20px;
+    padding: 13px 18px;
     background: rgba(255,255,255,0.02);
-    border-bottom: 1px solid var(--pb-border);
+    border-bottom: 1px solid var(--doc-border);
   }
 
-  .browser-dots {
-    display: flex;
-    gap: 6px;
-  }
-
-  .browser-dots span {
-    width: 10px; height: 10px; border-radius: 50%;
-    background: rgba(255,255,255,0.07);
-  }
+  .browser-dots { display: flex; gap: 6px; }
+  .browser-dots span { width: 10px; height: 10px; border-radius: 50%; background: rgba(255,255,255,0.06); }
 
   .browser-url {
-    flex: 1;
-    height: 30px;
+    flex: 1; height: 28px;
     border-radius: var(--r-sm);
     background: rgba(255,255,255,0.03);
-    border: 1px solid rgba(255,255,255,0.04);
-    display: flex;
-    align-items: center;
+    border: 1px solid rgba(255,255,255,0.03);
+    display: flex; align-items: center;
     padding: 0 12px;
-    font-size: 12px;
-    color: var(--pb-muted);
+    font-size: 11px; color: var(--doc-muted);
   }
 
-  .browser-url .lock { margin-right: 6px; opacity: 0.3; }
+  .browser-url .lock { margin-right: 6px; opacity: 0.3; font-size: 10px; }
+
+  /* Screen labels */
+  .screen-section { margin-bottom: 72px; }
+  .screen-section:last-child { margin-bottom: 0; }
+
+  .screen-label {
+    display: flex; align-items: center; justify-content: space-between;
+    margin-bottom: 20px;
+  }
+
+  .screen-label h3 { font-size: 18px; font-weight: 500; color: var(--doc-text); }
+
+  .screen-label .screen-tag {
+    font-size: 10px; font-weight: 500;
+    text-transform: uppercase; letter-spacing: 1.5px;
+    color: var(--doc-muted);
+    padding: 4px 12px; border-radius: var(--r-pill);
+    border: 1px solid var(--doc-border);
+  }
 
   /* ═══════════════════════════════════════════
-     SCREEN: MAGIC MIRROR LANDING PAGE (DARK)
+     INSIDE THE BROWSER: PYB WEBSITE UI
+     All screens use the unified warm theme.
      ═══════════════════════════════════════════ */
-  .landing-dark {
-    background: var(--pb-deep-black);
-    font-family: var(--font-body);
+
+  /* Nav */
+  .pyb-nav {
+    display: flex; align-items: center;
+    padding: 16px 32px;
+    background: var(--pym-white);
+    border-bottom: 1px solid var(--border);
   }
 
-  .landing-dark .ld-nav {
-    display: flex;
-    align-items: center;
-    padding: 20px 32px;
-    border-bottom: 1px solid var(--pb-border);
+  .pyb-nav .logo {
+    font-size: 17px; font-weight: 600;
+    color: var(--pym-navy);
+    margin-right: auto; letter-spacing: -0.3px;
   }
 
-  .landing-dark .ld-logo {
-    font-family: var(--font-display);
-    font-size: 20px;
-    font-weight: 500;
-    color: var(--pb-warm-white);
-    margin-right: auto;
-    letter-spacing: 0.5px;
+  .pyb-nav .logo span { color: var(--pym-red); }
+
+  .pyb-nav .nav-links { display: flex; gap: 2px; }
+
+  .pyb-nav .nav-link {
+    font-size: 13px; font-weight: 500;
+    color: var(--fg-muted);
+    padding: 8px 14px; border-radius: var(--r-sm);
+    text-decoration: none; transition: color 0.15s;
   }
 
-  .landing-dark .ld-logo span { color: var(--pb-gold); }
+  .pyb-nav .nav-link:hover, .pyb-nav .nav-link.active { color: var(--fg); }
 
-  .landing-dark .ld-links {
-    display: flex;
-    gap: 4px;
-    align-items: center;
-  }
-
-  .landing-dark .ld-link {
-    font-size: 13px;
-    font-weight: 400;
-    color: var(--pb-muted);
-    padding: 8px 14px;
-    border-radius: var(--r-sm);
-    text-decoration: none;
-    transition: color 0.15s;
-  }
-
-  .landing-dark .ld-link:hover { color: var(--pb-warm-white); }
-
-  .landing-dark .ld-cta {
-    font-family: var(--font-body);
-    font-size: 12px;
-    font-weight: 500;
-    padding: 10px 24px;
-    background: var(--pb-gold);
-    color: var(--pb-deep-black);
-    border: none;
+  .pyb-nav .nav-cta {
+    font-family: var(--font);
+    font-size: 13px; font-weight: 600;
+    padding: 10px 22px;
+    background: var(--pym-red);
+    color: white; border: none;
     border-radius: var(--r-pill);
-    cursor: pointer;
-    letter-spacing: 0.3px;
-    margin-left: 8px;
-    transition: filter 0.15s;
+    cursor: pointer; margin-left: 12px;
+    transition: background 0.15s;
   }
 
-  .landing-dark .ld-cta:hover { filter: brightness(1.1); }
+  .pyb-nav .nav-cta:hover { background: var(--pym-red-hover); }
 
-  .landing-dark .ld-hero {
-    padding: 80px 48px;
+  /* Hero — Homepage */
+  .pyb-hero {
+    padding: 64px 48px 56px;
     text-align: center;
-    position: relative;
+    background: var(--pb-cream);
   }
 
-  .landing-dark .ld-hero::before {
-    content: '';
-    position: absolute;
-    top: 0; left: 50%; transform: translateX(-50%);
-    width: 600px; height: 400px;
-    background: radial-gradient(ellipse, rgba(201,168,76,0.06) 0%, transparent 70%);
-    pointer-events: none;
-  }
-
-  .landing-dark .ld-hero h1 {
-    font-family: var(--font-display);
-    font-size: 44px;
-    font-weight: 300;
-    color: var(--pb-warm-white);
-    line-height: 1.1;
+  .pyb-hero .hero-overline {
+    font-size: 11px; font-weight: 600;
+    color: var(--pym-red);
+    text-transform: uppercase;
+    letter-spacing: 2px;
     margin-bottom: 16px;
+  }
+
+  .pyb-hero h1 {
+    font-size: 42px; font-weight: 600;
+    color: var(--pym-navy);
+    line-height: 1.1;
     letter-spacing: -0.5px;
+    margin-bottom: 16px;
+    max-width: 560px;
+    margin-left: auto; margin-right: auto;
   }
 
-  .landing-dark .ld-hero h1 em {
-    font-style: italic;
-    color: var(--pb-gold);
-  }
+  .pyb-hero h1 span { color: var(--pym-red); }
 
-  .landing-dark .ld-hero p {
-    font-size: 15px;
-    color: var(--pb-muted);
-    max-width: 400px;
-    margin: 0 auto 32px;
+  .pyb-hero .hero-sub {
+    font-size: 15px; font-weight: 400;
+    color: var(--fg-muted);
+    max-width: 420px; margin: 0 auto 32px;
     line-height: 1.6;
   }
 
-  .landing-dark .ld-hero-actions {
-    display: flex;
-    gap: 12px;
-    justify-content: center;
+  .pyb-hero .hero-actions {
+    display: flex; gap: 12px; justify-content: center;
   }
 
-  .landing-dark .ld-btn-primary {
-    font-family: var(--font-body);
-    font-size: 13px;
-    font-weight: 500;
-    padding: 14px 32px;
-    background: var(--pb-gold);
-    color: var(--pb-deep-black);
-    border: none;
+  /* Buttons — Unified */
+  .btn {
+    font-family: var(--font);
+    font-size: 13px; font-weight: 600;
+    padding: 13px 28px;
     border-radius: var(--r-pill);
-    cursor: pointer;
-    transition: all 0.15s;
-    letter-spacing: 0.3px;
+    border: none; cursor: pointer;
+    transition: all 0.15s ease;
+    display: inline-flex; align-items: center; gap: 8px;
   }
 
-  .landing-dark .ld-btn-primary:hover { filter: brightness(1.1); transform: translateY(-1px); }
+  .btn:active { transform: scale(0.97); }
+  .btn:focus-visible { outline: 2px solid var(--ring); outline-offset: 2px; }
 
-  .landing-dark .ld-btn-outline {
-    font-family: var(--font-body);
-    font-size: 13px;
-    font-weight: 400;
-    padding: 14px 32px;
-    background: transparent;
-    color: var(--pb-warm-white);
-    border: 1px solid var(--pb-border);
-    border-radius: var(--r-pill);
-    cursor: pointer;
-    transition: border-color 0.15s;
-  }
+  .btn-primary { background: var(--pym-red); color: white; }
+  .btn-primary:hover { background: var(--pym-red-hover); }
 
-  .landing-dark .ld-btn-outline:hover { border-color: var(--pb-gold); }
+  .btn-outline { background: transparent; color: var(--fg); border: 1.5px solid var(--border); }
+  .btn-outline:hover { border-color: var(--pym-navy); }
+
+  .btn-ghost { background: transparent; color: var(--fg); border: none; padding: 13px 20px; }
+  .btn-ghost:hover { background: var(--pym-navy-10); }
+
+  .btn-sm { padding: 10px 20px; font-size: 12px; }
 
   /* Social proof bar */
-  .landing-dark .ld-proof {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 32px;
-    padding: 24px 48px;
-    border-top: 1px solid var(--pb-border);
-    border-bottom: 1px solid var(--pb-border);
+  .pyb-proof {
+    display: flex; align-items: center; justify-content: center;
+    gap: 40px; padding: 24px 48px;
+    background: var(--pym-white);
+    border-top: 1px solid var(--border-subtle);
+    border-bottom: 1px solid var(--border-subtle);
   }
 
-  .landing-dark .ld-proof-item {
-    text-align: center;
+  .pyb-proof-item { text-align: center; }
+
+  .pyb-proof-number {
+    font-size: 26px; font-weight: 600;
+    color: var(--pym-navy); letter-spacing: -0.5px;
   }
 
-  .landing-dark .ld-proof-number {
-    font-family: var(--font-display);
-    font-size: 28px;
-    font-weight: 500;
-    color: var(--pb-gold);
-  }
-
-  .landing-dark .ld-proof-label {
-    font-size: 11px;
-    color: var(--pb-muted);
-    text-transform: uppercase;
-    letter-spacing: 1px;
+  .pyb-proof-label {
+    font-size: 10px; font-weight: 500;
+    color: var(--fg-muted);
+    text-transform: uppercase; letter-spacing: 1px;
     margin-top: 4px;
   }
 
-  .landing-dark .ld-proof-divider {
-    width: 1px;
-    height: 40px;
-    background: var(--pb-border);
-  }
+  .pyb-proof-divider { width: 1px; height: 36px; background: var(--border); }
 
-  /* Services grid */
-  .landing-dark .ld-services {
+  /* Service cards — Unified style, content differentiates */
+  .pyb-services {
     padding: 48px;
+    background: var(--pb-cream);
   }
 
-  .landing-dark .ld-services h2 {
-    font-family: var(--font-display);
-    font-size: 28px;
-    font-weight: 400;
-    color: var(--pb-warm-white);
-    margin-bottom: 8px;
-    text-align: center;
+  .pyb-services h2 {
+    font-size: 28px; font-weight: 600;
+    color: var(--pym-navy); text-align: center;
+    margin-bottom: 6px; letter-spacing: -0.3px;
   }
 
-  .landing-dark .ld-services .ld-services-sub {
-    font-size: 14px;
-    color: var(--pb-muted);
-    text-align: center;
-    margin-bottom: 32px;
+  .pyb-services .services-sub {
+    font-size: 14px; color: var(--fg-muted);
+    text-align: center; margin-bottom: 32px;
   }
 
   .service-grid {
@@ -510,205 +475,73 @@
   }
 
   .service-card {
-    background: var(--pb-card);
-    border: 1px solid var(--pb-border);
+    background: var(--pym-white);
+    border: 1px solid var(--border-subtle);
     border-radius: var(--r-lg);
     overflow: hidden;
-    transition: transform 0.2s, border-color 0.2s;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
     cursor: pointer;
   }
 
   .service-card:hover {
     transform: translateY(-4px);
-    border-color: rgba(201,168,76,0.3);
+    box-shadow: var(--shadow-lg);
   }
 
   .service-card .sc-image {
-    height: 140px;
-    position: relative;
+    height: 160px; position: relative; overflow: hidden;
   }
 
-  .service-card .sc-image .sc-badge {
-    position: absolute;
-    top: 12px; left: 12px;
-    font-size: 10px;
-    font-weight: 600;
-    padding: 4px 10px;
-    border-radius: var(--r-pill);
-    background: var(--pb-gold);
-    color: var(--pb-deep-black);
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
+  /* Premium cards get a subtle gold top-border accent */
+  .service-card.premium { border-top: 3px solid var(--pb-gold-badge); }
+
+  .service-card .sc-badge {
+    position: absolute; top: 12px; left: 12px;
+    font-size: 10px; font-weight: 600;
+    padding: 4px 12px; border-radius: var(--r-pill);
+    text-transform: uppercase; letter-spacing: 0.5px;
   }
+
+  .sc-badge.badge-popular { background: var(--pym-red); color: white; }
+  .sc-badge.badge-premium { background: var(--pb-gold-badge); color: white; }
+  .sc-badge.badge-new { background: var(--pym-navy); color: white; }
 
   .service-card .sc-info { padding: 20px; }
 
   .service-card .sc-name {
-    font-family: var(--font-display);
-    font-size: 18px;
-    font-weight: 500;
-    color: var(--pb-warm-white);
-    margin-bottom: 6px;
+    font-size: 16px; font-weight: 600;
+    color: var(--pym-navy); margin-bottom: 6px;
   }
 
   .service-card .sc-desc {
-    font-size: 12px;
-    color: var(--pb-muted);
-    line-height: 1.5;
-    margin-bottom: 12px;
+    font-size: 13px; color: var(--fg-muted);
+    line-height: 1.5; margin-bottom: 14px;
   }
 
   .service-card .sc-price {
-    font-size: 13px;
-    color: var(--pb-gold);
-    font-weight: 500;
+    font-size: 14px; font-weight: 600; color: var(--pym-navy);
   }
 
-  .service-card .sc-price span {
-    font-size: 11px;
-    color: var(--pb-muted);
-    font-weight: 400;
+  .service-card .sc-price .from {
+    font-size: 12px; font-weight: 400; color: var(--fg-subtle);
   }
 
-  /* ═══════════════════════════════════════════
-     SCREEN: iPAD PHOTOBOOTH LANDING (LIGHT)
-     ═══════════════════════════════════════════ */
-  .landing-light {
-    background: #faf8f4;
-    font-family: var(--font-body);
-  }
-
-  .landing-light .ll-nav {
-    display: flex;
-    align-items: center;
-    padding: 20px 32px;
-    border-bottom: 1px solid #e0d8cc;
-  }
-
-  .landing-light .ll-logo {
-    font-family: var(--font-display);
-    font-size: 20px;
-    font-weight: 500;
-    color: #1a1a1e;
-    margin-right: auto;
-  }
-
-  .landing-light .ll-logo span { color: var(--pym-red); }
-
-  .landing-light .ll-links {
-    display: flex;
-    gap: 4px;
-  }
-
-  .landing-light .ll-link {
-    font-size: 13px;
-    color: rgba(26,26,30,0.5);
-    padding: 8px 14px;
-    text-decoration: none;
-  }
-
-  .landing-light .ll-cta {
-    font-family: var(--font-body);
-    font-size: 12px;
-    font-weight: 600;
-    padding: 10px 24px;
-    background: var(--pym-red);
-    color: white;
-    border: none;
-    border-radius: var(--r-pill);
-    cursor: pointer;
-    margin-left: 8px;
-  }
-
-  .landing-light .ll-hero {
-    padding: 60px 48px;
-    text-align: center;
-  }
-
-  .landing-light .ll-hero h1 {
-    font-family: var(--font-display);
-    font-size: 40px;
-    font-weight: 400;
-    color: #1a1a1e;
-    line-height: 1.15;
-    margin-bottom: 16px;
-  }
-
-  .landing-light .ll-hero h1 span { color: var(--pym-red); }
-
-  .landing-light .ll-hero p {
-    font-size: 15px;
-    color: rgba(26,26,30,0.55);
-    max-width: 380px;
-    margin: 0 auto 28px;
-    line-height: 1.6;
-  }
-
-  .landing-light .ll-price-tag {
-    display: inline-flex;
-    align-items: baseline;
-    gap: 8px;
-    padding: 12px 28px;
-    background: #fff;
-    border: 1px solid #e0d8cc;
-    border-radius: var(--r-pill);
-    margin-bottom: 24px;
-  }
-
-  .landing-light .ll-price-tag .price {
-    font-family: var(--font-display);
-    font-size: 28px;
-    font-weight: 600;
-    color: #1a1a1e;
-  }
-
-  .landing-light .ll-price-tag .from {
-    font-size: 13px;
-    color: rgba(26,26,30,0.4);
-  }
-
-  .landing-light .ll-actions {
-    display: flex;
-    gap: 12px;
-    justify-content: center;
-  }
-
-  .landing-light .ll-btn-primary {
-    font-family: var(--font-body);
-    font-size: 13px;
-    font-weight: 600;
-    padding: 14px 32px;
-    background: var(--pym-red);
-    color: white;
-    border: none;
-    border-radius: var(--r-pill);
-    cursor: pointer;
-  }
-
-  .landing-light .ll-btn-outline {
-    font-family: var(--font-body);
-    font-size: 13px;
-    padding: 14px 32px;
-    background: transparent;
-    color: #1a1a1e;
-    border: 1px solid #e0d8cc;
-    border-radius: var(--r-pill);
-    cursor: pointer;
-  }
-
-  /* Light packages */
-  .landing-light .ll-packages {
+  /* Packages section */
+  .pyb-packages {
     padding: 48px;
-    border-top: 1px solid #e0d8cc;
+    background: var(--pym-white);
+    border-top: 1px solid var(--border-subtle);
   }
 
-  .landing-light .ll-packages h2 {
-    font-family: var(--font-display);
-    font-size: 28px;
-    font-weight: 400;
-    color: #1a1a1e;
-    text-align: center;
-    margin-bottom: 32px;
+  .pyb-packages h2 {
+    font-size: 28px; font-weight: 600;
+    color: var(--pym-navy); text-align: center;
+    margin-bottom: 6px;
+  }
+
+  .pyb-packages .pkg-sub {
+    font-size: 14px; color: var(--fg-muted);
+    text-align: center; margin-bottom: 32px;
   }
 
   .package-grid {
@@ -718,204 +551,200 @@
   }
 
   .package-card {
-    background: #fff;
-    border: 1px solid #e0d8cc;
+    background: var(--pb-cream);
+    border: 1px solid var(--border);
     border-radius: var(--r-lg);
-    padding: 28px 24px;
+    padding: 32px 24px;
     text-align: center;
-    transition: transform 0.2s, box-shadow 0.2s;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
     position: relative;
   }
 
-  .package-card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 12px 32px rgba(0,0,0,0.06);
-  }
+  .package-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-md); }
 
   .package-card.recommended {
     border-color: var(--pym-red);
-    box-shadow: 0 0 0 1px var(--pym-red);
+    background: var(--pym-white);
+    box-shadow: 0 0 0 1px var(--pym-red), var(--shadow-md);
   }
 
   .package-card.recommended::before {
     content: 'Meest gekozen';
-    position: absolute;
-    top: -11px; left: 50%; transform: translateX(-50%);
-    font-size: 10px;
-    font-weight: 600;
+    position: absolute; top: -11px; left: 50%; transform: translateX(-50%);
+    font-size: 10px; font-weight: 600;
     padding: 3px 14px;
-    background: var(--pym-red);
-    color: white;
+    background: var(--pym-red); color: white;
     border-radius: var(--r-pill);
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
+    text-transform: uppercase; letter-spacing: 0.5px;
     white-space: nowrap;
   }
 
   .package-card .pk-name {
-    font-family: var(--font-display);
-    font-size: 20px;
-    font-weight: 500;
-    color: #1a1a1e;
-    margin-bottom: 8px;
+    font-size: 18px; font-weight: 600;
+    color: var(--pym-navy); margin-bottom: 8px;
   }
 
   .package-card .pk-price {
-    font-family: var(--font-display);
-    font-size: 32px;
-    font-weight: 600;
-    color: #1a1a1e;
-    margin-bottom: 4px;
+    font-size: 36px; font-weight: 600;
+    color: var(--pym-navy); margin-bottom: 4px;
+    letter-spacing: -1px;
   }
 
   .package-card .pk-unit {
-    font-size: 12px;
-    color: rgba(26,26,30,0.4);
-    margin-bottom: 20px;
+    font-size: 12px; color: var(--fg-subtle); margin-bottom: 24px;
   }
 
   .package-card .pk-features {
-    list-style: none;
-    padding: 0;
-    margin-bottom: 24px;
+    list-style: none; padding: 0; margin-bottom: 24px;
   }
 
   .package-card .pk-features li {
-    font-size: 13px;
-    color: rgba(26,26,30,0.6);
-    padding: 6px 0;
-    border-bottom: 1px solid #f0ece4;
+    font-size: 13px; color: var(--fg-muted);
+    padding: 8px 0;
+    border-bottom: 1px solid var(--border-subtle);
   }
 
   .package-card .pk-features li:last-child { border-bottom: none; }
 
   .package-card .pk-btn {
-    font-family: var(--font-body);
-    font-size: 13px;
-    font-weight: 500;
+    font-family: var(--font);
+    font-size: 13px; font-weight: 600;
     padding: 12px 28px;
     border-radius: var(--r-pill);
-    border: 1px solid #e0d8cc;
+    border: 1.5px solid var(--border);
     background: transparent;
-    color: #1a1a1e;
-    cursor: pointer;
-    width: 100%;
+    color: var(--pym-navy);
+    cursor: pointer; width: 100%;
     transition: all 0.15s;
   }
 
+  .package-card .pk-btn:hover { border-color: var(--pym-navy); }
+
   .package-card.recommended .pk-btn {
-    background: var(--pym-red);
-    color: white;
+    background: var(--pym-red); color: white;
     border-color: var(--pym-red);
   }
+
+  .package-card.recommended .pk-btn:hover { background: var(--pym-red-hover); }
 
   /* ═══════════════════════════════════════════
      SCREEN: PROPOSAL FORM
      ═══════════════════════════════════════════ */
-  .form-screen {
-    background: var(--pb-deep-black);
-    font-family: var(--font-body);
-  }
+  .form-screen { background: var(--pb-cream); }
 
   .form-screen .fs-header {
-    padding: 32px 48px;
-    text-align: center;
-    border-bottom: 1px solid var(--pb-border);
+    padding: 40px 48px 24px; text-align: center;
   }
 
   .form-screen .fs-header h2 {
-    font-family: var(--font-display);
-    font-size: 28px;
-    font-weight: 400;
-    color: var(--pb-warm-white);
-    margin-bottom: 8px;
+    font-size: 28px; font-weight: 600;
+    color: var(--pym-navy); margin-bottom: 8px;
   }
 
   .form-screen .fs-header p {
-    font-size: 14px;
-    color: var(--pb-muted);
+    font-size: 14px; color: var(--fg-muted);
   }
 
   .form-screen .fs-body {
-    padding: 40px 48px;
-    max-width: 560px;
-    margin: 0 auto;
+    padding: 0 48px 48px;
+    max-width: 560px; margin: 0 auto;
   }
 
-  .form-group {
-    margin-bottom: 20px;
+  .form-card {
+    background: var(--pym-white);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--r-lg);
+    padding: 32px;
+    box-shadow: var(--shadow-sm);
   }
+
+  .form-group { margin-bottom: 18px; }
 
   .form-group label {
     display: block;
-    font-size: 12px;
-    font-weight: 500;
-    color: var(--pb-muted);
-    margin-bottom: 8px;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
+    font-size: 13px; font-weight: 500;
+    color: var(--pym-navy);
+    margin-bottom: 6px;
   }
 
   .form-group input,
   .form-group select,
   .form-group textarea {
-    width: 100%;
-    height: 48px;
+    width: 100%; height: 48px;
     padding: 0 16px;
-    background: var(--pb-card);
-    border: 1px solid var(--pb-border);
+    background: var(--pb-cream);
+    border: 1px solid var(--border);
     border-radius: var(--r-md);
-    color: var(--pb-warm-white);
-    font-family: var(--font-body);
-    font-size: 14px;
-    transition: border-color 0.15s;
+    color: var(--pym-navy);
+    font-family: var(--font); font-size: 14px;
+    transition: border-color 0.15s, box-shadow 0.15s;
     outline: none;
   }
 
-  .form-group textarea {
-    height: 100px;
-    padding: 14px 16px;
-    resize: vertical;
-  }
+  .form-group textarea { height: 80px; padding: 14px 16px; resize: vertical; }
 
   .form-group input:focus,
   .form-group select:focus,
   .form-group textarea:focus {
-    border-color: var(--pb-gold);
-    box-shadow: 0 0 0 3px rgba(201,168,76,0.1);
+    border-color: var(--pym-red);
+    box-shadow: 0 0 0 3px var(--pym-red-dim);
   }
 
-  .form-group input::placeholder { color: var(--pb-subtle); }
+  .form-group input::placeholder { color: var(--fg-subtle); }
 
-  .form-row {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 16px;
-  }
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
 
   .form-submit {
-    font-family: var(--font-body);
-    font-size: 14px;
-    font-weight: 500;
-    width: 100%;
-    height: 52px;
-    background: var(--pb-gold);
-    color: var(--pb-deep-black);
-    border: none;
-    border-radius: var(--r-md);
-    cursor: pointer;
-    letter-spacing: 0.3px;
-    margin-top: 8px;
-    transition: filter 0.15s;
+    font-family: var(--font);
+    font-size: 14px; font-weight: 600;
+    width: 100%; height: 52px;
+    background: var(--pym-red); color: white;
+    border: none; border-radius: var(--r-pill);
+    cursor: pointer; margin-top: 8px;
+    transition: background 0.15s;
   }
 
-  .form-submit:hover { filter: brightness(1.1); }
+  .form-submit:hover { background: var(--pym-red-hover); }
+  .form-submit:focus-visible { outline: 2px solid var(--ring); outline-offset: 2px; }
 
   .form-hint {
     text-align: center;
-    font-size: 12px;
-    color: var(--pb-muted);
-    margin-top: 12px;
+    font-size: 12px; color: var(--fg-subtle);
+    margin-top: 14px;
+  }
+
+  .form-hint svg {
+    width: 14px; height: 14px;
+    vertical-align: -2px; margin-right: 4px;
+    stroke: var(--pb-success); fill: none; stroke-width: 2;
+  }
+
+  /* ═══════════════════════════════════════════
+     TESTIMONIAL
+     ═══════════════════════════════════════════ */
+  .pyb-testimonial {
+    padding: 40px 48px;
+    background: var(--pym-warm-white);
+    border-top: 1px solid var(--border-subtle);
+    text-align: center;
+  }
+
+  .pyb-testimonial blockquote {
+    font-size: 18px; font-weight: 400;
+    font-style: italic;
+    color: var(--pym-navy);
+    max-width: 460px;
+    margin: 0 auto 16px;
+    line-height: 1.6;
+  }
+
+  .pyb-testimonial .tq-author {
+    font-size: 13px; font-weight: 500;
+    color: var(--fg-muted);
+  }
+
+  .pyb-testimonial .tq-event {
+    font-size: 12px; color: var(--fg-subtle);
   }
 
   /* ═══════════════════════════════════════════
@@ -923,266 +752,155 @@
      ═══════════════════════════════════════════ */
   .color-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(155px, 1fr));
     gap: 12px;
   }
 
   .color-swatch {
     border-radius: var(--r-md);
     overflow: hidden;
-    border: 1px solid var(--pb-border);
+    border: 1px solid var(--doc-border);
   }
 
   .color-swatch .preview {
-    height: 80px;
-    position: relative;
-    display: flex;
-    align-items: flex-end;
-    padding: 8px 12px;
+    height: 76px;
+    display: flex; align-items: flex-end; padding: 8px 12px;
   }
 
   .color-swatch .preview .hex {
     font-family: 'SF Mono', 'Fira Code', monospace;
-    font-size: 10px;
-    font-weight: 500;
-    opacity: 0.6;
+    font-size: 10px; font-weight: 500; opacity: 0.65;
   }
 
-  .color-swatch .meta {
-    padding: 12px;
-    background: rgba(255,255,255,0.02);
-  }
-
-  .color-swatch .meta .name {
-    font-size: 12px;
-    font-weight: 600;
-    color: var(--pb-warm-white);
-  }
-
-  .color-swatch .meta .role {
-    font-size: 10px;
-    color: var(--pb-muted);
-    margin-top: 3px;
-  }
+  .color-swatch .meta { padding: 10px 12px; background: var(--doc-surface); }
+  .color-swatch .meta .name { font-size: 12px; font-weight: 600; color: var(--doc-text); }
+  .color-swatch .meta .role { font-size: 10px; color: var(--doc-muted); margin-top: 2px; }
 
   /* ═══════════════════════════════════════════
      TYPE SCALE
      ═══════════════════════════════════════════ */
   .type-row {
-    display: flex;
-    align-items: baseline;
-    gap: 32px;
-    padding: 24px 0;
-    border-bottom: 1px solid var(--pb-border);
+    display: flex; align-items: baseline; gap: 32px;
+    padding: 20px 0;
+    border-bottom: 1px solid var(--doc-border);
   }
 
   .type-row .label {
-    flex: 0 0 160px;
-    font-size: 10px;
-    font-weight: 500;
-    color: var(--pb-muted);
-    text-transform: uppercase;
-    letter-spacing: 1.5px;
+    flex: 0 0 140px;
+    font-size: 10px; font-weight: 500;
+    color: var(--doc-muted);
+    text-transform: uppercase; letter-spacing: 1.5px;
   }
 
   .type-row .label .specs {
-    display: block;
-    margin-top: 4px;
-    text-transform: none;
-    letter-spacing: 0;
-    font-size: 10px;
-    color: var(--pb-subtle);
+    display: block; margin-top: 3px;
+    text-transform: none; letter-spacing: 0;
+    font-size: 10px; color: var(--doc-subtle);
   }
 
-  .type-row .sample {
-    flex: 1;
-    color: var(--pb-warm-white);
-  }
-
-  .type-row .sample.display-font {
-    font-family: var(--font-display);
-  }
+  .type-row .sample { flex: 1; color: var(--doc-text); }
 
   /* ═══════════════════════════════════════════
-     COMPONENT DEMOS
+     COMPONENTS
      ═══════════════════════════════════════════ */
   .component-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 24px;
+    gap: 20px;
   }
 
+  @media (max-width: 768px) { .component-grid { grid-template-columns: 1fr; } }
+
   .comp-box {
-    background: rgba(255,255,255,0.02);
-    border: 1px solid var(--pb-border);
+    background: var(--doc-surface);
+    border: 1px solid var(--doc-border);
     border-radius: var(--r-lg);
-    padding: 32px;
+    padding: 28px;
   }
 
   .comp-box h4 {
-    font-size: 11px;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    color: var(--pb-gold);
-    margin-bottom: 24px;
-  }
-
-  .comp-box .btn-row {
-    display: flex;
-    gap: 12px;
-    flex-wrap: wrap;
-    align-items: center;
-  }
-
-  .btn-gold {
-    font-family: var(--font-body);
-    font-size: 13px;
-    font-weight: 500;
-    padding: 12px 28px;
-    background: var(--pb-gold);
-    color: var(--pb-deep-black);
-    border: none;
-    border-radius: var(--r-pill);
-    cursor: pointer;
-    transition: filter 0.15s;
-  }
-
-  .btn-gold:hover { filter: brightness(1.1); }
-
-  .btn-dark-outline {
-    font-family: var(--font-body);
-    font-size: 13px;
-    font-weight: 400;
-    padding: 12px 28px;
-    background: transparent;
-    color: var(--pb-warm-white);
-    border: 1px solid var(--pb-border);
-    border-radius: var(--r-pill);
-    cursor: pointer;
-    transition: border-color 0.15s;
-  }
-
-  .btn-dark-outline:hover { border-color: var(--pb-gold); }
-
-  .btn-red {
-    font-family: var(--font-body);
-    font-size: 13px;
-    font-weight: 500;
-    padding: 12px 28px;
-    background: var(--pym-red);
-    color: white;
-    border: none;
-    border-radius: var(--r-pill);
-    cursor: pointer;
-  }
-
-  .btn-ghost {
-    font-family: var(--font-body);
-    font-size: 13px;
-    font-weight: 400;
-    padding: 12px 20px;
-    background: transparent;
-    color: var(--pb-warm-white);
-    border: none;
-    border-radius: var(--r-pill);
-    cursor: pointer;
-    transition: background 0.15s;
-  }
-
-  .btn-ghost:hover { background: rgba(255,255,255,0.04); }
-
-  /* Badge / Tag */
-  .tag-row { display: flex; gap: 8px; flex-wrap: wrap; }
-
-  .tag {
-    font-size: 10px;
-    font-weight: 600;
-    padding: 5px 14px;
-    border-radius: var(--r-pill);
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-  }
-
-  .tag-gold { background: var(--pb-gold-dim); color: var(--pb-gold); }
-  .tag-red { background: rgba(255,73,74,0.12); color: var(--pym-red); }
-  .tag-success { background: rgba(76,175,80,0.12); color: var(--pb-success); }
-  .tag-muted { background: rgba(255,255,255,0.05); color: var(--pb-muted); border: 1px solid var(--pb-border); }
-
-  /* Input demo */
-  .input-demo {
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-  }
-
-  .input-demo input {
-    width: 100%;
-    height: 48px;
-    padding: 0 16px;
-    background: var(--pb-card);
-    border: 1px solid var(--pb-border);
-    border-radius: var(--r-md);
-    color: var(--pb-warm-white);
-    font-family: var(--font-body);
-    font-size: 14px;
-    outline: none;
-  }
-
-  .input-demo input::placeholder { color: var(--pb-subtle); }
-
-  /* ═══════════════════════════════════════════
-     SCREEN LABELS
-     ═══════════════════════════════════════════ */
-  .screen-section { margin-bottom: 80px; }
-  .screen-section:last-child { margin-bottom: 0; }
-
-  .screen-label {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+    font-size: 10px; font-weight: 600;
+    text-transform: uppercase; letter-spacing: 2px;
+    color: var(--doc-accent);
     margin-bottom: 20px;
   }
 
-  .screen-label h3 {
-    font-family: var(--font-display);
-    font-size: 22px;
-    font-weight: 400;
-    color: var(--pb-warm-white);
+  .comp-box .btn-row { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; }
+
+  /* Doc-layer button previews (on dark bg) */
+  .doc-btn-primary {
+    font-family: var(--font); font-size: 13px; font-weight: 600;
+    padding: 12px 24px; background: var(--pym-red);
+    color: white; border: none; border-radius: var(--r-pill); cursor: pointer;
   }
 
-  .screen-label .screen-tag {
-    font-size: 10px;
-    font-weight: 500;
-    text-transform: uppercase;
-    letter-spacing: 1.5px;
-    color: var(--pb-muted);
-    padding: 5px 14px;
-    border-radius: var(--r-pill);
-    border: 1px solid var(--pb-border);
+  .doc-btn-outline {
+    font-family: var(--font); font-size: 13px; font-weight: 500;
+    padding: 12px 24px; background: transparent;
+    color: var(--doc-text); border: 1px solid var(--doc-border);
+    border-radius: var(--r-pill); cursor: pointer;
   }
+
+  .doc-btn-ghost {
+    font-family: var(--font); font-size: 13px; font-weight: 500;
+    padding: 12px 18px; background: transparent;
+    color: var(--doc-text); border: none;
+    border-radius: var(--r-pill); cursor: pointer;
+  }
+
+  .doc-btn-gold {
+    font-family: var(--font); font-size: 13px; font-weight: 600;
+    padding: 12px 24px; background: var(--pb-gold-badge);
+    color: white; border: none; border-radius: var(--r-pill); cursor: pointer;
+  }
+
+  /* Tags */
+  .tag-row { display: flex; gap: 6px; flex-wrap: wrap; }
+
+  .tag {
+    font-size: 10px; font-weight: 600;
+    padding: 5px 12px; border-radius: var(--r-pill);
+    text-transform: uppercase; letter-spacing: 0.5px;
+  }
+
+  .tag-red { background: var(--pym-red-dim); color: var(--pym-red); }
+  .tag-gold { background: var(--pb-gold-dim); color: var(--pb-gold); }
+  .tag-success { background: var(--pb-success-dim); color: var(--pb-success); }
+  .tag-muted { background: rgba(255,255,255,0.04); color: var(--doc-muted); border: 1px solid var(--doc-border); }
+
+  /* Input preview */
+  .input-demo { display: flex; flex-direction: column; gap: 12px; }
+
+  .doc-input {
+    width: 100%; height: 44px; padding: 0 14px;
+    background: rgba(255,255,255,0.03);
+    border: 1px solid var(--doc-border);
+    border-radius: var(--r-md);
+    color: var(--doc-text);
+    font-family: var(--font); font-size: 13px;
+    outline: none;
+  }
+
+  .doc-input::placeholder { color: var(--doc-subtle); }
+  .doc-input:focus { border-color: var(--pym-red); box-shadow: 0 0 0 3px rgba(255,73,74,0.1); }
 
   /* ═══════════════════════════════════════════
      FOOTER
      ═══════════════════════════════════════════ */
   .ds-footer {
-    text-align: center;
-    padding: 60px;
-    font-size: 12px;
-    color: var(--pb-subtle);
-    border-top: 1px solid var(--pb-border);
+    text-align: center; padding: 48px;
+    font-size: 12px; color: var(--doc-subtle);
+    border-top: 1px solid var(--doc-border);
   }
 
-  .ds-footer a {
-    color: var(--pb-gold);
-    text-decoration: none;
-  }
+  .ds-footer a { color: var(--doc-accent); text-decoration: none; }
 
   /* ═══════════════════════════════════════════
      ANIMATIONS
      ═══════════════════════════════════════════ */
   @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-  @keyframes fadeInUp { from { opacity: 0; transform: translateY(28px); } to { opacity: 1; transform: translateY(0); } }
+  @keyframes fadeInUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+  @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.3; } }
 </style>
 </head>
 <body>
@@ -1192,177 +910,173 @@
      ═══════════════════════════════════════════ -->
 <div class="hero">
   <div class="hero-badge">
-    <span class="diamond"></span>
-    Pic Your Booth — Design System
+    <span class="dot"></span>
+    Pic Your Booth · Design System
   </div>
-  <h1>Capture <em>Every</em><br>Moment</h1>
-  <p class="subtitle">Design system voor de Pic Your Booth website. Premium photobooth-ervaring, herkenbaar als onderdeel van Pic Your Moment.</p>
-  <div class="theme-pills">
-    <button class="active" onclick="setTheme('dark')">Magic Mirror</button>
-    <button onclick="setTheme('light')">iPad Booth</button>
-  </div>
+  <h1>Pic Your <span>Booth</span></h1>
+  <p class="subtitle">Unified design system for the Pic Your Booth website. One visual identity, all products. Extends the Pic Your Moment parent brand.</p>
 </div>
 
 <!-- ═══════════════════════════════════════════
-     ARCHITECTURE
+     DESIGN PRINCIPLES
      ═══════════════════════════════════════════ -->
 <div class="section">
-  <div class="section-label">Architecture</div>
-  <div class="section-title">Twee werelden, één merk</div>
-  <div class="section-desc">De photobooth website spreekt twee segmenten aan met elk hun eigen visuele taal — maar altijd herkenbaar als Pic Your Moment.</div>
+  <div class="section-label">Principles</div>
+  <div class="section-title">Eén merk, één visuele taal</div>
+  <div class="section-desc">Geen aparte thema's voor verschillende producten. Eén warm, professioneel design dat werkt voor Magic Mirror, iPad Booth, én de DJ combo. Het product verschilt, het merk niet.</div>
 
-  <div class="component-grid">
-    <div class="comp-box">
-      <h4>Magic Mirror XL — Premium</h4>
-      <p style="font-size:13px; color:var(--pb-muted); line-height:1.6; margin-bottom:16px;">Donker, cinematisch, warm goud. Voor bruiloften, corporate events, en high-end feesten. De nadruk ligt op kwaliteit en ervaring.</p>
-      <div class="tag-row">
-        <span class="tag tag-gold">Dark Theme</span>
-        <span class="tag tag-gold">Cormorant Garamond</span>
-        <span class="tag tag-gold">Gold Accents</span>
-      </div>
+  <div class="principle-grid">
+    <div class="principle-card">
+      <div class="pc-number">01</div>
+      <h3>Unified Identity</h3>
+      <p>Alle producten leven in dezelfde visuele wereld. Dezelfde kleuren, typografie, en componenten. Premium vs. accessible wordt onderscheiden door content en beeldgebruik, niet door kleurthema.</p>
     </div>
-    <div class="comp-box">
-      <h4>iPad Photobooth — Accessible</h4>
-      <p style="font-size:13px; color:var(--pb-muted); line-height:1.6; margin-bottom:16px;">Licht, fris, toegankelijk. Voor verjaardagen, huisfeestjes, en elke viering. De nadruk ligt op gemak en prijs.</p>
-      <div class="tag-row">
-        <span class="tag tag-red">Light Theme</span>
-        <span class="tag tag-red">DM Sans</span>
-        <span class="tag tag-red">PYM Red CTA</span>
-      </div>
+    <div class="principle-card">
+      <div class="pc-number">02</div>
+      <h3>PYM Heritage</h3>
+      <p>Poppins, PYM navy (#100e34), PYM muted-red (#ff494a), warme crèmetinten. Direct herkenbaar als onderdeel van Pic Your Moment. Geen afwijkende fonts of kleuren.</p>
+    </div>
+    <div class="principle-card">
+      <div class="pc-number">03</div>
+      <h3>Content Differentiates</h3>
+      <p>Magic Mirror pagina's tonen premium beelden en tekst. iPad pagina's tonen casual beelden en prijzen. De UI-componenten zijn identiek — de story vertelt het verschil.</p>
     </div>
   </div>
 </div>
 
 <!-- ═══════════════════════════════════════════
-     SCREENS — MAGIC MIRROR LANDING
+     SCREENS
      ═══════════════════════════════════════════ -->
 <div class="section">
   <div class="section-label">Screens</div>
-  <div class="section-title">Landing Pages</div>
-  <div class="section-desc">Twee landing pages voor twee segmenten. Message match met Meta Ads — elke pagina sluit aan op het advertentietraject.</div>
+  <div class="section-title">Website Pages</div>
+  <div class="section-desc">Alle pagina's gebruiken dezelfde warme basis. Dezelfde navigatie, dezelfde componenten, dezelfde typografie. Content en beelden doen het werk.</div>
 
+  <!-- Homepage -->
   <div class="screen-section">
     <div class="screen-label">
-      <h3>Magic Mirror XL — Premium Landing</h3>
-      <span class="screen-tag">Dark • Gold Accent</span>
+      <h3>Homepage</h3>
+      <span class="screen-tag">All Products</span>
     </div>
 
     <div class="browser-frame">
       <div class="browser-bar">
         <div class="browser-dots"><span></span><span></span><span></span></div>
-        <div class="browser-url">
-          <span class="lock">🔒</span> picyourbooth.nl/magic-mirror
-        </div>
+        <div class="browser-url"><span class="lock">🔒</span> picyourbooth.nl</div>
       </div>
-      <div class="landing-dark">
-        <div class="ld-nav">
-          <div class="ld-logo">Pic Your <span>Booth</span></div>
-          <div class="ld-links">
-            <a class="ld-link" href="#">Magic Mirror</a>
-            <a class="ld-link" href="#">iPad Booth</a>
-            <a class="ld-link" href="#">DJ & Booth</a>
-            <a class="ld-link" href="#">Over ons</a>
+      <div style="background:var(--pb-cream);">
+        <div class="pyb-nav">
+          <div class="logo">Pic Your <span>Booth</span></div>
+          <div class="nav-links">
+            <a class="nav-link active" href="#">Home</a>
+            <a class="nav-link" href="#">Magic Mirror</a>
+            <a class="nav-link" href="#">iPad Booth</a>
+            <a class="nav-link" href="#">DJs</a>
+            <a class="nav-link" href="#">Over ons</a>
           </div>
-          <button class="ld-cta">Offerte aanvragen</button>
+          <button class="nav-cta">Offerte aanvragen</button>
         </div>
-        <div class="ld-hero">
-          <h1>Niet zomaar een booth.<br><em>Een ervaring.</em></h1>
-          <p>Professionele DSLR-camera, studio-belichting, en een VIP-ervaring voor je gasten. Van bruiloft tot corporate event.</p>
-          <div class="ld-hero-actions">
-            <button class="ld-btn-primary">Vraag een voorstel aan</button>
-            <button class="ld-btn-outline">Bekijk pakketten</button>
-          </div>
-        </div>
-        <div class="ld-proof">
-          <div class="ld-proof-item">
-            <div class="ld-proof-number">200+</div>
-            <div class="ld-proof-label">Events</div>
-          </div>
-          <div class="ld-proof-divider"></div>
-          <div class="ld-proof-item">
-            <div class="ld-proof-number">4.9</div>
-            <div class="ld-proof-label">Google Score</div>
-          </div>
-          <div class="ld-proof-divider"></div>
-          <div class="ld-proof-item">
-            <div class="ld-proof-number">100%</div>
-            <div class="ld-proof-label">Aanbeveling</div>
+
+        <div class="pyb-hero">
+          <div class="hero-overline">Photobooth & DJ Entertainment</div>
+          <h1>Maak van je event een <span>onvergetelijke</span> ervaring</h1>
+          <p class="hero-sub">Van intieme feestjes tot grote bruiloften — wij brengen de entertainment, de foto's, en de muziek. Jij brengt de mensen.</p>
+          <div class="hero-actions">
+            <button class="btn btn-primary">Vraag een voorstel aan</button>
+            <button class="btn btn-outline">Bekijk pakketten</button>
           </div>
         </div>
-        <div class="ld-services">
+
+        <div class="pyb-proof">
+          <div class="pyb-proof-item">
+            <div class="pyb-proof-number">200+</div>
+            <div class="pyb-proof-label">Events</div>
+          </div>
+          <div class="pyb-proof-divider"></div>
+          <div class="pyb-proof-item">
+            <div class="pyb-proof-number">4.9★</div>
+            <div class="pyb-proof-label">Google Score</div>
+          </div>
+          <div class="pyb-proof-divider"></div>
+          <div class="pyb-proof-item">
+            <div class="pyb-proof-number">100%</div>
+            <div class="pyb-proof-label">Aanbeveling</div>
+          </div>
+        </div>
+
+        <div class="pyb-services">
           <h2>Onze Diensten</h2>
-          <p class="ld-services-sub">Kies het pakket dat bij je event past</p>
+          <p class="services-sub">Kies het pakket dat bij je event past</p>
           <div class="service-grid">
-            <div class="service-card">
-              <div class="sc-image" style="background: linear-gradient(135deg, #1a1520, #2a1f30);"></div>
+            <div class="service-card premium">
+              <div class="sc-image" style="background:linear-gradient(135deg, #f0ece4 0%, #e8dfd2 100%);">
+                <span class="sc-badge badge-premium">Premium</span>
+              </div>
               <div class="sc-info">
                 <div class="sc-name">Magic Mirror XL</div>
-                <div class="sc-desc">DSLR kwaliteit, professionele belichting, direct printen op locatie</div>
-                <div class="sc-price">Vanaf €599 <span>• 4 uur</span></div>
+                <div class="sc-desc">DSLR kwaliteit, professionele belichting, direct printen. De wow-factor voor je event.</div>
+                <div class="sc-price">Vanaf €599 <span>· 4 uur</span></div>
               </div>
             </div>
             <div class="service-card">
-              <div class="sc-image" style="background: linear-gradient(135deg, #1a1a20, #201a28);">
-                <span class="sc-badge">Populair</span>
+              <div class="sc-image" style="background:linear-gradient(135deg, #f7f7fa 0%, #f0ece4 100%);">
+                <span class="sc-badge badge-popular">Populair</span>
               </div>
               <div class="sc-info">
-                <div class="sc-name">VIP Experience</div>
-                <div class="sc-desc">Magic Mirror + backdrop, rode loper, stanchions & luxe props</div>
-                <div class="sc-price">Vanaf €749 <span>• All-inclusive</span></div>
+                <div class="sc-name">iPad Photobooth</div>
+                <div class="sc-desc">Digitale fotostrips voor elk feest. Ophalen, neerzetten, feesten. Zo simpel.</div>
+                <div class="sc-price">Vanaf €200 <span>· Ophalen</span></div>
               </div>
             </div>
             <div class="service-card">
-              <div class="sc-image" style="background: linear-gradient(135deg, #18181e, #1e1828);"></div>
+              <div class="sc-image" style="background:linear-gradient(135deg, #e8e0db 0%, #f4f1ef 100%);">
+                <span class="sc-badge badge-new">Combo</span>
+              </div>
               <div class="sc-info">
-                <div class="sc-name">DJ + Booth Combo</div>
-                <div class="sc-desc">Eén team, eén vibe. Photobooth + professionele DJ met Spotify-optimalisatie</div>
-                <div class="sc-price">Vanaf €749 <span>• Complete avond</span></div>
+                <div class="sc-name">DJ + Photobooth</div>
+                <div class="sc-desc">Eén team, eén vibe, eén boeking. Met Spotify-playlistoptimalisatie.</div>
+                <div class="sc-price">Vanaf €749 <span>· Complete avond</span></div>
               </div>
             </div>
           </div>
+        </div>
+
+        <div class="pyb-testimonial">
+          <blockquote>"Wauw, dát was een ervaring. Onze gasten praten er nog steeds over."</blockquote>
+          <div class="tq-author">Lisa & Tom</div>
+          <div class="tq-event">Bruiloft · Juni 2025</div>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- iPad Photobooth Landing -->
+  <!-- iPad Packages -->
   <div class="screen-section">
     <div class="screen-label">
-      <h3>iPad Photobooth — Accessible Landing</h3>
-      <span class="screen-tag">Light • Fun Energy</span>
+      <h3>iPad Photobooth — Pakketten</h3>
+      <span class="screen-tag">Same UI · Different Content</span>
     </div>
 
     <div class="browser-frame">
       <div class="browser-bar">
         <div class="browser-dots"><span></span><span></span><span></span></div>
-        <div class="browser-url">
-          <span class="lock">🔒</span> picyourbooth.nl/ipad-photobooth
-        </div>
+        <div class="browser-url"><span class="lock">🔒</span> picyourbooth.nl/ipad-photobooth</div>
       </div>
-      <div class="landing-light">
-        <div class="ll-nav">
-          <div class="ll-logo">Pic Your <span>Booth</span></div>
-          <div class="ll-links">
-            <a class="ll-link" href="#">Magic Mirror</a>
-            <a class="ll-link" href="#">iPad Booth</a>
-            <a class="ll-link" href="#">DJ & Booth</a>
+      <div style="background:var(--pb-cream);">
+        <div class="pyb-nav">
+          <div class="logo">Pic Your <span>Booth</span></div>
+          <div class="nav-links">
+            <a class="nav-link" href="#">Home</a>
+            <a class="nav-link" href="#">Magic Mirror</a>
+            <a class="nav-link active" href="#">iPad Booth</a>
+            <a class="nav-link" href="#">DJs</a>
           </div>
-          <button class="ll-cta">Offerte aanvragen</button>
+          <button class="nav-cta">Offerte aanvragen</button>
         </div>
-        <div class="ll-hero">
-          <h1>Photo fun voor<br><span>elk budget</span></h1>
-          <p>Ophalen, neerzetten op je feest, en genieten. Zo simpel is het. Voor verjaardagen, feestjes & meer.</p>
-          <div class="ll-price-tag">
-            <span class="from">Vanaf</span>
-            <span class="price">€200</span>
-          </div>
-          <div class="ll-actions">
-            <button class="ll-btn-primary">Bekijk pakketten</button>
-            <button class="ll-btn-outline">Hoe werkt het?</button>
-          </div>
-        </div>
-        <div class="ll-packages">
-          <h2>Kies je pakket</h2>
+
+        <div class="pyb-packages">
+          <h2>iPad Photobooth Pakketten</h2>
+          <p class="pkg-sub">Photo fun voor elk feest, groot of klein</p>
           <div class="package-grid">
             <div class="package-card">
               <div class="pk-name">Basic</div>
@@ -1406,60 +1120,67 @@
   <!-- Proposal Form -->
   <div class="screen-section">
     <div class="screen-label">
-      <h3>Voorstel Aanvragen — Formulier</h3>
+      <h3>Voorstel Aanvragen</h3>
       <span class="screen-tag">Conversion Point</span>
     </div>
 
     <div class="browser-frame">
       <div class="browser-bar">
         <div class="browser-dots"><span></span><span></span><span></span></div>
-        <div class="browser-url">
-          <span class="lock">🔒</span> picyourbooth.nl/offerte
-        </div>
+        <div class="browser-url"><span class="lock">🔒</span> picyourbooth.nl/offerte</div>
       </div>
       <div class="form-screen">
+        <div class="pyb-nav">
+          <div class="logo">Pic Your <span>Booth</span></div>
+          <div class="nav-links">
+            <a class="nav-link" href="#">Home</a>
+            <a class="nav-link" href="#">Pakketten</a>
+          </div>
+          <button class="nav-cta">Offerte aanvragen</button>
+        </div>
         <div class="fs-header">
           <h2>Ontvang je voorstel</h2>
-          <p>Vul het formulier in en ontvang binnen 24 uur een vrijblijvend voorstel.</p>
+          <p>Vul het formulier in — binnen 24 uur een vrijblijvend voorstel in je inbox.</p>
         </div>
         <div class="fs-body">
-          <div class="form-row">
-            <div class="form-group">
-              <label>Naam</label>
-              <input type="text" placeholder="Je volledige naam">
+          <div class="form-card">
+            <div class="form-row">
+              <div class="form-group">
+                <label>Naam</label>
+                <input type="text" placeholder="Je volledige naam">
+              </div>
+              <div class="form-group">
+                <label>E-mail</label>
+                <input type="email" placeholder="naam@voorbeeld.nl">
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label>Telefoon</label>
+                <input type="tel" placeholder="06 12345678">
+              </div>
+              <div class="form-group">
+                <label>Datum event</label>
+                <input type="date">
+              </div>
             </div>
             <div class="form-group">
-              <label>E-mail</label>
-              <input type="email" placeholder="naam@voorbeeld.nl">
+              <label>Type event</label>
+              <select>
+                <option>Kies het type event...</option>
+                <option>Bruiloft</option>
+                <option>Bedrijfsevent</option>
+                <option>Verjaardag</option>
+                <option>Feest / Party</option>
+                <option>Anders</option>
+              </select>
+            </div>
+            <button class="form-submit">Ontvang je voorstel</button>
+            <div class="form-hint">
+              <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+              Binnen 24 uur reactie · Vrijblijvend · Geen verplichtingen
             </div>
           </div>
-          <div class="form-row">
-            <div class="form-group">
-              <label>Telefoon</label>
-              <input type="tel" placeholder="06 12345678">
-            </div>
-            <div class="form-group">
-              <label>Datum event</label>
-              <input type="date">
-            </div>
-          </div>
-          <div class="form-group">
-            <label>Type event</label>
-            <select>
-              <option>Kies het type event...</option>
-              <option>Bruiloft</option>
-              <option>Bedrijfsevent</option>
-              <option>Verjaardag</option>
-              <option>Feest / Party</option>
-              <option>Anders</option>
-            </select>
-          </div>
-          <div class="form-group">
-            <label>Bericht (optioneel)</label>
-            <textarea placeholder="Vertel ons meer over je event..."></textarea>
-          </div>
-          <button class="form-submit">Ontvang je voorstel</button>
-          <div class="form-hint">Binnen 24 uur reactie · Vrijblijvend · Geen verplichtingen</div>
         </div>
       </div>
     </div>
@@ -1472,40 +1193,40 @@
 <div class="section">
   <div class="section-label">Foundations</div>
   <div class="section-title">Kleurenpalet</div>
-  <div class="section-desc">Twee paletten: donker met goud voor premium, licht met PYM rood voor toegankelijk. Alle kleuren voldoen aan WCAG AA contrast.</div>
+  <div class="section-desc">Eén palet voor alles. PYM navy voor tekst, PYM red voor acties, warme crèmetinten voor achtergronden. Goud alleen als premium badge-accent.</div>
 
   <div class="color-grid">
     <div class="color-swatch">
-      <div class="preview" style="background:#c9a84c; color:#0a0a0c;"><span class="hex">#c9a84c</span></div>
-      <div class="meta"><div class="name">Gold</div><div class="role">Primary — Premium CTA</div></div>
+      <div class="preview" style="background:#100e34; color:#f7f7fa;"><span class="hex">#100e34</span></div>
+      <div class="meta"><div class="name">PYM Navy</div><div class="role">Text, headings, dark elements</div></div>
     </div>
     <div class="color-swatch">
       <div class="preview" style="background:#ff494a; color:#fff;"><span class="hex">#ff494a</span></div>
-      <div class="meta"><div class="name">PYM Red</div><div class="role">Accent — iPad CTA, PYM heritage</div></div>
+      <div class="meta"><div class="name">PYM Red</div><div class="role">All CTAs, primary actions</div></div>
     </div>
     <div class="color-swatch">
-      <div class="preview" style="background:#0a0a0c; color:#f5f0e8;"><span class="hex">#0a0a0c</span></div>
-      <div class="meta"><div class="name">Deep Black</div><div class="role">Premium background</div></div>
+      <div class="preview" style="background:#faf8f5; color:#100e34;"><span class="hex">#faf8f5</span></div>
+      <div class="meta"><div class="name">Cream</div><div class="role">Page background</div></div>
     </div>
     <div class="color-swatch">
-      <div class="preview" style="background:#1a1a1e; color:#f5f0e8;"><span class="hex">#1a1a1e</span></div>
-      <div class="meta"><div class="name">Card Dark</div><div class="role">Cards, surfaces — dark theme</div></div>
+      <div class="preview" style="background:#ffffff; color:#100e34;"><span class="hex">#ffffff</span></div>
+      <div class="meta"><div class="name">White</div><div class="role">Cards, nav, elevated surfaces</div></div>
     </div>
     <div class="color-swatch">
-      <div class="preview" style="background:#f5f0e8; color:#1a1a1e;"><span class="hex">#f5f0e8</span></div>
-      <div class="meta"><div class="name">Warm White</div><div class="role">Text — dark theme</div></div>
+      <div class="preview" style="background:#f4f1ef; color:#100e34;"><span class="hex">#f4f1ef</span></div>
+      <div class="meta"><div class="name">Warm White</div><div class="role">Alternate sections, testimonials</div></div>
     </div>
     <div class="color-swatch">
-      <div class="preview" style="background:#faf8f4; color:#1a1a1e;"><span class="hex">#faf8f4</span></div>
-      <div class="meta"><div class="name">Cream BG</div><div class="role">Background — light theme</div></div>
+      <div class="preview" style="background:#e8e0db; color:#100e34;"><span class="hex">#e8e0db</span></div>
+      <div class="meta"><div class="name">Warm Beige</div><div class="role">Borders, input backgrounds</div></div>
     </div>
     <div class="color-swatch">
-      <div class="preview" style="background:#e0d8cc; color:#1a1a1e;"><span class="hex">#e0d8cc</span></div>
-      <div class="meta"><div class="name">Warm Border</div><div class="role">Borders — light theme</div></div>
+      <div class="preview" style="background:#d4a72c; color:#fff;"><span class="hex">#d4a72c</span></div>
+      <div class="meta"><div class="name">Gold Badge</div><div class="role">Premium badges only</div></div>
     </div>
     <div class="color-swatch">
-      <div class="preview" style="background:#100e34; color:#f5f0e8;"><span class="hex">#100e34</span></div>
-      <div class="meta"><div class="name">PYM Navy</div><div class="role">Heritage — parent brand link</div></div>
+      <div class="preview" style="background:#2d8a4e; color:#fff;"><span class="hex">#2d8a4e</span></div>
+      <div class="meta"><div class="name">Success</div><div class="role">Confirmations, available dates</div></div>
     </div>
   </div>
 </div>
@@ -1515,36 +1236,36 @@
      ═══════════════════════════════════════════ -->
 <div class="section">
   <div class="section-label">Typography</div>
-  <div class="section-title">Typografie</div>
-  <div class="section-desc">Cormorant Garamond voor display & headings — elegant, premium gevoel. DM Sans voor body — clean, modern, leesbaar.</div>
+  <div class="section-title">Poppins — Overal</div>
+  <div class="section-desc">Eén font-family, consistent met het PYM parent brand. Gewicht en grootte creëren hiërarchie, niet verschillende fonts.</div>
 
   <div class="type-row">
-    <div class="label">Display<span class="specs">Cormorant Garamond 300 · 61px · 1.0</span></div>
-    <div class="sample display-font" style="font-size:61px; font-weight:300; line-height:1;">Capture Every Moment</div>
+    <div class="label">H1<span class="specs">Poppins 600 · 42px · 1.1</span></div>
+    <div class="sample" style="font-size:42px; font-weight:600; line-height:1.1; letter-spacing:-0.5px;">Maak van je event een onvergetelijke ervaring</div>
   </div>
   <div class="type-row">
-    <div class="label">H1<span class="specs">Cormorant Garamond 400 · 48px · 1.1</span></div>
-    <div class="sample display-font" style="font-size:48px; font-weight:400; line-height:1.1;">Niet zomaar een booth</div>
+    <div class="label">H2<span class="specs">Poppins 600 · 28px · 1.2</span></div>
+    <div class="sample" style="font-size:28px; font-weight:600; line-height:1.2; letter-spacing:-0.3px;">Onze Diensten</div>
   </div>
   <div class="type-row">
-    <div class="label">H2<span class="specs">Cormorant Garamond 400 · 36px · 1.2</span></div>
-    <div class="sample display-font" style="font-size:36px; font-weight:400; line-height:1.2;">Onze Diensten</div>
+    <div class="label">H3<span class="specs">Poppins 600 · 20px · 1.3</span></div>
+    <div class="sample" style="font-size:20px; font-weight:600; line-height:1.3;">Magic Mirror XL Experience</div>
   </div>
   <div class="type-row">
-    <div class="label">H3<span class="specs">DM Sans 600 · 24px · 1.3</span></div>
-    <div class="sample" style="font-size:24px; font-weight:600; line-height:1.3;">Magic Mirror XL Experience</div>
+    <div class="label">Body<span class="specs">Poppins 400 · 15px · 1.6</span></div>
+    <div class="sample" style="font-size:15px; font-weight:400; line-height:1.6;">Professionele DSLR-camera, studio-belichting, en een complete VIP-ervaring voor je gasten. Van bruiloft tot corporate event.</div>
   </div>
   <div class="type-row">
-    <div class="label">Body<span class="specs">DM Sans 400 · 16px · 1.6</span></div>
-    <div class="sample" style="font-size:16px; font-weight:400; line-height:1.6;">Professionele DSLR-camera, studio-belichting, en een complete VIP-ervaring voor je gasten.</div>
+    <div class="label">Small<span class="specs">Poppins 400 · 13px · 1.5</span></div>
+    <div class="sample" style="font-size:13px; font-weight:400; line-height:1.5; color:var(--doc-muted);">Binnen 24 uur reactie · Vrijblijvend · Geen verplichtingen</div>
   </div>
   <div class="type-row">
-    <div class="label">Small<span class="specs">DM Sans 400 · 14px · 1.5</span></div>
-    <div class="sample" style="font-size:14px; font-weight:400; line-height:1.5; color:var(--pb-muted);">Binnen 24 uur reactie · Vrijblijvend · Geen verplichtingen</div>
+    <div class="label">Overline<span class="specs">Poppins 600 · 11px · Uppercase · 2px tracking</span></div>
+    <div class="sample" style="font-size:11px; font-weight:600; letter-spacing:2px; text-transform:uppercase; color:var(--pym-red);">Photobooth & DJ Entertainment</div>
   </div>
   <div class="type-row">
-    <div class="label">Label<span class="specs">DM Sans 600 · 10px · 1.4 · Uppercase</span></div>
-    <div class="sample" style="font-size:10px; font-weight:600; line-height:1.4; letter-spacing:2px; text-transform:uppercase; color:var(--pb-gold);">Meest Gekozen · Premium · Nieuw</div>
+    <div class="label">Label<span class="specs">Poppins 600 · 10px · Uppercase</span></div>
+    <div class="sample" style="font-size:10px; font-weight:600; letter-spacing:1.5px; text-transform:uppercase; color:var(--doc-muted);">Premium · Populair · Meest gekozen · Combo</div>
   </div>
 </div>
 
@@ -1554,42 +1275,68 @@
 <div class="section">
   <div class="section-label">Components</div>
   <div class="section-title">UI Componenten</div>
-  <div class="section-desc">Buttons, tags, en formulierelementen in de twee visuele modi.</div>
+  <div class="section-desc">Dezelfde componenten voor alle producten. Geen aparte "premium" of "budget" buttons — het merk is consistent.</div>
 
   <div class="component-grid">
     <div class="comp-box">
-      <h4>Buttons — Dark / Premium</h4>
+      <h4>Buttons</h4>
       <div class="btn-row">
-        <button class="btn-gold">Vraag voorstel aan</button>
-        <button class="btn-dark-outline">Bekijk pakketten</button>
-        <button class="btn-ghost">Meer info</button>
+        <button class="doc-btn-primary">Vraag voorstel aan</button>
+        <button class="doc-btn-outline">Bekijk pakketten</button>
+        <button class="doc-btn-ghost">Meer info</button>
       </div>
     </div>
     <div class="comp-box">
-      <h4>Buttons — Light / Accessible</h4>
+      <h4>Premium Accent (Badge Only)</h4>
       <div class="btn-row">
-        <button class="btn-red">Kies dit pakket</button>
-        <button class="btn-dark-outline" style="color:#1a1a1e; border-color:#e0d8cc;">Hoe werkt het?</button>
-        <button class="btn-ghost" style="color:#1a1a1e;">Meer info</button>
+        <button class="doc-btn-gold">Premium Badge</button>
+        <p style="font-size:12px; color:var(--doc-muted); line-height:1.5;">Goud wordt alleen gebruikt voor "Premium" badges op service cards. Nooit als CTA-kleur.</p>
       </div>
     </div>
     <div class="comp-box">
       <h4>Tags / Badges</h4>
       <div class="tag-row">
+        <span class="tag tag-red">Populair</span>
         <span class="tag tag-gold">Premium</span>
-        <span class="tag tag-red">Meest gekozen</span>
         <span class="tag tag-success">Beschikbaar</span>
         <span class="tag tag-muted">Bruiloft</span>
         <span class="tag tag-muted">Corporate</span>
+        <span class="tag tag-muted">Verjaardag</span>
       </div>
     </div>
     <div class="comp-box">
       <h4>Form Inputs</h4>
       <div class="input-demo">
-        <input type="text" placeholder="Je naam">
-        <input type="email" placeholder="naam@voorbeeld.nl">
-        <input type="date" value="2026-06-15">
+        <input class="doc-input" type="text" placeholder="Je naam">
+        <input class="doc-input" type="email" placeholder="naam@voorbeeld.nl">
       </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     DIFFERENTIATION GUIDE
+     ═══════════════════════════════════════════ -->
+<div class="section">
+  <div class="section-label">Differentiation</div>
+  <div class="section-title">Hoe onderscheid je producten?</div>
+  <div class="section-desc">Niet met kleuren of thema's — maar met deze vier middelen.</div>
+
+  <div class="principle-grid">
+    <div class="principle-card">
+      <div class="pc-number">Beelden</div>
+      <h3>Fotografie & Video</h3>
+      <p>Magic Mirror: cinematische eventfoto's, professionele belichting, VIP-sfeer. iPad: casual feestfoto's, vrienden lachend, spontaan. Zelfde UI-componenten, andere beelden.</p>
+    </div>
+    <div class="principle-card">
+      <div class="pc-number">Copy</div>
+      <h3>Tekst & Tone</h3>
+      <p>Magic Mirror: "Niet zomaar een booth — een ervaring." iPad: "Ophalen, neerzetten, feesten." De woorden zetten de toon, niet het kleurenschema.</p>
+    </div>
+    <div class="principle-card">
+      <div class="pc-number">Badges</div>
+      <h3>Visual Markers</h3>
+      <p>Gouden "Premium" badge en subtiele top-border op Magic Mirror cards. Rode "Populair" badge op best-sellers. Alleen badges, geen heel ander thema.</p>
     </div>
   </div>
 </div>
@@ -1598,16 +1345,8 @@
      FOOTER
      ═══════════════════════════════════════════ -->
 <div class="ds-footer">
-  Pic Your Booth Design System · Onderdeel van <a href="#">Pic Your Moment BV</a> · Randstad, Nederland
+  Pic Your Booth Design System · Onderdeel van <a href="#">Pic Your Moment BV</a> · Poppins · PYM Navy · PYM Red
 </div>
-
-<script>
-  function setTheme(t) {
-    document.querySelectorAll('.theme-pills button').forEach(b => b.classList.remove('active'));
-    event.target.classList.add('active');
-    // Theme toggle is visual reference only — both themes shown in the screens above
-  }
-</script>
 
 </body>
 </html>
