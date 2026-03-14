@@ -70,7 +70,9 @@ pic-your-booth/
 │       ├── design-system.md              — Tokens, colors, typography, components
 │       ├── ui-ux-principles.md           — UX guidelines, accessibility, responsive
 │       ├── pym-design-tokens.json        — Design token values (JSON)
-│       └── pym-design-system-web.html    — Design system web reference
+│       ├── pym-design-system-web.html    — PYM parent design system
+│       ├── pym-design-system-photobooth.html — Photobooth design system (dark+light)
+│       └── pym-design-system-dj.html     — DJ Hub design system (split-energy)
 ```
 
 ## Quick Commands

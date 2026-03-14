@@ -1,0 +1,1613 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pic Your Booth — Photobooth Design System</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  /* ═══════════════════════════════════════════
+     PHOTOBOOTH DESIGN TOKENS
+     Cinematic dark + warm gold. Premium event atmosphere.
+     Connected to PYM parent (navy base, muted-red accent).
+     ═══════════════════════════════════════════ */
+  :root {
+    /* Brand Colors — PYM Photobooth */
+    --pb-deep-black: #0a0a0c;
+    --pb-dark-surface: #141416;
+    --pb-card: #1a1a1e;
+    --pb-border: rgba(255,255,255,0.07);
+    --pb-gold: #c9a84c;
+    --pb-gold-light: #dfc06a;
+    --pb-gold-dim: rgba(201,168,76,0.15);
+    --pb-warm-white: #f5f0e8;
+    --pb-cream: #e8dfd2;
+    --pb-muted: rgba(245,240,232,0.45);
+    --pb-subtle: rgba(245,240,232,0.12);
+
+    /* PYM Heritage */
+    --pym-navy: #100e34;
+    --pym-red: #ff494a;
+
+    /* Semantic */
+    --pb-success: #4caf50;
+    --pb-warning: #f5a623;
+    --pb-error: #ef4444;
+
+    /* Spacing */
+    --sp-1: 4px; --sp-2: 8px; --sp-3: 12px; --sp-4: 16px;
+    --sp-6: 24px; --sp-8: 32px; --sp-10: 40px; --sp-12: 48px;
+    --sp-16: 64px; --sp-20: 80px; --sp-24: 96px;
+
+    /* Radius */
+    --r-sm: 6px; --r-md: 10px; --r-lg: 16px; --r-xl: 24px; --r-pill: 999px;
+
+    /* Fonts */
+    --font-display: 'Cormorant Garamond', serif;
+    --font-body: 'DM Sans', sans-serif;
+
+    /* Shadows */
+    --shadow-card: 0 8px 32px rgba(0,0,0,0.4);
+    --shadow-glow: 0 0 60px rgba(201,168,76,0.08);
+    --shadow-deep: 0 24px 80px rgba(0,0,0,0.6);
+  }
+
+  /* Light theme for iPad Photobooth pages */
+  [data-theme="light"] {
+    --bg: #faf8f4; --fg: #1a1a1e;
+    --card-bg: #ffffff; --card-fg: #1a1a1e;
+    --surface: #f0ece4; --border-light: #e0d8cc;
+    --primary: var(--pb-gold); --on-primary: #1a1a1e;
+    --muted-text: rgba(26,26,30,0.5);
+    --accent: var(--pym-red); --on-accent: #fff;
+  }
+
+  /* Dark theme for Magic Mirror XL pages */
+  [data-theme="dark"] {
+    --bg: var(--pb-deep-black); --fg: var(--pb-warm-white);
+    --card-bg: var(--pb-card); --card-fg: var(--pb-warm-white);
+    --surface: var(--pb-dark-surface); --border-light: var(--pb-border);
+    --primary: var(--pb-gold); --on-primary: var(--pb-deep-black);
+    --muted-text: var(--pb-muted);
+    --accent: var(--pym-red); --on-accent: #fff;
+  }
+
+  /* ═══════════════════════════════════════════
+     BASE
+     ═══════════════════════════════════════════ */
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: var(--font-body);
+    background: var(--pb-deep-black);
+    color: var(--pb-warm-white);
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+
+  ::selection { background: rgba(201,168,76,0.3); color: var(--pb-warm-white); }
+
+  /* ═══════════════════════════════════════════
+     GRAIN TEXTURE — cinematic film feel
+     ═══════════════════════════════════════════ */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    pointer-events: none;
+    opacity: 0.025;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+
+  /* ═══════════════════════════════════════════
+     HERO
+     ═══════════════════════════════════════════ */
+  .hero {
+    position: relative;
+    padding: 140px 60px 100px;
+    text-align: center;
+    overflow: hidden;
+    background: linear-gradient(180deg, #0f0d1a 0%, var(--pb-deep-black) 100%);
+  }
+
+  .hero::after {
+    content: '';
+    position: absolute;
+    top: -200px; left: 50%; transform: translateX(-50%);
+    width: 800px; height: 800px;
+    background: radial-gradient(circle, rgba(201,168,76,0.06) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 20px;
+    border-radius: var(--r-pill);
+    border: 1px solid rgba(201,168,76,0.2);
+    background: rgba(201,168,76,0.05);
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--pb-gold);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 40px;
+    animation: fadeIn 0.8s ease both;
+  }
+
+  .hero-badge .diamond {
+    width: 6px; height: 6px;
+    background: var(--pb-gold);
+    transform: rotate(45deg);
+  }
+
+  .hero h1 {
+    font-family: var(--font-display);
+    font-size: clamp(56px, 7vw, 96px);
+    font-weight: 300;
+    letter-spacing: -1px;
+    line-height: 0.95;
+    color: var(--pb-warm-white);
+    margin-bottom: 24px;
+    animation: fadeInUp 0.9s ease 0.1s both;
+  }
+
+  .hero h1 em {
+    font-style: italic;
+    font-weight: 400;
+    color: var(--pb-gold);
+  }
+
+  .hero .subtitle {
+    font-size: 17px;
+    font-weight: 300;
+    color: var(--pb-muted);
+    max-width: 480px;
+    margin: 0 auto 48px;
+    line-height: 1.7;
+    animation: fadeInUp 0.9s ease 0.2s both;
+  }
+
+  .theme-pills {
+    display: inline-flex;
+    gap: 4px;
+    padding: 4px;
+    border-radius: var(--r-pill);
+    border: 1px solid var(--pb-border);
+    background: rgba(255,255,255,0.02);
+    animation: fadeInUp 0.9s ease 0.3s both;
+  }
+
+  .theme-pills button {
+    font-family: var(--font-body);
+    font-size: 12px;
+    font-weight: 500;
+    padding: 10px 24px;
+    border-radius: var(--r-pill);
+    border: none;
+    background: transparent;
+    color: var(--pb-muted);
+    cursor: pointer;
+    transition: all 0.25s ease;
+    letter-spacing: 0.3px;
+  }
+
+  .theme-pills button.active {
+    background: var(--pb-gold);
+    color: var(--pb-deep-black);
+  }
+
+  .theme-pills button:hover:not(.active) { color: var(--pb-warm-white); }
+
+  /* ═══════════════════════════════════════════
+     SECTIONS
+     ═══════════════════════════════════════════ */
+  .section {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: var(--sp-20) 60px;
+    position: relative;
+    animation: fadeInUp 0.7s ease both;
+  }
+
+  .section + .section::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 60px; right: 60px;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--pb-border), transparent);
+  }
+
+  .section-label {
+    font-family: var(--font-body);
+    font-size: 10px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    color: var(--pb-gold);
+    margin-bottom: 12px;
+  }
+
+  .section-title {
+    font-family: var(--font-display);
+    font-size: clamp(32px, 4vw, 48px);
+    font-weight: 400;
+    color: var(--pb-warm-white);
+    letter-spacing: -0.5px;
+    margin-bottom: 12px;
+  }
+
+  .section-desc {
+    font-size: 15px;
+    font-weight: 300;
+    color: var(--pb-muted);
+    max-width: 520px;
+    line-height: 1.7;
+    margin-bottom: 48px;
+  }
+
+  @media (max-width: 768px) {
+    .section { padding: 60px 24px; }
+    .hero { padding: 100px 24px 60px; }
+  }
+
+  /* ═══════════════════════════════════════════
+     BROWSER FRAME
+     ═══════════════════════════════════════════ */
+  .browser-frame {
+    border-radius: var(--r-xl);
+    border: 1px solid var(--pb-border);
+    overflow: hidden;
+    background: var(--pb-dark-surface);
+    box-shadow: var(--shadow-deep), var(--shadow-glow);
+    transition: transform 0.3s ease-out;
+    max-width: 1024px;
+    margin: 0 auto;
+  }
+
+  .browser-frame:hover { transform: translateY(-4px); }
+
+  @media (prefers-reduced-motion: reduce) {
+    .browser-frame, .service-card, .package-card, .section {
+      transition: none !important;
+      animation: none !important;
+    }
+  }
+
+  .browser-bar {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 14px 20px;
+    background: rgba(255,255,255,0.02);
+    border-bottom: 1px solid var(--pb-border);
+  }
+
+  .browser-dots {
+    display: flex;
+    gap: 6px;
+  }
+
+  .browser-dots span {
+    width: 10px; height: 10px; border-radius: 50%;
+    background: rgba(255,255,255,0.07);
+  }
+
+  .browser-url {
+    flex: 1;
+    height: 30px;
+    border-radius: var(--r-sm);
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.04);
+    display: flex;
+    align-items: center;
+    padding: 0 12px;
+    font-size: 12px;
+    color: var(--pb-muted);
+  }
+
+  .browser-url .lock { margin-right: 6px; opacity: 0.3; }
+
+  /* ═══════════════════════════════════════════
+     SCREEN: MAGIC MIRROR LANDING PAGE (DARK)
+     ═══════════════════════════════════════════ */
+  .landing-dark {
+    background: var(--pb-deep-black);
+    font-family: var(--font-body);
+  }
+
+  .landing-dark .ld-nav {
+    display: flex;
+    align-items: center;
+    padding: 20px 32px;
+    border-bottom: 1px solid var(--pb-border);
+  }
+
+  .landing-dark .ld-logo {
+    font-family: var(--font-display);
+    font-size: 20px;
+    font-weight: 500;
+    color: var(--pb-warm-white);
+    margin-right: auto;
+    letter-spacing: 0.5px;
+  }
+
+  .landing-dark .ld-logo span { color: var(--pb-gold); }
+
+  .landing-dark .ld-links {
+    display: flex;
+    gap: 4px;
+    align-items: center;
+  }
+
+  .landing-dark .ld-link {
+    font-size: 13px;
+    font-weight: 400;
+    color: var(--pb-muted);
+    padding: 8px 14px;
+    border-radius: var(--r-sm);
+    text-decoration: none;
+    transition: color 0.15s;
+  }
+
+  .landing-dark .ld-link:hover { color: var(--pb-warm-white); }
+
+  .landing-dark .ld-cta {
+    font-family: var(--font-body);
+    font-size: 12px;
+    font-weight: 500;
+    padding: 10px 24px;
+    background: var(--pb-gold);
+    color: var(--pb-deep-black);
+    border: none;
+    border-radius: var(--r-pill);
+    cursor: pointer;
+    letter-spacing: 0.3px;
+    margin-left: 8px;
+    transition: filter 0.15s;
+  }
+
+  .landing-dark .ld-cta:hover { filter: brightness(1.1); }
+
+  .landing-dark .ld-hero {
+    padding: 80px 48px;
+    text-align: center;
+    position: relative;
+  }
+
+  .landing-dark .ld-hero::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 50%; transform: translateX(-50%);
+    width: 600px; height: 400px;
+    background: radial-gradient(ellipse, rgba(201,168,76,0.06) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .landing-dark .ld-hero h1 {
+    font-family: var(--font-display);
+    font-size: 44px;
+    font-weight: 300;
+    color: var(--pb-warm-white);
+    line-height: 1.1;
+    margin-bottom: 16px;
+    letter-spacing: -0.5px;
+  }
+
+  .landing-dark .ld-hero h1 em {
+    font-style: italic;
+    color: var(--pb-gold);
+  }
+
+  .landing-dark .ld-hero p {
+    font-size: 15px;
+    color: var(--pb-muted);
+    max-width: 400px;
+    margin: 0 auto 32px;
+    line-height: 1.6;
+  }
+
+  .landing-dark .ld-hero-actions {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+  }
+
+  .landing-dark .ld-btn-primary {
+    font-family: var(--font-body);
+    font-size: 13px;
+    font-weight: 500;
+    padding: 14px 32px;
+    background: var(--pb-gold);
+    color: var(--pb-deep-black);
+    border: none;
+    border-radius: var(--r-pill);
+    cursor: pointer;
+    transition: all 0.15s;
+    letter-spacing: 0.3px;
+  }
+
+  .landing-dark .ld-btn-primary:hover { filter: brightness(1.1); transform: translateY(-1px); }
+
+  .landing-dark .ld-btn-outline {
+    font-family: var(--font-body);
+    font-size: 13px;
+    font-weight: 400;
+    padding: 14px 32px;
+    background: transparent;
+    color: var(--pb-warm-white);
+    border: 1px solid var(--pb-border);
+    border-radius: var(--r-pill);
+    cursor: pointer;
+    transition: border-color 0.15s;
+  }
+
+  .landing-dark .ld-btn-outline:hover { border-color: var(--pb-gold); }
+
+  /* Social proof bar */
+  .landing-dark .ld-proof {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 32px;
+    padding: 24px 48px;
+    border-top: 1px solid var(--pb-border);
+    border-bottom: 1px solid var(--pb-border);
+  }
+
+  .landing-dark .ld-proof-item {
+    text-align: center;
+  }
+
+  .landing-dark .ld-proof-number {
+    font-family: var(--font-display);
+    font-size: 28px;
+    font-weight: 500;
+    color: var(--pb-gold);
+  }
+
+  .landing-dark .ld-proof-label {
+    font-size: 11px;
+    color: var(--pb-muted);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-top: 4px;
+  }
+
+  .landing-dark .ld-proof-divider {
+    width: 1px;
+    height: 40px;
+    background: var(--pb-border);
+  }
+
+  /* Services grid */
+  .landing-dark .ld-services {
+    padding: 48px;
+  }
+
+  .landing-dark .ld-services h2 {
+    font-family: var(--font-display);
+    font-size: 28px;
+    font-weight: 400;
+    color: var(--pb-warm-white);
+    margin-bottom: 8px;
+    text-align: center;
+  }
+
+  .landing-dark .ld-services .ld-services-sub {
+    font-size: 14px;
+    color: var(--pb-muted);
+    text-align: center;
+    margin-bottom: 32px;
+  }
+
+  .service-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+  }
+
+  .service-card {
+    background: var(--pb-card);
+    border: 1px solid var(--pb-border);
+    border-radius: var(--r-lg);
+    overflow: hidden;
+    transition: transform 0.2s, border-color 0.2s;
+    cursor: pointer;
+  }
+
+  .service-card:hover {
+    transform: translateY(-4px);
+    border-color: rgba(201,168,76,0.3);
+  }
+
+  .service-card .sc-image {
+    height: 140px;
+    position: relative;
+  }
+
+  .service-card .sc-image .sc-badge {
+    position: absolute;
+    top: 12px; left: 12px;
+    font-size: 10px;
+    font-weight: 600;
+    padding: 4px 10px;
+    border-radius: var(--r-pill);
+    background: var(--pb-gold);
+    color: var(--pb-deep-black);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  .service-card .sc-info { padding: 20px; }
+
+  .service-card .sc-name {
+    font-family: var(--font-display);
+    font-size: 18px;
+    font-weight: 500;
+    color: var(--pb-warm-white);
+    margin-bottom: 6px;
+  }
+
+  .service-card .sc-desc {
+    font-size: 12px;
+    color: var(--pb-muted);
+    line-height: 1.5;
+    margin-bottom: 12px;
+  }
+
+  .service-card .sc-price {
+    font-size: 13px;
+    color: var(--pb-gold);
+    font-weight: 500;
+  }
+
+  .service-card .sc-price span {
+    font-size: 11px;
+    color: var(--pb-muted);
+    font-weight: 400;
+  }
+
+  /* ═══════════════════════════════════════════
+     SCREEN: iPAD PHOTOBOOTH LANDING (LIGHT)
+     ═══════════════════════════════════════════ */
+  .landing-light {
+    background: #faf8f4;
+    font-family: var(--font-body);
+  }
+
+  .landing-light .ll-nav {
+    display: flex;
+    align-items: center;
+    padding: 20px 32px;
+    border-bottom: 1px solid #e0d8cc;
+  }
+
+  .landing-light .ll-logo {
+    font-family: var(--font-display);
+    font-size: 20px;
+    font-weight: 500;
+    color: #1a1a1e;
+    margin-right: auto;
+  }
+
+  .landing-light .ll-logo span { color: var(--pym-red); }
+
+  .landing-light .ll-links {
+    display: flex;
+    gap: 4px;
+  }
+
+  .landing-light .ll-link {
+    font-size: 13px;
+    color: rgba(26,26,30,0.5);
+    padding: 8px 14px;
+    text-decoration: none;
+  }
+
+  .landing-light .ll-cta {
+    font-family: var(--font-body);
+    font-size: 12px;
+    font-weight: 600;
+    padding: 10px 24px;
+    background: var(--pym-red);
+    color: white;
+    border: none;
+    border-radius: var(--r-pill);
+    cursor: pointer;
+    margin-left: 8px;
+  }
+
+  .landing-light .ll-hero {
+    padding: 60px 48px;
+    text-align: center;
+  }
+
+  .landing-light .ll-hero h1 {
+    font-family: var(--font-display);
+    font-size: 40px;
+    font-weight: 400;
+    color: #1a1a1e;
+    line-height: 1.15;
+    margin-bottom: 16px;
+  }
+
+  .landing-light .ll-hero h1 span { color: var(--pym-red); }
+
+  .landing-light .ll-hero p {
+    font-size: 15px;
+    color: rgba(26,26,30,0.55);
+    max-width: 380px;
+    margin: 0 auto 28px;
+    line-height: 1.6;
+  }
+
+  .landing-light .ll-price-tag {
+    display: inline-flex;
+    align-items: baseline;
+    gap: 8px;
+    padding: 12px 28px;
+    background: #fff;
+    border: 1px solid #e0d8cc;
+    border-radius: var(--r-pill);
+    margin-bottom: 24px;
+  }
+
+  .landing-light .ll-price-tag .price {
+    font-family: var(--font-display);
+    font-size: 28px;
+    font-weight: 600;
+    color: #1a1a1e;
+  }
+
+  .landing-light .ll-price-tag .from {
+    font-size: 13px;
+    color: rgba(26,26,30,0.4);
+  }
+
+  .landing-light .ll-actions {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+  }
+
+  .landing-light .ll-btn-primary {
+    font-family: var(--font-body);
+    font-size: 13px;
+    font-weight: 600;
+    padding: 14px 32px;
+    background: var(--pym-red);
+    color: white;
+    border: none;
+    border-radius: var(--r-pill);
+    cursor: pointer;
+  }
+
+  .landing-light .ll-btn-outline {
+    font-family: var(--font-body);
+    font-size: 13px;
+    padding: 14px 32px;
+    background: transparent;
+    color: #1a1a1e;
+    border: 1px solid #e0d8cc;
+    border-radius: var(--r-pill);
+    cursor: pointer;
+  }
+
+  /* Light packages */
+  .landing-light .ll-packages {
+    padding: 48px;
+    border-top: 1px solid #e0d8cc;
+  }
+
+  .landing-light .ll-packages h2 {
+    font-family: var(--font-display);
+    font-size: 28px;
+    font-weight: 400;
+    color: #1a1a1e;
+    text-align: center;
+    margin-bottom: 32px;
+  }
+
+  .package-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+  }
+
+  .package-card {
+    background: #fff;
+    border: 1px solid #e0d8cc;
+    border-radius: var(--r-lg);
+    padding: 28px 24px;
+    text-align: center;
+    transition: transform 0.2s, box-shadow 0.2s;
+    position: relative;
+  }
+
+  .package-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 32px rgba(0,0,0,0.06);
+  }
+
+  .package-card.recommended {
+    border-color: var(--pym-red);
+    box-shadow: 0 0 0 1px var(--pym-red);
+  }
+
+  .package-card.recommended::before {
+    content: 'Meest gekozen';
+    position: absolute;
+    top: -11px; left: 50%; transform: translateX(-50%);
+    font-size: 10px;
+    font-weight: 600;
+    padding: 3px 14px;
+    background: var(--pym-red);
+    color: white;
+    border-radius: var(--r-pill);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    white-space: nowrap;
+  }
+
+  .package-card .pk-name {
+    font-family: var(--font-display);
+    font-size: 20px;
+    font-weight: 500;
+    color: #1a1a1e;
+    margin-bottom: 8px;
+  }
+
+  .package-card .pk-price {
+    font-family: var(--font-display);
+    font-size: 32px;
+    font-weight: 600;
+    color: #1a1a1e;
+    margin-bottom: 4px;
+  }
+
+  .package-card .pk-unit {
+    font-size: 12px;
+    color: rgba(26,26,30,0.4);
+    margin-bottom: 20px;
+  }
+
+  .package-card .pk-features {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 24px;
+  }
+
+  .package-card .pk-features li {
+    font-size: 13px;
+    color: rgba(26,26,30,0.6);
+    padding: 6px 0;
+    border-bottom: 1px solid #f0ece4;
+  }
+
+  .package-card .pk-features li:last-child { border-bottom: none; }
+
+  .package-card .pk-btn {
+    font-family: var(--font-body);
+    font-size: 13px;
+    font-weight: 500;
+    padding: 12px 28px;
+    border-radius: var(--r-pill);
+    border: 1px solid #e0d8cc;
+    background: transparent;
+    color: #1a1a1e;
+    cursor: pointer;
+    width: 100%;
+    transition: all 0.15s;
+  }
+
+  .package-card.recommended .pk-btn {
+    background: var(--pym-red);
+    color: white;
+    border-color: var(--pym-red);
+  }
+
+  /* ═══════════════════════════════════════════
+     SCREEN: PROPOSAL FORM
+     ═══════════════════════════════════════════ */
+  .form-screen {
+    background: var(--pb-deep-black);
+    font-family: var(--font-body);
+  }
+
+  .form-screen .fs-header {
+    padding: 32px 48px;
+    text-align: center;
+    border-bottom: 1px solid var(--pb-border);
+  }
+
+  .form-screen .fs-header h2 {
+    font-family: var(--font-display);
+    font-size: 28px;
+    font-weight: 400;
+    color: var(--pb-warm-white);
+    margin-bottom: 8px;
+  }
+
+  .form-screen .fs-header p {
+    font-size: 14px;
+    color: var(--pb-muted);
+  }
+
+  .form-screen .fs-body {
+    padding: 40px 48px;
+    max-width: 560px;
+    margin: 0 auto;
+  }
+
+  .form-group {
+    margin-bottom: 20px;
+  }
+
+  .form-group label {
+    display: block;
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--pb-muted);
+    margin-bottom: 8px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
+    width: 100%;
+    height: 48px;
+    padding: 0 16px;
+    background: var(--pb-card);
+    border: 1px solid var(--pb-border);
+    border-radius: var(--r-md);
+    color: var(--pb-warm-white);
+    font-family: var(--font-body);
+    font-size: 14px;
+    transition: border-color 0.15s;
+    outline: none;
+  }
+
+  .form-group textarea {
+    height: 100px;
+    padding: 14px 16px;
+    resize: vertical;
+  }
+
+  .form-group input:focus,
+  .form-group select:focus,
+  .form-group textarea:focus {
+    border-color: var(--pb-gold);
+    box-shadow: 0 0 0 3px rgba(201,168,76,0.1);
+  }
+
+  .form-group input::placeholder { color: var(--pb-subtle); }
+
+  .form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+
+  .form-submit {
+    font-family: var(--font-body);
+    font-size: 14px;
+    font-weight: 500;
+    width: 100%;
+    height: 52px;
+    background: var(--pb-gold);
+    color: var(--pb-deep-black);
+    border: none;
+    border-radius: var(--r-md);
+    cursor: pointer;
+    letter-spacing: 0.3px;
+    margin-top: 8px;
+    transition: filter 0.15s;
+  }
+
+  .form-submit:hover { filter: brightness(1.1); }
+
+  .form-hint {
+    text-align: center;
+    font-size: 12px;
+    color: var(--pb-muted);
+    margin-top: 12px;
+  }
+
+  /* ═══════════════════════════════════════════
+     COLOR PALETTE
+     ═══════════════════════════════════════════ */
+  .color-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 12px;
+  }
+
+  .color-swatch {
+    border-radius: var(--r-md);
+    overflow: hidden;
+    border: 1px solid var(--pb-border);
+  }
+
+  .color-swatch .preview {
+    height: 80px;
+    position: relative;
+    display: flex;
+    align-items: flex-end;
+    padding: 8px 12px;
+  }
+
+  .color-swatch .preview .hex {
+    font-family: 'SF Mono', 'Fira Code', monospace;
+    font-size: 10px;
+    font-weight: 500;
+    opacity: 0.6;
+  }
+
+  .color-swatch .meta {
+    padding: 12px;
+    background: rgba(255,255,255,0.02);
+  }
+
+  .color-swatch .meta .name {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--pb-warm-white);
+  }
+
+  .color-swatch .meta .role {
+    font-size: 10px;
+    color: var(--pb-muted);
+    margin-top: 3px;
+  }
+
+  /* ═══════════════════════════════════════════
+     TYPE SCALE
+     ═══════════════════════════════════════════ */
+  .type-row {
+    display: flex;
+    align-items: baseline;
+    gap: 32px;
+    padding: 24px 0;
+    border-bottom: 1px solid var(--pb-border);
+  }
+
+  .type-row .label {
+    flex: 0 0 160px;
+    font-size: 10px;
+    font-weight: 500;
+    color: var(--pb-muted);
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+  }
+
+  .type-row .label .specs {
+    display: block;
+    margin-top: 4px;
+    text-transform: none;
+    letter-spacing: 0;
+    font-size: 10px;
+    color: var(--pb-subtle);
+  }
+
+  .type-row .sample {
+    flex: 1;
+    color: var(--pb-warm-white);
+  }
+
+  .type-row .sample.display-font {
+    font-family: var(--font-display);
+  }
+
+  /* ═══════════════════════════════════════════
+     COMPONENT DEMOS
+     ═══════════════════════════════════════════ */
+  .component-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+  }
+
+  .comp-box {
+    background: rgba(255,255,255,0.02);
+    border: 1px solid var(--pb-border);
+    border-radius: var(--r-lg);
+    padding: 32px;
+  }
+
+  .comp-box h4 {
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--pb-gold);
+    margin-bottom: 24px;
+  }
+
+  .comp-box .btn-row {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+
+  .btn-gold {
+    font-family: var(--font-body);
+    font-size: 13px;
+    font-weight: 500;
+    padding: 12px 28px;
+    background: var(--pb-gold);
+    color: var(--pb-deep-black);
+    border: none;
+    border-radius: var(--r-pill);
+    cursor: pointer;
+    transition: filter 0.15s;
+  }
+
+  .btn-gold:hover { filter: brightness(1.1); }
+
+  .btn-dark-outline {
+    font-family: var(--font-body);
+    font-size: 13px;
+    font-weight: 400;
+    padding: 12px 28px;
+    background: transparent;
+    color: var(--pb-warm-white);
+    border: 1px solid var(--pb-border);
+    border-radius: var(--r-pill);
+    cursor: pointer;
+    transition: border-color 0.15s;
+  }
+
+  .btn-dark-outline:hover { border-color: var(--pb-gold); }
+
+  .btn-red {
+    font-family: var(--font-body);
+    font-size: 13px;
+    font-weight: 500;
+    padding: 12px 28px;
+    background: var(--pym-red);
+    color: white;
+    border: none;
+    border-radius: var(--r-pill);
+    cursor: pointer;
+  }
+
+  .btn-ghost {
+    font-family: var(--font-body);
+    font-size: 13px;
+    font-weight: 400;
+    padding: 12px 20px;
+    background: transparent;
+    color: var(--pb-warm-white);
+    border: none;
+    border-radius: var(--r-pill);
+    cursor: pointer;
+    transition: background 0.15s;
+  }
+
+  .btn-ghost:hover { background: rgba(255,255,255,0.04); }
+
+  /* Badge / Tag */
+  .tag-row { display: flex; gap: 8px; flex-wrap: wrap; }
+
+  .tag {
+    font-size: 10px;
+    font-weight: 600;
+    padding: 5px 14px;
+    border-radius: var(--r-pill);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  .tag-gold { background: var(--pb-gold-dim); color: var(--pb-gold); }
+  .tag-red { background: rgba(255,73,74,0.12); color: var(--pym-red); }
+  .tag-success { background: rgba(76,175,80,0.12); color: var(--pb-success); }
+  .tag-muted { background: rgba(255,255,255,0.05); color: var(--pb-muted); border: 1px solid var(--pb-border); }
+
+  /* Input demo */
+  .input-demo {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .input-demo input {
+    width: 100%;
+    height: 48px;
+    padding: 0 16px;
+    background: var(--pb-card);
+    border: 1px solid var(--pb-border);
+    border-radius: var(--r-md);
+    color: var(--pb-warm-white);
+    font-family: var(--font-body);
+    font-size: 14px;
+    outline: none;
+  }
+
+  .input-demo input::placeholder { color: var(--pb-subtle); }
+
+  /* ═══════════════════════════════════════════
+     SCREEN LABELS
+     ═══════════════════════════════════════════ */
+  .screen-section { margin-bottom: 80px; }
+  .screen-section:last-child { margin-bottom: 0; }
+
+  .screen-label {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+  }
+
+  .screen-label h3 {
+    font-family: var(--font-display);
+    font-size: 22px;
+    font-weight: 400;
+    color: var(--pb-warm-white);
+  }
+
+  .screen-label .screen-tag {
+    font-size: 10px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: var(--pb-muted);
+    padding: 5px 14px;
+    border-radius: var(--r-pill);
+    border: 1px solid var(--pb-border);
+  }
+
+  /* ═══════════════════════════════════════════
+     FOOTER
+     ═══════════════════════════════════════════ */
+  .ds-footer {
+    text-align: center;
+    padding: 60px;
+    font-size: 12px;
+    color: var(--pb-subtle);
+    border-top: 1px solid var(--pb-border);
+  }
+
+  .ds-footer a {
+    color: var(--pb-gold);
+    text-decoration: none;
+  }
+
+  /* ═══════════════════════════════════════════
+     ANIMATIONS
+     ═══════════════════════════════════════════ */
+  @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+  @keyframes fadeInUp { from { opacity: 0; transform: translateY(28px); } to { opacity: 1; transform: translateY(0); } }
+</style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════════
+     HERO
+     ═══════════════════════════════════════════ -->
+<div class="hero">
+  <div class="hero-badge">
+    <span class="diamond"></span>
+    Pic Your Booth — Design System
+  </div>
+  <h1>Capture <em>Every</em><br>Moment</h1>
+  <p class="subtitle">Design system voor de Pic Your Booth website. Premium photobooth-ervaring, herkenbaar als onderdeel van Pic Your Moment.</p>
+  <div class="theme-pills">
+    <button class="active" onclick="setTheme('dark')">Magic Mirror</button>
+    <button onclick="setTheme('light')">iPad Booth</button>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     ARCHITECTURE
+     ═══════════════════════════════════════════ -->
+<div class="section">
+  <div class="section-label">Architecture</div>
+  <div class="section-title">Twee werelden, één merk</div>
+  <div class="section-desc">De photobooth website spreekt twee segmenten aan met elk hun eigen visuele taal — maar altijd herkenbaar als Pic Your Moment.</div>
+
+  <div class="component-grid">
+    <div class="comp-box">
+      <h4>Magic Mirror XL — Premium</h4>
+      <p style="font-size:13px; color:var(--pb-muted); line-height:1.6; margin-bottom:16px;">Donker, cinematisch, warm goud. Voor bruiloften, corporate events, en high-end feesten. De nadruk ligt op kwaliteit en ervaring.</p>
+      <div class="tag-row">
+        <span class="tag tag-gold">Dark Theme</span>
+        <span class="tag tag-gold">Cormorant Garamond</span>
+        <span class="tag tag-gold">Gold Accents</span>
+      </div>
+    </div>
+    <div class="comp-box">
+      <h4>iPad Photobooth — Accessible</h4>
+      <p style="font-size:13px; color:var(--pb-muted); line-height:1.6; margin-bottom:16px;">Licht, fris, toegankelijk. Voor verjaardagen, huisfeestjes, en elke viering. De nadruk ligt op gemak en prijs.</p>
+      <div class="tag-row">
+        <span class="tag tag-red">Light Theme</span>
+        <span class="tag tag-red">DM Sans</span>
+        <span class="tag tag-red">PYM Red CTA</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     SCREENS — MAGIC MIRROR LANDING
+     ═══════════════════════════════════════════ -->
+<div class="section">
+  <div class="section-label">Screens</div>
+  <div class="section-title">Landing Pages</div>
+  <div class="section-desc">Twee landing pages voor twee segmenten. Message match met Meta Ads — elke pagina sluit aan op het advertentietraject.</div>
+
+  <div class="screen-section">
+    <div class="screen-label">
+      <h3>Magic Mirror XL — Premium Landing</h3>
+      <span class="screen-tag">Dark • Gold Accent</span>
+    </div>
+
+    <div class="browser-frame">
+      <div class="browser-bar">
+        <div class="browser-dots"><span></span><span></span><span></span></div>
+        <div class="browser-url">
+          <span class="lock">🔒</span> picyourbooth.nl/magic-mirror
+        </div>
+      </div>
+      <div class="landing-dark">
+        <div class="ld-nav">
+          <div class="ld-logo">Pic Your <span>Booth</span></div>
+          <div class="ld-links">
+            <a class="ld-link" href="#">Magic Mirror</a>
+            <a class="ld-link" href="#">iPad Booth</a>
+            <a class="ld-link" href="#">DJ & Booth</a>
+            <a class="ld-link" href="#">Over ons</a>
+          </div>
+          <button class="ld-cta">Offerte aanvragen</button>
+        </div>
+        <div class="ld-hero">
+          <h1>Niet zomaar een booth.<br><em>Een ervaring.</em></h1>
+          <p>Professionele DSLR-camera, studio-belichting, en een VIP-ervaring voor je gasten. Van bruiloft tot corporate event.</p>
+          <div class="ld-hero-actions">
+            <button class="ld-btn-primary">Vraag een voorstel aan</button>
+            <button class="ld-btn-outline">Bekijk pakketten</button>
+          </div>
+        </div>
+        <div class="ld-proof">
+          <div class="ld-proof-item">
+            <div class="ld-proof-number">200+</div>
+            <div class="ld-proof-label">Events</div>
+          </div>
+          <div class="ld-proof-divider"></div>
+          <div class="ld-proof-item">
+            <div class="ld-proof-number">4.9</div>
+            <div class="ld-proof-label">Google Score</div>
+          </div>
+          <div class="ld-proof-divider"></div>
+          <div class="ld-proof-item">
+            <div class="ld-proof-number">100%</div>
+            <div class="ld-proof-label">Aanbeveling</div>
+          </div>
+        </div>
+        <div class="ld-services">
+          <h2>Onze Diensten</h2>
+          <p class="ld-services-sub">Kies het pakket dat bij je event past</p>
+          <div class="service-grid">
+            <div class="service-card">
+              <div class="sc-image" style="background: linear-gradient(135deg, #1a1520, #2a1f30);"></div>
+              <div class="sc-info">
+                <div class="sc-name">Magic Mirror XL</div>
+                <div class="sc-desc">DSLR kwaliteit, professionele belichting, direct printen op locatie</div>
+                <div class="sc-price">Vanaf €599 <span>• 4 uur</span></div>
+              </div>
+            </div>
+            <div class="service-card">
+              <div class="sc-image" style="background: linear-gradient(135deg, #1a1a20, #201a28);">
+                <span class="sc-badge">Populair</span>
+              </div>
+              <div class="sc-info">
+                <div class="sc-name">VIP Experience</div>
+                <div class="sc-desc">Magic Mirror + backdrop, rode loper, stanchions & luxe props</div>
+                <div class="sc-price">Vanaf €749 <span>• All-inclusive</span></div>
+              </div>
+            </div>
+            <div class="service-card">
+              <div class="sc-image" style="background: linear-gradient(135deg, #18181e, #1e1828);"></div>
+              <div class="sc-info">
+                <div class="sc-name">DJ + Booth Combo</div>
+                <div class="sc-desc">Eén team, eén vibe. Photobooth + professionele DJ met Spotify-optimalisatie</div>
+                <div class="sc-price">Vanaf €749 <span>• Complete avond</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- iPad Photobooth Landing -->
+  <div class="screen-section">
+    <div class="screen-label">
+      <h3>iPad Photobooth — Accessible Landing</h3>
+      <span class="screen-tag">Light • Fun Energy</span>
+    </div>
+
+    <div class="browser-frame">
+      <div class="browser-bar">
+        <div class="browser-dots"><span></span><span></span><span></span></div>
+        <div class="browser-url">
+          <span class="lock">🔒</span> picyourbooth.nl/ipad-photobooth
+        </div>
+      </div>
+      <div class="landing-light">
+        <div class="ll-nav">
+          <div class="ll-logo">Pic Your <span>Booth</span></div>
+          <div class="ll-links">
+            <a class="ll-link" href="#">Magic Mirror</a>
+            <a class="ll-link" href="#">iPad Booth</a>
+            <a class="ll-link" href="#">DJ & Booth</a>
+          </div>
+          <button class="ll-cta">Offerte aanvragen</button>
+        </div>
+        <div class="ll-hero">
+          <h1>Photo fun voor<br><span>elk budget</span></h1>
+          <p>Ophalen, neerzetten op je feest, en genieten. Zo simpel is het. Voor verjaardagen, feestjes & meer.</p>
+          <div class="ll-price-tag">
+            <span class="from">Vanaf</span>
+            <span class="price">€200</span>
+          </div>
+          <div class="ll-actions">
+            <button class="ll-btn-primary">Bekijk pakketten</button>
+            <button class="ll-btn-outline">Hoe werkt het?</button>
+          </div>
+        </div>
+        <div class="ll-packages">
+          <h2>Kies je pakket</h2>
+          <div class="package-grid">
+            <div class="package-card">
+              <div class="pk-name">Basic</div>
+              <div class="pk-price">€200</div>
+              <div class="pk-unit">ophalen bij ons</div>
+              <ul class="pk-features">
+                <li>Digitale fotostrips</li>
+                <li>Basis design</li>
+                <li>Zelf ophalen & terugbrengen</li>
+              </ul>
+              <button class="pk-btn">Kies Basic</button>
+            </div>
+            <div class="package-card recommended">
+              <div class="pk-name">Plus</div>
+              <div class="pk-price">€225</div>
+              <div class="pk-unit">ophalen bij ons</div>
+              <ul class="pk-features">
+                <li>Digitale fotostrips</li>
+                <li>Premium design</li>
+                <li>Zelf ophalen & terugbrengen</li>
+              </ul>
+              <button class="pk-btn">Kies Plus</button>
+            </div>
+            <div class="package-card">
+              <div class="pk-name">Premium</div>
+              <div class="pk-price">€250</div>
+              <div class="pk-unit">wij bezorgen</div>
+              <ul class="pk-features">
+                <li>Digitale fotostrips</li>
+                <li>Custom design</li>
+                <li>Bezorging & ophalen door ons</li>
+              </ul>
+              <button class="pk-btn">Kies Premium</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Proposal Form -->
+  <div class="screen-section">
+    <div class="screen-label">
+      <h3>Voorstel Aanvragen — Formulier</h3>
+      <span class="screen-tag">Conversion Point</span>
+    </div>
+
+    <div class="browser-frame">
+      <div class="browser-bar">
+        <div class="browser-dots"><span></span><span></span><span></span></div>
+        <div class="browser-url">
+          <span class="lock">🔒</span> picyourbooth.nl/offerte
+        </div>
+      </div>
+      <div class="form-screen">
+        <div class="fs-header">
+          <h2>Ontvang je voorstel</h2>
+          <p>Vul het formulier in en ontvang binnen 24 uur een vrijblijvend voorstel.</p>
+        </div>
+        <div class="fs-body">
+          <div class="form-row">
+            <div class="form-group">
+              <label>Naam</label>
+              <input type="text" placeholder="Je volledige naam">
+            </div>
+            <div class="form-group">
+              <label>E-mail</label>
+              <input type="email" placeholder="naam@voorbeeld.nl">
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label>Telefoon</label>
+              <input type="tel" placeholder="06 12345678">
+            </div>
+            <div class="form-group">
+              <label>Datum event</label>
+              <input type="date">
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Type event</label>
+            <select>
+              <option>Kies het type event...</option>
+              <option>Bruiloft</option>
+              <option>Bedrijfsevent</option>
+              <option>Verjaardag</option>
+              <option>Feest / Party</option>
+              <option>Anders</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Bericht (optioneel)</label>
+            <textarea placeholder="Vertel ons meer over je event..."></textarea>
+          </div>
+          <button class="form-submit">Ontvang je voorstel</button>
+          <div class="form-hint">Binnen 24 uur reactie · Vrijblijvend · Geen verplichtingen</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     COLOR PALETTE
+     ═══════════════════════════════════════════ -->
+<div class="section">
+  <div class="section-label">Foundations</div>
+  <div class="section-title">Kleurenpalet</div>
+  <div class="section-desc">Twee paletten: donker met goud voor premium, licht met PYM rood voor toegankelijk. Alle kleuren voldoen aan WCAG AA contrast.</div>
+
+  <div class="color-grid">
+    <div class="color-swatch">
+      <div class="preview" style="background:#c9a84c; color:#0a0a0c;"><span class="hex">#c9a84c</span></div>
+      <div class="meta"><div class="name">Gold</div><div class="role">Primary — Premium CTA</div></div>
+    </div>
+    <div class="color-swatch">
+      <div class="preview" style="background:#ff494a; color:#fff;"><span class="hex">#ff494a</span></div>
+      <div class="meta"><div class="name">PYM Red</div><div class="role">Accent — iPad CTA, PYM heritage</div></div>
+    </div>
+    <div class="color-swatch">
+      <div class="preview" style="background:#0a0a0c; color:#f5f0e8;"><span class="hex">#0a0a0c</span></div>
+      <div class="meta"><div class="name">Deep Black</div><div class="role">Premium background</div></div>
+    </div>
+    <div class="color-swatch">
+      <div class="preview" style="background:#1a1a1e; color:#f5f0e8;"><span class="hex">#1a1a1e</span></div>
+      <div class="meta"><div class="name">Card Dark</div><div class="role">Cards, surfaces — dark theme</div></div>
+    </div>
+    <div class="color-swatch">
+      <div class="preview" style="background:#f5f0e8; color:#1a1a1e;"><span class="hex">#f5f0e8</span></div>
+      <div class="meta"><div class="name">Warm White</div><div class="role">Text — dark theme</div></div>
+    </div>
+    <div class="color-swatch">
+      <div class="preview" style="background:#faf8f4; color:#1a1a1e;"><span class="hex">#faf8f4</span></div>
+      <div class="meta"><div class="name">Cream BG</div><div class="role">Background — light theme</div></div>
+    </div>
+    <div class="color-swatch">
+      <div class="preview" style="background:#e0d8cc; color:#1a1a1e;"><span class="hex">#e0d8cc</span></div>
+      <div class="meta"><div class="name">Warm Border</div><div class="role">Borders — light theme</div></div>
+    </div>
+    <div class="color-swatch">
+      <div class="preview" style="background:#100e34; color:#f5f0e8;"><span class="hex">#100e34</span></div>
+      <div class="meta"><div class="name">PYM Navy</div><div class="role">Heritage — parent brand link</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     TYPOGRAPHY
+     ═══════════════════════════════════════════ -->
+<div class="section">
+  <div class="section-label">Typography</div>
+  <div class="section-title">Typografie</div>
+  <div class="section-desc">Cormorant Garamond voor display & headings — elegant, premium gevoel. DM Sans voor body — clean, modern, leesbaar.</div>
+
+  <div class="type-row">
+    <div class="label">Display<span class="specs">Cormorant Garamond 300 · 61px · 1.0</span></div>
+    <div class="sample display-font" style="font-size:61px; font-weight:300; line-height:1;">Capture Every Moment</div>
+  </div>
+  <div class="type-row">
+    <div class="label">H1<span class="specs">Cormorant Garamond 400 · 48px · 1.1</span></div>
+    <div class="sample display-font" style="font-size:48px; font-weight:400; line-height:1.1;">Niet zomaar een booth</div>
+  </div>
+  <div class="type-row">
+    <div class="label">H2<span class="specs">Cormorant Garamond 400 · 36px · 1.2</span></div>
+    <div class="sample display-font" style="font-size:36px; font-weight:400; line-height:1.2;">Onze Diensten</div>
+  </div>
+  <div class="type-row">
+    <div class="label">H3<span class="specs">DM Sans 600 · 24px · 1.3</span></div>
+    <div class="sample" style="font-size:24px; font-weight:600; line-height:1.3;">Magic Mirror XL Experience</div>
+  </div>
+  <div class="type-row">
+    <div class="label">Body<span class="specs">DM Sans 400 · 16px · 1.6</span></div>
+    <div class="sample" style="font-size:16px; font-weight:400; line-height:1.6;">Professionele DSLR-camera, studio-belichting, en een complete VIP-ervaring voor je gasten.</div>
+  </div>
+  <div class="type-row">
+    <div class="label">Small<span class="specs">DM Sans 400 · 14px · 1.5</span></div>
+    <div class="sample" style="font-size:14px; font-weight:400; line-height:1.5; color:var(--pb-muted);">Binnen 24 uur reactie · Vrijblijvend · Geen verplichtingen</div>
+  </div>
+  <div class="type-row">
+    <div class="label">Label<span class="specs">DM Sans 600 · 10px · 1.4 · Uppercase</span></div>
+    <div class="sample" style="font-size:10px; font-weight:600; line-height:1.4; letter-spacing:2px; text-transform:uppercase; color:var(--pb-gold);">Meest Gekozen · Premium · Nieuw</div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     COMPONENTS
+     ═══════════════════════════════════════════ -->
+<div class="section">
+  <div class="section-label">Components</div>
+  <div class="section-title">UI Componenten</div>
+  <div class="section-desc">Buttons, tags, en formulierelementen in de twee visuele modi.</div>
+
+  <div class="component-grid">
+    <div class="comp-box">
+      <h4>Buttons — Dark / Premium</h4>
+      <div class="btn-row">
+        <button class="btn-gold">Vraag voorstel aan</button>
+        <button class="btn-dark-outline">Bekijk pakketten</button>
+        <button class="btn-ghost">Meer info</button>
+      </div>
+    </div>
+    <div class="comp-box">
+      <h4>Buttons — Light / Accessible</h4>
+      <div class="btn-row">
+        <button class="btn-red">Kies dit pakket</button>
+        <button class="btn-dark-outline" style="color:#1a1a1e; border-color:#e0d8cc;">Hoe werkt het?</button>
+        <button class="btn-ghost" style="color:#1a1a1e;">Meer info</button>
+      </div>
+    </div>
+    <div class="comp-box">
+      <h4>Tags / Badges</h4>
+      <div class="tag-row">
+        <span class="tag tag-gold">Premium</span>
+        <span class="tag tag-red">Meest gekozen</span>
+        <span class="tag tag-success">Beschikbaar</span>
+        <span class="tag tag-muted">Bruiloft</span>
+        <span class="tag tag-muted">Corporate</span>
+      </div>
+    </div>
+    <div class="comp-box">
+      <h4>Form Inputs</h4>
+      <div class="input-demo">
+        <input type="text" placeholder="Je naam">
+        <input type="email" placeholder="naam@voorbeeld.nl">
+        <input type="date" value="2026-06-15">
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     FOOTER
+     ═══════════════════════════════════════════ -->
+<div class="ds-footer">
+  Pic Your Booth Design System · Onderdeel van <a href="#">Pic Your Moment BV</a> · Randstad, Nederland
+</div>
+
+<script>
+  function setTheme(t) {
+    document.querySelectorAll('.theme-pills button').forEach(b => b.classList.remove('active'));
+    event.target.classList.add('active');
+    // Theme toggle is visual reference only — both themes shown in the screens above
+  }
+</script>
+
+</body>
+</html>

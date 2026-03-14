@@ -1,0 +1,1412 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pic Your Booth — DJ Hub Design System</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  /* ═══════════════════════════════════════════
+     DJ HUB DESIGN TOKENS
+     Nightlife dark + split-energy neons.
+     DJ Gianni: warm amber/orange. Milo: cool electric blue.
+     Unified by dark base + PYM heritage.
+     ═══════════════════════════════════════════ */
+  :root {
+    /* Shared Dark Base */
+    --dj-void: #050508;
+    --dj-surface: #0e0e14;
+    --dj-card: #14141c;
+    --dj-border: rgba(255,255,255,0.06);
+    --dj-white: #eeeef2;
+    --dj-muted: rgba(238,238,242,0.4);
+    --dj-subtle: rgba(238,238,242,0.12);
+
+    /* DJ Gianni — Warm Energy */
+    --gi-amber: #ff8f1f;
+    --gi-amber-light: #ffab4f;
+    --gi-amber-dim: rgba(255,143,31,0.12);
+    --gi-glow: rgba(255,143,31,0.06);
+
+    /* Milo — Cool Energy */
+    --mi-blue: #3b82f6;
+    --mi-blue-light: #60a5fa;
+    --mi-blue-dim: rgba(59,130,246,0.12);
+    --mi-glow: rgba(59,130,246,0.06);
+
+    /* Shared Accent */
+    --dj-pink: #e839a0;
+    --dj-pink-dim: rgba(232,57,160,0.12);
+
+    /* PYM Heritage */
+    --pym-red: #ff494a;
+    --pym-navy: #100e34;
+
+    /* Spacing */
+    --sp-1: 4px; --sp-2: 8px; --sp-3: 12px; --sp-4: 16px;
+    --sp-6: 24px; --sp-8: 32px; --sp-12: 48px; --sp-16: 64px; --sp-20: 80px;
+
+    /* Radius */
+    --r-sm: 6px; --r-md: 10px; --r-lg: 16px; --r-xl: 24px; --r-pill: 999px;
+
+    /* Fonts */
+    --font-display: 'Bebas Neue', sans-serif;
+    --font-body: 'Space Grotesk', sans-serif;
+  }
+
+  /* ═══════════════════════════════════════════
+     BASE
+     ═══════════════════════════════════════════ */
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: var(--font-body);
+    background: var(--dj-void);
+    color: var(--dj-white);
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+
+  ::selection { background: rgba(232,57,160,0.35); color: var(--dj-white); }
+
+  /* Subtle scan-line texture */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    pointer-events: none;
+    opacity: 0.015;
+    background: repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 2px,
+      rgba(255,255,255,0.03) 2px,
+      rgba(255,255,255,0.03) 4px
+    );
+  }
+
+  /* ═══════════════════════════════════════════
+     HERO — Split energy glow
+     ═══════════════════════════════════════════ */
+  .hero {
+    position: relative;
+    padding: 140px 60px 100px;
+    text-align: center;
+    overflow: hidden;
+  }
+
+  /* Dual glow — amber left, blue right */
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -100px; left: 15%;
+    width: 500px; height: 500px;
+    background: radial-gradient(circle, var(--gi-glow) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .hero::after {
+    content: '';
+    position: absolute;
+    top: -100px; right: 15%;
+    width: 500px; height: 500px;
+    background: radial-gradient(circle, var(--mi-glow) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 20px;
+    border-radius: var(--r-pill);
+    border: 1px solid var(--dj-border);
+    background: rgba(255,255,255,0.02);
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--dj-muted);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 40px;
+    animation: fadeIn 0.8s ease both;
+  }
+
+  .hero-badge .pulse-dot {
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    background: var(--dj-pink);
+    animation: pulse 2s ease infinite;
+  }
+
+  .hero h1 {
+    font-family: var(--font-display);
+    font-size: clamp(72px, 10vw, 140px);
+    font-weight: 400;
+    letter-spacing: 4px;
+    line-height: 0.9;
+    color: var(--dj-white);
+    margin-bottom: 24px;
+    text-transform: uppercase;
+    animation: fadeInUp 0.9s ease 0.1s both;
+  }
+
+  .hero h1 .gi { color: var(--gi-amber); }
+  .hero h1 .mi { color: var(--mi-blue); }
+
+  .hero .subtitle {
+    font-size: 16px;
+    font-weight: 300;
+    color: var(--dj-muted);
+    max-width: 500px;
+    margin: 0 auto 48px;
+    line-height: 1.7;
+    animation: fadeInUp 0.9s ease 0.2s both;
+  }
+
+  .dj-toggle {
+    display: inline-flex;
+    gap: 4px;
+    padding: 4px;
+    border-radius: var(--r-pill);
+    border: 1px solid var(--dj-border);
+    background: rgba(255,255,255,0.02);
+    animation: fadeInUp 0.9s ease 0.3s both;
+  }
+
+  .dj-toggle button {
+    font-family: var(--font-body);
+    font-size: 12px;
+    font-weight: 500;
+    padding: 10px 28px;
+    border-radius: var(--r-pill);
+    border: none;
+    background: transparent;
+    color: var(--dj-muted);
+    cursor: pointer;
+    transition: all 0.25s ease;
+  }
+
+  .dj-toggle button.active-gi {
+    background: var(--gi-amber);
+    color: var(--dj-void);
+  }
+
+  .dj-toggle button.active-mi {
+    background: var(--mi-blue);
+    color: white;
+  }
+
+  .dj-toggle button:hover:not([class*="active"]) { color: var(--dj-white); }
+
+  /* ═══════════════════════════════════════════
+     SECTIONS
+     ═══════════════════════════════════════════ */
+  .section {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: var(--sp-20) 60px;
+    position: relative;
+    animation: fadeInUp 0.7s ease both;
+  }
+
+  .section + .section::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 60px; right: 60px;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--dj-border), transparent);
+  }
+
+  .section-label {
+    font-size: 10px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    color: var(--dj-pink);
+    margin-bottom: 12px;
+  }
+
+  .section-title {
+    font-family: var(--font-display);
+    font-size: clamp(36px, 5vw, 56px);
+    font-weight: 400;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--dj-white);
+    margin-bottom: 12px;
+  }
+
+  .section-desc {
+    font-size: 15px;
+    font-weight: 300;
+    color: var(--dj-muted);
+    max-width: 540px;
+    line-height: 1.7;
+    margin-bottom: 48px;
+  }
+
+  @media (max-width: 768px) {
+    .section { padding: 60px 24px; }
+    .hero { padding: 100px 24px 60px; }
+  }
+
+  /* ═══════════════════════════════════════════
+     BROWSER FRAME
+     ═══════════════════════════════════════════ */
+  .browser-frame {
+    border-radius: var(--r-xl);
+    border: 1px solid var(--dj-border);
+    overflow: hidden;
+    background: var(--dj-surface);
+    box-shadow: 0 24px 80px rgba(0,0,0,0.6);
+    max-width: 1024px;
+    margin: 0 auto;
+    transition: transform 0.3s ease-out;
+  }
+
+  .browser-frame:hover { transform: translateY(-4px); }
+
+  @media (prefers-reduced-motion: reduce) {
+    .browser-frame, .dj-profile-card, .section {
+      transition: none !important;
+      animation: none !important;
+    }
+  }
+
+  .browser-bar {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 14px 20px;
+    background: rgba(255,255,255,0.02);
+    border-bottom: 1px solid var(--dj-border);
+  }
+
+  .browser-dots { display: flex; gap: 6px; }
+  .browser-dots span { width: 10px; height: 10px; border-radius: 50%; background: rgba(255,255,255,0.06); }
+
+  .browser-url {
+    flex: 1;
+    height: 30px;
+    border-radius: var(--r-sm);
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.03);
+    display: flex;
+    align-items: center;
+    padding: 0 12px;
+    font-size: 12px;
+    color: var(--dj-muted);
+  }
+
+  .browser-url .lock { margin-right: 6px; opacity: 0.3; }
+
+  /* ═══════════════════════════════════════════
+     SCREEN: DJ HUB — OVERARCHING PAGE
+     ═══════════════════════════════════════════ */
+  .dj-hub {
+    background: var(--dj-void);
+    font-family: var(--font-body);
+  }
+
+  .dj-hub .hub-nav {
+    display: flex;
+    align-items: center;
+    padding: 20px 32px;
+    border-bottom: 1px solid var(--dj-border);
+  }
+
+  .dj-hub .hub-logo {
+    font-family: var(--font-display);
+    font-size: 22px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--dj-white);
+    margin-right: auto;
+  }
+
+  .dj-hub .hub-logo .accent { color: var(--dj-pink); }
+
+  .dj-hub .hub-links {
+    display: flex;
+    gap: 4px;
+  }
+
+  .dj-hub .hub-link {
+    font-size: 13px;
+    font-weight: 400;
+    color: var(--dj-muted);
+    padding: 8px 14px;
+    text-decoration: none;
+    transition: color 0.15s;
+  }
+
+  .dj-hub .hub-link:hover { color: var(--dj-white); }
+
+  .dj-hub .hub-cta {
+    font-family: var(--font-body);
+    font-size: 12px;
+    font-weight: 600;
+    padding: 10px 24px;
+    background: var(--dj-pink);
+    color: white;
+    border: none;
+    border-radius: var(--r-pill);
+    cursor: pointer;
+    margin-left: 12px;
+  }
+
+  /* DJ Hub Hero */
+  .dj-hub .hub-hero {
+    padding: 80px 48px 60px;
+    text-align: center;
+    position: relative;
+  }
+
+  .dj-hub .hub-hero h1 {
+    font-family: var(--font-display);
+    font-size: 56px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--dj-white);
+    line-height: 1;
+    margin-bottom: 16px;
+  }
+
+  .dj-hub .hub-hero h1 .split {
+    display: inline-block;
+    background: linear-gradient(90deg, var(--gi-amber), var(--mi-blue));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .dj-hub .hub-hero p {
+    font-size: 15px;
+    color: var(--dj-muted);
+    max-width: 440px;
+    margin: 0 auto 40px;
+    line-height: 1.6;
+  }
+
+  /* DJ Profile Cards — Side by Side */
+  .dj-profiles {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    padding: 0 48px 48px;
+  }
+
+  .dj-profile-card {
+    border-radius: var(--r-xl);
+    overflow: hidden;
+    position: relative;
+    transition: transform 0.25s ease;
+    cursor: pointer;
+  }
+
+  .dj-profile-card:hover { transform: translateY(-6px); }
+
+  .dj-profile-card.gianni {
+    border: 1px solid rgba(255,143,31,0.15);
+    background: linear-gradient(180deg, rgba(255,143,31,0.04) 0%, var(--dj-card) 60%);
+  }
+
+  .dj-profile-card.milo {
+    border: 1px solid rgba(59,130,246,0.15);
+    background: linear-gradient(180deg, rgba(59,130,246,0.04) 0%, var(--dj-card) 60%);
+  }
+
+  .dj-profile-card .profile-visual {
+    height: 220px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .dj-profile-card.gianni .profile-visual {
+    background: linear-gradient(135deg, rgba(255,143,31,0.08), transparent 60%);
+  }
+
+  .dj-profile-card.milo .profile-visual {
+    background: linear-gradient(135deg, rgba(59,130,246,0.08), transparent 60%);
+  }
+
+  .dj-profile-card .profile-visual .dj-initial {
+    font-family: var(--font-display);
+    font-size: 120px;
+    letter-spacing: 8px;
+    opacity: 0.06;
+    text-transform: uppercase;
+    position: absolute;
+  }
+
+  .dj-profile-card .profile-visual .genre-tag {
+    position: absolute;
+    top: 20px; left: 20px;
+    font-size: 10px;
+    font-weight: 600;
+    padding: 5px 14px;
+    border-radius: var(--r-pill);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+
+  .dj-profile-card.gianni .genre-tag {
+    background: var(--gi-amber-dim);
+    color: var(--gi-amber);
+  }
+
+  .dj-profile-card.milo .genre-tag {
+    background: var(--mi-blue-dim);
+    color: var(--mi-blue);
+  }
+
+  .dj-profile-card .profile-visual .play-btn {
+    width: 64px; height: 64px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: transform 0.15s;
+  }
+
+  .dj-profile-card.gianni .play-btn {
+    background: var(--gi-amber);
+    color: var(--dj-void);
+  }
+
+  .dj-profile-card.milo .play-btn {
+    background: var(--mi-blue);
+    color: white;
+  }
+
+  .dj-profile-card .play-btn:hover { transform: scale(1.1); }
+
+  .dj-profile-card .play-btn svg {
+    width: 24px; height: 24px;
+    fill: currentColor;
+  }
+
+  .dj-profile-card .profile-info {
+    padding: 28px;
+  }
+
+  .dj-profile-card .dj-name {
+    font-family: var(--font-display);
+    font-size: 32px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--dj-white);
+    margin-bottom: 4px;
+  }
+
+  .dj-profile-card .dj-tagline {
+    font-size: 13px;
+    color: var(--dj-muted);
+    margin-bottom: 20px;
+    line-height: 1.5;
+  }
+
+  .dj-profile-card .dj-genres {
+    display: flex;
+    gap: 6px;
+    flex-wrap: wrap;
+    margin-bottom: 24px;
+  }
+
+  .dj-profile-card .dj-genre {
+    font-size: 10px;
+    font-weight: 500;
+    padding: 4px 12px;
+    border-radius: var(--r-pill);
+    border: 1px solid var(--dj-border);
+    color: var(--dj-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  .dj-profile-card .dj-socials {
+    display: flex;
+    gap: 10px;
+  }
+
+  .dj-profile-card .social-icon {
+    width: 36px; height: 36px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.04);
+    border: 1px solid var(--dj-border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--dj-muted);
+    font-size: 14px;
+    transition: all 0.15s;
+    text-decoration: none;
+  }
+
+  .dj-profile-card.gianni .social-icon:hover {
+    background: var(--gi-amber-dim);
+    border-color: rgba(255,143,31,0.3);
+    color: var(--gi-amber);
+  }
+
+  .dj-profile-card.milo .social-icon:hover {
+    background: var(--mi-blue-dim);
+    border-color: rgba(59,130,246,0.3);
+    color: var(--mi-blue);
+  }
+
+  /* Spotify section */
+  .dj-hub .hub-spotify {
+    padding: 40px 48px;
+    border-top: 1px solid var(--dj-border);
+    text-align: center;
+  }
+
+  .dj-hub .hub-spotify h3 {
+    font-family: var(--font-display);
+    font-size: 28px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--dj-white);
+    margin-bottom: 8px;
+  }
+
+  .dj-hub .hub-spotify p {
+    font-size: 14px;
+    color: var(--dj-muted);
+    margin-bottom: 24px;
+  }
+
+  .spotify-feature {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 20px 28px;
+    background: var(--dj-card);
+    border: 1px solid var(--dj-border);
+    border-radius: var(--r-lg);
+    text-align: left;
+  }
+
+  .spotify-feature .sp-icon {
+    width: 48px; height: 48px;
+    border-radius: var(--r-md);
+    background: #1db954;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    color: white;
+    font-size: 24px;
+    font-weight: 700;
+  }
+
+  .spotify-feature .sp-text h4 {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--dj-white);
+    margin-bottom: 4px;
+  }
+
+  .spotify-feature .sp-text p {
+    font-size: 12px;
+    color: var(--dj-muted);
+    margin-bottom: 0;
+  }
+
+  /* ═══════════════════════════════════════════
+     SCREEN: DJ GIANNI PROFILE PAGE
+     ═══════════════════════════════════════════ */
+  .dj-profile-page {
+    background: var(--dj-void);
+    font-family: var(--font-body);
+  }
+
+  .dj-profile-page .pp-header {
+    padding: 48px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .dj-profile-page.gianni-page .pp-header {
+    background: linear-gradient(180deg, rgba(255,143,31,0.06) 0%, transparent 100%);
+  }
+
+  .dj-profile-page.milo-page .pp-header {
+    background: linear-gradient(180deg, rgba(59,130,246,0.06) 0%, transparent 100%);
+  }
+
+  .pp-header-content {
+    display: flex;
+    gap: 32px;
+    align-items: flex-start;
+  }
+
+  .pp-avatar {
+    width: 140px; height: 140px;
+    border-radius: 50%;
+    flex-shrink: 0;
+    position: relative;
+  }
+
+  .pp-avatar .avatar-ring {
+    position: absolute;
+    inset: -4px;
+    border-radius: 50%;
+  }
+
+  .gianni-page .avatar-ring { border: 2px solid rgba(255,143,31,0.3); }
+  .milo-page .avatar-ring { border: 2px solid rgba(59,130,246,0.3); }
+
+  .pp-avatar .avatar-inner {
+    width: 100%; height: 100%;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-display);
+    font-size: 48px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+  }
+
+  .gianni-page .avatar-inner { background: linear-gradient(135deg, rgba(255,143,31,0.1), var(--dj-card)); color: var(--gi-amber); }
+  .milo-page .avatar-inner { background: linear-gradient(135deg, rgba(59,130,246,0.1), var(--dj-card)); color: var(--mi-blue); }
+
+  .pp-details { flex: 1; }
+
+  .pp-details .pp-name {
+    font-family: var(--font-display);
+    font-size: 48px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--dj-white);
+    margin-bottom: 6px;
+  }
+
+  .pp-details .pp-tagline {
+    font-size: 15px;
+    color: var(--dj-muted);
+    margin-bottom: 20px;
+    max-width: 400px;
+    line-height: 1.5;
+  }
+
+  .pp-details .pp-genres {
+    display: flex;
+    gap: 6px;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+  }
+
+  .pp-details .pp-genre {
+    font-size: 10px;
+    font-weight: 500;
+    padding: 5px 14px;
+    border-radius: var(--r-pill);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  .gianni-page .pp-genre { background: var(--gi-amber-dim); color: var(--gi-amber); }
+  .milo-page .pp-genre { background: var(--mi-blue-dim); color: var(--mi-blue); }
+
+  .pp-details .pp-actions {
+    display: flex;
+    gap: 10px;
+  }
+
+  .pp-details .pp-btn-primary {
+    font-family: var(--font-body);
+    font-size: 12px;
+    font-weight: 600;
+    padding: 12px 28px;
+    border: none;
+    border-radius: var(--r-pill);
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  .gianni-page .pp-btn-primary { background: var(--gi-amber); color: var(--dj-void); }
+  .milo-page .pp-btn-primary { background: var(--mi-blue); color: white; }
+
+  .pp-details .pp-btn-outline {
+    font-family: var(--font-body);
+    font-size: 12px;
+    font-weight: 400;
+    padding: 12px 28px;
+    background: transparent;
+    color: var(--dj-white);
+    border: 1px solid var(--dj-border);
+    border-radius: var(--r-pill);
+    cursor: pointer;
+  }
+
+  /* Recent sets */
+  .pp-sets {
+    padding: 32px 48px 48px;
+    border-top: 1px solid var(--dj-border);
+  }
+
+  .pp-sets h3 {
+    font-family: var(--font-display);
+    font-size: 24px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--dj-white);
+    margin-bottom: 20px;
+  }
+
+  .set-list { display: flex; flex-direction: column; gap: 8px; }
+
+  .set-item {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 14px 20px;
+    background: var(--dj-card);
+    border: 1px solid var(--dj-border);
+    border-radius: var(--r-md);
+    cursor: pointer;
+    transition: border-color 0.15s;
+  }
+
+  .set-item:hover { border-color: rgba(255,255,255,0.12); }
+
+  .set-item .set-play {
+    width: 36px; height: 36px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .gianni-page .set-play { background: var(--gi-amber-dim); color: var(--gi-amber); }
+  .milo-page .set-play { background: var(--mi-blue-dim); color: var(--mi-blue); }
+
+  .set-item .set-play svg { width: 14px; height: 14px; fill: currentColor; }
+
+  .set-item .set-info { flex: 1; }
+  .set-item .set-title { font-size: 14px; font-weight: 500; color: var(--dj-white); }
+  .set-item .set-meta { font-size: 11px; color: var(--dj-muted); margin-top: 2px; }
+  .set-item .set-duration { font-size: 12px; color: var(--dj-muted); flex-shrink: 0; }
+
+  /* ═══════════════════════════════════════════
+     COLOR PALETTE
+     ═══════════════════════════════════════════ */
+  .color-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 12px;
+  }
+
+  .color-swatch {
+    border-radius: var(--r-md);
+    overflow: hidden;
+    border: 1px solid var(--dj-border);
+  }
+
+  .color-swatch .preview {
+    height: 80px;
+    display: flex;
+    align-items: flex-end;
+    padding: 8px 12px;
+  }
+
+  .color-swatch .preview .hex {
+    font-family: 'SF Mono', 'Fira Code', monospace;
+    font-size: 10px;
+    font-weight: 500;
+    opacity: 0.6;
+  }
+
+  .color-swatch .meta {
+    padding: 12px;
+    background: rgba(255,255,255,0.02);
+  }
+
+  .color-swatch .meta .name { font-size: 12px; font-weight: 600; color: var(--dj-white); }
+  .color-swatch .meta .role { font-size: 10px; color: var(--dj-muted); margin-top: 3px; }
+
+  /* ═══════════════════════════════════════════
+     TYPE SCALE
+     ═══════════════════════════════════════════ */
+  .type-row {
+    display: flex;
+    align-items: baseline;
+    gap: 32px;
+    padding: 24px 0;
+    border-bottom: 1px solid var(--dj-border);
+  }
+
+  .type-row .label {
+    flex: 0 0 160px;
+    font-size: 10px;
+    font-weight: 500;
+    color: var(--dj-muted);
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+  }
+
+  .type-row .label .specs {
+    display: block; margin-top: 4px;
+    text-transform: none; letter-spacing: 0;
+    font-size: 10px; color: var(--dj-subtle);
+  }
+
+  .type-row .sample { flex: 1; color: var(--dj-white); }
+
+  /* ═══════════════════════════════════════════
+     COMPONENTS
+     ═══════════════════════════════════════════ */
+  .component-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+  }
+
+  .comp-box {
+    background: rgba(255,255,255,0.02);
+    border: 1px solid var(--dj-border);
+    border-radius: var(--r-lg);
+    padding: 32px;
+  }
+
+  .comp-box h4 {
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--dj-pink);
+    margin-bottom: 24px;
+  }
+
+  .comp-box .btn-row {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+
+  .btn-amber {
+    font-family: var(--font-body);
+    font-size: 13px; font-weight: 600;
+    padding: 12px 28px;
+    background: var(--gi-amber);
+    color: var(--dj-void);
+    border: none; border-radius: var(--r-pill);
+    cursor: pointer; text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  .btn-blue {
+    font-family: var(--font-body);
+    font-size: 13px; font-weight: 600;
+    padding: 12px 28px;
+    background: var(--mi-blue);
+    color: white;
+    border: none; border-radius: var(--r-pill);
+    cursor: pointer; text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  .btn-pink {
+    font-family: var(--font-body);
+    font-size: 13px; font-weight: 600;
+    padding: 12px 28px;
+    background: var(--dj-pink);
+    color: white;
+    border: none; border-radius: var(--r-pill);
+    cursor: pointer;
+  }
+
+  .btn-dj-outline {
+    font-family: var(--font-body);
+    font-size: 13px; font-weight: 400;
+    padding: 12px 28px;
+    background: transparent;
+    color: var(--dj-white);
+    border: 1px solid var(--dj-border);
+    border-radius: var(--r-pill);
+    cursor: pointer;
+  }
+
+  .tag-row { display: flex; gap: 8px; flex-wrap: wrap; }
+
+  .tag {
+    font-size: 10px; font-weight: 600;
+    padding: 5px 14px; border-radius: var(--r-pill);
+    text-transform: uppercase; letter-spacing: 0.5px;
+  }
+
+  .tag-gi { background: var(--gi-amber-dim); color: var(--gi-amber); }
+  .tag-mi { background: var(--mi-blue-dim); color: var(--mi-blue); }
+  .tag-pink { background: var(--dj-pink-dim); color: var(--dj-pink); }
+  .tag-muted { background: rgba(255,255,255,0.04); color: var(--dj-muted); border: 1px solid var(--dj-border); }
+
+  /* ═══════════════════════════════════════════
+     SCREEN LABELS
+     ═══════════════════════════════════════════ */
+  .screen-section { margin-bottom: 80px; }
+  .screen-section:last-child { margin-bottom: 0; }
+
+  .screen-label {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+  }
+
+  .screen-label h3 {
+    font-family: var(--font-display);
+    font-size: 24px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--dj-white);
+  }
+
+  .screen-label .screen-tag {
+    font-size: 10px; font-weight: 500;
+    text-transform: uppercase; letter-spacing: 1.5px;
+    color: var(--dj-muted);
+    padding: 5px 14px;
+    border-radius: var(--r-pill);
+    border: 1px solid var(--dj-border);
+  }
+
+  /* Footer */
+  .ds-footer {
+    text-align: center;
+    padding: 60px;
+    font-size: 12px;
+    color: var(--dj-subtle);
+    border-top: 1px solid var(--dj-border);
+  }
+
+  .ds-footer a { color: var(--dj-pink); text-decoration: none; }
+
+  /* Animations */
+  @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+  @keyframes fadeInUp { from { opacity: 0; transform: translateY(28px); } to { opacity: 1; transform: translateY(0); } }
+  @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.3; } }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-badge">
+    <span class="pulse-dot"></span>
+    DJ Hub — Design System
+  </div>
+  <h1>Our <span class="gi">DJ</span>s<br>Your <span class="mi">Vibe</span></h1>
+  <p class="subtitle">Het DJ-gedeelte van Pic Your Booth. Twee DJ's, twee stijlen, één platform. Van high-energy meezingers tot deep house — wij brengen de muziek bij jouw event.</p>
+  <div class="dj-toggle">
+    <button class="active-gi">DJ Gianni</button>
+    <button class="active-mi">Milo</button>
+  </div>
+</div>
+
+<!-- ARCHITECTURE -->
+<div class="section">
+  <div class="section-label">Architecture</div>
+  <div class="section-title">Two DJs, One Stage</div>
+  <div class="section-desc">De DJ Hub is een overkoepelende pagina op de Pic Your Booth website waar beide DJ-profielen worden gepromoot. Elk profiel heeft zijn eigen kleurenergie.</div>
+
+  <div class="component-grid">
+    <div class="comp-box">
+      <h4>DJ Gianni (Luca) — Warm Energy</h4>
+      <p style="font-size:13px; color:var(--dj-muted); line-height:1.6; margin-bottom:16px;">Meezingers, afro, dance. Elke set volle energie. Amber/oranje kleuraccent — warm, uitnodigend, feestelijk.</p>
+      <div class="tag-row">
+        <span class="tag tag-gi">Amber #ff8f1f</span>
+        <span class="tag tag-gi">Meezingers</span>
+        <span class="tag tag-gi">Afro</span>
+        <span class="tag tag-gi">Dance</span>
+      </div>
+    </div>
+    <div class="comp-box">
+      <h4>Milo — Cool Energy</h4>
+      <p style="font-size:13px; color:var(--dj-muted); line-height:1.6; margin-bottom:16px;">House, techno. Deep beats, strakke sets. Electric blue kleuraccent — cool, underground, intens.</p>
+      <div class="tag-row">
+        <span class="tag tag-mi">Blue #3b82f6</span>
+        <span class="tag tag-mi">House</span>
+        <span class="tag tag-mi">Techno</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- SCREEN: DJ HUB -->
+<div class="section">
+  <div class="section-label">Screens</div>
+  <div class="section-title">DJ Pages</div>
+  <div class="section-desc">De DJ Hub pagina toont beide profielen naast elkaar. Individuele profielpagina's gaan dieper in op sets, stijl, en boekingen.</div>
+
+  <div class="screen-section">
+    <div class="screen-label">
+      <h3>DJ Hub — Overview</h3>
+      <span class="screen-tag">Dual Profile • Split Energy</span>
+    </div>
+
+    <div class="browser-frame">
+      <div class="browser-bar">
+        <div class="browser-dots"><span></span><span></span><span></span></div>
+        <div class="browser-url">
+          <span class="lock">🔒</span> picyourbooth.nl/djs
+        </div>
+      </div>
+      <div class="dj-hub">
+        <div class="hub-nav">
+          <div class="hub-logo">Pic Your <span class="accent">Booth</span></div>
+          <div class="hub-links">
+            <a class="hub-link" href="#">Photobooth</a>
+            <a class="hub-link" href="#" style="color:var(--dj-white);">DJs</a>
+            <a class="hub-link" href="#">Pakketten</a>
+            <a class="hub-link" href="#">Contact</a>
+          </div>
+          <button class="hub-cta">Boek een DJ</button>
+        </div>
+        <div class="hub-hero">
+          <h1>Meet Our <span class="split">DJs</span></h1>
+          <p>Twee stijlen, één team. Geef ons je Spotify playlist — wij maken er een geoptimaliseerde set van die perfect past bij jouw event.</p>
+        </div>
+        <div class="dj-profiles">
+          <div class="dj-profile-card gianni">
+            <div class="profile-visual">
+              <span class="dj-initial">GI</span>
+              <span class="genre-tag">Meezingers · Afro · Dance</span>
+              <div class="play-btn">
+                <svg viewBox="0 0 24 24"><polygon points="8,5 19,12 8,19"/></svg>
+              </div>
+            </div>
+            <div class="profile-info">
+              <div class="dj-name">DJ Gianni</div>
+              <div class="dj-tagline">Elke set volle energie. Van meezingers tot afrobeats — de dansvloer gaat nooit leeg.</div>
+              <div class="dj-genres">
+                <span class="dj-genre">Meezingers</span>
+                <span class="dj-genre">Afro</span>
+                <span class="dj-genre">Dance</span>
+                <span class="dj-genre">Feest</span>
+              </div>
+              <div class="dj-socials">
+                <a class="social-icon" href="#" title="Instagram">IG</a>
+                <a class="social-icon" href="#" title="TikTok">TT</a>
+                <a class="social-icon" href="#" title="SoundCloud">SC</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="dj-profile-card milo">
+            <div class="profile-visual">
+              <span class="dj-initial">MI</span>
+              <span class="genre-tag">House · Techno</span>
+              <div class="play-btn">
+                <svg viewBox="0 0 24 24"><polygon points="8,5 19,12 8,19"/></svg>
+              </div>
+            </div>
+            <div class="profile-info">
+              <div class="dj-name">Milo</div>
+              <div class="dj-tagline">Deep beats, strakke sets. Van underground house tot techno — voor de echte muziekliefhebber.</div>
+              <div class="dj-genres">
+                <span class="dj-genre">House</span>
+                <span class="dj-genre">Techno</span>
+                <span class="dj-genre">Deep</span>
+              </div>
+              <div class="dj-socials">
+                <a class="social-icon" href="#" title="Instagram">IG</a>
+                <a class="social-icon" href="#" title="TikTok">TT</a>
+                <a class="social-icon" href="#" title="SoundCloud">SC</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="hub-spotify">
+          <h3>Spotify Playlist Optimization</h3>
+          <p>Geef ons je playlist — wij bouwen de perfecte set voor jouw event.</p>
+          <div class="spotify-feature">
+            <div class="sp-icon">♫</div>
+            <div class="sp-text">
+              <h4>Jouw playlist, onze expertise</h4>
+              <p>Deel je Spotify playlist en onze DJ bouwt een geoptimaliseerde set afgestemd op de vibe en het type feest.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- DJ Gianni Profile Page -->
+  <div class="screen-section">
+    <div class="screen-label">
+      <h3>DJ Gianni — Profile Page</h3>
+      <span class="screen-tag">Amber Energy</span>
+    </div>
+
+    <div class="browser-frame">
+      <div class="browser-bar">
+        <div class="browser-dots"><span></span><span></span><span></span></div>
+        <div class="browser-url">
+          <span class="lock">🔒</span> picyourbooth.nl/djs/gianni
+        </div>
+      </div>
+      <div class="dj-profile-page gianni-page">
+        <div class="pp-header">
+          <div class="pp-header-content">
+            <div class="pp-avatar">
+              <div class="avatar-ring"></div>
+              <div class="avatar-inner">GI</div>
+            </div>
+            <div class="pp-details">
+              <div class="pp-name">DJ Gianni</div>
+              <div class="pp-tagline">Jonge DJ uit Nederland. Mixt meezingers, afro en dancemuziek tot high-energy sets. Elke set volle energie.</div>
+              <div class="pp-genres">
+                <span class="pp-genre">Meezingers</span>
+                <span class="pp-genre">Afro</span>
+                <span class="pp-genre">Dance</span>
+              </div>
+              <div class="pp-actions">
+                <button class="pp-btn-primary">Boek DJ Gianni</button>
+                <button class="pp-btn-outline">Luister sets</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="pp-sets">
+          <h3>Recente Sets</h3>
+          <div class="set-list">
+            <div class="set-item">
+              <div class="set-play"><svg viewBox="0 0 24 24"><polygon points="8,5 19,12 8,19"/></svg></div>
+              <div class="set-info">
+                <div class="set-title">Bruiloft Lisa & Tom — Summer Vibes Mix</div>
+                <div class="set-meta">Bruiloft · Juni 2026</div>
+              </div>
+              <div class="set-duration">48:32</div>
+            </div>
+            <div class="set-item">
+              <div class="set-play"><svg viewBox="0 0 24 24"><polygon points="8,5 19,12 8,19"/></svg></div>
+              <div class="set-info">
+                <div class="set-title">Corporate Event ABN AMRO — Feel Good Classics</div>
+                <div class="set-meta">Bedrijfsevent · Mei 2026</div>
+              </div>
+              <div class="set-duration">62:15</div>
+            </div>
+            <div class="set-item">
+              <div class="set-play"><svg viewBox="0 0 24 24"><polygon points="8,5 19,12 8,19"/></svg></div>
+              <div class="set-info">
+                <div class="set-title">Afrobeats Night — Full Energy Set</div>
+                <div class="set-meta">Club · April 2026</div>
+              </div>
+              <div class="set-duration">55:40</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Milo Profile Page -->
+  <div class="screen-section">
+    <div class="screen-label">
+      <h3>Milo — Profile Page</h3>
+      <span class="screen-tag">Blue Energy</span>
+    </div>
+
+    <div class="browser-frame">
+      <div class="browser-bar">
+        <div class="browser-dots"><span></span><span></span><span></span></div>
+        <div class="browser-url">
+          <span class="lock">🔒</span> picyourbooth.nl/djs/milo
+        </div>
+      </div>
+      <div class="dj-profile-page milo-page">
+        <div class="pp-header">
+          <div class="pp-header-content">
+            <div class="pp-avatar">
+              <div class="avatar-ring"></div>
+              <div class="avatar-inner">MI</div>
+            </div>
+            <div class="pp-details">
+              <div class="pp-name">Milo</div>
+              <div class="pp-tagline">House & techno specialist. Strakke sets met diepe beats. Voor de echte muziekliefhebber die van kwaliteitsgeluid houdt.</div>
+              <div class="pp-genres">
+                <span class="pp-genre">House</span>
+                <span class="pp-genre">Techno</span>
+              </div>
+              <div class="pp-actions">
+                <button class="pp-btn-primary">Boek Milo</button>
+                <button class="pp-btn-outline">Luister sets</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="pp-sets">
+          <h3>Recente Sets</h3>
+          <div class="set-list">
+            <div class="set-item">
+              <div class="set-play"><svg viewBox="0 0 24 24"><polygon points="8,5 19,12 8,19"/></svg></div>
+              <div class="set-info">
+                <div class="set-title">Deep House Sessions Vol. 3</div>
+                <div class="set-meta">Studio Mix · Juni 2026</div>
+              </div>
+              <div class="set-duration">72:18</div>
+            </div>
+            <div class="set-item">
+              <div class="set-play"><svg viewBox="0 0 24 24"><polygon points="8,5 19,12 8,19"/></svg></div>
+              <div class="set-info">
+                <div class="set-title">Techno Underground — Warehouse Set</div>
+                <div class="set-meta">Live · Mei 2026</div>
+              </div>
+              <div class="set-duration">88:45</div>
+            </div>
+            <div class="set-item">
+              <div class="set-play"><svg viewBox="0 0 24 24"><polygon points="8,5 19,12 8,19"/></svg></div>
+              <div class="set-info">
+                <div class="set-title">Sunset House — Rooftop Vibes</div>
+                <div class="set-meta">Private Event · April 2026</div>
+              </div>
+              <div class="set-duration">64:30</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- COLOR PALETTE -->
+<div class="section">
+  <div class="section-label">Foundations</div>
+  <div class="section-title">Color System</div>
+  <div class="section-desc">Split-energy systeem: warm amber voor DJ Gianni, cool blue voor Milo, hot pink als gedeeld accent. Alle kleuren op WCAG AA contrast.</div>
+
+  <div class="color-grid">
+    <div class="color-swatch">
+      <div class="preview" style="background:#ff8f1f; color:#050508;"><span class="hex">#ff8f1f</span></div>
+      <div class="meta"><div class="name">Gianni Amber</div><div class="role">DJ Gianni accent</div></div>
+    </div>
+    <div class="color-swatch">
+      <div class="preview" style="background:#3b82f6; color:#fff;"><span class="hex">#3b82f6</span></div>
+      <div class="meta"><div class="name">Milo Blue</div><div class="role">Milo accent</div></div>
+    </div>
+    <div class="color-swatch">
+      <div class="preview" style="background:#e839a0; color:#fff;"><span class="hex">#e839a0</span></div>
+      <div class="meta"><div class="name">Hot Pink</div><div class="role">Shared accent, CTAs</div></div>
+    </div>
+    <div class="color-swatch">
+      <div class="preview" style="background:#050508; color:#eeeef2;"><span class="hex">#050508</span></div>
+      <div class="meta"><div class="name">Void</div><div class="role">Page background</div></div>
+    </div>
+    <div class="color-swatch">
+      <div class="preview" style="background:#14141c; color:#eeeef2;"><span class="hex">#14141c</span></div>
+      <div class="meta"><div class="name">Card</div><div class="role">Cards, surfaces</div></div>
+    </div>
+    <div class="color-swatch">
+      <div class="preview" style="background:#eeeef2; color:#050508;"><span class="hex">#eeeef2</span></div>
+      <div class="meta"><div class="name">White</div><div class="role">Primary text</div></div>
+    </div>
+    <div class="color-swatch">
+      <div class="preview" style="background:#ff494a; color:#fff;"><span class="hex">#ff494a</span></div>
+      <div class="meta"><div class="name">PYM Red</div><div class="role">Heritage — parent brand</div></div>
+    </div>
+    <div class="color-swatch">
+      <div class="preview" style="background:#1db954; color:#fff;"><span class="hex">#1db954</span></div>
+      <div class="meta"><div class="name">Spotify Green</div><div class="role">Playlist feature</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- TYPOGRAPHY -->
+<div class="section">
+  <div class="section-label">Typography</div>
+  <div class="section-title">Type System</div>
+  <div class="section-desc">Bebas Neue voor display & headings — bold, impactful, nightlife-energy. Space Grotesk voor body — modern, technisch, leesbaar.</div>
+
+  <div class="type-row">
+    <div class="label">Display<span class="specs">Bebas Neue 400 · 72px · 0.9</span></div>
+    <div class="sample" style="font-family:var(--font-display); font-size:72px; font-weight:400; line-height:0.9; letter-spacing:4px; text-transform:uppercase;">Our DJs Your Vibe</div>
+  </div>
+  <div class="type-row">
+    <div class="label">H1<span class="specs">Bebas Neue 400 · 48px · 1.0</span></div>
+    <div class="sample" style="font-family:var(--font-display); font-size:48px; font-weight:400; line-height:1; letter-spacing:3px; text-transform:uppercase;">DJ Gianni</div>
+  </div>
+  <div class="type-row">
+    <div class="label">H2<span class="specs">Bebas Neue 400 · 32px · 1.1</span></div>
+    <div class="sample" style="font-family:var(--font-display); font-size:32px; font-weight:400; line-height:1.1; letter-spacing:2px; text-transform:uppercase;">Recente Sets</div>
+  </div>
+  <div class="type-row">
+    <div class="label">H3<span class="specs">Space Grotesk 600 · 20px · 1.3</span></div>
+    <div class="sample" style="font-size:20px; font-weight:600; line-height:1.3;">Spotify Playlist Optimization</div>
+  </div>
+  <div class="type-row">
+    <div class="label">Body<span class="specs">Space Grotesk 400 · 15px · 1.6</span></div>
+    <div class="sample" style="font-size:15px; font-weight:400; line-height:1.6;">Geef ons je Spotify playlist en onze DJ bouwt een geoptimaliseerde set afgestemd op jouw event.</div>
+  </div>
+  <div class="type-row">
+    <div class="label">Small<span class="specs">Space Grotesk 400 · 13px · 1.5</span></div>
+    <div class="sample" style="font-size:13px; font-weight:400; line-height:1.5; color:var(--dj-muted);">Bruiloft · Juni 2026 · 48:32</div>
+  </div>
+  <div class="type-row">
+    <div class="label">Label<span class="specs">Space Grotesk 600 · 10px · Uppercase</span></div>
+    <div class="sample" style="font-size:10px; font-weight:600; letter-spacing:2px; text-transform:uppercase; color:var(--dj-pink);">Meezingers · House · Techno · Live</div>
+  </div>
+</div>
+
+<!-- COMPONENTS -->
+<div class="section">
+  <div class="section-label">Components</div>
+  <div class="section-title">UI Components</div>
+  <div class="section-desc">Buttons en tags in de split-energy kleursysteem.</div>
+
+  <div class="component-grid">
+    <div class="comp-box">
+      <h4>Buttons — DJ Gianni</h4>
+      <div class="btn-row">
+        <button class="btn-amber">Boek DJ Gianni</button>
+        <button class="btn-dj-outline">Luister sets</button>
+      </div>
+    </div>
+    <div class="comp-box">
+      <h4>Buttons — Milo</h4>
+      <div class="btn-row">
+        <button class="btn-blue">Boek Milo</button>
+        <button class="btn-dj-outline">Luister sets</button>
+      </div>
+    </div>
+    <div class="comp-box">
+      <h4>Shared / Hub Buttons</h4>
+      <div class="btn-row">
+        <button class="btn-pink">Boek een DJ</button>
+        <button class="btn-dj-outline">Bekijk alle DJs</button>
+      </div>
+    </div>
+    <div class="comp-box">
+      <h4>Genre Tags</h4>
+      <div class="tag-row">
+        <span class="tag tag-gi">Meezingers</span>
+        <span class="tag tag-gi">Afro</span>
+        <span class="tag tag-gi">Dance</span>
+        <span class="tag tag-mi">House</span>
+        <span class="tag tag-mi">Techno</span>
+        <span class="tag tag-pink">Live</span>
+        <span class="tag tag-muted">Studio Mix</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<div class="ds-footer">
+  DJ Hub Design System · Onderdeel van <a href="#">Pic Your Booth</a> · <a href="#">Pic Your Moment BV</a>
+</div>
+
+</body>
+</html>
