@@ -526,7 +526,402 @@
     font-size: 12px; font-weight: 400; color: var(--fg-subtle);
   }
 
-  /* Packages section */
+  /* ═══════════════════════════════════════════
+     PACKAGE BUILDER — Row-based add-on toggles
+     ═══════════════════════════════════════════ */
+  .pyb-builder {
+    padding: 48px;
+    background: var(--pb-cream);
+  }
+
+  .pyb-builder h2 {
+    font-size: 28px; font-weight: 600;
+    color: var(--pym-navy); text-align: center;
+    margin-bottom: 6px; letter-spacing: -0.3px;
+  }
+
+  .pyb-builder .builder-sub {
+    font-size: 14px; color: var(--fg-muted);
+    text-align: center; margin-bottom: 32px;
+  }
+
+  .builder-card {
+    background: var(--pym-white);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--r-lg);
+    overflow: hidden;
+    max-width: 640px;
+    margin: 0 auto;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .builder-row {
+    display: flex;
+    align-items: center;
+    padding: 20px 24px;
+    border-bottom: 1px solid var(--border-subtle);
+    transition: background 0.15s;
+  }
+
+  .builder-row:last-child { border-bottom: none; }
+
+  .builder-row.base-row {
+    background: var(--pym-red-dim);
+  }
+
+  .builder-row.active {
+    background: rgba(16,14,52,0.03);
+  }
+
+  .builder-row-info {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .builder-row-name {
+    font-size: 14px; font-weight: 600;
+    color: var(--pym-navy);
+    margin-bottom: 2px;
+  }
+
+  .builder-row-desc {
+    font-size: 12px; color: var(--fg-muted);
+    line-height: 1.4;
+  }
+
+  .builder-row-price {
+    font-size: 14px; font-weight: 600;
+    color: var(--pym-navy);
+    margin-right: 16px;
+    white-space: nowrap;
+  }
+
+  .builder-row-price.included {
+    color: var(--pb-success);
+  }
+
+  /* Toggle switch */
+  .toggle-switch {
+    position: relative;
+    width: 44px; height: 24px;
+    flex-shrink: 0;
+  }
+
+  .toggle-switch input {
+    opacity: 0; width: 0; height: 0; position: absolute;
+  }
+
+  .toggle-track {
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: var(--pym-warm-beige);
+    border-radius: 12px;
+    cursor: pointer;
+    transition: background 0.2s;
+  }
+
+  .toggle-track::after {
+    content: '';
+    position: absolute;
+    top: 3px; left: 3px;
+    width: 18px; height: 18px;
+    background: white;
+    border-radius: 50%;
+    transition: transform 0.2s;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.15);
+  }
+
+  .toggle-switch input:checked + .toggle-track {
+    background: var(--pym-red);
+  }
+
+  .toggle-switch input:checked + .toggle-track::after {
+    transform: translateX(20px);
+  }
+
+  .toggle-switch.locked .toggle-track {
+    background: var(--pym-red);
+    opacity: 0.6;
+    cursor: default;
+  }
+
+  .toggle-switch.locked .toggle-track::after {
+    transform: translateX(20px);
+  }
+
+  /* Builder total */
+  .builder-total {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 24px;
+    background: var(--pym-navy);
+    color: white;
+  }
+
+  .builder-total-label {
+    font-size: 14px; font-weight: 500;
+  }
+
+  .builder-total-price {
+    font-size: 28px; font-weight: 600;
+    letter-spacing: -0.5px;
+  }
+
+  .builder-cta {
+    display: block;
+    width: calc(100% - 48px);
+    margin: 0 auto;
+    padding: 14px 28px;
+    background: var(--pym-red);
+    color: white;
+    border: none;
+    border-radius: var(--r-pill);
+    font-family: var(--font);
+    font-size: 14px; font-weight: 600;
+    cursor: pointer;
+    transition: background 0.15s;
+    margin-top: 0;
+    text-align: center;
+  }
+
+  .builder-cta-wrap {
+    padding: 20px 24px;
+    background: var(--pym-white);
+  }
+
+  .builder-cta-wrap .builder-cta {
+    width: 100%;
+    margin: 0;
+  }
+
+  .builder-cta:hover { background: var(--pym-red-hover); }
+
+  /* ═══════════════════════════════════════════
+     TIER SELECTOR — Radio-style tier picker (iPad)
+     ═══════════════════════════════════════════ */
+  .tier-selector {
+    max-width: 640px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .tier-card {
+    background: var(--pym-white);
+    border: 2px solid var(--border-subtle);
+    border-radius: var(--r-lg);
+    padding: 20px 24px;
+    cursor: pointer;
+    transition: border-color 0.15s, box-shadow 0.15s;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+
+  .tier-card:hover {
+    border-color: var(--pym-warm-beige);
+  }
+
+  .tier-card.selected {
+    border-color: var(--pym-red);
+    box-shadow: 0 0 0 1px var(--pym-red), var(--shadow-sm);
+  }
+
+  .tier-radio {
+    width: 22px; height: 22px;
+    border-radius: 50%;
+    border: 2px solid var(--pym-warm-beige);
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: border-color 0.15s;
+  }
+
+  .tier-card.selected .tier-radio {
+    border-color: var(--pym-red);
+  }
+
+  .tier-radio-dot {
+    width: 10px; height: 10px;
+    border-radius: 50%;
+    background: transparent;
+    transition: background 0.15s;
+  }
+
+  .tier-card.selected .tier-radio-dot {
+    background: var(--pym-red);
+  }
+
+  .tier-info { flex: 1; }
+
+  .tier-name {
+    font-size: 16px; font-weight: 600;
+    color: var(--pym-navy);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .tier-name .premium-badge {
+    font-size: 9px; font-weight: 600;
+    padding: 2px 8px;
+    border-radius: var(--r-pill);
+    background: var(--pb-gold-badge);
+    color: white;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  .tier-desc {
+    font-size: 12px; color: var(--fg-muted);
+    line-height: 1.4; margin-top: 2px;
+  }
+
+  .tier-price {
+    font-size: 22px; font-weight: 600;
+    color: var(--pym-navy);
+    flex-shrink: 0;
+  }
+
+  .tier-cta-wrap {
+    max-width: 640px;
+    margin: 20px auto 0;
+  }
+
+  .tier-cta-wrap .builder-cta {
+    width: 100%; margin: 0;
+  }
+
+  /* ═══════════════════════════════════════════
+     DJ PROFILE CARDS
+     ═══════════════════════════════════════════ */
+  .dj-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    max-width: 640px;
+    margin: 0 auto 32px;
+  }
+
+  .dj-card {
+    background: var(--pym-white);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--r-lg);
+    overflow: hidden;
+    text-align: center;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+
+  .dj-card:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-md);
+  }
+
+  .dj-avatar {
+    height: 180px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 64px;
+  }
+
+  .dj-card-body { padding: 20px; }
+
+  .dj-name {
+    font-size: 18px; font-weight: 600;
+    color: var(--pym-navy);
+    margin-bottom: 4px;
+  }
+
+  .dj-style {
+    font-size: 12px; color: var(--fg-muted);
+    margin-bottom: 12px;
+  }
+
+  .dj-tags { display: flex; gap: 6px; justify-content: center; flex-wrap: wrap; }
+
+  .dj-tag {
+    font-size: 10px; font-weight: 500;
+    padding: 4px 10px;
+    border-radius: var(--r-pill);
+    background: var(--pym-navy-10);
+    color: var(--pym-navy);
+  }
+
+  /* Spotify feature highlight */
+  .spotify-feature {
+    background: var(--pym-white);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--r-lg);
+    padding: 28px 32px;
+    max-width: 640px;
+    margin: 0 auto 32px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .spotify-icon {
+    width: 48px; height: 48px;
+    border-radius: 50%;
+    background: #1DB954;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    font-size: 24px;
+    color: white;
+  }
+
+  .spotify-info { flex: 1; }
+
+  .spotify-title {
+    font-size: 15px; font-weight: 600;
+    color: var(--pym-navy);
+    margin-bottom: 4px;
+  }
+
+  .spotify-desc {
+    font-size: 13px; color: var(--fg-muted);
+    line-height: 1.5;
+  }
+
+  /* Product hero */
+  .pyb-product-hero {
+    padding: 48px 48px 40px;
+    text-align: center;
+    background: var(--pb-cream);
+  }
+
+  .pyb-product-hero .hero-overline {
+    font-size: 11px; font-weight: 600;
+    color: var(--pym-red);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 12px;
+  }
+
+  .pyb-product-hero h1 {
+    font-size: 36px; font-weight: 600;
+    color: var(--pym-navy);
+    line-height: 1.1;
+    letter-spacing: -0.5px;
+    margin-bottom: 12px;
+  }
+
+  .pyb-product-hero h1 span { color: var(--pym-red); }
+
+  .pyb-product-hero .hero-sub {
+    font-size: 15px; font-weight: 400;
+    color: var(--fg-muted);
+    max-width: 460px; margin: 0 auto;
+    line-height: 1.6;
+  }
+
+  /* Packages section (kept for reference) */
   .pyb-packages {
     padding: 48px;
     background: var(--pym-white);
@@ -922,8 +1317,8 @@
      ═══════════════════════════════════════════ -->
 <div class="section">
   <div class="section-label">Principles</div>
-  <div class="section-title">Eén merk, één visuele taal</div>
-  <div class="section-desc">Geen aparte thema's voor verschillende producten. Eén warm, professioneel design dat werkt voor Magic Mirror, iPad Booth, én de DJ combo. Het product verschilt, het merk niet.</div>
+  <div class="section-title">Een merk, een visuele taal</div>
+  <div class="section-desc">Geen aparte thema's voor verschillende producten. Een warm, professioneel design dat werkt voor Magic Mirror, iPad Booth, en DJs. Het product verschilt, het merk niet.</div>
 
   <div class="principle-grid">
     <div class="principle-card">
@@ -934,12 +1329,12 @@
     <div class="principle-card">
       <div class="pc-number">02</div>
       <h3>PYM Heritage</h3>
-      <p>Poppins, PYM navy (#100e34), PYM muted-red (#ff494a), warme crèmetinten. Direct herkenbaar als onderdeel van Pic Your Moment. Geen afwijkende fonts of kleuren.</p>
+      <p>Poppins, PYM navy (#100e34), PYM muted-red (#ff494a), warme cremetinten. Direct herkenbaar als onderdeel van Pic Your Moment. Geen afwijkende fonts of kleuren.</p>
     </div>
     <div class="principle-card">
       <div class="pc-number">03</div>
       <h3>Content Differentiates</h3>
-      <p>Magic Mirror pagina's tonen premium beelden en tekst. iPad pagina's tonen casual beelden en prijzen. De UI-componenten zijn identiek — de story vertelt het verschil.</p>
+      <p>Magic Mirror pagina's tonen premium beelden en tekst. iPad pagina's tonen casual beelden en prijzen. DJ pagina's tonen de persoonlijkheid van het team. De UI-componenten zijn identiek.</p>
     </div>
   </div>
 </div>
@@ -952,7 +1347,9 @@
   <div class="section-title">Website Pages</div>
   <div class="section-desc">Alle pagina's gebruiken dezelfde warme basis. Dezelfde navigatie, dezelfde componenten, dezelfde typografie. Content en beelden doen het werk.</div>
 
-  <!-- Homepage -->
+  <!-- ════════════════════════════════════════
+       SCREEN 1: HOMEPAGE
+       ════════════════════════════════════════ -->
   <div class="screen-section">
     <div class="screen-label">
       <h3>Homepage</h3>
@@ -962,7 +1359,7 @@
     <div class="browser-frame">
       <div class="browser-bar">
         <div class="browser-dots"><span></span><span></span><span></span></div>
-        <div class="browser-url"><span class="lock">🔒</span> picyourbooth.nl</div>
+        <div class="browser-url"><span class="lock">&#x1f512;</span> picyourbooth.nl</div>
       </div>
       <div style="background:var(--pb-cream);">
         <div class="pyb-nav">
@@ -994,7 +1391,7 @@
           </div>
           <div class="pyb-proof-divider"></div>
           <div class="pyb-proof-item">
-            <div class="pyb-proof-number">4.9★</div>
+            <div class="pyb-proof-number">4.9&#9733;</div>
             <div class="pyb-proof-label">Google Score</div>
           </div>
           <div class="pyb-proof-divider"></div>
@@ -1013,9 +1410,9 @@
                 <span class="sc-badge badge-premium">Premium</span>
               </div>
               <div class="sc-info">
-                <div class="sc-name">Magic Mirror XL</div>
+                <div class="sc-name">Magic Mirror</div>
                 <div class="sc-desc">DSLR kwaliteit, professionele belichting, direct printen. De wow-factor voor je event.</div>
-                <div class="sc-price">Vanaf €599 <span>· 4 uur</span></div>
+                <div class="sc-price">Vanaf &#8364;599 <span>&#183; 4 uur</span></div>
               </div>
             </div>
             <div class="service-card">
@@ -1023,44 +1420,164 @@
                 <span class="sc-badge badge-popular">Populair</span>
               </div>
               <div class="sc-info">
-                <div class="sc-name">iPad Photobooth</div>
+                <div class="sc-name">iPad Booth</div>
                 <div class="sc-desc">Digitale fotostrips voor elk feest. Ophalen, neerzetten, feesten. Zo simpel.</div>
-                <div class="sc-price">Vanaf €200 <span>· Ophalen</span></div>
+                <div class="sc-price">Vanaf &#8364;200 <span>&#183; Ophalen</span></div>
               </div>
             </div>
             <div class="service-card">
               <div class="sc-image" style="background:linear-gradient(135deg, #e8e0db 0%, #f4f1ef 100%);">
-                <span class="sc-badge badge-new">Combo</span>
+                <span class="sc-badge badge-new">Nieuw</span>
               </div>
               <div class="sc-info">
-                <div class="sc-name">DJ + Photobooth</div>
-                <div class="sc-desc">Eén team, eén vibe, eén boeking. Met Spotify-playlistoptimalisatie.</div>
-                <div class="sc-price">Vanaf €749 <span>· Complete avond</span></div>
+                <div class="sc-name">DJs</div>
+                <div class="sc-desc">Professionele DJ sets met Spotify-playlistoptimalisatie. De perfecte soundtrack voor je avond.</div>
+                <div class="sc-price">Vanaf &#8364;150 <span>&#183; Per avond</span></div>
               </div>
             </div>
           </div>
         </div>
 
         <div class="pyb-testimonial">
-          <blockquote>"Wauw, dát was een ervaring. Onze gasten praten er nog steeds over."</blockquote>
+          <blockquote>"Wauw, dat was een ervaring. Onze gasten praten er nog steeds over."</blockquote>
           <div class="tq-author">Lisa & Tom</div>
-          <div class="tq-event">Bruiloft · Juni 2025</div>
+          <div class="tq-event">Bruiloft &#183; Juni 2025</div>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- iPad Packages -->
+  <!-- ════════════════════════════════════════
+       SCREEN 2: MAGIC MIRROR XL — Product Page
+       ════════════════════════════════════════ -->
   <div class="screen-section">
     <div class="screen-label">
-      <h3>iPad Photobooth — Pakketten</h3>
-      <span class="screen-tag">Same UI · Different Content</span>
+      <h3>Magic Mirror XL — Product Page</h3>
+      <span class="screen-tag">Package Builder</span>
     </div>
 
     <div class="browser-frame">
       <div class="browser-bar">
         <div class="browser-dots"><span></span><span></span><span></span></div>
-        <div class="browser-url"><span class="lock">🔒</span> picyourbooth.nl/ipad-photobooth</div>
+        <div class="browser-url"><span class="lock">&#x1f512;</span> picyourbooth.nl/magic-mirror</div>
+      </div>
+      <div style="background:var(--pb-cream);">
+        <div class="pyb-nav">
+          <div class="logo">Pic Your <span>Booth</span></div>
+          <div class="nav-links">
+            <a class="nav-link" href="#">Home</a>
+            <a class="nav-link active" href="#">Magic Mirror</a>
+            <a class="nav-link" href="#">iPad Booth</a>
+            <a class="nav-link" href="#">DJs</a>
+            <a class="nav-link" href="#">Over ons</a>
+          </div>
+          <button class="nav-cta">Offerte aanvragen</button>
+        </div>
+
+        <div class="pyb-product-hero">
+          <div class="hero-overline">Magic Mirror XL</div>
+          <h1>De <span>ultieme</span> photobooth ervaring</h1>
+          <p class="hero-sub">Professionele DSLR-camera, studio-belichting, en direct printen. Niet zomaar een booth — een ervaring voor je gasten.</p>
+        </div>
+
+        <div class="pyb-builder">
+          <h2>Stel je pakket samen</h2>
+          <p class="builder-sub">Begin met de basis en voeg toe wat je wilt</p>
+
+          <div class="builder-card" id="mm-builder">
+            <!-- Base row — always selected -->
+            <div class="builder-row base-row">
+              <div class="builder-row-info">
+                <div class="builder-row-name">Basic Pakket</div>
+                <div class="builder-row-desc">Magic Mirror XL, 4 uur, DSLR kwaliteit, direct printen, digitale galerij</div>
+              </div>
+              <div class="builder-row-price included">Basis</div>
+              <div class="toggle-switch locked">
+                <input type="checkbox" checked disabled>
+                <span class="toggle-track"></span>
+              </div>
+            </div>
+
+            <!-- Add-on: VIP Upgrade -->
+            <div class="builder-row" data-price="150">
+              <div class="builder-row-info">
+                <div class="builder-row-name">VIP Upgrade</div>
+                <div class="builder-row-desc">Backdrop, rode loper, afzetpalen, luxe props collectie</div>
+              </div>
+              <div class="builder-row-price">+&#8364;150</div>
+              <label class="toggle-switch">
+                <input type="checkbox" class="mm-addon" data-price="150">
+                <span class="toggle-track"></span>
+              </label>
+            </div>
+
+            <!-- Add-on: Wedding Keychain Station -->
+            <div class="builder-row" data-price="500">
+              <div class="builder-row-info">
+                <div class="builder-row-name">Wedding Keychain Station</div>
+                <div class="builder-row-desc">Gepersonaliseerde sleutelhangers als aandenken voor je gasten</div>
+              </div>
+              <div class="builder-row-price">+&#8364;500</div>
+              <label class="toggle-switch">
+                <input type="checkbox" class="mm-addon" data-price="500">
+                <span class="toggle-track"></span>
+              </label>
+            </div>
+
+            <!-- Add-on: Guidance -->
+            <div class="builder-row" data-price="150">
+              <div class="builder-row-info">
+                <div class="builder-row-name">Begeleiding door ons team</div>
+                <div class="builder-row-desc">Een van onze teamleden begeleidt de gasten en zorgt voor de perfecte foto's</div>
+              </div>
+              <div class="builder-row-price">+&#8364;150</div>
+              <label class="toggle-switch">
+                <input type="checkbox" class="mm-addon" data-price="150">
+                <span class="toggle-track"></span>
+              </label>
+            </div>
+
+            <!-- Add-on: DJ -->
+            <div class="builder-row" data-price="150">
+              <div class="builder-row-info">
+                <div class="builder-row-name">DJ voor de avond</div>
+                <div class="builder-row-desc">Rookmachine, lichten, speakers, professionele DJ set</div>
+              </div>
+              <div class="builder-row-price">+&#8364;150</div>
+              <label class="toggle-switch">
+                <input type="checkbox" class="mm-addon" data-price="150">
+                <span class="toggle-track"></span>
+              </label>
+            </div>
+
+            <!-- Total -->
+            <div class="builder-total">
+              <div class="builder-total-label">Totaal</div>
+              <div class="builder-total-price" id="mm-total">&#8364;599</div>
+            </div>
+
+            <div class="builder-cta-wrap">
+              <button class="builder-cta">Vraag je voorstel aan</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ════════════════════════════════════════
+       SCREEN 3: IPAD PHOTOBOOTH — Product Page
+       ════════════════════════════════════════ -->
+  <div class="screen-section">
+    <div class="screen-label">
+      <h3>iPad Photobooth — Product Page</h3>
+      <span class="screen-tag">Tier Selector</span>
+    </div>
+
+    <div class="browser-frame">
+      <div class="browser-bar">
+        <div class="browser-dots"><span></span><span></span><span></span></div>
+        <div class="browser-url"><span class="lock">&#x1f512;</span> picyourbooth.nl/ipad-photobooth</div>
       </div>
       <div style="background:var(--pb-cream);">
         <div class="pyb-nav">
@@ -1070,54 +1587,145 @@
             <a class="nav-link" href="#">Magic Mirror</a>
             <a class="nav-link active" href="#">iPad Booth</a>
             <a class="nav-link" href="#">DJs</a>
+            <a class="nav-link" href="#">Over ons</a>
           </div>
           <button class="nav-cta">Offerte aanvragen</button>
         </div>
 
-        <div class="pyb-packages">
-          <h2>iPad Photobooth Pakketten</h2>
-          <p class="pkg-sub">Photo fun voor elk feest, groot of klein</p>
-          <div class="package-grid">
-            <div class="package-card">
-              <div class="pk-name">Basic</div>
-              <div class="pk-price">€200</div>
-              <div class="pk-unit">ophalen bij ons</div>
-              <ul class="pk-features">
-                <li>Digitale fotostrips</li>
-                <li>Basis design</li>
-                <li>Zelf ophalen & terugbrengen</li>
-              </ul>
-              <button class="pk-btn">Kies Basic</button>
+        <div class="pyb-product-hero">
+          <div class="hero-overline">iPad Photobooth</div>
+          <h1>Photo fun voor <span>elk</span> feest</h1>
+          <p class="hero-sub">Ophalen, neerzetten, feesten. Digitale fotostrips waar je gasten gek op zijn. Zo simpel, zo leuk.</p>
+        </div>
+
+        <div class="pyb-builder">
+          <h2>Kies je pakket</h2>
+          <p class="builder-sub">Selecteer het pakket dat bij je event past</p>
+
+          <div class="tier-selector" id="ipad-tiers">
+            <div class="tier-card selected" data-tier="basic" onclick="selectTier(this)">
+              <div class="tier-radio"><div class="tier-radio-dot"></div></div>
+              <div class="tier-info">
+                <div class="tier-name">Basic</div>
+                <div class="tier-desc">Zelf ophalen &#183; Basis fotostrip design</div>
+              </div>
+              <div class="tier-price">&#8364;200</div>
             </div>
-            <div class="package-card recommended">
-              <div class="pk-name">Plus</div>
-              <div class="pk-price">€225</div>
-              <div class="pk-unit">ophalen bij ons</div>
-              <ul class="pk-features">
-                <li>Digitale fotostrips</li>
-                <li>Premium design</li>
-                <li>Zelf ophalen & terugbrengen</li>
-              </ul>
-              <button class="pk-btn">Kies Plus</button>
+
+            <div class="tier-card" data-tier="plus" onclick="selectTier(this)">
+              <div class="tier-radio"><div class="tier-radio-dot"></div></div>
+              <div class="tier-info">
+                <div class="tier-name">Plus</div>
+                <div class="tier-desc">Zelf ophalen &#183; Premium fotostrip design</div>
+              </div>
+              <div class="tier-price">&#8364;225</div>
             </div>
-            <div class="package-card">
-              <div class="pk-name">Premium</div>
-              <div class="pk-price">€250</div>
-              <div class="pk-unit">wij bezorgen</div>
-              <ul class="pk-features">
-                <li>Digitale fotostrips</li>
-                <li>Custom design</li>
-                <li>Bezorging & ophalen door ons</li>
-              </ul>
-              <button class="pk-btn">Kies Premium</button>
+
+            <div class="tier-card" data-tier="premium" onclick="selectTier(this)">
+              <div class="tier-radio"><div class="tier-radio-dot"></div></div>
+              <div class="tier-info">
+                <div class="tier-name">Premium <span class="premium-badge">Premium</span></div>
+                <div class="tier-desc">Bezorging door ons &#183; Custom fotostrip design op maat</div>
+              </div>
+              <div class="tier-price">&#8364;250</div>
             </div>
+          </div>
+
+          <div class="tier-cta-wrap">
+            <button class="builder-cta">Vraag je voorstel aan</button>
           </div>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- Proposal Form -->
+  <!-- ════════════════════════════════════════
+       SCREEN 4: DJS — Product Page
+       ════════════════════════════════════════ -->
+  <div class="screen-section">
+    <div class="screen-label">
+      <h3>DJs — Product Page</h3>
+      <span class="screen-tag">DJ Team</span>
+    </div>
+
+    <div class="browser-frame">
+      <div class="browser-bar">
+        <div class="browser-dots"><span></span><span></span><span></span></div>
+        <div class="browser-url"><span class="lock">&#x1f512;</span> picyourbooth.nl/djs</div>
+      </div>
+      <div style="background:var(--pb-cream);">
+        <div class="pyb-nav">
+          <div class="logo">Pic Your <span>Booth</span></div>
+          <div class="nav-links">
+            <a class="nav-link" href="#">Home</a>
+            <a class="nav-link" href="#">Magic Mirror</a>
+            <a class="nav-link" href="#">iPad Booth</a>
+            <a class="nav-link active" href="#">DJs</a>
+            <a class="nav-link" href="#">Over ons</a>
+          </div>
+          <button class="nav-cta">Offerte aanvragen</button>
+        </div>
+
+        <div class="pyb-product-hero">
+          <div class="hero-overline">Pic Your Booth DJs</div>
+          <h1>De perfecte <span>soundtrack</span> voor je avond</h1>
+          <p class="hero-sub">Onze DJs zorgen voor de juiste vibe, van de eerste dans tot het laatste nummer. Met Spotify-playlistoptimalisatie voor jouw muziek.</p>
+        </div>
+
+        <div class="pyb-builder">
+          <h2>Ons DJ Team</h2>
+          <p class="builder-sub">Twee stijlen, een passie voor muziek</p>
+
+          <div class="dj-grid">
+            <div class="dj-card">
+              <div class="dj-avatar" style="background:linear-gradient(135deg, #f0ece4 0%, #e8dfd2 100%);">
+                <span style="filter:grayscale(0.2);">&#127911;</span>
+              </div>
+              <div class="dj-card-body">
+                <div class="dj-name">DJ Gianni</div>
+                <div class="dj-style">Urban &#183; House &#183; Latin &#183; Top 40</div>
+                <div class="dj-tags">
+                  <span class="dj-tag">Bruiloften</span>
+                  <span class="dj-tag">Feesten</span>
+                  <span class="dj-tag">Corporate</span>
+                </div>
+              </div>
+            </div>
+            <div class="dj-card">
+              <div class="dj-avatar" style="background:linear-gradient(135deg, #f7f7fa 0%, #f0ece4 100%);">
+                <span style="filter:grayscale(0.2);">&#127927;</span>
+              </div>
+              <div class="dj-card-body">
+                <div class="dj-name">Milo</div>
+                <div class="dj-style">Deep House &#183; Tech House &#183; Chill &#183; Lounge</div>
+                <div class="dj-tags">
+                  <span class="dj-tag">Lounge sets</span>
+                  <span class="dj-tag">Festivals</span>
+                  <span class="dj-tag">Bruiloften</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="spotify-feature">
+            <div class="spotify-icon">&#9835;</div>
+            <div class="spotify-info">
+              <div class="spotify-title">Spotify Playlist Optimalisatie</div>
+              <div class="spotify-desc">Deel je Spotify-playlist en onze DJs bouwen daar de perfecte set omheen. Jouw muziek, professioneel gemixt, met verrassingen die passen bij jouw smaak.</div>
+            </div>
+          </div>
+
+          <div class="tier-cta-wrap">
+            <button class="builder-cta">Boek een DJ</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ════════════════════════════════════════
+       SCREEN 5: PROPOSAL FORM
+       ════════════════════════════════════════ -->
   <div class="screen-section">
     <div class="screen-label">
       <h3>Voorstel Aanvragen</h3>
@@ -1127,14 +1735,16 @@
     <div class="browser-frame">
       <div class="browser-bar">
         <div class="browser-dots"><span></span><span></span><span></span></div>
-        <div class="browser-url"><span class="lock">🔒</span> picyourbooth.nl/offerte</div>
+        <div class="browser-url"><span class="lock">&#x1f512;</span> picyourbooth.nl/offerte</div>
       </div>
       <div class="form-screen">
         <div class="pyb-nav">
           <div class="logo">Pic Your <span>Booth</span></div>
           <div class="nav-links">
             <a class="nav-link" href="#">Home</a>
-            <a class="nav-link" href="#">Pakketten</a>
+            <a class="nav-link" href="#">Magic Mirror</a>
+            <a class="nav-link" href="#">iPad Booth</a>
+            <a class="nav-link" href="#">DJs</a>
           </div>
           <button class="nav-cta">Offerte aanvragen</button>
         </div>
@@ -1178,7 +1788,7 @@
             <button class="form-submit">Ontvang je voorstel</button>
             <div class="form-hint">
               <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
-              Binnen 24 uur reactie · Vrijblijvend · Geen verplichtingen
+              Binnen 24 uur reactie &#183; Vrijblijvend &#183; Geen verplichtingen
             </div>
           </div>
         </div>
@@ -1193,7 +1803,7 @@
 <div class="section">
   <div class="section-label">Foundations</div>
   <div class="section-title">Kleurenpalet</div>
-  <div class="section-desc">Eén palet voor alles. PYM navy voor tekst, PYM red voor acties, warme crèmetinten voor achtergronden. Goud alleen als premium badge-accent.</div>
+  <div class="section-desc">Een palet voor alles. PYM navy voor tekst, PYM red voor acties, warme cremetinten voor achtergronden. Goud alleen als premium badge-accent.</div>
 
   <div class="color-grid">
     <div class="color-swatch">
@@ -1237,35 +1847,35 @@
 <div class="section">
   <div class="section-label">Typography</div>
   <div class="section-title">Poppins — Overal</div>
-  <div class="section-desc">Eén font-family, consistent met het PYM parent brand. Gewicht en grootte creëren hiërarchie, niet verschillende fonts.</div>
+  <div class="section-desc">Een font-family, consistent met het PYM parent brand. Gewicht en grootte creeren hierarchie, niet verschillende fonts.</div>
 
   <div class="type-row">
-    <div class="label">H1<span class="specs">Poppins 600 · 42px · 1.1</span></div>
+    <div class="label">H1<span class="specs">Poppins 600 &#183; 42px &#183; 1.1</span></div>
     <div class="sample" style="font-size:42px; font-weight:600; line-height:1.1; letter-spacing:-0.5px;">Maak van je event een onvergetelijke ervaring</div>
   </div>
   <div class="type-row">
-    <div class="label">H2<span class="specs">Poppins 600 · 28px · 1.2</span></div>
+    <div class="label">H2<span class="specs">Poppins 600 &#183; 28px &#183; 1.2</span></div>
     <div class="sample" style="font-size:28px; font-weight:600; line-height:1.2; letter-spacing:-0.3px;">Onze Diensten</div>
   </div>
   <div class="type-row">
-    <div class="label">H3<span class="specs">Poppins 600 · 20px · 1.3</span></div>
+    <div class="label">H3<span class="specs">Poppins 600 &#183; 20px &#183; 1.3</span></div>
     <div class="sample" style="font-size:20px; font-weight:600; line-height:1.3;">Magic Mirror XL Experience</div>
   </div>
   <div class="type-row">
-    <div class="label">Body<span class="specs">Poppins 400 · 15px · 1.6</span></div>
+    <div class="label">Body<span class="specs">Poppins 400 &#183; 15px &#183; 1.6</span></div>
     <div class="sample" style="font-size:15px; font-weight:400; line-height:1.6;">Professionele DSLR-camera, studio-belichting, en een complete VIP-ervaring voor je gasten. Van bruiloft tot corporate event.</div>
   </div>
   <div class="type-row">
-    <div class="label">Small<span class="specs">Poppins 400 · 13px · 1.5</span></div>
-    <div class="sample" style="font-size:13px; font-weight:400; line-height:1.5; color:var(--doc-muted);">Binnen 24 uur reactie · Vrijblijvend · Geen verplichtingen</div>
+    <div class="label">Small<span class="specs">Poppins 400 &#183; 13px &#183; 1.5</span></div>
+    <div class="sample" style="font-size:13px; font-weight:400; line-height:1.5; color:var(--doc-muted);">Binnen 24 uur reactie &#183; Vrijblijvend &#183; Geen verplichtingen</div>
   </div>
   <div class="type-row">
-    <div class="label">Overline<span class="specs">Poppins 600 · 11px · Uppercase · 2px tracking</span></div>
+    <div class="label">Overline<span class="specs">Poppins 600 &#183; 11px &#183; Uppercase &#183; 2px tracking</span></div>
     <div class="sample" style="font-size:11px; font-weight:600; letter-spacing:2px; text-transform:uppercase; color:var(--pym-red);">Photobooth & DJ Entertainment</div>
   </div>
   <div class="type-row">
-    <div class="label">Label<span class="specs">Poppins 600 · 10px · Uppercase</span></div>
-    <div class="sample" style="font-size:10px; font-weight:600; letter-spacing:1.5px; text-transform:uppercase; color:var(--doc-muted);">Premium · Populair · Meest gekozen · Combo</div>
+    <div class="label">Label<span class="specs">Poppins 600 &#183; 10px &#183; Uppercase</span></div>
+    <div class="sample" style="font-size:10px; font-weight:600; letter-spacing:1.5px; text-transform:uppercase; color:var(--doc-muted);">Premium &#183; Populair &#183; Meest gekozen &#183; Nieuw</div>
   </div>
 </div>
 
@@ -1326,12 +1936,12 @@
     <div class="principle-card">
       <div class="pc-number">Beelden</div>
       <h3>Fotografie & Video</h3>
-      <p>Magic Mirror: cinematische eventfoto's, professionele belichting, VIP-sfeer. iPad: casual feestfoto's, vrienden lachend, spontaan. Zelfde UI-componenten, andere beelden.</p>
+      <p>Magic Mirror: cinematische eventfoto's, professionele belichting, VIP-sfeer. iPad: casual feestfoto's, vrienden lachend, spontaan. DJs: energieke sfeerbeelden, lichten, menigte. Zelfde UI-componenten, andere beelden.</p>
     </div>
     <div class="principle-card">
       <div class="pc-number">Copy</div>
       <h3>Tekst & Tone</h3>
-      <p>Magic Mirror: "Niet zomaar een booth — een ervaring." iPad: "Ophalen, neerzetten, feesten." De woorden zetten de toon, niet het kleurenschema.</p>
+      <p>Magic Mirror: "Niet zomaar een booth — een ervaring." iPad: "Ophalen, neerzetten, feesten." DJs: "De perfecte soundtrack voor je avond." De woorden zetten de toon, niet het kleurenschema.</p>
     </div>
     <div class="principle-card">
       <div class="pc-number">Badges</div>
@@ -1345,8 +1955,47 @@
      FOOTER
      ═══════════════════════════════════════════ -->
 <div class="ds-footer">
-  Pic Your Booth Design System · Onderdeel van <a href="#">Pic Your Moment BV</a> · Poppins · PYM Navy · PYM Red
+  Pic Your Booth Design System &#183; Onderdeel van <a href="#">Pic Your Moment BV</a> &#183; Poppins &#183; PYM Navy &#183; PYM Red
 </div>
+
+<!-- ═══════════════════════════════════════════
+     JAVASCRIPT — Interactive Package Builders
+     ═══════════════════════════════════════════ -->
+<script>
+  // Magic Mirror XL — Package Builder
+  (function() {
+    var basePrice = 599;
+    var checkboxes = document.querySelectorAll('.mm-addon');
+    var totalEl = document.getElementById('mm-total');
+
+    function updateTotal() {
+      var total = basePrice;
+      checkboxes.forEach(function(cb) {
+        if (cb.checked) {
+          total += parseInt(cb.getAttribute('data-price'), 10);
+          cb.closest('.builder-row').classList.add('active');
+        } else {
+          cb.closest('.builder-row').classList.remove('active');
+        }
+      });
+      totalEl.textContent = '\u20AC' + total;
+    }
+
+    checkboxes.forEach(function(cb) {
+      cb.addEventListener('change', updateTotal);
+    });
+  })();
+
+  // iPad Photobooth — Tier Selector
+  function selectTier(card) {
+    var container = card.closest('.tier-selector');
+    var cards = container.querySelectorAll('.tier-card');
+    cards.forEach(function(c) {
+      c.classList.remove('selected');
+    });
+    card.classList.add('selected');
+  }
+</script>
 
 </body>
 </html>
