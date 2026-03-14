@@ -3,54 +3,45 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Pic Your Booth — Photobooth Design System</title>
+<title>Pic Your Booth — Design System</title>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
   /* ═══════════════════════════════════════════
-     PIC YOUR BOOTH — UNIFIED DESIGN TOKENS
+     PIC YOUR BOOTH — PREMIUM DESIGN TOKENS
 
-     One cohesive visual identity for all products.
-     Extends PYM parent brand (Poppins, navy, warm-white, muted-red).
-     Premium vs accessible = content & imagery, not theme switching.
+     A premium event entertainment brand.
+     VIP, elevated, experiential.
      ═══════════════════════════════════════════ */
   :root {
-    /* ── PYM Heritage (from parent brand) ── */
-    --pym-navy: #100e34;
-    --pym-navy-90: rgba(16,14,52,0.9);
-    --pym-navy-60: rgba(16,14,52,0.6);
-    --pym-navy-30: rgba(16,14,52,0.3);
-    --pym-navy-10: rgba(16,14,52,0.1);
-    --pym-red: #ff494a;
-    --pym-red-hover: #ff6162;
-    --pym-red-dim: rgba(255,73,74,0.08);
-    --pym-white: #ffffff;
-    --pym-off-white: #f7f7fa;
-    --pym-warm-white: #f4f1ef;
-    --pym-warm-beige: #e8e0db;
+    /* ── Brand Colors ── */
+    --pyb-black: #1a1a1e;
+    --pyb-black-90: rgba(26,26,30,0.9);
+    --pyb-black-60: rgba(26,26,30,0.6);
+    --pyb-black-30: rgba(26,26,30,0.3);
+    --pyb-black-10: rgba(26,26,30,0.1);
+    --pyb-red: #ff494a;
+    --pyb-red-hover: #ff6162;
+    --pyb-red-dim: rgba(255,73,74,0.08);
+    --pyb-white: #ffffff;
+    --pyb-off-white: #f8f6f2;
+    --pyb-sand: #e8dfd2;
+    --pyb-gold: #c9a84c;
+    --pyb-gold-dim: rgba(201,168,76,0.10);
+    --pyb-success: #2d8a4e;
+    --pyb-success-dim: rgba(45,138,78,0.08);
 
-    /* ── PYB Photobooth Extensions ── */
-    --pb-cream: #faf8f5;
-    --pb-warm-bg: #f6f2ee;
-    --pb-gold: #b8962e;
-    --pb-gold-dim: rgba(184,150,46,0.1);
-    --pb-gold-badge: #d4a72c;
-    --pb-success: #2d8a4e;
-    --pb-success-dim: rgba(45,138,78,0.08);
-
-    /* ── Semantic (Unified) ── */
-    --bg: var(--pb-cream);
-    --bg-alt: var(--pym-warm-white);
-    --fg: var(--pym-navy);
-    --fg-muted: var(--pym-navy-60);
-    --fg-subtle: var(--pym-navy-30);
-    --card: var(--pym-white);
-    --card-hover: var(--pym-off-white);
-    --border: var(--pym-warm-beige);
-    --border-subtle: rgba(16,14,52,0.06);
-    --primary: var(--pym-red);
-    --primary-hover: var(--pym-red-hover);
-    --on-primary: var(--pym-white);
-    --ring: var(--pym-navy);
+    /* ── Semantic ── */
+    --bg: var(--pyb-off-white);
+    --fg: var(--pyb-black);
+    --fg-muted: var(--pyb-black-60);
+    --fg-subtle: var(--pyb-black-30);
+    --card: var(--pyb-white);
+    --border: var(--pyb-sand);
+    --border-subtle: rgba(26,26,30,0.06);
+    --primary: var(--pyb-red);
+    --primary-hover: var(--pyb-red-hover);
+    --on-primary: var(--pyb-white);
+    --ring: var(--pyb-black);
 
     /* ── Spacing ── */
     --sp-1: 4px; --sp-2: 8px; --sp-3: 12px; --sp-4: 16px;
@@ -63,11 +54,11 @@
     /* ── Typography ── */
     --font: 'Poppins', system-ui, -apple-system, sans-serif;
 
-    /* ── Shadows ── */
-    --shadow-sm: 0 1px 3px rgba(16,14,52,0.04), 0 1px 2px rgba(16,14,52,0.02);
-    --shadow-md: 0 4px 12px rgba(16,14,52,0.06), 0 1px 4px rgba(16,14,52,0.03);
-    --shadow-lg: 0 12px 40px rgba(16,14,52,0.08), 0 4px 12px rgba(16,14,52,0.04);
-    --shadow-xl: 0 24px 64px rgba(16,14,52,0.10), 0 8px 24px rgba(16,14,52,0.05);
+    /* ── Warm Shadows ── */
+    --shadow-sm: 0 1px 3px rgba(26,26,30,0.04), 0 1px 2px rgba(26,26,30,0.02);
+    --shadow-md: 0 4px 16px rgba(26,26,30,0.06), 0 1px 4px rgba(26,26,30,0.03);
+    --shadow-lg: 0 12px 40px rgba(26,26,30,0.08), 0 4px 12px rgba(26,26,30,0.04);
+    --shadow-xl: 0 24px 64px rgba(26,26,30,0.10), 0 8px 24px rgba(26,26,30,0.05);
 
     /* ── Doc chrome (design system page itself) ── */
     --doc-bg: #0d0b1a;
@@ -76,7 +67,7 @@
     --doc-text: #f7f7fa;
     --doc-muted: rgba(247,247,250,0.45);
     --doc-subtle: rgba(247,247,250,0.15);
-    --doc-accent: var(--pym-red);
+    --doc-accent: var(--pyb-red);
   }
 
   /* ═══════════════════════════════════════════
@@ -102,14 +93,14 @@
   }
 
   /* ═══════════════════════════════════════════
-     HERO
+     DOC HERO
      ═══════════════════════════════════════════ */
   .hero {
     position: relative;
     padding: 120px 60px 80px;
     text-align: center;
     overflow: hidden;
-    background: linear-gradient(180deg, var(--pym-navy) 0%, var(--doc-bg) 100%);
+    background: linear-gradient(180deg, #151225 0%, var(--doc-bg) 100%);
     border-bottom: 1px solid var(--doc-border);
   }
 
@@ -141,7 +132,7 @@
 
   .hero-badge .dot {
     width: 6px; height: 6px; border-radius: 50%;
-    background: var(--pym-red);
+    background: var(--pyb-red);
     animation: pulse 2s ease infinite;
   }
 
@@ -155,7 +146,7 @@
     animation: fadeInUp 0.8s ease 0.1s both;
   }
 
-  .hero h1 span { color: var(--pym-red); }
+  .hero h1 span { color: var(--pyb-red); }
 
   .hero .subtitle {
     font-size: 16px;
@@ -238,7 +229,7 @@
   .principle-card .pc-number {
     font-size: 11px;
     font-weight: 600;
-    color: var(--pym-red);
+    color: var(--pyb-red);
     margin-bottom: var(--sp-3);
     letter-spacing: 1px;
   }
@@ -257,7 +248,122 @@
   }
 
   /* ═══════════════════════════════════════════
-     BROWSER FRAME — Shows actual PYB website screens
+     COLOR PALETTE SWATCHES
+     ═══════════════════════════════════════════ */
+  .color-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 16px;
+  }
+
+  .color-swatch {
+    border-radius: var(--r-lg);
+    overflow: hidden;
+    border: 1px solid var(--doc-border);
+    background: var(--doc-surface);
+  }
+
+  .color-swatch .swatch-block {
+    height: 80px;
+  }
+
+  .color-swatch .swatch-info {
+    padding: 12px 14px;
+  }
+
+  .color-swatch .swatch-name {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--doc-text);
+    margin-bottom: 2px;
+  }
+
+  .color-swatch .swatch-hex {
+    font-size: 11px;
+    color: var(--doc-muted);
+    font-family: monospace;
+  }
+
+  .color-swatch .swatch-role {
+    font-size: 10px;
+    color: var(--doc-muted);
+    margin-top: 4px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  /* ═══════════════════════════════════════════
+     TYPOGRAPHY SCALE
+     ═══════════════════════════════════════════ */
+  .type-scale {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  .type-row {
+    display: flex;
+    align-items: baseline;
+    gap: 24px;
+    padding-bottom: 24px;
+    border-bottom: 1px solid var(--doc-border);
+  }
+
+  .type-row:last-child { border-bottom: none; }
+
+  .type-meta {
+    flex-shrink: 0;
+    width: 160px;
+  }
+
+  .type-meta .meta-label {
+    font-size: 10px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: var(--doc-muted);
+    margin-bottom: 4px;
+  }
+
+  .type-meta .meta-specs {
+    font-size: 11px;
+    color: var(--doc-subtle);
+    font-family: monospace;
+  }
+
+  .type-sample {
+    font-family: var(--font);
+    color: var(--doc-text);
+  }
+
+  /* ═══════════════════════════════════════════
+     UI COMPONENT SHOWCASE
+     ═══════════════════════════════════════════ */
+  .component-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    align-items: center;
+    margin-bottom: 24px;
+  }
+
+  .component-row:last-child { margin-bottom: 0; }
+
+  .component-group {
+    margin-bottom: 40px;
+  }
+
+  .component-group-title {
+    font-size: 12px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--doc-muted);
+    margin-bottom: 16px;
+  }
+
+  /* ═══════════════════════════════════════════
+     BROWSER FRAME
      ═══════════════════════════════════════════ */
   .browser-frame {
     border-radius: var(--r-xl);
@@ -320,24 +426,24 @@
 
   /* ═══════════════════════════════════════════
      INSIDE THE BROWSER: PYB WEBSITE UI
-     All screens use the unified warm theme.
+     Premium warm theme throughout.
      ═══════════════════════════════════════════ */
 
   /* Nav */
   .pyb-nav {
     display: flex; align-items: center;
-    padding: 16px 32px;
-    background: var(--pym-white);
+    padding: 18px 36px;
+    background: var(--pyb-white);
     border-bottom: 1px solid var(--border);
   }
 
   .pyb-nav .logo {
     font-size: 17px; font-weight: 600;
-    color: var(--pym-navy);
+    color: var(--pyb-black);
     margin-right: auto; letter-spacing: -0.3px;
   }
 
-  .pyb-nav .logo span { color: var(--pym-red); }
+  .pyb-nav .logo span { color: var(--pyb-red); }
 
   .pyb-nav .nav-links { display: flex; gap: 2px; }
 
@@ -353,84 +459,88 @@
   .pyb-nav .nav-cta {
     font-family: var(--font);
     font-size: 13px; font-weight: 600;
-    padding: 10px 22px;
-    background: var(--pym-red);
+    padding: 10px 24px;
+    background: var(--pyb-red);
     color: white; border: none;
     border-radius: var(--r-pill);
-    cursor: pointer; margin-left: 12px;
+    cursor: pointer; margin-left: 16px;
     transition: background 0.15s;
   }
 
-  .pyb-nav .nav-cta:hover { background: var(--pym-red-hover); }
+  .pyb-nav .nav-cta:hover { background: var(--pyb-red-hover); }
 
   /* Hero — Homepage */
   .pyb-hero {
-    padding: 64px 48px 56px;
+    padding: 72px 48px 64px;
     text-align: center;
-    background: var(--pb-cream);
+    background: var(--pyb-off-white);
   }
 
   .pyb-hero .hero-overline {
-    font-size: 11px; font-weight: 600;
-    color: var(--pym-red);
+    font-size: 11px; font-weight: 500;
+    color: var(--pyb-gold);
     text-transform: uppercase;
-    letter-spacing: 2px;
-    margin-bottom: 16px;
+    letter-spacing: 3px;
+    margin-bottom: 20px;
   }
 
   .pyb-hero h1 {
-    font-size: 42px; font-weight: 600;
-    color: var(--pym-navy);
-    line-height: 1.1;
-    letter-spacing: -0.5px;
-    margin-bottom: 16px;
-    max-width: 560px;
+    font-size: 44px; font-weight: 600;
+    color: var(--pyb-black);
+    line-height: 1.08;
+    letter-spacing: -0.8px;
+    margin-bottom: 20px;
+    max-width: 580px;
     margin-left: auto; margin-right: auto;
   }
 
-  .pyb-hero h1 span { color: var(--pym-red); }
+  .pyb-hero h1 em {
+    font-style: normal;
+    color: var(--pyb-red);
+  }
 
   .pyb-hero .hero-sub {
     font-size: 15px; font-weight: 400;
     color: var(--fg-muted);
-    max-width: 420px; margin: 0 auto 32px;
-    line-height: 1.6;
+    max-width: 440px; margin: 0 auto 36px;
+    line-height: 1.7;
   }
 
   .pyb-hero .hero-actions {
     display: flex; gap: 12px; justify-content: center;
   }
 
-  /* Buttons — Unified */
+  /* Buttons — Premium feel */
   .btn {
     font-family: var(--font);
     font-size: 13px; font-weight: 600;
-    padding: 13px 28px;
+    padding: 14px 30px;
     border-radius: var(--r-pill);
     border: none; cursor: pointer;
     transition: all 0.15s ease;
     display: inline-flex; align-items: center; gap: 8px;
+    text-decoration: none;
   }
 
   .btn:active { transform: scale(0.97); }
   .btn:focus-visible { outline: 2px solid var(--ring); outline-offset: 2px; }
 
-  .btn-primary { background: var(--pym-red); color: white; }
-  .btn-primary:hover { background: var(--pym-red-hover); }
+  .btn-primary { background: var(--pyb-red); color: white; }
+  .btn-primary:hover { background: var(--pyb-red-hover); }
 
   .btn-outline { background: transparent; color: var(--fg); border: 1.5px solid var(--border); }
-  .btn-outline:hover { border-color: var(--pym-navy); }
+  .btn-outline:hover { border-color: var(--pyb-black); }
 
-  .btn-ghost { background: transparent; color: var(--fg); border: none; padding: 13px 20px; }
-  .btn-ghost:hover { background: var(--pym-navy-10); }
+  .btn-ghost { background: transparent; color: var(--fg); border: none; padding: 14px 20px; }
+  .btn-ghost:hover { background: var(--pyb-black-10); }
 
   .btn-sm { padding: 10px 20px; font-size: 12px; }
 
   /* Social proof bar */
   .pyb-proof {
     display: flex; align-items: center; justify-content: center;
-    gap: 40px; padding: 24px 48px;
-    background: var(--pym-white);
+    gap: 48px; padding: 28px 48px;
+    background: var(--pyb-white);
     border-top: 1px solid var(--border-subtle);
     border-bottom: 1px solid var(--border-subtle);
   }
@@ -438,44 +548,45 @@
   .pyb-proof-item { text-align: center; }
 
   .pyb-proof-number {
-    font-size: 26px; font-weight: 600;
-    color: var(--pym-navy); letter-spacing: -0.5px;
+    font-size: 28px; font-weight: 600;
+    color: var(--pyb-black); letter-spacing: -0.5px;
   }
 
   .pyb-proof-label {
     font-size: 10px; font-weight: 500;
     color: var(--fg-muted);
-    text-transform: uppercase; letter-spacing: 1px;
+    text-transform: uppercase; letter-spacing: 1.5px;
     margin-top: 4px;
   }
 
   .pyb-proof-divider { width: 1px; height: 36px; background: var(--border); }
 
-  /* Service cards — Unified style, content differentiates */
+  /* Service cards */
   .pyb-services {
-    padding: 48px;
-    background: var(--pb-cream);
+    padding: 56px 48px;
+    background: var(--pyb-off-white);
   }
 
   .pyb-services h2 {
-    font-size: 28px; font-weight: 600;
-    color: var(--pym-navy); text-align: center;
-    margin-bottom: 6px; letter-spacing: -0.3px;
+    font-size: 30px; font-weight: 600;
+    color: var(--pyb-black); text-align: center;
+    margin-bottom: 8px; letter-spacing: -0.5px;
   }
 
   .pyb-services .services-sub {
-    font-size: 14px; color: var(--fg-muted);
-    text-align: center; margin-bottom: 32px;
+    font-size: 15px; color: var(--fg-muted);
+    text-align: center; margin-bottom: 40px;
+    line-height: 1.6;
   }
 
   .service-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 16px;
+    gap: 20px;
   }
 
   .service-card {
-    background: var(--pym-white);
+    background: var(--pyb-white);
     border: 1px solid var(--border-subtle);
     border-radius: var(--r-lg);
     overflow: hidden;
@@ -489,871 +600,771 @@
   }
 
   .service-card .sc-image {
-    height: 160px; position: relative; overflow: hidden;
+    height: 170px; position: relative; overflow: hidden;
   }
-
-  /* Premium cards get a subtle gold top-border accent */
-  .service-card.premium { border-top: 3px solid var(--pb-gold-badge); }
 
   .service-card .sc-badge {
     position: absolute; top: 12px; left: 12px;
     font-size: 10px; font-weight: 600;
-    padding: 4px 12px; border-radius: var(--r-pill);
-    text-transform: uppercase; letter-spacing: 0.5px;
+    text-transform: uppercase; letter-spacing: 1px;
+    padding: 5px 12px; border-radius: var(--r-pill);
   }
 
-  .sc-badge.badge-popular { background: var(--pym-red); color: white; }
-  .sc-badge.badge-premium { background: var(--pb-gold-badge); color: white; }
-  .sc-badge.badge-new { background: var(--pym-navy); color: white; }
+  .sc-badge.gold { background: var(--pyb-gold); color: #fff; }
+  .sc-badge.popular { background: var(--pyb-red); color: #fff; }
 
-  .service-card .sc-info { padding: 20px; }
+  .service-card .sc-body { padding: 24px; }
 
-  .service-card .sc-name {
-    font-size: 16px; font-weight: 600;
-    color: var(--pym-navy); margin-bottom: 6px;
+  .service-card .sc-tag {
+    font-size: 10px; font-weight: 500;
+    text-transform: uppercase; letter-spacing: 2px;
+    color: var(--pyb-gold);
+    margin-bottom: 8px;
+  }
+
+  .service-card h3 {
+    font-size: 20px; font-weight: 600;
+    color: var(--pyb-black);
+    margin-bottom: 8px; letter-spacing: -0.3px;
   }
 
   .service-card .sc-desc {
     font-size: 13px; color: var(--fg-muted);
-    line-height: 1.5; margin-bottom: 14px;
+    line-height: 1.6; margin-bottom: 20px;
   }
 
   .service-card .sc-price {
-    font-size: 14px; font-weight: 600; color: var(--pym-navy);
+    font-size: 12px; font-weight: 500;
+    color: var(--fg-muted);
   }
 
-  .service-card .sc-price .from {
-    font-size: 12px; font-weight: 400; color: var(--fg-subtle);
+  .service-card .sc-price strong {
+    font-size: 22px; font-weight: 600;
+    color: var(--pyb-black); letter-spacing: -0.5px;
+  }
+
+  /* Testimonial */
+  .pyb-testimonial {
+    padding: 56px 48px;
+    background: var(--pyb-white);
+    text-align: center;
+  }
+
+  .pyb-testimonial blockquote {
+    font-size: 18px;
+    font-weight: 400;
+    color: var(--pyb-black);
+    line-height: 1.7;
+    max-width: 560px;
+    margin: 0 auto 20px;
+    font-style: italic;
+  }
+
+  .pyb-testimonial .tq-author {
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--fg-muted);
+  }
+
+  .pyb-testimonial .tq-stars {
+    color: var(--pyb-gold);
+    font-size: 16px;
+    margin-bottom: 16px;
+    letter-spacing: 2px;
   }
 
   /* ═══════════════════════════════════════════
-     PACKAGE BUILDER — Row-based add-on toggles
+     SERVICE HERO (Product pages)
+     ═══════════════════════════════════════════ */
+  .pyb-service-hero {
+    padding: 56px 48px 40px;
+    background: var(--pyb-off-white);
+    text-align: center;
+  }
+
+  .pyb-service-hero .sh-overline {
+    font-size: 10px; font-weight: 500;
+    text-transform: uppercase; letter-spacing: 3px;
+    color: var(--pyb-gold);
+    margin-bottom: 16px;
+  }
+
+  .pyb-service-hero h1 {
+    font-size: 36px; font-weight: 600;
+    color: var(--pyb-black);
+    letter-spacing: -0.5px;
+    margin-bottom: 12px;
+  }
+
+  .pyb-service-hero .sh-sub {
+    font-size: 15px; color: var(--fg-muted);
+    max-width: 480px; margin: 0 auto;
+    line-height: 1.7;
+  }
+
+  /* ═══════════════════════════════════════════
+     MAGIC MIRROR — PACKAGE BUILDER
      ═══════════════════════════════════════════ */
   .pyb-builder {
-    padding: 48px;
-    background: var(--pb-cream);
-  }
-
-  .pyb-builder h2 {
-    font-size: 28px; font-weight: 600;
-    color: var(--pym-navy); text-align: center;
-    margin-bottom: 6px; letter-spacing: -0.3px;
-  }
-
-  .pyb-builder .builder-sub {
-    font-size: 14px; color: var(--fg-muted);
-    text-align: center; margin-bottom: 32px;
+    padding: 40px 48px 56px;
+    background: var(--pyb-off-white);
   }
 
   .builder-card {
-    background: var(--pym-white);
-    border: 1px solid var(--border-subtle);
+    background: var(--pyb-white);
     border-radius: var(--r-lg);
-    overflow: hidden;
+    box-shadow: var(--shadow-md);
     max-width: 640px;
     margin: 0 auto;
-    box-shadow: var(--shadow-sm);
+    overflow: hidden;
   }
 
-  .builder-row {
-    display: flex;
-    align-items: center;
-    padding: 20px 24px;
+  .builder-header {
+    padding: 28px 32px;
+    border-bottom: 1px solid var(--border-subtle);
+  }
+
+  .builder-header h3 {
+    font-size: 18px; font-weight: 600;
+    color: var(--pyb-black);
+    margin-bottom: 4px;
+  }
+
+  .builder-header p {
+    font-size: 13px; color: var(--fg-muted);
+  }
+
+  .builder-base {
+    padding: 20px 32px;
+    display: flex; align-items: center; justify-content: space-between;
+    background: var(--pyb-off-white);
+    border-bottom: 1px solid var(--border-subtle);
+  }
+
+  .builder-base .bb-left {
+    display: flex; align-items: center; gap: 12px;
+  }
+
+  .builder-base .bb-check {
+    width: 22px; height: 22px;
+    border-radius: 6px;
+    background: var(--pyb-red);
+    display: flex; align-items: center; justify-content: center;
+    color: white; font-size: 12px; font-weight: 700;
+  }
+
+  .builder-base .bb-name {
+    font-size: 14px; font-weight: 600;
+    color: var(--pyb-black);
+  }
+
+  .builder-base .bb-note {
+    font-size: 11px; color: var(--fg-muted);
+  }
+
+  .builder-base .bb-price {
+    font-size: 15px; font-weight: 600;
+    color: var(--pyb-black);
+  }
+
+  .builder-addons {
+    padding: 8px 0;
+  }
+
+  .addon-row {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 16px 32px;
     border-bottom: 1px solid var(--border-subtle);
     transition: background 0.15s;
   }
 
-  .builder-row:last-child { border-bottom: none; }
+  .addon-row:last-child { border-bottom: none; }
 
-  .builder-row.base-row {
-    background: var(--pym-red-dim);
-  }
+  .addon-row:hover { background: rgba(26,26,30,0.015); }
 
-  .builder-row.active {
-    background: rgba(16,14,52,0.03);
-  }
-
-  .builder-row-info {
+  .addon-left {
+    display: flex; flex-direction: column; gap: 2px;
     flex: 1;
-    min-width: 0;
   }
 
-  .builder-row-name {
-    font-size: 14px; font-weight: 600;
-    color: var(--pym-navy);
-    margin-bottom: 2px;
+  .addon-name {
+    font-size: 14px; font-weight: 500;
+    color: var(--pyb-black);
   }
 
-  .builder-row-desc {
+  .addon-desc {
     font-size: 12px; color: var(--fg-muted);
-    line-height: 1.4;
   }
 
-  .builder-row-price {
+  .addon-price {
     font-size: 14px; font-weight: 600;
-    color: var(--pym-navy);
-    margin-right: 16px;
+    color: var(--pyb-black);
+    margin-right: 20px;
     white-space: nowrap;
   }
 
-  .builder-row-price.included {
-    color: var(--pb-success);
-  }
-
   /* Toggle switch */
-  .toggle-switch {
+  .toggle {
     position: relative;
     width: 44px; height: 24px;
     flex-shrink: 0;
   }
 
-  .toggle-switch input {
-    opacity: 0; width: 0; height: 0; position: absolute;
-  }
+  .toggle input { display: none; }
 
-  .toggle-track {
-    position: absolute;
-    top: 0; left: 0; right: 0; bottom: 0;
-    background: var(--pym-warm-beige);
-    border-radius: 12px;
+  .toggle .slider {
+    position: absolute; inset: 0;
+    background: var(--pyb-sand);
+    border-radius: var(--r-pill);
     cursor: pointer;
     transition: background 0.2s;
   }
 
-  .toggle-track::after {
+  .toggle .slider::after {
     content: '';
     position: absolute;
     top: 3px; left: 3px;
     width: 18px; height: 18px;
     background: white;
     border-radius: 50%;
-    transition: transform 0.2s;
     box-shadow: 0 1px 3px rgba(0,0,0,0.15);
+    transition: transform 0.2s;
   }
 
-  .toggle-switch input:checked + .toggle-track {
-    background: var(--pym-red);
-  }
-
-  .toggle-switch input:checked + .toggle-track::after {
-    transform: translateX(20px);
-  }
-
-  .toggle-switch.locked .toggle-track {
-    background: var(--pym-red);
-    opacity: 0.6;
-    cursor: default;
-  }
-
-  .toggle-switch.locked .toggle-track::after {
-    transform: translateX(20px);
-  }
+  .toggle input:checked + .slider { background: var(--pyb-red); }
+  .toggle input:checked + .slider::after { transform: translateX(20px); }
 
   /* Builder total */
   .builder-total {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 20px 24px;
-    background: var(--pym-navy);
-    color: white;
-  }
-
-  .builder-total-label {
-    font-size: 14px; font-weight: 500;
-  }
-
-  .builder-total-price {
-    font-size: 28px; font-weight: 600;
-    letter-spacing: -0.5px;
-  }
-
-  .builder-cta {
-    display: block;
-    width: calc(100% - 48px);
-    margin: 0 auto;
-    padding: 14px 28px;
-    background: var(--pym-red);
-    color: white;
-    border: none;
-    border-radius: var(--r-pill);
-    font-family: var(--font);
-    font-size: 14px; font-weight: 600;
-    cursor: pointer;
-    transition: background 0.15s;
-    margin-top: 0;
-    text-align: center;
-  }
-
-  .builder-cta-wrap {
-    padding: 20px 24px;
-    background: var(--pym-white);
-  }
-
-  .builder-cta-wrap .builder-cta {
-    width: 100%;
-    margin: 0;
-  }
-
-  .builder-cta:hover { background: var(--pym-red-hover); }
-
-  /* ═══════════════════════════════════════════
-     TIER SELECTOR — Radio-style tier picker (iPad)
-     ═══════════════════════════════════════════ */
-  .tier-selector {
-    max-width: 640px;
-    margin: 0 auto;
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-  }
-
-  .tier-card {
-    background: var(--pym-white);
-    border: 2px solid var(--border-subtle);
-    border-radius: var(--r-lg);
-    padding: 20px 24px;
-    cursor: pointer;
-    transition: border-color 0.15s, box-shadow 0.15s;
-    display: flex;
-    align-items: center;
-    gap: 16px;
-  }
-
-  .tier-card:hover {
-    border-color: var(--pym-warm-beige);
-  }
-
-  .tier-card.selected {
-    border-color: var(--pym-red);
-    box-shadow: 0 0 0 1px var(--pym-red), var(--shadow-sm);
-  }
-
-  .tier-radio {
-    width: 22px; height: 22px;
-    border-radius: 50%;
-    border: 2px solid var(--pym-warm-beige);
-    flex-shrink: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: border-color 0.15s;
-  }
-
-  .tier-card.selected .tier-radio {
-    border-color: var(--pym-red);
-  }
-
-  .tier-radio-dot {
-    width: 10px; height: 10px;
-    border-radius: 50%;
-    background: transparent;
-    transition: background 0.15s;
-  }
-
-  .tier-card.selected .tier-radio-dot {
-    background: var(--pym-red);
-  }
-
-  .tier-info { flex: 1; }
-
-  .tier-name {
-    font-size: 16px; font-weight: 600;
-    color: var(--pym-navy);
-    display: flex;
-    align-items: center;
-    gap: 8px;
-  }
-
-  .tier-name .premium-badge {
-    font-size: 9px; font-weight: 600;
-    padding: 2px 8px;
-    border-radius: var(--r-pill);
-    background: var(--pb-gold-badge);
-    color: white;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-  }
-
-  .tier-desc {
-    font-size: 12px; color: var(--fg-muted);
-    line-height: 1.4; margin-top: 2px;
-  }
-
-  .tier-price {
-    font-size: 22px; font-weight: 600;
-    color: var(--pym-navy);
-    flex-shrink: 0;
-  }
-
-  .tier-cta-wrap {
-    max-width: 640px;
-    margin: 20px auto 0;
-  }
-
-  .tier-cta-wrap .builder-cta {
-    width: 100%; margin: 0;
-  }
-
-  /* ═══════════════════════════════════════════
-     DJ PROFILE CARDS
-     ═══════════════════════════════════════════ */
-  .dj-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 20px;
-    max-width: 640px;
-    margin: 0 auto 32px;
-  }
-
-  .dj-card {
-    background: var(--pym-white);
-    border: 1px solid var(--border-subtle);
-    border-radius: var(--r-lg);
-    overflow: hidden;
-    text-align: center;
-    transition: transform 0.2s, box-shadow 0.2s;
-  }
-
-  .dj-card:hover {
-    transform: translateY(-3px);
-    box-shadow: var(--shadow-md);
-  }
-
-  .dj-avatar {
-    height: 180px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 64px;
-  }
-
-  .dj-card-body { padding: 20px; }
-
-  .dj-name {
-    font-size: 18px; font-weight: 600;
-    color: var(--pym-navy);
-    margin-bottom: 4px;
-  }
-
-  .dj-style {
-    font-size: 12px; color: var(--fg-muted);
-    margin-bottom: 12px;
-  }
-
-  .dj-tags { display: flex; gap: 6px; justify-content: center; flex-wrap: wrap; }
-
-  .dj-tag {
-    font-size: 10px; font-weight: 500;
-    padding: 4px 10px;
-    border-radius: var(--r-pill);
-    background: var(--pym-navy-10);
-    color: var(--pym-navy);
-  }
-
-  /* Spotify feature highlight */
-  .spotify-feature {
-    background: var(--pym-white);
-    border: 1px solid var(--border-subtle);
-    border-radius: var(--r-lg);
-    padding: 28px 32px;
-    max-width: 640px;
-    margin: 0 auto 32px;
-    display: flex;
-    align-items: center;
-    gap: 20px;
-  }
-
-  .spotify-icon {
-    width: 48px; height: 48px;
-    border-radius: 50%;
-    background: #1DB954;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-shrink: 0;
-    font-size: 24px;
-    color: white;
-  }
-
-  .spotify-info { flex: 1; }
-
-  .spotify-title {
-    font-size: 15px; font-weight: 600;
-    color: var(--pym-navy);
-    margin-bottom: 4px;
-  }
-
-  .spotify-desc {
-    font-size: 13px; color: var(--fg-muted);
-    line-height: 1.5;
-  }
-
-  /* Product hero */
-  .pyb-product-hero {
-    padding: 48px 48px 40px;
-    text-align: center;
-    background: var(--pb-cream);
-  }
-
-  .pyb-product-hero .hero-overline {
-    font-size: 11px; font-weight: 600;
-    color: var(--pym-red);
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    margin-bottom: 12px;
-  }
-
-  .pyb-product-hero h1 {
-    font-size: 36px; font-weight: 600;
-    color: var(--pym-navy);
-    line-height: 1.1;
-    letter-spacing: -0.5px;
-    margin-bottom: 12px;
-  }
-
-  .pyb-product-hero h1 span { color: var(--pym-red); }
-
-  .pyb-product-hero .hero-sub {
-    font-size: 15px; font-weight: 400;
-    color: var(--fg-muted);
-    max-width: 460px; margin: 0 auto;
-    line-height: 1.6;
-  }
-
-  /* Packages section (kept for reference) */
-  .pyb-packages {
-    padding: 48px;
-    background: var(--pym-white);
+    padding: 24px 32px;
+    background: var(--pyb-off-white);
+    display: flex; align-items: center; justify-content: space-between;
     border-top: 1px solid var(--border-subtle);
   }
 
-  .pyb-packages h2 {
+  .builder-total .bt-label {
+    font-size: 14px; font-weight: 500;
+    color: var(--fg-muted);
+  }
+
+  .builder-total .bt-amount {
     font-size: 28px; font-weight: 600;
-    color: var(--pym-navy); text-align: center;
-    margin-bottom: 6px;
+    color: var(--pyb-black); letter-spacing: -0.5px;
   }
 
-  .pyb-packages .pkg-sub {
-    font-size: 14px; color: var(--fg-muted);
-    text-align: center; margin-bottom: 32px;
+  .builder-cta {
+    padding: 24px 32px;
+    text-align: center;
   }
 
-  .package-grid {
+  .builder-cta .btn { width: 100%; justify-content: center; font-size: 14px; padding: 16px; }
+
+  .builder-cta .cta-hint {
+    font-size: 12px; color: var(--fg-muted);
+    margin-top: 12px;
+    display: flex; align-items: center; justify-content: center; gap: 6px;
+  }
+
+  .cta-hint .check-icon { color: var(--pyb-success); }
+
+  /* ═══════════════════════════════════════════
+     iPAD PHOTOBOOTH — TIER SELECTOR
+     ═══════════════════════════════════════════ */
+  .pyb-tiers {
+    padding: 40px 48px 56px;
+    background: var(--pyb-off-white);
+  }
+
+  .tier-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 16px;
+    max-width: 720px;
+    margin: 0 auto;
   }
 
-  .package-card {
-    background: var(--pb-cream);
-    border: 1px solid var(--border);
+  .tier-card {
+    background: var(--pyb-white);
+    border: 2px solid var(--border-subtle);
     border-radius: var(--r-lg);
-    padding: 32px 24px;
+    padding: 28px 24px;
     text-align: center;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    cursor: pointer;
+    transition: all 0.2s ease;
     position: relative;
   }
 
-  .package-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-md); }
+  .tier-card:hover { border-color: var(--pyb-sand); }
 
-  .package-card.recommended {
-    border-color: var(--pym-red);
-    background: var(--pym-white);
-    box-shadow: 0 0 0 1px var(--pym-red), var(--shadow-md);
+  .tier-card.selected {
+    border-color: var(--pyb-red);
+    box-shadow: 0 0 0 1px var(--pyb-red), var(--shadow-md);
   }
 
-  .package-card.recommended::before {
-    content: 'Meest gekozen';
-    position: absolute; top: -11px; left: 50%; transform: translateX(-50%);
+  .tier-card .tc-popular {
+    position: absolute;
+    top: -11px; left: 50%; transform: translateX(-50%);
     font-size: 10px; font-weight: 600;
-    padding: 3px 14px;
-    background: var(--pym-red); color: white;
-    border-radius: var(--r-pill);
-    text-transform: uppercase; letter-spacing: 0.5px;
+    text-transform: uppercase; letter-spacing: 1px;
+    padding: 3px 14px; border-radius: var(--r-pill);
+    background: var(--pyb-red); color: white;
     white-space: nowrap;
   }
 
-  .package-card .pk-name {
-    font-size: 18px; font-weight: 600;
-    color: var(--pym-navy); margin-bottom: 8px;
+  .tier-card .tc-name {
+    font-size: 14px; font-weight: 600;
+    color: var(--pyb-black);
+    margin-bottom: 4px;
   }
 
-  .package-card .pk-price {
-    font-size: 36px; font-weight: 600;
-    color: var(--pym-navy); margin-bottom: 4px;
+  .tier-card .tc-price {
+    font-size: 32px; font-weight: 600;
+    color: var(--pyb-black);
     letter-spacing: -1px;
+    margin-bottom: 4px;
   }
 
-  .package-card .pk-unit {
-    font-size: 12px; color: var(--fg-subtle); margin-bottom: 24px;
+  .tier-card .tc-price-hint {
+    font-size: 11px; color: var(--fg-muted);
+    margin-bottom: 16px;
   }
 
-  .package-card .pk-features {
-    list-style: none; padding: 0; margin-bottom: 24px;
+  .tier-card .tc-features {
+    list-style: none;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
   }
 
-  .package-card .pk-features li {
-    font-size: 13px; color: var(--fg-muted);
-    padding: 8px 0;
-    border-bottom: 1px solid var(--border-subtle);
+  .tier-card .tc-features li {
+    font-size: 12px; color: var(--fg-muted);
+    display: flex; align-items: flex-start; gap: 8px;
+    line-height: 1.4;
   }
 
-  .package-card .pk-features li:last-child { border-bottom: none; }
+  .tier-card .tc-features li .feat-check {
+    color: var(--pyb-success);
+    font-weight: 700;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
 
-  .package-card .pk-btn {
-    font-family: var(--font);
-    font-size: 13px; font-weight: 600;
-    padding: 12px 28px;
-    border-radius: var(--r-pill);
-    border: 1.5px solid var(--border);
-    background: transparent;
-    color: var(--pym-navy);
-    cursor: pointer; width: 100%;
+  .tier-card .tc-radio {
+    width: 18px; height: 18px;
+    border: 2px solid var(--pyb-sand);
+    border-radius: 50%;
+    margin: 16px auto 0;
+    display: flex; align-items: center; justify-content: center;
     transition: all 0.15s;
   }
 
-  .package-card .pk-btn:hover { border-color: var(--pym-navy); }
-
-  .package-card.recommended .pk-btn {
-    background: var(--pym-red); color: white;
-    border-color: var(--pym-red);
+  .tier-card.selected .tc-radio {
+    border-color: var(--pyb-red);
   }
 
-  .package-card.recommended .pk-btn:hover { background: var(--pym-red-hover); }
+  .tier-card.selected .tc-radio::after {
+    content: '';
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    background: var(--pyb-red);
+  }
+
+  .tier-cta {
+    max-width: 720px;
+    margin: 24px auto 0;
+    text-align: center;
+  }
+
+  .tier-cta .btn { padding: 16px 40px; font-size: 14px; }
+
+  .tier-cta .cta-hint {
+    font-size: 12px; color: var(--fg-muted);
+    margin-top: 12px;
+    display: flex; align-items: center; justify-content: center; gap: 6px;
+  }
 
   /* ═══════════════════════════════════════════
-     SCREEN: PROPOSAL FORM
+     PROPOSAL FORM
      ═══════════════════════════════════════════ */
-  .form-screen { background: var(--pb-cream); }
-
-  .form-screen .fs-header {
-    padding: 40px 48px 24px; text-align: center;
-  }
-
-  .form-screen .fs-header h2 {
-    font-size: 28px; font-weight: 600;
-    color: var(--pym-navy); margin-bottom: 8px;
-  }
-
-  .form-screen .fs-header p {
-    font-size: 14px; color: var(--fg-muted);
-  }
-
-  .form-screen .fs-body {
-    padding: 0 48px 48px;
-    max-width: 560px; margin: 0 auto;
+  .pyb-form-section {
+    padding: 56px 48px;
+    background: var(--pyb-off-white);
   }
 
   .form-card {
-    background: var(--pym-white);
-    border: 1px solid var(--border-subtle);
+    background: var(--pyb-white);
     border-radius: var(--r-lg);
-    padding: 32px;
-    box-shadow: var(--shadow-sm);
+    box-shadow: var(--shadow-md);
+    max-width: 520px;
+    margin: 0 auto;
+    padding: 40px;
   }
 
-  .form-group { margin-bottom: 18px; }
+  .form-card h2 {
+    font-size: 24px; font-weight: 600;
+    color: var(--pyb-black);
+    margin-bottom: 6px;
+    letter-spacing: -0.3px;
+  }
+
+  .form-card .form-sub {
+    font-size: 14px; color: var(--fg-muted);
+    margin-bottom: 32px;
+    line-height: 1.6;
+  }
+
+  .form-group {
+    margin-bottom: 20px;
+  }
 
   .form-group label {
     display: block;
-    font-size: 13px; font-weight: 500;
-    color: var(--pym-navy);
-    margin-bottom: 6px;
+    font-size: 12px; font-weight: 500;
+    text-transform: uppercase; letter-spacing: 1.5px;
+    color: var(--fg-muted);
+    margin-bottom: 8px;
   }
 
   .form-group input,
   .form-group select,
   .form-group textarea {
-    width: 100%; height: 48px;
-    padding: 0 16px;
-    background: var(--pb-cream);
-    border: 1px solid var(--border);
+    width: 100%;
+    font-family: var(--font);
+    font-size: 14px;
+    color: var(--pyb-black);
+    padding: 12px 16px;
+    border: 1.5px solid var(--pyb-sand);
     border-radius: var(--r-md);
-    color: var(--pym-navy);
-    font-family: var(--font); font-size: 14px;
-    transition: border-color 0.15s, box-shadow 0.15s;
+    background: var(--pyb-white);
+    transition: border-color 0.15s;
     outline: none;
   }
-
-  .form-group textarea { height: 80px; padding: 14px 16px; resize: vertical; }
 
   .form-group input:focus,
   .form-group select:focus,
   .form-group textarea:focus {
-    border-color: var(--pym-red);
-    box-shadow: 0 0 0 3px var(--pym-red-dim);
+    border-color: var(--pyb-black);
   }
 
-  .form-group input::placeholder { color: var(--fg-subtle); }
-
-  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
-
-  .form-submit {
-    font-family: var(--font);
-    font-size: 14px; font-weight: 600;
-    width: 100%; height: 52px;
-    background: var(--pym-red); color: white;
-    border: none; border-radius: var(--r-pill);
-    cursor: pointer; margin-top: 8px;
-    transition: background 0.15s;
+  .form-group textarea {
+    min-height: 100px;
+    resize: vertical;
   }
 
-  .form-submit:hover { background: var(--pym-red-hover); }
-  .form-submit:focus-visible { outline: 2px solid var(--ring); outline-offset: 2px; }
-
-  .form-hint {
-    text-align: center;
-    font-size: 12px; color: var(--fg-subtle);
-    margin-top: 14px;
+  .form-group select {
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%231a1a1e' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 14px center;
+    padding-right: 40px;
   }
 
-  .form-hint svg {
-    width: 14px; height: 14px;
-    vertical-align: -2px; margin-right: 4px;
-    stroke: var(--pb-success); fill: none; stroke-width: 2;
-  }
-
-  /* ═══════════════════════════════════════════
-     TESTIMONIAL
-     ═══════════════════════════════════════════ */
-  .pyb-testimonial {
-    padding: 40px 48px;
-    background: var(--pym-warm-white);
-    border-top: 1px solid var(--border-subtle);
-    text-align: center;
-  }
-
-  .pyb-testimonial blockquote {
-    font-size: 18px; font-weight: 400;
-    font-style: italic;
-    color: var(--pym-navy);
-    max-width: 460px;
-    margin: 0 auto 16px;
-    line-height: 1.6;
-  }
-
-  .pyb-testimonial .tq-author {
-    font-size: 13px; font-weight: 500;
-    color: var(--fg-muted);
-  }
-
-  .pyb-testimonial .tq-event {
-    font-size: 12px; color: var(--fg-subtle);
-  }
-
-  /* ═══════════════════════════════════════════
-     COLOR PALETTE
-     ═══════════════════════════════════════════ */
-  .color-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(155px, 1fr));
-    gap: 12px;
-  }
-
-  .color-swatch {
-    border-radius: var(--r-md);
-    overflow: hidden;
-    border: 1px solid var(--doc-border);
-  }
-
-  .color-swatch .preview {
-    height: 76px;
-    display: flex; align-items: flex-end; padding: 8px 12px;
-  }
-
-  .color-swatch .preview .hex {
-    font-family: 'SF Mono', 'Fira Code', monospace;
-    font-size: 10px; font-weight: 500; opacity: 0.65;
-  }
-
-  .color-swatch .meta { padding: 10px 12px; background: var(--doc-surface); }
-  .color-swatch .meta .name { font-size: 12px; font-weight: 600; color: var(--doc-text); }
-  .color-swatch .meta .role { font-size: 10px; color: var(--doc-muted); margin-top: 2px; }
-
-  /* ═══════════════════════════════════════════
-     TYPE SCALE
-     ═══════════════════════════════════════════ */
-  .type-row {
-    display: flex; align-items: baseline; gap: 32px;
-    padding: 20px 0;
-    border-bottom: 1px solid var(--doc-border);
-  }
-
-  .type-row .label {
-    flex: 0 0 140px;
-    font-size: 10px; font-weight: 500;
-    color: var(--doc-muted);
-    text-transform: uppercase; letter-spacing: 1.5px;
-  }
-
-  .type-row .label .specs {
-    display: block; margin-top: 3px;
-    text-transform: none; letter-spacing: 0;
-    font-size: 10px; color: var(--doc-subtle);
-  }
-
-  .type-row .sample { flex: 1; color: var(--doc-text); }
-
-  /* ═══════════════════════════════════════════
-     COMPONENTS
-     ═══════════════════════════════════════════ */
-  .component-grid {
+  .form-row {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 20px;
+    gap: 16px;
   }
 
-  @media (max-width: 768px) { .component-grid { grid-template-columns: 1fr; } }
+  .form-cta { margin-top: 28px; }
+  .form-cta .btn { width: 100%; justify-content: center; font-size: 14px; padding: 16px; }
 
-  .comp-box {
+  .form-trust {
+    text-align: center;
+    margin-top: 16px;
+    font-size: 12px; color: var(--fg-muted);
+    display: flex; align-items: center; justify-content: center; gap: 6px;
+  }
+
+  .form-trust .check-icon { color: var(--pyb-success); }
+
+  /* ═══════════════════════════════════════════
+     DIFFERENTIATION GUIDE
+     ═══════════════════════════════════════════ */
+  .diff-table {
+    width: 100%;
+    border-collapse: collapse;
     background: var(--doc-surface);
     border: 1px solid var(--doc-border);
     border-radius: var(--r-lg);
-    padding: 28px;
+    overflow: hidden;
   }
 
-  .comp-box h4 {
-    font-size: 10px; font-weight: 600;
-    text-transform: uppercase; letter-spacing: 2px;
-    color: var(--doc-accent);
-    margin-bottom: 20px;
+  .diff-table th, .diff-table td {
+    padding: 14px 20px;
+    text-align: left;
+    font-size: 13px;
+    border-bottom: 1px solid var(--doc-border);
   }
 
-  .comp-box .btn-row { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; }
-
-  /* Doc-layer button previews (on dark bg) */
-  .doc-btn-primary {
-    font-family: var(--font); font-size: 13px; font-weight: 600;
-    padding: 12px 24px; background: var(--pym-red);
-    color: white; border: none; border-radius: var(--r-pill); cursor: pointer;
+  .diff-table th {
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    font-size: 10px;
+    color: var(--doc-muted);
+    background: rgba(255,255,255,0.02);
   }
 
-  .doc-btn-outline {
-    font-family: var(--font); font-size: 13px; font-weight: 500;
-    padding: 12px 24px; background: transparent;
-    color: var(--doc-text); border: 1px solid var(--doc-border);
-    border-radius: var(--r-pill); cursor: pointer;
-  }
-
-  .doc-btn-ghost {
-    font-family: var(--font); font-size: 13px; font-weight: 500;
-    padding: 12px 18px; background: transparent;
-    color: var(--doc-text); border: none;
-    border-radius: var(--r-pill); cursor: pointer;
-  }
-
-  .doc-btn-gold {
-    font-family: var(--font); font-size: 13px; font-weight: 600;
-    padding: 12px 24px; background: var(--pb-gold-badge);
-    color: white; border: none; border-radius: var(--r-pill); cursor: pointer;
-  }
-
-  /* Tags */
-  .tag-row { display: flex; gap: 6px; flex-wrap: wrap; }
-
-  .tag {
-    font-size: 10px; font-weight: 600;
-    padding: 5px 12px; border-radius: var(--r-pill);
-    text-transform: uppercase; letter-spacing: 0.5px;
-  }
-
-  .tag-red { background: var(--pym-red-dim); color: var(--pym-red); }
-  .tag-gold { background: var(--pb-gold-dim); color: var(--pb-gold); }
-  .tag-success { background: var(--pb-success-dim); color: var(--pb-success); }
-  .tag-muted { background: rgba(255,255,255,0.04); color: var(--doc-muted); border: 1px solid var(--doc-border); }
-
-  /* Input preview */
-  .input-demo { display: flex; flex-direction: column; gap: 12px; }
-
-  .doc-input {
-    width: 100%; height: 44px; padding: 0 14px;
-    background: rgba(255,255,255,0.03);
-    border: 1px solid var(--doc-border);
-    border-radius: var(--r-md);
-    color: var(--doc-text);
-    font-family: var(--font); font-size: 13px;
-    outline: none;
-  }
-
-  .doc-input::placeholder { color: var(--doc-subtle); }
-  .doc-input:focus { border-color: var(--pym-red); box-shadow: 0 0 0 3px rgba(255,73,74,0.1); }
-
-  /* ═══════════════════════════════════════════
-     FOOTER
-     ═══════════════════════════════════════════ */
-  .ds-footer {
-    text-align: center; padding: 48px;
-    font-size: 12px; color: var(--doc-subtle);
-    border-top: 1px solid var(--doc-border);
-  }
-
-  .ds-footer a { color: var(--doc-accent); text-decoration: none; }
+  .diff-table td { color: var(--doc-text); }
+  .diff-table td:first-child { font-weight: 500; color: var(--doc-muted); }
+  .diff-table tr:last-child td { border-bottom: none; }
 
   /* ═══════════════════════════════════════════
      ANIMATIONS
      ═══════════════════════════════════════════ */
   @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-  @keyframes fadeInUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
-  @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.3; } }
+  @keyframes fadeInUp { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
+  @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.4; } }
 </style>
 </head>
 <body>
 
 <!-- ═══════════════════════════════════════════
-     HERO
+     DOC HERO
      ═══════════════════════════════════════════ -->
 <div class="hero">
   <div class="hero-badge">
     <span class="dot"></span>
-    Pic Your Booth · Design System
+    Design System v2.0
   </div>
   <h1>Pic Your <span>Booth</span></h1>
-  <p class="subtitle">Unified design system for the Pic Your Booth website. One visual identity, all products. Extends the Pic Your Moment parent brand.</p>
+  <p class="subtitle">Premium event entertainment brand. Design system, component library, and page mockups for a VIP-level photobooth experience.</p>
 </div>
 
+
 <!-- ═══════════════════════════════════════════
-     DESIGN PRINCIPLES
+     01 — DESIGN PRINCIPLES
      ═══════════════════════════════════════════ -->
 <div class="section">
-  <div class="section-label">Principles</div>
-  <div class="section-title">Een merk, een visuele taal</div>
-  <div class="section-desc">Geen aparte thema's voor verschillende producten. Een warm, professioneel design dat werkt voor Magic Mirror, iPad Booth, en DJs. Het product verschilt, het merk niet.</div>
+  <div class="section-label">01</div>
+  <h2 class="section-title">Design Principles</h2>
+  <p class="section-desc">Every design decision reinforces one idea: Pic Your Booth delivers premium event entertainment that feels VIP, elevated, and effortless.</p>
 
   <div class="principle-grid">
     <div class="principle-card">
       <div class="pc-number">01</div>
-      <h3>Unified Identity</h3>
-      <p>Alle producten leven in dezelfde visuele wereld. Dezelfde kleuren, typografie, en componenten. Premium vs. accessible wordt onderscheiden door content en beeldgebruik, niet door kleurthema.</p>
+      <h3>Premium First</h3>
+      <p>Everything communicates quality. Generous whitespace, warm tones, confident typography. The brand should feel like walking into a VIP event — not browsing a rental catalogue.</p>
     </div>
     <div class="principle-card">
       <div class="pc-number">02</div>
-      <h3>PYM Heritage</h3>
-      <p>Poppins, PYM navy (#100e34), PYM muted-red (#ff494a), warme cremetinten. Direct herkenbaar als onderdeel van Pic Your Moment. Geen afwijkende fonts of kleuren.</p>
+      <h3>One Brand, Tiered Access</h3>
+      <p>Magic Mirror XL is the flagship experience. iPad Photobooth is the accessible entry point into the premium world. Same brand DNA, different scale of experience.</p>
     </div>
     <div class="principle-card">
       <div class="pc-number">03</div>
-      <h3>Content Differentiates</h3>
-      <p>Magic Mirror pagina's tonen premium beelden en tekst. iPad pagina's tonen casual beelden en prijzen. DJ pagina's tonen de persoonlijkheid van het team. De UI-componenten zijn identiek.</p>
+      <h3>Cinematic Warmth</h3>
+      <p>Warm off-whites, soft shadows, gold accents. The palette evokes high-end event photography — never clinical or cold. Every screen should feel inviting and experiential.</p>
     </div>
   </div>
 </div>
 
+
 <!-- ═══════════════════════════════════════════
-     SCREENS
+     02 — COLOR PALETTE
      ═══════════════════════════════════════════ -->
 <div class="section">
-  <div class="section-label">Screens</div>
-  <div class="section-title">Website Pages</div>
-  <div class="section-desc">Alle pagina's gebruiken dezelfde warme basis. Dezelfde navigatie, dezelfde componenten, dezelfde typografie. Content en beelden doen het werk.</div>
+  <div class="section-label">02</div>
+  <h2 class="section-title">Color Palette</h2>
+  <p class="section-desc">Warm, confident, and premium. Deep off-white backgrounds, rich near-black text, coral-red energy, and gold for VIP accents.</p>
 
-  <!-- ════════════════════════════════════════
-       SCREEN 1: HOMEPAGE
-       ════════════════════════════════════════ -->
+  <div class="color-grid">
+    <div class="color-swatch">
+      <div class="swatch-block" style="background: #f8f6f2;"></div>
+      <div class="swatch-info">
+        <div class="swatch-name">Off-White</div>
+        <div class="swatch-hex">#f8f6f2</div>
+        <div class="swatch-role">Background</div>
+      </div>
+    </div>
+    <div class="color-swatch">
+      <div class="swatch-block" style="background: #ffffff;"></div>
+      <div class="swatch-info">
+        <div class="swatch-name">White</div>
+        <div class="swatch-hex">#ffffff</div>
+        <div class="swatch-role">Cards</div>
+      </div>
+    </div>
+    <div class="color-swatch">
+      <div class="swatch-block" style="background: #1a1a1e;"></div>
+      <div class="swatch-info">
+        <div class="swatch-name">Near-Black</div>
+        <div class="swatch-hex">#1a1a1e</div>
+        <div class="swatch-role">Primary text</div>
+      </div>
+    </div>
+    <div class="color-swatch">
+      <div class="swatch-block" style="background: #ff494a;"></div>
+      <div class="swatch-info">
+        <div class="swatch-name">Coral Red</div>
+        <div class="swatch-hex">#ff494a</div>
+        <div class="swatch-role">CTA / Primary</div>
+      </div>
+    </div>
+    <div class="color-swatch">
+      <div class="swatch-block" style="background: #c9a84c;"></div>
+      <div class="swatch-info">
+        <div class="swatch-name">Warm Gold</div>
+        <div class="swatch-hex">#c9a84c</div>
+        <div class="swatch-role">VIP accents</div>
+      </div>
+    </div>
+    <div class="color-swatch">
+      <div class="swatch-block" style="background: #e8dfd2;"></div>
+      <div class="swatch-info">
+        <div class="swatch-name">Sand</div>
+        <div class="swatch-hex">#e8dfd2</div>
+        <div class="swatch-role">Borders / Subtle</div>
+      </div>
+    </div>
+    <div class="color-swatch">
+      <div class="swatch-block" style="background: #2d8a4e;"></div>
+      <div class="swatch-info">
+        <div class="swatch-name">Success</div>
+        <div class="swatch-hex">#2d8a4e</div>
+        <div class="swatch-role">Confirmation</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ═══════════════════════════════════════════
+     03 — TYPOGRAPHY
+     ═══════════════════════════════════════════ -->
+<div class="section">
+  <div class="section-label">03</div>
+  <h2 class="section-title">Typography Scale</h2>
+  <p class="section-desc">Poppins used with restraint and generous whitespace. Headings are tight and bold, body text is comfortable, labels feel luxury.</p>
+
+  <div class="type-scale">
+    <div class="type-row">
+      <div class="type-meta">
+        <div class="meta-label">Display</div>
+        <div class="meta-specs">44px / 600 / -0.8</div>
+      </div>
+      <div class="type-sample" style="font-size: 44px; font-weight: 600; letter-spacing: -0.8px; line-height: 1.08;">Entertainment die indruk maakt</div>
+    </div>
+    <div class="type-row">
+      <div class="type-meta">
+        <div class="meta-label">Heading 1</div>
+        <div class="meta-specs">30px / 600 / -0.5</div>
+      </div>
+      <div class="type-sample" style="font-size: 30px; font-weight: 600; letter-spacing: -0.5px;">Onze ervaringen</div>
+    </div>
+    <div class="type-row">
+      <div class="type-meta">
+        <div class="meta-label">Heading 2</div>
+        <div class="meta-specs">20px / 600 / -0.3</div>
+      </div>
+      <div class="type-sample" style="font-size: 20px; font-weight: 600; letter-spacing: -0.3px;">Magic Mirror XL</div>
+    </div>
+    <div class="type-row">
+      <div class="type-meta">
+        <div class="meta-label">Body</div>
+        <div class="meta-specs">15px / 400 / 1.7 lh</div>
+      </div>
+      <div class="type-sample" style="font-size: 15px; font-weight: 400; line-height: 1.7;">Maak van elk evenement een onvergetelijke ervaring met onze premium photo entertainment.</div>
+    </div>
+    <div class="type-row">
+      <div class="type-meta">
+        <div class="meta-label">Label</div>
+        <div class="meta-specs">10px / 500 / uppercase / 3px</div>
+      </div>
+      <div class="type-sample" style="font-size: 10px; font-weight: 500; text-transform: uppercase; letter-spacing: 3px;">Premium Ervaring</div>
+    </div>
+    <div class="type-row">
+      <div class="type-meta">
+        <div class="meta-label">Small</div>
+        <div class="meta-specs">12px / 400</div>
+      </div>
+      <div class="type-sample" style="font-size: 12px; font-weight: 400;">Binnen 24 uur reactie &middot; Vrijblijvend</div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ═══════════════════════════════════════════
+     04 — UI COMPONENTS
+     ═══════════════════════════════════════════ -->
+<div class="section">
+  <div class="section-label">04</div>
+  <h2 class="section-title">UI Components</h2>
+  <p class="section-desc">Buttons, tags, inputs, and interactive elements — all designed for a polished, premium feel.</p>
+
+  <div class="component-group">
+    <div class="component-group-title">Buttons</div>
+    <div class="component-row">
+      <button class="btn btn-primary">Boek je ervaring</button>
+      <button class="btn btn-primary btn-sm">Meer info</button>
+      <button class="btn btn-outline">Bekijk opties</button>
+      <button class="btn btn-ghost">Lees meer &rarr;</button>
+    </div>
+  </div>
+
+  <div class="component-group">
+    <div class="component-group-title">Tags & Badges</div>
+    <div class="component-row">
+      <span style="font-size:10px; font-weight:600; text-transform:uppercase; letter-spacing:1px; padding:5px 14px; border-radius:var(--r-pill); background:var(--pyb-gold); color:#fff;">VIP Ervaring</span>
+      <span style="font-size:10px; font-weight:600; text-transform:uppercase; letter-spacing:1px; padding:5px 14px; border-radius:var(--r-pill); background:var(--pyb-red); color:#fff;">Populair</span>
+      <span style="font-size:10px; font-weight:600; text-transform:uppercase; letter-spacing:1px; padding:5px 14px; border-radius:var(--r-pill); background:var(--pyb-success); color:#fff;">Beschikbaar</span>
+      <span style="font-size:10px; font-weight:500; text-transform:uppercase; letter-spacing:1.5px; padding:4px 12px; border-radius:var(--r-pill); border:1px solid var(--doc-border); color:var(--doc-muted);">Vanaf &euro;200</span>
+    </div>
+  </div>
+
+  <div class="component-group">
+    <div class="component-group-title">Toggle Switch</div>
+    <div class="component-row">
+      <label class="toggle">
+        <input type="checkbox" checked>
+        <span class="slider"></span>
+      </label>
+      <span style="font-size: 13px; color: var(--doc-muted);">Active</span>
+      &nbsp;&nbsp;
+      <label class="toggle">
+        <input type="checkbox">
+        <span class="slider"></span>
+      </label>
+      <span style="font-size: 13px; color: var(--doc-muted);">Inactive</span>
+    </div>
+  </div>
+
+  <div class="component-group">
+    <div class="component-group-title">Form Inputs</div>
+    <div style="max-width:360px;">
+      <div class="form-group">
+        <label>Naam</label>
+        <input type="text" placeholder="Je volledige naam">
+      </div>
+      <div class="form-group">
+        <label>Type Event</label>
+        <select>
+          <option>Selecteer type event</option>
+          <option>Bruiloft</option>
+          <option>Bedrijfsfeest</option>
+          <option>Verjaardag</option>
+          <option>Gala / Award show</option>
+          <option>Anders</option>
+        </select>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ═══════════════════════════════════════════
+     05 — HOMEPAGE MOCKUP
+     ═══════════════════════════════════════════ -->
+<div class="section">
+  <div class="section-label">05</div>
+  <h2 class="section-title">Page Mockups</h2>
+  <p class="section-desc">Full-page browser mockups showing how the design system comes together on each screen.</p>
+
   <div class="screen-section">
     <div class="screen-label">
       <h3>Homepage</h3>
-      <span class="screen-tag">All Products</span>
+      <span class="screen-tag">Landing</span>
     </div>
 
     <div class="browser-frame">
@@ -1361,99 +1372,111 @@
         <div class="browser-dots"><span></span><span></span><span></span></div>
         <div class="browser-url"><span class="lock">&#x1f512;</span> picyourbooth.nl</div>
       </div>
-      <div style="background:var(--pb-cream);">
-        <div class="pyb-nav">
-          <div class="logo">Pic Your <span>Booth</span></div>
-          <div class="nav-links">
-            <a class="nav-link active" href="#">Home</a>
-            <a class="nav-link" href="#">Magic Mirror</a>
-            <a class="nav-link" href="#">iPad Booth</a>
-            <a class="nav-link" href="#">DJs</a>
-            <a class="nav-link" href="#">Over ons</a>
-          </div>
-          <button class="nav-cta">Offerte aanvragen</button>
-        </div>
 
-        <div class="pyb-hero">
-          <div class="hero-overline">Photobooth & DJ Entertainment</div>
-          <h1>Maak van je event een <span>onvergetelijke</span> ervaring</h1>
-          <p class="hero-sub">Van intieme feestjes tot grote bruiloften — wij brengen de entertainment, de foto's, en de muziek. Jij brengt de mensen.</p>
-          <div class="hero-actions">
-            <button class="btn btn-primary">Vraag een voorstel aan</button>
-            <button class="btn btn-outline">Bekijk pakketten</button>
-          </div>
+      <!-- Nav -->
+      <nav class="pyb-nav">
+        <div class="logo">Pic Your <span>Booth</span></div>
+        <div class="nav-links">
+          <a class="nav-link active" href="#">Magic Mirror</a>
+          <a class="nav-link" href="#">iPad Booth</a>
+          <a class="nav-link" href="#">DJs</a>
+          <a class="nav-link" href="#">Over ons</a>
         </div>
+        <button class="nav-cta">Boek je ervaring</button>
+      </nav>
 
-        <div class="pyb-proof">
-          <div class="pyb-proof-item">
-            <div class="pyb-proof-number">200+</div>
-            <div class="pyb-proof-label">Events</div>
-          </div>
-          <div class="pyb-proof-divider"></div>
-          <div class="pyb-proof-item">
-            <div class="pyb-proof-number">4.9&#9733;</div>
-            <div class="pyb-proof-label">Google Score</div>
-          </div>
-          <div class="pyb-proof-divider"></div>
-          <div class="pyb-proof-item">
-            <div class="pyb-proof-number">100%</div>
-            <div class="pyb-proof-label">Aanbeveling</div>
-          </div>
+      <!-- Hero -->
+      <div class="pyb-hero">
+        <div class="hero-overline">Premium Event Entertainment</div>
+        <h1>Entertainment die <em>indruk</em> maakt</h1>
+        <p class="hero-sub">Maak van elk evenement een onvergetelijke ervaring. Photobooths, magic mirrors en DJs die je gasten nog weken bijblijven.</p>
+        <div class="hero-actions">
+          <button class="btn btn-primary">Boek je ervaring &rarr;</button>
+          <button class="btn btn-outline">Bekijk opties</button>
         </div>
+      </div>
 
-        <div class="pyb-services">
-          <h2>Onze Diensten</h2>
-          <p class="services-sub">Kies het pakket dat bij je event past</p>
-          <div class="service-grid">
-            <div class="service-card premium">
-              <div class="sc-image" style="background:linear-gradient(135deg, #f0ece4 0%, #e8dfd2 100%);">
-                <span class="sc-badge badge-premium">Premium</span>
-              </div>
-              <div class="sc-info">
-                <div class="sc-name">Magic Mirror</div>
-                <div class="sc-desc">DSLR kwaliteit, professionele belichting, direct printen. De wow-factor voor je event.</div>
-                <div class="sc-price">Vanaf &#8364;599 <span>&#183; 4 uur</span></div>
-              </div>
+      <!-- Social proof -->
+      <div class="pyb-proof">
+        <div class="pyb-proof-item">
+          <div class="pyb-proof-number">200+</div>
+          <div class="pyb-proof-label">Events</div>
+        </div>
+        <div class="pyb-proof-divider"></div>
+        <div class="pyb-proof-item">
+          <div class="pyb-proof-number">4.9&#9733;</div>
+          <div class="pyb-proof-label">Reviews</div>
+        </div>
+        <div class="pyb-proof-divider"></div>
+        <div class="pyb-proof-item">
+          <div class="pyb-proof-number">Randstad</div>
+          <div class="pyb-proof-label">Regio</div>
+        </div>
+      </div>
+
+      <!-- Services -->
+      <div class="pyb-services">
+        <h2>Onze ervaringen</h2>
+        <p class="services-sub">Drie manieren om je evenement onvergetelijk te maken</p>
+
+        <div class="service-grid">
+          <!-- Magic Mirror XL -->
+          <div class="service-card">
+            <div class="sc-image" style="background: linear-gradient(135deg, #1a1a1e 0%, #2a2a30 50%, #3a3a42 100%);">
+              <span class="sc-badge gold">VIP</span>
             </div>
-            <div class="service-card">
-              <div class="sc-image" style="background:linear-gradient(135deg, #f7f7fa 0%, #f0ece4 100%);">
-                <span class="sc-badge badge-popular">Populair</span>
-              </div>
-              <div class="sc-info">
-                <div class="sc-name">iPad Booth</div>
-                <div class="sc-desc">Digitale fotostrips voor elk feest. Ophalen, neerzetten, feesten. Zo simpel.</div>
-                <div class="sc-price">Vanaf &#8364;200 <span>&#183; Ophalen</span></div>
-              </div>
-            </div>
-            <div class="service-card">
-              <div class="sc-image" style="background:linear-gradient(135deg, #e8e0db 0%, #f4f1ef 100%);">
-                <span class="sc-badge badge-new">Nieuw</span>
-              </div>
-              <div class="sc-info">
-                <div class="sc-name">DJs</div>
-                <div class="sc-desc">Professionele DJ sets met Spotify-playlistoptimalisatie. De perfecte soundtrack voor je avond.</div>
-                <div class="sc-price">Vanaf &#8364;150 <span>&#183; Per avond</span></div>
-              </div>
+            <div class="sc-body">
+              <div class="sc-tag">Flagship</div>
+              <h3>Magic Mirror XL</h3>
+              <p class="sc-desc">De ultieme photobooth ervaring. Full-size spiegel met touchscreen, animaties en instant prints.</p>
+              <div class="sc-price">Vanaf <strong>&euro;599</strong></div>
             </div>
           </div>
-        </div>
 
-        <div class="pyb-testimonial">
-          <blockquote>"Wauw, dat was een ervaring. Onze gasten praten er nog steeds over."</blockquote>
-          <div class="tq-author">Lisa & Tom</div>
-          <div class="tq-event">Bruiloft &#183; Juni 2025</div>
+          <!-- iPad Photobooth -->
+          <div class="service-card">
+            <div class="sc-image" style="background: linear-gradient(135deg, #e8dfd2 0%, #d4cbbe 50%, #c9bfb0 100%);">
+              <span class="sc-badge popular">Populair</span>
+            </div>
+            <div class="sc-body">
+              <div class="sc-tag">Toegankelijk</div>
+              <h3>iPad Photobooth</h3>
+              <p class="sc-desc">Foto plezier voor elk feest. Compact, stijlvol en makkelijk in gebruik.</p>
+              <div class="sc-price">Vanaf <strong>&euro;200</strong></div>
+            </div>
+          </div>
+
+          <!-- DJs -->
+          <div class="service-card">
+            <div class="sc-image" style="background: linear-gradient(135deg, #1a1a1e 0%, #2d1f3a 50%, #3a1f4a 100%);">
+            </div>
+            <div class="sc-body">
+              <div class="sc-tag">Entertainment</div>
+              <h3>DJs</h3>
+              <p class="sc-desc">De perfecte soundtrack voor je avond. Professionele DJs met licht en geluid.</p>
+              <div class="sc-price">Vanaf <strong>&euro;150</strong>/avond</div>
+            </div>
+          </div>
         </div>
+      </div>
+
+      <!-- Testimonial -->
+      <div class="pyb-testimonial">
+        <div class="tq-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <blockquote>"De Magic Mirror was het absolute hoogtepunt van onze bruiloft. Onze gasten hadden de tijd van hun leven!"</blockquote>
+        <div class="tq-author">Lisa &amp; Mark — Bruiloft, Haarlem</div>
       </div>
     </div>
   </div>
 
-  <!-- ════════════════════════════════════════
-       SCREEN 2: MAGIC MIRROR XL — Product Page
-       ════════════════════════════════════════ -->
+
+  <!-- ═══════════════════════════════════════════
+       06 — MAGIC MIRROR XL PRODUCT PAGE
+       ═══════════════════════════════════════════ -->
   <div class="screen-section">
     <div class="screen-label">
       <h3>Magic Mirror XL — Product Page</h3>
-      <span class="screen-tag">Package Builder</span>
+      <span class="screen-tag">Product</span>
     </div>
 
     <div class="browser-frame">
@@ -1461,103 +1484,109 @@
         <div class="browser-dots"><span></span><span></span><span></span></div>
         <div class="browser-url"><span class="lock">&#x1f512;</span> picyourbooth.nl/magic-mirror</div>
       </div>
-      <div style="background:var(--pb-cream);">
-        <div class="pyb-nav">
-          <div class="logo">Pic Your <span>Booth</span></div>
-          <div class="nav-links">
-            <a class="nav-link" href="#">Home</a>
-            <a class="nav-link active" href="#">Magic Mirror</a>
-            <a class="nav-link" href="#">iPad Booth</a>
-            <a class="nav-link" href="#">DJs</a>
-            <a class="nav-link" href="#">Over ons</a>
+
+      <!-- Nav -->
+      <nav class="pyb-nav">
+        <div class="logo">Pic Your <span>Booth</span></div>
+        <div class="nav-links">
+          <a class="nav-link active" href="#">Magic Mirror</a>
+          <a class="nav-link" href="#">iPad Booth</a>
+          <a class="nav-link" href="#">DJs</a>
+          <a class="nav-link" href="#">Over ons</a>
+        </div>
+        <button class="nav-cta">Boek je ervaring</button>
+      </nav>
+
+      <!-- Service Hero -->
+      <div class="pyb-service-hero">
+        <div class="sh-overline">Flagship Experience</div>
+        <h1>Magic Mirror XL</h1>
+        <p class="sh-sub">De ultieme photobooth ervaring voor bruiloften, gala's en premium evenementen. Full-size spiegel met touchscreen, animaties en instant prints.</p>
+      </div>
+
+      <!-- Package Builder -->
+      <div class="pyb-builder">
+        <div class="builder-card" id="mm-builder">
+          <div class="builder-header">
+            <h3>Stel je pakket samen</h3>
+            <p>Begin met de basis en voeg je extras toe</p>
           </div>
-          <button class="nav-cta">Offerte aanvragen</button>
-        </div>
 
-        <div class="pyb-product-hero">
-          <div class="hero-overline">Magic Mirror XL</div>
-          <h1>De <span>ultieme</span> photobooth ervaring</h1>
-          <p class="hero-sub">Professionele DSLR-camera, studio-belichting, en direct printen. Niet zomaar een booth — een ervaring voor je gasten.</p>
-        </div>
-
-        <div class="pyb-builder">
-          <h2>Stel je pakket samen</h2>
-          <p class="builder-sub">Begin met de basis en voeg toe wat je wilt</p>
-
-          <div class="builder-card" id="mm-builder">
-            <!-- Base row — always selected -->
-            <div class="builder-row base-row">
-              <div class="builder-row-info">
-                <div class="builder-row-name">Basic Pakket</div>
-                <div class="builder-row-desc">Magic Mirror XL, 4 uur, DSLR kwaliteit, direct printen, digitale galerij</div>
-              </div>
-              <div class="builder-row-price included">Basis</div>
-              <div class="toggle-switch locked">
-                <input type="checkbox" checked disabled>
-                <span class="toggle-track"></span>
+          <!-- Base package (locked) -->
+          <div class="builder-base">
+            <div class="bb-left">
+              <div class="bb-check">&#10003;</div>
+              <div>
+                <div class="bb-name">Magic Mirror XL Basic</div>
+                <div class="bb-note">Spiegel, prints, digitale gallerij</div>
               </div>
             </div>
+            <div class="bb-price">&euro;599</div>
+          </div>
 
-            <!-- Add-on: VIP Upgrade -->
-            <div class="builder-row" data-price="150">
-              <div class="builder-row-info">
-                <div class="builder-row-name">VIP Upgrade</div>
-                <div class="builder-row-desc">Backdrop, rode loper, afzetpalen, luxe props collectie</div>
+          <!-- Add-ons -->
+          <div class="builder-addons">
+            <div class="addon-row">
+              <div class="addon-left">
+                <span class="addon-name">VIP Experience</span>
+                <span class="addon-desc">Backdrop, rode loper, afzetpalen, luxe props</span>
               </div>
-              <div class="builder-row-price">+&#8364;150</div>
-              <label class="toggle-switch">
-                <input type="checkbox" class="mm-addon" data-price="150">
-                <span class="toggle-track"></span>
+              <span class="addon-price">+&euro;150</span>
+              <label class="toggle">
+                <input type="checkbox" data-price="150" onchange="updateTotal()">
+                <span class="slider"></span>
               </label>
             </div>
 
-            <!-- Add-on: Wedding Keychain Station -->
-            <div class="builder-row" data-price="500">
-              <div class="builder-row-info">
-                <div class="builder-row-name">Wedding Keychain Station</div>
-                <div class="builder-row-desc">Gepersonaliseerde sleutelhangers als aandenken voor je gasten</div>
+            <div class="addon-row">
+              <div class="addon-left">
+                <span class="addon-name">Wedding Keychain Station</span>
+                <span class="addon-desc">Gepersonaliseerde sleutelhangers voor je gasten</span>
               </div>
-              <div class="builder-row-price">+&#8364;500</div>
-              <label class="toggle-switch">
-                <input type="checkbox" class="mm-addon" data-price="500">
-                <span class="toggle-track"></span>
+              <span class="addon-price">+&euro;500</span>
+              <label class="toggle">
+                <input type="checkbox" data-price="500" onchange="updateTotal()">
+                <span class="slider"></span>
               </label>
             </div>
 
-            <!-- Add-on: Guidance -->
-            <div class="builder-row" data-price="150">
-              <div class="builder-row-info">
-                <div class="builder-row-name">Begeleiding door ons team</div>
-                <div class="builder-row-desc">Een van onze teamleden begeleidt de gasten en zorgt voor de perfecte foto's</div>
+            <div class="addon-row">
+              <div class="addon-left">
+                <span class="addon-name">Begeleiding door ons team</span>
+                <span class="addon-desc">Een team member on-site voor de hele avond</span>
               </div>
-              <div class="builder-row-price">+&#8364;150</div>
-              <label class="toggle-switch">
-                <input type="checkbox" class="mm-addon" data-price="150">
-                <span class="toggle-track"></span>
+              <span class="addon-price">+&euro;150</span>
+              <label class="toggle">
+                <input type="checkbox" data-price="150" onchange="updateTotal()">
+                <span class="slider"></span>
               </label>
             </div>
 
-            <!-- Add-on: DJ -->
-            <div class="builder-row" data-price="150">
-              <div class="builder-row-info">
-                <div class="builder-row-name">DJ voor de avond</div>
-                <div class="builder-row-desc">Rookmachine, lichten, speakers, professionele DJ set</div>
+            <div class="addon-row">
+              <div class="addon-left">
+                <span class="addon-name">DJ voor de avond</span>
+                <span class="addon-desc">Rookmachine, lichten, speakers, DJ set</span>
               </div>
-              <div class="builder-row-price">+&#8364;150</div>
-              <label class="toggle-switch">
-                <input type="checkbox" class="mm-addon" data-price="150">
-                <span class="toggle-track"></span>
+              <span class="addon-price">+&euro;150</span>
+              <label class="toggle">
+                <input type="checkbox" data-price="150" onchange="updateTotal()">
+                <span class="slider"></span>
               </label>
             </div>
+          </div>
 
-            <!-- Total -->
-            <div class="builder-total">
-              <div class="builder-total-label">Totaal</div>
-              <div class="builder-total-price" id="mm-total">&#8364;599</div>
-            </div>
+          <!-- Total -->
+          <div class="builder-total">
+            <span class="bt-label">Totaal</span>
+            <span class="bt-amount" id="mm-total">&euro;599</span>
+          </div>
 
-            <div class="builder-cta-wrap">
-              <button class="builder-cta">Vraag je voorstel aan</button>
+          <!-- CTA -->
+          <div class="builder-cta">
+            <button class="btn btn-primary">Vraag je voorstel aan &rarr;</button>
+            <div class="cta-hint">
+              <span class="check-icon">&#10003;</span>
+              Binnen 24 uur reactie &middot; Vrijblijvend
             </div>
           </div>
         </div>
@@ -1565,13 +1594,14 @@
     </div>
   </div>
 
-  <!-- ════════════════════════════════════════
-       SCREEN 3: IPAD PHOTOBOOTH — Product Page
-       ════════════════════════════════════════ -->
+
+  <!-- ═══════════════════════════════════════════
+       07 — iPAD PHOTOBOOTH PRODUCT PAGE
+       ═══════════════════════════════════════════ -->
   <div class="screen-section">
     <div class="screen-label">
       <h3>iPad Photobooth — Product Page</h3>
-      <span class="screen-tag">Tier Selector</span>
+      <span class="screen-tag">Product</span>
     </div>
 
     <div class="browser-frame">
@@ -1579,157 +1609,92 @@
         <div class="browser-dots"><span></span><span></span><span></span></div>
         <div class="browser-url"><span class="lock">&#x1f512;</span> picyourbooth.nl/ipad-photobooth</div>
       </div>
-      <div style="background:var(--pb-cream);">
-        <div class="pyb-nav">
-          <div class="logo">Pic Your <span>Booth</span></div>
-          <div class="nav-links">
-            <a class="nav-link" href="#">Home</a>
-            <a class="nav-link" href="#">Magic Mirror</a>
-            <a class="nav-link active" href="#">iPad Booth</a>
-            <a class="nav-link" href="#">DJs</a>
-            <a class="nav-link" href="#">Over ons</a>
-          </div>
-          <button class="nav-cta">Offerte aanvragen</button>
+
+      <!-- Nav -->
+      <nav class="pyb-nav">
+        <div class="logo">Pic Your <span>Booth</span></div>
+        <div class="nav-links">
+          <a class="nav-link" href="#">Magic Mirror</a>
+          <a class="nav-link active" href="#">iPad Booth</a>
+          <a class="nav-link" href="#">DJs</a>
+          <a class="nav-link" href="#">Over ons</a>
         </div>
+        <button class="nav-cta">Boek je ervaring</button>
+      </nav>
 
-        <div class="pyb-product-hero">
-          <div class="hero-overline">iPad Photobooth</div>
-          <h1>Photo fun voor <span>elk</span> feest</h1>
-          <p class="hero-sub">Ophalen, neerzetten, feesten. Digitale fotostrips waar je gasten gek op zijn. Zo simpel, zo leuk.</p>
-        </div>
+      <!-- Service Hero -->
+      <div class="pyb-service-hero">
+        <div class="sh-overline">Foto Plezier</div>
+        <h1>iPad Photobooth</h1>
+        <p class="sh-sub">Compact, stijlvol en makkelijk in gebruik. De perfecte toevoeging aan elk feest — van verjaardag tot bedrijfsevent.</p>
+      </div>
 
-        <div class="pyb-builder">
-          <h2>Kies je pakket</h2>
-          <p class="builder-sub">Selecteer het pakket dat bij je event past</p>
-
-          <div class="tier-selector" id="ipad-tiers">
-            <div class="tier-card selected" data-tier="basic" onclick="selectTier(this)">
-              <div class="tier-radio"><div class="tier-radio-dot"></div></div>
-              <div class="tier-info">
-                <div class="tier-name">Basic</div>
-                <div class="tier-desc">Zelf ophalen &#183; Basis fotostrip design</div>
-              </div>
-              <div class="tier-price">&#8364;200</div>
-            </div>
-
-            <div class="tier-card" data-tier="plus" onclick="selectTier(this)">
-              <div class="tier-radio"><div class="tier-radio-dot"></div></div>
-              <div class="tier-info">
-                <div class="tier-name">Plus</div>
-                <div class="tier-desc">Zelf ophalen &#183; Premium fotostrip design</div>
-              </div>
-              <div class="tier-price">&#8364;225</div>
-            </div>
-
-            <div class="tier-card" data-tier="premium" onclick="selectTier(this)">
-              <div class="tier-radio"><div class="tier-radio-dot"></div></div>
-              <div class="tier-info">
-                <div class="tier-name">Premium <span class="premium-badge">Premium</span></div>
-                <div class="tier-desc">Bezorging door ons &#183; Custom fotostrip design op maat</div>
-              </div>
-              <div class="tier-price">&#8364;250</div>
-            </div>
+      <!-- Tier Selector -->
+      <div class="pyb-tiers">
+        <div class="tier-grid" id="ipad-tiers">
+          <!-- Basic -->
+          <div class="tier-card" data-tier="basic" onclick="selectTier('basic')">
+            <div class="tc-name">Basic</div>
+            <div class="tc-price">&euro;200</div>
+            <div class="tc-price-hint">eenmalig</div>
+            <ul class="tc-features">
+              <li><span class="feat-check">&#10003;</span> Ophalen bij ons</li>
+              <li><span class="feat-check">&#10003;</span> Basis fotostrip design</li>
+              <li><span class="feat-check">&#10003;</span> Digitale gallerij</li>
+            </ul>
+            <div class="tc-radio"></div>
           </div>
 
-          <div class="tier-cta-wrap">
-            <button class="builder-cta">Vraag je voorstel aan</button>
+          <!-- Plus -->
+          <div class="tier-card selected" data-tier="plus" onclick="selectTier('plus')">
+            <div class="tc-popular">Populair</div>
+            <div class="tc-name">Plus</div>
+            <div class="tc-price">&euro;225</div>
+            <div class="tc-price-hint">eenmalig</div>
+            <ul class="tc-features">
+              <li><span class="feat-check">&#10003;</span> Ophalen bij ons</li>
+              <li><span class="feat-check">&#10003;</span> Premium fotostrip design</li>
+              <li><span class="feat-check">&#10003;</span> Digitale gallerij</li>
+              <li><span class="feat-check">&#10003;</span> GIF-modus</li>
+            </ul>
+            <div class="tc-radio"></div>
+          </div>
+
+          <!-- Premium -->
+          <div class="tier-card" data-tier="premium" onclick="selectTier('premium')">
+            <div class="tc-name">Premium</div>
+            <div class="tc-price">&euro;250</div>
+            <div class="tc-price-hint">eenmalig</div>
+            <ul class="tc-features">
+              <li><span class="feat-check">&#10003;</span> Bezorging door ons</li>
+              <li><span class="feat-check">&#10003;</span> Custom design</li>
+              <li><span class="feat-check">&#10003;</span> Digitale gallerij</li>
+              <li><span class="feat-check">&#10003;</span> GIF-modus</li>
+              <li><span class="feat-check">&#10003;</span> Branding opties</li>
+            </ul>
+            <div class="tc-radio"></div>
+          </div>
+        </div>
+
+        <div class="tier-cta">
+          <button class="btn btn-primary">Vraag je voorstel aan &rarr;</button>
+          <div class="cta-hint">
+            <span class="check-icon">&#10003;</span>
+            Binnen 24 uur reactie &middot; Vrijblijvend
           </div>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- ════════════════════════════════════════
-       SCREEN 4: DJS — Product Page
-       ════════════════════════════════════════ -->
+
+  <!-- ═══════════════════════════════════════════
+       08 — PROPOSAL FORM
+       ═══════════════════════════════════════════ -->
   <div class="screen-section">
     <div class="screen-label">
-      <h3>DJs — Product Page</h3>
-      <span class="screen-tag">DJ Team</span>
-    </div>
-
-    <div class="browser-frame">
-      <div class="browser-bar">
-        <div class="browser-dots"><span></span><span></span><span></span></div>
-        <div class="browser-url"><span class="lock">&#x1f512;</span> picyourbooth.nl/djs</div>
-      </div>
-      <div style="background:var(--pb-cream);">
-        <div class="pyb-nav">
-          <div class="logo">Pic Your <span>Booth</span></div>
-          <div class="nav-links">
-            <a class="nav-link" href="#">Home</a>
-            <a class="nav-link" href="#">Magic Mirror</a>
-            <a class="nav-link" href="#">iPad Booth</a>
-            <a class="nav-link active" href="#">DJs</a>
-            <a class="nav-link" href="#">Over ons</a>
-          </div>
-          <button class="nav-cta">Offerte aanvragen</button>
-        </div>
-
-        <div class="pyb-product-hero">
-          <div class="hero-overline">Pic Your Booth DJs</div>
-          <h1>De perfecte <span>soundtrack</span> voor je avond</h1>
-          <p class="hero-sub">Onze DJs zorgen voor de juiste vibe, van de eerste dans tot het laatste nummer. Met Spotify-playlistoptimalisatie voor jouw muziek.</p>
-        </div>
-
-        <div class="pyb-builder">
-          <h2>Ons DJ Team</h2>
-          <p class="builder-sub">Twee stijlen, een passie voor muziek</p>
-
-          <div class="dj-grid">
-            <div class="dj-card">
-              <div class="dj-avatar" style="background:linear-gradient(135deg, #f0ece4 0%, #e8dfd2 100%);">
-                <span style="filter:grayscale(0.2);">&#127911;</span>
-              </div>
-              <div class="dj-card-body">
-                <div class="dj-name">DJ Gianni</div>
-                <div class="dj-style">Urban &#183; House &#183; Latin &#183; Top 40</div>
-                <div class="dj-tags">
-                  <span class="dj-tag">Bruiloften</span>
-                  <span class="dj-tag">Feesten</span>
-                  <span class="dj-tag">Corporate</span>
-                </div>
-              </div>
-            </div>
-            <div class="dj-card">
-              <div class="dj-avatar" style="background:linear-gradient(135deg, #f7f7fa 0%, #f0ece4 100%);">
-                <span style="filter:grayscale(0.2);">&#127927;</span>
-              </div>
-              <div class="dj-card-body">
-                <div class="dj-name">Milo</div>
-                <div class="dj-style">Deep House &#183; Tech House &#183; Chill &#183; Lounge</div>
-                <div class="dj-tags">
-                  <span class="dj-tag">Lounge sets</span>
-                  <span class="dj-tag">Festivals</span>
-                  <span class="dj-tag">Bruiloften</span>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="spotify-feature">
-            <div class="spotify-icon">&#9835;</div>
-            <div class="spotify-info">
-              <div class="spotify-title">Spotify Playlist Optimalisatie</div>
-              <div class="spotify-desc">Deel je Spotify-playlist en onze DJs bouwen daar de perfecte set omheen. Jouw muziek, professioneel gemixt, met verrassingen die passen bij jouw smaak.</div>
-            </div>
-          </div>
-
-          <div class="tier-cta-wrap">
-            <button class="builder-cta">Boek een DJ</button>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- ════════════════════════════════════════
-       SCREEN 5: PROPOSAL FORM
-       ════════════════════════════════════════ -->
-  <div class="screen-section">
-    <div class="screen-label">
-      <h3>Voorstel Aanvragen</h3>
-      <span class="screen-tag">Conversion Point</span>
+      <h3>Proposal Form</h3>
+      <span class="screen-tag">Formulier</span>
     </div>
 
     <div class="browser-frame">
@@ -1737,59 +1702,72 @@
         <div class="browser-dots"><span></span><span></span><span></span></div>
         <div class="browser-url"><span class="lock">&#x1f512;</span> picyourbooth.nl/offerte</div>
       </div>
-      <div class="form-screen">
-        <div class="pyb-nav">
-          <div class="logo">Pic Your <span>Booth</span></div>
-          <div class="nav-links">
-            <a class="nav-link" href="#">Home</a>
-            <a class="nav-link" href="#">Magic Mirror</a>
-            <a class="nav-link" href="#">iPad Booth</a>
-            <a class="nav-link" href="#">DJs</a>
-          </div>
-          <button class="nav-cta">Offerte aanvragen</button>
+
+      <!-- Nav -->
+      <nav class="pyb-nav">
+        <div class="logo">Pic Your <span>Booth</span></div>
+        <div class="nav-links">
+          <a class="nav-link" href="#">Magic Mirror</a>
+          <a class="nav-link" href="#">iPad Booth</a>
+          <a class="nav-link" href="#">DJs</a>
+          <a class="nav-link" href="#">Over ons</a>
         </div>
-        <div class="fs-header">
+        <button class="nav-cta">Boek je ervaring</button>
+      </nav>
+
+      <!-- Form -->
+      <div class="pyb-form-section">
+        <div class="form-card">
           <h2>Ontvang je voorstel</h2>
-          <p>Vul het formulier in — binnen 24 uur een vrijblijvend voorstel in je inbox.</p>
-        </div>
-        <div class="fs-body">
-          <div class="form-card">
-            <div class="form-row">
-              <div class="form-group">
-                <label>Naam</label>
-                <input type="text" placeholder="Je volledige naam">
-              </div>
-              <div class="form-group">
-                <label>E-mail</label>
-                <input type="email" placeholder="naam@voorbeeld.nl">
-              </div>
-            </div>
-            <div class="form-row">
-              <div class="form-group">
-                <label>Telefoon</label>
-                <input type="tel" placeholder="06 12345678">
-              </div>
-              <div class="form-group">
-                <label>Datum event</label>
-                <input type="date">
-              </div>
+          <p class="form-sub">Vertel ons over je evenement en we sturen je binnen 24 uur een vrijblijvend voorstel op maat.</p>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label>Naam</label>
+              <input type="text" placeholder="Je volledige naam">
             </div>
             <div class="form-group">
-              <label>Type event</label>
-              <select>
-                <option>Kies het type event...</option>
-                <option>Bruiloft</option>
-                <option>Bedrijfsevent</option>
-                <option>Verjaardag</option>
-                <option>Feest / Party</option>
-                <option>Anders</option>
-              </select>
+              <label>E-mail</label>
+              <input type="email" placeholder="je@email.nl">
             </div>
-            <button class="form-submit">Ontvang je voorstel</button>
-            <div class="form-hint">
-              <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
-              Binnen 24 uur reactie &#183; Vrijblijvend &#183; Geen verplichtingen
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label>Telefoon</label>
+              <input type="tel" placeholder="06 1234 5678">
             </div>
+            <div class="form-group">
+              <label>Datum Event</label>
+              <input type="date">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label>Type Event</label>
+            <select>
+              <option value="">Selecteer type event</option>
+              <option>Bruiloft</option>
+              <option>Bedrijfsfeest</option>
+              <option>Verjaardag</option>
+              <option>Gala / Award show</option>
+              <option>Festival</option>
+              <option>Anders</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label>Bericht <span style="font-weight:400; text-transform:none; letter-spacing:0; font-size:11px;">(optioneel)</span></label>
+            <textarea placeholder="Vertel ons meer over je evenement, wensen of vragen..."></textarea>
+          </div>
+
+          <div class="form-cta">
+            <button class="btn btn-primary">Ontvang je voorstel &rarr;</button>
+          </div>
+
+          <div class="form-trust">
+            <span class="check-icon">&#10003;</span>
+            Binnen 24 uur reactie &middot; Vrijblijvend
           </div>
         </div>
       </div>
@@ -1797,203 +1775,94 @@
   </div>
 </div>
 
+
 <!-- ═══════════════════════════════════════════
-     COLOR PALETTE
+     09 — DIFFERENTIATION GUIDE
      ═══════════════════════════════════════════ -->
 <div class="section">
-  <div class="section-label">Foundations</div>
-  <div class="section-title">Kleurenpalet</div>
-  <div class="section-desc">Een palet voor alles. PYM navy voor tekst, PYM red voor acties, warme cremetinten voor achtergronden. Goud alleen als premium badge-accent.</div>
+  <div class="section-label">09</div>
+  <h2 class="section-title">Differentiation Guide</h2>
+  <p class="section-desc">How the premium brand DNA adapts across experiences. Same visual language, different levels of elevation.</p>
 
-  <div class="color-grid">
-    <div class="color-swatch">
-      <div class="preview" style="background:#100e34; color:#f7f7fa;"><span class="hex">#100e34</span></div>
-      <div class="meta"><div class="name">PYM Navy</div><div class="role">Text, headings, dark elements</div></div>
-    </div>
-    <div class="color-swatch">
-      <div class="preview" style="background:#ff494a; color:#fff;"><span class="hex">#ff494a</span></div>
-      <div class="meta"><div class="name">PYM Red</div><div class="role">All CTAs, primary actions</div></div>
-    </div>
-    <div class="color-swatch">
-      <div class="preview" style="background:#faf8f5; color:#100e34;"><span class="hex">#faf8f5</span></div>
-      <div class="meta"><div class="name">Cream</div><div class="role">Page background</div></div>
-    </div>
-    <div class="color-swatch">
-      <div class="preview" style="background:#ffffff; color:#100e34;"><span class="hex">#ffffff</span></div>
-      <div class="meta"><div class="name">White</div><div class="role">Cards, nav, elevated surfaces</div></div>
-    </div>
-    <div class="color-swatch">
-      <div class="preview" style="background:#f4f1ef; color:#100e34;"><span class="hex">#f4f1ef</span></div>
-      <div class="meta"><div class="name">Warm White</div><div class="role">Alternate sections, testimonials</div></div>
-    </div>
-    <div class="color-swatch">
-      <div class="preview" style="background:#e8e0db; color:#100e34;"><span class="hex">#e8e0db</span></div>
-      <div class="meta"><div class="name">Warm Beige</div><div class="role">Borders, input backgrounds</div></div>
-    </div>
-    <div class="color-swatch">
-      <div class="preview" style="background:#d4a72c; color:#fff;"><span class="hex">#d4a72c</span></div>
-      <div class="meta"><div class="name">Gold Badge</div><div class="role">Premium badges only</div></div>
-    </div>
-    <div class="color-swatch">
-      <div class="preview" style="background:#2d8a4e; color:#fff;"><span class="hex">#2d8a4e</span></div>
-      <div class="meta"><div class="name">Success</div><div class="role">Confirmations, available dates</div></div>
-    </div>
-  </div>
+  <table class="diff-table">
+    <thead>
+      <tr>
+        <th>Element</th>
+        <th>Magic Mirror XL</th>
+        <th>iPad Photobooth</th>
+        <th>DJs</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Positioning</td>
+        <td>Flagship experience</td>
+        <td>Accessible entry point</td>
+        <td>Complementary entertainment</td>
+      </tr>
+      <tr>
+        <td>Gold accents</td>
+        <td>VIP badge, overlines, accents</td>
+        <td>Subtle, on overlines only</td>
+        <td>Minimal</td>
+      </tr>
+      <tr>
+        <td>Image gradients</td>
+        <td>Dark, cinematic</td>
+        <td>Warm, inviting</td>
+        <td>Dark, atmospheric</td>
+      </tr>
+      <tr>
+        <td>Pricing model</td>
+        <td>Package builder with add-ons</td>
+        <td>Tiered (pick one)</td>
+        <td>Per evening</td>
+      </tr>
+      <tr>
+        <td>CTA language</td>
+        <td>"Vraag je voorstel aan"</td>
+        <td>"Vraag je voorstel aan"</td>
+        <td>"Vraag je voorstel aan"</td>
+      </tr>
+      <tr>
+        <td>Starting price</td>
+        <td>&euro;599</td>
+        <td>&euro;200</td>
+        <td>&euro;150/avond</td>
+      </tr>
+    </tbody>
+  </table>
 </div>
 
-<!-- ═══════════════════════════════════════════
-     TYPOGRAPHY
-     ═══════════════════════════════════════════ -->
-<div class="section">
-  <div class="section-label">Typography</div>
-  <div class="section-title">Poppins — Overal</div>
-  <div class="section-desc">Een font-family, consistent met het PYM parent brand. Gewicht en grootte creeren hierarchie, niet verschillende fonts.</div>
-
-  <div class="type-row">
-    <div class="label">H1<span class="specs">Poppins 600 &#183; 42px &#183; 1.1</span></div>
-    <div class="sample" style="font-size:42px; font-weight:600; line-height:1.1; letter-spacing:-0.5px;">Maak van je event een onvergetelijke ervaring</div>
-  </div>
-  <div class="type-row">
-    <div class="label">H2<span class="specs">Poppins 600 &#183; 28px &#183; 1.2</span></div>
-    <div class="sample" style="font-size:28px; font-weight:600; line-height:1.2; letter-spacing:-0.3px;">Onze Diensten</div>
-  </div>
-  <div class="type-row">
-    <div class="label">H3<span class="specs">Poppins 600 &#183; 20px &#183; 1.3</span></div>
-    <div class="sample" style="font-size:20px; font-weight:600; line-height:1.3;">Magic Mirror XL Experience</div>
-  </div>
-  <div class="type-row">
-    <div class="label">Body<span class="specs">Poppins 400 &#183; 15px &#183; 1.6</span></div>
-    <div class="sample" style="font-size:15px; font-weight:400; line-height:1.6;">Professionele DSLR-camera, studio-belichting, en een complete VIP-ervaring voor je gasten. Van bruiloft tot corporate event.</div>
-  </div>
-  <div class="type-row">
-    <div class="label">Small<span class="specs">Poppins 400 &#183; 13px &#183; 1.5</span></div>
-    <div class="sample" style="font-size:13px; font-weight:400; line-height:1.5; color:var(--doc-muted);">Binnen 24 uur reactie &#183; Vrijblijvend &#183; Geen verplichtingen</div>
-  </div>
-  <div class="type-row">
-    <div class="label">Overline<span class="specs">Poppins 600 &#183; 11px &#183; Uppercase &#183; 2px tracking</span></div>
-    <div class="sample" style="font-size:11px; font-weight:600; letter-spacing:2px; text-transform:uppercase; color:var(--pym-red);">Photobooth & DJ Entertainment</div>
-  </div>
-  <div class="type-row">
-    <div class="label">Label<span class="specs">Poppins 600 &#183; 10px &#183; Uppercase</span></div>
-    <div class="sample" style="font-size:10px; font-weight:600; letter-spacing:1.5px; text-transform:uppercase; color:var(--doc-muted);">Premium &#183; Populair &#183; Meest gekozen &#183; Nieuw</div>
-  </div>
-</div>
 
 <!-- ═══════════════════════════════════════════
-     COMPONENTS
-     ═══════════════════════════════════════════ -->
-<div class="section">
-  <div class="section-label">Components</div>
-  <div class="section-title">UI Componenten</div>
-  <div class="section-desc">Dezelfde componenten voor alle producten. Geen aparte "premium" of "budget" buttons — het merk is consistent.</div>
-
-  <div class="component-grid">
-    <div class="comp-box">
-      <h4>Buttons</h4>
-      <div class="btn-row">
-        <button class="doc-btn-primary">Vraag voorstel aan</button>
-        <button class="doc-btn-outline">Bekijk pakketten</button>
-        <button class="doc-btn-ghost">Meer info</button>
-      </div>
-    </div>
-    <div class="comp-box">
-      <h4>Premium Accent (Badge Only)</h4>
-      <div class="btn-row">
-        <button class="doc-btn-gold">Premium Badge</button>
-        <p style="font-size:12px; color:var(--doc-muted); line-height:1.5;">Goud wordt alleen gebruikt voor "Premium" badges op service cards. Nooit als CTA-kleur.</p>
-      </div>
-    </div>
-    <div class="comp-box">
-      <h4>Tags / Badges</h4>
-      <div class="tag-row">
-        <span class="tag tag-red">Populair</span>
-        <span class="tag tag-gold">Premium</span>
-        <span class="tag tag-success">Beschikbaar</span>
-        <span class="tag tag-muted">Bruiloft</span>
-        <span class="tag tag-muted">Corporate</span>
-        <span class="tag tag-muted">Verjaardag</span>
-      </div>
-    </div>
-    <div class="comp-box">
-      <h4>Form Inputs</h4>
-      <div class="input-demo">
-        <input class="doc-input" type="text" placeholder="Je naam">
-        <input class="doc-input" type="email" placeholder="naam@voorbeeld.nl">
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- ═══════════════════════════════════════════
-     DIFFERENTIATION GUIDE
-     ═══════════════════════════════════════════ -->
-<div class="section">
-  <div class="section-label">Differentiation</div>
-  <div class="section-title">Hoe onderscheid je producten?</div>
-  <div class="section-desc">Niet met kleuren of thema's — maar met deze vier middelen.</div>
-
-  <div class="principle-grid">
-    <div class="principle-card">
-      <div class="pc-number">Beelden</div>
-      <h3>Fotografie & Video</h3>
-      <p>Magic Mirror: cinematische eventfoto's, professionele belichting, VIP-sfeer. iPad: casual feestfoto's, vrienden lachend, spontaan. DJs: energieke sfeerbeelden, lichten, menigte. Zelfde UI-componenten, andere beelden.</p>
-    </div>
-    <div class="principle-card">
-      <div class="pc-number">Copy</div>
-      <h3>Tekst & Tone</h3>
-      <p>Magic Mirror: "Niet zomaar een booth — een ervaring." iPad: "Ophalen, neerzetten, feesten." DJs: "De perfecte soundtrack voor je avond." De woorden zetten de toon, niet het kleurenschema.</p>
-    </div>
-    <div class="principle-card">
-      <div class="pc-number">Badges</div>
-      <h3>Visual Markers</h3>
-      <p>Gouden "Premium" badge en subtiele top-border op Magic Mirror cards. Rode "Populair" badge op best-sellers. Alleen badges, geen heel ander thema.</p>
-    </div>
-  </div>
-</div>
-
-<!-- ═══════════════════════════════════════════
-     FOOTER
-     ═══════════════════════════════════════════ -->
-<div class="ds-footer">
-  Pic Your Booth Design System &#183; Onderdeel van <a href="#">Pic Your Moment BV</a> &#183; Poppins &#183; PYM Navy &#183; PYM Red
-</div>
-
-<!-- ═══════════════════════════════════════════
-     JAVASCRIPT — Interactive Package Builders
+     JAVASCRIPT
      ═══════════════════════════════════════════ -->
 <script>
   // Magic Mirror XL — Package Builder
-  (function() {
-    var basePrice = 599;
-    var checkboxes = document.querySelectorAll('.mm-addon');
-    var totalEl = document.getElementById('mm-total');
-
-    function updateTotal() {
-      var total = basePrice;
-      checkboxes.forEach(function(cb) {
-        if (cb.checked) {
-          total += parseInt(cb.getAttribute('data-price'), 10);
-          cb.closest('.builder-row').classList.add('active');
-        } else {
-          cb.closest('.builder-row').classList.remove('active');
-        }
-      });
-      totalEl.textContent = '\u20AC' + total;
-    }
-
-    checkboxes.forEach(function(cb) {
-      cb.addEventListener('change', updateTotal);
+  function updateTotal() {
+    const base = 599;
+    let addons = 0;
+    const toggles = document.querySelectorAll('#mm-builder .addon-row input[type="checkbox"]');
+    toggles.forEach(function(toggle) {
+      if (toggle.checked) {
+        addons += parseInt(toggle.getAttribute('data-price'), 10);
+      }
     });
-  })();
+    const total = base + addons;
+    document.getElementById('mm-total').textContent = '\u20AC' + total;
+  }
 
   // iPad Photobooth — Tier Selector
-  function selectTier(card) {
-    var container = card.closest('.tier-selector');
-    var cards = container.querySelectorAll('.tier-card');
-    cards.forEach(function(c) {
-      c.classList.remove('selected');
+  function selectTier(tier) {
+    const cards = document.querySelectorAll('#ipad-tiers .tier-card');
+    cards.forEach(function(card) {
+      if (card.getAttribute('data-tier') === tier) {
+        card.classList.add('selected');
+      } else {
+        card.classList.remove('selected');
+      }
     });
-    card.classList.add('selected');
   }
 </script>
 
