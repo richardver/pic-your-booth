@@ -1,0 +1,841 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DJ Gianni — Visual Brand Style Guide</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:ital,wght@0,300;0,400;0,600;0,700;1,400&family=Oswald:wght@700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --black: #000000;
+    --gold: #FFD700;
+    --warm-white: #F5F5F0;
+    --burnt-orange: #CC5500;
+    --electric-blue: #0066FF;
+    --neon-pink: #FF10F0;
+    --lime-green: #32CD32;
+    --purple: #8B00FF;
+    --yellow: #FFE600;
+    --grey-dark: #111111;
+    --grey-mid: #1a1a1a;
+    --grey-text: #999999;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--black);
+    color: var(--warm-white);
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+    line-height: 1.6;
+  }
+
+  /* ── Header ── */
+  .hero {
+    text-align: center;
+    padding: 80px 20px 60px;
+    background: linear-gradient(180deg, #0a0a0a 0%, var(--black) 100%);
+    border-bottom: 2px solid var(--gold);
+  }
+  .hero-logo {
+    width: 100px;
+    height: 100px;
+    margin: 0 auto 30px;
+    position: relative;
+  }
+  .hexagon {
+    width: 100px;
+    height: 115px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    background: var(--gold);
+    clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+  }
+  .hexagon span {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 58px;
+    color: var(--black);
+    margin-top: -4px;
+  }
+  .hero h1 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 64px;
+    letter-spacing: 0.08em;
+    color: var(--warm-white);
+    margin-bottom: 8px;
+  }
+  .hero .tagline {
+    font-family: 'Montserrat', sans-serif;
+    font-style: italic;
+    font-weight: 400;
+    font-size: 18px;
+    color: var(--gold);
+    letter-spacing: 0.15em;
+  }
+  .hero .subtitle {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 300;
+    font-size: 14px;
+    color: var(--grey-text);
+    margin-top: 20px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+  }
+
+  /* ── Sections ── */
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+  section {
+    padding: 60px 0;
+    border-bottom: 1px solid #222;
+  }
+  section:last-child { border-bottom: none; }
+  h2 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 36px;
+    letter-spacing: 0.06em;
+    color: var(--gold);
+    margin-bottom: 30px;
+  }
+  h3 {
+    font-family: 'Oswald', sans-serif;
+    font-size: 20px;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: var(--warm-white);
+    margin-bottom: 16px;
+  }
+  p, li {
+    font-size: 15px;
+    color: #ccc;
+    line-height: 1.7;
+  }
+  ul { list-style: none; padding-left: 0; }
+  ul li::before {
+    content: "//";
+    color: var(--gold);
+    font-weight: 700;
+    margin-right: 10px;
+    font-size: 13px;
+  }
+  ul li { margin-bottom: 8px; }
+
+  /* ── Typography Showcase ── */
+  .type-grid {
+    display: grid;
+    gap: 0;
+  }
+  .type-row {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    border-bottom: 1px solid #222;
+    padding: 24px 0;
+    align-items: center;
+  }
+  .type-row:last-child { border-bottom: none; }
+  .type-label {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--grey-text);
+  }
+  .type-label span {
+    display: block;
+    font-weight: 300;
+    font-size: 10px;
+    color: #555;
+    margin-top: 4px;
+  }
+  .type-sample-bebas {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 52px;
+    color: var(--warm-white);
+    letter-spacing: 0.04em;
+  }
+  .type-sample-oswald {
+    font-family: 'Oswald', sans-serif;
+    font-size: 42px;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: var(--burnt-orange);
+  }
+  .type-sample-mont-semi {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 22px;
+    font-weight: 600;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--warm-white);
+  }
+  .type-sample-mont-light {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 18px;
+    font-weight: 300;
+    color: var(--grey-text);
+  }
+  .type-sample-mont-italic {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    font-style: italic;
+    color: var(--gold);
+    letter-spacing: 0.1em;
+  }
+
+  /* ── Color System ── */
+  .color-section-label {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--grey-text);
+    margin-bottom: 16px;
+    margin-top: 30px;
+  }
+  .color-section-label:first-child { margin-top: 0; }
+  .color-grid {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+    margin-bottom: 30px;
+  }
+  .color-swatch {
+    width: 140px;
+  }
+  .swatch-box {
+    width: 140px;
+    height: 90px;
+    border-radius: 8px;
+    border: 1px solid #333;
+    margin-bottom: 10px;
+  }
+  .swatch-name {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--warm-white);
+  }
+  .swatch-hex {
+    font-size: 11px;
+    font-weight: 300;
+    color: var(--grey-text);
+    font-family: 'Montserrat', monospace;
+  }
+
+  /* ── Cover Mockups ── */
+  .covers-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+  }
+  .cover-mockup {
+    aspect-ratio: 1;
+    border-radius: 8px;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 28px;
+  }
+  .cover-mockup::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.08'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 1;
+  }
+  .cover-mockup > * { position: relative; z-index: 2; }
+  .cover-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+  .cover-hex {
+    width: 36px;
+    height: 41px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+  }
+  .cover-hex span {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 20px;
+    margin-top: -2px;
+  }
+  .cover-vol {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 300;
+    font-size: 11px;
+    letter-spacing: 0.1em;
+  }
+  .cover-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 32px;
+    letter-spacing: 0.06em;
+    line-height: 1;
+  }
+  .cover-genre {
+    font-family: 'Oswald', sans-serif;
+    font-weight: 700;
+    font-size: 46px;
+    text-transform: uppercase;
+    line-height: 1;
+    margin: -4px 0;
+  }
+  .cover-photo-area {
+    width: 110px;
+    height: 110px;
+    border-radius: 50%;
+    border: 2px solid;
+    margin: 10px auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 9px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    opacity: 0.5;
+  }
+  .cover-bottom {
+    text-align: center;
+  }
+  .cover-dj-name {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    font-size: 15px;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+  }
+  .cover-tagline {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+    font-style: italic;
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    margin-top: 4px;
+  }
+
+  /* Cover variants */
+  .cover-afro {
+    background: linear-gradient(160deg, #1a0800 0%, var(--black) 40%, #1a0a00 100%);
+    border: 1px solid #331a00;
+  }
+  .cover-afro .cover-genre { color: var(--burnt-orange); }
+  .cover-afro .cover-hex { background: var(--gold); }
+  .cover-afro .cover-hex span { color: var(--black); }
+  .cover-afro .cover-photo-area { border-color: var(--burnt-orange); color: var(--burnt-orange); }
+  .cover-afro .cover-tagline { color: var(--gold); }
+  .cover-afro .cover-title { color: var(--warm-white); }
+  .cover-afro .cover-vol { color: var(--gold); }
+  .cover-afro .cover-dj-name { color: var(--warm-white); }
+  .cover-afro .cover-bottom { border-top: 1px solid #331a00; padding-top: 16px; }
+
+  /* Afro geometric pattern */
+  .cover-afro::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      repeating-linear-gradient(60deg, transparent, transparent 40px, rgba(204,85,0,0.04) 40px, rgba(204,85,0,0.04) 41px),
+      repeating-linear-gradient(-60deg, transparent, transparent 40px, rgba(204,85,0,0.04) 40px, rgba(204,85,0,0.04) 41px),
+      repeating-linear-gradient(0deg, transparent, transparent 40px, rgba(255,215,0,0.03) 40px, rgba(255,215,0,0.03) 41px);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .cover-meezingers {
+    background: linear-gradient(160deg, #000a1a 0%, var(--black) 40%, #000814 100%);
+    border: 1px solid #002266;
+  }
+  .cover-meezingers .cover-genre { color: var(--electric-blue); }
+  .cover-meezingers .cover-hex { background: var(--gold); }
+  .cover-meezingers .cover-hex span { color: var(--black); }
+  .cover-meezingers .cover-photo-area { border-color: var(--electric-blue); color: var(--electric-blue); }
+  .cover-meezingers .cover-tagline { color: var(--gold); }
+  .cover-meezingers .cover-title { color: var(--warm-white); }
+  .cover-meezingers .cover-vol { color: var(--gold); }
+  .cover-meezingers .cover-dj-name { color: var(--warm-white); }
+  .cover-meezingers .cover-bottom { border-top: 1px solid #002266; padding-top: 16px; }
+  .cover-meezingers::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      repeating-linear-gradient(90deg, transparent, transparent 60px, rgba(0,102,255,0.04) 60px, rgba(0,102,255,0.04) 61px),
+      repeating-linear-gradient(0deg, transparent, transparent 60px, rgba(0,102,255,0.03) 60px, rgba(0,102,255,0.03) 61px);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .cover-dance {
+    background: linear-gradient(160deg, #1a0020 0%, var(--black) 40%, #0d0014 100%);
+    border: 1px solid #330044;
+  }
+  .cover-dance .cover-genre { color: var(--neon-pink); }
+  .cover-dance .cover-hex { background: var(--gold); }
+  .cover-dance .cover-hex span { color: var(--black); }
+  .cover-dance .cover-photo-area { border-color: var(--neon-pink); color: var(--neon-pink); }
+  .cover-dance .cover-tagline { color: var(--gold); }
+  .cover-dance .cover-title { color: var(--warm-white); }
+  .cover-dance .cover-vol { color: var(--gold); }
+  .cover-dance .cover-dj-name { color: var(--warm-white); }
+  .cover-dance .cover-bottom { border-top: 1px solid #330044; padding-top: 16px; }
+  .cover-dance::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(circle at 20% 80%, rgba(255,16,240,0.06) 0%, transparent 40%),
+      radial-gradient(circle at 80% 20%, rgba(139,0,255,0.05) 0%, transparent 40%);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .cover-summer {
+    background: linear-gradient(160deg, #001a00 0%, var(--black) 40%, #0a1400 100%);
+    border: 1px solid #1a3300;
+  }
+  .cover-summer .cover-genre { color: var(--lime-green); }
+  .cover-summer .cover-hex { background: var(--gold); }
+  .cover-summer .cover-hex span { color: var(--black); }
+  .cover-summer .cover-photo-area { border-color: var(--lime-green); color: var(--lime-green); }
+  .cover-summer .cover-tagline { color: var(--gold); }
+  .cover-summer .cover-title { color: var(--warm-white); }
+  .cover-summer .cover-vol { color: var(--gold); }
+  .cover-summer .cover-dj-name { color: var(--warm-white); }
+  .cover-summer .cover-bottom { border-top: 1px solid #1a3300; padding-top: 16px; }
+  .cover-summer::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(circle at 70% 90%, rgba(50,205,50,0.06) 0%, transparent 40%),
+      radial-gradient(circle at 30% 10%, rgba(255,230,0,0.04) 0%, transparent 40%);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  /* ── Logo Mark Section ── */
+  .logo-grid {
+    display: flex;
+    gap: 40px;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  .logo-variant {
+    text-align: center;
+  }
+  .logo-variant .label {
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--grey-text);
+    margin-top: 12px;
+  }
+  .hex-large {
+    width: 80px;
+    height: 92px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+  }
+  .hex-large span {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 46px;
+    margin-top: -3px;
+  }
+  .hex-gold { background: var(--gold); }
+  .hex-gold span { color: var(--black); }
+  .hex-outline {
+    background: transparent;
+    border: none;
+    position: relative;
+  }
+  .hex-outline-inner {
+    width: 80px;
+    height: 92px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+    background: var(--gold);
+    position: relative;
+  }
+  .hex-outline-mask {
+    width: 72px;
+    height: 83px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+    background: var(--black);
+    position: absolute;
+  }
+  .hex-outline-mask span {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 42px;
+    color: var(--gold);
+    margin-top: -3px;
+  }
+  .hex-white { background: #fff; }
+  .hex-white span { color: var(--black); }
+  .hex-small-dark {
+    background: var(--gold);
+    width: 44px;
+    height: 51px;
+  }
+  .hex-small-dark span { font-size: 26px; color: var(--black); }
+
+  /* ── Design Rules ── */
+  .rules-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+  }
+  .rule-card {
+    background: var(--grey-mid);
+    border: 1px solid #222;
+    border-radius: 8px;
+    padding: 20px;
+  }
+  .rule-number {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 28px;
+    color: var(--gold);
+    line-height: 1;
+    margin-bottom: 8px;
+  }
+  .rule-text {
+    font-size: 14px;
+    color: #bbb;
+    line-height: 1.5;
+  }
+
+  /* ── Gemini Prompt ── */
+  .prompt-box {
+    background: var(--grey-mid);
+    border: 1px solid #333;
+    border-radius: 8px;
+    padding: 24px;
+    font-family: 'Montserrat', monospace;
+    font-size: 13px;
+    line-height: 1.7;
+    color: #bbb;
+    white-space: pre-wrap;
+    overflow-x: auto;
+  }
+  .prompt-box strong {
+    color: var(--gold);
+  }
+
+  /* ── Responsive ── */
+  @media (max-width: 700px) {
+    .hero h1 { font-size: 40px; }
+    .type-row { grid-template-columns: 1fr; gap: 8px; }
+    .type-sample-bebas { font-size: 36px; }
+    .type-sample-oswald { font-size: 30px; }
+    .cover-genre { font-size: 34px !important; }
+    .covers-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ═══════ HERO ═══════ -->
+<header class="hero">
+  <div class="hexagon"><span>G</span></div>
+  <h1>GIANNI SESSIONS</h1>
+  <div class="tagline">Volle Energie</div>
+  <div class="subtitle">Visual Brand Style Guide &mdash; DJ Gianni</div>
+</header>
+
+<div class="container">
+
+<!-- ═══════ LOGO MARK ═══════ -->
+<section>
+  <h2>01 &mdash; Logo Mark</h2>
+  <p style="margin-bottom: 24px; color: #999;">The G hexagon is the signature brand mark. Always rendered in gold or white &mdash; never changes per genre.</p>
+  <div class="logo-grid">
+    <div class="logo-variant">
+      <div class="hex-large hex-gold"><span>G</span></div>
+      <div class="label">Gold / Primary</div>
+    </div>
+    <div class="logo-variant">
+      <div class="hex-outline-inner">
+        <div class="hex-outline-mask"><span>G</span></div>
+      </div>
+      <div class="label">Outline / Dark BG</div>
+    </div>
+    <div class="logo-variant">
+      <div class="hex-large hex-white"><span>G</span></div>
+      <div class="label">White / Alt</div>
+    </div>
+    <div class="logo-variant">
+      <div class="hex-large hex-small-dark" style="width:44px;height:51px;"><span>G</span></div>
+      <div class="label">Favicon / Small</div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ TYPOGRAPHY ═══════ -->
+<section>
+  <h2>02 &mdash; Typography</h2>
+  <p style="margin-bottom: 24px; color: #999;">All fonts are free via Google Fonts: Bebas Neue, Oswald, Montserrat.</p>
+  <div class="type-grid">
+    <div class="type-row">
+      <div class="type-label">Series Title<span>Bebas Neue / 400</span></div>
+      <div class="type-sample-bebas">GIANNI SESSIONS</div>
+    </div>
+    <div class="type-row">
+      <div class="type-label">Genre Subtitle<span>Oswald / Bold 700</span></div>
+      <div class="type-sample-oswald">AFRO BEATS</div>
+    </div>
+    <div class="type-row">
+      <div class="type-label">Artist Name<span>Montserrat / SemiBold 600<br>letter-spacing: 0.3em</span></div>
+      <div class="type-sample-mont-semi">DJ GIANNI</div>
+    </div>
+    <div class="type-row">
+      <div class="type-label">Volume<span>Montserrat / Light 300</span></div>
+      <div class="type-sample-mont-light">Vol. 1</div>
+    </div>
+    <div class="type-row">
+      <div class="type-label">Tagline<span>Montserrat / Italic 400</span></div>
+      <div class="type-sample-mont-italic">Volle Energie</div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ COLOR SYSTEM ═══════ -->
+<section>
+  <h2>03 &mdash; Color System</h2>
+
+  <div class="color-section-label">Signature Constants (every release)</div>
+  <div class="color-grid">
+    <div class="color-swatch">
+      <div class="swatch-box" style="background: var(--gold);"></div>
+      <div class="swatch-name">Gold</div>
+      <div class="swatch-hex">#FFD700</div>
+    </div>
+    <div class="color-swatch">
+      <div class="swatch-box" style="background: var(--black); border-color: #444;"></div>
+      <div class="swatch-name">Black</div>
+      <div class="swatch-hex">#000000</div>
+    </div>
+    <div class="color-swatch">
+      <div class="swatch-box" style="background: var(--warm-white);"></div>
+      <div class="swatch-name">Warm White</div>
+      <div class="swatch-hex">#F5F5F0</div>
+    </div>
+  </div>
+
+  <div class="color-section-label">Genre Palettes (second color per release)</div>
+  <div class="color-grid">
+    <div class="color-swatch">
+      <div class="swatch-box" style="background: var(--burnt-orange);"></div>
+      <div class="swatch-name">Afro Beats</div>
+      <div class="swatch-hex">#CC5500</div>
+    </div>
+    <div class="color-swatch">
+      <div class="swatch-box" style="background: var(--electric-blue);"></div>
+      <div class="swatch-name">Meezingers</div>
+      <div class="swatch-hex">#0066FF</div>
+    </div>
+    <div class="color-swatch">
+      <div class="swatch-box" style="background: var(--neon-pink);"></div>
+      <div class="swatch-name">Dance</div>
+      <div class="swatch-hex">#FF10F0</div>
+    </div>
+    <div class="color-swatch">
+      <div class="swatch-box" style="background: var(--lime-green);"></div>
+      <div class="swatch-name">Summer Mix</div>
+      <div class="swatch-hex">#32CD32</div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ COVER MOCKUPS ═══════ -->
+<section>
+  <h2>04 &mdash; Cover Mockups</h2>
+  <p style="margin-bottom: 30px; color: #999;">Four volume examples showing the system in action. Gold stays constant; only the genre color, subtitle, and pattern change.</p>
+
+  <div class="covers-grid">
+
+    <!-- Vol. 1: Afro Beats -->
+    <div class="cover-mockup cover-afro">
+      <div>
+        <div class="cover-top">
+          <div class="cover-hex" style="background: var(--gold);"><span style="color: var(--black);">G</span></div>
+          <div class="cover-vol" style="color: var(--gold);">Vol. 1</div>
+        </div>
+        <div class="cover-title" style="margin-top: 16px;">GIANNI SESSIONS</div>
+      </div>
+      <div style="text-align: center;">
+        <div class="cover-genre" style="color: var(--burnt-orange);">AFRO BEATS</div>
+        <div class="cover-photo-area" style="border-color: var(--burnt-orange); color: var(--burnt-orange);">Photo</div>
+      </div>
+      <div class="cover-bottom">
+        <div class="cover-dj-name">DJ GIANNI</div>
+        <div class="cover-tagline" style="color: var(--gold);">Volle Energie</div>
+      </div>
+    </div>
+
+    <!-- Vol. 2: Meezingers -->
+    <div class="cover-mockup cover-meezingers">
+      <div>
+        <div class="cover-top">
+          <div class="cover-hex" style="background: var(--gold);"><span style="color: var(--black);">G</span></div>
+          <div class="cover-vol" style="color: var(--gold);">Vol. 2</div>
+        </div>
+        <div class="cover-title" style="margin-top: 16px;">GIANNI SESSIONS</div>
+      </div>
+      <div style="text-align: center;">
+        <div class="cover-genre" style="color: var(--electric-blue);">MEEZINGERS</div>
+        <div class="cover-photo-area" style="border-color: var(--electric-blue); color: var(--electric-blue);">Photo</div>
+      </div>
+      <div class="cover-bottom">
+        <div class="cover-dj-name">DJ GIANNI</div>
+        <div class="cover-tagline" style="color: var(--gold);">Volle Energie</div>
+      </div>
+    </div>
+
+    <!-- Vol. 3: Dance -->
+    <div class="cover-mockup cover-dance">
+      <div>
+        <div class="cover-top">
+          <div class="cover-hex" style="background: var(--gold);"><span style="color: var(--black);">G</span></div>
+          <div class="cover-vol" style="color: var(--gold);">Vol. 3</div>
+        </div>
+        <div class="cover-title" style="margin-top: 16px;">GIANNI SESSIONS</div>
+      </div>
+      <div style="text-align: center;">
+        <div class="cover-genre" style="color: var(--neon-pink);">DANCE</div>
+        <div class="cover-photo-area" style="border-color: var(--neon-pink); color: var(--neon-pink);">Photo</div>
+      </div>
+      <div class="cover-bottom">
+        <div class="cover-dj-name">DJ GIANNI</div>
+        <div class="cover-tagline" style="color: var(--gold);">Volle Energie</div>
+      </div>
+    </div>
+
+    <!-- Vol. 4: Summer Mix -->
+    <div class="cover-mockup cover-summer">
+      <div>
+        <div class="cover-top">
+          <div class="cover-hex" style="background: var(--gold);"><span style="color: var(--black);">G</span></div>
+          <div class="cover-vol" style="color: var(--gold);">Vol. 4</div>
+        </div>
+        <div class="cover-title" style="margin-top: 16px;">GIANNI SESSIONS</div>
+      </div>
+      <div style="text-align: center;">
+        <div class="cover-genre" style="color: var(--lime-green);">SUMMER MIX</div>
+        <div class="cover-photo-area" style="border-color: var(--lime-green); color: var(--lime-green);">Photo</div>
+      </div>
+      <div class="cover-bottom">
+        <div class="cover-dj-name">DJ GIANNI</div>
+        <div class="cover-tagline" style="color: var(--gold);">Volle Energie</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══════ DESIGN RULES ═══════ -->
+<section>
+  <h2>05 &mdash; Design Rules</h2>
+  <div class="rules-grid">
+    <div class="rule-card">
+      <div class="rule-number">01</div>
+      <div class="rule-text">"GIANNI SESSIONS" branding never changes &mdash; builds series recognition across all volumes.</div>
+    </div>
+    <div class="rule-card">
+      <div class="rule-number">02</div>
+      <div class="rule-text">Gold (#FFD700) is always present as the signature constant. Logo, tagline, and accents stay gold on every release.</div>
+    </div>
+    <div class="rule-card">
+      <div class="rule-number">03</div>
+      <div class="rule-text">Only three things change per release: genre subtitle, volume number, and genre accent color.</div>
+    </div>
+    <div class="rule-card">
+      <div class="rule-number">04</div>
+      <div class="rule-text">"Volle Energie" tagline appears on every cover &mdash; the verbal brand hook.</div>
+    </div>
+    <div class="rule-card">
+      <div class="rule-number">05</div>
+      <div class="rule-text">Use real artist photo (B&W studio style) for recognition. Never use AI-generated faces.</div>
+    </div>
+    <div class="rule-card">
+      <div class="rule-number">06</div>
+      <div class="rule-text">G hexagon logo on every cover. Top-left or bottom-right corner placement.</div>
+    </div>
+    <div class="rule-card">
+      <div class="rule-number">07</div>
+      <div class="rule-text">Film grain / analog texture is always present &mdash; ties the visual language to vinyl and DJ culture.</div>
+    </div>
+    <div class="rule-card">
+      <div class="rule-number">08</div>
+      <div class="rule-text">Background pattern style adapts to genre: geometric for Afro, grid for Meezingers, glow for Dance, organic for Summer.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ GEMINI PROMPT ═══════ -->
+<section>
+  <h2>06 &mdash; Gemini Pro Prompt Template</h2>
+  <p style="margin-bottom: 20px; color: #999;">Copy and adapt this prompt for each new volume. Swap the <strong style="color:var(--gold);">highlighted</strong> parts.</p>
+  <div class="prompt-box">Design a bold, modern mixtape cover for "GIANNI SESSIONS &mdash; <strong>Vol. 1: Afro Beats</strong>" by DJ Gianni.
+
+Layout:
+- Square format (1:1), 3000x3000px
+- "GIANNI SESSIONS" as dominant title at the top in Bebas Neue style (heavy, condensed, uppercase)
+- "<strong>Vol. 1</strong>" small and minimal near the title
+- "<strong>AFRO BEATS</strong>" as large subtitle in Oswald Bold style, uppercase
+- "DJ GIANNI" at the bottom in Montserrat SemiBold, spaced-out uppercase (letter-spacing 0.3em)
+- "Volle Energie" in small italic below DJ GIANNI
+- Gold hexagon with letter "G" in the top-left corner (brand logo mark)
+
+Visual style:
+- Dark black background with <strong>rich warm tones &mdash; deep amber, burnt orange, gold accents</strong>
+- <strong>Abstract geometric African-inspired patterns</strong> as subtle background texture
+- Central circular frame area for artist photo (B&amp;W studio portrait placeholder)
+- Hard contrast lighting feel, studio photography inspired
+- Grain texture overlay for analog/vinyl feel
+
+Color palette:
+- Black base (#000000)
+- Gold (#FFD700) &mdash; always present (logo, tagline, accents)
+- <strong>Burnt orange (#CC5500)</strong> &mdash; genre accent
+- Warm white (#F5F5F0) text
+
+Mood: Premium, energetic, street-credible &mdash; young Dutch DJ's signature series
+
+Do NOT include: realistic human faces, watermarks, or mockup devices</div>
+</section>
+
+</div>
+
+<!-- ═══════ FOOTER ═══════ -->
+<footer style="text-align: center; padding: 40px 20px; border-top: 1px solid #222;">
+  <div style="font-family: 'Montserrat', sans-serif; font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: #444;">
+    DJ Gianni &mdash; Brand Guide &mdash; 2026
+  </div>
+</footer>
+
+</body>
+</html>
