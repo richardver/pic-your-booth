@@ -1,0 +1,386 @@
+{
+  "$themes": [
+    {
+      "id": "light",
+      "name": "PYM Light",
+      "selectedTokenSets": {
+        "global": "enabled",
+        "light": "enabled"
+      }
+    },
+    {
+      "id": "dark",
+      "name": "PYM Dark",
+      "selectedTokenSets": {
+        "global": "enabled",
+        "dark": "enabled"
+      }
+    }
+  ],
+  "$metadata": {
+    "tokenSetOrder": ["global", "light", "dark"]
+  },
+  "global": {
+    "pym": {
+      "color": {
+        "navy": {
+          "value": "#100e34",
+          "type": "color",
+          "description": "Primary text, headings, dark borders"
+        },
+        "off-white": {
+          "value": "#f7f7fa",
+          "type": "color",
+          "description": "Light backgrounds, dark mode text"
+        },
+        "warm-white": {
+          "value": "#f4f1ef",
+          "type": "color",
+          "description": "Card backgrounds, section alternates"
+        },
+        "warm-beige": {
+          "value": "#e8e0db",
+          "type": "color",
+          "description": "Secondary surfaces, light borders"
+        },
+        "dark-surface": {
+          "value": "#1c1c1c",
+          "type": "color",
+          "description": "Dark mode cards/surfaces (neutral)"
+        },
+        "dark-bg": {
+          "value": "#121212",
+          "type": "color",
+          "description": "Dark mode background (neutral, OLED-friendly)"
+        },
+        "dark-border": {
+          "value": "#2a2a2a",
+          "type": "color",
+          "description": "Dark mode borders/dividers (neutral)"
+        },
+        "muted-red": {
+          "value": "#ff494a",
+          "type": "color",
+          "description": "CTAs and primary actions only — never decorative"
+        },
+        "white": {
+          "value": "#ffffff",
+          "type": "color",
+          "description": "Text on primary buttons"
+        }
+      },
+      "fontFamily": {
+        "primary": {
+          "value": "Poppins",
+          "type": "fontFamilies",
+          "description": "Single font — no exceptions"
+        }
+      },
+      "fontWeight": {
+        "regular": {
+          "value": "400",
+          "type": "fontWeights"
+        },
+        "medium": {
+          "value": "500",
+          "type": "fontWeights"
+        },
+        "semibold": {
+          "value": "600",
+          "type": "fontWeights"
+        }
+      },
+      "fontSize": {
+        "xs": { "value": "12", "type": "fontSizes" },
+        "sm": { "value": "14", "type": "fontSizes" },
+        "base": { "value": "16", "type": "fontSizes" },
+        "md": { "value": "18", "type": "fontSizes" },
+        "lg": { "value": "20", "type": "fontSizes" },
+        "xl": { "value": "24", "type": "fontSizes" },
+        "2xl": { "value": "28", "type": "fontSizes" },
+        "3xl": { "value": "34", "type": "fontSizes" }
+      },
+      "lineHeight": {
+        "tight": { "value": "120%", "type": "lineHeights" },
+        "normal": { "value": "140%", "type": "lineHeights" },
+        "relaxed": { "value": "160%", "type": "lineHeights" }
+      },
+      "spacing": {
+        "1": { "value": "4", "type": "spacing" },
+        "2": { "value": "8", "type": "spacing" },
+        "3": { "value": "12", "type": "spacing" },
+        "4": { "value": "16", "type": "spacing" },
+        "6": { "value": "24", "type": "spacing" },
+        "8": { "value": "32", "type": "spacing" },
+        "12": { "value": "48", "type": "spacing" },
+        "16": { "value": "64", "type": "spacing" }
+      },
+      "borderRadius": {
+        "sm": { "value": "8", "type": "borderRadius", "description": "Small — chips, photo tiles" },
+        "md": { "value": "12", "type": "borderRadius", "description": "Medium — text fields, snackbars" },
+        "lg": { "value": "16", "type": "borderRadius", "description": "Large — cards, sheets" },
+        "pill": { "value": "999", "type": "borderRadius", "description": "Pill — buttons, chips" }
+      },
+      "borderWidth": {
+        "default": { "value": "1", "type": "borderWidth" }
+      },
+      "sizing": {
+        "button-height": { "value": "56", "type": "sizing", "description": "Standard button height" },
+        "input-height": { "value": "56", "type": "sizing", "description": "Standard input height" },
+        "touch-target": { "value": "48", "type": "sizing", "description": "Minimum touch target (Android)" },
+        "bottom-nav-icon": { "value": "24", "type": "sizing", "description": "Bottom nav icon size" },
+        "icon-default": { "value": "24", "type": "sizing", "description": "Default icon size" }
+      }
+    },
+    "typography": {
+      "display-large": {
+        "value": {
+          "fontFamily": "{pym.fontFamily.primary}",
+          "fontWeight": "{pym.fontWeight.semibold}",
+          "fontSize": "{pym.fontSize.3xl}",
+          "lineHeight": "{pym.lineHeight.tight}"
+        },
+        "type": "typography",
+        "description": "Hero headlines"
+      },
+      "display-medium": {
+        "value": {
+          "fontFamily": "{pym.fontFamily.primary}",
+          "fontWeight": "{pym.fontWeight.semibold}",
+          "fontSize": "{pym.fontSize.2xl}",
+          "lineHeight": "{pym.lineHeight.tight}"
+        },
+        "type": "typography",
+        "description": "Page titles"
+      },
+      "display-small": {
+        "value": {
+          "fontFamily": "{pym.fontFamily.primary}",
+          "fontWeight": "{pym.fontWeight.semibold}",
+          "fontSize": "{pym.fontSize.xl}",
+          "lineHeight": "{pym.lineHeight.tight}"
+        },
+        "type": "typography",
+        "description": "Section headings"
+      },
+      "headline-medium": {
+        "value": {
+          "fontFamily": "{pym.fontFamily.primary}",
+          "fontWeight": "{pym.fontWeight.semibold}",
+          "fontSize": "{pym.fontSize.lg}",
+          "lineHeight": "{pym.lineHeight.normal}"
+        },
+        "type": "typography",
+        "description": "Card titles, dialog titles"
+      },
+      "headline-small": {
+        "value": {
+          "fontFamily": "{pym.fontFamily.primary}",
+          "fontWeight": "{pym.fontWeight.medium}",
+          "fontSize": "{pym.fontSize.md}",
+          "lineHeight": "{pym.lineHeight.normal}"
+        },
+        "type": "typography",
+        "description": "App bar title"
+      },
+      "title-large": {
+        "value": {
+          "fontFamily": "{pym.fontFamily.primary}",
+          "fontWeight": "{pym.fontWeight.medium}",
+          "fontSize": "{pym.fontSize.md}",
+          "lineHeight": "{pym.lineHeight.normal}"
+        },
+        "type": "typography",
+        "description": "List item titles"
+      },
+      "title-medium": {
+        "value": {
+          "fontFamily": "{pym.fontFamily.primary}",
+          "fontWeight": "{pym.fontWeight.medium}",
+          "fontSize": "{pym.fontSize.base}",
+          "lineHeight": "{pym.lineHeight.normal}"
+        },
+        "type": "typography",
+        "description": "Nav labels, form labels"
+      },
+      "title-small": {
+        "value": {
+          "fontFamily": "{pym.fontFamily.primary}",
+          "fontWeight": "{pym.fontWeight.medium}",
+          "fontSize": "{pym.fontSize.sm}",
+          "lineHeight": "{pym.lineHeight.normal}"
+        },
+        "type": "typography",
+        "description": "Captions with emphasis"
+      },
+      "body-large": {
+        "value": {
+          "fontFamily": "{pym.fontFamily.primary}",
+          "fontWeight": "{pym.fontWeight.regular}",
+          "fontSize": "{pym.fontSize.base}",
+          "lineHeight": "{pym.lineHeight.relaxed}"
+        },
+        "type": "typography",
+        "description": "Primary reading text"
+      },
+      "body-medium": {
+        "value": {
+          "fontFamily": "{pym.fontFamily.primary}",
+          "fontWeight": "{pym.fontWeight.regular}",
+          "fontSize": "{pym.fontSize.sm}",
+          "lineHeight": "{pym.lineHeight.relaxed}"
+        },
+        "type": "typography",
+        "description": "Secondary text (absolute floor)"
+      },
+      "body-small": {
+        "value": {
+          "fontFamily": "{pym.fontFamily.primary}",
+          "fontWeight": "{pym.fontWeight.regular}",
+          "fontSize": "{pym.fontSize.xs}",
+          "lineHeight": "{pym.lineHeight.relaxed}"
+        },
+        "type": "typography",
+        "description": "Fine print (use sparingly)"
+      },
+      "label-large": {
+        "value": {
+          "fontFamily": "{pym.fontFamily.primary}",
+          "fontWeight": "{pym.fontWeight.semibold}",
+          "fontSize": "15",
+          "lineHeight": "{pym.lineHeight.tight}"
+        },
+        "type": "typography",
+        "description": "Button text"
+      },
+      "label-medium": {
+        "value": {
+          "fontFamily": "{pym.fontFamily.primary}",
+          "fontWeight": "{pym.fontWeight.medium}",
+          "fontSize": "{pym.fontSize.sm}",
+          "lineHeight": "{pym.lineHeight.tight}"
+        },
+        "type": "typography",
+        "description": "Chip labels, badges"
+      },
+      "label-small": {
+        "value": {
+          "fontFamily": "{pym.fontFamily.primary}",
+          "fontWeight": "{pym.fontWeight.medium}",
+          "fontSize": "{pym.fontSize.xs}",
+          "lineHeight": "{pym.lineHeight.tight}"
+        },
+        "type": "typography",
+        "description": "Timestamps, metadata"
+      }
+    }
+  },
+  "light": {
+    "semantic": {
+      "background": {
+        "value": "{pym.color.off-white}",
+        "type": "color",
+        "description": "Flutter: surface"
+      },
+      "foreground": {
+        "value": "{pym.color.navy}",
+        "type": "color",
+        "description": "Flutter: onSurface"
+      },
+      "card": {
+        "value": "{pym.color.warm-white}",
+        "type": "color",
+        "description": "Flutter: surfaceContainerHighest"
+      },
+      "primary": {
+        "value": "{pym.color.muted-red}",
+        "type": "color",
+        "description": "Flutter: primary"
+      },
+      "on-primary": {
+        "value": "{pym.color.white}",
+        "type": "color",
+        "description": "Flutter: onPrimary"
+      },
+      "secondary": {
+        "value": "{pym.color.warm-beige}",
+        "type": "color",
+        "description": "Flutter: secondary"
+      },
+      "on-secondary": {
+        "value": "{pym.color.navy}",
+        "type": "color",
+        "description": "Flutter: onSecondary"
+      },
+      "border": {
+        "value": "{pym.color.warm-beige}",
+        "type": "color",
+        "description": "Flutter: outline"
+      },
+      "muted": {
+        "value": "rgba(16, 14, 52, 0.5)",
+        "type": "color",
+        "description": "Subtle text, icons"
+      },
+      "error": {
+        "value": "{pym.color.muted-red}",
+        "type": "color",
+        "description": "Flutter: error"
+      }
+    }
+  },
+  "dark": {
+    "semantic": {
+      "background": {
+        "value": "{pym.color.dark-bg}",
+        "type": "color",
+        "description": "Flutter: surface — neutral dark, no color cast on photos"
+      },
+      "foreground": {
+        "value": "{pym.color.off-white}",
+        "type": "color",
+        "description": "Flutter: onSurface"
+      },
+      "card": {
+        "value": "{pym.color.dark-surface}",
+        "type": "color",
+        "description": "Flutter: surfaceContainerHighest — neutral gray"
+      },
+      "primary": {
+        "value": "{pym.color.muted-red}",
+        "type": "color",
+        "description": "Flutter: primary"
+      },
+      "on-primary": {
+        "value": "{pym.color.white}",
+        "type": "color",
+        "description": "Flutter: onPrimary"
+      },
+      "secondary": {
+        "value": "{pym.color.dark-border}",
+        "type": "color",
+        "description": "Flutter: secondary — neutral, not navy"
+      },
+      "on-secondary": {
+        "value": "{pym.color.off-white}",
+        "type": "color",
+        "description": "Flutter: onSecondary"
+      },
+      "border": {
+        "value": "{pym.color.dark-border}",
+        "type": "color",
+        "description": "Flutter: outline — neutral, not navy"
+      },
+      "muted": {
+        "value": "rgba(247, 247, 250, 0.5)",
+        "type": "color",
+        "description": "Subtle text, icons"
+      },
+      "error": {
+        "value": "{pym.color.muted-red}",
+        "type": "color",
+        "description": "Flutter: error"
+      }
+    }
+  }
+}
