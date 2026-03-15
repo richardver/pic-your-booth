@@ -1813,6 +1813,19 @@ h1, h2, h3, h4, h5, h6 {
             </label>
           </div>
 
+          <div class="upgrade-row" data-price="40" data-builder="ipad" onclick="toggleUpgrade(this)">
+            <button class="info-btn" onclick="event.stopPropagation(); openModal('aibg')" title="Meer info">?</button>
+            <div class="upgrade-row__info">
+              <div class="upgrade-row__name">AI Achtergrond</div>
+              <div class="upgrade-row__desc">Verwijdert alle ruis uit je foto's en plaatst een gepersonaliseerde achtergrond. Elke foto ziet er stunning uit.</div>
+            </div>
+            <div class="upgrade-row__price">+€40</div>
+            <label class="toggle" onclick="event.stopPropagation()">
+              <input type="checkbox" onchange="toggleUpgrade(this.closest('.upgrade-row'))">
+              <span class="toggle-track"></span>
+            </label>
+          </div>
+
           <div class="upgrade-row" data-price="150" data-builder="ipad" onclick="toggleUpgrade(this)">
             <button class="info-btn" onclick="event.stopPropagation(); openModal('dj')" title="Meer info">?</button>
             <div class="upgrade-row__info">
@@ -2246,6 +2259,13 @@ h1, h2, h3, h4, h5, h6 {
       icon: '🚚',
       image: 'https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=800&q=80&auto=format',
       desc: 'Geen auto nodig, geen gesjouw. Wij bezorgen de iPad Photobooth op je locatie, volledig opgeladen en klaar voor gebruik. Na afloop halen wij alles weer op. Jij hoeft alleen de deur open te doen. Beschikbaar in de hele Randstad.'
+    },
+    aibg: {
+      title: 'AI Achtergrond',
+      price: '+€40',
+      icon: '🖼️',
+      image: 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=800&q=80&auto=format',
+      desc: 'AI-technologie verwijdert automatisch alle achtergrondrommel uit je foto\'s en vervangt het door een gepersonaliseerde achtergrond naar keuze. Tropisch strand, stadssilhouet, feestthema — jij kiest, de AI doet de rest. Elke foto ziet er professioneel en stunning uit, ongeacht de locatie. Perfect voor feestjes waar de setting niet Instagram-proof is.'
     },
     ai: {
       title: 'AI Photo Experience',
