@@ -1649,8 +1649,8 @@ h1, h2, h3, h4, h5, h6 {
           </div>
 
           <div class="upgrade-row" data-price="150" data-builder="mirror" onclick="toggleUpgrade(this)">
-            <div class="upgrade-row__info">
             <button class="info-btn" onclick="event.stopPropagation(); openModal('dj')" title="Meer info">?</button>
+            <div class="upgrade-row__info">
               <div class="upgrade-row__name">Live DJ Set</div>
               <div class="upgrade-row__desc">Professionele DJ met rookmachine, lichten & speakers.</div>
             </div>
@@ -1797,8 +1797,8 @@ h1, h2, h3, h4, h5, h6 {
           </div>
 
           <div class="upgrade-row" data-price="150" data-builder="ipad" onclick="toggleUpgrade(this)">
-            <div class="upgrade-row__info">
             <button class="info-btn" onclick="event.stopPropagation(); openModal('dj')" title="Meer info">?</button>
+            <div class="upgrade-row__info">
               <div class="upgrade-row__name">Live DJ Set</div>
               <div class="upgrade-row__desc">Professionele DJ met lichten, speakers & Spotify optimalisatie.</div>
             </div>
@@ -2122,87 +2122,7 @@ h1, h2, h3, h4, h5, h6 {
     }
   }
 
-  /* ── Modal Logic ──────────────────────────────── */
-  var modalData = {
-    vip: {
-      title: 'VIP Upgrade',
-      price: '+€150',
-      icon: '✨',
-      image: 'https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?w=800&q=80&auto=format',
-      desc: 'Til je event naar VIP-niveau met onze complete upgrade. Inclusief een stijlvolle backdrop, rode loper, afzetpalen en onze exclusieve luxe props collectie. Je gasten voelen zich een echte VIP zodra ze de photobooth benaderen. Perfect voor bruiloften, galas en corporate events waar je die extra wow-factor wilt.'
-    },
-    wedding: {
-      title: 'Wedding Keepsakes',
-      price: '+€500',
-      icon: '💍',
-      image: 'https://images.unsplash.com/photo-1519741497674-611481863552?w=800&q=80&auto=format',
-      desc: 'Geef je gasten een tastbare herinnering aan jullie dag. Wij maken gepersonaliseerde sleutelhangers met de mooiste foto\'s van de avond — direct op locatie geproduceerd. Elke gast neemt een uniek aandenken mee naar huis. Inclusief gepersonaliseerd design met jullie namen en datum.'
-    },
-    host: {
-      title: 'On-Site Host',
-      price: '+€150',
-      icon: '🎤',
-      image: 'https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=800&q=80&auto=format',
-      desc: 'Eén van onze ervaren teamleden is de hele avond aanwezig bij de photobooth. Zij begeleiden je gasten, zorgen voor de perfecte poses, houden de flow erin en zorgen ervoor dat iedereen de beste ervaring heeft. Jij geniet van je feest — wij regelen de rest.'
-    },
-    dj: {
-      title: 'Live DJ Set',
-      price: '+€150',
-      icon: '🎧',
-      image: 'https://images.unsplash.com/photo-1571266028243-3716f02d2d56?w=800&q=80&auto=format',
-      desc: 'Voeg een professionele DJ toe aan je avond. Inclusief complete setup met rookmachine, sfeerverlichting, professionele speakers en een DJ die weet hoe hij de dansvloer vol krijgt. Deel je Spotify playlist — wij optimaliseren de volgorde en energie voor de perfecte flow.'
-    },
-    design: {
-      title: 'Premium Fotostrip Design',
-      price: '+€25',
-      icon: '🎨',
-      image: 'https://images.unsplash.com/photo-1513151233558-d860c5398176?w=800&q=80&auto=format',
-      desc: 'Upgrade je fotostrips van basis naar premium design. Wij ontwerpen een custom layout die past bij jouw event — met kleuren, fonts en styling die aansluiten bij je thema. Je gasten krijgen een fotostrip die er niet alleen leuk uitziet, maar ook echt bij jouw feest hoort.'
-    },
-    delivery: {
-      title: 'Bezorging Door Ons',
-      price: '+€25',
-      icon: '🚚',
-      image: 'https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=800&q=80&auto=format',
-      desc: 'Geen zin om te rijden? Wij bezorgen de iPad Photobooth op je locatie en halen hem na afloop weer op. Volledig opgeladen, klaar voor gebruik. Jij hoeft alleen maar de deur open te doen. Beschikbaar in de hele Randstad.'
-    }
-  };
-
-  var overlay = document.getElementById('modalOverlay');
-  var modalTitle = document.getElementById('modalTitle');
-  var modalPrice = document.getElementById('modalPrice');
-  var modalDesc = document.getElementById('modalDesc');
-  var modalImage = document.getElementById('modalImage');
-  var modalBadge = document.getElementById('modalBadge');
-
-  window.openModal = function(key) {
-    var data = modalData[key];
-    if (!data || !overlay) return;
-    modalTitle.textContent = data.title;
-    modalPrice.textContent = data.price;
-    modalDesc.textContent = data.desc;
-    modalBadge.textContent = data.icon + ' UPGRADE';
-    modalImage.style.backgroundImage = "linear-gradient(180deg, transparent 60%, var(--surface) 100%), url('" + data.image + "')";
-    modalImage.style.backgroundSize = 'cover';
-    modalImage.style.backgroundPosition = 'center';
-    overlay.classList.add('active');
-  };
-
-  window.closeModal = function() {
-    if (overlay) overlay.classList.remove('active');
-  };
-
-  // Close on overlay click (not modal itself)
-  if (overlay) {
-    overlay.addEventListener('click', function(e) {
-      if (e.target === overlay) closeModal();
-    });
-  }
-
-  // Close on Escape key
-  document.addEventListener('keydown', function(e) {
-    if (e.key === 'Escape') closeModal();
-  });
+  // Modal logic is in the second script block (after modal HTML)
 })();
 </script>
 
@@ -2220,6 +2140,88 @@ h1, h2, h3, h4, h5, h6 {
     </div>
   </div>
 </div>
+
+<script>
+// Modal init — must run after modal HTML exists
+(function() {
+  var overlay = document.getElementById('modalOverlay');
+  var modalTitle = document.getElementById('modalTitle');
+  var modalPrice = document.getElementById('modalPrice');
+  var modalDesc = document.getElementById('modalDesc');
+  var modalImage = document.getElementById('modalImage');
+  var modalBadge = document.getElementById('modalBadge');
+
+  var modalData = {
+    vip: {
+      title: 'VIP Upgrade',
+      price: '+€150',
+      icon: '✨',
+      image: 'https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?w=800&q=80&auto=format',
+      desc: 'Til je event naar VIP-niveau met onze complete upgrade. Inclusief een stijlvolle backdrop, rode loper, afzetpalen en onze exclusieve luxe props collectie. Je gasten voelen zich een echte VIP zodra ze de photobooth benaderen. Perfect voor bruiloften, galas en corporate events.'
+    },
+    wedding: {
+      title: 'Wedding Keepsakes',
+      price: '+€500',
+      icon: '💍',
+      image: 'https://images.unsplash.com/photo-1519741497674-611481863552?w=800&q=80&auto=format',
+      desc: 'Geef je gasten een tastbare herinnering aan jullie dag. Wij maken gepersonaliseerde sleutelhangers met de mooiste foto\'s — direct op locatie. Elke gast neemt een uniek aandenken mee. Inclusief gepersonaliseerd design met jullie namen en datum.'
+    },
+    host: {
+      title: 'On-Site Host',
+      price: '+€150',
+      icon: '🎤',
+      image: 'https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=800&q=80&auto=format',
+      desc: 'Eén van onze ervaren teamleden is de hele avond aanwezig. Zij begeleiden je gasten, zorgen voor de perfecte poses, houden de flow erin en zorgen dat iedereen de beste ervaring heeft. Jij geniet — wij regelen de rest.'
+    },
+    dj: {
+      title: 'Live DJ Set',
+      price: '+€150',
+      icon: '🎧',
+      image: 'https://images.unsplash.com/photo-1571266028243-3716f02d2d56?w=800&q=80&auto=format',
+      desc: 'Voeg een professionele DJ toe. Inclusief complete setup met rookmachine, sfeerverlichting, professionele speakers en een DJ die de dansvloer vol krijgt. Deel je Spotify playlist — wij optimaliseren de volgorde en energie voor de perfecte flow.'
+    },
+    design: {
+      title: 'Premium Fotostrip Design',
+      price: '+€25',
+      icon: '🎨',
+      image: 'https://images.unsplash.com/photo-1513151233558-d860c5398176?w=800&q=80&auto=format',
+      desc: 'Upgrade je fotostrips van basis naar premium. Wij ontwerpen een custom layout die past bij jouw event — met kleuren, fonts en styling die aansluiten bij je thema. Je gasten krijgen een fotostrip die echt bij jouw feest hoort.'
+    },
+    delivery: {
+      title: 'Bezorging Door Ons',
+      price: '+€25',
+      icon: '🚚',
+      image: 'https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=800&q=80&auto=format',
+      desc: 'Geen zin om te rijden? Wij bezorgen de iPad Photobooth op je locatie en halen hem na afloop weer op. Volledig opgeladen, klaar voor gebruik. Jij hoeft alleen de deur open te doen. Beschikbaar in de hele Randstad.'
+    }
+  };
+
+  window.openModal = function(key) {
+    var data = modalData[key];
+    if (!data || !overlay) return;
+    modalTitle.textContent = data.title;
+    modalPrice.textContent = data.price;
+    modalDesc.textContent = data.desc;
+    modalBadge.textContent = data.icon + ' UPGRADE';
+    modalImage.style.backgroundImage = "linear-gradient(180deg, transparent 60%, #111116 100%), url('" + data.image + "')";
+    modalImage.style.backgroundSize = 'cover';
+    modalImage.style.backgroundPosition = 'center';
+    overlay.classList.add('active');
+  };
+
+  window.closeModal = function() {
+    if (overlay) overlay.classList.remove('active');
+  };
+
+  overlay.addEventListener('click', function(e) {
+    if (e.target === overlay) closeModal();
+  });
+
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') closeModal();
+  });
+})();
+</script>
 
 </body>
 </html>
