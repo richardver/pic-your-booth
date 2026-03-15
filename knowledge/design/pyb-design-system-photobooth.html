@@ -407,6 +407,8 @@ h1, h2, h3, h4, h5, h6 {
   border: 1px solid var(--border);
   border-top: 3px solid transparent;
   transition: transform 0.2s, box-shadow 0.2s;
+  display: flex;
+  flex-direction: column;
 }
 .service-card:hover {
   transform: translateY(-2px);
@@ -445,16 +447,36 @@ h1, h2, h3, h4, h5, h6 {
   color: var(--text-muted);
   margin-bottom: var(--sp-4);
   line-height: 1.5;
+  flex: 1;
+}
+.service-card__footer {
+  margin-top: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--sp-3);
 }
 .service-card__price {
   font-family: var(--font-display);
-  font-size: 1.1rem;
+  font-size: 0.85rem;
   letter-spacing: 0.04em;
+  background: var(--gold);
+  color: #0a0a0a;
+  padding: 6px 16px;
+  border-radius: var(--r-pill);
+  font-weight: 700;
+  white-space: nowrap;
 }
-.service-card__price--gold  { color: var(--gold); }
-.service-card__price--gold { color: var(--gold); }
-.service-card__price--amber { color: var(--amber); }
-.service-card__price--blue  { color: var(--blue); }
+.service-card__link {
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: var(--text-muted);
+  text-decoration: none;
+  letter-spacing: 0.02em;
+  transition: color 0.2s;
+  white-space: nowrap;
+}
+.service-card__link:hover { color: var(--gold); }
 
 /* ── Testimonial ── */
 .testimonial {
@@ -1066,21 +1088,30 @@ h1, h2, h3, h4, h5, h6 {
             <div class="service-card__icon service-card__icon--gold">◎</div>
             <h3 class="service-card__title">iPad Photobooth</h3>
             <p class="service-card__desc">Compacte digitale photobooth met fotostrips. Makkelijk op te halen, direct klaar.</p>
-            <div class="service-card__price service-card__price--gold">Vanaf €200</div>
+            <div class="service-card__footer">
+              <a href="#" class="service-card__link">Meer info →</a>
+              <div class="service-card__price">Vanaf €200</div>
+            </div>
           </div>
           <!-- Magic Mirror XL -->
           <div class="service-card service-card--gold">
             <div class="service-card__icon service-card__icon--gold">✦</div>
             <h3 class="service-card__title">Magic Mirror XL</h3>
             <p class="service-card__desc">Full-size DSLR spiegel photobooth met direct printen en VIP-ervaring.</p>
-            <div class="service-card__price service-card__price--gold">Vanaf €599</div>
+            <div class="service-card__footer">
+              <a href="#" class="service-card__link">Meer info →</a>
+              <div class="service-card__price">Vanaf €599</div>
+            </div>
           </div>
           <!-- DJs -->
           <div class="service-card service-card--violet">
             <div class="service-card__icon service-card__icon--violet">♫</div>
             <h3 class="service-card__title">DJs</h3>
             <p class="service-card__desc">DJ Gianni (Meezingers, Afro, Dance) & Milo (House, Techno) — met Spotify playlist optimalisatie.</p>
-            <div class="service-card__price service-card__price--violet">Vanaf €150 / avond</div>
+            <div class="service-card__footer">
+              <a href="#" class="service-card__link">Meer info →</a>
+              <div class="service-card__price">Vanaf €150</div>
+            </div>
           </div>
         </div>
 
