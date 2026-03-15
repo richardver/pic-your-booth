@@ -598,6 +598,7 @@ body {
   border-radius: var(--r-xl);
   flex-shrink: 0;
   overflow: hidden;
+  position: relative;
 }
 
 .dj-avatar.gianni {
@@ -1320,70 +1321,12 @@ body {
         <div class="waveform-deco" id="heroWave"></div>
       </section>
 
-      <!-- DJ Showcase -->
-      <div class="dj-showcase">
-
-        <!-- DJ Gianni -->
-        <div class="dj-card gianni">
-          <div class="dj-card-photo">
-            <div class="eq-bars" id="eqGianni"></div>
-          </div>
-          <div class="dj-card-body">
-            <div class="dj-card-accent"></div>
-            <h2 class="dj-card-name">DJ GIANNI</h2>
-            <p class="dj-card-tagline">"Iedereen zingt mee, niemand gaat naar huis"</p>
-            <div class="genre-tags">
-              <span class="genre-tag">Meezingers</span>
-              <span class="genre-tag">Afro</span>
-
-              <span class="genre-tag">Feest</span>
-            </div>
-            <p class="dj-card-desc">De DJ die 200+ feesten lang bewees dat een volle dansvloer geen toeval is. Meezingers, afro-beats en dancefloor-anthems &mdash; naadloos gemixt op jouw Spotify-smaak.</p>
-            <div class="dj-card-footer">
-              <div class="dj-socials">
-                <a class="dj-social-icon" title="Instagram">IG</a>
-                <a class="dj-social-icon" title="TikTok">TT</a>
-                <a class="dj-social-icon" title="SoundCloud">SC</a>
-              </div>
-              <button class="dj-play-btn" data-dj="gianni"><div class="play-icon"></div></button>
-            </div>
-          </div>
-        </div>
-
-        <!-- Milo -->
-        <div class="dj-card milo">
-          <div class="dj-card-photo">
-            <div class="eq-bars" id="eqMilo"></div>
-          </div>
-          <div class="dj-card-body">
-            <div class="dj-card-accent"></div>
-            <h2 class="dj-card-name">MILO</h2>
-            <p class="dj-card-tagline">"Je voelt de bass, je vergeet de tijd"</p>
-            <div class="genre-tags">
-              <span class="genre-tag">House</span>
-              <span class="genre-tag">Techno</span>
-              <span class="genre-tag">Deep</span>
-            </div>
-            <p class="dj-card-desc">Hypnotiserende sets die je gasten tot het laatste uur op de vloer houden. Deep house naar techno &mdash; strak gemixt, perfect opgebouwd op basis van jouw playlist.</p>
-            <div class="dj-card-footer">
-              <div class="dj-socials">
-                <a class="dj-social-icon" title="Instagram">IG</a>
-                <a class="dj-social-icon" title="TikTok">TT</a>
-                <a class="dj-social-icon" title="SoundCloud">SC</a>
-              </div>
-              <button class="dj-play-btn" data-dj="milo"><div class="play-icon"></div></button>
-            </div>
-          </div>
-        </div>
-
-      </div>
-
-      <div class="section-line"></div>
-
       <!-- DJ Gianni Profile -->
       <section class="dj-profile gianni-profile">
         <div class="dj-profile-header">
-          <div class="dj-avatar gianni"></div>
+          <div class="dj-avatar gianni">
+            <div class="eq-bars" id="eqGianni" style="position:absolute; bottom:12px; right:12px;"></div>
+          </div>
           <div class="dj-profile-info">
             <h2 class="dj-profile-name gianni">DJ GIANNI</h2>
             <p class="dj-profile-tagline">"Iedereen zingt mee, niemand gaat naar huis"</p>
@@ -1425,7 +1368,7 @@ body {
       <section class="dj-profile milo-profile">
         <div class="dj-profile-header">
           <div class="dj-avatar milo">
-            <div class="dj-avatar-initials">M</div>
+            <div class="eq-bars" id="eqMilo" style="position:absolute; bottom:12px; right:12px;"></div>
           </div>
           <div class="dj-profile-info">
             <h2 class="dj-profile-name milo">MILO</h2>
