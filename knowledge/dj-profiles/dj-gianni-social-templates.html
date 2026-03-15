@@ -230,6 +230,7 @@ body {
 
 .abstract-shapes .line {
   position: absolute;
+  width: 2px;
   background: rgba(240,101,74,0.12);
 }
 
@@ -401,8 +402,8 @@ body {
   left: 50%;
   transform: translateX(-50%);
   width: 120%;
-  height: 60%;
-  background: radial-gradient(ellipse at center bottom, rgba(240,101,74,0.04) 0%, transparent 70%);
+  height: 70%;
+  background: radial-gradient(ellipse at center bottom, rgba(240,101,74,0.10) 0%, transparent 70%);
   pointer-events: none;
 }
 
@@ -419,9 +420,9 @@ body {
   right: 24px;
   z-index: 2;
   font-family: var(--font-display);
-  font-size: 0.85rem;
+  font-size: 1.2rem;
   letter-spacing: 0.1em;
-  color: var(--muted);
+  color: var(--gi);
   text-align: right;
 }
 
@@ -437,9 +438,12 @@ body {
 
 .set-cover .set-title {
   font-family: var(--font-display);
-  font-size: clamp(1.6rem, 5vw, 2.8rem);
+  font-size: clamp(2rem, 6vw, 3.5rem);
   letter-spacing: 0.06em;
-  color: var(--white);
+  background: linear-gradient(180deg, #ededf0 0%, #f0654a 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
   line-height: 1;
   margin-bottom: 16px;
 }
