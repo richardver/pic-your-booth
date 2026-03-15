@@ -64,7 +64,7 @@ Richard started PicYourBooth to have fun, teach his sons Luca and Milo how to be
 
 ## Services & Pricing
 
-### iPad Photobooth
+### Party Booth
 **Foto plezier voor elk feest.**
 Compact, digital-only photobooth. Pick up, set up, enjoy.
 
@@ -142,7 +142,7 @@ Shared across photobooth and DJ pages — unified brand.
 
 ```
 PicYourBooth (standalone premium entertainment brand)
-├── iPad Photobooth (accessible entry point)
+├── Party Booth (accessible entry point)
 ├── Magic Mirror XL (premium photobooth — populair)
 │   └── Upgrades: VIP, Wedding Keepsakes, On-Site Host, Live DJ Set
 └── DJs (separate service section)
@@ -182,7 +182,7 @@ The DJs maintain personal profiles (Instagram, SoundCloud, TikTok) promoted alon
 | Page | URL | Content |
 |------|-----|---------|
 | Homepage | picyourbooth.nl | Hero + social proof + 3 service cards (iPad, Magic Mirror, DJs) + testimonial |
-| iPad Photobooth | picyourbooth.nl/ipad-photobooth | USPs + package builder (base + upgrades) |
+| Party Booth | picyourbooth.nl/party-booth | USPs + package builder (base + upgrades) |
 | Magic Mirror XL | picyourbooth.nl/magic-mirror | USPs + package builder (base + upgrades) |
 | DJs | picyourbooth.nl/djs | DJ Hub + Gianni profile + Milo profile + Spotify feature + How it works |
 | Offerte | picyourbooth.nl/offerte | Proposal request form (6 fields max) |

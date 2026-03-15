@@ -9,7 +9,7 @@ This repo contains the marketing knowledge base, specialist agents, and skills f
 ## Services
 
 - **Magic Mirror XL** — Premium photobooth (DSLR, pro lighting, VIP add-ons) from €599
-- **iPad Photobooth** — Digital-only, budget-friendly from €200
+- **Party Booth** — Digital-only, budget-friendly from €200
 - **DJ Services** — Combinable with photobooth, Spotify playlist optimization
 - **DJ + Photobooth Combo** — One team, one vibe, one booking
 
@@ -50,8 +50,9 @@ pic-your-booth/
 ├── knowledge/
 │   ├── brand/                             ← Brand identity
 │   │   └── brand.md                      — Mission, vision, tone, segments, positioning
-│   ├── dj-profiles/                       ← DJ personal brands
-│   │   └── luca-dj-gianni.md             — DJ Gianni brand, music style, social bios
+│   ├── dj-profiles/                       ← DJ personal brands (each DJ gets own design system)
+│   │   ├── luca-dj-gianni.md             — DJ Gianni brand, music style, social bios
+│   │   └── dj-gianni-brand-guide.html    — DJ Gianni visual brand guide
 │   ├── photobooth/                        ← Website & conversion
 │   │   ├── website-design-landing-pages.md — Page structure, hero formulas, CTAs
 │   │   ├── website-design-cro.md         — 55-item audit checklist, scoring rubric
@@ -70,9 +71,9 @@ pic-your-booth/
 │       ├── design-system.md              — Tokens, colors, typography, components
 │       ├── ui-ux-principles.md           — UX guidelines, accessibility, responsive
 │       ├── pym-design-tokens.json        — Design token values (JSON)
-│       ├── pym-design-system-web.html    — PYM parent design system
-│       ├── pym-design-system-photobooth.html — Photobooth design system (dark+light)
-│       └── pym-design-system-dj.html     — DJ Hub design system (split-energy)
+│       ├── pyb-design-system-web.html    — General web & creative design system (parent)
+│       ├── pyb-design-system-dj.html     — DJ Hub page design system (both DJs)
+│       └── pyb-design-tokens.json        — Design token values (JSON)
 ```
 
 ## Quick Commands
