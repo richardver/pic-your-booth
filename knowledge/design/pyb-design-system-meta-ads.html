@@ -1,0 +1,1993 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PicYourBooth — Meta Ads Design System</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* ============================================================
+   PICYOURBOOTH — META ADS DESIGN SYSTEM
+   Ad mockups, copy variations, specs & strategy reference
+   ============================================================ */
+
+/* -- Design Tokens ----------------------------------------- */
+:root {
+  --bg:          #060609;
+  --surface:     #111116;
+  --surface-up:  #18181e;
+  --text:        #ededf0;
+  --text-muted:  rgba(237, 237, 240, 0.60);
+  --border:      rgba(255, 255, 255, 0.06);
+  --border-hover: rgba(255, 255, 255, 0.12);
+
+  --gold:        #d4b14e;
+  --gold-light:  #e0c468;
+  --gold-dim:    rgba(212, 177, 78, 0.10);
+  --gold-glow:   rgba(212, 177, 78, 0.20);
+
+  --warm:        #f59e42;
+  --warm-light:  #ffb86b;
+  --warm-dim:    rgba(245, 158, 66, 0.10);
+  --warm-glow:   rgba(245, 158, 66, 0.20);
+
+  --violet:      #8b5cf6;
+  --success:     #34d399;
+
+  --font-display: 'Bebas Neue', Impact, sans-serif;
+  --font-body:    'Space Grotesk', -apple-system, sans-serif;
+
+  --r-sm:   8px;
+  --r-md:  12px;
+  --r-lg:  16px;
+  --r-pill: 999px;
+
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* -- Reset ------------------------------------------------- */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html {
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { transition: none !important; animation: none !important; }
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-body);
+  font-weight: 400;
+  line-height: 1.6;
+  min-height: 100vh;
+}
+
+/* -- Layout ------------------------------------------------ */
+.page-wrap {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 48px 24px 96px;
+}
+
+@media (min-width: 768px) {
+  .page-wrap { padding: 64px 48px 120px; }
+}
+
+/* -- Typography -------------------------------------------- */
+h1, h2, h3, h4 {
+  font-family: var(--font-display);
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  line-height: 1.1;
+}
+
+h1 { font-size: clamp(2.4rem, 5vw, 3.6rem); margin-bottom: 12px; }
+h2 { font-size: clamp(1.8rem, 3.5vw, 2.4rem); margin-bottom: 8px; }
+h3 { font-size: clamp(1.3rem, 2.5vw, 1.6rem); margin-bottom: 6px; }
+h4 { font-size: 1.1rem; margin-bottom: 4px; }
+
+p { color: var(--text-muted); max-width: 680px; }
+p + p { margin-top: 12px; }
+
+.label {
+  font-family: var(--font-display);
+  font-size: 0.75rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+/* -- Header ------------------------------------------------ */
+.doc-header {
+  text-align: center;
+  padding: 48px 0 56px;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 56px;
+}
+
+.doc-header h1 { color: var(--text); }
+.doc-header .subtitle {
+  color: var(--text-muted);
+  font-size: 1.05rem;
+  margin-top: 8px;
+}
+.doc-header .meta-label {
+  display: inline-block;
+  margin-top: 16px;
+  padding: 4px 16px;
+  background: var(--gold-dim);
+  color: var(--gold);
+  font-family: var(--font-display);
+  font-size: 0.8rem;
+  letter-spacing: 0.1em;
+  border-radius: var(--r-pill);
+  border: 1px solid rgba(212, 177, 78, 0.15);
+}
+
+/* -- Section ----------------------------------------------- */
+.section {
+  margin-bottom: 72px;
+}
+
+.section-title {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 32px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--border);
+}
+
+.section-title .dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.section-title .dot.gold { background: var(--gold); }
+.section-title .dot.warm { background: var(--warm); }
+.section-title .dot.violet { background: var(--violet); }
+
+/* -- Campaign Header --------------------------------------- */
+.campaign-header {
+  padding: 32px;
+  border-radius: var(--r-lg);
+  margin-bottom: 40px;
+}
+
+.campaign-header.mirror {
+  background: linear-gradient(135deg, rgba(212, 177, 78, 0.06) 0%, rgba(212, 177, 78, 0.02) 100%);
+  border: 1px solid rgba(212, 177, 78, 0.12);
+}
+
+.campaign-header.ipad {
+  background: linear-gradient(135deg, rgba(245, 158, 66, 0.06) 0%, rgba(245, 158, 66, 0.02) 100%);
+  border: 1px solid rgba(245, 158, 66, 0.12);
+}
+
+.campaign-header h2 { margin-bottom: 6px; }
+.campaign-header .positioning {
+  font-style: italic;
+  color: var(--text-muted);
+  font-size: 1.05rem;
+  margin-bottom: 12px;
+}
+.campaign-header .target {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+.price-anchor {
+  display: inline-block;
+  margin-top: 12px;
+  padding: 6px 20px;
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  letter-spacing: 0.06em;
+  border-radius: var(--r-pill);
+}
+
+.price-anchor.gold {
+  background: var(--gold);
+  color: #000;
+}
+
+.price-anchor.warm {
+  background: var(--warm);
+  color: #000;
+}
+
+/* -- Variation Row ----------------------------------------- */
+.variation {
+  margin-bottom: 48px;
+}
+
+.variation-label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.variation-number {
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  font-family: var(--font-display);
+  font-size: 0.9rem;
+  flex-shrink: 0;
+}
+
+.variation-number.gold {
+  background: var(--gold-dim);
+  color: var(--gold);
+  border: 1px solid rgba(212, 177, 78, 0.2);
+}
+
+.variation-number.warm {
+  background: var(--warm-dim);
+  color: var(--warm);
+  border: 1px solid rgba(245, 158, 66, 0.2);
+}
+
+.variation-hook {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  letter-spacing: 0.06em;
+}
+
+.variation-psychology {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  padding: 2px 10px;
+  background: var(--surface);
+  border-radius: var(--r-pill);
+  border: 1px solid var(--border);
+}
+
+/* -- Ad Grid ----------------------------------------------- */
+.ad-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+  align-items: start;
+}
+
+@media (min-width: 768px) {
+  .ad-grid {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+
+/* -- Ad Frame (Instagram-style) ---------------------------- */
+.ad-frame {
+  background: var(--surface);
+  border-radius: var(--r-md);
+  overflow: hidden;
+  border: 1px solid var(--border);
+}
+
+.ad-frame-label {
+  font-family: var(--font-display);
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  text-align: center;
+  padding: 8px;
+  color: var(--text-muted);
+  background: var(--surface-up);
+  border-bottom: 1px solid var(--border);
+}
+
+/* -- IG Header --------------------------------------------- */
+.ig-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 12px;
+}
+
+.ig-avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--gold), #8b6914);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-display);
+  font-size: 0.65rem;
+  color: #000;
+  letter-spacing: 0.02em;
+  flex-shrink: 0;
+}
+
+.ig-avatar.warm-avatar {
+  background: linear-gradient(135deg, var(--warm), #c46e0a);
+}
+
+.ig-user-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.ig-username {
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--text);
+  line-height: 1.2;
+}
+
+.ig-sponsored {
+  font-size: 0.65rem;
+  color: var(--text-muted);
+}
+
+.ig-dots {
+  color: var(--text-muted);
+  font-size: 1.2rem;
+  letter-spacing: 2px;
+  flex-shrink: 0;
+}
+
+/* -- Ad Primary Text (above visual in feed) ---------------- */
+.ad-primary-text {
+  padding: 0 12px 10px;
+  font-size: 0.78rem;
+  line-height: 1.45;
+  color: var(--text);
+  max-width: none;
+}
+
+/* -- Ad Visual --------------------------------------------- */
+.ad-visual {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ad-visual.ratio-1-1 { aspect-ratio: 1 / 1; }
+.ad-visual.ratio-4-5 { aspect-ratio: 4 / 5; }
+.ad-visual.ratio-9-16 { aspect-ratio: 9 / 16; }
+
+/* Mirror visual */
+.ad-visual.mirror-bg {
+  background: linear-gradient(160deg, #0d0d12 0%, #1a1610 40%, #2a2014 70%, #0d0d12 100%);
+}
+
+.ad-visual.mirror-bg::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 50% 60%, rgba(212, 177, 78, 0.12) 0%, transparent 70%);
+}
+
+/* iPad visual */
+.ad-visual.ipad-bg {
+  background: linear-gradient(160deg, #0d0d12 0%, #1a1210 40%, #2a1a0a 70%, #0d0d12 100%);
+}
+
+.ad-visual.ipad-bg::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 50% 60%, rgba(245, 158, 66, 0.10) 0%, transparent 70%);
+}
+
+/* Visual content layer */
+.visual-content {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  padding: 24px 20px;
+  width: 100%;
+}
+
+.visual-headline {
+  font-family: var(--font-display);
+  font-size: clamp(1.4rem, 3vw, 1.8rem);
+  letter-spacing: 0.06em;
+  line-height: 1.1;
+  margin-bottom: 12px;
+}
+
+.visual-headline.gold-text { color: var(--gold); }
+.visual-headline.warm-text { color: var(--warm); }
+.visual-headline.white-text { color: var(--text); }
+
+.visual-subtext {
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  margin-bottom: 16px;
+  line-height: 1.4;
+}
+
+.visual-price-pill {
+  display: inline-block;
+  padding: 5px 18px;
+  border-radius: var(--r-pill);
+  font-family: var(--font-display);
+  font-size: 0.9rem;
+  letter-spacing: 0.06em;
+  margin-bottom: 14px;
+}
+
+.visual-price-pill.gold-pill {
+  background: var(--gold);
+  color: #000;
+}
+
+.visual-price-pill.warm-pill {
+  background: var(--warm);
+  color: #000;
+}
+
+.visual-cta-btn {
+  display: inline-block;
+  padding: 8px 24px;
+  border-radius: var(--r-pill);
+  font-family: var(--font-display);
+  font-size: 0.8rem;
+  letter-spacing: 0.08em;
+  border: 1px solid;
+}
+
+.visual-cta-btn.gold-btn {
+  color: var(--gold);
+  border-color: rgba(212, 177, 78, 0.3);
+  background: rgba(212, 177, 78, 0.08);
+}
+
+.visual-cta-btn.warm-btn {
+  color: var(--warm);
+  border-color: rgba(245, 158, 66, 0.3);
+  background: rgba(245, 158, 66, 0.08);
+}
+
+.visual-logo {
+  position: absolute;
+  top: 12px;
+  right: 14px;
+  font-family: var(--font-display);
+  font-size: 0.6rem;
+  letter-spacing: 0.08em;
+  color: rgba(237, 237, 240, 0.35);
+  z-index: 2;
+}
+
+/* Decorative mirror shape */
+.mirror-shape {
+  position: absolute;
+  width: 60%;
+  height: 70%;
+  border: 1px solid rgba(212, 177, 78, 0.08);
+  border-radius: 50% 50% 50% 50% / 40% 40% 60% 60%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 0;
+}
+
+/* Decorative party dots */
+.party-dots {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.party-dots::before,
+.party-dots::after {
+  content: '';
+  position: absolute;
+  border-radius: 50%;
+}
+
+.party-dots::before {
+  width: 80px;
+  height: 80px;
+  background: rgba(245, 158, 66, 0.06);
+  top: 10%;
+  left: 10%;
+}
+
+.party-dots::after {
+  width: 60px;
+  height: 60px;
+  background: rgba(245, 158, 66, 0.04);
+  bottom: 15%;
+  right: 12%;
+}
+
+/* -- Stories overlay text ---------------------------------- */
+.stories-text-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 20px 16px 48px;
+  background: linear-gradient(transparent, rgba(6, 6, 9, 0.85));
+  z-index: 2;
+}
+
+.stories-primary {
+  font-size: 0.72rem;
+  color: var(--text);
+  line-height: 1.4;
+  margin-bottom: 10px;
+}
+
+.stories-cta {
+  display: inline-block;
+  padding: 8px 28px;
+  border-radius: var(--r-pill);
+  font-family: var(--font-display);
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  width: 100%;
+  text-align: center;
+}
+
+.stories-cta.gold-cta {
+  background: var(--gold);
+  color: #000;
+}
+
+.stories-cta.warm-cta {
+  background: var(--warm);
+  color: #000;
+}
+
+/* -- Ad Footer (Feed only) --------------------------------- */
+.ad-footer {
+  padding: 10px 12px;
+  border-top: 1px solid var(--border);
+}
+
+.ad-headline {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 2px;
+}
+
+.ad-description {
+  font-size: 0.7rem;
+  color: var(--text-muted);
+  margin-bottom: 8px;
+}
+
+.ad-cta-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.ad-cta-button {
+  display: inline-block;
+  padding: 5px 14px;
+  font-size: 0.7rem;
+  font-weight: 600;
+  border-radius: 4px;
+  background: var(--surface-up);
+  color: var(--text);
+  border: 1px solid var(--border-hover);
+}
+
+.ad-cta-domain {
+  font-size: 0.65rem;
+  color: var(--text-muted);
+}
+
+/* -- IG Engagement Row ------------------------------------- */
+.ig-engagement {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 8px 12px;
+}
+
+.ig-icon {
+  width: 20px;
+  height: 20px;
+  border: 1.5px solid var(--text-muted);
+  border-radius: 4px;
+  opacity: 0.5;
+}
+
+.ig-icon.heart { border-radius: 0; border: none; color: var(--text-muted); font-size: 18px; }
+
+/* -- Specs Tables ------------------------------------------ */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 24px;
+  font-size: 0.85rem;
+}
+
+th {
+  font-family: var(--font-display);
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-align: left;
+  padding: 10px 14px;
+  background: var(--surface);
+  color: var(--text-muted);
+  border-bottom: 1px solid var(--border);
+}
+
+td {
+  padding: 10px 14px;
+  color: var(--text-muted);
+  border-bottom: 1px solid var(--border);
+  vertical-align: top;
+}
+
+td:first-child {
+  color: var(--text);
+  font-weight: 500;
+}
+
+tr:last-child td { border-bottom: none; }
+
+.table-wrap {
+  background: var(--surface);
+  border-radius: var(--r-md);
+  border: 1px solid var(--border);
+  overflow: hidden;
+  overflow-x: auto;
+  margin-bottom: 32px;
+}
+
+/* -- Reference Cards --------------------------------------- */
+.ref-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+}
+
+@media (min-width: 768px) {
+  .ref-grid { grid-template-columns: 1fr 1fr; }
+}
+
+.ref-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--r-md);
+  padding: 24px;
+}
+
+.ref-card h4 { margin-bottom: 12px; }
+
+.ref-card ul {
+  list-style: none;
+  padding: 0;
+}
+
+.ref-card li {
+  padding: 6px 0;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  border-bottom: 1px solid var(--border);
+}
+
+.ref-card li:last-child { border-bottom: none; }
+
+.ref-card li strong {
+  color: var(--text);
+  font-weight: 500;
+}
+
+/* -- Framework Steps --------------------------------------- */
+.framework-steps {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 16px;
+  margin-top: 16px;
+}
+
+.step {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--r-md);
+  padding: 20px;
+  text-align: center;
+}
+
+.step-number {
+  font-family: var(--font-display);
+  font-size: 1.8rem;
+  line-height: 1;
+  margin-bottom: 4px;
+}
+
+.step-number.gold-text { color: var(--gold); }
+
+.step h4 { margin-bottom: 6px; }
+
+.step p {
+  font-size: 0.8rem;
+  margin: 0 auto;
+}
+
+/* -- Budget Bar -------------------------------------------- */
+.budget-bar {
+  display: flex;
+  height: 32px;
+  border-radius: var(--r-pill);
+  overflow: hidden;
+  margin: 16px 0;
+}
+
+.budget-segment {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-display);
+  font-size: 0.7rem;
+  letter-spacing: 0.06em;
+  color: #000;
+}
+
+.budget-segment.seg-prospect { background: var(--gold); flex: 65; }
+.budget-segment.seg-retarget { background: var(--warm); flex: 25; }
+.budget-segment.seg-seasonal { background: var(--text-muted); flex: 10; }
+
+.budget-legend {
+  display: flex;
+  gap: 24px;
+  margin-top: 8px;
+  flex-wrap: wrap;
+}
+
+.budget-legend-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+.budget-legend-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+/* -- Divider ----------------------------------------------- */
+.divider {
+  border: none;
+  border-top: 1px solid var(--border);
+  margin: 56px 0;
+}
+
+/* -- Copy Card --------------------------------------------- */
+.copy-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--r-md);
+  padding: 16px 20px;
+  margin-bottom: 12px;
+}
+
+.copy-field {
+  margin-bottom: 8px;
+}
+
+.copy-field:last-child { margin-bottom: 0; }
+
+.copy-field-label {
+  font-family: var(--font-display);
+  font-size: 0.65rem;
+  letter-spacing: 0.1em;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  margin-bottom: 2px;
+}
+
+.copy-field-value {
+  font-size: 0.85rem;
+  color: var(--text);
+  line-height: 1.45;
+}
+</style>
+</head>
+<body>
+<div class="page-wrap">
+
+  <!-- ============================================================
+       HEADER
+       ============================================================ -->
+  <header class="doc-header">
+    <span class="meta-label">Meta Ads Design System</span>
+    <h1>PicYourBooth</h1>
+    <p class="subtitle">Ad mockups, copy variations & campaign reference for Facebook and Instagram</p>
+  </header>
+
+  <!-- ============================================================
+       CAMPAIGN 1: MAGIC MIRROR XL
+       ============================================================ -->
+  <section class="section">
+    <div class="section-title">
+      <span class="dot gold"></span>
+      <h2>Campaign 1: Magic Mirror XL</h2>
+    </div>
+
+    <div class="campaign-header mirror">
+      <h2 style="color: var(--gold);">Magic Mirror XL</h2>
+      <p class="positioning">"Dit is geen photobooth -- dit is een ervaring"</p>
+      <p class="target"><strong>Target:</strong> Corporate events, weddings, high-end parties</p>
+      <span class="price-anchor gold">Vanaf &euro;599</span>
+    </div>
+
+    <!-- ---- Variation 1: Social Proof Hook ---- -->
+    <div class="variation">
+      <div class="variation-label">
+        <span class="variation-number gold">1</span>
+        <span class="variation-hook">Social Proof Hook</span>
+        <span class="variation-psychology">Cialdini</span>
+      </div>
+
+      <div class="copy-card">
+        <div class="copy-field">
+          <div class="copy-field-label">Primary Text</div>
+          <div class="copy-field-value">237+ events. 4.9&#9733; Google Reviews. En nu jouw feest?</div>
+        </div>
+        <div class="copy-field">
+          <div class="copy-field-label">Headline</div>
+          <div class="copy-field-value">MAGIC MIRROR XL</div>
+        </div>
+        <div class="copy-field">
+          <div class="copy-field-label">Description</div>
+          <div class="copy-field-value">Vanaf &euro;599 -- DSLR kwaliteit, direct printen</div>
+        </div>
+      </div>
+
+      <div class="ad-grid">
+        <!-- Feed 1:1 -->
+        <div class="ad-frame">
+          <div class="ad-frame-label">Feed 1:1 -- 1080 x 1080</div>
+          <div class="ig-header">
+            <div class="ig-avatar">PYB</div>
+            <div class="ig-user-info">
+              <div class="ig-username">picyourbooth</div>
+              <div class="ig-sponsored">Gesponsord</div>
+            </div>
+            <div class="ig-dots">...</div>
+          </div>
+          <div class="ad-primary-text">237+ events. 4.9&#9733; Google Reviews. En nu jouw feest?</div>
+          <div class="ad-visual ratio-1-1 mirror-bg">
+            <div class="mirror-shape"></div>
+            <span class="visual-logo">PICYOURBOOTH</span>
+            <div class="visual-content">
+              <div class="visual-headline gold-text">237+ Events<br>4.9&#9733; Reviews</div>
+              <div class="visual-subtext">DSLR kwaliteit &middot; Direct printen &middot; VIP ervaring</div>
+              <div class="visual-price-pill gold-pill">VANAF &euro;599</div><br>
+              <span class="visual-cta-btn gold-btn">VRAAG EEN OFFERTE AAN</span>
+            </div>
+          </div>
+          <div class="ad-footer">
+            <div class="ad-cta-domain">picyourbooth.nl</div>
+            <div class="ad-headline">MAGIC MIRROR XL</div>
+            <div class="ad-description">Vanaf &euro;599 -- DSLR kwaliteit, direct printen</div>
+            <div class="ad-cta-row">
+              <span></span>
+              <span class="ad-cta-button">Meer info</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Feed 4:5 -->
+        <div class="ad-frame">
+          <div class="ad-frame-label">Feed 4:5 -- 1080 x 1350</div>
+          <div class="ig-header">
+            <div class="ig-avatar">PYB</div>
+            <div class="ig-user-info">
+              <div class="ig-username">picyourbooth</div>
+              <div class="ig-sponsored">Gesponsord</div>
+            </div>
+            <div class="ig-dots">...</div>
+          </div>
+          <div class="ad-primary-text">237+ events. 4.9&#9733; Google Reviews. En nu jouw feest?</div>
+          <div class="ad-visual ratio-4-5 mirror-bg">
+            <div class="mirror-shape"></div>
+            <span class="visual-logo">PICYOURBOOTH</span>
+            <div class="visual-content">
+              <div class="visual-headline gold-text" style="font-size: clamp(1.6rem, 3vw, 2rem);">237+ Events<br>4.9&#9733; Reviews</div>
+              <div class="visual-subtext">Premium photobooth met DSLR camera<br>en professionele belichting</div>
+              <div class="visual-price-pill gold-pill">VANAF &euro;599</div><br>
+              <span class="visual-cta-btn gold-btn">VRAAG EEN OFFERTE AAN</span>
+            </div>
+          </div>
+          <div class="ad-footer">
+            <div class="ad-cta-domain">picyourbooth.nl</div>
+            <div class="ad-headline">MAGIC MIRROR XL</div>
+            <div class="ad-description">Vanaf &euro;599 -- DSLR kwaliteit, direct printen</div>
+            <div class="ad-cta-row">
+              <span></span>
+              <span class="ad-cta-button">Meer info</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Stories 9:16 -->
+        <div class="ad-frame">
+          <div class="ad-frame-label">Stories / Reels 9:16 -- 1080 x 1920</div>
+          <div class="ad-visual ratio-9-16 mirror-bg">
+            <div class="mirror-shape"></div>
+            <span class="visual-logo">PICYOURBOOTH</span>
+            <div class="visual-content">
+              <div class="visual-headline gold-text" style="font-size: clamp(1.6rem, 3.5vw, 2.2rem);">Magic<br>Mirror XL</div>
+              <div class="visual-subtext">237+ events verzorgd</div>
+              <div class="visual-price-pill gold-pill">VANAF &euro;599</div>
+            </div>
+            <div class="stories-text-overlay">
+              <div class="stories-primary">237+ events. 4.9&#9733; Google Reviews. En nu jouw feest?</div>
+              <span class="stories-cta gold-cta">VRAAG EEN OFFERTE AAN</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ---- Variation 2: Loss Aversion Hook ---- -->
+    <div class="variation">
+      <div class="variation-label">
+        <span class="variation-number gold">2</span>
+        <span class="variation-hook">Loss Aversion Hook</span>
+        <span class="variation-psychology">Kahneman</span>
+      </div>
+
+      <div class="copy-card">
+        <div class="copy-field">
+          <div class="copy-field-label">Primary Text</div>
+          <div class="copy-field-value">Je gasten praten nog w&eacute;ken over een Magic Mirror. Zonder? Ze vergeten je feest binnen een dag.</div>
+        </div>
+        <div class="copy-field">
+          <div class="copy-field-label">Headline</div>
+          <div class="copy-field-value">MAAK HET ONVERGETELIJK</div>
+        </div>
+        <div class="copy-field">
+          <div class="copy-field-label">Description</div>
+          <div class="copy-field-value">Populaire data gaan snel</div>
+        </div>
+      </div>
+
+      <div class="ad-grid">
+        <!-- Feed 1:1 -->
+        <div class="ad-frame">
+          <div class="ad-frame-label">Feed 1:1 -- 1080 x 1080</div>
+          <div class="ig-header">
+            <div class="ig-avatar">PYB</div>
+            <div class="ig-user-info">
+              <div class="ig-username">picyourbooth</div>
+              <div class="ig-sponsored">Gesponsord</div>
+            </div>
+            <div class="ig-dots">...</div>
+          </div>
+          <div class="ad-primary-text">Je gasten praten nog w&eacute;ken over een Magic Mirror. Zonder? Ze vergeten je feest binnen een dag.</div>
+          <div class="ad-visual ratio-1-1 mirror-bg">
+            <div class="mirror-shape"></div>
+            <span class="visual-logo">PICYOURBOOTH</span>
+            <div class="visual-content">
+              <div class="visual-headline white-text">Maak Het<br>Onvergetelijk</div>
+              <div class="visual-subtext">Of worden ze je feest morgen al vergeten?</div>
+              <div class="visual-price-pill gold-pill">VANAF &euro;599</div><br>
+              <span class="visual-cta-btn gold-btn">BOEK NU</span>
+            </div>
+          </div>
+          <div class="ad-footer">
+            <div class="ad-cta-domain">picyourbooth.nl</div>
+            <div class="ad-headline">MAAK HET ONVERGETELIJK</div>
+            <div class="ad-description">Populaire data gaan snel</div>
+            <div class="ad-cta-row">
+              <span></span>
+              <span class="ad-cta-button">Meer info</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Feed 4:5 -->
+        <div class="ad-frame">
+          <div class="ad-frame-label">Feed 4:5 -- 1080 x 1350</div>
+          <div class="ig-header">
+            <div class="ig-avatar">PYB</div>
+            <div class="ig-user-info">
+              <div class="ig-username">picyourbooth</div>
+              <div class="ig-sponsored">Gesponsord</div>
+            </div>
+            <div class="ig-dots">...</div>
+          </div>
+          <div class="ad-primary-text">Je gasten praten nog w&eacute;ken over een Magic Mirror. Zonder? Ze vergeten je feest binnen een dag.</div>
+          <div class="ad-visual ratio-4-5 mirror-bg">
+            <div class="mirror-shape"></div>
+            <span class="visual-logo">PICYOURBOOTH</span>
+            <div class="visual-content">
+              <div class="visual-headline white-text" style="font-size: clamp(1.6rem, 3vw, 2rem);">Maak Het<br>Onvergetelijk</div>
+              <div class="visual-subtext">Je gasten praten nog weken<br>over een Magic Mirror</div>
+              <div class="visual-price-pill gold-pill">VANAF &euro;599</div><br>
+              <span class="visual-cta-btn gold-btn">BOEK NU</span>
+            </div>
+          </div>
+          <div class="ad-footer">
+            <div class="ad-cta-domain">picyourbooth.nl</div>
+            <div class="ad-headline">MAAK HET ONVERGETELIJK</div>
+            <div class="ad-description">Populaire data gaan snel</div>
+            <div class="ad-cta-row">
+              <span></span>
+              <span class="ad-cta-button">Meer info</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Stories 9:16 -->
+        <div class="ad-frame">
+          <div class="ad-frame-label">Stories / Reels 9:16 -- 1080 x 1920</div>
+          <div class="ad-visual ratio-9-16 mirror-bg">
+            <div class="mirror-shape"></div>
+            <span class="visual-logo">PICYOURBOOTH</span>
+            <div class="visual-content">
+              <div class="visual-headline gold-text" style="font-size: clamp(1.6rem, 3.5vw, 2.2rem);">Maak Het<br>Onvergetelijk</div>
+              <div class="visual-subtext">Populaire data gaan snel</div>
+              <div class="visual-price-pill gold-pill">VANAF &euro;599</div>
+            </div>
+            <div class="stories-text-overlay">
+              <div class="stories-primary">Je gasten praten nog w&eacute;ken over een Magic Mirror. Zonder? Ze vergeten je feest binnen een dag.</div>
+              <span class="stories-cta gold-cta">BOEK NU</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ---- Variation 3: Question Hook ---- -->
+    <div class="variation">
+      <div class="variation-label">
+        <span class="variation-number gold">3</span>
+        <span class="variation-hook">Question Hook</span>
+        <span class="variation-psychology">Curiosity Gap</span>
+      </div>
+
+      <div class="copy-card">
+        <div class="copy-field">
+          <div class="copy-field-label">Primary Text</div>
+          <div class="copy-field-value">Wil je dat gasten 3 weken later nog appjes sturen over jouw feest?</div>
+        </div>
+        <div class="copy-field">
+          <div class="copy-field-label">Headline</div>
+          <div class="copy-field-value">MAGIC MIRROR XL PHOTOBOOTH</div>
+        </div>
+        <div class="copy-field">
+          <div class="copy-field-label">Description</div>
+          <div class="copy-field-value">DSLR kwaliteit &middot; Direct printen &middot; VIP ervaring</div>
+        </div>
+      </div>
+
+      <div class="ad-grid">
+        <!-- Feed 1:1 -->
+        <div class="ad-frame">
+          <div class="ad-frame-label">Feed 1:1 -- 1080 x 1080</div>
+          <div class="ig-header">
+            <div class="ig-avatar">PYB</div>
+            <div class="ig-user-info">
+              <div class="ig-username">picyourbooth</div>
+              <div class="ig-sponsored">Gesponsord</div>
+            </div>
+            <div class="ig-dots">...</div>
+          </div>
+          <div class="ad-primary-text">Wil je dat gasten 3 weken later nog appjes sturen over jouw feest?</div>
+          <div class="ad-visual ratio-1-1 mirror-bg">
+            <div class="mirror-shape"></div>
+            <span class="visual-logo">PICYOURBOOTH</span>
+            <div class="visual-content">
+              <div class="visual-headline gold-text">3 Weken Later<br>Nog Appjes?</div>
+              <div class="visual-subtext">DSLR kwaliteit &middot; Direct printen &middot; VIP ervaring</div>
+              <div class="visual-price-pill gold-pill">VANAF &euro;599</div><br>
+              <span class="visual-cta-btn gold-btn">ONTDEK MEER</span>
+            </div>
+          </div>
+          <div class="ad-footer">
+            <div class="ad-cta-domain">picyourbooth.nl</div>
+            <div class="ad-headline">MAGIC MIRROR XL PHOTOBOOTH</div>
+            <div class="ad-description">DSLR kwaliteit &middot; Direct printen &middot; VIP ervaring</div>
+            <div class="ad-cta-row">
+              <span></span>
+              <span class="ad-cta-button">Meer info</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Feed 4:5 -->
+        <div class="ad-frame">
+          <div class="ad-frame-label">Feed 4:5 -- 1080 x 1350</div>
+          <div class="ig-header">
+            <div class="ig-avatar">PYB</div>
+            <div class="ig-user-info">
+              <div class="ig-username">picyourbooth</div>
+              <div class="ig-sponsored">Gesponsord</div>
+            </div>
+            <div class="ig-dots">...</div>
+          </div>
+          <div class="ad-primary-text">Wil je dat gasten 3 weken later nog appjes sturen over jouw feest?</div>
+          <div class="ad-visual ratio-4-5 mirror-bg">
+            <div class="mirror-shape"></div>
+            <span class="visual-logo">PICYOURBOOTH</span>
+            <div class="visual-content">
+              <div class="visual-headline gold-text" style="font-size: clamp(1.6rem, 3vw, 2rem);">3 Weken Later<br>Nog Appjes?</div>
+              <div class="visual-subtext">Magic Mirror XL Photobooth<br>De ervaring die gasten niet vergeten</div>
+              <div class="visual-price-pill gold-pill">VANAF &euro;599</div><br>
+              <span class="visual-cta-btn gold-btn">ONTDEK MEER</span>
+            </div>
+          </div>
+          <div class="ad-footer">
+            <div class="ad-cta-domain">picyourbooth.nl</div>
+            <div class="ad-headline">MAGIC MIRROR XL PHOTOBOOTH</div>
+            <div class="ad-description">DSLR kwaliteit &middot; Direct printen &middot; VIP ervaring</div>
+            <div class="ad-cta-row">
+              <span></span>
+              <span class="ad-cta-button">Meer info</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Stories 9:16 -->
+        <div class="ad-frame">
+          <div class="ad-frame-label">Stories / Reels 9:16 -- 1080 x 1920</div>
+          <div class="ad-visual ratio-9-16 mirror-bg">
+            <div class="mirror-shape"></div>
+            <span class="visual-logo">PICYOURBOOTH</span>
+            <div class="visual-content">
+              <div class="visual-headline gold-text" style="font-size: clamp(1.6rem, 3.5vw, 2.2rem);">Magic<br>Mirror XL</div>
+              <div class="visual-subtext">DSLR &middot; Printen &middot; VIP</div>
+              <div class="visual-price-pill gold-pill">VANAF &euro;599</div>
+            </div>
+            <div class="stories-text-overlay">
+              <div class="stories-primary">Wil je dat gasten 3 weken later nog appjes sturen over jouw feest?</div>
+              <span class="stories-cta gold-cta">ONTDEK MEER</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ---- Variation 4: Result/Testimonial Hook ---- -->
+    <div class="variation">
+      <div class="variation-label">
+        <span class="variation-number gold">4</span>
+        <span class="variation-hook">Result / Testimonial Hook</span>
+        <span class="variation-psychology">Social Proof</span>
+      </div>
+
+      <div class="copy-card">
+        <div class="copy-field">
+          <div class="copy-field-label">Primary Text</div>
+          <div class="copy-field-value">'De Magic Mirror was HET moment van onze bruiloft.' -- Lisa &amp; Thomas, Amsterdam</div>
+        </div>
+        <div class="copy-field">
+          <div class="copy-field-label">Headline</div>
+          <div class="copy-field-value">BOEK JOUW MOMENT</div>
+        </div>
+        <div class="copy-field">
+          <div class="copy-field-label">Description</div>
+          <div class="copy-field-value">237+ events verzorgd in de Randstad</div>
+        </div>
+      </div>
+
+      <div class="ad-grid">
+        <!-- Feed 1:1 -->
+        <div class="ad-frame">
+          <div class="ad-frame-label">Feed 1:1 -- 1080 x 1080</div>
+          <div class="ig-header">
+            <div class="ig-avatar">PYB</div>
+            <div class="ig-user-info">
+              <div class="ig-username">picyourbooth</div>
+              <div class="ig-sponsored">Gesponsord</div>
+            </div>
+            <div class="ig-dots">...</div>
+          </div>
+          <div class="ad-primary-text">'De Magic Mirror was HET moment van onze bruiloft.' -- Lisa &amp; Thomas, Amsterdam</div>
+          <div class="ad-visual ratio-1-1 mirror-bg">
+            <div class="mirror-shape"></div>
+            <span class="visual-logo">PICYOURBOOTH</span>
+            <div class="visual-content">
+              <div class="visual-subtext" style="font-style: italic; font-size: 0.85rem; color: var(--text);">"HET moment<br>van onze bruiloft"</div>
+              <div class="visual-headline gold-text" style="margin-top: 8px;">Boek Jouw<br>Moment</div>
+              <div class="visual-price-pill gold-pill">VANAF &euro;599</div><br>
+              <span class="visual-cta-btn gold-btn">VRAAG EEN OFFERTE AAN</span>
+            </div>
+          </div>
+          <div class="ad-footer">
+            <div class="ad-cta-domain">picyourbooth.nl</div>
+            <div class="ad-headline">BOEK JOUW MOMENT</div>
+            <div class="ad-description">237+ events verzorgd in de Randstad</div>
+            <div class="ad-cta-row">
+              <span></span>
+              <span class="ad-cta-button">Meer info</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Feed 4:5 -->
+        <div class="ad-frame">
+          <div class="ad-frame-label">Feed 4:5 -- 1080 x 1350</div>
+          <div class="ig-header">
+            <div class="ig-avatar">PYB</div>
+            <div class="ig-user-info">
+              <div class="ig-username">picyourbooth</div>
+              <div class="ig-sponsored">Gesponsord</div>
+            </div>
+            <div class="ig-dots">...</div>
+          </div>
+          <div class="ad-primary-text">'De Magic Mirror was HET moment van onze bruiloft.' -- Lisa &amp; Thomas, Amsterdam</div>
+          <div class="ad-visual ratio-4-5 mirror-bg">
+            <div class="mirror-shape"></div>
+            <span class="visual-logo">PICYOURBOOTH</span>
+            <div class="visual-content">
+              <div class="visual-subtext" style="font-style: italic; font-size: 0.85rem; color: var(--text);">"HET moment<br>van onze bruiloft"</div>
+              <div class="visual-subtext">-- Lisa &amp; Thomas, Amsterdam</div>
+              <div class="visual-headline gold-text" style="margin-top: 12px;">Boek Jouw<br>Moment</div>
+              <div class="visual-subtext">237+ events verzorgd in de Randstad</div>
+              <div class="visual-price-pill gold-pill">VANAF &euro;599</div><br>
+              <span class="visual-cta-btn gold-btn">VRAAG EEN OFFERTE AAN</span>
+            </div>
+          </div>
+          <div class="ad-footer">
+            <div class="ad-cta-domain">picyourbooth.nl</div>
+            <div class="ad-headline">BOEK JOUW MOMENT</div>
+            <div class="ad-description">237+ events verzorgd in de Randstad</div>
+            <div class="ad-cta-row">
+              <span></span>
+              <span class="ad-cta-button">Meer info</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Stories 9:16 -->
+        <div class="ad-frame">
+          <div class="ad-frame-label">Stories / Reels 9:16 -- 1080 x 1920</div>
+          <div class="ad-visual ratio-9-16 mirror-bg">
+            <div class="mirror-shape"></div>
+            <span class="visual-logo">PICYOURBOOTH</span>
+            <div class="visual-content">
+              <div class="visual-subtext" style="font-style: italic; font-size: 0.85rem; color: var(--text);">"HET moment van<br>onze bruiloft"</div>
+              <div class="visual-headline gold-text" style="margin-top: 10px; font-size: clamp(1.6rem, 3.5vw, 2.2rem);">Boek Jouw<br>Moment</div>
+              <div class="visual-price-pill gold-pill">VANAF &euro;599</div>
+            </div>
+            <div class="stories-text-overlay">
+              <div class="stories-primary">'De Magic Mirror was HET moment van onze bruiloft.' -- Lisa &amp; Thomas</div>
+              <span class="stories-cta gold-cta">VRAAG EEN OFFERTE AAN</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider">
+
+  <!-- ============================================================
+       CAMPAIGN 2: iPAD PHOTOBOOTH
+       ============================================================ -->
+  <section class="section">
+    <div class="section-title">
+      <span class="dot warm"></span>
+      <h2>Campaign 2: iPad Photobooth</h2>
+    </div>
+
+    <div class="campaign-header ipad">
+      <h2 style="color: var(--warm);">iPad Photobooth</h2>
+      <p class="positioning">"Foto plezier voor elk feest -- vanaf &euro;200"</p>
+      <p class="target"><strong>Target:</strong> Birthdays, house parties, any celebration</p>
+      <span class="price-anchor warm">Vanaf &euro;200</span>
+    </div>
+
+    <!-- ---- Variation 1: Price Anchor Hook ---- -->
+    <div class="variation">
+      <div class="variation-label">
+        <span class="variation-number warm">1</span>
+        <span class="variation-hook">Price Anchor Hook</span>
+        <span class="variation-psychology">Anchoring</span>
+      </div>
+
+      <div class="copy-card">
+        <div class="copy-field">
+          <div class="copy-field-label">Primary Text</div>
+          <div class="copy-field-value">Photobooth huren vanaf &euro;200. Ophalen, neerzetten, lachen. Zo simpel is het.</div>
+        </div>
+        <div class="copy-field">
+          <div class="copy-field-label">Headline</div>
+          <div class="copy-field-value">iPAD PHOTOBOOTH</div>
+        </div>
+        <div class="copy-field">
+          <div class="copy-field-label">Description</div>
+          <div class="copy-field-value">Digitaal &middot; Direct delen &middot; Elk feest</div>
+        </div>
+      </div>
+
+      <div class="ad-grid">
+        <!-- Feed 1:1 -->
+        <div class="ad-frame">
+          <div class="ad-frame-label">Feed 1:1 -- 1080 x 1080</div>
+          <div class="ig-header">
+            <div class="ig-avatar warm-avatar">PYB</div>
+            <div class="ig-user-info">
+              <div class="ig-username">picyourbooth</div>
+              <div class="ig-sponsored">Gesponsord</div>
+            </div>
+            <div class="ig-dots">...</div>
+          </div>
+          <div class="ad-primary-text">Photobooth huren vanaf &euro;200. Ophalen, neerzetten, lachen. Zo simpel is het.</div>
+          <div class="ad-visual ratio-1-1 ipad-bg">
+            <div class="party-dots"></div>
+            <span class="visual-logo">PICYOURBOOTH</span>
+            <div class="visual-content">
+              <div class="visual-headline warm-text">iPad<br>Photobooth</div>
+              <div class="visual-subtext">Digitaal &middot; Direct delen &middot; Elk feest</div>
+              <div class="visual-price-pill warm-pill">VANAF &euro;200</div><br>
+              <span class="visual-cta-btn warm-btn">BEKIJK PAKKETTEN</span>
+            </div>
+          </div>
+          <div class="ad-footer">
+            <div class="ad-cta-domain">picyourbooth.nl</div>
+            <div class="ad-headline">iPAD PHOTOBOOTH</div>
+            <div class="ad-description">Digitaal &middot; Direct delen &middot; Elk feest</div>
+            <div class="ad-cta-row">
+              <span></span>
+              <span class="ad-cta-button">Meer info</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Feed 4:5 -->
+        <div class="ad-frame">
+          <div class="ad-frame-label">Feed 4:5 -- 1080 x 1350</div>
+          <div class="ig-header">
+            <div class="ig-avatar warm-avatar">PYB</div>
+            <div class="ig-user-info">
+              <div class="ig-username">picyourbooth</div>
+              <div class="ig-sponsored">Gesponsord</div>
+            </div>
+            <div class="ig-dots">...</div>
+          </div>
+          <div class="ad-primary-text">Photobooth huren vanaf &euro;200. Ophalen, neerzetten, lachen. Zo simpel is het.</div>
+          <div class="ad-visual ratio-4-5 ipad-bg">
+            <div class="party-dots"></div>
+            <span class="visual-logo">PICYOURBOOTH</span>
+            <div class="visual-content">
+              <div class="visual-headline warm-text" style="font-size: clamp(1.6rem, 3vw, 2rem);">iPad<br>Photobooth</div>
+              <div class="visual-subtext">Ophalen, neerzetten, lachen<br>Zo simpel is het</div>
+              <div class="visual-price-pill warm-pill">VANAF &euro;200</div><br>
+              <span class="visual-cta-btn warm-btn">BEKIJK PAKKETTEN</span>
+            </div>
+          </div>
+          <div class="ad-footer">
+            <div class="ad-cta-domain">picyourbooth.nl</div>
+            <div class="ad-headline">iPAD PHOTOBOOTH</div>
+            <div class="ad-description">Digitaal &middot; Direct delen &middot; Elk feest</div>
+            <div class="ad-cta-row">
+              <span></span>
+              <span class="ad-cta-button">Meer info</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Stories 9:16 -->
+        <div class="ad-frame">
+          <div class="ad-frame-label">Stories / Reels 9:16 -- 1080 x 1920</div>
+          <div class="ad-visual ratio-9-16 ipad-bg">
+            <div class="party-dots"></div>
+            <span class="visual-logo">PICYOURBOOTH</span>
+            <div class="visual-content">
+              <div class="visual-headline warm-text" style="font-size: clamp(1.6rem, 3.5vw, 2.2rem);">iPad<br>Photobooth</div>
+              <div class="visual-subtext">Digitaal &middot; Direct delen</div>
+              <div class="visual-price-pill warm-pill">VANAF &euro;200</div>
+            </div>
+            <div class="stories-text-overlay">
+              <div class="stories-primary">Photobooth huren vanaf &euro;200. Ophalen, neerzetten, lachen.</div>
+              <span class="stories-cta warm-cta">BEKIJK PAKKETTEN</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ---- Variation 2: Ease/Simplicity Hook ---- -->
+    <div class="variation">
+      <div class="variation-label">
+        <span class="variation-number warm">2</span>
+        <span class="variation-hook">Ease / Simplicity Hook</span>
+        <span class="variation-psychology">Fogg -- Reduce Friction</span>
+      </div>
+
+      <div class="copy-card">
+        <div class="copy-field">
+          <div class="copy-field-label">Primary Text</div>
+          <div class="copy-field-value">Geen monteur. Geen handleiding. Geen gedoe. Ophalen, neerzetten, 5 minuten later lacht iedereen.</div>
+        </div>
+        <div class="copy-field">
+          <div class="copy-field-label">Headline</div>
+          <div class="copy-field-value">PHOTOBOOTH ZONDER STRESS</div>
+        </div>
+        <div class="copy-field">
+          <div class="copy-field-label">Description</div>
+          <div class="copy-field-value">Vanaf &euro;200 &middot; Ophalen bij ons</div>
+        </div>
+      </div>
+
+      <div class="ad-grid">
+        <!-- Feed 1:1 -->
+        <div class="ad-frame">
+          <div class="ad-frame-label">Feed 1:1 -- 1080 x 1080</div>
+          <div class="ig-header">
+            <div class="ig-avatar warm-avatar">PYB</div>
+            <div class="ig-user-info">
+              <div class="ig-username">picyourbooth</div>
+              <div class="ig-sponsored">Gesponsord</div>
+            </div>
+            <div class="ig-dots">...</div>
+          </div>
+          <div class="ad-primary-text">Geen monteur. Geen handleiding. Geen gedoe. Ophalen, neerzetten, 5 minuten later lacht iedereen.</div>
+          <div class="ad-visual ratio-1-1 ipad-bg">
+            <div class="party-dots"></div>
+            <span class="visual-logo">PICYOURBOOTH</span>
+            <div class="visual-content">
+              <div class="visual-headline white-text">Zonder<br>Stress</div>
+              <div class="visual-subtext">Geen monteur &middot; Geen handleiding &middot; Geen gedoe</div>
+              <div class="visual-price-pill warm-pill">VANAF &euro;200</div><br>
+              <span class="visual-cta-btn warm-btn">BEKIJK PAKKETTEN</span>
+            </div>
+          </div>
+          <div class="ad-footer">
+            <div class="ad-cta-domain">picyourbooth.nl</div>
+            <div class="ad-headline">PHOTOBOOTH ZONDER STRESS</div>
+            <div class="ad-description">Vanaf &euro;200 &middot; Ophalen bij ons</div>
+            <div class="ad-cta-row">
+              <span></span>
+              <span class="ad-cta-button">Meer info</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Feed 4:5 -->
+        <div class="ad-frame">
+          <div class="ad-frame-label">Feed 4:5 -- 1080 x 1350</div>
+          <div class="ig-header">
+            <div class="ig-avatar warm-avatar">PYB</div>
+            <div class="ig-user-info">
+              <div class="ig-username">picyourbooth</div>
+              <div class="ig-sponsored">Gesponsord</div>
+            </div>
+            <div class="ig-dots">...</div>
+          </div>
+          <div class="ad-primary-text">Geen monteur. Geen handleiding. Geen gedoe. Ophalen, neerzetten, 5 minuten later lacht iedereen.</div>
+          <div class="ad-visual ratio-4-5 ipad-bg">
+            <div class="party-dots"></div>
+            <span class="visual-logo">PICYOURBOOTH</span>
+            <div class="visual-content">
+              <div class="visual-headline white-text" style="font-size: clamp(1.6rem, 3vw, 2rem);">Photobooth<br>Zonder Stress</div>
+              <div class="visual-subtext">Ophalen, neerzetten,<br>5 minuten later lacht iedereen</div>
+              <div class="visual-price-pill warm-pill">VANAF &euro;200</div><br>
+              <span class="visual-cta-btn warm-btn">BEKIJK PAKKETTEN</span>
+            </div>
+          </div>
+          <div class="ad-footer">
+            <div class="ad-cta-domain">picyourbooth.nl</div>
+            <div class="ad-headline">PHOTOBOOTH ZONDER STRESS</div>
+            <div class="ad-description">Vanaf &euro;200 &middot; Ophalen bij ons</div>
+            <div class="ad-cta-row">
+              <span></span>
+              <span class="ad-cta-button">Meer info</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Stories 9:16 -->
+        <div class="ad-frame">
+          <div class="ad-frame-label">Stories / Reels 9:16 -- 1080 x 1920</div>
+          <div class="ad-visual ratio-9-16 ipad-bg">
+            <div class="party-dots"></div>
+            <span class="visual-logo">PICYOURBOOTH</span>
+            <div class="visual-content">
+              <div class="visual-headline warm-text" style="font-size: clamp(1.6rem, 3.5vw, 2.2rem);">Zonder<br>Stress</div>
+              <div class="visual-subtext">Geen monteur. Geen handleiding.</div>
+              <div class="visual-price-pill warm-pill">VANAF &euro;200</div>
+            </div>
+            <div class="stories-text-overlay">
+              <div class="stories-primary">Geen monteur. Geen handleiding. Geen gedoe. Ophalen, neerzetten, 5 minuten later lacht iedereen.</div>
+              <span class="stories-cta warm-cta">BEKIJK PAKKETTEN</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ---- Variation 3: FOMO/Social Hook ---- -->
+    <div class="variation">
+      <div class="variation-label">
+        <span class="variation-number warm">3</span>
+        <span class="variation-hook">FOMO / Social Hook</span>
+        <span class="variation-psychology">Bandwagon Effect</span>
+      </div>
+
+      <div class="copy-card">
+        <div class="copy-field">
+          <div class="copy-field-label">Primary Text</div>
+          <div class="copy-field-value">Je buurvrouw had er eentje op haar verjaardag. Nu wil iedereen in de straat er ook een. &#128248;</div>
+        </div>
+        <div class="copy-field">
+          <div class="copy-field-label">Headline</div>
+          <div class="copy-field-value">iPAD PHOTOBOOTH -- VANAF &euro;200</div>
+        </div>
+        <div class="copy-field">
+          <div class="copy-field-label">Description</div>
+          <div class="copy-field-value">Direct delen op WhatsApp &amp; Instagram</div>
+        </div>
+      </div>
+
+      <div class="ad-grid">
+        <!-- Feed 1:1 -->
+        <div class="ad-frame">
+          <div class="ad-frame-label">Feed 1:1 -- 1080 x 1080</div>
+          <div class="ig-header">
+            <div class="ig-avatar warm-avatar">PYB</div>
+            <div class="ig-user-info">
+              <div class="ig-username">picyourbooth</div>
+              <div class="ig-sponsored">Gesponsord</div>
+            </div>
+            <div class="ig-dots">...</div>
+          </div>
+          <div class="ad-primary-text">Je buurvrouw had er eentje op haar verjaardag. Nu wil iedereen in de straat er ook een. &#128248;</div>
+          <div class="ad-visual ratio-1-1 ipad-bg">
+            <div class="party-dots"></div>
+            <span class="visual-logo">PICYOURBOOTH</span>
+            <div class="visual-content">
+              <div class="visual-headline warm-text">Iedereen<br>Wil Er Een</div>
+              <div class="visual-subtext">Direct delen op WhatsApp &amp; Instagram</div>
+              <div class="visual-price-pill warm-pill">VANAF &euro;200</div><br>
+              <span class="visual-cta-btn warm-btn">HUUR NU</span>
+            </div>
+          </div>
+          <div class="ad-footer">
+            <div class="ad-cta-domain">picyourbooth.nl</div>
+            <div class="ad-headline">iPAD PHOTOBOOTH -- VANAF &euro;200</div>
+            <div class="ad-description">Direct delen op WhatsApp &amp; Instagram</div>
+            <div class="ad-cta-row">
+              <span></span>
+              <span class="ad-cta-button">Meer info</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Feed 4:5 -->
+        <div class="ad-frame">
+          <div class="ad-frame-label">Feed 4:5 -- 1080 x 1350</div>
+          <div class="ig-header">
+            <div class="ig-avatar warm-avatar">PYB</div>
+            <div class="ig-user-info">
+              <div class="ig-username">picyourbooth</div>
+              <div class="ig-sponsored">Gesponsord</div>
+            </div>
+            <div class="ig-dots">...</div>
+          </div>
+          <div class="ad-primary-text">Je buurvrouw had er eentje op haar verjaardag. Nu wil iedereen in de straat er ook een. &#128248;</div>
+          <div class="ad-visual ratio-4-5 ipad-bg">
+            <div class="party-dots"></div>
+            <span class="visual-logo">PICYOURBOOTH</span>
+            <div class="visual-content">
+              <div class="visual-headline warm-text" style="font-size: clamp(1.6rem, 3vw, 2rem);">Iedereen<br>Wil Er Een</div>
+              <div class="visual-subtext">De iPad Photobooth die heel<br>de buurt wil hebben</div>
+              <div class="visual-price-pill warm-pill">VANAF &euro;200</div><br>
+              <span class="visual-cta-btn warm-btn">HUUR NU</span>
+            </div>
+          </div>
+          <div class="ad-footer">
+            <div class="ad-cta-domain">picyourbooth.nl</div>
+            <div class="ad-headline">iPAD PHOTOBOOTH -- VANAF &euro;200</div>
+            <div class="ad-description">Direct delen op WhatsApp &amp; Instagram</div>
+            <div class="ad-cta-row">
+              <span></span>
+              <span class="ad-cta-button">Meer info</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Stories 9:16 -->
+        <div class="ad-frame">
+          <div class="ad-frame-label">Stories / Reels 9:16 -- 1080 x 1920</div>
+          <div class="ad-visual ratio-9-16 ipad-bg">
+            <div class="party-dots"></div>
+            <span class="visual-logo">PICYOURBOOTH</span>
+            <div class="visual-content">
+              <div class="visual-headline warm-text" style="font-size: clamp(1.6rem, 3.5vw, 2.2rem);">Iedereen<br>Wil Er Een</div>
+              <div class="visual-subtext">Direct delen via WhatsApp</div>
+              <div class="visual-price-pill warm-pill">VANAF &euro;200</div>
+            </div>
+            <div class="stories-text-overlay">
+              <div class="stories-primary">Je buurvrouw had er eentje op haar verjaardag. Nu wil iedereen in de straat er ook een. &#128248;</div>
+              <span class="stories-cta warm-cta">HUUR NU</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ---- Variation 4: Before/After Hook ---- -->
+    <div class="variation">
+      <div class="variation-label">
+        <span class="variation-number warm">4</span>
+        <span class="variation-hook">Before / After Hook</span>
+        <span class="variation-psychology">Contrast Principle</span>
+      </div>
+
+      <div class="copy-card">
+        <div class="copy-field">
+          <div class="copy-field-label">Primary Text</div>
+          <div class="copy-field-value">Feestje zonder photobooth: 3 vage telefoonfotos. Feestje MET photobooth: 200 fotostrips en een WhatsApp-groep die ontploft.</div>
+        </div>
+        <div class="copy-field">
+          <div class="copy-field-label">Headline</div>
+          <div class="copy-field-value">MAAK ER EEN FEEST VAN</div>
+        </div>
+        <div class="copy-field">
+          <div class="copy-field-label">Description</div>
+          <div class="copy-field-value">Ophalen, feesten, inleveren -- vanaf &euro;200</div>
+        </div>
+      </div>
+
+      <div class="ad-grid">
+        <!-- Feed 1:1 -->
+        <div class="ad-frame">
+          <div class="ad-frame-label">Feed 1:1 -- 1080 x 1080</div>
+          <div class="ig-header">
+            <div class="ig-avatar warm-avatar">PYB</div>
+            <div class="ig-user-info">
+              <div class="ig-username">picyourbooth</div>
+              <div class="ig-sponsored">Gesponsord</div>
+            </div>
+            <div class="ig-dots">...</div>
+          </div>
+          <div class="ad-primary-text">Feestje zonder photobooth: 3 vage telefoonfotos. Feestje MET photobooth: 200 fotostrips en een WhatsApp-groep die ontploft.</div>
+          <div class="ad-visual ratio-1-1 ipad-bg">
+            <div class="party-dots"></div>
+            <span class="visual-logo">PICYOURBOOTH</span>
+            <div class="visual-content">
+              <div class="visual-headline white-text">Maak Er<br>Een Feest Van</div>
+              <div class="visual-subtext">Van 3 telefoonfotos naar<br>200 fotostrips</div>
+              <div class="visual-price-pill warm-pill">VANAF &euro;200</div><br>
+              <span class="visual-cta-btn warm-btn">BEKIJK PAKKETTEN</span>
+            </div>
+          </div>
+          <div class="ad-footer">
+            <div class="ad-cta-domain">picyourbooth.nl</div>
+            <div class="ad-headline">MAAK ER EEN FEEST VAN</div>
+            <div class="ad-description">Ophalen, feesten, inleveren -- vanaf &euro;200</div>
+            <div class="ad-cta-row">
+              <span></span>
+              <span class="ad-cta-button">Meer info</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Feed 4:5 -->
+        <div class="ad-frame">
+          <div class="ad-frame-label">Feed 4:5 -- 1080 x 1350</div>
+          <div class="ig-header">
+            <div class="ig-avatar warm-avatar">PYB</div>
+            <div class="ig-user-info">
+              <div class="ig-username">picyourbooth</div>
+              <div class="ig-sponsored">Gesponsord</div>
+            </div>
+            <div class="ig-dots">...</div>
+          </div>
+          <div class="ad-primary-text">Feestje zonder photobooth: 3 vage telefoonfotos. Feestje MET photobooth: 200 fotostrips en een WhatsApp-groep die ontploft.</div>
+          <div class="ad-visual ratio-4-5 ipad-bg">
+            <div class="party-dots"></div>
+            <span class="visual-logo">PICYOURBOOTH</span>
+            <div class="visual-content">
+              <div style="display: flex; gap: 12px; justify-content: center; margin-bottom: 16px;">
+                <div style="text-align: center;">
+                  <div style="font-family: var(--font-display); font-size: 0.7rem; color: var(--text-muted); letter-spacing: 0.08em; margin-bottom: 4px;">ZONDER</div>
+                  <div style="font-family: var(--font-display); font-size: 1.4rem; color: var(--text-muted);">3 fotos</div>
+                </div>
+                <div style="color: var(--warm); font-family: var(--font-display); font-size: 1.6rem; align-self: center;">vs</div>
+                <div style="text-align: center;">
+                  <div style="font-family: var(--font-display); font-size: 0.7rem; color: var(--warm); letter-spacing: 0.08em; margin-bottom: 4px;">MET</div>
+                  <div style="font-family: var(--font-display); font-size: 1.4rem; color: var(--warm);">200 strips</div>
+                </div>
+              </div>
+              <div class="visual-headline white-text" style="font-size: clamp(1.4rem, 2.5vw, 1.8rem);">Maak Er<br>Een Feest Van</div>
+              <div class="visual-price-pill warm-pill">VANAF &euro;200</div><br>
+              <span class="visual-cta-btn warm-btn">BEKIJK PAKKETTEN</span>
+            </div>
+          </div>
+          <div class="ad-footer">
+            <div class="ad-cta-domain">picyourbooth.nl</div>
+            <div class="ad-headline">MAAK ER EEN FEEST VAN</div>
+            <div class="ad-description">Ophalen, feesten, inleveren -- vanaf &euro;200</div>
+            <div class="ad-cta-row">
+              <span></span>
+              <span class="ad-cta-button">Meer info</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Stories 9:16 -->
+        <div class="ad-frame">
+          <div class="ad-frame-label">Stories / Reels 9:16 -- 1080 x 1920</div>
+          <div class="ad-visual ratio-9-16 ipad-bg">
+            <div class="party-dots"></div>
+            <span class="visual-logo">PICYOURBOOTH</span>
+            <div class="visual-content">
+              <div style="margin-bottom: 16px;">
+                <div style="font-family: var(--font-display); font-size: 0.7rem; color: var(--text-muted); letter-spacing: 0.08em;">ZONDER: 3 FOTOS</div>
+                <div style="font-family: var(--font-display); font-size: 0.7rem; color: var(--warm); letter-spacing: 0.08em; margin-top: 4px;">MET: 200 FOTOSTRIPS</div>
+              </div>
+              <div class="visual-headline warm-text" style="font-size: clamp(1.6rem, 3.5vw, 2.2rem);">Maak Er<br>Een Feest Van</div>
+              <div class="visual-price-pill warm-pill">VANAF &euro;200</div>
+            </div>
+            <div class="stories-text-overlay">
+              <div class="stories-primary">Van 3 vage telefoonfotos naar 200 fotostrips en een WhatsApp-groep die ontploft.</div>
+              <span class="stories-cta warm-cta">BEKIJK PAKKETTEN</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider">
+
+  <!-- ============================================================
+       SPECS & REFERENCE
+       ============================================================ -->
+  <section class="section">
+    <div class="section-title">
+      <span class="dot violet"></span>
+      <h2>Specs &amp; Reference</h2>
+    </div>
+
+    <!-- Format Specs Table -->
+    <h3>Format Specifications</h3>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Placement</th>
+            <th>Aspect Ratio</th>
+            <th>Resolution (min)</th>
+            <th>Primary Text</th>
+            <th>Headline</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Feed (FB + IG)</td>
+            <td>1:1</td>
+            <td>1080 x 1080</td>
+            <td>125 visible</td>
+            <td>40 chars</td>
+            <td>30 chars</td>
+          </tr>
+          <tr>
+            <td>Feed (FB + IG)</td>
+            <td>4:5</td>
+            <td>1080 x 1350</td>
+            <td>125 visible</td>
+            <td>40 chars</td>
+            <td>30 chars</td>
+          </tr>
+          <tr>
+            <td>Stories / Reels</td>
+            <td>9:16</td>
+            <td>1080 x 1920</td>
+            <td>125 visible</td>
+            <td>40 chars</td>
+            <td>30 chars</td>
+          </tr>
+          <tr>
+            <td>Right Column (FB)</td>
+            <td>1:1</td>
+            <td>1080 x 1080</td>
+            <td>125 visible</td>
+            <td>40 chars</td>
+            <td>30 chars</td>
+          </tr>
+          <tr>
+            <td>Video (Feed)</td>
+            <td>1:1 or 4:5</td>
+            <td>1080 x 1080+</td>
+            <td colspan="3">15-30s for conversion, 6-15s for awareness, max 4 GB</td>
+          </tr>
+          <tr>
+            <td>Video (Stories/Reels)</td>
+            <td>9:16</td>
+            <td>1080 x 1920</td>
+            <td colspan="3">Vertical only, first 3s hook, captions required (85% sound off)</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- 4C Creative Framework -->
+    <h3>The 4C Creative Framework</h3>
+    <div class="framework-steps">
+      <div class="step">
+        <div class="step-number gold-text">1</div>
+        <h4>Catch</h4>
+        <p>Pattern interrupt in first 1-3 seconds. Bold text overlay, unexpected visual, direct question.</p>
+      </div>
+      <div class="step">
+        <div class="step-number gold-text">2</div>
+        <h4>Connect</h4>
+        <p>Relate to audience pain point. Show you understand their event planning challenge.</p>
+      </div>
+      <div class="step">
+        <div class="step-number gold-text">3</div>
+        <h4>Convince</h4>
+        <p>Proof, features, social evidence. Testimonials, event footage, before/after results.</p>
+      </div>
+      <div class="step">
+        <div class="step-number gold-text">4</div>
+        <h4>Close</h4>
+        <p>Clear CTA aligned with funnel stage. "Vraag een offerte aan", "Bekijk pakketten".</p>
+      </div>
+    </div>
+
+    <br><br>
+
+    <!-- Testing Priority & Budget -->
+    <div class="ref-grid">
+      <div class="ref-card">
+        <h4>Testing Priority Order</h4>
+        <ul>
+          <li><strong>1. Hook / Opening</strong> -- Biggest impact on performance</li>
+          <li><strong>2. Value Proposition</strong> -- Benefit vs feature vs experience</li>
+          <li><strong>3. Social Proof</strong> -- Numbers vs names vs testimonials</li>
+          <li><strong>4. CTA</strong> -- Direct vs soft, urgency levels</li>
+          <li><strong>5. Format</strong> -- Static vs video vs carousel</li>
+        </ul>
+        <p style="margin-top: 12px; font-size: 0.8rem;">Run each variation min 3-5 days. Need 100+ clicks per variation for reliable CTR data.</p>
+      </div>
+
+      <div class="ref-card">
+        <h4>Budget Allocation</h4>
+        <div class="budget-bar">
+          <div class="budget-segment seg-prospect">65%</div>
+          <div class="budget-segment seg-retarget">25%</div>
+          <div class="budget-segment seg-seasonal">10%</div>
+        </div>
+        <div class="budget-legend">
+          <div class="budget-legend-item">
+            <span class="budget-legend-dot" style="background: var(--gold);"></span>
+            <span>Prospecting (65%)</span>
+          </div>
+          <div class="budget-legend-item">
+            <span class="budget-legend-dot" style="background: var(--warm);"></span>
+            <span>Retargeting (25%)</span>
+          </div>
+          <div class="budget-legend-item">
+            <span class="budget-legend-dot" style="background: var(--text-muted);"></span>
+            <span>Seasonal (10%)</span>
+          </div>
+        </div>
+        <p style="margin-top: 12px; font-size: 0.8rem;">Never increase budget more than 20% every 3-5 days. Larger jumps reset learning phase.</p>
+      </div>
+    </div>
+
+    <br>
+
+    <!-- KPI Targets Table -->
+    <h3>KPI Targets</h3>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Metric</th>
+            <th>Prospecting</th>
+            <th>Retargeting</th>
+            <th>Notes</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>CTR (Click-Through Rate)</td>
+            <td>0.8 - 1.5%</td>
+            <td>1.5 - 3.0%</td>
+            <td>Below 0.8% = creative fatigue or poor targeting</td>
+          </tr>
+          <tr>
+            <td>CPC (Cost Per Click)</td>
+            <td>&euro;0.60 - &euro;2.00</td>
+            <td>&euro;0.30 - &euro;1.00</td>
+            <td>Calibrate to own data within 30 days</td>
+          </tr>
+          <tr>
+            <td>CPM (Cost Per 1000 Impressions)</td>
+            <td>&euro;8 - &euro;18</td>
+            <td>&euro;10 - &euro;25</td>
+            <td>Higher CPM can be OK with high CTR</td>
+          </tr>
+          <tr>
+            <td>Conversion Rate</td>
+            <td>1 - 3%</td>
+            <td>4 - 10%</td>
+            <td>Landing page quality is the key variable</td>
+          </tr>
+          <tr>
+            <td>Frequency (healthy)</td>
+            <td>&lt; 3.0</td>
+            <td>&lt; 6.0</td>
+            <td>Above threshold = refresh creative or expand audience</td>
+          </tr>
+          <tr>
+            <td>CPL (Cost Per Lead)</td>
+            <td>&euro;15 - &euro;40</td>
+            <td>&euro;8 - &euro;20</td>
+            <td>Target: under &euro;25 avg across campaigns</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Scaling Decision Framework -->
+    <h3>Scaling Decision Framework</h3>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Signal</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>CPA below target for 5+ days</td>
+            <td>Scale budget by 20%</td>
+          </tr>
+          <tr>
+            <td>CPA at target, stable</td>
+            <td>Hold, test new creative</td>
+          </tr>
+          <tr>
+            <td>CPA 10-30% above target</td>
+            <td>Refresh creative, check frequency</td>
+          </tr>
+          <tr>
+            <td>CPA 30%+ above target</td>
+            <td>Reduce budget, diagnose issue</td>
+          </tr>
+          <tr>
+            <td>Frequency > 3.0 (prospecting)</td>
+            <td>Expand audience or refresh creative</td>
+          </tr>
+          <tr>
+            <td>Frequency > 6.0 (retargeting)</td>
+            <td>Reduce budget or expand window</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+  </section>
+
+</div>
+</body>
+</html>
