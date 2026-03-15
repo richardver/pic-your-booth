@@ -565,13 +565,7 @@ p + p { margin-top: 12px; }
 
 /* -- Stories overlay text ---------------------------------- */
 .stories-text-overlay {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  padding: 20px 16px 72px; /* bottom safe zone for swipe-up/CTA */
-  background: linear-gradient(transparent, rgba(6, 6, 9, 0.85));
-  z-index: 2;
+  display: none; /* visual already has headline + price — overlay is redundant */
 }
 
 /* Safe zone indicators on 9:16 */
