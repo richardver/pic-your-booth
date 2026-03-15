@@ -357,7 +357,12 @@ body {
 }
 
 .dj-card.gianni .dj-card-photo {
-  background: linear-gradient(135deg, rgba(240,101,74,0.06) 0%, transparent 60%);
+  background:
+    linear-gradient(180deg, transparent 50%, var(--card) 100%),
+    linear-gradient(135deg, rgba(240,101,74,0.15) 0%, transparent 60%),
+    url('../dj-profiles/dj-luca-profiel.jpeg');
+  background-size: cover, cover, cover;
+  background-position: center, center, center 20%;
 }
 
 .dj-card.milo .dj-card-photo {
@@ -596,8 +601,12 @@ body {
 }
 
 .dj-avatar.gianni {
-  background: linear-gradient(135deg, rgba(240,101,74,0.10) 0%, rgba(240,101,74,0.02) 100%);
-  border: 1px solid rgba(240,101,74,0.10);
+  background:
+    linear-gradient(135deg, rgba(240,101,74,0.15) 0%, transparent 60%),
+    url('../dj-profiles/dj-luca-profiel.jpeg');
+  background-size: cover, cover;
+  background-position: center, center 20%;
+  border: 1px solid rgba(240,101,74,0.15);
 }
 
 .dj-avatar.milo {
@@ -950,7 +959,7 @@ body {
 
 .hiw-step {
   padding: 32px 24px;
-  border-left: 2px solid var(--gold);
+  border-left: 2px solid var(--violet);
 }
 
 .hiw-num {
@@ -1374,9 +1383,7 @@ body {
       <!-- DJ Gianni Profile -->
       <section class="dj-profile gianni-profile">
         <div class="dj-profile-header">
-          <div class="dj-avatar gianni">
-            <div class="dj-avatar-initials">G</div>
-          </div>
+          <div class="dj-avatar gianni"></div>
           <div class="dj-profile-info">
             <h2 class="dj-profile-name gianni">DJ GIANNI</h2>
             <p class="dj-profile-tagline">"Iedereen zingt mee, niemand gaat naar huis"</p>
