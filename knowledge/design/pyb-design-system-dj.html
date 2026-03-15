@@ -8,36 +8,39 @@
 <style>
 /* ═══════════════════════════════════════════════════
    PICYOURBOOTH — DJ DESIGN SYSTEM
-   Nightlife Premium. Dark clubs. Neon fire.
+   Nightlife Premium. Dark void. Neon fire & ice.
    ═══════════════════════════════════════════════════ */
 
 :root {
+  /* Surfaces */
   --void: #050508;
   --surface: #111116;
   --card: #111116;
   --border: rgba(255,255,255,0.06);
+
+  /* Text */
   --white: #ededf0;
-  --muted: rgba(237,237,240,0.4);
+  --muted: rgba(237,237,240,0.40);
   --subtle: rgba(237,237,240,0.10);
 
-  /* DJ Gianni — Warm coral, sunset fire, party energy */
+  /* DJ Gianni — Coral, sunset fire */
   --gi: #f0654a;
   --gi-light: #f4826c;
   --gi-dim: rgba(240,101,74,0.10);
   --gi-glow: rgba(240,101,74,0.06);
 
-  /* Milo — Cyan/teal, deep underwater, late-night immersive */
+  /* Milo — Cyan, deep underwater */
   --mi: #22d3ee;
   --mi-light: #5ae0f0;
   --mi-dim: rgba(34,211,238,0.10);
   --mi-glow: rgba(34,211,238,0.06);
 
-  /* Shared — DJ Hub accent (pairs with gold from photobooth) */
+  /* Shared accent */
   --violet: #8b5cf6;
   --violet-dim: rgba(139,92,246,0.12);
-  /* pink removed — violet is the only shared accent */
-  --spotify: #1db954;
-  --spotify-dim: rgba(29,185,84,0.10);
+
+  /* Gold — nav CTA only */
+  --gold: #d4b14e;
 
   /* Spacing */
   --sp-1: 4px; --sp-2: 8px; --sp-3: 12px; --sp-4: 16px;
@@ -50,6 +53,9 @@
   /* Fonts */
   --font-display: 'Bebas Neue', Impact, sans-serif;
   --font-body: 'Space Grotesk', system-ui, sans-serif;
+
+  /* Easing */
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 /* ── RESET & BASE ───────────────────────────────── */
@@ -57,13 +63,14 @@
 
 body {
   font-family: var(--font-body);
-  background: #0a0a0f;
+  background: var(--void);
   color: var(--white);
-  line-height: 1.6;
+  font-size: 15px;
+  line-height: 1.7;
   -webkit-font-smoothing: antialiased;
 }
 
-/* Scan-line overlay on entire page */
+/* Scan-line texture — barely visible */
 body::after {
   content: '';
   position: fixed;
@@ -243,11 +250,9 @@ body::after {
 }
 .dj-nav-links a:hover { color: var(--white); }
 
-.dj-nav-links .btn-book-nav,
 .btn-book-nav {
   padding: 8px 24px;
-  background: #d4b14e;
-  color: #000000 !important;
+  background: var(--gold);
   font-family: var(--font-display);
   font-size: 15px;
   font-weight: 700;
@@ -256,7 +261,7 @@ body::after {
   border-radius: var(--r-pill);
   cursor: pointer;
   text-decoration: none;
-  transition: all 0.3s;
+  transition: all 0.3s var(--ease-out-expo);
   box-shadow: 0 0 20px rgba(212,177,78,0.15);
 }
 .btn-book-nav:hover {
@@ -265,7 +270,7 @@ body::after {
   transform: translateY(-1px);
 }
 
-/* ── HERO — FEEL THE BASS ───────────────────────── */
+/* ── HERO ───────────────────────────────────────── */
 .dj-hero {
   position: relative;
   text-align: center;
@@ -273,7 +278,6 @@ body::after {
   overflow: hidden;
 }
 
-/* Background image — DJ/nightlife scene with blur */
 .dj-hero-bg {
   position: absolute;
   inset: 0;
@@ -282,11 +286,10 @@ body::after {
   background-position: center 30%;
   filter: blur(3px);
   opacity: 0.20;
-  transform: scale(1.05); /* compensate blur edge bleed */
+  transform: scale(1.05);
   pointer-events: none;
 }
 
-/* Color overlay — amber/blue stage light gradient */
 .dj-hero-overlay {
   position: absolute;
   inset: 0;
@@ -296,7 +299,7 @@ body::after {
       rgba(5,5,8,0.15) 30%,
       rgba(5,5,8,0.4) 65%,
       rgba(5,5,8,0.95) 90%,
-      rgba(5,5,8,1) 100%
+      var(--void) 100%
     ),
     radial-gradient(ellipse at 25% 30%,
       rgba(240,101,74,0.10) 0%,
@@ -316,7 +319,7 @@ body::after {
 
 .dj-hero-title {
   font-family: var(--font-display);
-  font-size: clamp(72px, 12vw, 160px);
+  font-size: clamp(80px, 14vw, 160px);
   letter-spacing: 0.06em;
   line-height: 0.9;
   background: linear-gradient(135deg, var(--gi) 0%, var(--violet) 50%, var(--mi) 100%);
@@ -324,7 +327,7 @@ body::after {
   -webkit-text-fill-color: transparent;
   background-clip: text;
   position: relative;
-  z-index: 1;
+  z-index: 2;
 }
 
 .dj-hero-sub {
@@ -335,7 +338,7 @@ body::after {
   font-weight: 300;
   line-height: 1.7;
   position: relative;
-  z-index: 1;
+  z-index: 2;
 }
 
 /* Decorative waveform */
@@ -348,7 +351,7 @@ body::after {
   height: 40px;
   opacity: 0.06;
   position: relative;
-  z-index: 1;
+  z-index: 2;
 }
 .waveform-deco span {
   display: block;
@@ -362,7 +365,7 @@ body::after {
   50% { transform: scaleY(1); }
 }
 
-/* ── DJ CARDS — THE SHOWCASE ────────────────────── */
+/* ── DJ CARDS — SHOWCASE ────────────────────────── */
 .dj-showcase {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -377,21 +380,20 @@ body::after {
   border: 1px solid var(--border);
   border-radius: var(--r-xl);
   overflow: hidden;
-  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s;
+  transition: transform 0.4s var(--ease-out-expo), box-shadow 0.4s var(--ease-out-expo);
 }
 
 .dj-card:hover {
   transform: translateY(-4px);
 }
 
-/* Glow behind cards */
 .dj-card::before {
   content: '';
   position: absolute;
   inset: -1px;
   border-radius: var(--r-xl);
   opacity: 0;
-  transition: opacity 0.4s;
+  transition: opacity 0.4s var(--ease-out-expo);
   z-index: -1;
 }
 .dj-card:hover::before { opacity: 1; }
@@ -450,7 +452,7 @@ body::after {
   color: var(--mi);
 }
 
-/* EQ bars in photo area */
+/* EQ bars */
 .eq-bars {
   position: absolute;
   bottom: 20px;
@@ -512,12 +514,14 @@ body::after {
   letter-spacing: 0.08em;
 }
 
-.dj-card.gianni .genre-tag {
+.dj-card.gianni .genre-tag,
+.gianni-profile .genre-tag {
   background: var(--gi-dim);
   color: var(--gi-light);
   border: 1px solid rgba(240,101,74,0.15);
 }
-.dj-card.milo .genre-tag {
+.dj-card.milo .genre-tag,
+.milo-profile .genre-tag {
   background: var(--mi-dim);
   color: var(--mi-light);
   border: 1px solid rgba(34,211,238,0.15);
@@ -530,7 +534,7 @@ body::after {
   margin-bottom: var(--sp-6);
 }
 
-/* Card footer — socials + play */
+/* Card footer */
 .dj-card-footer {
   display: flex;
   align-items: center;
@@ -554,7 +558,7 @@ body::after {
   border: 1px solid var(--border);
   color: var(--muted);
   cursor: pointer;
-  transition: all 0.3s;
+  transition: all 0.3s var(--ease-out-expo);
   text-decoration: none;
 }
 
@@ -569,6 +573,7 @@ body::after {
   color: var(--mi);
 }
 
+/* Play button */
 .dj-play-btn {
   width: 48px;
   height: 48px;
@@ -578,13 +583,13 @@ body::after {
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  transition: all 0.3s;
+  transition: all 0.3s var(--ease-out-expo);
   position: relative;
 }
 
 .dj-card.gianni .dj-play-btn {
   background: var(--gi);
-  color: #050508;
+  color: var(--void);
   box-shadow: 0 0 24px rgba(240,101,74,0.3);
 }
 .dj-card.gianni .dj-play-btn:hover {
@@ -594,7 +599,7 @@ body::after {
 
 .dj-card.milo .dj-play-btn {
   background: var(--mi);
-  color: #050508;
+  color: var(--void);
   box-shadow: 0 0 24px rgba(34,211,238,0.3);
 }
 .dj-card.milo .dj-play-btn:hover {
@@ -602,17 +607,16 @@ body::after {
   transform: scale(1.08);
 }
 
-/* Play icon triangle */
 .play-icon {
   width: 0;
   height: 0;
   border-style: solid;
   border-width: 8px 0 8px 14px;
-  border-color: transparent transparent transparent #050508;
+  border-color: transparent transparent transparent var(--void);
   margin-left: 3px;
 }
 
-/* Pulse animation on play */
+/* Pulse ring on playing state */
 @keyframes pulse-ring {
   0% { transform: scale(1); opacity: 0.4; }
   100% { transform: scale(1.6); opacity: 0; }
@@ -628,6 +632,224 @@ body::after {
 }
 .dj-card.gianni .dj-play-btn.playing::after { border-color: var(--gi); }
 .dj-card.milo .dj-play-btn.playing::after { border-color: var(--mi); }
+
+/* ── DJ PROFILE SECTIONS ────────────────────────── */
+.dj-profile {
+  padding: var(--sp-12) var(--sp-8) var(--sp-16);
+  position: relative;
+  border-top: 1px solid var(--border);
+}
+
+.dj-profile-glow {
+  position: absolute;
+  top: -80px;
+  width: 400px;
+  height: 400px;
+  pointer-events: none;
+}
+.gianni-profile .dj-profile-glow {
+  left: -50px;
+  background: radial-gradient(ellipse, rgba(240,101,74,0.04) 0%, transparent 70%);
+}
+.milo-profile .dj-profile-glow {
+  right: -50px;
+  left: auto;
+  background: radial-gradient(ellipse, rgba(34,211,238,0.04) 0%, transparent 70%);
+}
+
+.dj-profile-header {
+  display: flex;
+  gap: var(--sp-10);
+  align-items: flex-start;
+  margin-bottom: var(--sp-12);
+}
+
+.dj-avatar {
+  width: 200px;
+  height: 200px;
+  border-radius: var(--r-xl);
+  flex-shrink: 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.dj-avatar.gianni {
+  background: linear-gradient(135deg, rgba(240,101,74,0.15) 0%, rgba(240,101,74,0.03) 100%);
+  border: 1px solid rgba(240,101,74,0.15);
+}
+.dj-avatar.milo {
+  background: linear-gradient(135deg, rgba(34,211,238,0.15) 0%, rgba(34,211,238,0.03) 100%);
+  border: 1px solid rgba(34,211,238,0.15);
+}
+
+.dj-avatar-placeholder {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 64px;
+  opacity: 0.3;
+}
+
+.dj-profile-info {
+  flex: 1;
+}
+
+.dj-profile-name {
+  font-family: var(--font-display);
+  font-size: clamp(48px, 6vw, 80px);
+  letter-spacing: 0.04em;
+  line-height: 1;
+  margin-bottom: var(--sp-2);
+}
+.dj-profile-name.gianni { color: var(--gi); }
+.dj-profile-name.milo { color: var(--mi); }
+
+.dj-profile-tagline {
+  font-size: 18px;
+  color: var(--muted);
+  font-style: italic;
+  margin-bottom: var(--sp-4);
+}
+
+.dj-profile-bio {
+  font-size: 15px;
+  color: rgba(237,237,240,0.55);
+  line-height: 1.8;
+  max-width: 540px;
+  margin-bottom: var(--sp-4);
+}
+
+.dj-profile-genres {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sp-2);
+  margin-bottom: var(--sp-6);
+}
+
+.dj-profile-socials {
+  display: flex;
+  gap: var(--sp-3);
+}
+
+.gianni-profile .dj-social-icon:hover {
+  background: var(--gi-dim);
+  border-color: rgba(240,101,74,0.3);
+  color: var(--gi);
+}
+.milo-profile .dj-social-icon:hover {
+  background: var(--mi-dim);
+  border-color: rgba(34,211,238,0.3);
+  color: var(--mi);
+}
+
+/* ── SET LIST ───────────────────────────────────── */
+.sets-section {
+  margin-top: var(--sp-8);
+}
+
+.sets-title {
+  font-family: var(--font-display);
+  font-size: 28px;
+  letter-spacing: 0.06em;
+  margin-bottom: var(--sp-4);
+  color: var(--white);
+}
+
+.set-item {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-4);
+  padding: var(--sp-4);
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--r-md);
+  margin-bottom: var(--sp-3);
+  transition: all 0.3s var(--ease-out-expo);
+  cursor: pointer;
+}
+
+.set-item:hover {
+  border-color: rgba(255,255,255,0.1);
+  background: rgba(17,17,22,0.8);
+}
+
+.set-play {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: all 0.3s var(--ease-out-expo);
+}
+
+.set-play .play-icon-sm {
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 6px 0 6px 10px;
+  border-color: transparent transparent transparent var(--void);
+  margin-left: 2px;
+}
+
+.set-play .pause-icon-sm {
+  display: none;
+  gap: 3px;
+}
+.set-play .pause-icon-sm span {
+  width: 3px;
+  height: 14px;
+  background: var(--void);
+  border-radius: 1px;
+}
+
+.set-item.playing .set-play .play-icon-sm { display: none; }
+.set-item.playing .set-play .pause-icon-sm { display: flex; }
+
+.gianni-profile .set-play {
+  background: var(--gi-dim);
+  color: var(--gi);
+}
+.gianni-profile .set-play:hover,
+.gianni-profile .set-item.playing .set-play {
+  background: var(--gi);
+}
+
+.milo-profile .set-play {
+  background: var(--mi-dim);
+  color: var(--mi);
+}
+.milo-profile .set-play:hover,
+.milo-profile .set-item.playing .set-play {
+  background: var(--mi);
+}
+
+.set-info {
+  flex: 1;
+}
+.set-info strong {
+  display: block;
+  font-size: 14px;
+  color: var(--white);
+  margin-bottom: 2px;
+}
+.set-info span {
+  font-size: 12px;
+  color: var(--muted);
+}
+
+.set-duration {
+  font-size: 12px;
+  color: var(--muted);
+  min-width: 48px;
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
 
 /* ── SPOTIFY SECTION ────────────────────────────── */
 .spotify-section {
@@ -687,7 +909,7 @@ body::after {
   z-index: 1;
 }
 
-/* Spotify playlist visual */
+/* Playlist visual */
 .spotify-playlist-visual {
   max-width: 480px;
   margin: 0 auto var(--sp-8);
@@ -789,7 +1011,7 @@ body::after {
   border: none;
   border-radius: var(--r-pill);
   cursor: pointer;
-  transition: all 0.3s;
+  transition: all 0.3s var(--ease-out-expo);
   box-shadow: 0 0 24px rgba(139,92,246,0.2);
   text-decoration: none;
 }
@@ -827,8 +1049,7 @@ body::after {
   background: var(--card);
   border: 1px solid var(--border);
   border-radius: var(--r-lg);
-  position: relative;
-  transition: border-color 0.3s;
+  transition: border-color 0.3s var(--ease-out-expo);
 }
 .hiw-step:hover { border-color: rgba(255,255,255,0.12); }
 
@@ -837,8 +1058,8 @@ body::after {
   font-size: 56px;
   line-height: 1;
   margin-bottom: var(--sp-3);
+  color: var(--violet);
 }
-.hiw-step .hiw-num { color: var(--violet); }
 
 .hiw-step-icon {
   font-size: 32px;
@@ -859,207 +1080,54 @@ body::after {
   line-height: 1.6;
 }
 
-/* Connector lines between steps */
-.hiw-connector {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: var(--sp-6);
-  max-width: 960px;
-  margin: 0 auto;
-}
-
 .hiw-cta {
   text-align: center;
   margin-top: var(--sp-10);
 }
 
-/* ── DJ PROFILE PAGE ────────────────────────────── */
-.dj-profile {
-  padding: var(--sp-12) var(--sp-8) var(--sp-16);
+/* ── BOOKING CTA ────────────────────────────────── */
+.booking-cta {
+  text-align: center;
+  padding: var(--sp-16) var(--sp-8);
   position: relative;
 }
 
-.dj-profile-header {
-  display: flex;
-  gap: var(--sp-10);
-  align-items: flex-start;
-  margin-bottom: var(--sp-12);
-}
-
-.dj-avatar {
-  width: 200px;
-  height: 200px;
-  border-radius: var(--r-xl);
-  flex-shrink: 0;
-  position: relative;
-  overflow: hidden;
-}
-
-.dj-avatar.gianni {
-  background: linear-gradient(135deg, rgba(240,101,74,0.15) 0%, rgba(240,101,74,0.03) 100%);
-  border: 1px solid rgba(240,101,74,0.15);
-}
-.dj-avatar.milo {
-  background: linear-gradient(135deg, rgba(34,211,238,0.15) 0%, rgba(34,211,238,0.03) 100%);
-  border: 1px solid rgba(34,211,238,0.15);
-}
-
-.dj-avatar-placeholder {
+.booking-cta::before {
+  content: '';
   position: absolute;
-  inset: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 64px;
-  opacity: 0.3;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 500px;
+  height: 300px;
+  background: radial-gradient(ellipse, rgba(139,92,246,0.05) 0%, transparent 70%);
+  pointer-events: none;
 }
 
-.dj-profile-info {
-  flex: 1;
-}
-
-.dj-profile-name {
+.btn-book-lg {
+  display: inline-block;
+  padding: 16px 48px;
+  background: var(--violet);
+  color: #fff;
   font-family: var(--font-display);
-  font-size: clamp(48px, 6vw, 80px);
-  letter-spacing: 0.04em;
-  line-height: 1;
-  margin-bottom: var(--sp-2);
-}
-
-.dj-profile-name.gianni { color: var(--gi); }
-.dj-profile-name.milo { color: var(--mi); }
-
-.dj-profile-tagline {
-  font-size: 18px;
-  color: var(--muted);
-  font-style: italic;
-  margin-bottom: var(--sp-4);
-}
-
-.dj-profile-bio {
-  font-size: 15px;
-  color: rgba(237,237,240,0.55);
-  line-height: 1.8;
-  max-width: 540px;
-  margin-bottom: var(--sp-6);
-}
-
-.dj-profile-socials {
-  display: flex;
-  gap: var(--sp-3);
-}
-
-/* ── SET LIST ───────────────────────────────────── */
-.sets-section {
-  margin-top: var(--sp-8);
-}
-
-.sets-title {
-  font-family: var(--font-display);
-  font-size: 28px;
-  letter-spacing: 0.06em;
-  margin-bottom: var(--sp-4);
-  color: var(--white);
-}
-
-.set-item {
-  display: flex;
-  align-items: center;
-  gap: var(--sp-4);
-  padding: var(--sp-4);
-  background: var(--card);
-  border: 1px solid var(--border);
-  border-radius: var(--r-md);
-  margin-bottom: var(--sp-3);
-  transition: all 0.3s;
-  cursor: pointer;
-}
-
-.set-item:hover {
-  border-color: rgba(255,255,255,0.1);
-  background: rgba(17,17,22,0.8);
-}
-
-.set-play {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
+  font-size: 20px;
+  letter-spacing: 0.08em;
   border: none;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  border-radius: var(--r-pill);
   cursor: pointer;
-  flex-shrink: 0;
-  transition: all 0.3s;
+  transition: all 0.3s var(--ease-out-expo);
+  box-shadow: 0 0 30px rgba(139,92,246,0.2);
+  text-decoration: none;
+  position: relative;
+  z-index: 1;
+}
+.btn-book-lg:hover {
+  background: #7c3aed;
+  box-shadow: 0 0 50px rgba(139,92,246,0.35);
+  transform: translateY(-2px) scale(1.02);
 }
 
-.set-play .play-icon-sm {
-  width: 0;
-  height: 0;
-  border-style: solid;
-  border-width: 6px 0 6px 10px;
-  border-color: transparent transparent transparent #050508;
-  margin-left: 2px;
-}
-
-.set-play .pause-icon-sm {
-  display: none;
-  gap: 3px;
-}
-.set-play .pause-icon-sm span {
-  width: 3px;
-  height: 14px;
-  background: #050508;
-  border-radius: 1px;
-}
-
-.set-item.playing .set-play .play-icon-sm { display: none; }
-.set-item.playing .set-play .pause-icon-sm { display: flex; }
-
-.gianni-profile .set-play {
-  background: var(--gi-dim);
-  color: var(--gi);
-}
-.gianni-profile .set-play:hover,
-.gianni-profile .set-item.playing .set-play {
-  background: var(--gi);
-}
-.gianni-profile .set-play:hover .play-icon-sm,
-.gianni-profile .set-item.playing .set-play .play-icon-sm { border-left-color: #050508; }
-
-.milo-profile .set-play {
-  background: var(--mi-dim);
-  color: var(--mi);
-}
-.milo-profile .set-play:hover,
-.milo-profile .set-item.playing .set-play {
-  background: var(--mi);
-}
-
-.set-info {
-  flex: 1;
-}
-.set-info strong {
-  display: block;
-  font-size: 14px;
-  color: var(--white);
-  margin-bottom: 2px;
-}
-.set-info span {
-  font-size: 12px;
-  color: var(--muted);
-}
-
-.set-duration {
-  font-size: 12px;
-  color: var(--muted);
-  min-width: 48px;
-  text-align: right;
-  font-variant-numeric: tabular-nums;
-}
-
-/* Now Playing bar */
+/* ── NOW PLAYING BAR ────────────────────────────── */
 .now-playing-bar {
   display: none;
   align-items: center;
@@ -1104,46 +1172,24 @@ body::after {
   transition: width 0.3s;
 }
 
-/* ── BOOKING CTA SECTION ────────────────────────── */
-.booking-cta {
+/* ── FOOTER ─────────────────────────────────────── */
+.dj-footer {
   text-align: center;
-  padding: var(--sp-16) var(--sp-8);
-  position: relative;
+  padding: var(--sp-8) var(--sp-4);
+  border-top: 1px solid var(--border);
 }
 
-.booking-cta::before {
-  content: '';
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 500px;
-  height: 300px;
-  background: radial-gradient(ellipse, rgba(139,92,246,0.05) 0%, transparent 70%);
-  pointer-events: none;
+.dj-footer p {
+  font-size: 12px;
+  color: var(--muted);
 }
 
-.btn-book-lg {
-  display: inline-block;
-  padding: 16px 48px;
-  background: var(--violet);
-  color: #fff;
+.dj-footer .footer-logo {
   font-family: var(--font-display);
-  font-size: 20px;
-  letter-spacing: 0.08em;
-  border: none;
-  border-radius: var(--r-pill);
-  cursor: pointer;
-  transition: all 0.3s;
-  box-shadow: 0 0 30px rgba(139,92,246,0.2);
-  text-decoration: none;
-  position: relative;
-  z-index: 1;
-}
-.btn-book-lg:hover {
-  background: #7c3aed;
-  box-shadow: 0 0 50px rgba(139,92,246,0.35);
-  transform: translateY(-2px) scale(1.02);
+  font-size: 16px;
+  letter-spacing: 0.1em;
+  color: rgba(237,237,240,0.2);
+  margin-bottom: var(--sp-2);
 }
 
 /* ── FOUNDATION: PALETTE ────────────────────────── */
@@ -1238,19 +1284,20 @@ body::after {
   border: none;
   border-radius: var(--r-pill);
   cursor: pointer;
-  transition: all 0.3s;
+  transition: all 0.3s var(--ease-out-expo);
 }
 
-.btn-amber { background: var(--gi); color: #050508; box-shadow: 0 0 16px rgba(240,101,74,0.2); }
-.btn-amber:hover { box-shadow: 0 0 28px rgba(240,101,74,0.4); transform: translateY(-1px); }
+.btn-coral { background: var(--gi); color: var(--void); box-shadow: 0 0 16px rgba(240,101,74,0.2); }
+.btn-coral:hover { box-shadow: 0 0 28px rgba(240,101,74,0.4); transform: translateY(-1px); }
 
-.btn-blue { background: var(--mi); color: #050508; box-shadow: 0 0 16px rgba(34,211,238,0.2); }
-.btn-blue:hover { box-shadow: 0 0 28px rgba(34,211,238,0.4); transform: translateY(-1px); }
+.btn-cyan { background: var(--mi); color: var(--void); box-shadow: 0 0 16px rgba(34,211,238,0.2); }
+.btn-cyan:hover { box-shadow: 0 0 28px rgba(34,211,238,0.4); transform: translateY(-1px); }
 
 .btn-violet { background: var(--violet); color: #fff; box-shadow: 0 0 16px rgba(139,92,246,0.2); }
 .btn-violet:hover { box-shadow: 0 0 28px rgba(139,92,246,0.4); transform: translateY(-1px); }
-.btn-violet-alt { background: var(--violet); color: #fff; box-shadow: 0 0 16px rgba(139,92,246,0.2); }
-.btn-violet-alt:hover { box-shadow: 0 0 28px rgba(139,92,246,0.4); transform: translateY(-1px); }
+
+.btn-gold { background: var(--gold); box-shadow: 0 0 16px rgba(212,177,78,0.2); }
+.btn-gold:hover { box-shadow: 0 0 28px rgba(212,177,78,0.4); transform: translateY(-1px); }
 
 .btn-ghost {
   background: transparent;
@@ -1262,9 +1309,6 @@ body::after {
   background: rgba(255,255,255,0.03);
 }
 
-.btn-green { background: var(--spotify); color: #fff; box-shadow: 0 0 16px rgba(29,185,84,0.2); }
-.btn-green:hover { box-shadow: 0 0 28px rgba(29,185,84,0.4); transform: translateY(-1px); }
-
 .tag-demo {
   padding: 4px 12px;
   border-radius: var(--r-pill);
@@ -1274,29 +1318,20 @@ body::after {
   letter-spacing: 0.08em;
 }
 
-.tag-amber { background: var(--gi-dim); color: var(--gi-light); border: 1px solid rgba(240,101,74,0.15); }
-.tag-blue { background: var(--mi-dim); color: var(--mi-light); border: 1px solid rgba(34,211,238,0.15); }
+.tag-coral { background: var(--gi-dim); color: var(--gi-light); border: 1px solid rgba(240,101,74,0.15); }
+.tag-cyan { background: var(--mi-dim); color: var(--mi-light); border: 1px solid rgba(34,211,238,0.15); }
 .tag-violet { background: var(--violet-dim); color: #a78bfa; border: 1px solid rgba(139,92,246,0.15); }
-.tag-green { background: var(--spotify-dim); color: var(--spotify); border: 1px solid rgba(29,185,84,0.15); }
 
-/* ── FOOTER ─────────────────────────────────────── */
-.dj-footer {
-  text-align: center;
-  padding: var(--sp-8) var(--sp-4);
-  border-top: 1px solid var(--border);
-}
-
-.dj-footer p {
-  font-size: 12px;
-  color: var(--muted);
-}
-
-.dj-footer .footer-logo {
-  font-family: var(--font-display);
-  font-size: 16px;
-  letter-spacing: 0.1em;
-  color: rgba(237,237,240,0.2);
-  margin-bottom: var(--sp-2);
+/* ── RESPONSIVE ─────────────────────────────────── */
+@media (max-width: 768px) {
+  .dj-showcase { grid-template-columns: 1fr; }
+  .hiw-steps { grid-template-columns: 1fr; }
+  .dj-profile-header { flex-direction: column; align-items: center; text-align: center; }
+  .dj-profile-bio { margin-left: auto; margin-right: auto; }
+  .dj-profile-socials { justify-content: center; }
+  .dj-profile-genres { justify-content: center; }
+  .dj-nav { flex-direction: column; gap: var(--sp-4); }
+  .dj-nav-links { flex-wrap: wrap; justify-content: center; gap: var(--sp-4); }
 }
 </style>
 </head>
@@ -1314,7 +1349,7 @@ body::after {
 
 
   <!-- ═══════════════════════════════════════
-       PAGE 1: DJ HUB (Main Page)
+       FULL PAGE MOCKUP
        ═══════════════════════════════════════ -->
   <div class="section-divider">
     <h2>DJ HUB</h2>
@@ -1344,12 +1379,12 @@ body::after {
       <section class="dj-hero">
         <div class="dj-hero-bg"></div>
         <div class="dj-hero-overlay"></div>
-        <h1 class="dj-hero-title" style="position:relative; z-index:2;">OUR DJS</h1>
-        <p class="dj-hero-sub" style="position:relative; z-index:2;">Twee stijlen, een team. Van volle zalen tot intimate sets &mdash; onze DJs brengen de perfecte energie. Deel je Spotify playlist, wij doen de rest.</p>
-        <div class="waveform-deco" id="heroWave" style="position:relative; z-index:2;"></div>
+        <h1 class="dj-hero-title">OUR DJS</h1>
+        <p class="dj-hero-sub">Twee stijlen, &eacute;&eacute;n team. Van volle zalen tot intimate sets &mdash; onze DJs brengen de perfecte energie. Deel je Spotify playlist, wij doen de rest.</p>
+        <div class="waveform-deco" id="heroWave"></div>
       </section>
 
-      <!-- DJ Showcase -->
+      <!-- DJ Showcase — Two cards side by side -->
       <div class="dj-showcase">
 
         <!-- DJ Gianni -->
@@ -1407,10 +1442,97 @@ body::after {
 
       </div>
 
+      <!-- DJ Gianni — Full Profile -->
+      <section class="dj-profile gianni-profile">
+        <div class="dj-profile-glow"></div>
+        <div class="dj-profile-header">
+          <div class="dj-avatar gianni">
+            <div class="dj-avatar-placeholder">&#127911;</div>
+          </div>
+          <div class="dj-profile-info">
+            <h2 class="dj-profile-name gianni">DJ GIANNI</h2>
+            <p class="dj-profile-tagline">"Elke set volle energie"</p>
+            <p class="dj-profile-bio">Gianni draait al meer dan 5 jaar op de vetste feesten door heel Nederland. Zijn energie is aanstekelijk &mdash; zodra hij achter de decks staat, gaat de dansvloer los. Van bruiloften tot bedrijfsfeesten: Gianni weet precies welke nummers op welk moment moeten komen.</p>
+            <div class="dj-profile-genres">
+              <span class="genre-tag">Meezingers</span>
+              <span class="genre-tag">Afro</span>
+              <span class="genre-tag">Dance</span>
+              <span class="genre-tag">Feest</span>
+            </div>
+            <div class="dj-profile-socials">
+              <a class="dj-social-icon" title="Instagram">IG</a>
+              <a class="dj-social-icon" title="TikTok">TT</a>
+              <a class="dj-social-icon" title="SoundCloud">SC</a>
+            </div>
+          </div>
+        </div>
+        <div class="sets-section">
+          <h3 class="sets-title">RECENTE SETS &mdash; GIANNI</h3>
+          <div class="set-item" data-set="gianni-1">
+            <button class="set-play"><div class="play-icon-sm"></div><div class="pause-icon-sm"><span></span><span></span></div></button>
+            <div class="set-info"><strong>Summer Vibes Festival 2025</strong><span>Festival &bull; Outdoor &bull; 3000+ bezoekers</span></div>
+            <span class="set-duration">1:24:00</span>
+          </div>
+          <div class="set-item" data-set="gianni-2">
+            <button class="set-play"><div class="play-icon-sm"></div><div class="pause-icon-sm"><span></span><span></span></div></button>
+            <div class="set-info"><strong>Bruiloft Lisa &amp; Thomas</strong><span>Bruiloft &bull; 180 gasten</span></div>
+            <span class="set-duration">4:30:00</span>
+          </div>
+          <div class="set-item" data-set="gianni-3">
+            <button class="set-play"><div class="play-icon-sm"></div><div class="pause-icon-sm"><span></span><span></span></div></button>
+            <div class="set-info"><strong>Corporate Gala Tech Partners</strong><span>Bedrijfsfeest &bull; 400 gasten</span></div>
+            <span class="set-duration">3:00:00</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- Milo — Full Profile -->
+      <section class="dj-profile milo-profile">
+        <div class="dj-profile-glow"></div>
+        <div class="dj-profile-header">
+          <div class="dj-avatar milo">
+            <div class="dj-avatar-placeholder">&#127911;</div>
+          </div>
+          <div class="dj-profile-info">
+            <h2 class="dj-profile-name milo">MILO</h2>
+            <p class="dj-profile-tagline">"Deep beats, strakke sets"</p>
+            <p class="dj-profile-bio">Milo is de architect van de dansvloer. Zijn sets zijn zorgvuldig opgebouwd &mdash; elke transitie is naadloos, elk nummer bouwt verder op het vorige. Van subtiele deep house grooves naar hypnotiserende techno: Milo neemt je mee op een reis.</p>
+            <div class="dj-profile-genres">
+              <span class="genre-tag">House</span>
+              <span class="genre-tag">Techno</span>
+              <span class="genre-tag">Deep</span>
+            </div>
+            <div class="dj-profile-socials">
+              <a class="dj-social-icon" title="Instagram">IG</a>
+              <a class="dj-social-icon" title="TikTok">TT</a>
+              <a class="dj-social-icon" title="SoundCloud">SC</a>
+            </div>
+          </div>
+        </div>
+        <div class="sets-section">
+          <h3 class="sets-title">RECENTE SETS &mdash; MILO</h3>
+          <div class="set-item" data-set="milo-1">
+            <button class="set-play"><div class="play-icon-sm"></div><div class="pause-icon-sm"><span></span><span></span></div></button>
+            <div class="set-info"><strong>Rooftop Sessions Vol. 12</strong><span>Rooftop &bull; Deep House &bull; Sunset Set</span></div>
+            <span class="set-duration">2:00:00</span>
+          </div>
+          <div class="set-item" data-set="milo-2">
+            <button class="set-play"><div class="play-icon-sm"></div><div class="pause-icon-sm"><span></span><span></span></div></button>
+            <div class="set-info"><strong>Warehouse Nights Amsterdam</strong><span>Club &bull; Techno &bull; Late Night</span></div>
+            <span class="set-duration">3:30:00</span>
+          </div>
+          <div class="set-item" data-set="milo-3">
+            <button class="set-play"><div class="play-icon-sm"></div><div class="pause-icon-sm"><span></span><span></span></div></button>
+            <div class="set-info"><strong>Beach Club Closing Set</strong><span>Beach &bull; Progressive House</span></div>
+            <span class="set-duration">1:45:00</span>
+          </div>
+        </div>
+      </section>
+
       <!-- Spotify Section -->
       <section class="spotify-section">
         <div class="spotify-badge">
-          <span>&#9834;</span> Spotify Integratie
+          <span style="color:var(--violet);">&#9834;</span> SPOTIFY INTEGRATIE
         </div>
         <h2 class="spotify-title">JOUW PLAYLIST,<br>ONZE EXPERTISE</h2>
         <p class="spotify-desc">Deel je Spotify playlist met ons. Wij analyseren je muziekkeuze, optimaliseren de volgorde, en bouwen een professionele set die jouw smaak combineert met onze ervaring. Jouw nummers, ons vakmanschap.</p>
@@ -1461,91 +1583,16 @@ body::after {
         </div>
       </section>
 
-      <!-- ── DJ GIANNI — Full Profile ── -->
-      <section class="dj-profile gianni-profile" style="position:relative; border-top: 1px solid var(--border);">
-        <div style="position:absolute;top:-80px;left:-50px;width:400px;height:400px;background:radial-gradient(ellipse,rgba(240,101,74,0.04) 0%,transparent 70%);pointer-events:none;"></div>
-        <div class="dj-profile-header">
-          <div class="dj-avatar gianni">
-            <div class="dj-avatar-placeholder">&#127911;</div>
-          </div>
-          <div class="dj-profile-info">
-            <h2 class="dj-profile-name gianni">DJ GIANNI</h2>
-            <p class="dj-profile-tagline">"Elke set volle energie"</p>
-            <p class="dj-profile-bio">Gianni draait al meer dan 5 jaar op de vetste feesten door heel Nederland. Zijn energie is aanstekelijk &mdash; zodra hij achter de decks staat, gaat de dansvloer los. Van bruiloften tot bedrijfsfeesten: Gianni weet precies welke nummers op welk moment moeten komen.</p>
-            <div class="dj-profile-socials">
-              <a class="dj-social-icon" title="Instagram">IG</a>
-              <a class="dj-social-icon" title="TikTok">TT</a>
-              <a class="dj-social-icon" title="SoundCloud">SC</a>
-            </div>
-          </div>
-        </div>
-        <div class="sets-section">
-          <h3 class="sets-title">RECENTE SETS — GIANNI</h3>
-          <div class="set-item" data-set="gianni-1">
-            <button class="set-play"><div class="play-icon-sm"></div><div class="pause-icon-sm"><span></span><span></span></div></button>
-            <div class="set-info"><strong>Summer Vibes Festival 2025</strong><span>Festival &bull; Outdoor &bull; 3000+ bezoekers</span></div>
-            <span class="set-duration">1:24:00</span>
-          </div>
-          <div class="set-item" data-set="gianni-2">
-            <button class="set-play"><div class="play-icon-sm"></div><div class="pause-icon-sm"><span></span><span></span></div></button>
-            <div class="set-info"><strong>Bruiloft van Lisa &amp; Thomas</strong><span>Bruiloft &bull; 180 gasten</span></div>
-            <span class="set-duration">4:30:00</span>
-          </div>
-          <div class="set-item" data-set="gianni-3">
-            <button class="set-play"><div class="play-icon-sm"></div><div class="pause-icon-sm"><span></span><span></span></div></button>
-            <div class="set-info"><strong>Corporate Gala Tech Partners</strong><span>Bedrijfsfeest &bull; 400 gasten</span></div>
-            <span class="set-duration">3:00:00</span>
-          </div>
-        </div>
-      </section>
-
-      <!-- ── MILO — Full Profile ── -->
-      <section class="dj-profile milo-profile" style="position:relative; border-top: 1px solid var(--border);">
-        <div style="position:absolute;top:-80px;right:-50px;width:400px;height:400px;background:radial-gradient(ellipse,rgba(34,211,238,0.04) 0%,transparent 70%);pointer-events:none;"></div>
-        <div class="dj-profile-header">
-          <div class="dj-avatar milo">
-            <div class="dj-avatar-placeholder">&#127911;</div>
-          </div>
-          <div class="dj-profile-info">
-            <h2 class="dj-profile-name milo">MILO</h2>
-            <p class="dj-profile-tagline">"Deep beats, strakke sets"</p>
-            <p class="dj-profile-bio">Milo is de architect van de dansvloer. Zijn sets zijn zorgvuldig opgebouwd &mdash; elke transitie is naadloos, elk nummer bouwt verder op het vorige. Van subtiele deep house grooves naar hypnotiserende techno: Milo neemt je mee op een reis.</p>
-            <div class="dj-profile-socials">
-              <a class="dj-social-icon" title="Instagram">IG</a>
-              <a class="dj-social-icon" title="TikTok">TT</a>
-              <a class="dj-social-icon" title="SoundCloud">SC</a>
-            </div>
-          </div>
-        </div>
-        <div class="sets-section">
-          <h3 class="sets-title">RECENTE SETS — MILO</h3>
-          <div class="set-item" data-set="milo-1">
-            <button class="set-play"><div class="play-icon-sm"></div><div class="pause-icon-sm"><span></span><span></span></div></button>
-            <div class="set-info"><strong>Rooftop Sessions Vol. 12</strong><span>Rooftop &bull; Deep House &bull; Sunset Set</span></div>
-            <span class="set-duration">2:00:00</span>
-          </div>
-          <div class="set-item" data-set="milo-2">
-            <button class="set-play"><div class="play-icon-sm"></div><div class="pause-icon-sm"><span></span><span></span></div></button>
-            <div class="set-info"><strong>Warehouse Nights Amsterdam</strong><span>Club &bull; Techno &bull; Late Night</span></div>
-            <span class="set-duration">3:30:00</span>
-          </div>
-          <div class="set-item" data-set="milo-3">
-            <button class="set-play"><div class="play-icon-sm"></div><div class="pause-icon-sm"><span></span><span></span></div></button>
-            <div class="set-info"><strong>Beach Club Closing Set</strong><span>Beach &bull; Progressive House</span></div>
-            <span class="set-duration">1:45:00</span>
-          </div>
-        </div>
-      </section>
-
+      <!-- Booking CTA -->
       <div class="booking-cta">
         <a href="#" class="btn-book-lg">BOEK EEN DJ</a>
       </div>
 
       <!-- Now Playing Bar -->
-      <div class="now-playing-bar" id="npGianni">
-        <div class="np-eq" id="npEqGianni"></div>
-        <div class="np-text">Now Playing: <strong id="npTitleGianni">---</strong></div>
-        <div class="np-progress"><div class="np-progress-fill" style="background:var(--gi);"></div></div>
+      <div class="now-playing-bar" id="nowPlayingBar">
+        <div class="np-eq" id="npEq"></div>
+        <div class="np-text">Now Playing: <strong id="npTitle">---</strong></div>
+        <div class="np-progress"><div class="np-progress-fill" id="npProgressFill" style="background:var(--violet);"></div></div>
       </div>
 
       <footer class="dj-footer">
@@ -1572,7 +1619,7 @@ body::after {
     </div>
     <div class="swatch">
       <div class="swatch-color" style="background:#111116;"></div>
-      <div class="swatch-info"><div class="swatch-name">Surface</div><div class="swatch-hex">#111116</div></div>
+      <div class="swatch-info"><div class="swatch-name">Surface / Card</div><div class="swatch-hex">#111116</div></div>
     </div>
     <div class="swatch">
       <div class="swatch-color" style="background:#ededf0;"></div>
@@ -1580,22 +1627,22 @@ body::after {
     </div>
     <div class="swatch">
       <div class="swatch-color" style="background:#f0654a;"></div>
-      <div class="swatch-info"><div class="swatch-name">Gianni Amber</div><div class="swatch-hex">#f0654a</div></div>
+      <div class="swatch-info"><div class="swatch-name">Gianni Coral</div><div class="swatch-hex">#f0654a</div></div>
     </div>
     <div class="swatch">
-      <div class="swatch-color" style="background:#3b82f6;"></div>
-      <div class="swatch-info"><div class="swatch-name">Milo Blue</div><div class="swatch-hex">#3b82f6</div></div>
+      <div class="swatch-color" style="background:#22d3ee;"></div>
+      <div class="swatch-info"><div class="swatch-name">Milo Cyan</div><div class="swatch-hex">#22d3ee</div></div>
     </div>
     <div class="swatch">
       <div class="swatch-color" style="background:#8b5cf6;"></div>
       <div class="swatch-info"><div class="swatch-name">Violet</div><div class="swatch-hex">#8b5cf6</div></div>
     </div>
     <div class="swatch">
-      <div class="swatch-color" style="background:#1db954;"></div>
-      <div class="swatch-info"><div class="swatch-name">Spotify Green</div><div class="swatch-hex">#1db954</div></div>
+      <div class="swatch-color" style="background:#d4b14e;"></div>
+      <div class="swatch-info"><div class="swatch-name">Gold</div><div class="swatch-hex">#d4b14e</div></div>
     </div>
     <div class="swatch">
-      <div class="swatch-color" style="background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);"></div>
+      <div class="swatch-color" style="background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.1);"></div>
       <div class="swatch-info"><div class="swatch-name">Border</div><div class="swatch-hex">rgba(255,255,255,0.06)</div></div>
     </div>
   </div>
@@ -1623,12 +1670,12 @@ body::after {
       <div class="type-sample" style="font-family:var(--font-display);font-size:28px;line-height:1;letter-spacing:0.06em;">RECENTE SETS</div>
     </div>
     <div class="type-row">
-      <div class="type-label">Body LG<br>Space Grotesk, 16px</div>
-      <div class="type-sample" style="font-size:16px;font-weight:300;">Deel je Spotify playlist met ons. Wij optimaliseren de volgorde en bouwen een professionele set.</div>
+      <div class="type-label">Body<br>Space Grotesk, 15px</div>
+      <div class="type-sample" style="font-size:15px;font-weight:300;line-height:1.7;">Deel je Spotify playlist met ons. Wij optimaliseren de volgorde en bouwen een professionele set die jouw smaak combineert met onze ervaring.</div>
     </div>
     <div class="type-row">
       <div class="type-label">Body SM<br>Space Grotesk, 14px</div>
-      <div class="type-sample" style="font-size:14px;color:rgba(237,237,240,0.55);">Van deep house grooves naar pulserende techno &mdash; elk nummer bouwt verder op het vorige.</div>
+      <div class="type-sample" style="font-size:14px;color:rgba(237,237,240,0.55);line-height:1.7;">Van deep house grooves naar pulserende techno &mdash; elk nummer bouwt verder op het vorige.</div>
     </div>
     <div class="type-row">
       <div class="type-label">Label<br>Space Grotesk, 11px</div>
@@ -1652,30 +1699,29 @@ body::after {
   <!-- Buttons -->
   <div class="component-row">
     <div class="component-label">Buttons</div>
-    <button class="btn-demo btn-amber">BOEK GIANNI</button>
-    <button class="btn-demo btn-blue">BOEK MILO</button>
+    <button class="btn-demo btn-coral">BOEK GIANNI</button>
+    <button class="btn-demo btn-cyan">BOEK MILO</button>
     <button class="btn-demo btn-violet">BOEK EEN DJ</button>
-    <button class="btn-demo btn-green">SPOTIFY PLAYLIST</button>
+    <button class="btn-demo btn-gold" style="color:#000 !important;">BOEK JE ERVARING</button>
     <button class="btn-demo btn-ghost">MEER INFO</button>
   </div>
 
   <!-- Genre Tags -->
   <div class="component-row">
     <div class="component-label">Genre Tags</div>
-    <span class="tag-demo tag-amber">Meezingers</span>
-    <span class="tag-demo tag-amber">Afro</span>
-    <span class="tag-demo tag-amber">Dance</span>
-    <span class="tag-demo tag-amber">Feest</span>
-    <span class="tag-demo tag-blue">House</span>
-    <span class="tag-demo tag-blue">Techno</span>
-    <span class="tag-demo tag-blue">Deep</span>
+    <span class="tag-demo tag-coral">Meezingers</span>
+    <span class="tag-demo tag-coral">Afro</span>
+    <span class="tag-demo tag-coral">Dance</span>
+    <span class="tag-demo tag-coral">Feest</span>
+    <span class="tag-demo tag-cyan">House</span>
+    <span class="tag-demo tag-cyan">Techno</span>
+    <span class="tag-demo tag-cyan">Deep</span>
     <span class="tag-demo tag-violet">DJ Set</span>
-    <span class="tag-demo tag-green">Playlist</span>
   </div>
 
   <!-- Social Icons -->
   <div class="component-row">
-    <div class="component-label">Social Icons (hover for color)</div>
+    <div class="component-label">Social Icons (hover for DJ color)</div>
     <div style="display:flex;gap:8px;" class="gianni-profile">
       <a class="dj-social-icon" style="width:40px;height:40px;">IG</a>
       <a class="dj-social-icon" style="width:40px;height:40px;">TT</a>
@@ -1716,12 +1762,12 @@ body::after {
 (function() {
   'use strict';
 
-  // ── Generate waveform bars ────────────────────
+  /* ── Waveform generator ──────────────────────── */
   function createWaveform(container, count, baseDelay) {
     if (!container) return;
-    for (let i = 0; i < count; i++) {
-      const bar = document.createElement('span');
-      const h = 8 + Math.random() * 32;
+    for (var i = 0; i < count; i++) {
+      var bar = document.createElement('span');
+      var h = 8 + Math.random() * 32;
       bar.style.height = h + 'px';
       bar.style.animationDelay = (baseDelay + i * 0.08) + 's';
       bar.style.animationDuration = (1.2 + Math.random() * 1.0) + 's';
@@ -1729,14 +1775,13 @@ body::after {
     }
   }
 
-  // Hero waveform
   createWaveform(document.getElementById('heroWave'), 60, 0);
 
-  // EQ bars in DJ cards
+  /* ── EQ bars in DJ cards ─────────────────────── */
   function createEQ(container, count) {
     if (!container) return;
-    for (let i = 0; i < count; i++) {
-      const bar = document.createElement('span');
+    for (var i = 0; i < count; i++) {
+      var bar = document.createElement('span');
       bar.style.animationDelay = (i * 0.15) + 's';
       bar.style.animationDuration = (0.6 + Math.random() * 0.8) + 's';
       container.appendChild(bar);
@@ -1746,11 +1791,11 @@ body::after {
   createEQ(document.getElementById('eqGianni'), 5);
   createEQ(document.getElementById('eqMilo'), 5);
 
-  // Now playing EQ bars
+  /* ── Now-playing EQ bars ─────────────────────── */
   function createNPEQ(container, color) {
     if (!container) return;
-    for (let i = 0; i < 4; i++) {
-      const bar = document.createElement('span');
+    for (var i = 0; i < 4; i++) {
+      var bar = document.createElement('span');
       bar.style.background = color;
       bar.style.animationDelay = (i * 0.12) + 's';
       bar.style.animationDuration = (0.5 + Math.random() * 0.5) + 's';
@@ -1758,73 +1803,54 @@ body::after {
     }
   }
 
-  createNPEQ(document.getElementById('npEqGianni'), '#f0654a');
-  createNPEQ(document.getElementById('npEqMilo'), '#3b82f6');
+  createNPEQ(document.getElementById('npEq'), '#8b5cf6');
 
-  // ── Set item play/pause toggle ────────────────
-  const setItems = document.querySelectorAll('.set-item');
+  /* ── Set play/pause toggle ───────────────────── */
+  var npBar = document.getElementById('nowPlayingBar');
+  var npTitle = document.getElementById('npTitle');
+  var npFill = document.getElementById('npProgressFill');
+  var npEqEl = document.getElementById('npEq');
 
-  setItems.forEach(function(item) {
+  document.querySelectorAll('.set-item').forEach(function(item) {
     item.addEventListener('click', function() {
-      const isPlaying = item.classList.contains('playing');
-      const parent = item.closest('.browser-content');
+      var isPlaying = item.classList.contains('playing');
+      var browserContent = item.closest('.browser-content');
 
-      // Deactivate all sets in same browser frame
-      parent.querySelectorAll('.set-item').forEach(function(s) {
+      // Stop all sets in the same browser frame
+      browserContent.querySelectorAll('.set-item').forEach(function(s) {
         s.classList.remove('playing');
       });
 
-      // Find the Now Playing bar
-      const npBar = parent.querySelector('.now-playing-bar');
-      const npTitle = parent.querySelector('.now-playing-bar strong');
-
       if (isPlaying) {
-        // Stop playing
+        // Was playing, now stop
         if (npBar) npBar.classList.remove('active');
       } else {
-        // Start playing
+        // Start playing this set
         item.classList.add('playing');
-        const title = item.querySelector('.set-info strong');
+        var title = item.querySelector('.set-info strong');
+        var isGianni = item.closest('.gianni-profile') !== null;
+        var color = isGianni ? '#f0654a' : '#22d3ee';
+
         if (npBar && npTitle && title) {
           npTitle.textContent = title.textContent;
           npBar.classList.add('active');
+        }
+
+        // Update now-playing color to match DJ
+        if (npFill) npFill.style.background = color;
+        if (npEqEl) {
+          npEqEl.querySelectorAll('span').forEach(function(s) {
+            s.style.background = color;
+          });
         }
       }
     });
   });
 
-  // ── Hero play buttons toggle ──────────────────
-  const heroPlayBtns = document.querySelectorAll('.dj-showcase .dj-play-btn');
-  heroPlayBtns.forEach(function(btn) {
+  /* ── Hero card play buttons toggle ───────────── */
+  document.querySelectorAll('.dj-showcase .dj-play-btn').forEach(function(btn) {
     btn.addEventListener('click', function() {
       btn.classList.toggle('playing');
-    });
-  });
-
-  // ── Social icon hover (for gianni/milo profile pages) ──
-  document.querySelectorAll('.gianni-profile .dj-social-icon').forEach(function(icon) {
-    icon.addEventListener('mouseenter', function() {
-      icon.style.background = 'rgba(240,101,74,0.1)';
-      icon.style.borderColor = 'rgba(240,101,74,0.3)';
-      icon.style.color = '#f0654a';
-    });
-    icon.addEventListener('mouseleave', function() {
-      icon.style.background = 'rgba(255,255,255,0.04)';
-      icon.style.borderColor = 'rgba(255,255,255,0.06)';
-      icon.style.color = '';
-    });
-  });
-
-  document.querySelectorAll('.milo-profile .dj-social-icon').forEach(function(icon) {
-    icon.addEventListener('mouseenter', function() {
-      icon.style.background = 'rgba(34,211,238,0.1)';
-      icon.style.borderColor = 'rgba(34,211,238,0.3)';
-      icon.style.color = '#3b82f6';
-    });
-    icon.addEventListener('mouseleave', function() {
-      icon.style.background = 'rgba(255,255,255,0.04)';
-      icon.style.borderColor = 'rgba(255,255,255,0.06)';
-      icon.style.color = '';
     });
   });
 
