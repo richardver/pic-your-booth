@@ -208,10 +208,11 @@ body {
 }
 
 .dj-nav-links a {
-  font-size: 14px;
+  font-family: var(--font-display);
+  font-size: 15px;
+  letter-spacing: 0.06em;
   color: var(--muted);
   text-decoration: none;
-  font-weight: 500;
   transition: color 0.2s;
 }
 
@@ -387,8 +388,10 @@ body {
   animation: eq 1.2s ease-in-out infinite;
 }
 
-.dj-card.gianni .eq-bars span { background: var(--gi); }
-.dj-card.milo .eq-bars span { background: var(--mi); }
+.dj-card.gianni .eq-bars span,
+.gianni-profile .eq-bars span { background: var(--gi); }
+.dj-card.milo .eq-bars span,
+.milo-profile .eq-bars span { background: var(--mi); }
 
 @keyframes eq {
   0%, 100% { height: 6px; }
