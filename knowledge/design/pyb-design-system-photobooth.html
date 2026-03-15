@@ -18,7 +18,7 @@
   --surface:       #111116;
   --surface-up:    #18181e;
   --text:          #ededf0;
-  --text-muted:    rgba(237,237,240,0.40);
+  --text-muted:    rgba(237,237,240,0.60);
   --text-subtle:   rgba(237,237,240,0.10);
   --border:        rgba(255,255,255,0.06);
 
@@ -290,6 +290,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 .service-card--gold   { border-top-color: var(--gold); }
 .service-card--coral  { border-top-color: var(--coral); }
+.service-card--pink   { border-top-color: var(--pink); }
 .service-card--amber  { border-top-color: var(--amber); }
 .service-card--blue   { border-top-color: var(--blue); }
 
@@ -307,6 +308,8 @@ h1, h2, h3, h4, h5, h6 {
 .service-card__icon--coral { background: var(--coral-dim); color: var(--coral); }
 .service-card__icon--amber { background: var(--amber-dim); color: var(--amber); }
 .service-card__icon--blue  { background: var(--blue-dim); color: var(--blue); }
+.service-card__icon--pink  { background: var(--pink-dim); color: var(--pink); }
+.service-card__price--pink { color: var(--pink); }
 
 .service-card__title {
   font-size: 1.25rem;
@@ -827,15 +830,8 @@ h1, h2, h3, h4, h5, h6 {
           <div class="proof-item"><strong>Randstad</strong> & Omgeving</div>
         </div>
 
-        <!-- Service Cards -->
+        <!-- Service Cards — iPad, Magic Mirror, DJs -->
         <div class="services-grid">
-          <!-- Magic Mirror XL -->
-          <div class="service-card service-card--gold">
-            <div class="service-card__icon service-card__icon--gold">✦</div>
-            <h3 class="service-card__title">Magic Mirror XL</h3>
-            <p class="service-card__desc">Full-size DSLR spiegel photobooth met direct printen en VIP-ervaring.</p>
-            <div class="service-card__price service-card__price--gold">Vanaf €599</div>
-          </div>
           <!-- iPad Photobooth -->
           <div class="service-card service-card--coral">
             <div class="service-card__icon service-card__icon--coral">◎</div>
@@ -843,19 +839,19 @@ h1, h2, h3, h4, h5, h6 {
             <p class="service-card__desc">Compacte digitale photobooth met fotostrips. Makkelijk op te halen, direct klaar.</p>
             <div class="service-card__price service-card__price--coral">Vanaf €200</div>
           </div>
-          <!-- DJ Gianni -->
-          <div class="service-card service-card--amber">
-            <div class="service-card__icon service-card__icon--amber">♫</div>
-            <h3 class="service-card__title">DJ Gianni</h3>
-            <p class="service-card__desc">Meezingers, Afro, Dance — warm energy voor elk feest.</p>
-            <div class="service-card__price service-card__price--amber">Op aanvraag</div>
+          <!-- Magic Mirror XL -->
+          <div class="service-card service-card--gold">
+            <div class="service-card__icon service-card__icon--gold">✦</div>
+            <h3 class="service-card__title">Magic Mirror XL</h3>
+            <p class="service-card__desc">Full-size DSLR spiegel photobooth met direct printen en VIP-ervaring.</p>
+            <div class="service-card__price service-card__price--gold">Vanaf €599</div>
           </div>
-          <!-- Milo -->
-          <div class="service-card service-card--blue">
-            <div class="service-card__icon service-card__icon--blue">◈</div>
-            <h3 class="service-card__title">Milo</h3>
-            <p class="service-card__desc">House, Techno — cool energy en diepe beats.</p>
-            <div class="service-card__price service-card__price--blue">Op aanvraag</div>
+          <!-- DJs -->
+          <div class="service-card service-card--pink">
+            <div class="service-card__icon service-card__icon--pink">♫</div>
+            <h3 class="service-card__title">DJs</h3>
+            <p class="service-card__desc">DJ Gianni (Meezingers, Afro, Dance) & Milo (House, Techno) — met Spotify playlist optimalisatie.</p>
+            <div class="service-card__price service-card__price--pink">Vanaf €150 / avond</div>
           </div>
         </div>
 
@@ -1039,7 +1035,7 @@ h1, h2, h3, h4, h5, h6 {
 
         <!-- Product Hero -->
         <div class="product-hero">
-          <h1 class="text-gold-gradient">iPad Photobooth</h1>
+          <h1 style="color: var(--coral);">iPad Photobooth</h1>
           <p>Digitale fotostrips voor elk feest. Compacte setup, makkelijk op te halen, direct klaar.</p>
         </div>
 
