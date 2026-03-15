@@ -33,6 +33,7 @@
   --blue-dim:      rgba(59,130,246,0.10);
   --pink:          #e839a0;
   --pink-dim:      rgba(232,57,160,0.10);
+  --gold-light:    #ddb960;
 
   /* ── Doc Chrome ── */
   --doc-bg:        #060609;
@@ -219,11 +220,41 @@ h1, h2, h3, h4, h5, h6 {
   background: rgba(255,255,255,0.08);
   color: var(--text);
 }
+.nav-cta--gold {
+  background: var(--gold);
+  color: #08080b;
+  border: none;
+}
+.nav-cta--gold:hover {
+  background: var(--gold-light, #ddb960);
+  box-shadow: 0 0 24px rgba(200,164,76,0.2);
+}
 
 /* ── Hero ── */
 .hero {
   text-align: center;
   padding: var(--sp-24) var(--sp-8) var(--sp-16);
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(ellipse at 30% 50%, rgba(200,164,76,0.04) 0%, transparent 50%),
+              radial-gradient(ellipse at 70% 50%, rgba(200,164,76,0.03) 0%, transparent 50%);
+  animation: heroFloat 12s ease-in-out infinite;
+  pointer-events: none;
+}
+
+@keyframes heroFloat {
+  0%, 100% { transform: translate(0, 0) rotate(0deg); }
+  33% { transform: translate(2%, -1%) rotate(1deg); }
+  66% { transform: translate(-1%, 1%) rotate(-0.5deg); }
 }
 .hero h1 {
   font-size: 4.5rem;
@@ -246,34 +277,59 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: 400;
 }
 
-/* ── Social Proof Bar ── */
+/* ── Social Proof Bar — Premium ── */
 .proof-bar {
   display: flex;
   justify-content: center;
-  gap: var(--sp-10);
-  padding: var(--sp-6) var(--sp-8);
-  border-top: 1px solid var(--border);
-  border-bottom: 1px solid var(--border);
+  gap: var(--sp-12);
+  padding: var(--sp-10) var(--sp-8);
+  position: relative;
+}
+.proof-bar::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(200,164,76,0.03) 0%, transparent 100%);
+  border-top: 1px solid rgba(200,164,76,0.1);
+  border-bottom: 1px solid rgba(200,164,76,0.1);
+  pointer-events: none;
 }
 .proof-item {
-  font-family: var(--font-body);
-  font-size: 0.875rem;
-  color: var(--text-muted);
-  font-weight: 500;
-  letter-spacing: 0.02em;
+  text-align: center;
+  position: relative;
+  z-index: 1;
 }
 .proof-item strong {
-  color: var(--text);
+  display: block;
+  font-family: var(--font-display);
+  font-size: 2.5rem;
+  letter-spacing: 0.04em;
+  color: var(--gold);
+  line-height: 1;
+  margin-bottom: var(--sp-1);
+}
+.proof-item span {
+  font-family: var(--font-body);
+  font-size: 0.7rem;
   font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--text-muted);
+}
+.proof-divider {
+  width: 1px;
+  height: 48px;
+  background: linear-gradient(180deg, transparent, rgba(200,164,76,0.15), transparent);
+  align-self: center;
 }
 
 /* ── Service Cards Grid ── */
 .services-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: var(--sp-5);
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--sp-6);
   padding: var(--sp-16) var(--sp-8);
-  max-width: 1100px;
+  max-width: 960px;
   margin: 0 auto;
 }
 .service-card {
@@ -355,33 +411,115 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: 500;
 }
 
-/* ── USP Row ── */
-.usp-row {
-  display: flex;
-  justify-content: center;
-  gap: var(--sp-8);
-  padding: var(--sp-10) var(--sp-8);
-  flex-wrap: wrap;
+/* ── Rich USP Section ── */
+.usp-section {
+  padding: var(--sp-12) var(--sp-8);
+  border-top: 1px solid var(--border);
 }
-.usp-item {
-  display: flex;
-  align-items: center;
-  gap: var(--sp-3);
-}
-.usp-marker {
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  flex-shrink: 0;
-}
-.usp-marker--gold  { background: var(--gold); box-shadow: 0 0 8px var(--gold-dim); }
-.usp-marker--coral { background: var(--coral); box-shadow: 0 0 8px var(--coral-dim); }
-.usp-label {
-  font-family: var(--font-body);
-  font-size: 0.875rem;
-  font-weight: 600;
+
+.usp-section__title {
+  font-family: var(--font-display);
+  font-size: 1.8rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  text-align: center;
+  margin-bottom: var(--sp-8);
   color: var(--text);
-  letter-spacing: 0.02em;
+}
+
+.usp-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--sp-5);
+}
+
+@media (max-width: 900px) {
+  .usp-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+.usp-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--r-lg);
+  overflow: hidden;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s;
+  animation: uspReveal 0.7s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.usp-card:nth-child(1) { animation-delay: 0.1s; }
+.usp-card:nth-child(2) { animation-delay: 0.2s; }
+.usp-card:nth-child(3) { animation-delay: 0.3s; }
+.usp-card:nth-child(4) { animation-delay: 0.4s; }
+
+.usp-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+}
+
+@keyframes uspReveal {
+  from { opacity: 0; transform: translateY(24px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.usp-card__visual {
+  height: 160px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Subtle shimmer animation on the visual */
+.usp-card__visual::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.03), transparent);
+  animation: uspShimmer 4s ease-in-out infinite;
+}
+
+@keyframes uspShimmer {
+  0% { left: -50%; }
+  100% { left: 150%; }
+}
+
+.usp-card__visual--gold {
+  background: linear-gradient(135deg, rgba(200,164,76,0.08) 0%, rgba(200,164,76,0.02) 60%, var(--surface) 100%);
+}
+
+.usp-card__visual--coral {
+  background: linear-gradient(135deg, rgba(240,133,110,0.08) 0%, rgba(240,133,110,0.02) 60%, var(--surface) 100%);
+}
+
+.usp-card__visual-icon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 48px;
+  opacity: 0.15;
+}
+
+.usp-card__body {
+  padding: var(--sp-5);
+}
+
+.usp-card__title {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin-bottom: var(--sp-2);
+}
+
+.usp-card__title--gold { color: var(--gold); }
+.usp-card__title--coral { color: var(--coral); }
+
+.usp-card__desc {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  line-height: 1.6;
 }
 
 /* ── Package Builder ── */
@@ -645,6 +783,26 @@ h1, h2, h3, h4, h5, h6 {
 .product-hero {
   text-align: center;
   padding: var(--sp-16) var(--sp-8) var(--sp-6);
+  position: relative;
+  overflow: hidden;
+}
+
+.product-hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(200,164,76,0.03), transparent);
+  animation: lightSweep 8s ease-in-out infinite;
+  pointer-events: none;
+}
+
+@keyframes lightSweep {
+  0% { left: -50%; }
+  50% { left: 100%; }
+  100% { left: -50%; }
 }
 .product-hero h1 {
   font-size: 3rem;
@@ -813,7 +971,7 @@ h1, h2, h3, h4, h5, h6 {
             <li><a href="#">iPad Photobooth</a></li>
             <li><a href="#">DJ Gianni</a></li>
             <li><a href="#">Milo</a></li>
-            <li><a href="#" class="nav-cta nav-cta--neutral">Boek Je Ervaring</a></li>
+            <li><a href="#" class="nav-cta nav-cta--gold">Boek Je Ervaring</a></li>
           </ul>
         </nav>
 
@@ -825,9 +983,11 @@ h1, h2, h3, h4, h5, h6 {
 
         <!-- Social Proof -->
         <div class="proof-bar">
-          <div class="proof-item"><strong>200+</strong> Events</div>
-          <div class="proof-item"><strong>4.9</strong>★ Beoordeling</div>
-          <div class="proof-item"><strong>Randstad</strong> & Omgeving</div>
+          <div class="proof-item"><strong>200+</strong><span>Events</span></div>
+          <div class="proof-divider"></div>
+          <div class="proof-item"><strong>4.9★</strong><span>Beoordeling</span></div>
+          <div class="proof-divider"></div>
+          <div class="proof-item"><strong>Randstad</strong><span>& Omgeving</span></div>
         </div>
 
         <!-- Service Cards — iPad, Magic Mirror, DJs -->
@@ -889,7 +1049,7 @@ h1, h2, h3, h4, h5, h6 {
             <li><a href="#">iPad Photobooth</a></li>
             <li><a href="#">DJ Gianni</a></li>
             <li><a href="#">Milo</a></li>
-            <li><a href="#" class="nav-cta nav-cta--neutral">Boek Je Ervaring</a></li>
+            <li><a href="#" class="nav-cta nav-cta--gold">Boek Je Ervaring</a></li>
           </ul>
         </nav>
 
@@ -900,22 +1060,45 @@ h1, h2, h3, h4, h5, h6 {
         </div>
 
         <!-- USPs -->
-        <div class="usp-row">
-          <div class="usp-item">
-            <div class="usp-marker usp-marker--gold"></div>
-            <span class="usp-label">DSLR Kwaliteit</span>
-          </div>
-          <div class="usp-item">
-            <div class="usp-marker usp-marker--gold"></div>
-            <span class="usp-label">Professionele Belichting</span>
-          </div>
-          <div class="usp-item">
-            <div class="usp-marker usp-marker--gold"></div>
-            <span class="usp-label">Direct Printen</span>
-          </div>
-          <div class="usp-item">
-            <div class="usp-marker usp-marker--gold"></div>
-            <span class="usp-label">VIP Ervaring</span>
+        <div class="usp-section">
+          <h2 class="usp-section__title">Waarom Magic Mirror XL</h2>
+          <div class="usp-grid">
+            <div class="usp-card">
+              <div class="usp-card__visual usp-card__visual--gold">
+                <div class="usp-card__visual-icon">📸</div>
+              </div>
+              <div class="usp-card__body">
+                <h3 class="usp-card__title usp-card__title--gold">DSLR Kwaliteit</h3>
+                <p class="usp-card__desc">Canon DSLR camera met professionele lens. Scherpe, kleurrijke foto's die er uitzien alsof ze door een fotograaf zijn gemaakt.</p>
+              </div>
+            </div>
+            <div class="usp-card">
+              <div class="usp-card__visual usp-card__visual--gold">
+                <div class="usp-card__visual-icon">💡</div>
+              </div>
+              <div class="usp-card__body">
+                <h3 class="usp-card__title usp-card__title--gold">Studio Belichting</h3>
+                <p class="usp-card__desc">Professionele verlichting die elke gast er op zijn best laat uitzien. Geen harde flits, maar zachte studio-kwaliteit.</p>
+              </div>
+            </div>
+            <div class="usp-card">
+              <div class="usp-card__visual usp-card__visual--gold">
+                <div class="usp-card__visual-icon">🖨️</div>
+              </div>
+              <div class="usp-card__body">
+                <h3 class="usp-card__title usp-card__title--gold">Direct Printen</h3>
+                <p class="usp-card__desc">Foto's worden direct geprint met een professionele Hiti printer. Elke gast neemt een tastbaar aandenken mee naar huis.</p>
+              </div>
+            </div>
+            <div class="usp-card">
+              <div class="usp-card__visual usp-card__visual--gold">
+                <div class="usp-card__visual-icon">✨</div>
+              </div>
+              <div class="usp-card__body">
+                <h3 class="usp-card__title usp-card__title--gold">VIP Ervaring</h3>
+                <p class="usp-card__desc">Optioneel met rode loper, backdrop, afzetpalen en luxe props. Maak er een echte VIP-beleving van voor je gasten.</p>
+              </div>
+            </div>
           </div>
         </div>
 
@@ -1029,7 +1212,7 @@ h1, h2, h3, h4, h5, h6 {
             <li><a href="#">iPad Photobooth</a></li>
             <li><a href="#">DJ Gianni</a></li>
             <li><a href="#">Milo</a></li>
-            <li><a href="#" class="nav-cta nav-cta--neutral">Boek Je Ervaring</a></li>
+            <li><a href="#" class="nav-cta nav-cta--gold">Boek Je Ervaring</a></li>
           </ul>
         </nav>
 
@@ -1040,22 +1223,45 @@ h1, h2, h3, h4, h5, h6 {
         </div>
 
         <!-- USPs -->
-        <div class="usp-row">
-          <div class="usp-item">
-            <div class="usp-marker usp-marker--coral"></div>
-            <span class="usp-label">Digitale Fotostrips</span>
-          </div>
-          <div class="usp-item">
-            <div class="usp-marker usp-marker--coral"></div>
-            <span class="usp-label">Makkelijk Op Te Halen</span>
-          </div>
-          <div class="usp-item">
-            <div class="usp-marker usp-marker--coral"></div>
-            <span class="usp-label">Elk Feest</span>
-          </div>
-          <div class="usp-item">
-            <div class="usp-marker usp-marker--coral"></div>
-            <span class="usp-label">Direct Klaar</span>
+        <div class="usp-section">
+          <h2 class="usp-section__title">Waarom iPad Photobooth</h2>
+          <div class="usp-grid">
+            <div class="usp-card">
+              <div class="usp-card__visual usp-card__visual--coral">
+                <div class="usp-card__visual-icon">📱</div>
+              </div>
+              <div class="usp-card__body">
+                <h3 class="usp-card__title usp-card__title--coral">Digitale Fotostrips</h3>
+                <p class="usp-card__desc">Stijlvolle digitale fotostrips die je gasten direct kunnen delen via WhatsApp, Instagram en meer.</p>
+              </div>
+            </div>
+            <div class="usp-card">
+              <div class="usp-card__visual usp-card__visual--coral">
+                <div class="usp-card__visual-icon">🚗</div>
+              </div>
+              <div class="usp-card__body">
+                <h3 class="usp-card__title usp-card__title--coral">Ophalen & Klaar</h3>
+                <p class="usp-card__desc">Haal de booth op bij ons, zet hem neer op je feest, en breng hem terug. Geen monteur nodig, geen gedoe.</p>
+              </div>
+            </div>
+            <div class="usp-card">
+              <div class="usp-card__visual usp-card__visual--coral">
+                <div class="usp-card__visual-icon">🎉</div>
+              </div>
+              <div class="usp-card__body">
+                <h3 class="usp-card__title usp-card__title--coral">Elk Feest</h3>
+                <p class="usp-card__desc">Perfect voor verjaardagen, huisfeestjes, familiebijeenkomsten en meer. Compact genoeg voor elke locatie.</p>
+              </div>
+            </div>
+            <div class="usp-card">
+              <div class="usp-card__visual usp-card__visual--coral">
+                <div class="usp-card__visual-icon">⚡</div>
+              </div>
+              <div class="usp-card__body">
+                <h3 class="usp-card__title usp-card__title--coral">Direct Klaar</h3>
+                <p class="usp-card__desc">Setup in minuten. Geen technische kennis nodig. Aanzetten, foto's maken, klaar. Zo simpel is het.</p>
+              </div>
+            </div>
           </div>
         </div>
 
@@ -1141,7 +1347,7 @@ h1, h2, h3, h4, h5, h6 {
             <li><a href="#">iPad Photobooth</a></li>
             <li><a href="#">DJ Gianni</a></li>
             <li><a href="#">Milo</a></li>
-            <li><a href="#" class="nav-cta nav-cta--neutral">Boek Je Ervaring</a></li>
+            <li><a href="#" class="nav-cta nav-cta--gold">Boek Je Ervaring</a></li>
           </ul>
         </nav>
 
