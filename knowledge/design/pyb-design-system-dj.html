@@ -32,7 +32,9 @@
   --mi-dim: rgba(59,130,246,0.10);
   --mi-glow: rgba(59,130,246,0.06);
 
-  /* Shared */
+  /* Shared — DJ Hub accent (pairs with gold from photobooth) */
+  --violet: #8b5cf6;
+  --violet-dim: rgba(139,92,246,0.12);
   --pink: #e839a0;
   --pink-dim: rgba(232,57,160,0.12);
   --spotify: #1db954;
@@ -99,7 +101,7 @@ body::after {
   transform: translateX(-50%);
   width: 600px;
   height: 400px;
-  background: radial-gradient(ellipse, rgba(232,57,160,0.06) 0%, transparent 70%);
+  background: radial-gradient(ellipse, rgba(139,92,246,0.06) 0%, transparent 70%);
   pointer-events: none;
 }
 
@@ -244,7 +246,7 @@ body::after {
 
 .btn-book-nav {
   padding: 8px 24px;
-  background: var(--pink);
+  background: var(--violet);
   color: #fff;
   font-family: var(--font-display);
   font-size: 15px;
@@ -254,11 +256,11 @@ body::after {
   cursor: pointer;
   text-decoration: none;
   transition: all 0.3s;
-  box-shadow: 0 0 20px rgba(232,57,160,0.25);
+  box-shadow: 0 0 20px rgba(139,92,246,0.25);
 }
 .btn-book-nav:hover {
-  background: #d02d8d;
-  box-shadow: 0 0 30px rgba(232,57,160,0.4);
+  background: #7c3aed;
+  box-shadow: 0 0 30px rgba(139,92,246,0.4);
   transform: translateY(-1px);
 }
 
@@ -1097,14 +1099,14 @@ body::after {
   transform: translate(-50%, -50%);
   width: 500px;
   height: 300px;
-  background: radial-gradient(ellipse, rgba(232,57,160,0.06) 0%, transparent 70%);
+  background: radial-gradient(ellipse, rgba(139,92,246,0.06) 0%, transparent 70%);
   pointer-events: none;
 }
 
 .btn-book-lg {
   display: inline-block;
   padding: 16px 48px;
-  background: var(--pink);
+  background: var(--violet);
   color: #fff;
   font-family: var(--font-display);
   font-size: 20px;
@@ -1113,13 +1115,13 @@ body::after {
   border-radius: var(--r-pill);
   cursor: pointer;
   transition: all 0.3s;
-  box-shadow: 0 0 30px rgba(232,57,160,0.25);
+  box-shadow: 0 0 30px rgba(139,92,246,0.25);
   text-decoration: none;
   position: relative;
   z-index: 1;
 }
 .btn-book-lg:hover {
-  box-shadow: 0 0 50px rgba(232,57,160,0.45);
+  box-shadow: 0 0 50px rgba(139,92,246,0.45);
   transform: translateY(-2px) scale(1.02);
 }
 
@@ -1224,6 +1226,8 @@ body::after {
 .btn-blue { background: var(--mi); color: #050508; box-shadow: 0 0 16px rgba(59,130,246,0.2); }
 .btn-blue:hover { box-shadow: 0 0 28px rgba(59,130,246,0.4); transform: translateY(-1px); }
 
+.btn-violet { background: var(--violet); color: #fff; box-shadow: 0 0 16px rgba(139,92,246,0.2); }
+.btn-violet:hover { box-shadow: 0 0 28px rgba(139,92,246,0.4); transform: translateY(-1px); }
 .btn-pink { background: var(--pink); color: #fff; box-shadow: 0 0 16px rgba(232,57,160,0.2); }
 .btn-pink:hover { box-shadow: 0 0 28px rgba(232,57,160,0.4); transform: translateY(-1px); }
 
@@ -1627,7 +1631,7 @@ body::after {
     <div class="component-label">Buttons</div>
     <button class="btn-demo btn-amber">BOEK GIANNI</button>
     <button class="btn-demo btn-blue">BOEK MILO</button>
-    <button class="btn-demo btn-pink">BOEK EEN DJ</button>
+    <button class="btn-demo btn-violet">BOEK EEN DJ</button>
     <button class="btn-demo btn-green">SPOTIFY PLAYLIST</button>
     <button class="btn-demo btn-ghost">MEER INFO</button>
   </div>
