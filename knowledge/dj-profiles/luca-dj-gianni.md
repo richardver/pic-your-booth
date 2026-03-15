@@ -21,7 +21,7 @@ Photobooth operator & DJ at Pic Your Booth. Richard's son.
 ### TikTok
 DJ Gianni
 Afro Beats | Caribbean | Nederlands | Hits
-Elke set volle energie
+Elke set pure vibes
 info@picyourbooth.nl
 
 ### SoundCloud
