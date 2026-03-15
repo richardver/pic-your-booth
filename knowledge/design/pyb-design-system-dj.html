@@ -780,20 +780,22 @@ body::after {
   align-items: center;
   gap: var(--sp-2);
   padding: 12px 32px;
-  background: var(--violet);
-  color: #fff;
+  background: #d4b14e;
+  color: #0a0a0a;
   font-family: var(--font-display);
   font-size: 17px;
+  font-weight: 700;
   letter-spacing: 0.08em;
   border: none;
   border-radius: var(--r-pill);
   cursor: pointer;
   transition: all 0.3s;
-  box-shadow: 0 0 24px rgba(139,92,246,0.2);
+  box-shadow: 0 0 24px rgba(212,177,78,0.15);
   text-decoration: none;
 }
 .btn-spotify:hover {
-  box-shadow: 0 0 40px rgba(139,92,246,0.4);
+  background: #ddb960;
+  box-shadow: 0 0 40px rgba(212,177,78,0.3);
   transform: translateY(-2px);
 }
 
@@ -836,9 +838,7 @@ body::after {
   line-height: 1;
   margin-bottom: var(--sp-3);
 }
-.hiw-step:nth-child(1) .hiw-num { color: var(--gi); }
-.hiw-step:nth-child(2) .hiw-num { color: var(--spotify); }
-.hiw-step:nth-child(3) .hiw-num { color: var(--mi); }
+.hiw-step .hiw-num { color: var(--violet); }
 
 .hiw-step-icon {
   font-size: 32px;
@@ -1119,15 +1119,16 @@ body::after {
   transform: translate(-50%, -50%);
   width: 500px;
   height: 300px;
-  background: radial-gradient(ellipse, rgba(139,92,246,0.06) 0%, transparent 70%);
+  background: radial-gradient(ellipse, rgba(212,177,78,0.04) 0%, transparent 70%);
   pointer-events: none;
 }
 
 .btn-book-lg {
   display: inline-block;
   padding: 16px 48px;
-  background: var(--violet);
-  color: #fff;
+  background: #d4b14e;
+  color: #0a0a0a;
+  font-weight: 700;
   font-family: var(--font-display);
   font-size: 20px;
   letter-spacing: 0.08em;
@@ -1135,13 +1136,14 @@ body::after {
   border-radius: var(--r-pill);
   cursor: pointer;
   transition: all 0.3s;
-  box-shadow: 0 0 30px rgba(139,92,246,0.25);
+  box-shadow: 0 0 30px rgba(212,177,78,0.15);
   text-decoration: none;
   position: relative;
   z-index: 1;
 }
 .btn-book-lg:hover {
-  box-shadow: 0 0 50px rgba(139,92,246,0.45);
+  background: #ddb960;
+  box-shadow: 0 0 50px rgba(212,177,78,0.3);
   transform: translateY(-2px) scale(1.02);
 }
 
