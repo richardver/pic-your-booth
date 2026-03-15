@@ -1665,6 +1665,19 @@ h1, h2, h3, h4, h5, h6 {
             </label>
           </div>
 
+          <div class="upgrade-row" data-price="499" data-builder="mirror" onclick="toggleUpgrade(this)">
+            <button class="info-btn" onclick="event.stopPropagation(); openModal('ai')" title="Meer info">?</button>
+            <div class="upgrade-row__info">
+              <div class="upgrade-row__name">AI Photo Experience</div>
+              <div class="upgrade-row__desc">Elke foto instant getransformeerd in jouw brand-stijl. Ideaal voor corporate events, productlanceringen & beurzen.</div>
+            </div>
+            <div class="upgrade-row__price">+€499</div>
+            <label class="toggle" onclick="event.stopPropagation()">
+              <input type="checkbox" onchange="toggleUpgrade(this.closest('.upgrade-row'))">
+              <span class="toggle-track"></span>
+            </label>
+          </div>
+
           <!-- Total -->
           <div class="builder-total">
             <span class="builder-total__label">Totaalprijs</span>
@@ -2233,6 +2246,13 @@ h1, h2, h3, h4, h5, h6 {
       icon: '🚚',
       image: 'https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=800&q=80&auto=format',
       desc: 'Geen auto nodig, geen gesjouw. Wij bezorgen de iPad Photobooth op je locatie, volledig opgeladen en klaar voor gebruik. Na afloop halen wij alles weer op. Jij hoeft alleen de deur open te doen. Beschikbaar in de hele Randstad.'
+    },
+    ai: {
+      title: 'AI Photo Experience',
+      price: '+€499',
+      icon: '🤖',
+      image: 'https://images.unsplash.com/photo-1677442136019-21780ecad995?w=800&q=80&auto=format',
+      desc: 'Geavanceerde AI-technologie transformeert elke foto instant naar jouw brand-stijl. Logo, kleuren, thema — alles wordt automatisch verwerkt. Perfect voor productlanceringen, beurzen en corporate events waar elke foto on-brand moet zijn. Gasten delen foto\'s in jouw huisstijl op hun socials — gratis merkexposure bij elk shot.'
     }
   };
 
