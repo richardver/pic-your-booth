@@ -378,19 +378,19 @@ p + p { margin-top: 12px; }
 
 /* Photo variations for Magic Mirror */
 .ad-visual.mirror-v1 {
-  background: linear-gradient(180deg, rgba(10,10,14,0.3) 0%, rgba(10,10,14,0.6) 100%), url('https://images.unsplash.com/photo-1519671482749-fd09be7ccebf?w=800&q=80&auto=format');
+  background: linear-gradient(180deg, rgba(10,10,14,0.15) 0%, rgba(10,10,14,0.5) 100%), rgba(212,177,78,0.08), url('https://images.unsplash.com/photo-1519671482749-fd09be7ccebf?w=800&q=80&auto=format');
   background-size: cover; background-position: center;
 }
 .ad-visual.mirror-v2 {
-  background: linear-gradient(180deg, rgba(10,10,14,0.3) 0%, rgba(10,10,14,0.7) 100%), url('https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?w=800&q=80&auto=format');
+  background: linear-gradient(180deg, rgba(10,10,14,0.15) 0%, rgba(10,10,14,0.5) 100%), rgba(212,177,78,0.08), url('https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?w=800&q=80&auto=format');
   background-size: cover; background-position: center;
 }
 .ad-visual.mirror-v3 {
-  background: linear-gradient(180deg, rgba(10,10,14,0.2) 0%, rgba(10,10,14,0.7) 100%), url('https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?w=800&q=80&auto=format');
+  background: linear-gradient(180deg, rgba(10,10,14,0.15) 0%, rgba(10,10,14,0.5) 100%), rgba(212,177,78,0.08), url('https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?w=800&q=80&auto=format');
   background-size: cover; background-position: center;
 }
 .ad-visual.mirror-v4 {
-  background: linear-gradient(180deg, rgba(10,10,14,0.3) 0%, rgba(10,10,14,0.6) 100%), url('https://images.unsplash.com/photo-1511795409834-ef04bbd61622?w=800&q=80&auto=format');
+  background: linear-gradient(180deg, rgba(10,10,14,0.15) 0%, rgba(10,10,14,0.5) 100%), rgba(212,177,78,0.08), url('https://images.unsplash.com/photo-1511795409834-ef04bbd61622?w=800&q=80&auto=format');
   background-size: cover; background-position: center 30%;
 }
 
@@ -408,19 +408,19 @@ p + p { margin-top: 12px; }
 
 /* Photo variations for iPad */
 .ad-visual.ipad-v1 {
-  background: linear-gradient(180deg, rgba(10,10,14,0.2) 0%, rgba(10,10,14,0.6) 100%), url('https://images.unsplash.com/photo-1530103862676-de8c9debad1d?w=800&q=80&auto=format');
+  background: linear-gradient(180deg, rgba(10,10,14,0.15) 0%, rgba(10,10,14,0.5) 100%), rgba(245,158,66,0.06), url('https://images.unsplash.com/photo-1530103862676-de8c9debad1d?w=800&q=80&auto=format');
   background-size: cover; background-position: center;
 }
 .ad-visual.ipad-v2 {
-  background: linear-gradient(180deg, rgba(10,10,14,0.2) 0%, rgba(10,10,14,0.6) 100%), url('https://images.unsplash.com/photo-1504196606672-aef5c9cefc92?w=800&q=80&auto=format');
+  background: linear-gradient(180deg, rgba(10,10,14,0.15) 0%, rgba(10,10,14,0.5) 100%), rgba(245,158,66,0.06), url('https://images.unsplash.com/photo-1504196606672-aef5c9cefc92?w=800&q=80&auto=format');
   background-size: cover; background-position: center;
 }
 .ad-visual.ipad-v3 {
-  background: linear-gradient(180deg, rgba(10,10,14,0.2) 0%, rgba(10,10,14,0.65) 100%), url('https://images.unsplash.com/photo-1496024840928-4c417adf211d?w=800&q=80&auto=format');
+  background: linear-gradient(180deg, rgba(10,10,14,0.15) 0%, rgba(10,10,14,0.5) 100%), rgba(245,158,66,0.06), url('https://images.unsplash.com/photo-1496024840928-4c417adf211d?w=800&q=80&auto=format');
   background-size: cover; background-position: center;
 }
 .ad-visual.ipad-v4 {
-  background: linear-gradient(180deg, rgba(10,10,14,0.2) 0%, rgba(10,10,14,0.6) 100%), url('https://images.unsplash.com/photo-1543807535-eceef0bc6599?w=800&q=80&auto=format');
+  background: linear-gradient(180deg, rgba(10,10,14,0.15) 0%, rgba(10,10,14,0.5) 100%), rgba(245,158,66,0.06), url('https://images.unsplash.com/photo-1543807535-eceef0bc6599?w=800&q=80&auto=format');
   background-size: cover; background-position: center;
 }
 
@@ -435,10 +435,11 @@ p + p { margin-top: 12px; }
 
 .visual-headline {
   font-family: var(--font-display);
-  font-size: clamp(1.4rem, 3vw, 1.8rem);
+  font-size: clamp(2.2rem, 5vw, 3rem);
   letter-spacing: 0.06em;
   line-height: 1.1;
   margin-bottom: 12px;
+  text-shadow: 0 2px 12px rgba(0,0,0,0.5);
 }
 
 .visual-headline.gold-text { color: var(--gold); }
@@ -447,18 +448,19 @@ p + p { margin-top: 12px; }
 
 .visual-subtext {
   font-family: var(--font-body);
-  font-size: 0.75rem;
+  font-size: 0.85rem;
   color: var(--text-muted);
   margin-bottom: 16px;
   line-height: 1.4;
+  text-shadow: 0 1px 6px rgba(0,0,0,0.4);
 }
 
 .visual-price-pill {
   display: inline-block;
-  padding: 5px 18px;
+  padding: 10px 24px;
   border-radius: var(--r-pill);
   font-family: var(--font-display);
-  font-size: 0.9rem;
+  font-size: 1.1rem;
   letter-spacing: 0.06em;
   margin-bottom: 14px;
 }
@@ -475,10 +477,10 @@ p + p { margin-top: 12px; }
 
 .visual-cta-btn {
   display: inline-block;
-  padding: 8px 24px;
+  padding: 10px 28px;
   border-radius: var(--r-pill);
   font-family: var(--font-display);
-  font-size: 0.8rem;
+  font-size: 0.9rem;
   letter-spacing: 0.08em;
   border: 1px solid;
 }
@@ -500,9 +502,9 @@ p + p { margin-top: 12px; }
   top: 12px;
   right: 14px;
   font-family: var(--font-display);
-  font-size: 0.6rem;
+  font-size: 0.7rem;
   letter-spacing: 0.08em;
-  color: rgba(237, 237, 240, 0.35);
+  color: rgba(237, 237, 240, 0.55);
   z-index: 2;
 }
 
@@ -966,7 +968,7 @@ tr:last-child td { border-bottom: none; }
             <div class="mirror-shape"></div>
             <span class="visual-logo">PICYOURBOOTH</span>
             <div class="visual-content">
-              <div class="visual-headline gold-text" style="font-size: clamp(1.6rem, 3vw, 2rem);">237+ Events<br>4.9&#9733; Reviews</div>
+              <div class="visual-headline gold-text" style="font-size: clamp(2.5rem, 6vw, 3.5rem);">237+ Events<br>4.9&#9733; Reviews</div>
               <div class="visual-subtext">Premium photobooth met DSLR camera<br>en professionele belichting</div>
               <div class="visual-price-pill gold-pill">VANAF &euro;599</div><br>
               <span class="visual-cta-btn gold-btn">VRAAG EEN OFFERTE AAN</span>
@@ -990,7 +992,7 @@ tr:last-child td { border-bottom: none; }
             <div class="mirror-shape"></div>
             <span class="visual-logo">PICYOURBOOTH</span>
             <div class="visual-content">
-              <div class="visual-headline gold-text" style="font-size: clamp(1.6rem, 3.5vw, 2.2rem);">Magic<br>Mirror XL</div>
+              <div class="visual-headline gold-text" style="font-size: clamp(2.5rem, 6vw, 3.5rem);">Magic<br>Mirror XL</div>
               <div class="visual-subtext">237+ events verzorgd</div>
               <div class="visual-price-pill gold-pill">VANAF &euro;599</div>
             </div>
@@ -1076,7 +1078,7 @@ tr:last-child td { border-bottom: none; }
             <div class="mirror-shape"></div>
             <span class="visual-logo">PICYOURBOOTH</span>
             <div class="visual-content">
-              <div class="visual-headline white-text" style="font-size: clamp(1.6rem, 3vw, 2rem);">Maak Het<br>Onvergetelijk</div>
+              <div class="visual-headline white-text" style="font-size: clamp(2.5rem, 6vw, 3.5rem);">Maak Het<br>Onvergetelijk</div>
               <div class="visual-subtext">Je gasten praten nog weken<br>over een Magic Mirror</div>
               <div class="visual-price-pill gold-pill">VANAF &euro;599</div><br>
               <span class="visual-cta-btn gold-btn">BOEK NU</span>
@@ -1100,7 +1102,7 @@ tr:last-child td { border-bottom: none; }
             <div class="mirror-shape"></div>
             <span class="visual-logo">PICYOURBOOTH</span>
             <div class="visual-content">
-              <div class="visual-headline gold-text" style="font-size: clamp(1.6rem, 3.5vw, 2.2rem);">Maak Het<br>Onvergetelijk</div>
+              <div class="visual-headline gold-text" style="font-size: clamp(2.5rem, 6vw, 3.5rem);">Maak Het<br>Onvergetelijk</div>
               <div class="visual-subtext">Populaire data gaan snel</div>
               <div class="visual-price-pill gold-pill">VANAF &euro;599</div>
             </div>
@@ -1186,7 +1188,7 @@ tr:last-child td { border-bottom: none; }
             <div class="mirror-shape"></div>
             <span class="visual-logo">PICYOURBOOTH</span>
             <div class="visual-content">
-              <div class="visual-headline gold-text" style="font-size: clamp(1.6rem, 3vw, 2rem);">3 Weken Later<br>Nog Appjes?</div>
+              <div class="visual-headline gold-text" style="font-size: clamp(2.5rem, 6vw, 3.5rem);">3 Weken Later<br>Nog Appjes?</div>
               <div class="visual-subtext">Magic Mirror XL Photobooth<br>De ervaring die gasten niet vergeten</div>
               <div class="visual-price-pill gold-pill">VANAF &euro;599</div><br>
               <span class="visual-cta-btn gold-btn">ONTDEK MEER</span>
@@ -1210,7 +1212,7 @@ tr:last-child td { border-bottom: none; }
             <div class="mirror-shape"></div>
             <span class="visual-logo">PICYOURBOOTH</span>
             <div class="visual-content">
-              <div class="visual-headline gold-text" style="font-size: clamp(1.6rem, 3.5vw, 2.2rem);">Magic<br>Mirror XL</div>
+              <div class="visual-headline gold-text" style="font-size: clamp(2.5rem, 6vw, 3.5rem);">Magic<br>Mirror XL</div>
               <div class="visual-subtext">DSLR &middot; Printen &middot; VIP</div>
               <div class="visual-price-pill gold-pill">VANAF &euro;599</div>
             </div>
@@ -1323,7 +1325,7 @@ tr:last-child td { border-bottom: none; }
             <span class="visual-logo">PICYOURBOOTH</span>
             <div class="visual-content">
               <div class="visual-subtext" style="font-style: italic; font-size: 0.85rem; color: var(--text);">"HET moment van<br>onze bruiloft"</div>
-              <div class="visual-headline gold-text" style="margin-top: 10px; font-size: clamp(1.6rem, 3.5vw, 2.2rem);">Boek Jouw<br>Moment</div>
+              <div class="visual-headline gold-text" style="margin-top: 10px; font-size: clamp(2.5rem, 6vw, 3.5rem);">Boek Jouw<br>Moment</div>
               <div class="visual-price-pill gold-pill">VANAF &euro;599</div>
             </div>
             <div class="stories-text-overlay">
@@ -1427,7 +1429,7 @@ tr:last-child td { border-bottom: none; }
             <div class="party-dots"></div>
             <span class="visual-logo">PICYOURBOOTH</span>
             <div class="visual-content">
-              <div class="visual-headline warm-text" style="font-size: clamp(1.6rem, 3vw, 2rem);">iPad<br>Photobooth</div>
+              <div class="visual-headline warm-text" style="font-size: clamp(2.5rem, 6vw, 3.5rem);">iPad<br>Photobooth</div>
               <div class="visual-subtext">Ophalen, neerzetten, lachen<br>Zo simpel is het</div>
               <div class="visual-price-pill warm-pill">VANAF &euro;200</div><br>
               <span class="visual-cta-btn warm-btn">BEKIJK PAKKETTEN</span>
@@ -1451,7 +1453,7 @@ tr:last-child td { border-bottom: none; }
             <div class="party-dots"></div>
             <span class="visual-logo">PICYOURBOOTH</span>
             <div class="visual-content">
-              <div class="visual-headline warm-text" style="font-size: clamp(1.6rem, 3.5vw, 2.2rem);">iPad<br>Photobooth</div>
+              <div class="visual-headline warm-text" style="font-size: clamp(2.5rem, 6vw, 3.5rem);">iPad<br>Photobooth</div>
               <div class="visual-subtext">Digitaal &middot; Direct delen</div>
               <div class="visual-price-pill warm-pill">VANAF &euro;200</div>
             </div>
@@ -1537,7 +1539,7 @@ tr:last-child td { border-bottom: none; }
             <div class="party-dots"></div>
             <span class="visual-logo">PICYOURBOOTH</span>
             <div class="visual-content">
-              <div class="visual-headline white-text" style="font-size: clamp(1.6rem, 3vw, 2rem);">Photobooth<br>Zonder Stress</div>
+              <div class="visual-headline white-text" style="font-size: clamp(2.5rem, 6vw, 3.5rem);">Photobooth<br>Zonder Stress</div>
               <div class="visual-subtext">Ophalen, neerzetten,<br>5 minuten later lacht iedereen</div>
               <div class="visual-price-pill warm-pill">VANAF &euro;200</div><br>
               <span class="visual-cta-btn warm-btn">BEKIJK PAKKETTEN</span>
@@ -1561,7 +1563,7 @@ tr:last-child td { border-bottom: none; }
             <div class="party-dots"></div>
             <span class="visual-logo">PICYOURBOOTH</span>
             <div class="visual-content">
-              <div class="visual-headline warm-text" style="font-size: clamp(1.6rem, 3.5vw, 2.2rem);">Zonder<br>Stress</div>
+              <div class="visual-headline warm-text" style="font-size: clamp(2.5rem, 6vw, 3.5rem);">Zonder<br>Stress</div>
               <div class="visual-subtext">Geen monteur. Geen handleiding.</div>
               <div class="visual-price-pill warm-pill">VANAF &euro;200</div>
             </div>
@@ -1647,7 +1649,7 @@ tr:last-child td { border-bottom: none; }
             <div class="party-dots"></div>
             <span class="visual-logo">PICYOURBOOTH</span>
             <div class="visual-content">
-              <div class="visual-headline warm-text" style="font-size: clamp(1.6rem, 3vw, 2rem);">Iedereen<br>Wil Er Een</div>
+              <div class="visual-headline warm-text" style="font-size: clamp(2.5rem, 6vw, 3.5rem);">Iedereen<br>Wil Er Een</div>
               <div class="visual-subtext">De iPad Photobooth die heel<br>de buurt wil hebben</div>
               <div class="visual-price-pill warm-pill">VANAF &euro;200</div><br>
               <span class="visual-cta-btn warm-btn">HUUR NU</span>
@@ -1671,7 +1673,7 @@ tr:last-child td { border-bottom: none; }
             <div class="party-dots"></div>
             <span class="visual-logo">PICYOURBOOTH</span>
             <div class="visual-content">
-              <div class="visual-headline warm-text" style="font-size: clamp(1.6rem, 3.5vw, 2.2rem);">Iedereen<br>Wil Er Een</div>
+              <div class="visual-headline warm-text" style="font-size: clamp(2.5rem, 6vw, 3.5rem);">Iedereen<br>Wil Er Een</div>
               <div class="visual-subtext">Direct delen via WhatsApp</div>
               <div class="visual-price-pill warm-pill">VANAF &euro;200</div>
             </div>
@@ -1768,7 +1770,7 @@ tr:last-child td { border-bottom: none; }
                   <div style="font-family: var(--font-display); font-size: 1.4rem; color: var(--warm);">200 strips</div>
                 </div>
               </div>
-              <div class="visual-headline white-text" style="font-size: clamp(1.4rem, 2.5vw, 1.8rem);">Maak Er<br>Een Feest Van</div>
+              <div class="visual-headline white-text" style="font-size: clamp(2.2rem, 5vw, 3rem);">Maak Er<br>Een Feest Van</div>
               <div class="visual-price-pill warm-pill">VANAF &euro;200</div><br>
               <span class="visual-cta-btn warm-btn">BEKIJK PAKKETTEN</span>
             </div>
@@ -1795,7 +1797,7 @@ tr:last-child td { border-bottom: none; }
                 <div style="font-family: var(--font-display); font-size: 0.7rem; color: var(--text-muted); letter-spacing: 0.08em;">ZONDER: 3 FOTOS</div>
                 <div style="font-family: var(--font-display); font-size: 0.7rem; color: var(--warm); letter-spacing: 0.08em; margin-top: 4px;">MET: 200 FOTOSTRIPS</div>
               </div>
-              <div class="visual-headline warm-text" style="font-size: clamp(1.6rem, 3.5vw, 2.2rem);">Maak Er<br>Een Feest Van</div>
+              <div class="visual-headline warm-text" style="font-size: clamp(2.5rem, 6vw, 3.5rem);">Maak Er<br>Een Feest Van</div>
               <div class="visual-price-pill warm-pill">VANAF &euro;200</div>
             </div>
             <div class="stories-text-overlay">
