@@ -344,11 +344,12 @@ p + p { margin-top: 12px; }
 
 /* -- Ad Primary Text (above visual in feed) ---------------- */
 .ad-primary-text {
-  padding: 0 12px 10px;
-  font-size: 0.78rem;
-  line-height: 1.45;
-  color: var(--text);
-  max-width: none;
+  padding: 8px 12px;
+  font-size: 0.72rem;
+  line-height: 1.4;
+  color: var(--text-muted);
+  max-height: 2.8em;
+  overflow: hidden;
 }
 
 /* -- Ad Visual --------------------------------------------- */
@@ -490,13 +491,7 @@ p + p { margin-top: 12px; }
 }
 
 .visual-cta-btn {
-  display: inline-block;
-  padding: 10px 28px;
-  border-radius: var(--r-pill);
-  font-family: var(--font-display);
-  font-size: 0.9rem;
-  letter-spacing: 0.08em;
-  border: 1px solid;
+  display: none; /* CTA lives in ad footer, not on visual */
 }
 
 .visual-cta-btn.gold-btn {
@@ -631,41 +626,52 @@ p + p { margin-top: 12px; }
 .ad-footer {
   padding: 10px 12px;
   border-top: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.ad-footer-info {
+  flex: 1;
+  min-width: 0;
 }
 
 .ad-headline {
-  font-size: 0.8rem;
+  font-size: 0.72rem;
   font-weight: 600;
   color: var(--text);
-  margin-bottom: 2px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .ad-description {
-  font-size: 0.7rem;
+  font-size: 0.6rem;
   color: var(--text-muted);
-  margin-bottom: 8px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .ad-cta-row {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+  display: none;
 }
 
 .ad-cta-button {
   display: inline-block;
   padding: 5px 14px;
-  font-size: 0.7rem;
+  font-size: 0.65rem;
   font-weight: 600;
   border-radius: 4px;
   background: var(--surface-up);
   color: var(--text);
   border: 1px solid var(--border-hover);
+  white-space: nowrap;
+  flex-shrink: 0;
 }
 
 .ad-cta-domain {
-  font-size: 0.65rem;
-  color: var(--text-muted);
+  display: none;
 }
 
 /* -- IG Engagement Row ------------------------------------- */
