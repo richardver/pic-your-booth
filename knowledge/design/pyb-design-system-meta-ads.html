@@ -358,6 +358,20 @@ p + p { margin-top: 12px; }
   display: flex;
   align-items: center;
   justify-content: center;
+  box-shadow: inset 0 0 60px rgba(0,0,0,0.3);
+}
+
+/* Noise texture overlay for filmic/premium feel */
+.ad-visual::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  opacity: 0.02;
+  pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 128px 128px;
 }
 
 .ad-visual.ratio-1-1 { aspect-ratio: 1 / 1; }
@@ -439,7 +453,7 @@ p + p { margin-top: 12px; }
   letter-spacing: 0.06em;
   line-height: 1.1;
   margin-bottom: 12px;
-  text-shadow: 0 2px 12px rgba(0,0,0,0.5);
+  text-shadow: 0 2px 12px rgba(0,0,0,0.6), 0 4px 24px rgba(0,0,0,0.4), 0 1px 3px rgba(0,0,0,0.8);
 }
 
 .visual-headline.gold-text { color: var(--gold); }
@@ -508,25 +522,27 @@ p + p { margin-top: 12px; }
   z-index: 2;
 }
 
-/* Decorative mirror shape */
+/* Decorative mirror shape — very subtle */
 .mirror-shape {
   position: absolute;
   width: 60%;
   height: 70%;
-  border: 1px solid rgba(212, 177, 78, 0.08);
+  border: 1px solid rgba(212, 177, 78, 0.04);
   border-radius: 50% 50% 50% 50% / 40% 40% 60% 60%;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 0;
+  opacity: 0.04;
 }
 
-/* Decorative party dots */
+/* Decorative party dots — very subtle */
 .party-dots {
   position: absolute;
   inset: 0;
   z-index: 0;
   overflow: hidden;
+  opacity: 0.03;
 }
 
 .party-dots::before,
@@ -892,7 +908,7 @@ tr:last-child td { border-bottom: none; }
       <h2 style="color: var(--gold);">Magic Mirror XL</h2>
       <p class="positioning">"Dit is geen photobooth -- dit is een ervaring"</p>
       <p class="target"><strong>Target:</strong> Corporate events, weddings, high-end parties</p>
-      <span class="price-anchor gold">Vanaf &euro;599</span>
+      <span class="price-anchor gold">Vanaf &euro;599 &middot; Hele Avond</span>
     </div>
 
     <!-- ---- Variation 1: Social Proof Hook ---- -->
@@ -906,7 +922,7 @@ tr:last-child td { border-bottom: none; }
       <div class="copy-card">
         <div class="copy-field">
           <div class="copy-field-label">Primary Text</div>
-          <div class="copy-field-value">237+ events. 4.9&#9733; Google Reviews. En nu jouw feest?</div>
+          <div class="copy-field-value">237+ events. 4.9&#9733; Google Reviews. Vanaf &euro;599 de hele avond. En nu jouw feest? Check beschikbaarheid.</div>
         </div>
         <div class="copy-field">
           <div class="copy-field-label">Headline</div>
@@ -914,7 +930,7 @@ tr:last-child td { border-bottom: none; }
         </div>
         <div class="copy-field">
           <div class="copy-field-label">Description</div>
-          <div class="copy-field-value">Vanaf &euro;599 -- DSLR kwaliteit, direct printen</div>
+          <div class="copy-field-value">&euro;599 &middot; Hele avond &middot; 237+ tevreden klanten</div>
         </div>
       </div>
 
@@ -930,21 +946,21 @@ tr:last-child td { border-bottom: none; }
             </div>
             <div class="ig-dots">...</div>
           </div>
-          <div class="ad-primary-text">237+ events. 4.9&#9733; Google Reviews. En nu jouw feest?</div>
+          <div class="ad-primary-text">237+ events. 4.9&#9733; Google Reviews. Vanaf &euro;599 de hele avond. En nu jouw feest? Check beschikbaarheid.</div>
           <div class="ad-visual ratio-1-1 mirror-v1">
             <div class="mirror-shape"></div>
             <span class="visual-logo">PICYOURBOOTH</span>
             <div class="visual-content">
               <div class="visual-headline gold-text">237+ Events<br>4.9&#9733; Reviews</div>
-              <div class="visual-subtext">DSLR kwaliteit &middot; Direct printen &middot; VIP ervaring</div>
-              <div class="visual-price-pill gold-pill">VANAF &euro;599</div><br>
+              <div class="visual-subtext">237+ tevreden klanten &middot; DSLR kwaliteit &middot; Direct printen</div>
+              <div class="visual-price-pill gold-pill">VANAF &euro;599 &middot; HELE AVOND</div><br>
               <span class="visual-cta-btn gold-btn">VRAAG EEN OFFERTE AAN</span>
             </div>
           </div>
           <div class="ad-footer">
             <div class="ad-cta-domain">picyourbooth.nl</div>
             <div class="ad-headline">MAGIC MIRROR XL</div>
-            <div class="ad-description">Vanaf &euro;599 -- DSLR kwaliteit, direct printen</div>
+            <div class="ad-description">&euro;599 &middot; Hele avond &middot; 237+ tevreden klanten</div>
             <div class="ad-cta-row">
               <span></span>
               <span class="ad-cta-button">Meer info</span>
@@ -963,21 +979,21 @@ tr:last-child td { border-bottom: none; }
             </div>
             <div class="ig-dots">...</div>
           </div>
-          <div class="ad-primary-text">237+ events. 4.9&#9733; Google Reviews. En nu jouw feest?</div>
+          <div class="ad-primary-text">237+ events. 4.9&#9733; Google Reviews. Vanaf &euro;599 de hele avond. En nu jouw feest? Check beschikbaarheid.</div>
           <div class="ad-visual ratio-4-5 mirror-v1">
             <div class="mirror-shape"></div>
             <span class="visual-logo">PICYOURBOOTH</span>
             <div class="visual-content">
               <div class="visual-headline gold-text" style="font-size: clamp(2.5rem, 6vw, 3.5rem);">237+ Events<br>4.9&#9733; Reviews</div>
-              <div class="visual-subtext">Premium photobooth met DSLR camera<br>en professionele belichting</div>
-              <div class="visual-price-pill gold-pill">VANAF &euro;599</div><br>
+              <div class="visual-subtext">237+ tevreden klanten &middot; Premium DSLR camera<br>en professionele belichting</div>
+              <div class="visual-price-pill gold-pill">VANAF &euro;599 &middot; HELE AVOND</div><br>
               <span class="visual-cta-btn gold-btn">VRAAG EEN OFFERTE AAN</span>
             </div>
           </div>
           <div class="ad-footer">
             <div class="ad-cta-domain">picyourbooth.nl</div>
             <div class="ad-headline">MAGIC MIRROR XL</div>
-            <div class="ad-description">Vanaf &euro;599 -- DSLR kwaliteit, direct printen</div>
+            <div class="ad-description">&euro;599 &middot; Hele avond &middot; 237+ tevreden klanten</div>
             <div class="ad-cta-row">
               <span></span>
               <span class="ad-cta-button">Meer info</span>
@@ -993,11 +1009,11 @@ tr:last-child td { border-bottom: none; }
             <span class="visual-logo">PICYOURBOOTH</span>
             <div class="visual-content">
               <div class="visual-headline gold-text" style="font-size: clamp(2.5rem, 6vw, 3.5rem);">Magic<br>Mirror XL</div>
-              <div class="visual-subtext">237+ events verzorgd</div>
-              <div class="visual-price-pill gold-pill">VANAF &euro;599</div>
+              <div class="visual-subtext">237+ tevreden klanten</div>
+              <div class="visual-price-pill gold-pill">VANAF &euro;599 &middot; HELE AVOND</div>
             </div>
             <div class="stories-text-overlay">
-              <div class="stories-primary">237+ events. 4.9&#9733; Google Reviews. En nu jouw feest?</div>
+              <div class="stories-primary">237+ events. 4.9&#9733; Google Reviews. Vanaf &euro;599 de hele avond. Check beschikbaarheid.</div>
               <span class="stories-cta gold-cta">VRAAG EEN OFFERTE AAN</span>
             </div>
           </div>
@@ -1016,7 +1032,7 @@ tr:last-child td { border-bottom: none; }
       <div class="copy-card">
         <div class="copy-field">
           <div class="copy-field-label">Primary Text</div>
-          <div class="copy-field-value">Je gasten praten nog w&eacute;ken over een Magic Mirror. Zonder? Ze vergeten je feest binnen een dag.</div>
+          <div class="copy-field-value">Je gasten praten nog w&eacute;ken over een Magic Mirror. Zonder? Ze vergeten je feest binnen een dag. Vanaf &euro;599 de hele avond -- populaire data bijna vol.</div>
         </div>
         <div class="copy-field">
           <div class="copy-field-label">Headline</div>
@@ -1024,7 +1040,7 @@ tr:last-child td { border-bottom: none; }
         </div>
         <div class="copy-field">
           <div class="copy-field-label">Description</div>
-          <div class="copy-field-value">Populaire data gaan snel</div>
+          <div class="copy-field-value">&euro;599 &middot; Hele avond &middot; Data gaan snel</div>
         </div>
       </div>
 
@@ -1040,21 +1056,21 @@ tr:last-child td { border-bottom: none; }
             </div>
             <div class="ig-dots">...</div>
           </div>
-          <div class="ad-primary-text">Je gasten praten nog w&eacute;ken over een Magic Mirror. Zonder? Ze vergeten je feest binnen een dag.</div>
+          <div class="ad-primary-text">Je gasten praten nog w&eacute;ken over een Magic Mirror. Zonder? Ze vergeten je feest binnen een dag. Vanaf &euro;599 de hele avond -- populaire data bijna vol.</div>
           <div class="ad-visual ratio-1-1 mirror-v2">
             <div class="mirror-shape"></div>
             <span class="visual-logo">PICYOURBOOTH</span>
             <div class="visual-content">
               <div class="visual-headline white-text">Maak Het<br>Onvergetelijk</div>
-              <div class="visual-subtext">Of worden ze je feest morgen al vergeten?</div>
-              <div class="visual-price-pill gold-pill">VANAF &euro;599</div><br>
+              <div class="visual-subtext">Populaire data gaan snel -- mis het niet</div>
+              <div class="visual-price-pill gold-pill">&euro;599 &middot; HELE AVOND</div><br>
               <span class="visual-cta-btn gold-btn">BOEK NU</span>
             </div>
           </div>
           <div class="ad-footer">
             <div class="ad-cta-domain">picyourbooth.nl</div>
             <div class="ad-headline">MAAK HET ONVERGETELIJK</div>
-            <div class="ad-description">Populaire data gaan snel</div>
+            <div class="ad-description">&euro;599 &middot; Hele avond &middot; Data gaan snel</div>
             <div class="ad-cta-row">
               <span></span>
               <span class="ad-cta-button">Meer info</span>
@@ -1073,21 +1089,21 @@ tr:last-child td { border-bottom: none; }
             </div>
             <div class="ig-dots">...</div>
           </div>
-          <div class="ad-primary-text">Je gasten praten nog w&eacute;ken over een Magic Mirror. Zonder? Ze vergeten je feest binnen een dag.</div>
+          <div class="ad-primary-text">Je gasten praten nog w&eacute;ken over een Magic Mirror. Zonder? Ze vergeten je feest binnen een dag. Vanaf &euro;599 de hele avond -- populaire data bijna vol.</div>
           <div class="ad-visual ratio-4-5 mirror-v2">
             <div class="mirror-shape"></div>
             <span class="visual-logo">PICYOURBOOTH</span>
             <div class="visual-content">
               <div class="visual-headline white-text" style="font-size: clamp(2.5rem, 6vw, 3.5rem);">Maak Het<br>Onvergetelijk</div>
-              <div class="visual-subtext">Je gasten praten nog weken<br>over een Magic Mirror</div>
-              <div class="visual-price-pill gold-pill">VANAF &euro;599</div><br>
+              <div class="visual-subtext">Populaire data gaan snel<br>Terwijl er nog data beschikbaar zijn</div>
+              <div class="visual-price-pill gold-pill">&euro;599 &middot; HELE AVOND</div><br>
               <span class="visual-cta-btn gold-btn">BOEK NU</span>
             </div>
           </div>
           <div class="ad-footer">
             <div class="ad-cta-domain">picyourbooth.nl</div>
             <div class="ad-headline">MAAK HET ONVERGETELIJK</div>
-            <div class="ad-description">Populaire data gaan snel</div>
+            <div class="ad-description">&euro;599 &middot; Hele avond &middot; Data gaan snel</div>
             <div class="ad-cta-row">
               <span></span>
               <span class="ad-cta-button">Meer info</span>
@@ -1104,10 +1120,10 @@ tr:last-child td { border-bottom: none; }
             <div class="visual-content">
               <div class="visual-headline gold-text" style="font-size: clamp(2.5rem, 6vw, 3.5rem);">Maak Het<br>Onvergetelijk</div>
               <div class="visual-subtext">Populaire data gaan snel</div>
-              <div class="visual-price-pill gold-pill">VANAF &euro;599</div>
+              <div class="visual-price-pill gold-pill">&euro;599 &middot; HELE AVOND</div>
             </div>
             <div class="stories-text-overlay">
-              <div class="stories-primary">Je gasten praten nog w&eacute;ken over een Magic Mirror. Zonder? Ze vergeten je feest binnen een dag.</div>
+              <div class="stories-primary">Je gasten praten nog w&eacute;ken over een Magic Mirror. Vanaf &euro;599 de hele avond -- populaire data bijna vol.</div>
               <span class="stories-cta gold-cta">BOEK NU</span>
             </div>
           </div>
@@ -1126,7 +1142,7 @@ tr:last-child td { border-bottom: none; }
       <div class="copy-card">
         <div class="copy-field">
           <div class="copy-field-label">Primary Text</div>
-          <div class="copy-field-value">Wil je dat gasten 3 weken later nog appjes sturen over jouw feest?</div>
+          <div class="copy-field-value">Wil je dat gasten 3 weken later nog appjes sturen over jouw feest? Vanaf &euro;599 de hele avond -- geen tijdlimiet. Check beschikbaarheid.</div>
         </div>
         <div class="copy-field">
           <div class="copy-field-label">Headline</div>
@@ -1134,7 +1150,7 @@ tr:last-child td { border-bottom: none; }
         </div>
         <div class="copy-field">
           <div class="copy-field-label">Description</div>
-          <div class="copy-field-value">DSLR kwaliteit &middot; Direct printen &middot; VIP ervaring</div>
+          <div class="copy-field-value">&euro;599 &middot; Geen tijdlimiet &middot; DSLR kwaliteit</div>
         </div>
       </div>
 
@@ -1150,21 +1166,21 @@ tr:last-child td { border-bottom: none; }
             </div>
             <div class="ig-dots">...</div>
           </div>
-          <div class="ad-primary-text">Wil je dat gasten 3 weken later nog appjes sturen over jouw feest?</div>
+          <div class="ad-primary-text">Wil je dat gasten 3 weken later nog appjes sturen over jouw feest? Vanaf &euro;599 de hele avond -- geen tijdlimiet. Check beschikbaarheid.</div>
           <div class="ad-visual ratio-1-1 mirror-v3">
             <div class="mirror-shape"></div>
             <span class="visual-logo">PICYOURBOOTH</span>
             <div class="visual-content">
               <div class="visual-headline gold-text">3 Weken Later<br>Nog Appjes?</div>
-              <div class="visual-subtext">DSLR kwaliteit &middot; Direct printen &middot; VIP ervaring</div>
-              <div class="visual-price-pill gold-pill">VANAF &euro;599</div><br>
+              <div class="visual-subtext">Geen tijdlimiet &middot; DSLR kwaliteit &middot; Direct printen</div>
+              <div class="visual-price-pill gold-pill">VANAF &euro;599 &middot; HELE AVOND</div><br>
               <span class="visual-cta-btn gold-btn">ONTDEK MEER</span>
             </div>
           </div>
           <div class="ad-footer">
             <div class="ad-cta-domain">picyourbooth.nl</div>
             <div class="ad-headline">MAGIC MIRROR XL PHOTOBOOTH</div>
-            <div class="ad-description">DSLR kwaliteit &middot; Direct printen &middot; VIP ervaring</div>
+            <div class="ad-description">&euro;599 &middot; Geen tijdlimiet &middot; DSLR kwaliteit</div>
             <div class="ad-cta-row">
               <span></span>
               <span class="ad-cta-button">Meer info</span>
@@ -1183,21 +1199,21 @@ tr:last-child td { border-bottom: none; }
             </div>
             <div class="ig-dots">...</div>
           </div>
-          <div class="ad-primary-text">Wil je dat gasten 3 weken later nog appjes sturen over jouw feest?</div>
+          <div class="ad-primary-text">Wil je dat gasten 3 weken later nog appjes sturen over jouw feest? Vanaf &euro;599 de hele avond -- geen tijdlimiet. Check beschikbaarheid.</div>
           <div class="ad-visual ratio-4-5 mirror-v3">
             <div class="mirror-shape"></div>
             <span class="visual-logo">PICYOURBOOTH</span>
             <div class="visual-content">
               <div class="visual-headline gold-text" style="font-size: clamp(2.5rem, 6vw, 3.5rem);">3 Weken Later<br>Nog Appjes?</div>
-              <div class="visual-subtext">Magic Mirror XL Photobooth<br>De ervaring die gasten niet vergeten</div>
-              <div class="visual-price-pill gold-pill">VANAF &euro;599</div><br>
+              <div class="visual-subtext">Magic Mirror XL Photobooth<br>Geen tijdlimiet &middot; De ervaring die gasten niet vergeten</div>
+              <div class="visual-price-pill gold-pill">VANAF &euro;599 &middot; HELE AVOND</div><br>
               <span class="visual-cta-btn gold-btn">ONTDEK MEER</span>
             </div>
           </div>
           <div class="ad-footer">
             <div class="ad-cta-domain">picyourbooth.nl</div>
             <div class="ad-headline">MAGIC MIRROR XL PHOTOBOOTH</div>
-            <div class="ad-description">DSLR kwaliteit &middot; Direct printen &middot; VIP ervaring</div>
+            <div class="ad-description">&euro;599 &middot; Geen tijdlimiet &middot; DSLR kwaliteit</div>
             <div class="ad-cta-row">
               <span></span>
               <span class="ad-cta-button">Meer info</span>
@@ -1213,11 +1229,11 @@ tr:last-child td { border-bottom: none; }
             <span class="visual-logo">PICYOURBOOTH</span>
             <div class="visual-content">
               <div class="visual-headline gold-text" style="font-size: clamp(2.5rem, 6vw, 3.5rem);">Magic<br>Mirror XL</div>
-              <div class="visual-subtext">DSLR &middot; Printen &middot; VIP</div>
-              <div class="visual-price-pill gold-pill">VANAF &euro;599</div>
+              <div class="visual-subtext">Geen tijdlimiet &middot; DSLR &middot; Printen</div>
+              <div class="visual-price-pill gold-pill">VANAF &euro;599 &middot; HELE AVOND</div>
             </div>
             <div class="stories-text-overlay">
-              <div class="stories-primary">Wil je dat gasten 3 weken later nog appjes sturen over jouw feest?</div>
+              <div class="stories-primary">Wil je dat gasten 3 weken later nog appjes sturen? Vanaf &euro;599 -- geen tijdlimiet.</div>
               <span class="stories-cta gold-cta">ONTDEK MEER</span>
             </div>
           </div>
@@ -1236,7 +1252,7 @@ tr:last-child td { border-bottom: none; }
       <div class="copy-card">
         <div class="copy-field">
           <div class="copy-field-label">Primary Text</div>
-          <div class="copy-field-value">'De Magic Mirror was HET moment van onze bruiloft.' -- Lisa &amp; Thomas, Amsterdam</div>
+          <div class="copy-field-value">'De Magic Mirror was HET moment van onze bruiloft.' -- Lisa &amp; Thomas, Amsterdam. Vanaf &euro;599 de hele avond. Vraag een vrijblijvend voorstel aan.</div>
         </div>
         <div class="copy-field">
           <div class="copy-field-label">Headline</div>
@@ -1244,7 +1260,7 @@ tr:last-child td { border-bottom: none; }
         </div>
         <div class="copy-field">
           <div class="copy-field-label">Description</div>
-          <div class="copy-field-value">237+ events verzorgd in de Randstad</div>
+          <div class="copy-field-value">&euro;599 &middot; Hele avond &middot; Vrijblijvend voorstel</div>
         </div>
       </div>
 
@@ -1260,21 +1276,22 @@ tr:last-child td { border-bottom: none; }
             </div>
             <div class="ig-dots">...</div>
           </div>
-          <div class="ad-primary-text">'De Magic Mirror was HET moment van onze bruiloft.' -- Lisa &amp; Thomas, Amsterdam</div>
+          <div class="ad-primary-text">'De Magic Mirror was HET moment van onze bruiloft.' -- Lisa &amp; Thomas, Amsterdam. Vanaf &euro;599 de hele avond. Vraag een vrijblijvend voorstel aan.</div>
           <div class="ad-visual ratio-1-1 mirror-v4">
             <div class="mirror-shape"></div>
             <span class="visual-logo">PICYOURBOOTH</span>
             <div class="visual-content">
               <div class="visual-subtext" style="font-style: italic; font-size: 0.85rem; color: var(--text);">"HET moment<br>van onze bruiloft"</div>
               <div class="visual-headline gold-text" style="margin-top: 8px;">Boek Jouw<br>Moment</div>
-              <div class="visual-price-pill gold-pill">VANAF &euro;599</div><br>
+              <div class="visual-subtext">Vrijblijvend voorstel</div>
+              <div class="visual-price-pill gold-pill">&euro;599 &middot; HELE AVOND</div><br>
               <span class="visual-cta-btn gold-btn">VRAAG EEN OFFERTE AAN</span>
             </div>
           </div>
           <div class="ad-footer">
             <div class="ad-cta-domain">picyourbooth.nl</div>
             <div class="ad-headline">BOEK JOUW MOMENT</div>
-            <div class="ad-description">237+ events verzorgd in de Randstad</div>
+            <div class="ad-description">&euro;599 &middot; Hele avond &middot; Vrijblijvend voorstel</div>
             <div class="ad-cta-row">
               <span></span>
               <span class="ad-cta-button">Meer info</span>
@@ -1293,7 +1310,7 @@ tr:last-child td { border-bottom: none; }
             </div>
             <div class="ig-dots">...</div>
           </div>
-          <div class="ad-primary-text">'De Magic Mirror was HET moment van onze bruiloft.' -- Lisa &amp; Thomas, Amsterdam</div>
+          <div class="ad-primary-text">'De Magic Mirror was HET moment van onze bruiloft.' -- Lisa &amp; Thomas, Amsterdam. Vanaf &euro;599 de hele avond. Vraag een vrijblijvend voorstel aan.</div>
           <div class="ad-visual ratio-4-5 mirror-v4">
             <div class="mirror-shape"></div>
             <span class="visual-logo">PICYOURBOOTH</span>
@@ -1301,15 +1318,15 @@ tr:last-child td { border-bottom: none; }
               <div class="visual-subtext" style="font-style: italic; font-size: 0.85rem; color: var(--text);">"HET moment<br>van onze bruiloft"</div>
               <div class="visual-subtext">-- Lisa &amp; Thomas, Amsterdam</div>
               <div class="visual-headline gold-text" style="margin-top: 12px;">Boek Jouw<br>Moment</div>
-              <div class="visual-subtext">237+ events verzorgd in de Randstad</div>
-              <div class="visual-price-pill gold-pill">VANAF &euro;599</div><br>
+              <div class="visual-subtext">237+ events verzorgd &middot; Vrijblijvend voorstel</div>
+              <div class="visual-price-pill gold-pill">&euro;599 &middot; HELE AVOND</div><br>
               <span class="visual-cta-btn gold-btn">VRAAG EEN OFFERTE AAN</span>
             </div>
           </div>
           <div class="ad-footer">
             <div class="ad-cta-domain">picyourbooth.nl</div>
             <div class="ad-headline">BOEK JOUW MOMENT</div>
-            <div class="ad-description">237+ events verzorgd in de Randstad</div>
+            <div class="ad-description">&euro;599 &middot; Hele avond &middot; Vrijblijvend voorstel</div>
             <div class="ad-cta-row">
               <span></span>
               <span class="ad-cta-button">Meer info</span>
@@ -1326,10 +1343,11 @@ tr:last-child td { border-bottom: none; }
             <div class="visual-content">
               <div class="visual-subtext" style="font-style: italic; font-size: 0.85rem; color: var(--text);">"HET moment van<br>onze bruiloft"</div>
               <div class="visual-headline gold-text" style="margin-top: 10px; font-size: clamp(2.5rem, 6vw, 3.5rem);">Boek Jouw<br>Moment</div>
-              <div class="visual-price-pill gold-pill">VANAF &euro;599</div>
+              <div class="visual-subtext">Vrijblijvend voorstel</div>
+              <div class="visual-price-pill gold-pill">&euro;599 &middot; HELE AVOND</div>
             </div>
             <div class="stories-text-overlay">
-              <div class="stories-primary">'De Magic Mirror was HET moment van onze bruiloft.' -- Lisa &amp; Thomas</div>
+              <div class="stories-primary">'De Magic Mirror was HET moment van onze bruiloft.' Vanaf &euro;599 de hele avond.</div>
               <span class="stories-cta gold-cta">VRAAG EEN OFFERTE AAN</span>
             </div>
           </div>
@@ -1353,7 +1371,7 @@ tr:last-child td { border-bottom: none; }
       <h2 style="color: var(--warm);">Party Booth</h2>
       <p class="positioning">"Foto plezier voor elk feest -- vanaf &euro;200"</p>
       <p class="target"><strong>Target:</strong> Birthdays, house parties, any celebration</p>
-      <span class="price-anchor warm">Vanaf &euro;200</span>
+      <span class="price-anchor warm">Vanaf &euro;200 &middot; Alles Inbegrepen</span>
     </div>
 
     <!-- ---- Variation 1: Price Anchor Hook ---- -->
@@ -1367,7 +1385,7 @@ tr:last-child td { border-bottom: none; }
       <div class="copy-card">
         <div class="copy-field">
           <div class="copy-field-label">Primary Text</div>
-          <div class="copy-field-value">Photobooth huren vanaf &euro;200. Ophalen, neerzetten, lachen. Zo simpel is het.</div>
+          <div class="copy-field-value">Photobooth huren vanaf &euro;200 -- minder dan een etentje. Ophalen, neerzetten, lachen. Zo simpel is het. Check beschikbaarheid.</div>
         </div>
         <div class="copy-field">
           <div class="copy-field-label">Headline</div>
@@ -1375,7 +1393,7 @@ tr:last-child td { border-bottom: none; }
         </div>
         <div class="copy-field">
           <div class="copy-field-label">Description</div>
-          <div class="copy-field-value">Digitaal &middot; Direct delen &middot; Elk feest</div>
+          <div class="copy-field-value">&euro;200 &middot; Alles inbegrepen &middot; Elk feest</div>
         </div>
       </div>
 
@@ -1391,21 +1409,21 @@ tr:last-child td { border-bottom: none; }
             </div>
             <div class="ig-dots">...</div>
           </div>
-          <div class="ad-primary-text">Photobooth huren vanaf &euro;200. Ophalen, neerzetten, lachen. Zo simpel is het.</div>
+          <div class="ad-primary-text">Photobooth huren vanaf &euro;200 -- minder dan een etentje. Ophalen, neerzetten, lachen. Check beschikbaarheid.</div>
           <div class="ad-visual ratio-1-1 ipad-v1">
             <div class="party-dots"></div>
             <span class="visual-logo">PICYOURBOOTH</span>
             <div class="visual-content">
               <div class="visual-headline warm-text">iPad<br>Photobooth</div>
-              <div class="visual-subtext">Digitaal &middot; Direct delen &middot; Elk feest</div>
-              <div class="visual-price-pill warm-pill">VANAF &euro;200</div><br>
+              <div class="visual-subtext">Minder dan een etentje &middot; Alles inbegrepen</div>
+              <div class="visual-price-pill warm-pill">VANAF &euro;200 &middot; ALLES INBEGREPEN</div><br>
               <span class="visual-cta-btn warm-btn">BEKIJK PAKKETTEN</span>
             </div>
           </div>
           <div class="ad-footer">
             <div class="ad-cta-domain">picyourbooth.nl</div>
             <div class="ad-headline">PARTY BOOTH</div>
-            <div class="ad-description">Digitaal &middot; Direct delen &middot; Elk feest</div>
+            <div class="ad-description">&euro;200 &middot; Alles inbegrepen &middot; Elk feest</div>
             <div class="ad-cta-row">
               <span></span>
               <span class="ad-cta-button">Meer info</span>
@@ -1424,21 +1442,21 @@ tr:last-child td { border-bottom: none; }
             </div>
             <div class="ig-dots">...</div>
           </div>
-          <div class="ad-primary-text">Photobooth huren vanaf &euro;200. Ophalen, neerzetten, lachen. Zo simpel is het.</div>
+          <div class="ad-primary-text">Photobooth huren vanaf &euro;200 -- minder dan een etentje. Ophalen, neerzetten, lachen. Check beschikbaarheid.</div>
           <div class="ad-visual ratio-4-5 ipad-v1">
             <div class="party-dots"></div>
             <span class="visual-logo">PICYOURBOOTH</span>
             <div class="visual-content">
               <div class="visual-headline warm-text" style="font-size: clamp(2.5rem, 6vw, 3.5rem);">iPad<br>Photobooth</div>
-              <div class="visual-subtext">Ophalen, neerzetten, lachen<br>Zo simpel is het</div>
-              <div class="visual-price-pill warm-pill">VANAF &euro;200</div><br>
+              <div class="visual-subtext">Minder dan een etentje<br>Ophalen, neerzetten, lachen</div>
+              <div class="visual-price-pill warm-pill">VANAF &euro;200 &middot; ALLES INBEGREPEN</div><br>
               <span class="visual-cta-btn warm-btn">BEKIJK PAKKETTEN</span>
             </div>
           </div>
           <div class="ad-footer">
             <div class="ad-cta-domain">picyourbooth.nl</div>
             <div class="ad-headline">PARTY BOOTH</div>
-            <div class="ad-description">Digitaal &middot; Direct delen &middot; Elk feest</div>
+            <div class="ad-description">&euro;200 &middot; Alles inbegrepen &middot; Elk feest</div>
             <div class="ad-cta-row">
               <span></span>
               <span class="ad-cta-button">Meer info</span>
@@ -1454,11 +1472,11 @@ tr:last-child td { border-bottom: none; }
             <span class="visual-logo">PICYOURBOOTH</span>
             <div class="visual-content">
               <div class="visual-headline warm-text" style="font-size: clamp(2.5rem, 6vw, 3.5rem);">iPad<br>Photobooth</div>
-              <div class="visual-subtext">Digitaal &middot; Direct delen</div>
-              <div class="visual-price-pill warm-pill">VANAF &euro;200</div>
+              <div class="visual-subtext">Minder dan een etentje</div>
+              <div class="visual-price-pill warm-pill">VANAF &euro;200 &middot; ALLES INBEGREPEN</div>
             </div>
             <div class="stories-text-overlay">
-              <div class="stories-primary">Photobooth huren vanaf &euro;200. Ophalen, neerzetten, lachen.</div>
+              <div class="stories-primary">Photobooth huren vanaf &euro;200 -- minder dan een etentje. Check beschikbaarheid.</div>
               <span class="stories-cta warm-cta">BEKIJK PAKKETTEN</span>
             </div>
           </div>
@@ -1477,7 +1495,7 @@ tr:last-child td { border-bottom: none; }
       <div class="copy-card">
         <div class="copy-field">
           <div class="copy-field-label">Primary Text</div>
-          <div class="copy-field-value">Geen monteur. Geen handleiding. Geen gedoe. Ophalen, neerzetten, 5 minuten later lacht iedereen.</div>
+          <div class="copy-field-value">Geen monteur. Geen handleiding. Geen gedoe. Ophalen, neerzetten, 5 minuten later lacht iedereen. Goedkoper dan je denkt -- vanaf &euro;200.</div>
         </div>
         <div class="copy-field">
           <div class="copy-field-label">Headline</div>
@@ -1485,7 +1503,7 @@ tr:last-child td { border-bottom: none; }
         </div>
         <div class="copy-field">
           <div class="copy-field-label">Description</div>
-          <div class="copy-field-value">Vanaf &euro;200 &middot; Ophalen bij ons</div>
+          <div class="copy-field-value">Vanaf &euro;200 &middot; Goedkoper dan je denkt</div>
         </div>
       </div>
 
@@ -1501,13 +1519,13 @@ tr:last-child td { border-bottom: none; }
             </div>
             <div class="ig-dots">...</div>
           </div>
-          <div class="ad-primary-text">Geen monteur. Geen handleiding. Geen gedoe. Ophalen, neerzetten, 5 minuten later lacht iedereen.</div>
+          <div class="ad-primary-text">Geen monteur. Geen handleiding. Geen gedoe. Ophalen, neerzetten, 5 minuten later lacht iedereen. Goedkoper dan je denkt -- vanaf &euro;200.</div>
           <div class="ad-visual ratio-1-1 ipad-v2">
             <div class="party-dots"></div>
             <span class="visual-logo">PICYOURBOOTH</span>
             <div class="visual-content">
               <div class="visual-headline white-text">Zonder<br>Stress</div>
-              <div class="visual-subtext">Geen monteur &middot; Geen handleiding &middot; Geen gedoe</div>
+              <div class="visual-subtext">Goedkoper dan je denkt &middot; Geen gedoe</div>
               <div class="visual-price-pill warm-pill">VANAF &euro;200</div><br>
               <span class="visual-cta-btn warm-btn">BEKIJK PAKKETTEN</span>
             </div>
@@ -1515,7 +1533,7 @@ tr:last-child td { border-bottom: none; }
           <div class="ad-footer">
             <div class="ad-cta-domain">picyourbooth.nl</div>
             <div class="ad-headline">PHOTOBOOTH ZONDER STRESS</div>
-            <div class="ad-description">Vanaf &euro;200 &middot; Ophalen bij ons</div>
+            <div class="ad-description">Vanaf &euro;200 &middot; Goedkoper dan je denkt</div>
             <div class="ad-cta-row">
               <span></span>
               <span class="ad-cta-button">Meer info</span>
@@ -1534,13 +1552,13 @@ tr:last-child td { border-bottom: none; }
             </div>
             <div class="ig-dots">...</div>
           </div>
-          <div class="ad-primary-text">Geen monteur. Geen handleiding. Geen gedoe. Ophalen, neerzetten, 5 minuten later lacht iedereen.</div>
+          <div class="ad-primary-text">Geen monteur. Geen handleiding. Geen gedoe. Ophalen, neerzetten, 5 minuten later lacht iedereen. Goedkoper dan je denkt -- vanaf &euro;200.</div>
           <div class="ad-visual ratio-4-5 ipad-v2">
             <div class="party-dots"></div>
             <span class="visual-logo">PICYOURBOOTH</span>
             <div class="visual-content">
               <div class="visual-headline white-text" style="font-size: clamp(2.5rem, 6vw, 3.5rem);">Photobooth<br>Zonder Stress</div>
-              <div class="visual-subtext">Ophalen, neerzetten,<br>5 minuten later lacht iedereen</div>
+              <div class="visual-subtext">Goedkoper dan je denkt<br>Ophalen, neerzetten, lachen</div>
               <div class="visual-price-pill warm-pill">VANAF &euro;200</div><br>
               <span class="visual-cta-btn warm-btn">BEKIJK PAKKETTEN</span>
             </div>
@@ -1548,7 +1566,7 @@ tr:last-child td { border-bottom: none; }
           <div class="ad-footer">
             <div class="ad-cta-domain">picyourbooth.nl</div>
             <div class="ad-headline">PHOTOBOOTH ZONDER STRESS</div>
-            <div class="ad-description">Vanaf &euro;200 &middot; Ophalen bij ons</div>
+            <div class="ad-description">Vanaf &euro;200 &middot; Goedkoper dan je denkt</div>
             <div class="ad-cta-row">
               <span></span>
               <span class="ad-cta-button">Meer info</span>
@@ -1564,11 +1582,11 @@ tr:last-child td { border-bottom: none; }
             <span class="visual-logo">PICYOURBOOTH</span>
             <div class="visual-content">
               <div class="visual-headline warm-text" style="font-size: clamp(2.5rem, 6vw, 3.5rem);">Zonder<br>Stress</div>
-              <div class="visual-subtext">Geen monteur. Geen handleiding.</div>
+              <div class="visual-subtext">Goedkoper dan je denkt</div>
               <div class="visual-price-pill warm-pill">VANAF &euro;200</div>
             </div>
             <div class="stories-text-overlay">
-              <div class="stories-primary">Geen monteur. Geen handleiding. Geen gedoe. Ophalen, neerzetten, 5 minuten later lacht iedereen.</div>
+              <div class="stories-primary">Geen monteur. Geen gedoe. Goedkoper dan je denkt -- vanaf &euro;200.</div>
               <span class="stories-cta warm-cta">BEKIJK PAKKETTEN</span>
             </div>
           </div>
@@ -1587,7 +1605,7 @@ tr:last-child td { border-bottom: none; }
       <div class="copy-card">
         <div class="copy-field">
           <div class="copy-field-label">Primary Text</div>
-          <div class="copy-field-value">Je buurvrouw had er eentje op haar verjaardag. Nu wil iedereen in de straat er ook een. &#128248;</div>
+          <div class="copy-field-value">Je buurvrouw had er eentje op haar verjaardag. Nu wil iedereen in de straat er ook een. Ons meest geboekte product -- vanaf &euro;200. Populaire data bijna vol.</div>
         </div>
         <div class="copy-field">
           <div class="copy-field-label">Headline</div>
@@ -1595,7 +1613,7 @@ tr:last-child td { border-bottom: none; }
         </div>
         <div class="copy-field">
           <div class="copy-field-label">Description</div>
-          <div class="copy-field-value">Direct delen op WhatsApp &amp; Instagram</div>
+          <div class="copy-field-value">Meest geboekt &middot; Populaire data bijna vol</div>
         </div>
       </div>
 
@@ -1611,13 +1629,13 @@ tr:last-child td { border-bottom: none; }
             </div>
             <div class="ig-dots">...</div>
           </div>
-          <div class="ad-primary-text">Je buurvrouw had er eentje op haar verjaardag. Nu wil iedereen in de straat er ook een. &#128248;</div>
+          <div class="ad-primary-text">Je buurvrouw had er eentje op haar verjaardag. Nu wil iedereen in de straat er ook een. Ons meest geboekte product -- vanaf &euro;200. Populaire data bijna vol.</div>
           <div class="ad-visual ratio-1-1 ipad-v3">
             <div class="party-dots"></div>
             <span class="visual-logo">PICYOURBOOTH</span>
             <div class="visual-content">
               <div class="visual-headline warm-text">Iedereen<br>Wil Er Een</div>
-              <div class="visual-subtext">Direct delen op WhatsApp &amp; Instagram</div>
+              <div class="visual-subtext">Meest geboekte product &middot; Populaire data bijna vol</div>
               <div class="visual-price-pill warm-pill">VANAF &euro;200</div><br>
               <span class="visual-cta-btn warm-btn">HUUR NU</span>
             </div>
@@ -1625,7 +1643,7 @@ tr:last-child td { border-bottom: none; }
           <div class="ad-footer">
             <div class="ad-cta-domain">picyourbooth.nl</div>
             <div class="ad-headline">PARTY BOOTH -- VANAF &euro;200</div>
-            <div class="ad-description">Direct delen op WhatsApp &amp; Instagram</div>
+            <div class="ad-description">Meest geboekt &middot; Populaire data bijna vol</div>
             <div class="ad-cta-row">
               <span></span>
               <span class="ad-cta-button">Meer info</span>
@@ -1644,13 +1662,13 @@ tr:last-child td { border-bottom: none; }
             </div>
             <div class="ig-dots">...</div>
           </div>
-          <div class="ad-primary-text">Je buurvrouw had er eentje op haar verjaardag. Nu wil iedereen in de straat er ook een. &#128248;</div>
+          <div class="ad-primary-text">Je buurvrouw had er eentje op haar verjaardag. Nu wil iedereen in de straat er ook een. Ons meest geboekte product -- vanaf &euro;200. Populaire data bijna vol.</div>
           <div class="ad-visual ratio-4-5 ipad-v3">
             <div class="party-dots"></div>
             <span class="visual-logo">PICYOURBOOTH</span>
             <div class="visual-content">
               <div class="visual-headline warm-text" style="font-size: clamp(2.5rem, 6vw, 3.5rem);">Iedereen<br>Wil Er Een</div>
-              <div class="visual-subtext">De Party Booth die heel<br>de buurt wil hebben</div>
+              <div class="visual-subtext">Meest geboekte product<br>Populaire data bijna vol</div>
               <div class="visual-price-pill warm-pill">VANAF &euro;200</div><br>
               <span class="visual-cta-btn warm-btn">HUUR NU</span>
             </div>
@@ -1658,7 +1676,7 @@ tr:last-child td { border-bottom: none; }
           <div class="ad-footer">
             <div class="ad-cta-domain">picyourbooth.nl</div>
             <div class="ad-headline">PARTY BOOTH -- VANAF &euro;200</div>
-            <div class="ad-description">Direct delen op WhatsApp &amp; Instagram</div>
+            <div class="ad-description">Meest geboekt &middot; Populaire data bijna vol</div>
             <div class="ad-cta-row">
               <span></span>
               <span class="ad-cta-button">Meer info</span>
@@ -1674,11 +1692,11 @@ tr:last-child td { border-bottom: none; }
             <span class="visual-logo">PICYOURBOOTH</span>
             <div class="visual-content">
               <div class="visual-headline warm-text" style="font-size: clamp(2.5rem, 6vw, 3.5rem);">Iedereen<br>Wil Er Een</div>
-              <div class="visual-subtext">Direct delen via WhatsApp</div>
+              <div class="visual-subtext">Meest geboekte product</div>
               <div class="visual-price-pill warm-pill">VANAF &euro;200</div>
             </div>
             <div class="stories-text-overlay">
-              <div class="stories-primary">Je buurvrouw had er eentje op haar verjaardag. Nu wil iedereen in de straat er ook een. &#128248;</div>
+              <div class="stories-primary">Ons meest geboekte product -- vanaf &euro;200. Populaire data bijna vol. Check beschikbaarheid.</div>
               <span class="stories-cta warm-cta">HUUR NU</span>
             </div>
           </div>
@@ -1697,7 +1715,7 @@ tr:last-child td { border-bottom: none; }
       <div class="copy-card">
         <div class="copy-field">
           <div class="copy-field-label">Primary Text</div>
-          <div class="copy-field-value">Feestje zonder photobooth: 3 vage telefoonfotos. Feestje MET photobooth: 200 fotostrips en een WhatsApp-groep die ontploft.</div>
+          <div class="copy-field-value">Feestje zonder photobooth: &euro;0 en 3 vage telefoonfotos. Feestje MET photobooth: &euro;200 en 200 fotostrips + een WhatsApp-groep die ontploft. Check beschikbaarheid.</div>
         </div>
         <div class="copy-field">
           <div class="copy-field-label">Headline</div>
@@ -1705,7 +1723,7 @@ tr:last-child td { border-bottom: none; }
         </div>
         <div class="copy-field">
           <div class="copy-field-label">Description</div>
-          <div class="copy-field-value">Ophalen, feesten, inleveren -- vanaf &euro;200</div>
+          <div class="copy-field-value">Vanaf &euro;200 &middot; Ophalen, feesten, inleveren</div>
         </div>
       </div>
 
@@ -1721,13 +1739,13 @@ tr:last-child td { border-bottom: none; }
             </div>
             <div class="ig-dots">...</div>
           </div>
-          <div class="ad-primary-text">Feestje zonder photobooth: 3 vage telefoonfotos. Feestje MET photobooth: 200 fotostrips en een WhatsApp-groep die ontploft.</div>
+          <div class="ad-primary-text">Feestje zonder photobooth: &euro;0 en 3 vage telefoonfotos. Feestje MET photobooth: &euro;200 en 200 fotostrips + een WhatsApp-groep die ontploft.</div>
           <div class="ad-visual ratio-1-1 ipad-v4">
             <div class="party-dots"></div>
             <span class="visual-logo">PICYOURBOOTH</span>
             <div class="visual-content">
               <div class="visual-headline white-text">Maak Er<br>Een Feest Van</div>
-              <div class="visual-subtext">Van 3 telefoonfotos naar<br>200 fotostrips</div>
+              <div class="visual-subtext">ZONDER: &euro;0 en 3 fotos<br>MET: &euro;200 en 200 fotostrips</div>
               <div class="visual-price-pill warm-pill">VANAF &euro;200</div><br>
               <span class="visual-cta-btn warm-btn">BEKIJK PAKKETTEN</span>
             </div>
@@ -1735,7 +1753,7 @@ tr:last-child td { border-bottom: none; }
           <div class="ad-footer">
             <div class="ad-cta-domain">picyourbooth.nl</div>
             <div class="ad-headline">MAAK ER EEN FEEST VAN</div>
-            <div class="ad-description">Ophalen, feesten, inleveren -- vanaf &euro;200</div>
+            <div class="ad-description">Vanaf &euro;200 &middot; Ophalen, feesten, inleveren</div>
             <div class="ad-cta-row">
               <span></span>
               <span class="ad-cta-button">Meer info</span>
@@ -1754,7 +1772,7 @@ tr:last-child td { border-bottom: none; }
             </div>
             <div class="ig-dots">...</div>
           </div>
-          <div class="ad-primary-text">Feestje zonder photobooth: 3 vage telefoonfotos. Feestje MET photobooth: 200 fotostrips en een WhatsApp-groep die ontploft.</div>
+          <div class="ad-primary-text">Feestje zonder photobooth: &euro;0 en 3 vage telefoonfotos. Feestje MET photobooth: &euro;200 en 200 fotostrips + een WhatsApp-groep die ontploft.</div>
           <div class="ad-visual ratio-4-5 ipad-v4">
             <div class="party-dots"></div>
             <span class="visual-logo">PICYOURBOOTH</span>
@@ -1762,12 +1780,12 @@ tr:last-child td { border-bottom: none; }
               <div style="display: flex; gap: 12px; justify-content: center; margin-bottom: 16px;">
                 <div style="text-align: center;">
                   <div style="font-family: var(--font-display); font-size: 0.7rem; color: var(--text-muted); letter-spacing: 0.08em; margin-bottom: 4px;">ZONDER</div>
-                  <div style="font-family: var(--font-display); font-size: 1.4rem; color: var(--text-muted);">3 fotos</div>
+                  <div style="font-family: var(--font-display); font-size: 1.4rem; color: var(--text-muted);">&euro;0 &middot; 3 fotos</div>
                 </div>
                 <div style="color: var(--warm); font-family: var(--font-display); font-size: 1.6rem; align-self: center;">vs</div>
                 <div style="text-align: center;">
                   <div style="font-family: var(--font-display); font-size: 0.7rem; color: var(--warm); letter-spacing: 0.08em; margin-bottom: 4px;">MET</div>
-                  <div style="font-family: var(--font-display); font-size: 1.4rem; color: var(--warm);">200 strips</div>
+                  <div style="font-family: var(--font-display); font-size: 1.4rem; color: var(--warm);">&euro;200 &middot; 200 strips</div>
                 </div>
               </div>
               <div class="visual-headline white-text" style="font-size: clamp(2.2rem, 5vw, 3rem);">Maak Er<br>Een Feest Van</div>
@@ -1778,7 +1796,7 @@ tr:last-child td { border-bottom: none; }
           <div class="ad-footer">
             <div class="ad-cta-domain">picyourbooth.nl</div>
             <div class="ad-headline">MAAK ER EEN FEEST VAN</div>
-            <div class="ad-description">Ophalen, feesten, inleveren -- vanaf &euro;200</div>
+            <div class="ad-description">Vanaf &euro;200 &middot; Ophalen, feesten, inleveren</div>
             <div class="ad-cta-row">
               <span></span>
               <span class="ad-cta-button">Meer info</span>
@@ -1794,14 +1812,14 @@ tr:last-child td { border-bottom: none; }
             <span class="visual-logo">PICYOURBOOTH</span>
             <div class="visual-content">
               <div style="margin-bottom: 16px;">
-                <div style="font-family: var(--font-display); font-size: 0.7rem; color: var(--text-muted); letter-spacing: 0.08em;">ZONDER: 3 FOTOS</div>
-                <div style="font-family: var(--font-display); font-size: 0.7rem; color: var(--warm); letter-spacing: 0.08em; margin-top: 4px;">MET: 200 FOTOSTRIPS</div>
+                <div style="font-family: var(--font-display); font-size: 0.7rem; color: var(--text-muted); letter-spacing: 0.08em;">ZONDER: &euro;0 EN 3 FOTOS</div>
+                <div style="font-family: var(--font-display); font-size: 0.7rem; color: var(--warm); letter-spacing: 0.08em; margin-top: 4px;">MET: &euro;200 EN 200 FOTOSTRIPS</div>
               </div>
               <div class="visual-headline warm-text" style="font-size: clamp(2.5rem, 6vw, 3.5rem);">Maak Er<br>Een Feest Van</div>
               <div class="visual-price-pill warm-pill">VANAF &euro;200</div>
             </div>
             <div class="stories-text-overlay">
-              <div class="stories-primary">Van 3 vage telefoonfotos naar 200 fotostrips en een WhatsApp-groep die ontploft.</div>
+              <div class="stories-primary">Zonder: &euro;0 en 3 fotos. Met: &euro;200 en 200 fotostrips + een WhatsApp-groep die ontploft.</div>
               <span class="stories-cta warm-cta">BEKIJK PAKKETTEN</span>
             </div>
           </div>
@@ -2043,6 +2061,97 @@ tr:last-child td { border-bottom: none; }
         </tbody>
       </table>
     </div>
+
+  </section>
+
+  <!-- ============================================================
+       SCROLL-STOPPER TACTICS
+       ============================================================ -->
+  <section class="section">
+    <span class="section-label">Playbook</span>
+    <h2 class="section-title">Scroll-Stopper Tactics</h2>
+    <p class="section-desc">Checklist en tactieken verwerkt in elke ad hierboven.</p>
+
+    <h3>The 0.5 Second Rule</h3>
+    <p style="color:var(--text-muted); margin-bottom:32px; max-width:640px;">Je hebt een halve seconde. De headline moet SCHREEUWEN zonder te schreeuwen. Groot, helder, onmiddellijk duidelijk. Als iemand moet nadenken, ben je ze kwijt.</p>
+
+    <div class="table-wrap"><table>
+      <thead><tr><th>Tactic</th><th>Wat het doet</th><th>Hoe wij het toepassen</th></tr></thead>
+      <tbody>
+        <tr><td style="color:var(--gold);">Massive Typography</td><td>Headline neemt 40%+ van het visual in</td><td>Bebas Neue clamp(2.2-3.5rem) + triple text-shadow</td></tr>
+        <tr><td style="color:var(--gold);">Photo + Overlay</td><td>Eventfoto geeft context, overlay = leesbaarheid</td><td>Gradient 15-50%, brand color cast, vignette</td></tr>
+        <tr><td style="color:var(--gold);">Vignette</td><td>Donkere randen trekken oog naar centrum</td><td>inset box-shadow 60px op .ad-visual</td></tr>
+        <tr><td style="color:var(--gold);">Noise Texture</td><td>Filmic/premium feel, geen flat design</td><td>::before pseudo op .ad-visual, 2% opacity</td></tr>
+        <tr><td style="color:var(--gold);">One Message</td><td>Geen competitie tussen boodschappen</td><td>Elke ad = 1 hook. Nooit alles tegelijk.</td></tr>
+      </tbody>
+    </table></div>
+
+    <br>
+
+    <h3>Psychology Hooks</h3>
+    <div class="table-wrap"><table>
+      <thead><tr><th>Hook</th><th>Psychologie</th><th>Wanneer</th><th>PYB Voorbeeld</th></tr></thead>
+      <tbody>
+        <tr><td style="color:var(--gold);">Social Proof</td><td>Mensen volgen de massa</td><td>Prospecting</td><td>"237+ events. 4.9&#9733;. En nu jouw feest?"</td></tr>
+        <tr><td style="color:var(--gold);">Loss Aversion</td><td>Verliezen voelt 2x erger</td><td>Retargeting</td><td>"Zonder? Ze vergeten je feest binnen een dag."</td></tr>
+        <tr><td style="color:var(--gold);">Curiosity Gap</td><td>Open vraag trekt aan</td><td>Cold audience</td><td>"Wil je dat gasten 3 weken later nog appjes sturen?"</td></tr>
+        <tr><td style="color:var(--gold);">Testimonial</td><td>Echte social proof</td><td>Warm audience</td><td>"De Magic Mirror was HET moment van onze bruiloft"</td></tr>
+        <tr><td style="color:var(--warm);">Price Anchor</td><td>Lage prijs als eerste indruk</td><td>Prijsbewust</td><td>"Photobooth huren vanaf &euro;199"</td></tr>
+        <tr><td style="color:var(--warm);">Simplicity</td><td>Fogg: maak het makkelijk</td><td>Drempel verlagen</td><td>"Geen monteur. Geen handleiding. Geen gedoe."</td></tr>
+        <tr><td style="color:var(--warm);">FOMO</td><td>Sociale druk</td><td>Breed publiek</td><td>"Je buurvrouw had er eentje. Nu wil iedereen er een."</td></tr>
+        <tr><td style="color:var(--warm);">Before/After</td><td>Contrast = waarde voelbaar</td><td>Twijfelaars</td><td>"Zonder: 3 foto's. Met: 200 fotostrips."</td></tr>
+      </tbody>
+    </table></div>
+
+    <br>
+
+    <h3>Charm Pricing</h3>
+    <p style="color:var(--text-muted); margin-bottom:24px;">Prijzen op 9. Psychologisch een categorie lager.</p>
+    <div class="table-wrap"><table>
+      <thead><tr><th>Product</th><th>Oud</th><th>Charm</th><th>Effect</th></tr></thead>
+      <tbody>
+        <tr><td>Party Booth</td><td>&euro;200</td><td style="color:var(--warm);">&euro;199</td><td>Onder &euro;200 barrière</td></tr>
+        <tr><td>Magic Mirror XL</td><td>&euro;599</td><td style="color:var(--gold);">&euro;599</td><td>Al gecharmed</td></tr>
+        <tr><td>DJ Set (3 uur)</td><td>&euro;150</td><td>&euro;149</td><td>Onder &euro;150 drempel</td></tr>
+        <tr><td>Extra DJ uur</td><td>&euro;50</td><td>&euro;49</td><td>Onder &euro;50 barrière</td></tr>
+        <tr><td>Wedding Keepsakes</td><td>&euro;500</td><td style="color:var(--gold);">&euro;499</td><td>Onder &euro;500 — groot verschil</td></tr>
+        <tr><td>AI Achtergrond</td><td>&euro;40</td><td>&euro;39</td><td>Impulsterritorium</td></tr>
+      </tbody>
+    </table></div>
+
+    <br>
+
+    <h3>Pricing Framing In Ads</h3>
+    <div class="table-wrap"><table>
+      <thead><tr><th>Tactic</th><th>Niet doen</th><th>Wel doen</th></tr></thead>
+      <tbody>
+        <tr><td style="color:var(--gold);">Anchoring</td><td>"Mirror &euro;599"</td><td>"Fotograaf &euro;1000+. Mirror &euro;599 — hele avond."</td></tr>
+        <tr><td style="color:var(--gold);">Value Frame</td><td>"Vanaf &euro;599"</td><td>"&euro;599 &middot; HELE AVOND &middot; GEEN TIJDLIMIET"</td></tr>
+        <tr><td style="color:var(--warm);">Comparison</td><td>"Party Booth &euro;199"</td><td>"Minder dan een etentje — herinneringen voor altijd"</td></tr>
+        <tr><td style="color:var(--warm);">All-inclusive</td><td>"Vanaf &euro;199"</td><td>"&euro;199 &middot; ALLES INBEGREPEN"</td></tr>
+        <tr><td>Scarcity</td><td>"Boek nu"</td><td>"Populaire data bijna vol"</td></tr>
+        <tr><td>Urgency</td><td>"Neem contact op"</td><td>"Nog 3 weekenden vrij in juni"</td></tr>
+      </tbody>
+    </table></div>
+
+    <br>
+
+    <h3>Creative Checklist</h3>
+    <div class="table-wrap"><table>
+      <thead><tr><th>Check</th><th>Waarom</th></tr></thead>
+      <tbody>
+        <tr><td>Headline leesbaar in 0.5s?</td><td>85% scrollt zonder te stoppen</td></tr>
+        <tr><td>Werkt zonder geluid?</td><td>85% bekijkt zonder geluid</td></tr>
+        <tr><td>&Eacute;&eacute;n duidelijke boodschap?</td><td>Meerdere = geen boodschap</td></tr>
+        <tr><td>Prijs zichtbaar?</td><td>Filtert en kwalificeert</td></tr>
+        <tr><td>CTA triggert actie?</td><td>"Check beschikbaarheid" > "Meer info"</td></tr>
+        <tr><td>Echte foto (geen stock)?</td><td>Eventfoto's winnen altijd</td></tr>
+        <tr><td>Message match met LP?</td><td>Mismatch = 30-60% bounce</td></tr>
+        <tr><td>Safe zones (9:16)?</td><td>Top 14% + bottom 18% = platform UI</td></tr>
+        <tr><td>Mobile-first?</td><td>95%+ op telefoon</td></tr>
+        <tr><td>Test 1 variabele?</td><td>Hook OF visual OF CTA — nooit alles</td></tr>
+      </tbody>
+    </table></div>
 
   </section>
 
