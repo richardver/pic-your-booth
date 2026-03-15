@@ -20,9 +20,9 @@ Photobooth operator & DJ at Pic Your Booth. Richard's son.
 
 ### TikTok
 DJ Gianni
-Meezingers | Afro | Dance
+Afro Beats | Caribbean | Nederlands | Hits
 Elke set volle energie
 info@picyourbooth.nl
 
 ### SoundCloud
-DJ Gianni — Jonge DJ uit Nederland. Mixt meezingers, afro en dancemuziek tot high-energy sets. Geef me je playlist, ik maak er een feestje van. Boekingen: info@picyourbooth.nl
+DJ Gianni — Jonge DJ uit Nederland. Mixt afro beats, afro en dancemuziek tot high-energy sets. Geef me je playlist, ik maak er een feestje van. Boekingen: info@picyourbooth.nl

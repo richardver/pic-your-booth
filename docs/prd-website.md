@@ -156,7 +156,7 @@ Cyan:          #22d3ee (Milo)
 
 1. **Nav** (same, DJs link active)
 2. **Hero** — Background DJ photo (blurred, 0.15 opacity). Gradient text (coral → violet → cyan): "JOUW FEEST, ONZE DJS". Subtitle with €149 pricing and Spotify mention. Waveform decoration (subtle animated bars).
-3. **DJ Gianni Profile** — Avatar (real photo: dj-luca-profiel.jpeg) with EQ bars. Name in coral. Tagline, bio, genre tags (Meezingers, Afro, Feest), socials (IG, TT, SC). Recent sets list with play/pause.
+3. **DJ Gianni Profile** — Avatar (real photo: dj-luca-profiel.jpeg) with EQ bars. Name in coral. Tagline, bio, genre tags (Afro Beats, Caribbean, Nederlands, Hits), socials (IG, TT, SC). Recent sets list with play/pause.
 4. **Milo Profile** — Same structure, cyan accent. Avatar placeholder. Genre tags (House, Techno, Deep).
 5. **Spotify Section** — "ALLEEN BIJ PICYOURBOOTH" badge (violet). "STUUR JE PLAYLIST, KRIJG EEN PROFESSIONELE SET". Playlist visual with track bars. CTA: "PLAN JE FEEST MET ONS" (violet).
 6. **How It Works** — "IN 3 STAPPEN GEREGELD". Three steps with violet left border:

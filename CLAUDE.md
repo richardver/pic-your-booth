@@ -6,7 +6,7 @@ Premium photobooth & DJ entertainment brand. Standalone brand under Pic Your Mom
 
 - **Party Booth** — Digital photobooth, vanaf €199
 - **Magic Mirror XL** — Premium DSLR photobooth, vanaf €599
-- **DJs** — DJ Gianni (meezingers, afro, feest) & Milo (house, techno), vanaf €149
+- **DJs** — DJ Gianni (afro beats, caribbean, nederlands, hits) & Milo (house, techno), vanaf €149
 
 ## Team
 
