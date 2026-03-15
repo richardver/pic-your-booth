@@ -3,11 +3,11 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Pic Your Booth — DJ Design System</title>
+<title>PicYourBooth — DJ Design System</title>
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
 /* ═══════════════════════════════════════════════════
-   PIC YOUR BOOTH — DJ DESIGN SYSTEM
+   PICYOURBOOTH — DJ DESIGN SYSTEM
    Nightlife Premium. Dark clubs. Neon fire.
    ═══════════════════════════════════════════════════ */
 
@@ -35,8 +35,7 @@
   /* Shared — DJ Hub accent (pairs with gold from photobooth) */
   --violet: #8b5cf6;
   --violet-dim: rgba(139,92,246,0.12);
-  --pink: #e839a0;
-  --pink-dim: rgba(232,57,160,0.12);
+  /* pink removed — violet is the only shared accent */
   --spotify: #1db954;
   --spotify-dim: rgba(29,185,84,0.10);
 
@@ -109,7 +108,7 @@ body::after {
   font-family: var(--font-display);
   font-size: clamp(48px, 6vw, 80px);
   letter-spacing: 0.04em;
-  background: linear-gradient(135deg, var(--gi), var(--pink), var(--mi));
+  background: linear-gradient(135deg, var(--gi), var(--violet), var(--mi));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -318,7 +317,7 @@ body::after {
   font-size: clamp(72px, 12vw, 160px);
   letter-spacing: 0.06em;
   line-height: 0.9;
-  background: linear-gradient(135deg, var(--gi) 0%, var(--pink) 50%, var(--mi) 100%);
+  background: linear-gradient(135deg, var(--gi) 0%, var(--violet) 50%, var(--mi) 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -644,7 +643,7 @@ body::after {
   transform: translate(-50%, -50%);
   width: 500px;
   height: 500px;
-  background: radial-gradient(ellipse, rgba(29,185,84,0.06) 0%, transparent 70%);
+  background: radial-gradient(ellipse, rgba(139,92,246,0.04) 0%, transparent 70%);
   pointer-events: none;
 }
 
@@ -779,7 +778,7 @@ body::after {
   align-items: center;
   gap: var(--sp-2);
   padding: 12px 32px;
-  background: var(--pink);
+  background: var(--violet);
   color: #fff;
   font-family: var(--font-display);
   font-size: 17px;
@@ -788,11 +787,11 @@ body::after {
   border-radius: var(--r-pill);
   cursor: pointer;
   transition: all 0.3s;
-  box-shadow: 0 0 24px rgba(232,57,160,0.2);
+  box-shadow: 0 0 24px rgba(139,92,246,0.2);
   text-decoration: none;
 }
 .btn-spotify:hover {
-  box-shadow: 0 0 40px rgba(232,57,160,0.4);
+  box-shadow: 0 0 40px rgba(139,92,246,0.4);
   transform: translateY(-2px);
 }
 
@@ -1247,8 +1246,8 @@ body::after {
 
 .btn-violet { background: var(--violet); color: #fff; box-shadow: 0 0 16px rgba(139,92,246,0.2); }
 .btn-violet:hover { box-shadow: 0 0 28px rgba(139,92,246,0.4); transform: translateY(-1px); }
-.btn-pink { background: var(--pink); color: #fff; box-shadow: 0 0 16px rgba(232,57,160,0.2); }
-.btn-pink:hover { box-shadow: 0 0 28px rgba(232,57,160,0.4); transform: translateY(-1px); }
+.btn-violet-alt { background: var(--violet); color: #fff; box-shadow: 0 0 16px rgba(139,92,246,0.2); }
+.btn-violet-alt:hover { box-shadow: 0 0 28px rgba(139,92,246,0.4); transform: translateY(-1px); }
 
 .btn-ghost {
   background: transparent;
@@ -1274,7 +1273,7 @@ body::after {
 
 .tag-amber { background: var(--gi-dim); color: var(--gi-light); border: 1px solid rgba(255,143,31,0.15); }
 .tag-blue { background: var(--mi-dim); color: var(--mi-light); border: 1px solid rgba(59,130,246,0.15); }
-.tag-pink { background: var(--pink-dim); color: #f472b6; border: 1px solid rgba(232,57,160,0.15); }
+.tag-violet { background: var(--violet-dim); color: #a78bfa; border: 1px solid rgba(139,92,246,0.15); }
 .tag-green { background: var(--spotify-dim); color: var(--spotify); border: 1px solid rgba(29,185,84,0.15); }
 
 /* ── FOOTER ─────────────────────────────────────── */
@@ -1307,7 +1306,7 @@ body::after {
        ═══════════════════════════════════════ -->
   <header class="ds-doc-header">
     <h1 class="ds-doc-title">DJ DESIGN SYSTEM</h1>
-    <p class="ds-doc-sub">Pic Your Booth &mdash; Nightlife Premium</p>
+    <p class="ds-doc-sub">PicYourBooth &mdash; Nightlife Premium</p>
   </header>
 
 
@@ -1328,7 +1327,7 @@ body::after {
 
       <!-- Nav -->
       <nav class="dj-nav">
-        <div class="dj-nav-logo">PIC YOUR BOOTH</div>
+        <div class="dj-nav-logo">PICYOURBOOTH</div>
         <ul class="dj-nav-links">
           <li><a href="#">Home</a></li>
           <li><a href="#">Photobooths</a></li>
@@ -1418,7 +1417,7 @@ body::after {
             <div class="spl-icon">&#9835;</div>
             <div class="spl-meta">
               <strong>Jouw Feest Playlist</strong>
-              <span>42 nummers &bull; geoptimaliseerd door Pic Your Booth</span>
+              <span>42 nummers &bull; geoptimaliseerd door PicYourBooth</span>
             </div>
           </div>
           <div class="spl-track"><span class="spl-track-num">1</span><div class="spl-track-bar"></div><span class="spl-track-dur">3:24</span></div>
@@ -1547,8 +1546,8 @@ body::after {
       </div>
 
       <footer class="dj-footer">
-        <div class="footer-logo">PIC YOUR BOOTH</div>
-        <p>&copy; 2026 Pic Your Booth. Alle rechten voorbehouden.</p>
+        <div class="footer-logo">PICYOURBOOTH</div>
+        <p>&copy; 2026 PicYourBooth. Alle rechten voorbehouden.</p>
       </footer>
 
     </div>
@@ -1585,8 +1584,8 @@ body::after {
       <div class="swatch-info"><div class="swatch-name">Milo Blue</div><div class="swatch-hex">#3b82f6</div></div>
     </div>
     <div class="swatch">
-      <div class="swatch-color" style="background:#e839a0;"></div>
-      <div class="swatch-info"><div class="swatch-name">Neon Pink</div><div class="swatch-hex">#e839a0</div></div>
+      <div class="swatch-color" style="background:#8b5cf6;"></div>
+      <div class="swatch-info"><div class="swatch-name">Violet</div><div class="swatch-hex">#8b5cf6</div></div>
     </div>
     <div class="swatch">
       <div class="swatch-color" style="background:#1db954;"></div>
@@ -1634,7 +1633,7 @@ body::after {
     </div>
     <div class="type-row">
       <div class="type-label">Gradient Text</div>
-      <div class="type-sample" style="font-family:var(--font-display);font-size:48px;line-height:1;letter-spacing:0.04em;background:linear-gradient(135deg,var(--gi),var(--pink),var(--mi));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">NIGHTLIFE PREMIUM</div>
+      <div class="type-sample" style="font-family:var(--font-display);font-size:48px;line-height:1;letter-spacing:0.04em;background:linear-gradient(135deg,var(--gi),var(--violet),var(--mi));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">NIGHTLIFE PREMIUM</div>
     </div>
   </div>
 
@@ -1667,7 +1666,7 @@ body::after {
     <span class="tag-demo tag-blue">House</span>
     <span class="tag-demo tag-blue">Techno</span>
     <span class="tag-demo tag-blue">Deep</span>
-    <span class="tag-demo tag-pink">DJ Set</span>
+    <span class="tag-demo tag-violet">DJ Set</span>
     <span class="tag-demo tag-green">Playlist</span>
   </div>
 
