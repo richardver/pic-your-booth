@@ -245,21 +245,22 @@ body::after {
 
 .btn-book-nav {
   padding: 8px 24px;
-  background: var(--violet);
-  color: #fff;
+  background: #d4b14e;
+  color: #0a0a0a;
   font-family: var(--font-display);
   font-size: 15px;
+  font-weight: 700;
   letter-spacing: 0.08em;
   border: none;
   border-radius: var(--r-pill);
   cursor: pointer;
   text-decoration: none;
   transition: all 0.3s;
-  box-shadow: 0 0 20px rgba(139,92,246,0.25);
+  box-shadow: 0 0 20px rgba(212,177,78,0.15);
 }
 .btn-book-nav:hover {
-  background: #7c3aed;
-  box-shadow: 0 0 30px rgba(139,92,246,0.4);
+  background: #ddb960;
+  box-shadow: 0 0 30px rgba(212,177,78,0.3);
   transform: translateY(-1px);
 }
 
@@ -652,12 +653,12 @@ body::after {
   align-items: center;
   gap: var(--sp-2);
   padding: 6px 16px;
-  background: var(--spotify-dim);
-  border: 1px solid rgba(29,185,84,0.15);
+  background: rgba(255,255,255,0.03);
+  border: 1px solid var(--border);
   border-radius: var(--r-pill);
   font-size: 12px;
   font-weight: 600;
-  color: var(--spotify);
+  color: var(--muted);
   text-transform: uppercase;
   letter-spacing: 0.1em;
   margin-bottom: var(--sp-6);
@@ -710,12 +711,13 @@ body::after {
   width: 40px;
   height: 40px;
   border-radius: var(--r-sm);
-  background: var(--spotify);
+  background: rgba(29,185,84,0.15);
+  border: 1px solid rgba(29,185,84,0.2);
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 20px;
-  color: #fff;
+  color: var(--spotify);
 }
 
 .spl-meta {
@@ -758,7 +760,7 @@ body::after {
   left: 0;
   height: 100%;
   border-radius: 2px;
-  background: var(--spotify);
+  background: rgba(237,237,240,0.20);
 }
 .spl-track:nth-child(2) .spl-track-bar::after { width: 85%; }
 .spl-track:nth-child(3) .spl-track-bar::after { width: 62%; }
@@ -1329,11 +1331,11 @@ body::after {
       <nav class="dj-nav">
         <div class="dj-nav-logo">PICYOURBOOTH</div>
         <ul class="dj-nav-links">
-          <li><a href="#">Home</a></li>
-          <li><a href="#">Photobooths</a></li>
+          <li><a href="#">iPad Photobooth</a></li>
+          <li><a href="#">Magic Mirror XL</a></li>
           <li><a href="#" style="color:var(--white);">DJs</a></li>
           <li><a href="#">Contact</a></li>
-          <li><a href="#" class="btn-book-nav">BOEK EEN DJ</a></li>
+          <li><a href="#" class="btn-book-nav">BOEK JE ERVARING</a></li>
         </ul>
       </nav>
 
