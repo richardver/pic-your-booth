@@ -8,7 +8,7 @@
 <style>
 /* ============================================================
    PICYOURBOOTH — DESIGN SYSTEM
-   Crafted once. Dark luxury. Gold accent. No compromises.
+   Less is more. Typography is the design. Whitespace is luxury.
    ============================================================ */
 
 /* -- Design Tokens ----------------------------------------- */
@@ -26,7 +26,7 @@
   --gold-dim:    rgba(212, 177, 78, 0.10);
   --gold-glow:   rgba(212, 177, 78, 0.20);
   --violet:      #8b5cf6;
-  --violet-dim:  rgba(139, 92, 246, 0.10);
+  --violet-dim:  rgba(139, 92, 246, 0.12);
   --success:     #34d399;
 
   --font-display: 'Bebas Neue', Impact, sans-serif;
@@ -75,18 +75,6 @@ h1, h2, h3, h4, h5, h6 {
     transition-duration: 0.01ms;
   }
   html { scroll-behavior: auto; }
-}
-
-/* -- Film Grain Overlay ------------------------------------ */
-.grain-overlay {
-  position: fixed;
-  inset: 0;
-  pointer-events: none;
-  z-index: 9999;
-  opacity: 0.015;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-  background-repeat: repeat;
-  background-size: 180px;
 }
 
 /* -- Document Shell ---------------------------------------- */
@@ -266,10 +254,19 @@ h1, h2, h3, h4, h5, h6 {
   background-clip: text;
 }
 
+/* -- Gold Section Divider ---------------------------------- */
+.gold-divider {
+  width: 48px;
+  height: 1px;
+  background: var(--gold);
+  margin: 0 auto;
+  opacity: 0.4;
+}
+
 /* -- Homepage Hero ----------------------------------------- */
 .hero {
   text-align: center;
-  padding: 96px 32px 64px;
+  padding: 120px 32px 80px;
   position: relative;
   overflow: hidden;
   display: flex;
@@ -286,116 +283,70 @@ h1, h2, h3, h4, h5, h6 {
   background-image: url('https://images.unsplash.com/photo-1519671482749-fd09be7ccebf?w=1600&q=80&auto=format');
   background-size: cover;
   background-position: center 40%;
-  opacity: 0.18;
-  animation: heroShift 20s ease-in-out infinite;
+  opacity: 0.15;
   pointer-events: none;
 }
 
-/* Dark overlay with gold warmth */
+/* Simple dark gradient overlay */
 .hero-overlay {
   position: absolute;
   inset: 0;
-  background:
-    linear-gradient(180deg,
-      transparent 0%,
-      rgba(8, 8, 11, 0.3) 50%,
-      rgba(8, 8, 11, 0.85) 80%,
-      rgba(8, 8, 11, 1) 100%
-    ),
-    radial-gradient(ellipse at 50% 10%,
-      rgba(212, 177, 78, 0.12) 0%,
-      rgba(212, 177, 78, 0.04) 40%,
-      transparent 70%
-    ),
-    radial-gradient(ellipse at 20% 50%,
-      rgba(212, 177, 78, 0.06) 0%,
-      transparent 50%
-    );
+  background: linear-gradient(180deg,
+    rgba(8, 8, 11, 0.4) 0%,
+    rgba(8, 8, 11, 0.7) 60%,
+    rgba(8, 8, 11, 1) 100%
+  );
   pointer-events: none;
-  z-index: 1;
-}
-
-/* Floating bokeh dots */
-.hero::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background:
-    radial-gradient(circle 3px at 15% 25%, rgba(200, 164, 76, 0.25) 0%, transparent 100%),
-    radial-gradient(circle 4px at 75% 20%, rgba(200, 164, 76, 0.15) 0%, transparent 100%),
-    radial-gradient(circle 2px at 60% 70%, rgba(200, 164, 76, 0.20) 0%, transparent 100%),
-    radial-gradient(circle 5px at 30% 55%, rgba(200, 164, 76, 0.10) 0%, transparent 100%),
-    radial-gradient(circle 2px at 45% 35%, rgba(200, 164, 76, 0.18) 0%, transparent 100%),
-    radial-gradient(circle 4px at 20% 80%, rgba(200, 164, 76, 0.08) 0%, transparent 100%);
-  animation: bokehFloat 15s ease-in-out infinite;
-  pointer-events: none;
-  opacity: 0.7;
   z-index: 1;
 }
 
 .hero-content {
   position: relative;
   z-index: 2;
+  animation: heroFadeUp 0.8s var(--ease-out) both;
+}
+
+@keyframes heroFadeUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
 }
 
 .hero-title {
   font-size: clamp(2.5rem, 5vw, 3.5rem);
   letter-spacing: 0.08em;
-  margin-bottom: 16px;
+  margin-bottom: 20px;
 }
 
 .hero-subtitle {
   font-size: 1.15rem;
   color: var(--text-muted);
   max-width: 560px;
-  margin: 0 auto 32px;
+  margin: 0 auto;
   font-weight: 400;
   line-height: 1.7;
-}
-
-@keyframes heroShift {
-  0%, 100% { transform: scale(1); }
-  50% { transform: scale(1.03); }
-}
-
-@keyframes bokehFloat {
-  0%, 100% { transform: translate(0, 0); opacity: 0.7; }
-  33% { transform: translate(8px, -5px); opacity: 0.9; }
-  66% { transform: translate(-5px, 3px); opacity: 0.6; }
 }
 
 /* -- Social Proof Bar -------------------------------------- */
 .proof-bar {
   display: flex;
   justify-content: center;
-  gap: 48px;
-  padding: 40px 32px;
-  margin-top: 48px;
+  align-items: center;
+  gap: 40px;
+  padding: 32px;
+  margin-top: 64px;
   width: 100%;
   position: relative;
   z-index: 2;
 }
 
-.proof-bar::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(180deg, rgba(200, 164, 76, 0.03) 0%, transparent 100%);
-  border-top: 1px solid rgba(200, 164, 76, 0.10);
-  border-bottom: 1px solid rgba(200, 164, 76, 0.10);
-  pointer-events: none;
-}
-
 .proof-item {
   text-align: center;
-  position: relative;
-  z-index: 1;
 }
 
 .proof-number {
   display: block;
   font-family: var(--font-display);
-  font-size: 2.5rem;
+  font-size: 2.25rem;
   letter-spacing: 0.04em;
   color: var(--gold);
   line-height: 1;
@@ -413,9 +364,9 @@ h1, h2, h3, h4, h5, h6 {
 
 .proof-divider {
   width: 1px;
-  height: 48px;
-  background: linear-gradient(180deg, transparent, rgba(200, 164, 76, 0.15), transparent);
-  align-self: center;
+  height: 40px;
+  background: var(--gold);
+  opacity: 0.2;
 }
 
 /* -- Service Cards Grid ------------------------------------ */
@@ -423,7 +374,7 @@ h1, h2, h3, h4, h5, h6 {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 24px;
-  padding: 32px;
+  padding: 96px 32px 64px;
   max-width: 960px;
   margin: 0 auto;
 }
@@ -431,49 +382,21 @@ h1, h2, h3, h4, h5, h6 {
 @media (max-width: 768px) {
   .services-grid {
     grid-template-columns: 1fr;
-    padding: 24px 16px;
+    padding: 48px 16px;
   }
 }
 
 .service-card {
-  background: var(--surface);
-  border-radius: var(--r-md);
-  padding: 24px;
-  border: 1px solid var(--border);
-  border-top: 2px solid transparent;
+  padding: 32px 24px;
   display: flex;
   flex-direction: column;
   position: relative;
-  transition:
-    transform 0.35s var(--ease-out),
-    box-shadow 0.35s var(--ease-out),
-    border-color 0.35s;
-  box-shadow:
-    0 2px 8px rgba(0, 0, 0, 0.15),
-    inset 0 1px 0 rgba(255, 255, 255, 0.02);
-}
-
-.service-card:hover {
-  transform: translateY(-4px);
-  box-shadow:
-    0 16px 48px rgba(0, 0, 0, 0.35),
-    inset 0 1px 0 rgba(255, 255, 255, 0.04);
-  border-color: var(--border-hover);
-}
-
-.service-card--gold {
-  border-top-color: var(--gold);
-}
-
-.service-card--violet {
-  border-top-color: var(--violet);
 }
 
 .service-card__badge {
   position: absolute;
-  top: -12px;
-  left: 50%;
-  transform: translateX(-50%);
+  top: 0;
+  left: 0;
   font-family: var(--font-display);
   font-size: 0.7rem;
   letter-spacing: 0.08em;
@@ -482,40 +405,34 @@ h1, h2, h3, h4, h5, h6 {
   padding: 4px 14px;
   border-radius: var(--r-pill);
   white-space: nowrap;
-  z-index: 1;
 }
 
-.service-card__icon {
-  width: 44px;
-  height: 44px;
-  border-radius: var(--r-sm);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1.25rem;
-  margin-bottom: 16px;
+.service-card__dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  margin-bottom: 20px;
+  flex-shrink: 0;
 }
 
-.service-card__icon--gold {
-  background: var(--gold-dim);
-  color: var(--gold);
+.service-card__dot--gold {
+  background: var(--gold);
 }
 
-.service-card__icon--violet {
-  background: var(--violet-dim);
-  color: var(--violet);
+.service-card__dot--violet {
+  background: var(--violet);
 }
 
 .service-card__title {
   font-size: 1.25rem;
   letter-spacing: 0.04em;
-  margin-bottom: 8px;
+  margin-bottom: 12px;
 }
 
 .service-card__desc {
   font-size: 0.85rem;
   color: var(--text-muted);
-  margin-bottom: 16px;
+  margin-bottom: 24px;
   line-height: 1.6;
   flex: 1;
 }
@@ -557,11 +474,23 @@ h1, h2, h3, h4, h5, h6 {
 /* -- Testimonial ------------------------------------------- */
 .testimonial {
   text-align: center;
-  padding: 24px 32px 48px;
+  padding: 64px 32px;
   max-width: 700px;
   margin: 0 auto;
   position: relative;
   z-index: 2;
+}
+
+.testimonial .gold-divider {
+  margin-bottom: 48px;
+}
+
+.testimonial .gold-divider-bottom {
+  width: 48px;
+  height: 1px;
+  background: var(--gold);
+  margin: 48px auto 0;
+  opacity: 0.4;
 }
 
 .testimonial blockquote {
@@ -583,34 +512,14 @@ h1, h2, h3, h4, h5, h6 {
 
 /* -- Product Page Hero ------------------------------------- */
 .product-hero {
-  padding: 80px 32px 24px;
+  padding: 96px 32px 48px;
   text-align: center;
-  position: relative;
-  overflow: hidden;
-}
-
-.product-hero::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 50%;
-  height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(200, 164, 76, 0.03), transparent);
-  animation: lightSweep 8s ease-in-out infinite;
-  pointer-events: none;
-}
-
-@keyframes lightSweep {
-  0% { left: -50%; }
-  50% { left: 100%; }
-  100% { left: -50%; }
 }
 
 .product-hero__title {
   font-size: clamp(2.5rem, 5vw, 3.5rem);
   letter-spacing: 0.08em;
-  margin-bottom: 12px;
+  margin-bottom: 16px;
 }
 
 .product-hero__subtitle {
@@ -623,8 +532,7 @@ h1, h2, h3, h4, h5, h6 {
 
 /* -- USP Section ------------------------------------------- */
 .usp-section {
-  padding: 48px 32px;
-  border-top: 1px solid var(--border);
+  padding: 96px 32px;
 }
 
 .usp-section__title {
@@ -633,96 +541,50 @@ h1, h2, h3, h4, h5, h6 {
   letter-spacing: 0.06em;
   text-transform: uppercase;
   text-align: center;
-  margin-bottom: 32px;
+  margin-bottom: 56px;
   color: var(--text);
 }
 
-.usp-grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 16px;
-  max-width: 640px;
+.usp-list {
+  max-width: 600px;
   margin: 0 auto;
-}
-
-.usp-card {
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: var(--r-lg);
-  overflow: hidden;
   display: flex;
-  flex-direction: row;
-  transition:
-    transform 0.4s var(--ease-out),
-    box-shadow 0.4s var(--ease-out),
-    border-color 0.35s;
-  animation: uspReveal 0.7s var(--ease-out) both;
+  flex-direction: column;
+  gap: 32px;
 }
 
-.usp-card:nth-child(1) { animation-delay: 0.1s; }
-.usp-card:nth-child(2) { animation-delay: 0.2s; }
-.usp-card:nth-child(3) { animation-delay: 0.3s; }
-.usp-card:nth-child(4) { animation-delay: 0.4s; }
-
-.usp-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.25);
-  border-color: var(--border-hover);
+.usp-item {
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
 }
 
-@keyframes uspReveal {
-  from { opacity: 0; transform: translateY(20px); }
-  to   { opacity: 1; transform: translateY(0); }
-}
-
-.usp-card__visual {
-  width: 120px;
-  min-height: 100px;
+.usp-item__img {
+  width: 80px;
+  height: 80px;
+  border-radius: var(--r-sm);
   flex-shrink: 0;
-  position: relative;
-  overflow: hidden;
-  background: linear-gradient(135deg, rgba(200, 164, 76, 0.08) 0%, rgba(200, 164, 76, 0.02) 60%, var(--surface) 100%);
+  background-size: cover;
+  background-position: center;
+  border: 1px solid var(--border);
 }
 
-.usp-card__visual::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 50%;
-  height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.03), transparent);
-  animation: uspShimmer 4s ease-in-out infinite;
+.usp-item__text {
+  flex: 1;
+  border-left: 2px solid var(--gold);
+  padding-left: 20px;
 }
 
-@keyframes uspShimmer {
-  0%   { left: -50%; }
-  100% { left: 150%; }
-}
-
-.usp-card__visual-icon {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  font-size: 48px;
-  opacity: 0.15;
-}
-
-.usp-card__body {
-  padding: 20px;
-}
-
-.usp-card__title {
+.usp-item__title {
   font-family: var(--font-display);
   font-size: 1.1rem;
   letter-spacing: 0.06em;
   text-transform: uppercase;
-  margin-bottom: 8px;
+  margin-bottom: 6px;
   color: var(--gold);
 }
 
-.usp-card__desc {
+.usp-item__desc {
   font-size: 0.85rem;
   color: var(--text-muted);
   line-height: 1.6;
@@ -732,7 +594,7 @@ h1, h2, h3, h4, h5, h6 {
 .builder {
   max-width: 640px;
   margin: 0 auto;
-  padding: 48px 32px;
+  padding: 96px 32px;
 }
 
 .builder-heading {
@@ -747,15 +609,15 @@ h1, h2, h3, h4, h5, h6 {
   text-align: center;
   color: var(--text-muted);
   font-size: 0.9rem;
-  margin-bottom: 32px;
+  margin-bottom: 48px;
 }
 
 .builder-base {
   background: var(--surface);
   border-radius: var(--r-md);
-  padding: 24px;
+  padding: 28px;
   border: 1px solid var(--border);
-  margin-bottom: 32px;
+  margin-bottom: 40px;
   position: relative;
   background-image: linear-gradient(135deg, rgba(212, 177, 78, 0.04) 0%, transparent 60%);
 }
@@ -785,7 +647,7 @@ h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-display);
   font-size: 2rem;
   letter-spacing: 0.04em;
-  margin-bottom: 12px;
+  margin-bottom: 16px;
   color: var(--gold);
 }
 
@@ -984,18 +846,18 @@ h1, h2, h3, h4, h5, h6 {
 
 /* -- Form -------------------------------------------------- */
 .form-wrapper {
-  padding: 64px 32px;
+  padding: 96px 32px;
 }
 
 .form-header {
   text-align: center;
-  margin-bottom: 40px;
+  margin-bottom: 48px;
 }
 
 .form-header__title {
   font-size: 2.5rem;
   letter-spacing: 0.08em;
-  margin-bottom: 12px;
+  margin-bottom: 16px;
 }
 
 .form-header__subtitle {
@@ -1007,7 +869,7 @@ h1, h2, h3, h4, h5, h6 {
 .form-card {
   background: var(--surface);
   border-radius: var(--r-lg);
-  padding: 32px;
+  padding: 36px;
   border: 1px solid var(--border);
   max-width: 560px;
   margin: 0 auto;
@@ -1315,32 +1177,6 @@ h1, h2, h3, h4, h5, h6 {
   background: linear-gradient(135deg, rgba(212, 177, 78, 0.06) 0%, var(--surface) 100%);
 }
 
-.modal__image-icon {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  font-size: 64px;
-  opacity: 0.12;
-}
-
-/* Shimmer across modal image */
-.modal__image::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 60%;
-  height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(212, 177, 78, 0.04), transparent);
-  animation: modalShimmer 3s ease-in-out infinite;
-}
-
-@keyframes modalShimmer {
-  0% { left: -60%; }
-  100% { left: 160%; }
-}
-
 .modal__badge {
   position: absolute;
   top: 16px;
@@ -1399,11 +1235,49 @@ h1, h2, h3, h4, h5, h6 {
 .modal__close:hover {
   background: var(--gold-light);
 }
+
+/* -- Responsive stacking ----------------------------------- */
+@media (max-width: 768px) {
+  .nav {
+    flex-direction: column;
+    gap: 16px;
+    padding: 16px;
+  }
+  .nav-links {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+  }
+  .hero {
+    padding: 80px 20px 48px;
+  }
+  .proof-bar {
+    flex-direction: column;
+    gap: 20px;
+  }
+  .proof-divider {
+    width: 40px;
+    height: 1px;
+  }
+  .product-hero {
+    padding: 64px 20px 32px;
+  }
+  .usp-section {
+    padding: 64px 20px;
+  }
+  .builder {
+    padding: 64px 20px;
+  }
+  .form-wrapper {
+    padding: 64px 20px;
+  }
+  .form-card {
+    padding: 24px;
+  }
+}
 </style>
 </head>
 <body>
-
-<div class="grain-overlay"></div>
 
 <div class="doc-wrapper">
 
@@ -1471,8 +1345,8 @@ h1, h2, h3, h4, h5, h6 {
         <div class="services-grid">
 
           <!-- iPad Photobooth -->
-          <div class="service-card service-card--gold">
-            <div class="service-card__icon service-card__icon--gold">◎</div>
+          <div class="service-card">
+            <div class="service-card__dot service-card__dot--gold"></div>
             <h3 class="service-card__title">iPad Photobooth</h3>
             <p class="service-card__desc">Fotostrips op elk feest. Ophalen, neerzetten, lachen. Geen gedoe, wel herinneringen.</p>
             <div class="service-card__footer">
@@ -1482,9 +1356,9 @@ h1, h2, h3, h4, h5, h6 {
           </div>
 
           <!-- Magic Mirror XL -->
-          <div class="service-card service-card--gold">
+          <div class="service-card" style="padding-top: 44px;">
             <span class="service-card__badge">MEEST GEKOZEN</span>
-            <div class="service-card__icon service-card__icon--gold">✦</div>
+            <div class="service-card__dot service-card__dot--gold"></div>
             <h3 class="service-card__title">Magic Mirror XL</h3>
             <p class="service-card__desc">De photobooth waar gasten over praten. DSLR kwaliteit, direct printen, VIP-gevoel. Dit wordt het hoogtepunt van je avond.</p>
             <div class="service-card__footer">
@@ -1494,8 +1368,8 @@ h1, h2, h3, h4, h5, h6 {
           </div>
 
           <!-- DJs -->
-          <div class="service-card service-card--violet">
-            <div class="service-card__icon service-card__icon--violet">♫</div>
+          <div class="service-card">
+            <div class="service-card__dot service-card__dot--violet"></div>
             <h3 class="service-card__title">DJs</h3>
             <p class="service-card__desc">DJ Gianni & Milo draaien jouw perfecte avond. Stuur je Spotify playlist — wij maken er een onvergetelijke set van.</p>
             <div class="service-card__footer">
@@ -1508,8 +1382,10 @@ h1, h2, h3, h4, h5, h6 {
 
         <!-- Testimonial -->
         <div class="testimonial">
+          <div class="gold-divider"></div>
           <blockquote>"Drie weken later krijgen we nog appjes van gasten over de photobooth. De Magic Mirror was HET moment van onze bruiloft."</blockquote>
           <cite>— Lisa & Thomas, Bruiloft Amsterdam, juni 2025</cite>
+          <div class="gold-divider-bottom"></div>
         </div>
 
       </div>
@@ -1552,41 +1428,33 @@ h1, h2, h3, h4, h5, h6 {
         <!-- USPs -->
         <div class="usp-section">
           <h2 class="usp-section__title">Waarom 80% Van Onze Klanten Hiervoor Kiest</h2>
-          <div class="usp-grid">
-            <div class="usp-card">
-              <div class="usp-card__visual">
-                <div class="usp-card__visual-icon">📸</div>
-              </div>
-              <div class="usp-card__body">
-                <h3 class="usp-card__title">Foto's Die Je Wilt Inlijsten</h3>
-                <p class="usp-card__desc">Canon DSLR met professionele lens. Geen wazige telefoonkiekjes, maar scherpe foto's met fotograaf-kwaliteit. Het verschil zie je direct.</p>
+          <div class="usp-list">
+            <div class="usp-item">
+              <div class="usp-item__img" style="background-image:url('https://images.unsplash.com/photo-1516035069371-29a1b244cc32?w=400&q=80&auto=format');"></div>
+              <div class="usp-item__text">
+                <h3 class="usp-item__title">Foto's Die Je Wilt Inlijsten</h3>
+                <p class="usp-item__desc">Canon DSLR met professionele lens. Geen wazige telefoonkiekjes, maar scherpe foto's met fotograaf-kwaliteit. Het verschil zie je direct.</p>
               </div>
             </div>
-            <div class="usp-card">
-              <div class="usp-card__visual">
-                <div class="usp-card__visual-icon">💡</div>
-              </div>
-              <div class="usp-card__body">
-                <h3 class="usp-card__title">Iedereen Ziet Er Geweldig Uit</h3>
-                <p class="usp-card__desc">Zachte studio-belichting in plaats van een harde flits. Je gasten zien er stralend uit — zonder filter, zonder bewerking.</p>
+            <div class="usp-item">
+              <div class="usp-item__img" style="background-image:url('https://images.unsplash.com/photo-1565127452828-4cafa0404f8a?w=400&q=80&auto=format');"></div>
+              <div class="usp-item__text">
+                <h3 class="usp-item__title">Iedereen Ziet Er Geweldig Uit</h3>
+                <p class="usp-item__desc">Zachte studio-belichting in plaats van een harde flits. Je gasten zien er stralend uit — zonder filter, zonder bewerking.</p>
               </div>
             </div>
-            <div class="usp-card">
-              <div class="usp-card__visual">
-                <div class="usp-card__visual-icon">🖨️</div>
-              </div>
-              <div class="usp-card__body">
-                <h3 class="usp-card__title">Meenemen, Niet Vergeten</h3>
-                <p class="usp-card__desc">Elke gast loopt weg met een geprinte foto in de hand. Geen "stuur ik later" — direct een tastbaar aandenken van jouw avond.</p>
+            <div class="usp-item">
+              <div class="usp-item__img" style="background-image:url('https://images.unsplash.com/photo-1531973486364-5fa64260d75b?w=400&q=80&auto=format');"></div>
+              <div class="usp-item__text">
+                <h3 class="usp-item__title">Meenemen, Niet Vergeten</h3>
+                <p class="usp-item__desc">Elke gast loopt weg met een geprinte foto in de hand. Geen "stuur ik later" — direct een tastbaar aandenken van jouw avond.</p>
               </div>
             </div>
-            <div class="usp-card">
-              <div class="usp-card__visual">
-                <div class="usp-card__visual-icon">✨</div>
-              </div>
-              <div class="usp-card__body">
-                <h3 class="usp-card__title">Gasten Voelen Zich Een Ster</h3>
-                <p class="usp-card__desc">Rode loper, backdrop, afzetpalen en luxe props. Vanaf het moment dat ze de booth zien, voelen ze: dit is geen gewoon feest.</p>
+            <div class="usp-item">
+              <div class="usp-item__img" style="background-image:url('https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?w=400&q=80&auto=format');"></div>
+              <div class="usp-item__text">
+                <h3 class="usp-item__title">Gasten Voelen Zich Een Ster</h3>
+                <p class="usp-item__desc">Rode loper, backdrop, afzetpalen en luxe props. Vanaf het moment dat ze de booth zien, voelen ze: dit is geen gewoon feest.</p>
               </div>
             </div>
           </div>
@@ -1728,41 +1596,33 @@ h1, h2, h3, h4, h5, h6 {
         <!-- USPs -->
         <div class="usp-section">
           <h2 class="usp-section__title">Maximale Lol, Minimale Moeite</h2>
-          <div class="usp-grid">
-            <div class="usp-card">
-              <div class="usp-card__visual">
-                <div class="usp-card__visual-icon">📱</div>
-              </div>
-              <div class="usp-card__body">
-                <h3 class="usp-card__title">Direct Delen Op Socials</h3>
-                <p class="usp-card__desc">Stijlvolle fotostrips die gasten meteen delen via WhatsApp en Instagram. Jouw feest gaat viral nog voor het voorbij is.</p>
+          <div class="usp-list">
+            <div class="usp-item">
+              <div class="usp-item__img" style="background-image:url('https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=400&q=80&auto=format');"></div>
+              <div class="usp-item__text">
+                <h3 class="usp-item__title">Direct Delen Op Socials</h3>
+                <p class="usp-item__desc">Stijlvolle fotostrips die gasten meteen delen via WhatsApp en Instagram. Jouw feest gaat viral nog voor het voorbij is.</p>
               </div>
             </div>
-            <div class="usp-card">
-              <div class="usp-card__visual">
-                <div class="usp-card__visual-icon">🚗</div>
-              </div>
-              <div class="usp-card__body">
-                <h3 class="usp-card__title">Geen Monteur, Geen Stress</h3>
-                <p class="usp-card__desc">Ophalen, neerzetten, terugbrengen. Zo simpel dat je 10-jarige het kan. Geen technicus nodig, geen handleiding.</p>
+            <div class="usp-item">
+              <div class="usp-item__img" style="background-image:url('https://images.unsplash.com/photo-1556761175-5973dc0f32e7?w=400&q=80&auto=format');"></div>
+              <div class="usp-item__text">
+                <h3 class="usp-item__title">Geen Monteur, Geen Stress</h3>
+                <p class="usp-item__desc">Ophalen, neerzetten, terugbrengen. Zo simpel dat je 10-jarige het kan. Geen technicus nodig, geen handleiding.</p>
               </div>
             </div>
-            <div class="usp-card">
-              <div class="usp-card__visual">
-                <div class="usp-card__visual-icon">🎉</div>
-              </div>
-              <div class="usp-card__body">
-                <h3 class="usp-card__title">Past Op Elke Locatie</h3>
-                <p class="usp-card__desc">Van huiskamer tot feestzaal. Compact genoeg voor een verjaardag, leuk genoeg om het feest te stelen.</p>
+            <div class="usp-item">
+              <div class="usp-item__img" style="background-image:url('https://images.unsplash.com/photo-1530103862676-de8c9debad1d?w=400&q=80&auto=format');"></div>
+              <div class="usp-item__text">
+                <h3 class="usp-item__title">Past Op Elke Locatie</h3>
+                <p class="usp-item__desc">Van huiskamer tot feestzaal. Compact genoeg voor een verjaardag, leuk genoeg om het feest te stelen.</p>
               </div>
             </div>
-            <div class="usp-card">
-              <div class="usp-card__visual">
-                <div class="usp-card__visual-icon">⚡</div>
-              </div>
-              <div class="usp-card__body">
-                <h3 class="usp-card__title">Klaar In 5 Minuten</h3>
-                <p class="usp-card__desc">Aanzetten, foto's maken, lachen. Geen technische kennis nodig. Terwijl jij drankjes inschenkt, vermaken je gasten zich.</p>
+            <div class="usp-item">
+              <div class="usp-item__img" style="background-image:url('https://images.unsplash.com/photo-1504196606672-aef5c9cefc92?w=400&q=80&auto=format');"></div>
+              <div class="usp-item__text">
+                <h3 class="usp-item__title">Klaar In 5 Minuten</h3>
+                <p class="usp-item__desc">Aanzetten, foto's maken, lachen. Geen technische kennis nodig. Terwijl jij drankjes inschenkt, vermaken je gasten zich.</p>
               </div>
             </div>
           </div>
@@ -2221,56 +2081,48 @@ h1, h2, h3, h4, h5, h6 {
     vip: {
       title: 'VIP Upgrade',
       price: '+€150',
-      icon: '✨',
       image: 'https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?w=800&q=80&auto=format',
       desc: 'Stel je voor: je gasten lopen over een rode loper, stappen voor een stijlvolle backdrop en kiezen uit luxe props. Dat is geen photobooth meer — dat is een beleving. Zonder VIP Upgrade mist je event dat wow-moment waar gasten het weken over hebben. Perfect voor bruiloften, galas en bedrijfsfeesten.'
     },
     wedding: {
       title: 'Wedding Keepsakes',
       price: '+€500',
-      icon: '💍',
       image: 'https://images.unsplash.com/photo-1519741497674-611481863552?w=800&q=80&auto=format',
       desc: 'Elke gast loopt naar huis met een gepersonaliseerde sleutelhanger — jullie namen, jullie datum, hun favoriete foto. Dit is het cadeau dat niet in een la verdwijnt maar jarenlang aan hun sleutelbos hangt. Direct gemaakt op locatie. De herinnering die ze elke dag zien.'
     },
     host: {
       title: 'On-Site Host',
       price: '+€150',
-      icon: '🎤',
       image: 'https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=800&q=80&auto=format',
       desc: 'Zonder host moeten gasten het zelf uitzoeken — met host wordt elke foto een hit. Ons ervaren teamlid begeleidt de poses, houdt de flow erin en zorgt dat niemand de booth overslaat. Jij hoeft niks te regelen. Het verschil tussen "leuk" en "onvergetelijk".'
     },
     dj: {
       title: 'Live DJ Set',
       price: '+€150',
-      icon: '🎧',
       image: 'https://images.unsplash.com/photo-1571266028243-3716f02d2d56?w=800&q=80&auto=format',
       desc: 'Foto\'s en muziek van hetzelfde team — dat klikt als geen ander. Complete DJ setup met rookmachine, sfeerverlichting en professionele speakers. Stuur je Spotify playlist, wij bouwen de perfecte set. Een DJ bureau rekent makkelijk €500+ — bij ons erbij voor een fractie.'
     },
     design: {
       title: 'Premium Fotostrip Design',
       price: '+€25',
-      icon: '🎨',
       image: 'https://images.unsplash.com/photo-1513151233558-d860c5398176?w=800&q=80&auto=format',
       desc: 'Het verschil tussen een standaard fotostrip en eentje die gasten bewaren. Wij ontwerpen een custom layout met jouw kleuren, fonts en thema. Voor nog geen tientje extra krijgt elke foto de uitstraling die bij jouw feest past.'
     },
     delivery: {
       title: 'Bezorging Door Ons',
       price: '+€25',
-      icon: '🚚',
       image: 'https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=800&q=80&auto=format',
       desc: 'Geen auto nodig, geen gesjouw. Wij bezorgen de iPad Photobooth op je locatie, volledig opgeladen en klaar voor gebruik. Na afloop halen wij alles weer op. Jij hoeft alleen de deur open te doen. Beschikbaar in de hele Randstad.'
     },
     aibg: {
       title: 'AI Achtergrond',
       price: '+€40',
-      icon: '🖼️',
       image: 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=800&q=80&auto=format',
       desc: 'AI-technologie verwijdert automatisch alle achtergrondrommel uit je foto\'s en vervangt het door een gepersonaliseerde achtergrond naar keuze. Tropisch strand, stadssilhouet, feestthema — jij kiest, de AI doet de rest. Elke foto ziet er professioneel en stunning uit, ongeacht de locatie. Perfect voor feestjes waar de setting niet Instagram-proof is.'
     },
     ai: {
       title: 'AI Photo Experience',
       price: '+€499',
-      icon: '🤖',
       image: 'https://images.unsplash.com/photo-1677442136019-21780ecad995?w=800&q=80&auto=format',
       desc: 'Geavanceerde AI-technologie transformeert elke foto instant naar jouw brand-stijl. Logo, kleuren, thema — alles wordt automatisch verwerkt. Perfect voor productlanceringen, beurzen en corporate events waar elke foto on-brand moet zijn. Gasten delen foto\'s in jouw huisstijl op hun socials — gratis merkexposure bij elk shot.'
     }
@@ -2282,7 +2134,7 @@ h1, h2, h3, h4, h5, h6 {
     modalTitle.textContent = data.title;
     modalPrice.textContent = data.price;
     modalDesc.textContent = data.desc;
-    modalBadge.textContent = data.icon + ' UPGRADE';
+    modalBadge.textContent = 'UPGRADE';
     modalImage.style.backgroundImage = "linear-gradient(180deg, transparent 60%, #111116 100%), url('" + data.image + "')";
     modalImage.style.backgroundSize = 'cover';
     modalImage.style.backgroundPosition = 'center';
