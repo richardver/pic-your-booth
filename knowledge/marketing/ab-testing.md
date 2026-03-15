@@ -1,4 +1,4 @@
-# A/B Testing — Methodology & Framework
+# A/B Testing - Methodology & Framework
 
 ## Test Design Framework
 
@@ -98,7 +98,7 @@ Testing landing page without aligning ad creative.
 
 ```
 TEST: [Name]
-DATE: [Start] — [End]
+DATE: [Start] - [End]
 PAGE: [URL]
 
 HYPOTHESIS:

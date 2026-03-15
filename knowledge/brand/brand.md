@@ -1,8 +1,8 @@
-# PicYourBooth — Brand Guide
+# PicYourBooth - Brand Guide
 
 ## Company
 
-**PicYourBooth** — Premium event entertainment
+**PicYourBooth** - Premium event entertainment
 Region: Netherlands, Randstad
 
 ---
@@ -10,22 +10,22 @@ Region: Netherlands, Randstad
 ## Mission
 
 ### EN
-We turn events into unforgettable experiences — combining premium photobooths, creative DJs, and personal energy to make every moment count.
+We turn events into unforgettable experiences - combining premium photobooths, creative DJs, and personal energy to make every moment count.
 
 ### NL
-Wij maken van elk event een onvergetelijke ervaring — met premium photobooths, creatieve DJ's en persoonlijke energie.
+Wij maken van elk event een onvergetelijke ervaring - met premium photobooths, creatieve DJ's en persoonlijke energie.
 
 ## Vision
 
 ### EN
-To build a creative entertainment company that Luca and Milo can grow into their own — a launchpad for their DJ careers and a legacy of entrepreneurship passed from father to sons.
+To build a creative entertainment company that Luca and Milo can grow into their own - a launchpad for their DJ careers and a legacy of entrepreneurship passed from father to sons.
 
 ### NL
-Een creatief entertainmentbedrijf bouwen waar Luca en Milo in kunnen groeien — een springplank voor hun DJ-carrière en een nalatenschap van vader op zonen.
+Een creatief entertainmentbedrijf bouwen waar Luca en Milo in kunnen groeien - een springplank voor hun DJ-carrière en een nalatenschap van vader op zonen.
 
 ## Why We Exist
 
-Richard started PicYourBooth to have fun, teach his sons Luca and Milo how to be entrepreneurs, support their DJ careers, and give them something real they can build upon. This isn't just a business — it's a family legacy.
+Richard started PicYourBooth to have fun, teach his sons Luca and Milo how to be entrepreneurs, support their DJ careers, and give them something real they can build upon. This isn't just a business - it's a family legacy.
 
 ---
 
@@ -44,7 +44,7 @@ Richard started PicYourBooth to have fun, teach his sons Luca and Milo how to be
 
 | Attribute     | What it means                                      |
 |---------------|---------------------------------------------------|
-| Confident     | We know we deliver quality — not arrogant          |
+| Confident     | We know we deliver quality - not arrogant          |
 | Energetic     | Matches the vibe we bring to events                |
 | Approachable  | Professional but never stiff or corporate          |
 | Direct        | No fluff, fast-moving like our brand               |
@@ -75,7 +75,7 @@ Compact, digital-only photobooth. Pick up, set up, enjoy.
 | + Bezorging | +€24 | Wij bezorgen en halen op bij je locatie |
 
 ### Magic Mirror XL (Populair)
-**Niet zomaar een booth — een ervaring.**
+**Niet zomaar een booth - een ervaring.**
 Premium DSLR photobooth with professional lighting and direct printing.
 
 | Package | Price | Includes |
@@ -94,7 +94,7 @@ Premium DSLR photobooth with professional lighting and direct printing.
 | DJ Gianni (Luca) | Afro Beats, Caribbean, Nederlands, Hits | Warm energy, party fire, sunset vibes |
 | Milo | House, Techno | Deep, underwater, immersive, late-night |
 
-**Unique selling point:** Spotify playlist optimization — give us your playlist, we build an optimized set tailored to your event.
+**Unique selling point:** Spotify playlist optimization - give us your playlist, we build an optimized set tailored to your event.
 
 **Pricing:** Vanaf €149 per avond (includes speakers, lights, smoke machine)
 
@@ -104,7 +104,7 @@ Premium DSLR photobooth with professional lighting and direct printing.
 
 ### Design System
 
-**Dark cinematic base** — events happen at night. The website feels like walking into a VIP event.
+**Dark cinematic base** - events happen at night. The website feels like walking into a VIP event.
 
 | Element | Value | Usage |
 |---------|-------|-------|
@@ -124,7 +124,7 @@ Premium DSLR photobooth with professional lighting and direct printing.
 | Bebas Neue | All headings, nav logo, prices, labels (uppercase) |
 | Space Grotesk | All body text, descriptions, forms |
 
-Shared across photobooth and DJ pages — unified brand.
+Shared across photobooth and DJ pages - unified brand.
 
 ### Color Rules
 
@@ -132,8 +132,8 @@ Shared across photobooth and DJ pages — unified brand.
 - **Violet** for DJ-specific CTAs ("Boek een DJ", "Plan je feest")
 - **Coral** only for DJ Gianni profile elements
 - **Cyan** only for Milo profile elements
-- **No red (#ff494a)** — removed from brand
-- **No pink (#e839a0)** — removed from brand
+- **No red (#ff494a)** - removed from brand
+- **No pink (#e839a0)** - removed from brand
 - **Gold buttons always use black (#000) text**
 
 ---
@@ -143,11 +143,11 @@ Shared across photobooth and DJ pages — unified brand.
 ```
 PicYourBooth (standalone premium entertainment brand)
 ├── Party Booth (accessible entry point)
-├── Magic Mirror XL (premium photobooth — populair)
+├── Magic Mirror XL (premium photobooth - populair)
 │   └── Upgrades: VIP, Wedding Keepsakes, On-Site Host, Live DJ Set
 └── DJs (separate service section)
-    ├── DJ Gianni (Luca) — coral accent — afro beats, caribbean, nederlands, hits
-    └── Milo — cyan accent — house, techno
+    ├── DJ Gianni (Luca) - coral accent - afro beats, caribbean, nederlands, hits
+    └── Milo - cyan accent - house, techno
 ```
 
 **Note:** PicYourBooth is one word. Legal entity is Pic Your Moment BV (only appears on invoices, never in marketing).
@@ -159,11 +159,11 @@ The DJs maintain personal profiles (Instagram, SoundCloud, TikTok) promoted alon
 
 ## Competitive Edge
 
-1. **Real equipment** — DSLR camera, professional lighting, not a tablet on a stick
-2. **DJs with Spotify optimization** — give us your playlist, we make it better
-3. **Family energy** — tight team, personal touch, genuine passion
-4. **Two entry points** — premium (Magic Mirror) and accessible (iPad)
-5. **One-stop entertainment** — photobooth + DJ from one team
+1. **Real equipment** - DSLR camera, professional lighting, not a tablet on a stick
+2. **DJs with Spotify optimization** - give us your playlist, we make it better
+3. **Family energy** - tight team, personal touch, genuine passion
+4. **Two entry points** - premium (Magic Mirror) and accessible (iPad)
+5. **One-stop entertainment** - photobooth + DJ from one team
 
 ---
 
@@ -171,9 +171,9 @@ The DJs maintain personal profiles (Instagram, SoundCloud, TikTok) promoted alon
 
 | Name | Role | DJ Style |
 |------|------|----------|
-| Richard | Owner — business, tech, marketing | — |
-| Luca | Photobooth operator & DJ | DJ Gianni: afro beats, caribbean, nederlands, hits — coral accent |
-| Milo | Photobooth operator & DJ | House, techno — cyan accent |
+| Richard | Owner - business, tech, marketing | - |
+| Luca | Photobooth operator & DJ | DJ Gianni: afro beats, caribbean, nederlands, hits - coral accent |
+| Milo | Photobooth operator & DJ | House, techno - cyan accent |
 
 ---
 

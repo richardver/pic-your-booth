@@ -1,4 +1,4 @@
-# Marketing Psychology — Pricing & Persuasion
+# Marketing Psychology - Pricing & Persuasion
 
 ## Pricing Psychology Principles
 
@@ -24,13 +24,13 @@ Introduce a strategically inferior option to push buyers toward the target plan.
 | VIP + Guidance | €899 | VIP + team guidance | Premium anchor |
 
 ### 3. Charm Pricing
-€599 instead of €600 — works for consumer purchases and impulse decisions.
+€599 instead of €600 - works for consumer purchases and impulse decisions.
 
 | Context | Use Charm Pricing? | Why |
 |---|---|---|
 | iPad Photobooth (€200-250) | Yes | Budget-conscious, price-sensitive segment |
 | Magic Mirror Basic | Yes (€599) | Already using it |
-| Premium add-ons | No — use round numbers | Add-ons feel more premium at €150 vs €149 |
+| Premium add-ons | No - use round numbers | Add-ons feel more premium at €150 vs €149 |
 
 ### 4. Price Partitioning
 Break the total price into components to make it feel smaller.
@@ -44,7 +44,7 @@ People evaluate each component separately and perceive the total as less painful
 People feel losses ~2x more strongly than equivalent gains.
 
 **Application**:
-- "Mis geen moment — boek nu" (Don't miss a moment — book now)
+- "Mis geen moment - boek nu" (Don't miss a moment - book now)
 - "Nog maar 3 weekenden beschikbaar in juni" (Only 3 weekends left in June)
 - After proposal: "Je datum is nog beschikbaar, maar we kunnen dit niet lang vasthouden"
 - Frame add-ons as "what you'll miss" rather than "what you'll get"
@@ -55,7 +55,7 @@ People value things more once they feel ownership.
 **Application**:
 - Let customers build their own package (configurator on website)
 - Send visual mock-up of their photo strip design in the proposal
-- "Jouw event met Pic Your Booth" — make them visualize it as already theirs
+- "Jouw event met Pic Your Booth" - make them visualize it as already theirs
 
 ### 7. Social Proof Hierarchy
 
@@ -69,7 +69,7 @@ People value things more once they feel ownership.
 
 ---
 
-## Cialdini's 6 Principles of Persuasion — Applied to PYB
+## Cialdini's 6 Principles of Persuasion - Applied to PYB
 
 | Principle | How to Apply | Example |
 |---|---|---|

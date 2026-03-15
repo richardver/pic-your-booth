@@ -43,7 +43,7 @@
 
 ## Landing Page Audit Checklist (55 Items)
 
-### Scoring Rubric — Landing Page Score
+### Scoring Rubric - Landing Page Score
 
 Each section scored 1-5. Weighted total produces Landing Page Score (0-100).
 
@@ -58,9 +58,9 @@ Each section scored 1-5. Weighted total produces Landing Page Score (0-100).
 | Page Speed | 10% | >5s load time | 2-4s load time | <2s load time with optimized LCP/CLS |
 
 **Score Interpretation:**
-- 85-100: High-performing — test incremental improvements
-- 65-84: Solid foundation — address weak sections
-- 40-64: Underperforming — structural changes needed
+- 85-100: High-performing - test incremental improvements
+- 65-84: Solid foundation - address weak sections
+- 40-64: Underperforming - structural changes needed
 - Below 40: Fundamental rebuild recommended
 
 ### Above-Fold Clarity (Items 1-10)
@@ -90,7 +90,7 @@ Each section scored 1-5. Weighted total produces Landing Page Score (0-100).
 - [ ] 20. Benefits are specific and quantified where possible
 - [ ] 21. Objections addressed on-page
 - [ ] 22. Copy uses the audience's own language
-- [ ] 23. Scannable formatting — short paragraphs, bullets, bold key phrases
+- [ ] 23. Scannable formatting - short paragraphs, bullets, bold key phrases
 - [ ] 24. No jargon or acronyms without explanation
 - [ ] 25. Urgency or scarcity is genuine, not manufactured
 - [ ] 26. Microcopy on buttons reduces anxiety
@@ -134,7 +134,7 @@ Each section scored 1-5. Weighted total produces Landing Page Score (0-100).
 
 ---
 
-## Common Conversion Killers — Ranked by Impact
+## Common Conversion Killers - Ranked by Impact
 
 | Rank | Conversion Killer | Avg. Impact on CVR | Frequency |
 |---|---|---|---|
@@ -147,7 +147,7 @@ Each section scored 1-5. Weighted total produces Landing Page Score (0-100).
 | 7 | Generic CTA text ("Submit", "Click Here") | -5 to -15% | Extremely common |
 | 8 | Broken mobile experience | -20 to -50% | Common |
 | 9 | No objection handling on page | -10 to -20% | Common |
-| 10 | Poor visual hierarchy — CTA not prominent | -5 to -15% | Common |
+| 10 | Poor visual hierarchy - CTA not prominent | -5 to -15% | Common |
 
 ---
 

@@ -28,8 +28,8 @@ The user will specify:
 
 ## Output
 
-1. **Content calendar** — day-by-day schedule
+1. **Content calendar** - day-by-day schedule
 2. **Per post**: Platform, format, hook, full caption/script (Dutch), visual direction, hashtags, CTA
-3. **Repurposing matrix** — how each piece works across platforms
-4. **Cross-promotion notes** — PYB ↔ DJ profile connections
-5. **Content capture list** — what to film/photograph this week
+3. **Repurposing matrix** - how each piece works across platforms
+4. **Cross-promotion notes** - PYB ↔ DJ profile connections
+5. **Content capture list** - what to film/photograph this week

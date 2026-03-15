@@ -7,7 +7,7 @@ Build the PicYourBooth website from scratch as a modern, high-performance market
 **Owner:** Richard Versluis
 **Brand:** PicYourBooth (Pic Your Moment BV)
 **URL:** picyourbooth.nl
-**Status:** New build — no legacy site
+**Status:** New build - no legacy site
 
 ---
 
@@ -87,12 +87,12 @@ Cyan:          #22d3ee (Milo)
 
 **Sections (top to bottom):**
 
-1. **Nav** — Logo (PICYOURBOOTH), links: Party Booth | Magic Mirror XL | DJs, CTA: "BOEK JE ERVARING" (gold pill, black text)
-2. **Hero** — Background event photo (0.15 opacity) with dark gradient overlay. Gold gradient headline: "JOUW EVENT VERDIENT DIT MOMENT". Subtitle. No buttons in hero — page flow drives conversion.
-3. **Social Proof Bar** — 237+ Events Verzorgd | 4.9★ Google Reviews | Randstad & Omgeving. Gold numbers, muted labels, gold dividers.
-4. **Service Cards** (3 columns) — Party Booth (€199), Magic Mirror XL (€599, MEEST GEKOZEN badge), DJs (€149). Each: gold dot, title, description, "Meer info →" link, gold price pill.
-5. **Testimonial** — Gold divider lines, italic quote, author + event.
-6. **Footer** — Minimal.
+1. **Nav** - Logo (PICYOURBOOTH), links: Party Booth | Magic Mirror XL | DJs, CTA: "BOEK JE ERVARING" (gold pill, black text)
+2. **Hero** - Background event photo (0.15 opacity) with dark gradient overlay. Gold gradient headline: "JOUW EVENT VERDIENT DIT MOMENT". Subtitle. No buttons in hero - page flow drives conversion.
+3. **Social Proof Bar** - 237+ Events Verzorgd | 4.9★ Google Reviews | Randstad & Omgeving. Gold numbers, muted labels, gold dividers.
+4. **Service Cards** (3 columns) - Party Booth (€199), Magic Mirror XL (€599, MEEST GEKOZEN badge), DJs (€149). Each: gold dot, title, description, "Meer info →" link, gold price pill.
+5. **Testimonial** - Gold divider lines, italic quote, author + event.
+6. **Footer** - Minimal.
 
 **Message match:** Landing page from Meta Ads must echo the ad headline and offer.
 
@@ -103,14 +103,14 @@ Cyan:          #22d3ee (Milo)
 **Sections:**
 
 1. **Nav** (same as homepage)
-2. **Product Hero** — Centered. Gold gradient title "MAGIC MIRROR XL". Subtitle about DSLR, no time limit, VIP experience.
-3. **USPs** (4 items, vertical list) — Each: small image (80px), gold left border, title + description.
+2. **Product Hero** - Centered. Gold gradient title "MAGIC MIRROR XL". Subtitle about DSLR, no time limit, VIP experience.
+3. **USPs** (4 items, vertical list) - Each: small image (80px), gold left border, title + description.
    - Foto's Die Je Wilt Inlijsten
    - Iedereen Ziet Er Geweldig Uit
    - Meenemen, Niet Vergeten
    - Gasten Voelen Zich Een Ster
-4. **Package Builder** — "BOUW JOUW PERFECTE AVOND"
-   - Base: Magic Mirror XL — €599 (locked, gold tint)
+4. **Package Builder** - "BOUW JOUW PERFECTE AVOND"
+   - Base: Magic Mirror XL - €599 (locked, gold tint)
    - Upgrades (toggle switches):
      - VIP Upgrade (+€149)
      - Wedding Keepsakes (+€499)
@@ -131,14 +131,14 @@ Cyan:          #22d3ee (Milo)
 **Sections:**
 
 1. **Nav** (same)
-2. **Product Hero** — Gold gradient title "PARTY BOOTH". Subtitle about digital fotostrips, ophalen, 5 minuten klaar.
-3. **USPs** (4 items) —
+2. **Product Hero** - Gold gradient title "PARTY BOOTH". Subtitle about digital fotostrips, ophalen, 5 minuten klaar.
+3. **USPs** (4 items)  -
    - Direct Delen Op Socials
    - Geen Monteur, Geen Stress
    - Past Op Elke Locatie
    - Klaar In 5 Minuten
-4. **Package Builder** — "BOUW JOUW FEESTPAKKET"
-   - Base: Party Booth — €199
+4. **Package Builder** - "BOUW JOUW FEESTPAKKET"
+   - Base: Party Booth - €199
    - Upgrades:
      - Premium Fotostrip Design (+€24)
      - Bezorging Door Ons (+€24)
@@ -155,23 +155,23 @@ Cyan:          #22d3ee (Milo)
 **Sections:**
 
 1. **Nav** (same, DJs link active)
-2. **Hero** — Background DJ photo (blurred, 0.15 opacity). Gradient text (coral → violet → cyan): "JOUW FEEST, ONZE DJS". Subtitle with €149 pricing and Spotify mention. Waveform decoration (subtle animated bars).
-3. **DJ Gianni Profile** — Avatar (real photo: dj-luca-profiel.jpeg) with EQ bars. Name in coral. Tagline, bio, genre tags (Afro Beats, Caribbean, Nederlands, Hits), socials (IG, TT, SC). Recent sets list with play/pause.
-4. **Milo Profile** — Same structure, cyan accent. Avatar placeholder. Genre tags (House, Techno, Deep).
-5. **Spotify Section** — "ALLEEN BIJ PICYOURBOOTH" badge (violet). "STUUR JE PLAYLIST, KRIJG EEN PROFESSIONELE SET". Playlist visual with track bars. CTA: "PLAN JE FEEST MET ONS" (violet).
-6. **How It Works** — "IN 3 STAPPEN GEREGELD". Three steps with violet left border:
+2. **Hero** - Background DJ photo (blurred, 0.15 opacity). Gradient text (coral → violet → cyan): "JOUW FEEST, ONZE DJS". Subtitle with €149 pricing and Spotify mention. Waveform decoration (subtle animated bars).
+3. **DJ Gianni Profile** - Avatar (real photo: dj-luca-profiel.jpeg) with EQ bars. Name in coral. Tagline, bio, genre tags (Afro Beats, Caribbean, Nederlands, Hits), socials (IG, TT, SC). Recent sets list with play/pause.
+4. **Milo Profile** - Same structure, cyan accent. Avatar placeholder. Genre tags (House, Techno, Deep).
+5. **Spotify Section** - "ALLEEN BIJ PICYOURBOOTH" badge (violet). "STUUR JE PLAYLIST, KRIJG EEN PROFESSIONELE SET". Playlist visual with track bars. CTA: "PLAN JE FEEST MET ONS" (violet).
+6. **How It Works** - "IN 3 STAPPEN GEREGELD". Three steps with violet left border:
    - 01 KIES JE VIBE
    - 02 STUUR JE SPOTIFY
    - 03 WIJ KOMEN, JIJ GENIET
-7. **Booking Wizard** — "BOEK JE DJ"
-   - Base: DJ Set 3 uur — €149
+7. **Booking Wizard** - "BOEK JE DJ"
+   - Base: DJ Set 3 uur - €149
    - Extra hours (radio-style, one at a time):
      - +1 uur (+€49) → 4 uur
      - +2 uren (+€98) → 5 uur
      - +3 uren (+€147) → 6 uur
    - Total (incl. 21% BTW)
    - CTA: "CHECK BESCHIKBAARHEID" (violet)
-8. **Now Playing Bar** — Appears when user clicks play on a set. Shows set title, progress bar, EQ animation.
+8. **Now Playing Bar** - Appears when user clicks play on a set. Shows set title, progress bar, EQ animation.
 9. **Footer**
 
 ### 5. Offerte (`/offerte`)
@@ -181,14 +181,14 @@ Cyan:          #22d3ee (Milo)
 **Sections:**
 
 1. **Nav** (same)
-2. **Form Header** — "IS JOUW DATUM NOG VRIJ?" (scarcity hook). Subtitle: "Vul 6 velden in... Geen verplichtingen, geen kleine lettertjes."
-3. **Form Card** (dark surface, gold focus states) —
+2. **Form Header** - "IS JOUW DATUM NOG VRIJ?" (scarcity hook). Subtitle: "Vul 6 velden in... Geen verplichtingen, geen kleine lettertjes."
+3. **Form Card** (dark surface, gold focus states)  -
    - Naam (text)
    - E-mail (email)
    - Telefoon (tel)
-   - Datum Event (date) — label includes "(populaire data gaan snel)"
+   - Datum Event (date) - label includes "(populaire data gaan snel)"
    - Type Event (select: Bruiloft, Bedrijfsfeest, Verjaardag, Festival/Club, Anders)
-   - Bericht (textarea, optional) — pre-filled when coming from package builder
+   - Bericht (textarea, optional) - pre-filled when coming from package builder
 4. **CTA:** "VRAAG VRIJBLIJVEND VOORSTEL AAN" (gold, black text)
 5. **Trust line:** "Reactie binnen 24 uur · 100% vrijblijvend · Geen spam, beloofd"
 
@@ -230,7 +230,7 @@ Cyan:          #22d3ee (Milo)
 
 ### Content
 - H1 per page (one, clear)
-- Meta title: "PicYourBooth — [Page] | Premium Photobooth & DJ Entertainment"
+- Meta title: "PicYourBooth - [Page] | Premium Photobooth & DJ Entertainment"
 - Meta description: unique per page, includes CTA
 - Alt text on all images
 - Dutch language (lang="nl")
@@ -248,7 +248,7 @@ Cyan:          #22d3ee (Milo)
 
 | Breakpoint | Target |
 |------------|--------|
-| 0-640px | Mobile (primary — 70%+ traffic from Meta Ads) |
+| 0-640px | Mobile (primary - 70%+ traffic from Meta Ads) |
 | 640-1024px | Tablet |
 | 1024px+ | Desktop |
 
@@ -319,42 +319,42 @@ All prices include 21% BTW.
 picyourbooth/
 ├── src/
 │   ├── app/
-│   │   ├── layout.tsx          — Root layout (fonts, meta, nav, footer)
-│   │   ├── page.tsx            — Homepage
+│   │   ├── layout.tsx          - Root layout (fonts, meta, nav, footer)
+│   │   ├── page.tsx            - Homepage
 │   │   ├── magic-mirror/
-│   │   │   └── page.tsx        — Magic Mirror XL
+│   │   │   └── page.tsx        - Magic Mirror XL
 │   │   ├── party-booth/
-│   │   │   └── page.tsx        — Party Booth
+│   │   │   └── page.tsx        - Party Booth
 │   │   ├── djs/
-│   │   │   └── page.tsx        — DJs hub
+│   │   │   └── page.tsx        - DJs hub
 │   │   └── offerte/
-│   │       └── page.tsx        — Proposal form
+│   │       └── page.tsx        - Proposal form
 │   ├── components/
-│   │   ├── Nav.tsx             — Shared navigation
-│   │   ├── Footer.tsx          — Shared footer
-│   │   ├── Hero.tsx            — Page hero (configurable)
-│   │   ├── ServiceCard.tsx     — Homepage service card
-│   │   ├── ProofBar.tsx        — Social proof numbers
-│   │   ├── Testimonial.tsx     — Quote block
-│   │   ├── USPList.tsx         — Vertical USP list with images
-│   │   ├── PackageBuilder.tsx  — Base + upgrades + total + CTA
-│   │   ├── UpgradeRow.tsx      — Toggle switch upgrade row
-│   │   ├── InfoModal.tsx       — Upgrade detail modal
-│   │   ├── DJProfile.tsx       — DJ profile section
-│   │   ├── SetList.tsx         — Playable set list
-│   │   ├── SpotifySection.tsx  — Playlist visual
-│   │   ├── BookingWizard.tsx   — DJ booking with hour selector
-│   │   ├── ProposalForm.tsx    — HubSpot form
-│   │   └── Toggle.tsx          — Reusable toggle switch
+│   │   ├── Nav.tsx             - Shared navigation
+│   │   ├── Footer.tsx          - Shared footer
+│   │   ├── Hero.tsx            - Page hero (configurable)
+│   │   ├── ServiceCard.tsx     - Homepage service card
+│   │   ├── ProofBar.tsx        - Social proof numbers
+│   │   ├── Testimonial.tsx     - Quote block
+│   │   ├── USPList.tsx         - Vertical USP list with images
+│   │   ├── PackageBuilder.tsx  - Base + upgrades + total + CTA
+│   │   ├── UpgradeRow.tsx      - Toggle switch upgrade row
+│   │   ├── InfoModal.tsx       - Upgrade detail modal
+│   │   ├── DJProfile.tsx       - DJ profile section
+│   │   ├── SetList.tsx         - Playable set list
+│   │   ├── SpotifySection.tsx  - Playlist visual
+│   │   ├── BookingWizard.tsx   - DJ booking with hour selector
+│   │   ├── ProposalForm.tsx    - HubSpot form
+│   │   └── Toggle.tsx          - Reusable toggle switch
 │   ├── lib/
-│   │   ├── pricing.ts          — Price constants + calculation
-│   │   └── hubspot.ts          — Form submission API
+│   │   ├── pricing.ts          - Price constants + calculation
+│   │   └── hubspot.ts          - Form submission API
 │   └── styles/
-│       └── globals.css         — Tailwind + custom properties
+│       └── globals.css         - Tailwind + custom properties
 ├── public/
-│   ├── images/                 — Optimized event photos
-│   └── fonts/                  — Self-hosted if needed
-├── tailwind.config.ts          — Design tokens mapped
+│   ├── images/                 - Optimized event photos
+│   └── fonts/                  - Self-hosted if needed
+├── tailwind.config.ts          - Design tokens mapped
 ├── next.config.ts
 ├── package.json
 └── vercel.json

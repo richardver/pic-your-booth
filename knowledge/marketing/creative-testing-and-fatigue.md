@@ -1,6 +1,6 @@
 # Creative Testing Framework & Fatigue Management
 
-## Creative Testing — 10-Step Methodology
+## Creative Testing - 10-Step Methodology
 
 ### 1. Define Testing Variables
 Catalog all testable creative elements:
@@ -64,7 +64,7 @@ Test card template:
 ## Creative Fatigue Management
 
 ### What It Is
-Performance degrades because the audience has seen the creative too many times. Not about quality — about exhaustion.
+Performance degrades because the audience has seen the creative too many times. Not about quality - about exhaustion.
 
 ### Decay Curve Types
 - **Linear decay**: Gradual, steady decline. Broad audiences. CTR drops ~2-5% per week.

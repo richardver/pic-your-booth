@@ -1,4 +1,4 @@
-# Social Creatives — Platform-by-Platform Guide
+# Social Creatives - Platform-by-Platform Guide
 
 ## Instagram
 

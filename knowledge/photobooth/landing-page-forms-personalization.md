@@ -1,11 +1,11 @@
-# Landing Pages — Forms, Personalization & Optimization
+# Landing Pages - Forms, Personalization & Optimization
 
 ## Form Optimization
 
 ### The Golden Rule
 Every additional form field reduces conversion by approximately 4-7%.
 
-### PYB Proposal Request Form — Recommended
+### PYB Proposal Request Form - Recommended
 
 | Field | Type | Required | Why |
 |---|---|---|---|
@@ -46,9 +46,9 @@ Progress bar showing "Stap 1 van 2" reduces anxiety.
 
 | Visitor Source | Landing Page Adaptation | Why |
 |---|---|---|
-| Meta ad — Magic Mirror | Premium visuals, wedding/corporate focus, €599 starting price | Message match |
-| Meta ad — iPad Photobooth | Bright/fun visuals, party focus, "vanaf €200" | Message match |
-| Meta ad — DJ + Photobooth | Energy visuals, combo pricing, Spotify feature | Message match |
+| Meta ad - Magic Mirror | Premium visuals, wedding/corporate focus, €599 starting price | Message match |
+| Meta ad - iPad Photobooth | Bright/fun visuals, party focus, "vanaf €200" | Message match |
+| Meta ad - DJ + Photobooth | Energy visuals, combo pricing, Spotify feature | Message match |
 | Google search "photobooth huren" | General page, all services overview | Broad intent |
 | Google search "photobooth bruiloft" | Wedding-specific page, wedding testimonials | Specific intent |
 | Returning visitor | "Welkom terug" + last viewed package highlighted | Familiarity |
@@ -65,7 +65,7 @@ Progress bar showing "Stap 1 van 2" reduces anxiety.
 
 ---
 
-## Message Match — Critical for PYB Funnel
+## Message Match - Critical for PYB Funnel
 
 The #1 conversion killer is mismatch between ad and landing page.
 
@@ -89,14 +89,14 @@ The #1 conversion killer is mismatch between ad and landing page.
 
 | Friction Point | Solution |
 |---|---|
-| Unclear pricing | Show "Vanaf €X" on every package — don't hide prices |
+| Unclear pricing | Show "Vanaf €X" on every package - don't hide prices |
 | No availability info | Date picker that shows available dates (or "Check beschikbaarheid") |
 | Too many choices | Max 3 packages per product line, one highlighted as "Meest gekozen" |
 | No trust signals | Google reviews widget, testimonial near form, "200+ events" counter |
-| Slow response | Promise and deliver "<24 uur reactie" — automate confirmation email |
+| Slow response | Promise and deliver "<24 uur reactie" - automate confirmation email |
 | No risk reversal | "Vrijblijvend voorstel" (no-obligation proposal) prominently displayed |
 
-### The Proposal Email — Conversion Psychology
+### The Proposal Email - Conversion Psychology
 
 The proposal email is a critical conversion step. Apply psychology:
 
@@ -108,7 +108,7 @@ The proposal email is a critical conversion step. Apply psychology:
 | Testimonial | Social proof | Include a testimonial matching their event type |
 | Clear pricing | Reduce anxiety | No hidden costs, transparent total |
 | Scarcity | Loss aversion | "Je datum is nog beschikbaar" |
-| Easy next step | Ability (Fogg) | "Klik hier om te bevestigen" — one action |
+| Easy next step | Ability (Fogg) | "Klik hier om te bevestigen" - one action |
 | Time limit | Urgency | "We houden je datum 7 dagen vast" |
 
 ---
@@ -133,7 +133,7 @@ The proposal email is a critical conversion step. Apply psychology:
 | 2 | Day 3 | "Je foto's staan klaar!" | Gallery link, shareable |
 | 3 | Day 5 | "Zou je ons willen reviewen?" | Google review link, easy 1-click |
 | 4 | Day 7 | "Ken je iemand die ook een feest plant?" | Referral offer (€50 voor jullie allebei) |
-| 5 | Month 3 | "Alweer bijna [seizoen] — plan je iets?" | Seasonal rebooking prompt |
+| 5 | Month 3 | "Alweer bijna [seizoen] - plan je iets?" | Seasonal rebooking prompt |
 
 ### Subject Line Formulas for PYB
 
@@ -142,6 +142,6 @@ The proposal email is a critical conversion step. Apply psychology:
 | **Personal** | "[Naam], je voorstel staat klaar" |
 | **Question** | "Heb je al een photobooth voor je bruiloft?" |
 | **Social proof** | "Waarom 200+ events kozen voor Pic Your Booth" |
-| **Urgency** | "Juni raakt vol — boek nu je datum" |
+| **Urgency** | "Juni raakt vol - boek nu je datum" |
 | **Curiosity** | "Dit is wat je gasten zeggen na een PYB event" |
 | **Benefit** | "Zo maak je van je feest een onvergetelijke ervaring" |

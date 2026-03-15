@@ -5,7 +5,7 @@ Photobooth operator & DJ at Pic Your Booth. Richard's son.
 
 ## DJ Brand
 - **DJ name:** DJ Gianni
-- **Music style:** Meezingers, afro, dance — high-energy vibe
+- **Music style:** Meezingers, afro, dance - high-energy vibe
 - **Platforms:** Instagram, SoundCloud, TikTok
 - **Contact:** info@picyourbooth.nl
 
@@ -25,4 +25,4 @@ Elke set volle energie
 info@picyourbooth.nl
 
 ### SoundCloud
-DJ Gianni — Jonge DJ uit Nederland. Mixt afro beats, afro en dancemuziek tot high-energy sets. Geef me je playlist, ik maak er een feestje van. Boekingen: info@picyourbooth.nl
+DJ Gianni - Jonge DJ uit Nederland. Mixt afro beats, afro en dancemuziek tot high-energy sets. Geef me je playlist, ik maak er een feestje van. Boekingen: info@picyourbooth.nl

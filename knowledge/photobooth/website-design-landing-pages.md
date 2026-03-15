@@ -1,31 +1,31 @@
-# Landing Pages — Structure, Copy & Conversion
+# Landing Pages - Structure, Copy & Conversion
 
 ## Landing Page Structure Template
 
 ### Standard Conversion Page
 
 ```
-[1. Hero Section] — Above the fold
+[1. Hero Section] - Above the fold
     Headline (value proposition)
     Subheadline (supporting detail)
     CTA button
     Hero image or product visual
 
-[2. Social Proof Bar] — Logos, "Trusted by X companies"
+[2. Social Proof Bar] - Logos, "Trusted by X companies"
 
-[3. Problem/Pain Section] — Agitate the pain point
+[3. Problem/Pain Section] - Agitate the pain point
 
-[4. Solution/Features] — How your product solves it (3-5 benefits)
+[4. Solution/Features] - How your product solves it (3-5 benefits)
 
-[5. Detailed Social Proof] — Testimonials, case studies, metrics
+[5. Detailed Social Proof] - Testimonials, case studies, metrics
 
-[6. How It Works] — 3-step process
+[6. How It Works] - 3-step process
 
-[7. More Features/Benefits] — Deeper feature details
+[7. More Features/Benefits] - Deeper feature details
 
-[8. FAQ] — Address objections
+[8. FAQ] - Address objections
 
-[9. Final CTA Section] — Repeat offer + CTA button
+[9. Final CTA Section] - Repeat offer + CTA button
 ```
 
 ---

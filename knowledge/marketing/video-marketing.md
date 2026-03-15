@@ -1,4 +1,4 @@
-# Video Marketing — Format & Distribution Guide
+# Video Marketing - Format & Distribution Guide
 
 ## Platform Specs
 
@@ -26,7 +26,7 @@
 
 ## Production Tiers
 
-### Tier 1 — Phone Production (€0-500) — Best for PYB
+### Tier 1 - Phone Production (€0-500) - Best for PYB
 | Element | Spec |
 |---|---|
 | Camera | Smartphone (iPhone 13+ or equivalent) |
@@ -35,10 +35,10 @@
 | Editing | CapCut (free), InShot |
 | Best for | TikTok, Reels, Stories, Shorts |
 
-### Tier 2 — Semi-Professional (€500-5,000)
+### Tier 2 - Semi-Professional (€500-5,000)
 | Element | Spec |
 |---|---|
-| Camera | Mirrorless (Canon EOS — PYB already has the 650D!) |
+| Camera | Mirrorless (Canon EOS - PYB already has the 650D!) |
 | Audio | Shotgun mic or USB condenser |
 | Lighting | 2-3 point setup |
 | Editing | DaVinci Resolve (free), Premiere Pro |

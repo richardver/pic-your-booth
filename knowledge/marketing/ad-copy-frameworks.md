@@ -1,4 +1,4 @@
-# Ad Copy — Frameworks & Specs
+# Ad Copy - Frameworks & Specs
 
 ## Meta Ads (Facebook / Instagram)
 

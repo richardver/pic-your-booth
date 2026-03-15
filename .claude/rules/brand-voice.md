@@ -2,7 +2,7 @@
 description: "Brand voice rules for all PicYourBooth marketing content"
 ---
 
-# PicYourBooth Brand Voice — Always Apply
+# PicYourBooth Brand Voice - Always Apply
 
 When creating ANY marketing content for PicYourBooth:
 
@@ -12,9 +12,9 @@ When creating ANY marketing content for PicYourBooth:
 - Dutch primary, English when needed.
 
 ## Products
-- **Party Booth** (not "iPad Photobooth") — accessible, fun, every party
-- **Magic Mirror XL** — premium, VIP, experience
-- **DJs** — DJ Gianni (coral, afro beats/caribbean/nederlands/hits) & Milo (cyan, house/techno)
+- **Party Booth** (not "iPad Photobooth") - accessible, fun, every party
+- **Magic Mirror XL** - premium, VIP, experience
+- **DJs** - DJ Gianni (coral, afro beats/caribbean/nederlands/hits) & Milo (cyan, house/techno)
 
 ## Pricing (charm pricing)
 - Party Booth: €199 (not €200)
@@ -33,8 +33,8 @@ When creating ANY marketing content for PicYourBooth:
 ## Don't
 - Sound corporate, stiff, or boring
 - Sound desperate or overly salesy
-- Use "iPad Photobooth" in customer-facing content — always "Party Booth"
-- Reference "Pic Your Moment" in marketing — only on invoices
-- Use red (#ff494a) or pink (#e839a0) — removed from brand
-- Use translated-from-English Dutch — write native NL
+- Use "iPad Photobooth" in customer-facing content - always "Party Booth"
+- Reference "Pic Your Moment" in marketing - only on invoices
+- Use red (#ff494a) or pink (#e839a0) - removed from brand
+- Use translated-from-English Dutch - write native NL
 - Mix segment tones (premium copy for Party Booth or vice versa)

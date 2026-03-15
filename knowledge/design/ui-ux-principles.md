@@ -8,8 +8,8 @@
 - Focus indicators: visible 2px ring on all interactive elements
 - Screen reader: semantic HTML, ARIA labels for icon-only buttons
 - Keyboard navigation: all functions accessible without mouse
-- Don't rely on color alone — use icons, text, patterns
-- Respect `prefers-reduced-motion` — disable animations for those who need it
+- Don't rely on color alone - use icons, text, patterns
+- Respect `prefers-reduced-motion` - disable animations for those who need it
 - Minimum text size: 16px body, 14px small, 12px caption (sparingly)
 
 ### 2. Touch & Interaction
@@ -30,7 +30,7 @@
 
 ### 4. Style Selection
 - Match visual style to segment (premium vs accessible vs energy)
-- Consistency across all pages — same tokens, same spacing, same components
+- Consistency across all pages - same tokens, same spacing, same components
 - Dark mode support when targeting premium segment
 - Avoid mixing more than 2 visual styles
 
@@ -48,7 +48,7 @@
 - Line height: 1.1-1.3 for headings, 1.5-1.6 for body
 - Max line length: 65-75 characters
 - Color: 60/30/10 rule (primary/secondary/accent)
-- Don't use pure black (#000) — use #111 or darker gray
+- Don't use pure black (#000) - use #111 or darker gray
 
 ### 7. Animation
 - Micro-interactions: 150-200ms (hover, toggle, focus)
@@ -117,7 +117,7 @@ F-pattern (text-heavy) or Z-pattern (minimal) scanning. Place CTAs in natural ey
 | 8 | Forgiving design | Undo, back buttons, easy correction |
 | 9 | Loading states | Never leave users wondering what's happening |
 | 10 | Mobile-first | Start simple, enhance for larger screens |
-| 11 | Whitespace is design | Don't fill every pixel — breathing room |
+| 11 | Whitespace is design | Don't fill every pixel - breathing room |
 | 12 | One primary action per screen | Clear single CTA, de-emphasize secondary |
 | 13 | Content-first design | Real content before visual design decisions |
 | 14 | Test with real users | 5 users catch 85% of usability issues |

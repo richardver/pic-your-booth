@@ -1,4 +1,4 @@
-# Meta Ads — Facebook & Instagram Reference
+# Meta Ads - Facebook & Instagram Reference
 
 ## Campaign Structure Overview
 
@@ -6,7 +6,7 @@
 
 | Factor | CBO | ABO |
 |---|---|---|
-| Budget control | Campaign level — Meta distributes | Ad set level — you control each |
+| Budget control | Campaign level - Meta distributes | Ad set level - you control each |
 | Best for | Testing many audiences, scaling winners | Controlled tests, fixed audience budgets |
 | When to use | 3+ ad sets, scaling phase | Launch testing, strict budget requirements |
 | Minimum budget | €30-50/day per campaign | €10-20/day per ad set |
@@ -15,17 +15,17 @@
 ```
 Account
 ├── Prospecting (CBO)
-│   ├── Advantage+ Audience — broad targeting
-│   ├── Lookalike stack — 1%, 3%, 5%
-│   └── Interest-based — layered interests
+│   ├── Advantage+ Audience - broad targeting
+│   ├── Lookalike stack - 1%, 3%, 5%
+│   └── Interest-based - layered interests
 ├── Retargeting (ABO)
 │   ├── Website visitors 1-7 days
 │   ├── Website visitors 8-30 days
 │   ├── Engaged social audience
 │   └── Form abandoners
 ├── Retention (ABO)
-│   ├── Past customers — upsell
-│   └── Lapsed customers — win-back
+│   ├── Past customers - upsell
+│   └── Lapsed customers - win-back
 └── Advantage+ Shopping Campaign (if applicable)
     └── Existing customer budget cap 20-30%
 ```
@@ -38,7 +38,7 @@ Account
 |---|---|---|---|
 | Customer list (email/phone) | Refresh monthly | High | Min 1,000 records |
 | Website visitors (all) | 180 days max | Medium-High | Pixel + CAPI |
-| Website — specific pages | 30-90 days | High | Pricing, form pages |
+| Website - specific pages | 30-90 days | High | Pricing, form pages |
 | Video viewers (25%, 50%, 75%, 95%) | 365 days | Medium | Layer by engagement |
 | Lead form openers/submitters | 90 days | High | Retarget non-converters |
 | Instagram/Facebook engagers | 365 days | Medium | Broad but relevant |
@@ -70,7 +70,7 @@ Account
 | Messenger | Image | 1:1 | 1080x1080 | 30 MB |
 
 ### Video Best Practices
-- First 3 seconds must hook — assume sound off
+- First 3 seconds must hook - assume sound off
 - Add captions/text overlays (85% watch without sound)
 - Optimal: 15-30 seconds for conversion, 6-15 seconds for awareness
 - Vertical (9:16) outperforms horizontal in mobile-first placements

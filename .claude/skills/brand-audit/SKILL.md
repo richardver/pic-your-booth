@@ -19,7 +19,7 @@ Review the provided content against Pic Your Booth brand guidelines.
 
 ## Input
 
-The user will provide content to review — this could be ad copy, a landing page, social post, email, or proposal text.
+The user will provide content to review - this could be ad copy, a landing page, social post, email, or proposal text.
 
 ## Output
 

@@ -1,8 +1,8 @@
-# Marketing Psychology — Buyer Journey & Decision Making
+# Marketing Psychology - Buyer Journey & Decision Making
 
 ## Jobs-to-Be-Done Framework
 
-People don't buy a photobooth — they hire it to do a job.
+People don't buy a photobooth - they hire it to do a job.
 
 ### PYB Job Statements
 
@@ -45,7 +45,7 @@ For someone to book PYB instead of doing nothing or going with a competitor:
 
 ---
 
-## Customer Journey Map — PYB
+## Customer Journey Map - PYB
 
 ### Stage 1: Awareness
 | Element | Detail |
@@ -97,8 +97,8 @@ For someone to book PYB instead of doing nothing or going with a competitor:
 |---|---|
 | **Customer goal** | "My guests should have the time of their lives" |
 | **Touchpoints** | On-site setup, photobooth experience, DJ performance |
-| **Emotion** | Peak moment (+5) — "Wow, that was an experience" |
-| **Content need** | None — they're living it |
+| **Emotion** | Peak moment (+5) - "Wow, that was an experience" |
+| **Content need** | None - they're living it |
 | **PYB action** | Professional setup, high-energy delivery, capture content for social |
 
 ### Stage 7: Post-Event (Advocacy)
@@ -141,7 +141,7 @@ Post-Event:   Happy        [+4] ████████████
 
 ---
 
-## Psychographic Profiles — PYB Customers
+## Psychographic Profiles - PYB Customers
 
 ### The Perfectionist Planner (Magic Mirror / Wedding)
 - **Values**: Quality, status, perfection

@@ -1,4 +1,4 @@
-# Marketing Psychology — Viral Loops & Retention
+# Marketing Psychology - Viral Loops & Retention
 
 ## Viral Loop Design for PYB
 
@@ -45,7 +45,7 @@ If PYB does 4 events/month = ~10 organic leads/month from viral alone
 1. **Make sharing effortless**: QR code at booth → instant digital photo → one-tap share
 2. **Brand the output**: Every photo strip has subtle PYB branding + website
 3. **Incentivize sharing**: "Share je foto en maak kans op een gratis photobooth voor je verjaardag"
-4. **Create shareable moments**: AI photobooth, GIFs, boomerangs — content people WANT to share
+4. **Create shareable moments**: AI photobooth, GIFs, boomerangs - content people WANT to share
 5. **Tag and track**: Branded hashtag (#picyourbooth), track mentions, engage with shares
 6. **Post-event email to host**: Provide sharable gallery link, make it easy for them to post
 
@@ -67,7 +67,7 @@ If PYB does 4 events/month = ~10 organic leads/month from viral alone
 | Post-event (day after) | Peak happiness, fresh memories | "Had je een geweldige avond? Ken je iemand die ook een feest plant?" |
 | Photo gallery delivery | Re-experiencing the joy | Include referral link in gallery email |
 | Google review request | Already engaged in sharing | "Deel je ervaring en geef een vriend €50 korting" |
-| Seasonal (wedding/party season) | Top of mind for events | "Feestseizoen komt eraan — ken je iemand?" |
+| Seasonal (wedding/party season) | Top of mind for events | "Feestseizoen komt eraan - ken je iemand?" |
 
 ---
 
@@ -144,4 +144,4 @@ Every PYB event automatically exposes the brand to 50-200+ non-customers:
 - Social shares from guests
 - Host tells people "we hired Pic Your Booth"
 
-**This is PYB's strongest viral asset** — zero cost, zero effort, built into every event.
+**This is PYB's strongest viral asset** - zero cost, zero effort, built into every event.

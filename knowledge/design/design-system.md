@@ -1,4 +1,4 @@
-# Design System — Tokens, Colors, Typography, Components
+# Design System - Tokens, Colors, Typography, Components
 
 ## Token Architecture
 
@@ -220,7 +220,7 @@ h3 { font-size: 1.75rem; }  /* 28px */
 
 ### Color Usage Rules
 - Don't use more than 2-3 colors in single component
-- Don't use pure black (#000) for text — use #111 or similar
+- Don't use pure black (#000) for text - use #111 or similar
 - Don't rely solely on color for meaning (add icons/text)
 - Test all combinations for accessibility
 - Use semantic colors consistently (red = error, green = success)
@@ -270,12 +270,12 @@ Spacing: Header 24px, Content 24px, Footer 24px, Gap 16px.
 
 | State | Trigger | Transition | Visual Change |
 |-------|---------|------------|---------------|
-| default | None | — | Base appearance |
+| default | None | - | Base appearance |
 | hover | Mouse over | 150ms ease-in-out | Slight color shift |
-| focus | Tab/click | — | 2px focus ring |
-| active | Mouse down | — | Darkest shade |
-| disabled | disabled attr | — | 50% opacity, no pointer |
-| loading | Async action | — | Spinner + 70% opacity |
+| focus | Tab/click | - | 2px focus ring |
+| active | Mouse down | - | Darkest shade |
+| disabled | disabled attr | - | 50% opacity, no pointer |
+| loading | Async action | - | Spinner + 70% opacity |
 
 Priority (highest to lowest): disabled > loading > active > focus > hover > default.
 

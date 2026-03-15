@@ -1,6 +1,6 @@
 ---
 name: ad-campaign
-description: "Create a complete Meta Ads campaign — structure, audiences, ad copy (Dutch), creative briefs, budget allocation, and testing plan. Use /ad-campaign to design a new campaign or optimize an existing one."
+description: "Create a complete Meta Ads campaign - structure, audiences, ad copy (Dutch), creative briefs, budget allocation, and testing plan. Use /ad-campaign to design a new campaign or optimize an existing one."
 user-invocable: true
 context: fork
 agent: meta-ads-specialist
@@ -28,9 +28,9 @@ The user will specify:
 
 ## Output
 
-1. **Campaign structure** — campaigns, ad sets, audiences
-2. **Budget allocation** — per campaign and ad set
-3. **Ad copy** — 3-4 variations per ad set, full Dutch text
-4. **Creative briefs** — visual direction per ad
-5. **Testing plan** — what to test, timeline, success criteria
-6. **KPI targets** — CPL, CTR, CPC targets with action thresholds
+1. **Campaign structure** - campaigns, ad sets, audiences
+2. **Budget allocation** - per campaign and ad set
+3. **Ad copy** - 3-4 variations per ad set, full Dutch text
+4. **Creative briefs** - visual direction per ad
+5. **Testing plan** - what to test, timeline, success criteria
+6. **KPI targets** - CPL, CTR, CPC targets with action thresholds
