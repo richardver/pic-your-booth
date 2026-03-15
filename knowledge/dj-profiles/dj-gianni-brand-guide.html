@@ -261,7 +261,7 @@ ul li::before {
   background: var(--border);
 }
 
-/* -- Logo Mark --------------------------------------------- */
+/* -- Logo Mark — Hexagon ----------------------------------- */
 .logo-grid {
   display: flex;
   gap: 48px;
@@ -282,40 +282,77 @@ ul li::before {
   margin-top: 16px;
 }
 
-.brand-mark {
+.hexagon {
   width: 80px;
-  height: 80px;
-  border-radius: var(--r-lg);
+  height: 92px;
   display: flex;
   align-items: center;
   justify-content: center;
+  clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
   font-family: var(--font-display);
   font-size: 48px;
   letter-spacing: 0.04em;
 }
 
-.brand-mark-coral {
+.hex-coral {
   background: var(--gi);
   color: var(--void);
 }
 
-.brand-mark-outline {
-  background: transparent;
-  border: 2px solid var(--gi);
+.hex-outline {
+  position: relative;
+}
+
+.hex-outline-outer {
+  width: 80px;
+  height: 92px;
+  clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+  background: var(--gi);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hex-outline-inner {
+  width: 72px;
+  height: 83px;
+  clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+  background: var(--void);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-display);
+  font-size: 42px;
   color: var(--gi);
+  letter-spacing: 0.04em;
 }
 
-.brand-mark-dark {
+.hex-dark {
   background: var(--surface);
-  border: 1px solid var(--border);
   color: var(--white);
+  border: none;
 }
 
-.brand-mark-small {
+.hex-small {
   width: 44px;
-  height: 44px;
+  height: 51px;
   font-size: 26px;
+}
+
+/* Brand mark also available as rounded square for inline/UI use */
+.brand-mark-rounded {
+  width: 56px;
+  height: 56px;
   border-radius: var(--r-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-display);
+  font-size: 32px;
+  letter-spacing: 0.04em;
+  background: var(--gi);
+  color: var(--void);
+  flex-shrink: 0;
 }
 
 .brand-text-lock {
@@ -897,29 +934,33 @@ footer p {
 <section>
   <span class="section-num">01</span>
   <h2>BRAND MARK</h2>
-  <p class="section-desc">The DJ Gianni brand mark is a rounded square with the letter G. Rendered in coral, outline, or neutral depending on context. No more hexagon &mdash; the new system uses rounded rectangles (border-radius: 16px) matching the card system.</p>
+  <p class="section-desc">The G hexagon is DJ Gianni's signature mark &mdash; it differentiates his personal DJ brand from the PYB web system (which uses rounded rectangles). The hexagon connects to vinyl/DJ culture and gives Gianni a distinct identity. Always rendered in coral or white.</p>
 
   <div class="logo-grid">
     <div class="logo-variant">
-      <div class="brand-mark brand-mark-coral">G</div>
+      <div class="hexagon hex-coral">G</div>
       <div class="label">Coral / Primary</div>
     </div>
     <div class="logo-variant">
-      <div class="brand-mark brand-mark-outline">G</div>
+      <div class="hex-outline-outer">
+        <div class="hex-outline-inner">G</div>
+      </div>
       <div class="label">Outline / Dark BG</div>
     </div>
     <div class="logo-variant">
-      <div class="brand-mark brand-mark-dark">G</div>
+      <div class="hexagon hex-dark">G</div>
       <div class="label">Neutral / Shared</div>
     </div>
     <div class="logo-variant">
-      <div class="brand-mark brand-mark-coral brand-mark-small">G</div>
+      <div class="hexagon hex-coral hex-small">G</div>
       <div class="label">Favicon / Small</div>
     </div>
   </div>
 
+  <p style="margin-top:32px;margin-bottom:16px;color:var(--muted);font-size:14px;">The hexagon is for DJ Gianni's personal brand (mixtape covers, social profiles, merch). On the PYB website, the rounded-square variant is used inline within UI components.</p>
+
   <div class="brand-text-lock">
-    <div class="brand-mark brand-mark-coral" style="width:56px;height:56px;font-size:32px;border-radius:var(--r-md);flex-shrink:0;">G</div>
+    <div class="brand-mark-rounded">G</div>
     <div>
       <div class="lock-name">DJ GIANNI</div>
       <div class="lock-tagline">"Iedereen zingt mee, niemand gaat naar huis"</div>
@@ -1193,11 +1234,11 @@ footer p {
     </div>
     <div class="rule-card">
       <div class="rule-number">05</div>
-      <div class="rule-text">Typography is the design. Whitespace is luxury. Avoid decorative patterns, glows, or noise textures. Let the type breathe.</div>
+      <div class="rule-text">Typography is the design. Whitespace is luxury. The G hexagon is the one bold graphic element &mdash; everything else stays minimal.</div>
     </div>
     <div class="rule-card">
       <div class="rule-number">06</div>
-      <div class="rule-text">All border-radius uses the token scale: 6px (sm), 10px (md), 16px (lg), 24px (xl), 999px (pill). No arbitrary values.</div>
+      <div class="rule-text">The G hexagon is for Gianni's personal brand (covers, social, merch). PYB website UI uses rounded rectangles from the token scale: 6px (sm) to 999px (pill).</div>
     </div>
     <div class="rule-card">
       <div class="rule-number">07</div>
@@ -1239,7 +1280,7 @@ Visual style:
 - MINIMAL design: no patterns, no textures, no noise &mdash; pure typography and whitespace
 - If photo included: B&amp;W studio portrait, 200x200px area, rounded corners (24px radius)
 - EQ-bar motif: 5 thin vertical bars in coral, varying heights, as a subtle decorative element
-- No hexagons &mdash; use rounded rectangles if shapes are needed
+- Gold/coral hexagon with letter "G" as the DJ brand logo mark &mdash; top-left or bottom-right corner
 
 Color palette:
 - Background: #050508 (void)
@@ -1255,7 +1296,7 @@ Typography:
 Mood: Dark, minimal, premium, confident &mdash; "less is more" nightlife aesthetic
 Brand reference: PicYourBooth DJ page design system
 
-Do NOT include: realistic human faces, watermarks, busy backgrounds, neon glows, hexagons, or old gold (#FFD700) accents</div>
+Do NOT include: realistic human faces, watermarks, busy backgrounds, neon glows, or old gold (#FFD700) accents</div>
 </section>
 
 <!-- ================================================================

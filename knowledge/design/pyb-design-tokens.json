@@ -2,7 +2,7 @@
   "$themes": [
     {
       "id": "light",
-      "name": "PYM Light",
+      "name": "PYB Light",
       "selectedTokenSets": {
         "global": "enabled",
         "light": "enabled"
@@ -10,7 +10,7 @@
     },
     {
       "id": "dark",
-      "name": "PYM Dark",
+      "name": "PYB Dark",
       "selectedTokenSets": {
         "global": "enabled",
         "dark": "enabled"

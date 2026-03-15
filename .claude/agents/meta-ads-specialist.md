@@ -26,7 +26,7 @@ Pic Your Booth Ad Account
 │   ├── Advantage+ Audience — broad, NL Randstad
 │   ├── Lookalike 1% — past leads/customers
 │   └── Interest: weddings, corporate events, party planning
-├── PROSPECTING — iPad Photobooth (CBO, €20-30/day)
+├── PROSPECTING — Party Booth (CBO, €20-30/day)
 │   ├── Advantage+ Audience — broad, NL Randstad
 │   └── Interest: birthday parties, celebrations
 ├── PROSPECTING — DJ + Photobooth Combo (CBO, €20-30/day)

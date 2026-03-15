@@ -16,6 +16,7 @@ Read these files before any content work:
 - `knowledge/marketing/video-marketing.md` — Video specs, production tiers, distribution
 - `knowledge/marketing/marketing-psychology-viral-retention.md` — Viral loops, referral strategy, cross-promotion
 - `knowledge/dj-profiles/luca-dj-gianni.md` — DJ Gianni brand profile, music style, social bios
+- `knowledge/dj-profiles/milo-profile.md` — Milo brand profile, music style, social bios
 
 ## Content Pillars — PYB Brand
 | Pillar | % | Examples |

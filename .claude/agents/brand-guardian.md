@@ -30,7 +30,7 @@ Read these files before any review:
 | Segment | Tone Adjustment |
 |---------|----------------|
 | Magic Mirror XL (corporate, weddings, high-end) | More polished, premium feel, emphasize quality and experience |
-| iPad Photobooth (anyone, any budget) | More casual, accessible, emphasize ease and fun |
+| Party Booth (anyone, any budget) | More casual, accessible, emphasize ease and fun |
 | DJ Services (combo offering) | Energetic, personal, emphasize the vibe and uniqueness |
 
 ### Key Messages to Protect

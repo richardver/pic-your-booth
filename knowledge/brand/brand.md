@@ -70,9 +70,9 @@ Compact, digital-only photobooth. Pick up, set up, enjoy.
 
 | Package | Price | Includes |
 |---------|-------|----------|
-| Basic | €200 | Ophalen bij ons, basis fotostrip design |
-| + Premium Design | +€25 | Upgrade naar premium fotostrip design |
-| + Bezorging | +€25 | Wij bezorgen en halen op bij je locatie |
+| Basic | €199 | Ophalen bij ons, basis fotostrip design |
+| + Premium Design | +€24 | Upgrade naar premium fotostrip design |
+| + Bezorging | +€24 | Wij bezorgen en halen op bij je locatie |
 
 ### Magic Mirror XL (Populair)
 **Niet zomaar een booth — een ervaring.**
@@ -81,10 +81,10 @@ Premium DSLR photobooth with professional lighting and direct printing.
 | Package | Price | Includes |
 |---------|-------|----------|
 | Basic | €599 | 4 uur, DSLR kwaliteit, direct printen, digitale galerij |
-| + VIP Upgrade | +€150 | Backdrop, rode loper, afzetpalen, luxe props |
-| + Wedding Keepsakes | +€500 | Gepersonaliseerde sleutelhangers |
-| + On-Site Host | +€150 | Teamlid begeleidt gasten |
-| + Live DJ Set | +€150 | DJ met rookmachine, lichten, speakers |
+| + VIP Upgrade | +€149 | Backdrop, rode loper, afzetpalen, luxe props |
+| + Wedding Keepsakes | +€499 | Gepersonaliseerde sleutelhangers |
+| + On-Site Host | +€149 | Teamlid begeleidt gasten |
+| + Live DJ Set | +€149 | DJ met rookmachine, lichten, speakers |
 
 ### DJs
 **De perfecte soundtrack voor je event.**
@@ -96,7 +96,7 @@ Premium DSLR photobooth with professional lighting and direct printing.
 
 **Unique selling point:** Spotify playlist optimization — give us your playlist, we build an optimized set tailored to your event.
 
-**Pricing:** Vanaf €150 per avond (includes speakers, lights, smoke machine)
+**Pricing:** Vanaf €149 per avond (includes speakers, lights, smoke machine)
 
 ---
 

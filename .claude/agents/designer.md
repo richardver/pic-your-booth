@@ -16,8 +16,8 @@ Read these files before any design work:
 - `knowledge/design/ui-ux-principles.md` — UX guidelines, accessibility, responsive design
 - `knowledge/photobooth/website-design-landing-pages.md` — Landing page structure, CTA optimization
 - `knowledge/photobooth/website-design-cro.md` — Conversion optimization checklist
-- `knowledge/design/pym-design-tokens.json` — Design token values (JSON format)
-- `knowledge/design/pym-design-system-web.html` — Design system web reference
+- `knowledge/design/pyb-design-tokens.json` — Design token values (JSON format)
+- `knowledge/design/pyb-design-system-web.html` — Design system web reference
 
 ## PYB Visual Modes
 
@@ -27,7 +27,7 @@ Read these files before any design work:
 - Cinematic event photography, bokeh effects
 - Dark mode, glass morphism, premium card components
 
-### iPad Photobooth (Accessible)
+### Party Booth (Accessible)
 - Bright backgrounds, vibrant accents, fun energy
 - Friendly rounded sans-serif, playful but readable
 - Casual celebrations, friends laughing, colorful

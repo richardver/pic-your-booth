@@ -1,25 +1,40 @@
 ---
-description: "Brand voice rules for all Pic Your Booth marketing content"
+description: "Brand voice rules for all PicYourBooth marketing content"
 ---
 
-# PYB Brand Voice — Always Apply
+# PicYourBooth Brand Voice — Always Apply
 
-When creating ANY marketing content for Pic Your Booth:
+When creating ANY marketing content for PicYourBooth:
 
 ## Voice
 - Professional. Creative. Fast-moving.
 - Confident, energetic, approachable, direct. "Geen gelul."
 - Dutch primary, English when needed.
 
+## Products
+- **Party Booth** (not "iPad Photobooth") — accessible, fun, every party
+- **Magic Mirror XL** — premium, VIP, experience
+- **DJs** — DJ Gianni (coral, meezingers/afro/feest) & Milo (cyan, house/techno)
+
+## Pricing (charm pricing)
+- Party Booth: €199 (not €200)
+- Magic Mirror XL: €599
+- DJs: €149/3hr (not €150), +€49/extra uur
+- Wedding Keepsakes: +€499 (not €500)
+- All prices include 21% BTW
+
 ## Do
-- Match tone to segment (premium for Magic Mirror, casual for iPad, energetic for DJ combo)
-- Highlight unique differentiators (DSLR quality, Spotify playlist optimization, family energy)
-- Use specific social proof ("200+ events") over vague claims
-- Keep CTAs action-oriented in Dutch ("Ontvang je voorstel", not "Verstuur")
+- Match tone to segment (premium for Mirror, fun for Party Booth, energy for DJs)
+- Highlight differentiators (DSLR quality, Spotify playlist optimization, no time limit on Mirror)
+- Use specific social proof ("237+ events") over vague claims
+- CTAs: "Check beschikbaarheid" / "Vraag vrijblijvend voorstel aan"
+- Use scarcity where true ("populaire data gaan snel")
 
 ## Don't
 - Sound corporate, stiff, or boring
 - Sound desperate or overly salesy
+- Use "iPad Photobooth" in customer-facing content — always "Party Booth"
+- Reference "Pic Your Moment" in marketing — only on invoices
+- Use red (#ff494a) or pink (#e839a0) — removed from brand
 - Use translated-from-English Dutch — write native NL
-- Use jargon or unnecessary complexity
-- Mix segment tones (premium copy for budget product or vice versa)
+- Mix segment tones (premium copy for Party Booth or vice versa)
