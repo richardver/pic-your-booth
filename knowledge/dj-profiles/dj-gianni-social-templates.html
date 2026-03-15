@@ -214,6 +214,80 @@ body {
   pointer-events: none;
 }
 
+/* Abstract geometric shapes - vinyl label aesthetic */
+.abstract-shapes {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.abstract-shapes .circle-outline {
+  position: absolute;
+  border-radius: 50%;
+  border: 1px solid rgba(240,101,74,0.08);
+}
+
+.abstract-shapes .line {
+  position: absolute;
+  background: rgba(240,101,74,0.06);
+}
+
+.abstract-shapes .dot {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: rgba(240,101,74,0.15);
+}
+
+/* Banner shapes */
+.sc-banner .shape-circle-1 {
+  width: 300px; height: 300px;
+  top: -100px; right: 15%;
+}
+
+.sc-banner .shape-circle-2 {
+  width: 180px; height: 180px;
+  bottom: -60px; left: 25%;
+}
+
+.sc-banner .shape-line-1 {
+  width: 1px; height: 120%;
+  top: -10%; left: 30%;
+  transform: rotate(15deg);
+}
+
+.sc-banner .shape-line-2 {
+  width: 1px; height: 100%;
+  top: 0; right: 35%;
+  transform: rotate(-8deg);
+}
+
+.sc-banner .shape-dot-1 { top: 25%; left: 18%; }
+.sc-banner .shape-dot-2 { bottom: 30%; right: 22%; }
+.sc-banner .shape-dot-3 { top: 40%; right: 45%; }
+
+/* Set cover shapes */
+.set-cover .shape-circle-1 {
+  width: 400px; height: 400px;
+  bottom: -150px; right: -100px;
+}
+
+.set-cover .shape-circle-2 {
+  width: 200px; height: 200px;
+  top: -80px; left: -60px;
+}
+
+.set-cover .shape-line-1 {
+  width: 1px; height: 140%;
+  top: -20%; right: 20%;
+  transform: rotate(25deg);
+}
+
+.set-cover .shape-dot-1 { top: 15%; right: 30%; }
+.set-cover .shape-dot-2 { bottom: 25%; left: 15%; }
+
 .sc-banner .hex-left {
   position: absolute;
   left: 8%;
@@ -693,6 +767,15 @@ body {
     <div class="sc-banner">
       <!-- Subtle bottom-edge coral glow -->
       <div class="bottom-glow"></div>
+      <div class="abstract-shapes">
+        <div class="circle-outline shape-circle-1"></div>
+        <div class="circle-outline shape-circle-2"></div>
+        <div class="line shape-line-1"></div>
+        <div class="line shape-line-2"></div>
+        <div class="dot shape-dot-1"></div>
+        <div class="dot shape-dot-2"></div>
+        <div class="dot shape-dot-3"></div>
+      </div>
 
       <!-- Left: hex logo with glow -->
       <div class="hex-glow"></div>
@@ -741,6 +824,13 @@ body {
       <div class="set-cover">
         <!-- Subtle radial glow from bottom-center -->
         <div class="radial-glow"></div>
+        <div class="abstract-shapes">
+          <div class="circle-outline shape-circle-1"></div>
+          <div class="circle-outline shape-circle-2"></div>
+          <div class="line shape-line-1"></div>
+          <div class="dot shape-dot-1"></div>
+          <div class="dot shape-dot-2"></div>
+        </div>
 
         <!-- hex G at bottom only -->
 
