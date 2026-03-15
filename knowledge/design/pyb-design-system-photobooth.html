@@ -1672,7 +1672,7 @@ h1, h2, h3, h4, h5, h6 {
           </div>
 
           <!-- CTA -->
-          <a href="#" class="cta-btn cta-btn--gold">Check Beschikbaarheid</a>
+          <a href="#" class="cta-btn cta-btn--gold" onclick="event.preventDefault(); submitBuilder('mirror', 'Magic Mirror XL')">Check Beschikbaarheid</a>
         </div>
 
       </div>
@@ -1820,7 +1820,7 @@ h1, h2, h3, h4, h5, h6 {
           </div>
 
           <!-- CTA -->
-          <a href="#" class="cta-btn cta-btn--gold">Check Beschikbaarheid</a>
+          <a href="#" class="cta-btn cta-btn--gold" onclick="event.preventDefault(); submitBuilder('ipad', 'iPad Photobooth')">Check Beschikbaarheid</a>
         </div>
 
       </div>
@@ -1890,7 +1890,7 @@ h1, h2, h3, h4, h5, h6 {
             </div>
             <div class="form-group">
               <label class="form-label">Bericht <span class="form-label-optional">(optioneel)</span></label>
-              <textarea class="form-textarea" placeholder="Vertel kort wat je in gedachten hebt — wij denken mee."></textarea>
+              <textarea class="form-textarea" id="formMessage" placeholder="Vertel kort wat je in gedachten hebt — wij denken mee."></textarea>
             </div>
             <button class="cta-btn cta-btn--gold">Vraag Vrijblijvend Voorstel Aan</button>
             <p class="form-trust">Reactie binnen 24 uur · 100% vrijblijvend · Geen spam, beloofd</p>
@@ -2125,6 +2125,42 @@ h1, h2, h3, h4, h5, h6 {
       el.textContent = '\u20AC' + total;
     }
   }
+
+  // Submit builder — collect selections and pre-fill form
+  window.submitBuilder = function(builderId, productName) {
+    var base = BASE_PRICES[builderId];
+    var total = base;
+    var selected = [];
+
+    var rows = document.querySelectorAll('.upgrade-row[data-builder="' + builderId + '"]');
+    for (var i = 0; i < rows.length; i++) {
+      var cb = rows[i].querySelector('input[type="checkbox"]');
+      if (cb && cb.checked) {
+        var name = rows[i].querySelector('.upgrade-row__name').textContent;
+        var price = rows[i].dataset.price;
+        selected.push(name + ' (+\u20AC' + price + ')');
+        total += parseInt(price, 10);
+      }
+    }
+
+    var msg = productName + ' \u2014 \u20AC' + total + '\n';
+    if (selected.length > 0) {
+      msg += 'Upgrades: ' + selected.join(', ') + '\n';
+    }
+
+    var textarea = document.getElementById('formMessage');
+    if (textarea) {
+      textarea.value = msg;
+      textarea.style.borderColor = 'rgba(212, 177, 78, 0.40)';
+      setTimeout(function() { textarea.style.borderColor = ''; }, 2000);
+    }
+
+    // Scroll to form section
+    var formSection = document.querySelector('.form-wrapper');
+    if (formSection) {
+      formSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  };
 
   // Modal logic is in the second script block (after modal HTML)
 })();
