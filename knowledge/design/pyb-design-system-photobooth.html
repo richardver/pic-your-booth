@@ -23,7 +23,7 @@
   --border:        rgba(255,255,255,0.06);
 
   /* ── Section Accents ── */
-  --gold:          #c8a44c;
+  --gold:          #d4b14e;
   --gold-dim:      rgba(200,164,76,0.10);
   --violet:        #8b5cf6;
   --violet-dim:    rgba(139,92,246,0.10);
@@ -222,40 +222,105 @@ h1, h2, h3, h4, h5, h6 {
 }
 .nav-cta--gold {
   background: var(--gold);
-  color: #08080b;
+  color: #0a0a0a;
   border: none;
+  font-weight: 700;
 }
 .nav-cta--gold:hover {
   background: var(--gold-light, #ddb960);
   box-shadow: 0 0 24px rgba(200,164,76,0.2);
 }
 
-/* ── Hero ── */
+/* ── Hero — Cinematic event background ── */
 .hero {
   text-align: center;
   padding: var(--sp-24) var(--sp-8) var(--sp-16);
   position: relative;
   overflow: hidden;
+  min-height: 520px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
+/* Background image layer — simulated premium event scene */
 .hero::before {
   content: '';
   position: absolute;
-  top: -50%;
-  left: -50%;
-  width: 200%;
-  height: 200%;
-  background: radial-gradient(ellipse at 30% 50%, rgba(200,164,76,0.04) 0%, transparent 50%),
-              radial-gradient(ellipse at 70% 50%, rgba(200,164,76,0.03) 0%, transparent 50%);
-  animation: heroFloat 12s ease-in-out infinite;
+  inset: 0;
+  background:
+    /* Dark gradient overlay for text readability */
+    linear-gradient(180deg,
+      rgba(8,8,11,0.3) 0%,
+      rgba(8,8,11,0.15) 30%,
+      rgba(8,8,11,0.4) 70%,
+      rgba(8,8,11,0.95) 100%
+    ),
+    /* Golden spotlight from top-center — like a venue light */
+    radial-gradient(ellipse at 50% 15%,
+      rgba(200,164,76,0.12) 0%,
+      rgba(200,164,76,0.04) 35%,
+      transparent 65%
+    ),
+    /* Secondary warm glow — like ambient party lighting */
+    radial-gradient(ellipse at 25% 60%,
+      rgba(200,164,76,0.06) 0%,
+      transparent 50%
+    ),
+    /* Cool fill light from the side */
+    radial-gradient(ellipse at 80% 40%,
+      rgba(139,92,246,0.04) 0%,
+      transparent 50%
+    ),
+    /* Simulated photo: dark event venue with warm tones */
+    linear-gradient(135deg,
+      #12100a 0%,
+      #1a150e 20%,
+      #0f0e0a 40%,
+      #161210 60%,
+      #0d0c08 80%,
+      #08080b 100%
+    );
+  animation: heroShift 20s ease-in-out infinite;
   pointer-events: none;
 }
 
-@keyframes heroFloat {
-  0%, 100% { transform: translate(0, 0) rotate(0deg); }
-  33% { transform: translate(2%, -1%) rotate(1deg); }
-  66% { transform: translate(-1%, 1%) rotate(-0.5deg); }
+/* Floating bokeh circles — party lights in the background */
+.hero::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle 3px at 15% 25%, rgba(200,164,76,0.25) 0%, transparent 100%),
+    radial-gradient(circle 4px at 75% 20%, rgba(200,164,76,0.15) 0%, transparent 100%),
+    radial-gradient(circle 2px at 60% 70%, rgba(200,164,76,0.20) 0%, transparent 100%),
+    radial-gradient(circle 5px at 30% 55%, rgba(200,164,76,0.10) 0%, transparent 100%),
+    radial-gradient(circle 3px at 85% 65%, rgba(139,92,246,0.12) 0%, transparent 100%),
+    radial-gradient(circle 2px at 45% 35%, rgba(200,164,76,0.18) 0%, transparent 100%),
+    radial-gradient(circle 4px at 20% 80%, rgba(200,164,76,0.08) 0%, transparent 100%),
+    radial-gradient(circle 3px at 90% 40%, rgba(139,92,246,0.10) 0%, transparent 100%);
+  animation: bokehFloat 15s ease-in-out infinite;
+  pointer-events: none;
+  opacity: 0.7;
 }
+
+@keyframes heroShift {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.03); }
+}
+
+@keyframes bokehFloat {
+  0%, 100% { transform: translate(0, 0); opacity: 0.7; }
+  33% { transform: translate(8px, -5px); opacity: 0.9; }
+  66% { transform: translate(-5px, 3px); opacity: 0.6; }
+}
+
+.hero h1, .hero p, .hero .proof-bar, .hero .services-grid, .hero .testimonial {
+  position: relative;
+  z-index: 1;
+}
+
 .hero h1 {
   font-size: 4.5rem;
   letter-spacing: 0.08em;
@@ -264,7 +329,7 @@ h1, h2, h3, h4, h5, h6 {
 
 /* ── Gold Gradient Text — editorial luxury ── */
 .text-gold-gradient {
-  background: linear-gradient(135deg, #a0842e 0%, #c8a44c 30%, #e8cc6e 50%, #c8a44c 70%, #a0842e 100%);
+  background: linear-gradient(135deg, #b8962e 0%, #d4b14e 30%, #f0d878 50%, #d4b14e 70%, #b8962e 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -429,12 +494,12 @@ h1, h2, h3, h4, h5, h6 {
 
 .usp-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   gap: var(--sp-5);
 }
 
-@media (max-width: 900px) {
-  .usp-grid { grid-template-columns: repeat(2, 1fr); }
+@media (max-width: 600px) {
+  .usp-grid { grid-template-columns: 1fr; }
 }
 
 .usp-card {
@@ -717,8 +782,7 @@ h1, h2, h3, h4, h5, h6 {
   opacity: 0.9;
   transform: translateY(-1px);
 }
-.cta-btn--gold    { background: var(--gold); }
-.cta-btn--gold   { background: var(--gold); }
+.cta-btn--gold { background: var(--gold); color: #0a0a0a; font-weight: 700; }
 .cta-btn--neutral { background: rgba(255,255,255,0.10); color: var(--text); }
 
 /* ── Form ── */
@@ -974,19 +1038,19 @@ h1, h2, h3, h4, h5, h6 {
           </ul>
         </nav>
 
-        <!-- Hero -->
+        <!-- Hero with cinematic event background -->
         <div class="hero">
           <h1 class="text-gold-gradient">Entertainment Die Indruk Maakt</h1>
           <p>Premium photobooth & DJ entertainment voor bruiloften, bedrijfsfeesten en privé-evenementen in de Randstad.</p>
-        </div>
 
-        <!-- Social Proof -->
-        <div class="proof-bar">
-          <div class="proof-item"><strong>200+</strong><span>Events</span></div>
-          <div class="proof-divider"></div>
-          <div class="proof-item"><strong>4.9★</strong><span>Beoordeling</span></div>
-          <div class="proof-divider"></div>
-          <div class="proof-item"><strong>Randstad</strong><span>& Omgeving</span></div>
+          <!-- Social Proof — inside hero for background coverage -->
+          <div class="proof-bar" style="margin-top:var(--sp-12); width:100%;">
+            <div class="proof-item"><strong>200+</strong><span>Events</span></div>
+            <div class="proof-divider"></div>
+            <div class="proof-item"><strong>4.9★</strong><span>Beoordeling</span></div>
+            <div class="proof-divider"></div>
+            <div class="proof-item"><strong>Randstad</strong><span>& Omgeving</span></div>
+          </div>
         </div>
 
         <!-- Service Cards — iPad, Magic Mirror, DJs -->
