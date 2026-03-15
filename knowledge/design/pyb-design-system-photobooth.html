@@ -1411,6 +1411,19 @@ h1, h2, h3, h4, h5, h6 {
             </label>
           </div>
 
+          <!-- Live DJ Set -->
+          <div class="upgrade-row" data-price="150" data-builder="ipad" onclick="toggleUpgrade(this,'coral')">
+            <div class="upgrade-row__info">
+              <div class="upgrade-row__name">Live DJ Set</div>
+              <div class="upgrade-row__desc">Professionele DJ met rookmachine, lichten, speakers & Spotify playlist optimalisatie.</div>
+            </div>
+            <div class="upgrade-row__price upgrade-row__price--gold">+€150</div>
+            <label class="toggle" onclick="event.stopPropagation()">
+              <input type="checkbox" onchange="toggleUpgrade(this.closest('.upgrade-row'),'coral')">
+              <span class="toggle-track toggle-track--gold"></span>
+            </label>
+          </div>
+
           <!-- Total -->
           <div class="builder-total">
             <span class="builder-total__label">Totaal</span>
