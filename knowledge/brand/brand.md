@@ -1,8 +1,8 @@
-# Pic Your Booth — Brand Guide
+# PicYourBooth — Brand Guide
 
-## Company Structure
+## Company
 
-**Pic Your Booth** is a brand of **Pic Your Moment BV**
+**PicYourBooth** — Premium event entertainment
 Region: Netherlands, Randstad
 
 ---
@@ -10,10 +10,10 @@ Region: Netherlands, Randstad
 ## Mission
 
 ### EN
-We turn events into unforgettable experiences — combining high-end photobooths, creative DJs, and personal energy to make every moment count. Built by a family that loves what they do.
+We turn events into unforgettable experiences — combining premium photobooths, creative DJs, and personal energy to make every moment count.
 
 ### NL
-Wij maken van elk event een onvergetelijke ervaring — met high-end photobooths, creatieve DJ's en persoonlijke energie. Gebouwd door een familie die houdt van wat ze doet.
+Wij maken van elk event een onvergetelijke ervaring — met premium photobooths, creatieve DJ's en persoonlijke energie.
 
 ## Vision
 
@@ -25,7 +25,7 @@ Een creatief entertainmentbedrijf bouwen waar Luca en Milo in kunnen groeien —
 
 ## Why We Exist
 
-Richard started Pic Your Booth to have fun, teach his sons Luca and Milo how to be entrepreneurs, support their DJ careers, and give them something real they can build upon. This isn't just a business — it's a family legacy.
+Richard started PicYourBooth to have fun, teach his sons Luca and Milo how to be entrepreneurs, support their DJ careers, and give them something real they can build upon. This isn't just a business — it's a family legacy.
 
 ---
 
@@ -36,7 +36,7 @@ Richard started Pic Your Booth to have fun, teach his sons Luca and Milo how to 
 **NL:** Professioneel. Creatief. Snel schakelen.
 
 **Desired customer reaction:**
-> "Wow, that was an experience." / "Wauw, dát was een ervaring."
+> "Wauw, dát was een ervaring."
 
 ---
 
@@ -55,88 +55,139 @@ Richard started Pic Your Booth to have fun, teach his sons Luca and Milo how to 
 
 | Channel       | Tone                                                          |
 |---------------|---------------------------------------------------------------|
-| Website       | "We don't do boring. We bring the energy, the photos, and the music — you bring the people." |
+| Website       | Premium, cinematic, confident. Dark aesthetic, gold accents.  |
 | Proposals     | Clear, clean, confident. Show value, not words.               |
 | Social media  | Behind-the-scenes energy, event highlights, DJ personality    |
 | Ads           | Direct, visual, benefit-led. Hook fast, convert faster.       |
 
 ---
 
-## Target Segments
-
-### 1. Magic Mirror XL — Premium Segment
-
-- **Who:** Corporate event planners, wedding couples, high-end party organizers
-- **Events:** Corporate events, weddings, galas, high-end private parties
-- **Profile:** Quality-conscious, willing to invest in experience, Randstad area
-- **Need:** A wow-factor experience, not just a photo machine
-- **Message:** "Not just a booth — an experience."
-
-### 2. iPad Photobooth — Accessible Segment
-
-- **Who:** Anyone with a celebration, big or small
-- **Events:** Birthdays, house parties, smaller celebrations
-- **Profile:** Budget-friendly, still wants something fun and memorable
-- **Need:** Easy, affordable photo fun without the premium price tag
-- **Message:** "Photo fun for every budget."
-
-### 3. AI Photobooth — Premium Add-on
-
-- Activates on the Magic Mirror XL
-- Appeals to tech-forward clients wanting something extra unique
-- Upsell opportunity for corporate and high-end events
-
----
-
-## Value Propositions
-
-### Magic Mirror XL
-**Not just a booth — an experience.**
-Premium equipment (Canon EOS 650D DSLR, professional lighting), unique VIP add-ons (backdrop, red carpet, stanchions, luxe props), and optional on-site guidance by our team.
+## Services & Pricing
 
 ### iPad Photobooth
-**Photo fun for every budget.**
-Simple, affordable, digital-only photobooth for any celebration. Pick up, set up, enjoy.
+**Foto plezier voor elk feest.**
+Compact, digital-only photobooth. Pick up, set up, enjoy.
 
-### DJ + Photobooth Combo
-**One team, one vibe, one booking.**
-Our DJs don't just play music — give them your Spotify playlist and they build an optimized set tailored to the vibe and type of party. Combined with the photobooth, you get a complete entertainment package from one team.
+| Package | Price | Includes |
+|---------|-------|----------|
+| Basic | €200 | Ophalen bij ons, basis fotostrip design |
+| + Premium Design | +€25 | Upgrade naar premium fotostrip design |
+| + Bezorging | +€25 | Wij bezorgen en halen op bij je locatie |
+
+### Magic Mirror XL (Populair)
+**Niet zomaar een booth — een ervaring.**
+Premium DSLR photobooth with professional lighting and direct printing.
+
+| Package | Price | Includes |
+|---------|-------|----------|
+| Basic | €599 | 4 uur, DSLR kwaliteit, direct printen, digitale galerij |
+| + VIP Upgrade | +€150 | Backdrop, rode loper, afzetpalen, luxe props |
+| + Wedding Keepsakes | +€500 | Gepersonaliseerde sleutelhangers |
+| + On-Site Host | +€150 | Teamlid begeleidt gasten |
+| + Live DJ Set | +€150 | DJ met rookmachine, lichten, speakers |
+
+### DJs
+**De perfecte soundtrack voor je event.**
+
+| DJ | Style | Vibe |
+|---|-------|------|
+| DJ Gianni (Luca) | Meezingers, Afro, Dance | Warm energy, party fire, sunset vibes |
+| Milo | House, Techno | Deep, underwater, immersive, late-night |
+
+**Unique selling point:** Spotify playlist optimization — give us your playlist, we build an optimized set tailored to your event.
+
+**Pricing:** Vanaf €150 per avond (includes speakers, lights, smoke machine)
 
 ---
 
-## Competitive Edge
+## Visual Identity
 
-1. **Real equipment** — DSLR camera, professional lighting, not a tablet on a stick
-2. **DJ + Photobooth combo** — unique bundled offering, one team does everything
-3. **Spotify playlist optimization** — give us your playlist, we make it better for the party
-4. **AI photobooth** — tech-forward premium add-on
-5. **Family energy** — tight team, personal touch, genuine passion
-6. **Two tiers** — premium (Magic Mirror) and accessible (iPad) covers the full market
+### Design System
+
+**Dark cinematic base** — events happen at night. The website feels like walking into a VIP event.
+
+| Element | Value | Usage |
+|---------|-------|-------|
+| Background | #08080b | Page background |
+| Surface | #111116 | Cards, elevated elements |
+| Text | #ededf0 | Primary text |
+| Text muted | rgba(237,237,240,0.60) | Descriptions, secondary text |
+| Gold | #d4b14e | Photobooth accent, VIP badges, book button, prices |
+| Violet | #8b5cf6 | DJ Hub accent, DJ CTAs |
+| Coral | #f0654a | DJ Gianni personal color |
+| Cyan | #22d3ee | Milo personal color |
+
+### Typography
+
+| Font | Usage |
+|------|-------|
+| Bebas Neue | All headings, nav logo, prices, labels (uppercase) |
+| Space Grotesk | All body text, descriptions, forms |
+
+Shared across photobooth and DJ pages — unified brand.
+
+### Color Rules
+
+- **Gold** for all photobooth CTAs, price pills, "Boek je ervaring" nav button
+- **Violet** for DJ-specific CTAs ("Boek een DJ", "Plan je feest")
+- **Coral** only for DJ Gianni profile elements
+- **Cyan** only for Milo profile elements
+- **No red (#ff494a)** — removed from brand
+- **No pink (#e839a0)** — removed from brand
+- **Gold buttons always use black (#000) text**
 
 ---
 
 ## Brand Architecture
 
 ```
-Pic Your Moment BV (parent / legal entity)
-└── Pic Your Booth (photobooth & DJ entertainment brand)
-    ├── Magic Mirror XL (premium photobooth)
-    ├── iPad Photobooth (accessible photobooth)
-    ├── DJ Services (bundled with photobooth)
-    │   ├── Luca / DJ Gianni — meezingers, afro, dance (high-energy)
-    │   └── Milo — house, techno
-    └── AI Photobooth (premium add-on)
+PicYourBooth (standalone premium entertainment brand)
+├── iPad Photobooth (accessible entry point)
+├── Magic Mirror XL (premium photobooth — populair)
+│   └── Upgrades: VIP, Wedding Keepsakes, On-Site Host, Live DJ Set
+└── DJs (separate service section)
+    ├── DJ Gianni (Luca) — coral accent — meezingers, afro, dance
+    └── Milo — cyan accent — house, techno
 ```
 
+**Note:** PicYourBooth is one word. Legal entity is Pic Your Moment BV (only appears on invoices, never in marketing).
+
 ### DJ Personal Brands
-The DJs maintain personal profiles (Instagram, SoundCloud, TikTok) that are promoted alongside the business. Cross-promotion between Pic Your Booth events and DJ personal brands creates a flywheel: events → content → followers → more bookings.
+The DJs maintain personal profiles (Instagram, SoundCloud, TikTok) promoted alongside the business. Cross-promotion flywheel: events → content → followers → more bookings.
+
+---
+
+## Competitive Edge
+
+1. **Real equipment** — DSLR camera, professional lighting, not a tablet on a stick
+2. **DJs with Spotify optimization** — give us your playlist, we make it better
+3. **Family energy** — tight team, personal touch, genuine passion
+4. **Two entry points** — premium (Magic Mirror) and accessible (iPad)
+5. **One-stop entertainment** — photobooth + DJ from one team
 
 ---
 
 ## Team
 
-| Name    | Role                          | DJ Style                                    |
-|---------|-------------------------------|---------------------------------------------|
-| Richard | Owner — business, tech, marketing | —                                         |
-| Luca    | Photobooth operator & DJ      | DJ Gianni: meezingers, afro, dance — super energy vibe |
-| Milo    | Photobooth operator & DJ      | House, techno                               |
+| Name | Role | DJ Style |
+|------|------|----------|
+| Richard | Owner — business, tech, marketing | — |
+| Luca | Photobooth operator & DJ | DJ Gianni: meezingers, afro, dance — coral accent |
+| Milo | Photobooth operator & DJ | House, techno — cyan accent |
+
+---
+
+## Key Pages (Website)
+
+| Page | URL | Content |
+|------|-----|---------|
+| Homepage | picyourbooth.nl | Hero + social proof + 3 service cards (iPad, Magic Mirror, DJs) + testimonial |
+| iPad Photobooth | picyourbooth.nl/ipad-photobooth | USPs + package builder (base + upgrades) |
+| Magic Mirror XL | picyourbooth.nl/magic-mirror | USPs + package builder (base + upgrades) |
+| DJs | picyourbooth.nl/djs | DJ Hub + Gianni profile + Milo profile + Spotify feature + How it works |
+| Offerte | picyourbooth.nl/offerte | Proposal request form (6 fields max) |
+
+### CTA Language
+- Nav button: "BOEK JE ERVARING" (gold)
+- Form submit: "VERSTUUR AANVRAAG" (gold)
+- DJ CTAs: "BOEK EEN DJ" / "PLAN JE FEEST" (violet)
