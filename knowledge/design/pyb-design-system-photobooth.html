@@ -244,44 +244,29 @@ h1, h2, h3, h4, h5, h6 {
   justify-content: center;
 }
 
-/* Background image layer — simulated premium event scene */
+/* Background image layer — real event photo with premium overlay */
 .hero::before {
   content: '';
   position: absolute;
   inset: 0;
   background:
-    /* Dark gradient overlay for text readability */
+    /* Dark gradient overlay — text readability + fade to page bg */
     linear-gradient(180deg,
-      rgba(8,8,11,0.3) 0%,
-      rgba(8,8,11,0.15) 30%,
-      rgba(8,8,11,0.4) 70%,
-      rgba(8,8,11,0.95) 100%
+      rgba(8,8,11,0.45) 0%,
+      rgba(8,8,11,0.25) 25%,
+      rgba(8,8,11,0.35) 55%,
+      rgba(8,8,11,0.92) 85%,
+      rgba(8,8,11,1) 100%
     ),
-    /* Golden spotlight from top-center — like a venue light */
-    radial-gradient(ellipse at 50% 15%,
-      rgba(200,164,76,0.12) 0%,
-      rgba(200,164,76,0.04) 35%,
-      transparent 65%
-    ),
-    /* Secondary warm glow — like ambient party lighting */
-    radial-gradient(ellipse at 25% 60%,
-      rgba(200,164,76,0.06) 0%,
+    /* Golden warm tint over the photo */
+    linear-gradient(180deg,
+      rgba(200,164,76,0.08) 0%,
       transparent 50%
     ),
-    /* Cool fill light from the side */
-    radial-gradient(ellipse at 80% 40%,
-      rgba(139,92,246,0.04) 0%,
-      transparent 50%
-    ),
-    /* Simulated photo: dark event venue with warm tones */
-    linear-gradient(135deg,
-      #12100a 0%,
-      #1a150e 20%,
-      #0f0e0a 40%,
-      #161210 60%,
-      #0d0c08 80%,
-      #08080b 100%
-    );
+    /* The actual hero image — premium event atmosphere */
+    url('https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=1400&q=80&auto=format');
+  background-size: cover;
+  background-position: center 30%;
   animation: heroShift 20s ease-in-out infinite;
   pointer-events: none;
 }
