@@ -1239,6 +1239,162 @@ h1, h2, h3, h4, h5, h6 {
   background: var(--violet);
   color: #000000;
 }
+
+/* -- Info Button (? icon on upgrade rows) --------------------- */
+.info-btn {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--border);
+  color: var(--text-muted);
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: all 0.25s var(--ease-out);
+}
+
+.info-btn:hover {
+  background: var(--gold-dim);
+  border-color: rgba(212, 177, 78, 0.3);
+  color: var(--gold);
+}
+
+/* -- Modal Overlay -------------------------------------------- */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.75);
+  backdrop-filter: blur(8px);
+  z-index: 10001;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  animation: modalFadeIn 0.3s var(--ease-out);
+}
+
+.modal-overlay.active {
+  display: flex;
+}
+
+@keyframes modalFadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.modal {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--r-lg);
+  max-width: 520px;
+  width: 100%;
+  overflow: hidden;
+  animation: modalSlideUp 0.4s var(--ease-out);
+  box-shadow: 0 32px 96px rgba(0, 0, 0, 0.5);
+}
+
+@keyframes modalSlideUp {
+  from { opacity: 0; transform: translateY(24px) scale(0.96); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+.modal__image {
+  height: 220px;
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(135deg, rgba(212, 177, 78, 0.06) 0%, var(--surface) 100%);
+}
+
+.modal__image-icon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 64px;
+  opacity: 0.12;
+}
+
+/* Shimmer across modal image */
+.modal__image::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 60%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(212, 177, 78, 0.04), transparent);
+  animation: modalShimmer 3s ease-in-out infinite;
+}
+
+@keyframes modalShimmer {
+  0% { left: -60%; }
+  100% { left: 160%; }
+}
+
+.modal__badge {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  font-family: var(--font-display);
+  font-size: 0.7rem;
+  letter-spacing: 0.08em;
+  background: var(--gold);
+  color: #000;
+  padding: 4px 14px;
+  border-radius: var(--r-pill);
+}
+
+.modal__body {
+  padding: 28px;
+}
+
+.modal__title {
+  font-size: 1.5rem;
+  letter-spacing: 0.06em;
+  margin-bottom: 8px;
+  color: var(--gold);
+}
+
+.modal__price {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  letter-spacing: 0.04em;
+  color: var(--text-muted);
+  margin-bottom: 16px;
+}
+
+.modal__desc {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  line-height: 1.8;
+  margin-bottom: 24px;
+}
+
+.modal__close {
+  width: 100%;
+  padding: 14px;
+  background: var(--gold);
+  color: #000;
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  border: none;
+  border-radius: var(--r-sm);
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.modal__close:hover {
+  background: var(--gold-light);
+}
 </style>
 </head>
 <body>
@@ -1454,9 +1610,10 @@ h1, h2, h3, h4, h5, h6 {
           <h3 class="builder-upgrades-title">Upgrade Je Ervaring</h3>
 
           <div class="upgrade-row" data-price="150" data-builder="mirror" onclick="toggleUpgrade(this)">
+            <button class="info-btn" onclick="event.stopPropagation(); openModal('vip')" title="Meer info">?</button>
             <div class="upgrade-row__info">
               <div class="upgrade-row__name">VIP Upgrade</div>
-              <div class="upgrade-row__desc">Backdrop, rode loper, afzetpalen & luxe props collectie — til je event naar VIP-niveau.</div>
+              <div class="upgrade-row__desc">Backdrop, rode loper, afzetpalen & luxe props collectie.</div>
             </div>
             <div class="upgrade-row__price">+€150</div>
             <label class="toggle" onclick="event.stopPropagation()">
@@ -1466,9 +1623,10 @@ h1, h2, h3, h4, h5, h6 {
           </div>
 
           <div class="upgrade-row" data-price="500" data-builder="mirror" onclick="toggleUpgrade(this)">
+            <button class="info-btn" onclick="event.stopPropagation(); openModal('wedding')" title="Meer info">?</button>
             <div class="upgrade-row__info">
               <div class="upgrade-row__name">Wedding Keepsakes</div>
-              <div class="upgrade-row__desc">Gepersonaliseerde sleutelhangers als aandenken voor je gasten.</div>
+              <div class="upgrade-row__desc">Gepersonaliseerde sleutelhangers als aandenken.</div>
             </div>
             <div class="upgrade-row__price">+€500</div>
             <label class="toggle" onclick="event.stopPropagation()">
@@ -1478,9 +1636,10 @@ h1, h2, h3, h4, h5, h6 {
           </div>
 
           <div class="upgrade-row" data-price="150" data-builder="mirror" onclick="toggleUpgrade(this)">
+            <button class="info-btn" onclick="event.stopPropagation(); openModal('host')" title="Meer info">?</button>
             <div class="upgrade-row__info">
               <div class="upgrade-row__name">On-Site Host</div>
-              <div class="upgrade-row__desc">Eén van ons teamleden begeleidt je gasten voor de optimale beleving.</div>
+              <div class="upgrade-row__desc">Teamlid begeleidt je gasten voor de optimale beleving.</div>
             </div>
             <div class="upgrade-row__price">+€150</div>
             <label class="toggle" onclick="event.stopPropagation()">
@@ -1491,8 +1650,9 @@ h1, h2, h3, h4, h5, h6 {
 
           <div class="upgrade-row" data-price="150" data-builder="mirror" onclick="toggleUpgrade(this)">
             <div class="upgrade-row__info">
+            <button class="info-btn" onclick="event.stopPropagation(); openModal('dj')" title="Meer info">?</button>
               <div class="upgrade-row__name">Live DJ Set</div>
-              <div class="upgrade-row__desc">Professionele DJ met rookmachine, lichten, speakers & complete setup.</div>
+              <div class="upgrade-row__desc">Professionele DJ met rookmachine, lichten & speakers.</div>
             </div>
             <div class="upgrade-row__price">+€150</div>
             <label class="toggle" onclick="event.stopPropagation()">
@@ -1611,6 +1771,7 @@ h1, h2, h3, h4, h5, h6 {
           <h3 class="builder-upgrades-title">Upgrade Je Ervaring</h3>
 
           <div class="upgrade-row" data-price="25" data-builder="ipad" onclick="toggleUpgrade(this)">
+            <button class="info-btn" onclick="event.stopPropagation(); openModal('design')" title="Meer info">?</button>
             <div class="upgrade-row__info">
               <div class="upgrade-row__name">Premium Fotostrip Design</div>
               <div class="upgrade-row__desc">Upgrade naar premium design voor je fotostrips.</div>
@@ -1623,9 +1784,10 @@ h1, h2, h3, h4, h5, h6 {
           </div>
 
           <div class="upgrade-row" data-price="25" data-builder="ipad" onclick="toggleUpgrade(this)">
+            <button class="info-btn" onclick="event.stopPropagation(); openModal('delivery')" title="Meer info">?</button>
             <div class="upgrade-row__info">
               <div class="upgrade-row__name">Bezorging Door Ons</div>
-              <div class="upgrade-row__desc">Wij bezorgen en halen op bij je locatie — geen gedoe.</div>
+              <div class="upgrade-row__desc">Wij bezorgen en halen op bij je locatie.</div>
             </div>
             <div class="upgrade-row__price">+€25</div>
             <label class="toggle" onclick="event.stopPropagation()">
@@ -1636,8 +1798,9 @@ h1, h2, h3, h4, h5, h6 {
 
           <div class="upgrade-row" data-price="150" data-builder="ipad" onclick="toggleUpgrade(this)">
             <div class="upgrade-row__info">
+            <button class="info-btn" onclick="event.stopPropagation(); openModal('dj')" title="Meer info">?</button>
               <div class="upgrade-row__name">Live DJ Set</div>
-              <div class="upgrade-row__desc">Professionele DJ met rookmachine, lichten, speakers & Spotify playlist optimalisatie.</div>
+              <div class="upgrade-row__desc">Professionele DJ met lichten, speakers & Spotify optimalisatie.</div>
             </div>
             <div class="upgrade-row__price">+€150</div>
             <label class="toggle" onclick="event.stopPropagation()">
@@ -1958,8 +2121,105 @@ h1, h2, h3, h4, h5, h6 {
       el.textContent = '\u20AC' + total;
     }
   }
+
+  /* ── Modal Logic ──────────────────────────────── */
+  var modalData = {
+    vip: {
+      title: 'VIP Upgrade',
+      price: '+€150',
+      icon: '✨',
+      image: 'https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?w=800&q=80&auto=format',
+      desc: 'Til je event naar VIP-niveau met onze complete upgrade. Inclusief een stijlvolle backdrop, rode loper, afzetpalen en onze exclusieve luxe props collectie. Je gasten voelen zich een echte VIP zodra ze de photobooth benaderen. Perfect voor bruiloften, galas en corporate events waar je die extra wow-factor wilt.'
+    },
+    wedding: {
+      title: 'Wedding Keepsakes',
+      price: '+€500',
+      icon: '💍',
+      image: 'https://images.unsplash.com/photo-1519741497674-611481863552?w=800&q=80&auto=format',
+      desc: 'Geef je gasten een tastbare herinnering aan jullie dag. Wij maken gepersonaliseerde sleutelhangers met de mooiste foto\'s van de avond — direct op locatie geproduceerd. Elke gast neemt een uniek aandenken mee naar huis. Inclusief gepersonaliseerd design met jullie namen en datum.'
+    },
+    host: {
+      title: 'On-Site Host',
+      price: '+€150',
+      icon: '🎤',
+      image: 'https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=800&q=80&auto=format',
+      desc: 'Eén van onze ervaren teamleden is de hele avond aanwezig bij de photobooth. Zij begeleiden je gasten, zorgen voor de perfecte poses, houden de flow erin en zorgen ervoor dat iedereen de beste ervaring heeft. Jij geniet van je feest — wij regelen de rest.'
+    },
+    dj: {
+      title: 'Live DJ Set',
+      price: '+€150',
+      icon: '🎧',
+      image: 'https://images.unsplash.com/photo-1571266028243-3716f02d2d56?w=800&q=80&auto=format',
+      desc: 'Voeg een professionele DJ toe aan je avond. Inclusief complete setup met rookmachine, sfeerverlichting, professionele speakers en een DJ die weet hoe hij de dansvloer vol krijgt. Deel je Spotify playlist — wij optimaliseren de volgorde en energie voor de perfecte flow.'
+    },
+    design: {
+      title: 'Premium Fotostrip Design',
+      price: '+€25',
+      icon: '🎨',
+      image: 'https://images.unsplash.com/photo-1513151233558-d860c5398176?w=800&q=80&auto=format',
+      desc: 'Upgrade je fotostrips van basis naar premium design. Wij ontwerpen een custom layout die past bij jouw event — met kleuren, fonts en styling die aansluiten bij je thema. Je gasten krijgen een fotostrip die er niet alleen leuk uitziet, maar ook echt bij jouw feest hoort.'
+    },
+    delivery: {
+      title: 'Bezorging Door Ons',
+      price: '+€25',
+      icon: '🚚',
+      image: 'https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=800&q=80&auto=format',
+      desc: 'Geen zin om te rijden? Wij bezorgen de iPad Photobooth op je locatie en halen hem na afloop weer op. Volledig opgeladen, klaar voor gebruik. Jij hoeft alleen maar de deur open te doen. Beschikbaar in de hele Randstad.'
+    }
+  };
+
+  var overlay = document.getElementById('modalOverlay');
+  var modalTitle = document.getElementById('modalTitle');
+  var modalPrice = document.getElementById('modalPrice');
+  var modalDesc = document.getElementById('modalDesc');
+  var modalImage = document.getElementById('modalImage');
+  var modalBadge = document.getElementById('modalBadge');
+
+  window.openModal = function(key) {
+    var data = modalData[key];
+    if (!data || !overlay) return;
+    modalTitle.textContent = data.title;
+    modalPrice.textContent = data.price;
+    modalDesc.textContent = data.desc;
+    modalBadge.textContent = data.icon + ' UPGRADE';
+    modalImage.style.backgroundImage = "linear-gradient(180deg, transparent 60%, var(--surface) 100%), url('" + data.image + "')";
+    modalImage.style.backgroundSize = 'cover';
+    modalImage.style.backgroundPosition = 'center';
+    overlay.classList.add('active');
+  };
+
+  window.closeModal = function() {
+    if (overlay) overlay.classList.remove('active');
+  };
+
+  // Close on overlay click (not modal itself)
+  if (overlay) {
+    overlay.addEventListener('click', function(e) {
+      if (e.target === overlay) closeModal();
+    });
+  }
+
+  // Close on Escape key
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') closeModal();
+  });
 })();
 </script>
+
+<!-- Modal -->
+<div class="modal-overlay" id="modalOverlay">
+  <div class="modal">
+    <div class="modal__image" id="modalImage">
+      <div class="modal__badge" id="modalBadge">UPGRADE</div>
+    </div>
+    <div class="modal__body">
+      <h2 class="modal__title" id="modalTitle"></h2>
+      <div class="modal__price" id="modalPrice"></div>
+      <p class="modal__desc" id="modalDesc"></p>
+      <button class="modal__close" onclick="closeModal()">Sluiten</button>
+    </div>
+  </div>
+</div>
 
 </body>
 </html>
