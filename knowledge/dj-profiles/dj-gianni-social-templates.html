@@ -1,0 +1,1072 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DJ GIANNI - Social Media Templates</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Space+Grotesk:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500&display=swap" rel="stylesheet">
+<style>
+/* ============================================================
+   DJ GIANNI - SOCIAL MEDIA TEMPLATES
+   3 platform-ready design templates
+   ============================================================ */
+
+/* -- Design Tokens ----------------------------------------- */
+:root {
+  --void: #050508;
+  --surface: #111116;
+  --card: #111116;
+  --border: rgba(255,255,255,0.06);
+
+  --white: #ededf0;
+  --muted: rgba(237,237,240,0.40);
+  --subtle: rgba(237,237,240,0.10);
+
+  --gi: #f0654a;
+  --gi-light: #f4826c;
+  --gi-dim: rgba(240,101,74,0.10);
+
+  --font-display: 'Bebas Neue', Impact, sans-serif;
+  --font-body: 'Space Grotesk', system-ui, sans-serif;
+
+  --ease: cubic-bezier(0.16, 1, 0.3, 1);
+
+  --r-sm: 6px;
+  --r-md: 10px;
+  --r-lg: 16px;
+  --r-xl: 24px;
+  --r-pill: 999px;
+}
+
+/* -- Reset ------------------------------------------------- */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html {
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--void);
+  color: var(--white);
+  font-family: var(--font-body);
+  line-height: 1.6;
+  padding: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* -- Document Chrome --------------------------------------- */
+.doc-header {
+  text-align: center;
+  padding: 80px 40px 48px;
+  border-bottom: 1px solid var(--border);
+}
+
+.doc-header h1 {
+  font-family: var(--font-display);
+  font-size: clamp(2.4rem, 5vw, 3.6rem);
+  letter-spacing: 0.08em;
+  color: var(--gi);
+  line-height: 1;
+  margin-bottom: 8px;
+}
+
+.doc-header .subtitle {
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  color: var(--muted);
+  font-weight: 300;
+  letter-spacing: 0.04em;
+}
+
+.doc-intro {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 48px 24px 16px;
+  color: var(--muted);
+  font-size: 0.9rem;
+  line-height: 1.7;
+  text-align: center;
+}
+
+/* -- Section Layout ---------------------------------------- */
+.template-section {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 64px 24px;
+  border-bottom: 1px solid var(--border);
+}
+
+.template-section:last-of-type {
+  border-bottom: none;
+}
+
+.section-number {
+  font-family: var(--font-display);
+  font-size: 0.85rem;
+  letter-spacing: 0.2em;
+  color: var(--gi);
+  opacity: 0.6;
+  margin-bottom: 8px;
+}
+
+.section-title {
+  font-family: var(--font-display);
+  font-size: clamp(1.6rem, 3vw, 2.2rem);
+  letter-spacing: 0.06em;
+  color: var(--white);
+  margin-bottom: 4px;
+}
+
+.section-dims {
+  font-size: 0.8rem;
+  color: var(--muted);
+  font-weight: 300;
+  margin-bottom: 32px;
+  letter-spacing: 0.02em;
+}
+
+/* -- Template Containers ----------------------------------- */
+.template-frame {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--r-lg);
+  overflow: hidden;
+  margin-bottom: 32px;
+}
+
+/* -- 1. SoundCloud Banner ---------------------------------- */
+.sc-banner {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 2480 / 520;
+  background: var(--void);
+  overflow: hidden;
+}
+
+.sc-banner .photo-zone {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 45%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.sc-banner .photo-zone img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  filter: saturate(0.5) brightness(0.7);
+  mix-blend-mode: normal;
+}
+
+.sc-banner .photo-zone::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(to right, transparent 30%, var(--void) 100%),
+    linear-gradient(to bottom, rgba(240,101,74,0.15) 0%, transparent 60%);
+}
+
+.sc-banner .content-zone {
+  position: absolute;
+  right: 8%;
+  top: 50%;
+  transform: translateY(-50%);
+  text-align: right;
+  z-index: 2;
+}
+
+.sc-banner .glow {
+  position: absolute;
+  right: 15%;
+  top: 50%;
+  transform: translate(50%, -50%);
+  width: 400px;
+  height: 300px;
+  background: radial-gradient(ellipse, rgba(240,101,74,0.12) 0%, transparent 70%);
+  z-index: 1;
+  pointer-events: none;
+}
+
+.sc-banner .artist-name {
+  font-family: var(--font-display);
+  font-size: clamp(1.8rem, 6vw, 5rem);
+  letter-spacing: 0.1em;
+  color: var(--gi);
+  line-height: 0.9;
+}
+
+.sc-banner .pure-vibes {
+  font-family: var(--font-body);
+  font-style: italic;
+  font-weight: 300;
+  font-size: clamp(0.55rem, 1.5vw, 1.1rem);
+  color: var(--muted);
+  margin-top: 4px;
+  letter-spacing: 0.06em;
+}
+
+.sc-banner .genre-pills {
+  display: flex;
+  gap: 6px;
+  justify-content: flex-end;
+  margin-top: 10px;
+}
+
+.genre-pill {
+  font-family: var(--font-body);
+  font-size: clamp(0.4rem, 0.9vw, 0.65rem);
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  color: var(--gi-light);
+  background: var(--gi-dim);
+  padding: 3px 10px;
+  border-radius: var(--r-pill);
+  white-space: nowrap;
+}
+
+.hex-mark {
+  width: 40px;
+  height: 40px;
+  background: var(--gi);
+  clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-display);
+  font-size: 18px;
+  color: var(--void);
+  letter-spacing: 0;
+}
+
+.hex-mark-sm {
+  width: 28px;
+  height: 28px;
+  font-size: 13px;
+}
+
+.sc-banner .hex-corner {
+  position: absolute;
+  bottom: 12px;
+  right: 12px;
+  z-index: 3;
+}
+
+/* safe zone indicators */
+.sc-banner .safe-zone-left,
+.sc-banner .safe-zone-right {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 20%;
+  border-right: 1px dashed rgba(240,101,74,0.15);
+  z-index: 4;
+  pointer-events: none;
+}
+
+.sc-banner .safe-zone-left { left: 0; }
+.sc-banner .safe-zone-right {
+  right: 0;
+  border-right: none;
+  border-left: 1px dashed rgba(240,101,74,0.15);
+}
+
+/* -- 2. Mixtape Cover -------------------------------------- */
+.mix-cover {
+  position: relative;
+  width: 100%;
+  max-width: 560px;
+  margin: 0 auto;
+  aspect-ratio: 1 / 1;
+  background: var(--void);
+  overflow: hidden;
+}
+
+.mix-cover .bg-photo {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.mix-cover .bg-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  opacity: 0.12;
+  filter: saturate(0.3) brightness(0.6);
+}
+
+.mix-cover .bg-photo::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, var(--void) 0%, transparent 30%, transparent 70%, var(--void) 100%);
+}
+
+.mix-cover .accent-line {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, var(--gi), transparent);
+  z-index: 3;
+}
+
+.mix-cover .top-bar {
+  position: absolute;
+  top: 24px;
+  left: 24px;
+  right: 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  z-index: 2;
+}
+
+.mix-cover .top-name {
+  font-family: var(--font-display);
+  font-size: clamp(1rem, 3vw, 1.6rem);
+  letter-spacing: 0.1em;
+  color: var(--gi);
+  text-align: right;
+}
+
+.mix-cover .center-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  z-index: 2;
+  width: 80%;
+}
+
+.mix-cover .set-title {
+  font-family: var(--font-display);
+  font-size: clamp(1.8rem, 6vw, 3.4rem);
+  letter-spacing: 0.08em;
+  color: var(--white);
+  line-height: 1;
+  margin-bottom: 16px;
+}
+
+.mix-cover .set-title .template-marker {
+  color: var(--gi);
+  opacity: 0.5;
+  font-size: 0.4em;
+  display: block;
+  margin-bottom: 4px;
+  letter-spacing: 0.2em;
+}
+
+.mix-cover .meta-row {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.mix-cover .meta-date {
+  font-family: var(--font-body);
+  font-size: clamp(0.55rem, 1.3vw, 0.75rem);
+  color: var(--muted);
+  font-weight: 300;
+  letter-spacing: 0.1em;
+}
+
+.mix-cover .waveform {
+  position: absolute;
+  bottom: 24px;
+  left: 24px;
+  right: 24px;
+  height: 40px;
+  z-index: 2;
+  display: flex;
+  align-items: flex-end;
+  gap: 2px;
+  opacity: 0.08;
+}
+
+.mix-cover .waveform .bar {
+  flex: 1;
+  background: var(--gi);
+  border-radius: 1px 1px 0 0;
+}
+
+.mix-cover .side-line {
+  position: absolute;
+  right: 0;
+  top: 20%;
+  bottom: 20%;
+  width: 3px;
+  background: linear-gradient(180deg, transparent, var(--gi), transparent);
+  z-index: 3;
+}
+
+/* -- 3. TikTok Overlay ------------------------------------- */
+.tt-overlay {
+  position: relative;
+  width: 100%;
+  max-width: 360px;
+  margin: 0 auto;
+  aspect-ratio: 1080 / 1920;
+  background:
+    repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 19px,
+      rgba(255,255,255,0.015) 19px,
+      rgba(255,255,255,0.015) 20px
+    ),
+    var(--void);
+  overflow: hidden;
+}
+
+.tt-overlay .safe-zone {
+  position: absolute;
+  left: 0;
+  right: 0;
+  z-index: 10;
+  pointer-events: none;
+}
+
+.tt-overlay .safe-zone-top {
+  top: 0;
+  height: 14%;
+  border-bottom: 1px dashed rgba(240,101,74,0.35);
+  background: repeating-linear-gradient(
+    45deg,
+    transparent,
+    transparent 6px,
+    rgba(240,101,74,0.04) 6px,
+    rgba(240,101,74,0.04) 7px
+  );
+}
+
+.tt-overlay .safe-zone-bottom {
+  bottom: 0;
+  height: 20%;
+  border-top: 1px dashed rgba(240,101,74,0.35);
+  background: repeating-linear-gradient(
+    45deg,
+    transparent,
+    transparent 6px,
+    rgba(240,101,74,0.04) 6px,
+    rgba(240,101,74,0.04) 7px
+  );
+}
+
+.tt-overlay .safe-label {
+  position: absolute;
+  font-family: var(--font-body);
+  font-size: 0.55rem;
+  color: var(--gi);
+  opacity: 0.5;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.tt-overlay .safe-label-top {
+  bottom: 6px;
+  right: 12px;
+}
+
+.tt-overlay .safe-label-bottom {
+  top: 6px;
+  right: 12px;
+}
+
+.tt-overlay .branding-bar {
+  position: absolute;
+  top: 16%;
+  left: 16px;
+  right: 16px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  z-index: 5;
+}
+
+.tt-overlay .branding-bar .brand-name {
+  font-family: var(--font-display);
+  font-size: 0.85rem;
+  letter-spacing: 0.1em;
+  color: var(--gi);
+}
+
+.tt-overlay .hook-zone {
+  position: absolute;
+  top: 32%;
+  left: 16px;
+  right: 16px;
+  z-index: 5;
+}
+
+.tt-overlay .hook-text {
+  font-family: var(--font-display);
+  font-size: clamp(1.4rem, 5vw, 2rem);
+  letter-spacing: 0.06em;
+  color: var(--white);
+  line-height: 1.05;
+  text-shadow: 0 2px 16px rgba(0,0,0,0.7), 0 0 4px rgba(0,0,0,0.5);
+}
+
+.tt-overlay .hook-text .template-marker {
+  display: block;
+  font-family: var(--font-body);
+  font-size: 0.45rem;
+  color: var(--gi);
+  opacity: 0.5;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  margin-bottom: 6px;
+  text-shadow: none;
+}
+
+.tt-overlay .hook-sub {
+  font-family: var(--font-body);
+  font-size: 0.7rem;
+  color: var(--muted);
+  margin-top: 12px;
+  font-weight: 300;
+  text-shadow: 0 1px 8px rgba(0,0,0,0.5);
+}
+
+.tt-overlay .hook-sub .arrow {
+  display: inline-block;
+  margin-left: 4px;
+  color: var(--gi-light);
+}
+
+.tt-overlay .genre-stack {
+  position: absolute;
+  left: 16px;
+  top: 54%;
+  z-index: 5;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.tt-overlay .genre-stack .genre-pill {
+  font-size: 0.5rem;
+  padding: 2px 8px;
+}
+
+.tt-overlay .bottom-gradient {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 40%;
+  background: linear-gradient(to top, rgba(5,5,8,0.7) 0%, transparent 100%);
+  z-index: 3;
+  pointer-events: none;
+}
+
+.tt-overlay .zone-label {
+  position: absolute;
+  font-family: var(--font-body);
+  font-size: 0.45rem;
+  color: rgba(240,101,74,0.3);
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  z-index: 6;
+  pointer-events: none;
+}
+
+/* -- Specs Table ------------------------------------------- */
+.specs-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 24px;
+  font-size: 0.8rem;
+}
+
+.specs-table th,
+.specs-table td {
+  padding: 10px 16px;
+  text-align: left;
+  border-bottom: 1px solid var(--border);
+}
+
+.specs-table th {
+  font-weight: 500;
+  color: var(--muted);
+  font-size: 0.7rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  width: 35%;
+}
+
+.specs-table td {
+  color: var(--white);
+  font-weight: 300;
+}
+
+/* -- Change Notes ------------------------------------------ */
+.change-notes {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+@media (max-width: 600px) {
+  .change-notes { grid-template-columns: 1fr; }
+}
+
+.change-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--r-md);
+  padding: 20px;
+}
+
+.change-card h4 {
+  font-family: var(--font-body);
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+
+.change-card h4.changes { color: var(--gi); }
+.change-card h4.constant { color: var(--muted); }
+
+.change-card ul {
+  list-style: none;
+  padding: 0;
+}
+
+.change-card ul li {
+  font-size: 0.8rem;
+  color: var(--white);
+  font-weight: 300;
+  padding: 3px 0;
+  padding-left: 14px;
+  position: relative;
+}
+
+.change-card ul li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 10px;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+}
+
+.change-card.changes-card ul li::before { background: var(--gi); }
+.change-card.constant-card ul li::before { background: var(--muted); opacity: 0.5; }
+
+/* -- Export Checklist Section ------------------------------ */
+.export-section {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 64px 24px 80px;
+}
+
+.export-section .section-title {
+  margin-bottom: 32px;
+}
+
+.export-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 16px;
+}
+
+.export-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--r-md);
+  padding: 24px;
+}
+
+.export-card h4 {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  letter-spacing: 0.08em;
+  color: var(--gi);
+  margin-bottom: 12px;
+}
+
+.export-card ul {
+  list-style: none;
+  padding: 0;
+}
+
+.export-card ul li {
+  font-size: 0.8rem;
+  color: var(--white);
+  font-weight: 300;
+  padding: 4px 0;
+  padding-left: 18px;
+  position: relative;
+}
+
+.export-card ul li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 8px;
+  width: 10px;
+  height: 10px;
+  border: 1px solid var(--gi);
+  border-radius: 2px;
+}
+
+.mono {
+  font-family: 'SF Mono', 'Fira Code', monospace;
+  font-size: 0.75em;
+  color: var(--gi-light);
+  background: var(--gi-dim);
+  padding: 1px 5px;
+  border-radius: 3px;
+}
+</style>
+</head>
+<body>
+
+<!-- ============================================================
+     DOCUMENT HEADER
+     ============================================================ -->
+<header class="doc-header">
+  <h1>DJ GIANNI</h1>
+  <p class="subtitle">Social Media Templates</p>
+</header>
+
+<div class="doc-intro">
+  <p>Three production-ready social media templates built on the DJ Gianni visual identity.
+     Each template is shown at correct aspect ratio with platform specs, safe zone indicators,
+     and notes on what changes per use versus what stays constant.</p>
+</div>
+
+<!-- ============================================================
+     1. SOUNDCLOUD BANNER
+     ============================================================ -->
+<section class="template-section">
+  <div class="section-number">TEMPLATE 01</div>
+  <h2 class="section-title">SOUNDCLOUD BANNER</h2>
+  <p class="section-dims">2480 x 520 px -- Profile header image</p>
+
+  <div class="template-frame">
+    <div class="sc-banner">
+      <!-- Safe zone indicators -->
+      <div class="safe-zone-left"></div>
+      <div class="safe-zone-right"></div>
+
+      <!-- Photo left side -->
+      <div class="photo-zone">
+        <img src="/Users/richardversluis/code/pic-your-booth/knowledge/dj-profiles/dj-luca-profiel.jpeg" alt="DJ Gianni">
+      </div>
+
+      <!-- Coral glow behind name -->
+      <div class="glow"></div>
+
+      <!-- Content center-right -->
+      <div class="content-zone">
+        <div class="artist-name">DJ GIANNI</div>
+        <div class="pure-vibes">Pure Vibes</div>
+        <div class="genre-pills">
+          <span class="genre-pill">Afro Beats</span>
+          <span class="genre-pill">Caribbean</span>
+          <span class="genre-pill">Nederlands Hits</span>
+        </div>
+      </div>
+
+      <!-- Hex mark bottom-right -->
+      <div class="hex-corner">
+        <div class="hex-mark" style="width:32px;height:32px;font-size:14px;">G</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Specs -->
+  <table class="specs-table">
+    <tr><th>Dimensions</th><td>2480 x 520 px</td></tr>
+    <tr><th>Aspect Ratio</th><td>4.77 : 1</td></tr>
+    <tr><th>Format</th><td>PNG (no transparency) or JPG</td></tr>
+    <tr><th>Platform</th><td>SoundCloud profile header</td></tr>
+    <tr><th>Safe Zones</th><td>Keep key content in center 60% -- SoundCloud crops edges on mobile</td></tr>
+    <tr><th>Color Profile</th><td>sRGB</td></tr>
+  </table>
+
+  <!-- Change notes -->
+  <div class="change-notes">
+    <div class="change-card changes-card">
+      <h4 class="changes">What changes per use</h4>
+      <ul>
+        <li>Typically nothing -- this is a static profile banner</li>
+        <li>Update photo if a new press shot is available</li>
+        <li>Tagline can be swapped seasonally</li>
+      </ul>
+    </div>
+    <div class="change-card constant-card">
+      <h4 class="constant">What stays constant</h4>
+      <ul>
+        <li>DJ GIANNI name and coral color</li>
+        <li>Genre pills</li>
+        <li>Hexagon "G" logo mark</li>
+        <li>Dark background and overall layout</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     2. MIXTAPE / SET COVER
+     ============================================================ -->
+<section class="template-section">
+  <div class="section-number">TEMPLATE 02</div>
+  <h2 class="section-title">MIXTAPE / SET COVER</h2>
+  <p class="section-dims">1400 x 1400 px -- Square artwork</p>
+
+  <div class="template-frame">
+    <div class="mix-cover">
+      <!-- Background photo, very low opacity -->
+      <div class="bg-photo">
+        <img src="/Users/richardversluis/code/pic-your-booth/knowledge/dj-profiles/dj-luca-profiel.jpeg" alt="">
+      </div>
+
+      <!-- Accent lines -->
+      <div class="accent-line"></div>
+      <div class="side-line"></div>
+
+      <!-- Top bar: hex left, name right -->
+      <div class="top-bar">
+        <div class="hex-mark hex-mark-sm">G</div>
+        <div class="top-name">DJ GIANNI</div>
+      </div>
+
+      <!-- Center: set title -->
+      <div class="center-content">
+        <div class="set-title">
+          <span class="template-marker">[SET TITLE]</span>
+          SUMMER VIBES<br>VOL. 3
+        </div>
+        <div class="meta-row">
+          <span class="genre-pill">Afro Beats</span>
+          <span class="genre-pill">Caribbean</span>
+          <span class="genre-pill">Nederlands Hits</span>
+          <span class="meta-date">JUNI 2026</span>
+        </div>
+      </div>
+
+      <!-- Waveform decoration -->
+      <div class="waveform" aria-hidden="true">
+        <div class="bar" style="height:18%"></div><div class="bar" style="height:32%"></div>
+        <div class="bar" style="height:45%"></div><div class="bar" style="height:28%"></div>
+        <div class="bar" style="height:62%"></div><div class="bar" style="height:80%"></div>
+        <div class="bar" style="height:55%"></div><div class="bar" style="height:90%"></div>
+        <div class="bar" style="height:70%"></div><div class="bar" style="height:95%"></div>
+        <div class="bar" style="height:60%"></div><div class="bar" style="height:85%"></div>
+        <div class="bar" style="height:100%"></div><div class="bar" style="height:75%"></div>
+        <div class="bar" style="height:50%"></div><div class="bar" style="height:88%"></div>
+        <div class="bar" style="height:65%"></div><div class="bar" style="height:40%"></div>
+        <div class="bar" style="height:78%"></div><div class="bar" style="height:92%"></div>
+        <div class="bar" style="height:55%"></div><div class="bar" style="height:70%"></div>
+        <div class="bar" style="height:35%"></div><div class="bar" style="height:82%"></div>
+        <div class="bar" style="height:60%"></div><div class="bar" style="height:95%"></div>
+        <div class="bar" style="height:48%"></div><div class="bar" style="height:72%"></div>
+        <div class="bar" style="height:38%"></div><div class="bar" style="height:85%"></div>
+        <div class="bar" style="height:55%"></div><div class="bar" style="height:90%"></div>
+        <div class="bar" style="height:42%"></div><div class="bar" style="height:68%"></div>
+        <div class="bar" style="height:78%"></div><div class="bar" style="height:50%"></div>
+        <div class="bar" style="height:88%"></div><div class="bar" style="height:35%"></div>
+        <div class="bar" style="height:62%"></div><div class="bar" style="height:45%"></div>
+        <div class="bar" style="height:75%"></div><div class="bar" style="height:30%"></div>
+        <div class="bar" style="height:58%"></div><div class="bar" style="height:82%"></div>
+        <div class="bar" style="height:40%"></div><div class="bar" style="height:70%"></div>
+        <div class="bar" style="height:25%"></div><div class="bar" style="height:50%"></div>
+        <div class="bar" style="height:65%"></div><div class="bar" style="height:38%"></div>
+        <div class="bar" style="height:20%"></div><div class="bar" style="height:42%"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Specs -->
+  <table class="specs-table">
+    <tr><th>Dimensions</th><td>1400 x 1400 px</td></tr>
+    <tr><th>Aspect Ratio</th><td>1 : 1</td></tr>
+    <tr><th>Format</th><td>PNG or JPG (JPG for SoundCloud upload)</td></tr>
+    <tr><th>Platform</th><td>SoundCloud track/set art, Instagram post, playlist cover</td></tr>
+    <tr><th>Safe Zones</th><td>Keep text out of outer 5% -- platforms may apply rounding or cropping</td></tr>
+    <tr><th>Color Profile</th><td>sRGB</td></tr>
+  </table>
+
+  <!-- Change notes -->
+  <div class="change-notes">
+    <div class="change-card changes-card">
+      <h4 class="changes">What changes per use</h4>
+      <ul>
+        <li>Set title (e.g. "SUMMER VIBES VOL. 3")</li>
+        <li>Date (e.g. "JUNI 2026")</li>
+        <li>Genre tags if the set focuses on a specific sub-genre</li>
+        <li>Background photo can be swapped per release</li>
+      </ul>
+    </div>
+    <div class="change-card constant-card">
+      <h4 class="constant">What stays constant</h4>
+      <ul>
+        <li>DJ GIANNI name (top-right)</li>
+        <li>Hexagon "G" logo mark (top-left)</li>
+        <li>Coral accent lines and color scheme</li>
+        <li>Waveform decoration (bottom)</li>
+        <li>Overall layout and typography</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     3. TIKTOK VIDEO TEXT OVERLAY
+     ============================================================ -->
+<section class="template-section">
+  <div class="section-number">TEMPLATE 03</div>
+  <h2 class="section-title">TIKTOK VIDEO TEXT OVERLAY</h2>
+  <p class="section-dims">1080 x 1920 px -- 9:16 vertical overlay</p>
+
+  <div class="template-frame">
+    <div class="tt-overlay">
+      <!-- Safe zones -->
+      <div class="safe-zone safe-zone-top">
+        <span class="safe-label safe-label-top">SAFE ZONE -- TOP 14% -- TIKTOK UI</span>
+      </div>
+      <div class="safe-zone safe-zone-bottom">
+        <span class="safe-label safe-label-bottom">SAFE ZONE -- BOTTOM 20% -- TIKTOK UI</span>
+      </div>
+
+      <!-- Bottom gradient for text readability -->
+      <div class="bottom-gradient"></div>
+
+      <!-- Zone labels -->
+      <div class="zone-label" style="top:15.5%; left:16px;">BRANDING ZONE (constant)</div>
+      <div class="zone-label" style="top:29%; left:16px;">HOOK TEXT ZONE (changes per video)</div>
+      <div class="zone-label" style="top:52%; left:16px;">GENRE TAGS (constant)</div>
+
+      <!-- Branding bar: hex + name -->
+      <div class="branding-bar">
+        <div class="hex-mark" style="width:24px;height:24px;font-size:11px;">G</div>
+        <span class="brand-name">DJ GIANNI</span>
+      </div>
+
+      <!-- Hook text area -->
+      <div class="hook-zone">
+        <div class="hook-text">
+          <span class="template-marker">[HOOK TEXT -- changes per video]</span>
+          DIT NUMMER<br>GAAT VIRAL
+        </div>
+        <div class="hook-sub">
+          Luister de hele set op SoundCloud <span class="arrow">&darr;</span>
+        </div>
+      </div>
+
+      <!-- Genre tags stacked vertically -->
+      <div class="genre-stack">
+        <span class="genre-pill">Afro Beats</span>
+        <span class="genre-pill">Caribbean</span>
+        <span class="genre-pill">Nederlands Hits</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Specs -->
+  <table class="specs-table">
+    <tr><th>Dimensions</th><td>1080 x 1920 px</td></tr>
+    <tr><th>Aspect Ratio</th><td>9 : 16</td></tr>
+    <tr><th>Format</th><td>PNG with transparency (overlay only) or applied in video editor</td></tr>
+    <tr><th>Platform</th><td>TikTok, Instagram Reels, YouTube Shorts</td></tr>
+    <tr><th>Top Safe Zone</th><td>14% -- TikTok navigation, status bar, profile info</td></tr>
+    <tr><th>Bottom Safe Zone</th><td>20% -- TikTok caption area, action buttons</td></tr>
+    <tr><th>Color Profile</th><td>sRGB</td></tr>
+  </table>
+
+  <!-- Change notes -->
+  <div class="change-notes">
+    <div class="change-card changes-card">
+      <h4 class="changes">What changes per video</h4>
+      <ul>
+        <li>Hook text (e.g. "DIT NUMMER GAAT VIRAL", "DEZE DROP IS CRAZY")</li>
+        <li>Call-to-action text below hook</li>
+        <li>Background video content (this is just the overlay)</li>
+      </ul>
+    </div>
+    <div class="change-card constant-card">
+      <h4 class="constant">What stays constant</h4>
+      <ul>
+        <li>DJ GIANNI name + hexagon branding (top)</li>
+        <li>Genre tags (mid-left, vertical stack)</li>
+        <li>Safe zone clearances</li>
+        <li>Bottom dark gradient for text readability</li>
+        <li>Typography choices and text shadow style</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     EXPORT CHECKLIST
+     ============================================================ -->
+<section class="export-section">
+  <div class="section-number">REFERENCE</div>
+  <h2 class="section-title">EXPORT CHECKLIST</h2>
+
+  <div class="export-grid">
+    <div class="export-card">
+      <h4>SOUNDCLOUD BANNER</h4>
+      <ul>
+        <li>Export at <span class="mono">2480 x 520 px</span></li>
+        <li>Format: <span class="mono">PNG</span> or <span class="mono">JPG</span> (quality 90+)</li>
+        <li>Max file size: 5 MB</li>
+        <li>Color profile: <span class="mono">sRGB</span></li>
+        <li>Test mobile crop -- key content in center 60%</li>
+        <li>Filename: <span class="mono">dj-gianni-sc-banner.png</span></li>
+      </ul>
+    </div>
+    <div class="export-card">
+      <h4>MIXTAPE COVER</h4>
+      <ul>
+        <li>Export at <span class="mono">1400 x 1400 px</span></li>
+        <li>Format: <span class="mono">JPG</span> for SoundCloud, <span class="mono">PNG</span> for Instagram</li>
+        <li>Max file size: 5 MB</li>
+        <li>Color profile: <span class="mono">sRGB</span></li>
+        <li>Verify text legibility at 300 x 300 thumbnail size</li>
+        <li>Filename: <span class="mono">dj-gianni-[set-name]-cover.jpg</span></li>
+      </ul>
+    </div>
+    <div class="export-card">
+      <h4>TIKTOK OVERLAY</h4>
+      <ul>
+        <li>Export at <span class="mono">1080 x 1920 px</span></li>
+        <li>Format: <span class="mono">PNG</span> with transparency</li>
+        <li>Apply in video editor as overlay layer</li>
+        <li>Color profile: <span class="mono">sRGB</span></li>
+        <li>Test on device before publishing -- check safe zones</li>
+        <li>Filename: <span class="mono">dj-gianni-tt-overlay-[hook].png</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+</body>
+</html>
