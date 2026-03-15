@@ -20,17 +20,17 @@
   --muted: rgba(237,237,240,0.4);
   --subtle: rgba(237,237,240,0.10);
 
-  /* DJ Gianni — Hot amber, party fire */
-  --gi: #ff8f1f;
-  --gi-light: #ffab4f;
-  --gi-dim: rgba(255,143,31,0.10);
-  --gi-glow: rgba(255,143,31,0.06);
+  /* DJ Gianni — Warm coral, sunset fire, party energy */
+  --gi: #f0654a;
+  --gi-light: #f4826c;
+  --gi-dim: rgba(240,101,74,0.10);
+  --gi-glow: rgba(240,101,74,0.06);
 
-  /* Milo — Electric blue, deep house */
-  --mi: #3b82f6;
-  --mi-light: #60a5fa;
-  --mi-dim: rgba(59,130,246,0.10);
-  --mi-glow: rgba(59,130,246,0.06);
+  /* Milo — Cyan/teal, deep underwater, late-night immersive */
+  --mi: #22d3ee;
+  --mi-light: #5ae0f0;
+  --mi-dim: rgba(34,211,238,0.10);
+  --mi-glow: rgba(34,211,238,0.06);
 
   /* Shared — DJ Hub accent (pairs with gold from photobooth) */
   --violet: #8b5cf6;
@@ -299,11 +299,11 @@ body::after {
       rgba(5,5,8,1) 100%
     ),
     radial-gradient(ellipse at 25% 30%,
-      rgba(255,143,31,0.10) 0%,
+      rgba(240,101,74,0.10) 0%,
       transparent 55%
     ),
     radial-gradient(ellipse at 75% 30%,
-      rgba(59,130,246,0.10) 0%,
+      rgba(34,211,238,0.10) 0%,
       transparent 55%
     ),
     radial-gradient(ellipse at 50% 20%,
@@ -397,19 +397,19 @@ body::after {
 .dj-card:hover::before { opacity: 1; }
 
 .dj-card.gianni::before {
-  box-shadow: 0 0 80px rgba(255,143,31,0.15), 0 0 160px rgba(255,143,31,0.05);
+  box-shadow: 0 0 80px rgba(240,101,74,0.15), 0 0 160px rgba(240,101,74,0.05);
 }
 .dj-card.milo::before {
-  box-shadow: 0 0 80px rgba(59,130,246,0.15), 0 0 160px rgba(59,130,246,0.05);
+  box-shadow: 0 0 80px rgba(34,211,238,0.15), 0 0 160px rgba(34,211,238,0.05);
 }
 
 .dj-card.gianni:hover {
-  border-color: rgba(255,143,31,0.15);
-  box-shadow: 0 8px 60px rgba(255,143,31,0.08);
+  border-color: rgba(240,101,74,0.15);
+  box-shadow: 0 8px 60px rgba(240,101,74,0.08);
 }
 .dj-card.milo:hover {
-  border-color: rgba(59,130,246,0.15);
-  box-shadow: 0 8px 60px rgba(59,130,246,0.08);
+  border-color: rgba(34,211,238,0.15);
+  box-shadow: 0 8px 60px rgba(34,211,238,0.08);
 }
 
 /* Photo placeholder */
@@ -420,10 +420,10 @@ body::after {
 }
 
 .dj-card.gianni .dj-card-photo {
-  background: linear-gradient(135deg, rgba(255,143,31,0.08) 0%, rgba(255,143,31,0.02) 60%, transparent 100%);
+  background: linear-gradient(135deg, rgba(240,101,74,0.08) 0%, rgba(240,101,74,0.02) 60%, transparent 100%);
 }
 .dj-card.milo .dj-card-photo {
-  background: linear-gradient(135deg, rgba(59,130,246,0.08) 0%, rgba(59,130,246,0.02) 60%, transparent 100%);
+  background: linear-gradient(135deg, rgba(34,211,238,0.08) 0%, rgba(34,211,238,0.02) 60%, transparent 100%);
 }
 
 .dj-card-photo-icon {
@@ -440,13 +440,13 @@ body::after {
 }
 
 .dj-card.gianni .dj-card-photo-icon {
-  background: rgba(255,143,31,0.12);
-  border: 1px solid rgba(255,143,31,0.2);
+  background: rgba(240,101,74,0.12);
+  border: 1px solid rgba(240,101,74,0.2);
   color: var(--gi);
 }
 .dj-card.milo .dj-card-photo-icon {
-  background: rgba(59,130,246,0.12);
-  border: 1px solid rgba(59,130,246,0.2);
+  background: rgba(34,211,238,0.12);
+  border: 1px solid rgba(34,211,238,0.2);
   color: var(--mi);
 }
 
@@ -515,12 +515,12 @@ body::after {
 .dj-card.gianni .genre-tag {
   background: var(--gi-dim);
   color: var(--gi-light);
-  border: 1px solid rgba(255,143,31,0.15);
+  border: 1px solid rgba(240,101,74,0.15);
 }
 .dj-card.milo .genre-tag {
   background: var(--mi-dim);
   color: var(--mi-light);
-  border: 1px solid rgba(59,130,246,0.15);
+  border: 1px solid rgba(34,211,238,0.15);
 }
 
 .dj-card-desc {
@@ -560,12 +560,12 @@ body::after {
 
 .dj-card.gianni .dj-social-icon:hover {
   background: var(--gi-dim);
-  border-color: rgba(255,143,31,0.3);
+  border-color: rgba(240,101,74,0.3);
   color: var(--gi);
 }
 .dj-card.milo .dj-social-icon:hover {
   background: var(--mi-dim);
-  border-color: rgba(59,130,246,0.3);
+  border-color: rgba(34,211,238,0.3);
   color: var(--mi);
 }
 
@@ -585,20 +585,20 @@ body::after {
 .dj-card.gianni .dj-play-btn {
   background: var(--gi);
   color: #050508;
-  box-shadow: 0 0 24px rgba(255,143,31,0.3);
+  box-shadow: 0 0 24px rgba(240,101,74,0.3);
 }
 .dj-card.gianni .dj-play-btn:hover {
-  box-shadow: 0 0 40px rgba(255,143,31,0.5);
+  box-shadow: 0 0 40px rgba(240,101,74,0.5);
   transform: scale(1.08);
 }
 
 .dj-card.milo .dj-play-btn {
   background: var(--mi);
   color: #050508;
-  box-shadow: 0 0 24px rgba(59,130,246,0.3);
+  box-shadow: 0 0 24px rgba(34,211,238,0.3);
 }
 .dj-card.milo .dj-play-btn:hover {
-  box-shadow: 0 0 40px rgba(59,130,246,0.5);
+  box-shadow: 0 0 40px rgba(34,211,238,0.5);
   transform: scale(1.08);
 }
 
@@ -897,12 +897,12 @@ body::after {
 }
 
 .dj-avatar.gianni {
-  background: linear-gradient(135deg, rgba(255,143,31,0.15) 0%, rgba(255,143,31,0.03) 100%);
-  border: 1px solid rgba(255,143,31,0.15);
+  background: linear-gradient(135deg, rgba(240,101,74,0.15) 0%, rgba(240,101,74,0.03) 100%);
+  border: 1px solid rgba(240,101,74,0.15);
 }
 .dj-avatar.milo {
-  background: linear-gradient(135deg, rgba(59,130,246,0.15) 0%, rgba(59,130,246,0.03) 100%);
-  border: 1px solid rgba(59,130,246,0.15);
+  background: linear-gradient(135deg, rgba(34,211,238,0.15) 0%, rgba(34,211,238,0.03) 100%);
+  border: 1px solid rgba(34,211,238,0.15);
 }
 
 .dj-avatar-placeholder {
@@ -1241,11 +1241,11 @@ body::after {
   transition: all 0.3s;
 }
 
-.btn-amber { background: var(--gi); color: #050508; box-shadow: 0 0 16px rgba(255,143,31,0.2); }
-.btn-amber:hover { box-shadow: 0 0 28px rgba(255,143,31,0.4); transform: translateY(-1px); }
+.btn-amber { background: var(--gi); color: #050508; box-shadow: 0 0 16px rgba(240,101,74,0.2); }
+.btn-amber:hover { box-shadow: 0 0 28px rgba(240,101,74,0.4); transform: translateY(-1px); }
 
-.btn-blue { background: var(--mi); color: #050508; box-shadow: 0 0 16px rgba(59,130,246,0.2); }
-.btn-blue:hover { box-shadow: 0 0 28px rgba(59,130,246,0.4); transform: translateY(-1px); }
+.btn-blue { background: var(--mi); color: #050508; box-shadow: 0 0 16px rgba(34,211,238,0.2); }
+.btn-blue:hover { box-shadow: 0 0 28px rgba(34,211,238,0.4); transform: translateY(-1px); }
 
 .btn-violet { background: var(--violet); color: #fff; box-shadow: 0 0 16px rgba(139,92,246,0.2); }
 .btn-violet:hover { box-shadow: 0 0 28px rgba(139,92,246,0.4); transform: translateY(-1px); }
@@ -1274,8 +1274,8 @@ body::after {
   letter-spacing: 0.08em;
 }
 
-.tag-amber { background: var(--gi-dim); color: var(--gi-light); border: 1px solid rgba(255,143,31,0.15); }
-.tag-blue { background: var(--mi-dim); color: var(--mi-light); border: 1px solid rgba(59,130,246,0.15); }
+.tag-amber { background: var(--gi-dim); color: var(--gi-light); border: 1px solid rgba(240,101,74,0.15); }
+.tag-blue { background: var(--mi-dim); color: var(--mi-light); border: 1px solid rgba(34,211,238,0.15); }
 .tag-violet { background: var(--violet-dim); color: #a78bfa; border: 1px solid rgba(139,92,246,0.15); }
 .tag-green { background: var(--spotify-dim); color: var(--spotify); border: 1px solid rgba(29,185,84,0.15); }
 
@@ -1336,7 +1336,7 @@ body::after {
           <li><a href="#">Magic Mirror XL</a></li>
           <li><a href="#" style="color:var(--white);">DJs</a></li>
           <li><a href="#">Contact</a></li>
-          <li><a href="#" class="btn-book-nav">BOEK JE ERVARING</a></li>
+          <li><a href="#" class="btn-book-nav" style="color:#000 !important;">BOEK JE ERVARING</a></li>
         </ul>
       </nav>
 
@@ -1463,7 +1463,7 @@ body::after {
 
       <!-- ── DJ GIANNI — Full Profile ── -->
       <section class="dj-profile gianni-profile" style="position:relative; border-top: 1px solid var(--border);">
-        <div style="position:absolute;top:-80px;left:-50px;width:400px;height:400px;background:radial-gradient(ellipse,rgba(255,143,31,0.04) 0%,transparent 70%);pointer-events:none;"></div>
+        <div style="position:absolute;top:-80px;left:-50px;width:400px;height:400px;background:radial-gradient(ellipse,rgba(240,101,74,0.04) 0%,transparent 70%);pointer-events:none;"></div>
         <div class="dj-profile-header">
           <div class="dj-avatar gianni">
             <div class="dj-avatar-placeholder">&#127911;</div>
@@ -1501,7 +1501,7 @@ body::after {
 
       <!-- ── MILO — Full Profile ── -->
       <section class="dj-profile milo-profile" style="position:relative; border-top: 1px solid var(--border);">
-        <div style="position:absolute;top:-80px;right:-50px;width:400px;height:400px;background:radial-gradient(ellipse,rgba(59,130,246,0.04) 0%,transparent 70%);pointer-events:none;"></div>
+        <div style="position:absolute;top:-80px;right:-50px;width:400px;height:400px;background:radial-gradient(ellipse,rgba(34,211,238,0.04) 0%,transparent 70%);pointer-events:none;"></div>
         <div class="dj-profile-header">
           <div class="dj-avatar milo">
             <div class="dj-avatar-placeholder">&#127911;</div>
@@ -1579,8 +1579,8 @@ body::after {
       <div class="swatch-info"><div class="swatch-name">White</div><div class="swatch-hex">#ededf0</div></div>
     </div>
     <div class="swatch">
-      <div class="swatch-color" style="background:#ff8f1f;"></div>
-      <div class="swatch-info"><div class="swatch-name">Gianni Amber</div><div class="swatch-hex">#ff8f1f</div></div>
+      <div class="swatch-color" style="background:#f0654a;"></div>
+      <div class="swatch-info"><div class="swatch-name">Gianni Amber</div><div class="swatch-hex">#f0654a</div></div>
     </div>
     <div class="swatch">
       <div class="swatch-color" style="background:#3b82f6;"></div>
@@ -1758,7 +1758,7 @@ body::after {
     }
   }
 
-  createNPEQ(document.getElementById('npEqGianni'), '#ff8f1f');
+  createNPEQ(document.getElementById('npEqGianni'), '#f0654a');
   createNPEQ(document.getElementById('npEqMilo'), '#3b82f6');
 
   // ── Set item play/pause toggle ────────────────
@@ -1804,9 +1804,9 @@ body::after {
   // ── Social icon hover (for gianni/milo profile pages) ──
   document.querySelectorAll('.gianni-profile .dj-social-icon').forEach(function(icon) {
     icon.addEventListener('mouseenter', function() {
-      icon.style.background = 'rgba(255,143,31,0.1)';
-      icon.style.borderColor = 'rgba(255,143,31,0.3)';
-      icon.style.color = '#ff8f1f';
+      icon.style.background = 'rgba(240,101,74,0.1)';
+      icon.style.borderColor = 'rgba(240,101,74,0.3)';
+      icon.style.color = '#f0654a';
     });
     icon.addEventListener('mouseleave', function() {
       icon.style.background = 'rgba(255,255,255,0.04)';
@@ -1817,8 +1817,8 @@ body::after {
 
   document.querySelectorAll('.milo-profile .dj-social-icon').forEach(function(icon) {
     icon.addEventListener('mouseenter', function() {
-      icon.style.background = 'rgba(59,130,246,0.1)';
-      icon.style.borderColor = 'rgba(59,130,246,0.3)';
+      icon.style.background = 'rgba(34,211,238,0.1)';
+      icon.style.borderColor = 'rgba(34,211,238,0.3)';
       icon.style.color = '#3b82f6';
     });
     icon.addEventListener('mouseleave', function() {
