@@ -272,26 +272,45 @@ body::after {
   overflow: hidden;
 }
 
-/* Atmospheric radials — stage lights */
-.dj-hero::before {
-  content: '';
+/* Background image — DJ/nightlife scene with blur */
+.dj-hero-bg {
   position: absolute;
-  top: -200px;
-  left: -100px;
-  width: 600px;
-  height: 600px;
-  background: radial-gradient(ellipse, rgba(255,143,31,0.08) 0%, transparent 70%);
+  inset: 0;
+  background-image: url('https://images.unsplash.com/photo-1571266028243-3716f02d2d56?w=1600&q=80&auto=format');
+  background-size: cover;
+  background-position: center 40%;
+  filter: blur(4px);
+  opacity: 0.15;
+  transform: scale(1.05); /* compensate blur edge bleed */
   pointer-events: none;
 }
-.dj-hero::after {
-  content: '';
+
+/* Color overlay — amber/blue stage light gradient */
+.dj-hero-overlay {
   position: absolute;
-  top: -200px;
-  right: -100px;
-  width: 600px;
-  height: 600px;
-  background: radial-gradient(ellipse, rgba(59,130,246,0.08) 0%, transparent 70%);
+  inset: 0;
+  background:
+    linear-gradient(180deg,
+      rgba(5,5,8,0.3) 0%,
+      rgba(5,5,8,0.15) 30%,
+      rgba(5,5,8,0.4) 65%,
+      rgba(5,5,8,0.95) 90%,
+      rgba(5,5,8,1) 100%
+    ),
+    radial-gradient(ellipse at 25% 30%,
+      rgba(255,143,31,0.10) 0%,
+      transparent 55%
+    ),
+    radial-gradient(ellipse at 75% 30%,
+      rgba(59,130,246,0.10) 0%,
+      transparent 55%
+    ),
+    radial-gradient(ellipse at 50% 20%,
+      rgba(139,92,246,0.06) 0%,
+      transparent 50%
+    );
   pointer-events: none;
+  z-index: 1;
 }
 
 .dj-hero-title {
@@ -1321,9 +1340,11 @@ body::after {
 
       <!-- Hero -->
       <section class="dj-hero">
-        <h1 class="dj-hero-title">OUR DJS</h1>
-        <p class="dj-hero-sub">Twee stijlen, een team. Van volle zalen tot intimate sets &mdash; onze DJs brengen de perfecte energie. Deel je Spotify playlist, wij doen de rest.</p>
-        <div class="waveform-deco" id="heroWave"></div>
+        <div class="dj-hero-bg"></div>
+        <div class="dj-hero-overlay"></div>
+        <h1 class="dj-hero-title" style="position:relative; z-index:2;">OUR DJS</h1>
+        <p class="dj-hero-sub" style="position:relative; z-index:2;">Twee stijlen, een team. Van volle zalen tot intimate sets &mdash; onze DJs brengen de perfecte energie. Deel je Spotify playlist, wij doen de rest.</p>
+        <div class="waveform-deco" id="heroWave" style="position:relative; z-index:2;"></div>
       </section>
 
       <!-- DJ Showcase -->
