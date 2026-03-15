@@ -225,12 +225,12 @@ body {
 .abstract-shapes .circle-outline {
   position: absolute;
   border-radius: 50%;
-  border: 1px solid rgba(240,101,74,0.08);
+  border: 1px solid rgba(240,101,74,0.18);
 }
 
 .abstract-shapes .line {
   position: absolute;
-  background: rgba(240,101,74,0.06);
+  background: rgba(240,101,74,0.12);
 }
 
 .abstract-shapes .dot {
@@ -238,7 +238,7 @@ body {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: rgba(240,101,74,0.15);
+  background: rgba(240,101,74,0.30);
 }
 
 /* Banner shapes */
@@ -765,39 +765,33 @@ body {
 
   <div class="template-frame">
     <div class="sc-banner">
-      <!-- Subtle bottom-edge coral glow -->
+      <!-- Coral glows -->
       <div class="bottom-glow"></div>
+      <div style="position:absolute; right:5%; top:50%; transform:translateY(-50%); width:500px; height:500px; background:radial-gradient(circle, rgba(240,101,74,0.12) 0%, transparent 65%); pointer-events:none;"></div>
+
+      <!-- Abstract shapes - circles, lines, dots, ghost hexagons -->
       <div class="abstract-shapes">
-        <div class="circle-outline shape-circle-1"></div>
-        <div class="circle-outline shape-circle-2"></div>
-        <div class="line shape-line-1"></div>
-        <div class="line shape-line-2"></div>
-        <div class="dot shape-dot-1"></div>
-        <div class="dot shape-dot-2"></div>
-        <div class="dot shape-dot-3"></div>
+        <div class="circle-outline" style="width:600px; height:600px; top:-200px; left:5%;"></div>
+        <div class="circle-outline" style="width:350px; height:350px; bottom:-120px; left:30%;"></div>
+        <div class="circle-outline" style="width:450px; height:450px; top:-180px; right:25%;"></div>
+        <div class="circle-outline" style="width:800px; height:800px; top:-300px; left:40%; border-color:rgba(240,101,74,0.08);"></div>
+        <div class="line" style="height:200%; top:-50%; left:15%; transform:rotate(20deg);"></div>
+        <div class="line" style="height:180%; top:-40%; left:35%; transform:rotate(-12deg);"></div>
+        <div class="line" style="height:200%; top:-50%; right:30%; transform:rotate(8deg);"></div>
+        <div class="line" style="height:160%; top:-30%; right:15%; transform:rotate(-18deg);"></div>
+        <div class="dot" style="width:4px; height:4px; top:20%; left:12%;"></div>
+        <div class="dot" style="width:3px; height:3px; top:60%; left:25%;"></div>
+        <div class="dot" style="width:5px; height:5px; top:35%; left:45%;"></div>
+        <div class="dot" style="width:4px; height:4px; top:30%; right:35%;"></div>
+        <div class="dot" style="width:3px; height:3px; bottom:35%; right:20%;"></div>
       </div>
 
-      <!-- Left: hex logo with glow -->
-      <div class="hex-glow"></div>
-      <!-- hex moved to right side -->
+      <!-- No text - SoundCloud shows name -->
 
-      <!-- Center: name + tagline -->
-      <div class="center-content">
-        <div class="artist-name">DJ GIANNI</div>
-        <div class="pure-vibes">Pure Vibes</div>
-        <div class="genre-pills">
-          <span class="genre-pill">AFRO BEATS</span>
-          <span class="genre-pill">CARIBBEAN</span>
-          <span class="genre-pill">NEDERLANDS HITS</span>
-        </div>
+      <!-- Big G hexagon - right side -->
+      <div style="position:absolute; right:8%; top:50%; transform:translateY(-50%); z-index:2;">
+        <div class="hex" style="width:160px; height:160px; background:var(--gi); display:flex; align-items:center; justify-content:center; font-family:var(--font-display); font-size:72px; color:var(--void); letter-spacing:0.04em;">G</div>
       </div>
-
-      <!-- Right: Hexagon mark -->
-      <div class="eq-right" style="display:flex; align-items:center; justify-content:center;">
-        <div class="hex" style="width:64px; height:64px; background:var(--gi); display:flex; align-items:center; justify-content:center; font-family:var(--font-display); font-size:28px; color:var(--void); letter-spacing:0.04em;">G</div>
-      </div>
-
-      <div class="safe-note">Keep key content in center 60% -- edges crop on mobile</div>
     </div>
   </div>
 
