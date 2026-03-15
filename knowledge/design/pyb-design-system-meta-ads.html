@@ -629,55 +629,43 @@ p + p { margin-top: 12px; }
 
 /* -- Ad Footer (Feed only) --------------------------------- */
 .ad-footer {
-  padding: 12px;
+  padding: 10px 12px;
   border-top: 1px solid var(--border);
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 12px;
-}
-
-.ad-footer-left {
-  flex: 1;
-  min-width: 0;
 }
 
 .ad-headline {
-  font-size: 0.75rem;
+  font-size: 0.8rem;
   font-weight: 600;
   color: var(--text);
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+  margin-bottom: 2px;
 }
 
 .ad-description {
-  font-size: 0.65rem;
+  font-size: 0.7rem;
   color: var(--text-muted);
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+  margin-bottom: 8px;
+}
+
+.ad-cta-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .ad-cta-button {
   display: inline-block;
-  padding: 6px 16px;
+  padding: 5px 14px;
   font-size: 0.7rem;
   font-weight: 600;
   border-radius: 4px;
   background: var(--surface-up);
   color: var(--text);
   border: 1px solid var(--border-hover);
-  white-space: nowrap;
-  flex-shrink: 0;
 }
 
 .ad-cta-domain {
-  display: none;
-}
-
-.ad-cta-row {
-  display: none;
+  font-size: 0.65rem;
+  color: var(--text-muted);
 }
 
 /* -- IG Engagement Row ------------------------------------- */
@@ -969,8 +957,8 @@ tr:last-child td { border-bottom: none; }
               <span class="visual-cta-btn gold-btn">VRAAG EEN OFFERTE AAN</span>
             </div>
           </div>
-          <div class="ad-footer"><div class="ad-footer-left">
-            
+          <div class="ad-footer">
+            <div class="ad-cta-domain">picyourbooth.nl</div>
             <div class="ad-headline">MAGIC MIRROR XL</div>
             <div class="ad-description">&euro;599 &middot; Hele avond &middot; 237+ tevreden klanten</div>
             <div class="ad-cta-row">
@@ -1002,8 +990,8 @@ tr:last-child td { border-bottom: none; }
               <span class="visual-cta-btn gold-btn">VRAAG EEN OFFERTE AAN</span>
             </div>
           </div>
-          <div class="ad-footer"><div class="ad-footer-left">
-            
+          <div class="ad-footer">
+            <div class="ad-cta-domain">picyourbooth.nl</div>
             <div class="ad-headline">MAGIC MIRROR XL</div>
             <div class="ad-description">&euro;599 &middot; Hele avond &middot; 237+ tevreden klanten</div>
             <div class="ad-cta-row">
@@ -1079,8 +1067,8 @@ tr:last-child td { border-bottom: none; }
               <span class="visual-cta-btn gold-btn">BOEK NU</span>
             </div>
           </div>
-          <div class="ad-footer"><div class="ad-footer-left">
-            
+          <div class="ad-footer">
+            <div class="ad-cta-domain">picyourbooth.nl</div>
             <div class="ad-headline">MAAK HET ONVERGETELIJK</div>
             <div class="ad-description">&euro;599 &middot; Hele avond &middot; Data gaan snel</div>
             <div class="ad-cta-row">
@@ -1112,8 +1100,8 @@ tr:last-child td { border-bottom: none; }
               <span class="visual-cta-btn gold-btn">BOEK NU</span>
             </div>
           </div>
-          <div class="ad-footer"><div class="ad-footer-left">
-            
+          <div class="ad-footer">
+            <div class="ad-cta-domain">picyourbooth.nl</div>
             <div class="ad-headline">MAAK HET ONVERGETELIJK</div>
             <div class="ad-description">&euro;599 &middot; Hele avond &middot; Data gaan snel</div>
             <div class="ad-cta-row">
@@ -1189,8 +1177,8 @@ tr:last-child td { border-bottom: none; }
               <span class="visual-cta-btn gold-btn">ONTDEK MEER</span>
             </div>
           </div>
-          <div class="ad-footer"><div class="ad-footer-left">
-            
+          <div class="ad-footer">
+            <div class="ad-cta-domain">picyourbooth.nl</div>
             <div class="ad-headline">MAGIC MIRROR XL PHOTOBOOTH</div>
             <div class="ad-description">&euro;599 &middot; Geen tijdlimiet &middot; DSLR kwaliteit</div>
             <div class="ad-cta-row">
@@ -1222,8 +1210,8 @@ tr:last-child td { border-bottom: none; }
               <span class="visual-cta-btn gold-btn">ONTDEK MEER</span>
             </div>
           </div>
-          <div class="ad-footer"><div class="ad-footer-left">
-            
+          <div class="ad-footer">
+            <div class="ad-cta-domain">picyourbooth.nl</div>
             <div class="ad-headline">MAGIC MIRROR XL PHOTOBOOTH</div>
             <div class="ad-description">&euro;599 &middot; Geen tijdlimiet &middot; DSLR kwaliteit</div>
             <div class="ad-cta-row">
@@ -1300,8 +1288,8 @@ tr:last-child td { border-bottom: none; }
               <span class="visual-cta-btn gold-btn">VRAAG EEN OFFERTE AAN</span>
             </div>
           </div>
-          <div class="ad-footer"><div class="ad-footer-left">
-            
+          <div class="ad-footer">
+            <div class="ad-cta-domain">picyourbooth.nl</div>
             <div class="ad-headline">BOEK JOUW MOMENT</div>
             <div class="ad-description">&euro;599 &middot; Hele avond &middot; Vrijblijvend voorstel</div>
             <div class="ad-cta-row">
@@ -1335,8 +1323,8 @@ tr:last-child td { border-bottom: none; }
               <span class="visual-cta-btn gold-btn">VRAAG EEN OFFERTE AAN</span>
             </div>
           </div>
-          <div class="ad-footer"><div class="ad-footer-left">
-            
+          <div class="ad-footer">
+            <div class="ad-cta-domain">picyourbooth.nl</div>
             <div class="ad-headline">BOEK JOUW MOMENT</div>
             <div class="ad-description">&euro;599 &middot; Hele avond &middot; Vrijblijvend voorstel</div>
             <div class="ad-cta-row">
@@ -1432,8 +1420,8 @@ tr:last-child td { border-bottom: none; }
               <span class="visual-cta-btn warm-btn">BEKIJK PAKKETTEN</span>
             </div>
           </div>
-          <div class="ad-footer"><div class="ad-footer-left">
-            
+          <div class="ad-footer">
+            <div class="ad-cta-domain">picyourbooth.nl</div>
             <div class="ad-headline">PARTY BOOTH</div>
             <div class="ad-description">&euro;199 &middot; Alles inbegrepen &middot; Elk feest</div>
             <div class="ad-cta-row">
@@ -1465,8 +1453,8 @@ tr:last-child td { border-bottom: none; }
               <span class="visual-cta-btn warm-btn">BEKIJK PAKKETTEN</span>
             </div>
           </div>
-          <div class="ad-footer"><div class="ad-footer-left">
-            
+          <div class="ad-footer">
+            <div class="ad-cta-domain">picyourbooth.nl</div>
             <div class="ad-headline">PARTY BOOTH</div>
             <div class="ad-description">&euro;199 &middot; Alles inbegrepen &middot; Elk feest</div>
             <div class="ad-cta-row">
@@ -1542,8 +1530,8 @@ tr:last-child td { border-bottom: none; }
               <span class="visual-cta-btn warm-btn">BEKIJK PAKKETTEN</span>
             </div>
           </div>
-          <div class="ad-footer"><div class="ad-footer-left">
-            
+          <div class="ad-footer">
+            <div class="ad-cta-domain">picyourbooth.nl</div>
             <div class="ad-headline">PHOTOBOOTH ZONDER STRESS</div>
             <div class="ad-description">Vanaf &euro;199 &middot; Goedkoper dan je denkt</div>
             <div class="ad-cta-row">
@@ -1575,8 +1563,8 @@ tr:last-child td { border-bottom: none; }
               <span class="visual-cta-btn warm-btn">BEKIJK PAKKETTEN</span>
             </div>
           </div>
-          <div class="ad-footer"><div class="ad-footer-left">
-            
+          <div class="ad-footer">
+            <div class="ad-cta-domain">picyourbooth.nl</div>
             <div class="ad-headline">PHOTOBOOTH ZONDER STRESS</div>
             <div class="ad-description">Vanaf &euro;199 &middot; Goedkoper dan je denkt</div>
             <div class="ad-cta-row">
@@ -1652,8 +1640,8 @@ tr:last-child td { border-bottom: none; }
               <span class="visual-cta-btn warm-btn">HUUR NU</span>
             </div>
           </div>
-          <div class="ad-footer"><div class="ad-footer-left">
-            
+          <div class="ad-footer">
+            <div class="ad-cta-domain">picyourbooth.nl</div>
             <div class="ad-headline">PARTY BOOTH -- VANAF &euro;199</div>
             <div class="ad-description">Meest geboekt &middot; Populaire data bijna vol</div>
             <div class="ad-cta-row">
@@ -1685,8 +1673,8 @@ tr:last-child td { border-bottom: none; }
               <span class="visual-cta-btn warm-btn">HUUR NU</span>
             </div>
           </div>
-          <div class="ad-footer"><div class="ad-footer-left">
-            
+          <div class="ad-footer">
+            <div class="ad-cta-domain">picyourbooth.nl</div>
             <div class="ad-headline">PARTY BOOTH -- VANAF &euro;199</div>
             <div class="ad-description">Meest geboekt &middot; Populaire data bijna vol</div>
             <div class="ad-cta-row">
@@ -1762,8 +1750,8 @@ tr:last-child td { border-bottom: none; }
               <span class="visual-cta-btn warm-btn">BEKIJK PAKKETTEN</span>
             </div>
           </div>
-          <div class="ad-footer"><div class="ad-footer-left">
-            
+          <div class="ad-footer">
+            <div class="ad-cta-domain">picyourbooth.nl</div>
             <div class="ad-headline">MAAK ER EEN FEEST VAN</div>
             <div class="ad-description">Vanaf &euro;199 &middot; Ophalen, feesten, inleveren</div>
             <div class="ad-cta-row">
@@ -1805,8 +1793,8 @@ tr:last-child td { border-bottom: none; }
               <span class="visual-cta-btn warm-btn">BEKIJK PAKKETTEN</span>
             </div>
           </div>
-          <div class="ad-footer"><div class="ad-footer-left">
-            
+          <div class="ad-footer">
+            <div class="ad-cta-domain">picyourbooth.nl</div>
             <div class="ad-headline">MAAK ER EEN FEEST VAN</div>
             <div class="ad-description">Vanaf &euro;199 &middot; Ophalen, feesten, inleveren</div>
             <div class="ad-cta-row">
