@@ -35,7 +35,7 @@ Read these files before any review:
 
 ### Key Messages to Protect
 - "Not just a booth - an experience" (Magic Mirror)
-- "Photo fun for every budget" (iPad)
+- "Photo fun for every budget" (Party Booth)
 - "One team, one vibe, one booking" (DJ + Photobooth combo)
 - Spotify playlist optimization is a unique differentiator - always highlight
 - Family business energy - genuine, personal, passionate

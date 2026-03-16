@@ -6,7 +6,7 @@ Premium photobooth & DJ entertainment brand. Standalone brand under Pic Your Mom
 
 - **Party Booth** - Digital photobooth, vanaf €199
 - **Magic Mirror XL** - Premium DSLR photobooth, vanaf €599
-- **DJs** - DJ Gianni (afro beats, caribbean, nederlands, hits) & Milo (house, techno), vanaf €149
+- **DJs** - DJ Gianni (Afro Beats, Caribbean, Nederlands Hits) & Milo (House, Techno), vanaf €149
 
 ## Team
 
@@ -28,14 +28,15 @@ Next.js + Tailwind CSS + Vercel + HubSpot + Meta Ads + Google Analytics
 pic-your-booth/
 ├── CLAUDE.md                              ← You are here
 ├── docs/
-│   └── prd-website.md                    - Full PRD for Next.js website build
+│   ├── prd-website.md                    - Full PRD for Next.js website build
+│   └── export-guide.md                   - Playwright export workflow for design assets
 ├── .claude/
 │   ├── agents/
 │   │   ├── brand-guardian.md              - Brand quality gate
 │   │   ├── designer.md                   - UI/UX, visual design, frontend
 │   │   ├── meta-ads-specialist.md        - Meta Ads campaigns & copy
 │   │   ├── social-creative.md            - Social media content & DJ profiles
-│   │   └── website-designer.md           - WordPress pages, CRO, forms
+│   │   └── website-designer.md           - Website pages, CRO, forms
 │   ├── skills/
 │   │   ├── brand-audit/SKILL.md          - /brand-audit
 │   │   ├── landing-page-audit/SKILL.md   - /landing-page-audit
@@ -48,12 +49,16 @@ pic-your-booth/
 │   ├── brand/
 │   │   └── brand.md                      - Brand guide, services, pricing, architecture
 │   ├── dj-profiles/
-│   │   ├── luca-dj-gianni.md             - DJ Gianni profile, social bios
+│   │   ├── luca-dj-gianni.md             - DJ Gianni profile, social bios, asset refs
 │   │   ├── dj-gianni-brand-guide.html    - DJ Gianni visual brand guide (hexagon, coral)
-│   │   ├── milo-profile.md              - Milo profile, social bios
-│   │   ├── milo-brand-guide.html        - Milo visual brand guide (diamond, cyan)
+│   │   ├── dj-gianni-social-templates.html - SoundCloud banner, mixtape cover, TikTok overlay
+│   │   ├── dj-gianni-voice-tags.md       - Voice tag samples for mixtapes
+│   │   ├── dj-gianni-soundcloud-banner.png - Exported SoundCloud banner (2480x520)
+│   │   ├── dj-gianni-afro-mixtape-cover.png - Exported mixtape cover (1400x1400)
 │   │   ├── dj-luca-profiel.jpeg          - DJ Gianni profile photo
-│   │   └── dj-luca2_preview.jpg          - DJ Gianni preview photo
+│   │   ├── dj-luca2_preview.jpg          - DJ Gianni preview photo
+│   │   ├── milo-profile.md              - Milo profile, social bios
+│   │   └── milo-brand-guide.html        - Milo visual brand guide (diamond, cyan)
 │   ├── photobooth/
 │   │   ├── website-design-landing-pages.md - Page structure, hero formulas, CTAs
 │   │   ├── website-design-cro.md         - 55-item audit checklist, scoring rubric
@@ -71,7 +76,7 @@ pic-your-booth/
 │   └── design/
 │       ├── design-system.md              - Tokens, colors, typography, components
 │       ├── ui-ux-principles.md           - UX guidelines, accessibility, responsive
-│       ├── pyb-design-tokens.json        - Design token values (JSON)
+│       ├── pyb-design-tokens.json        - Design token values (JSON, mobile/Flutter)
 │       ├── pyb-design-system-web.html    - General web design tokens & components
 │       ├── pyb-design-system-photobooth.html - Homepage, Magic Mirror, Party Booth, Form
 │       ├── pyb-design-system-dj.html     - DJ Hub page (Gianni + Milo)
@@ -84,3 +89,7 @@ pic-your-booth/
 - `/landing-page-audit` - Full CRO audit with scored report
 - `/ad-campaign` - Create a complete Meta Ads campaign
 - `/content-plan` - Generate a social media content calendar
+
+## Design Asset Exports
+
+Always use Playwright for exports. See `docs/export-guide.md` for workflow.

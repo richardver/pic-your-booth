@@ -29,7 +29,7 @@ Meta Ad → Landing Page → Form → Proposal → Booking. Every element must s
 ```
 [Hero] - Bold headline + event video/photo + CTA
 [Social Proof Bar] - Event types, number of events
-[Services] - Magic Mirror / iPad / DJ combo (3 cards)
+[Services] - Party Booth / Magic Mirror / DJs (3 cards)
 [How It Works] - 3 steps
 [Testimonials] - 2-3 quotes with photos
 [Gallery] - Best event photos

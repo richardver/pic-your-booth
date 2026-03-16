@@ -162,7 +162,7 @@ The DJs maintain personal profiles (Instagram, SoundCloud, TikTok) promoted alon
 1. **Real equipment** - DSLR camera, professional lighting, not a tablet on a stick
 2. **DJs with Spotify optimization** - give us your playlist, we make it better
 3. **Family energy** - tight team, personal touch, genuine passion
-4. **Two entry points** - premium (Magic Mirror) and accessible (iPad)
+4. **Two entry points** - premium (Magic Mirror) and accessible (Party Booth)
 5. **One-stop entertainment** - photobooth + DJ from one team
 
 ---
@@ -181,7 +181,7 @@ The DJs maintain personal profiles (Instagram, SoundCloud, TikTok) promoted alon
 
 | Page | URL | Content |
 |------|-----|---------|
-| Homepage | picyourbooth.nl | Hero + social proof + 3 service cards (iPad, Magic Mirror, DJs) + testimonial |
+| Homepage | picyourbooth.nl | Hero + social proof + 3 service cards (Party Booth, Magic Mirror, DJs) + testimonial |
 | Party Booth | picyourbooth.nl/party-booth | USPs + package builder (base + upgrades) |
 | Magic Mirror XL | picyourbooth.nl/magic-mirror | USPs + package builder (base + upgrades) |
 | DJs | picyourbooth.nl/djs | DJ Hub + Gianni profile + Milo profile + Spotify feature + How it works |
