@@ -1,0 +1,1358 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DJs - PicYourBooth | DJ Gianni &amp; Milo vanaf &euro;149</title>
+<meta name="description" content="Boek DJ Gianni (Afro Beats, Caribbean) of Milo (House, Techno) vanaf €149. Speakers, licht & rookmachine inbegrepen. Spotify playlist-optimalisatie.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --void: #050508;
+  --bg: #050508;
+  --surface: #111116;
+  --surface-up: #18181e;
+  --text: #ededf0;
+  --text-muted: rgba(237,237,240,0.60);
+  --border: rgba(255,255,255,0.06);
+  --border-hover: rgba(255,255,255,0.12);
+  --gold: #d4b14e;
+  --gold-light: #e0c468;
+  --gold-dim: rgba(212,177,78,0.10);
+  --violet: #8b5cf6;
+  --violet-dim: rgba(139,92,246,0.12);
+  --coral: #f0654a;
+  --coral-dim: rgba(240,101,74,0.12);
+  --cyan: #22d3ee;
+  --cyan-dim: rgba(34,211,238,0.12);
+  --font-display: 'Bebas Neue', Impact, sans-serif;
+  --font-body: 'Space Grotesk', system-ui, sans-serif;
+  --r-sm: 8px;
+  --r-md: 12px;
+  --r-lg: 16px;
+  --r-pill: 999px;
+  --ease: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { transition-duration: 0.01ms !important; animation-duration: 0.01ms !important; }
+}
+
+body {
+  font-family: var(--font-body);
+  background: var(--bg);
+  color: var(--text);
+  font-size: 16px;
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font-display);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  line-height: 1.1;
+  font-weight: 400;
+}
+
+a { color: inherit; text-decoration: none; }
+
+/* ===== NAV ===== */
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  background: rgba(5,5,8,0.85);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--border);
+  transition: background 0.3s var(--ease);
+}
+
+.nav-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 64px;
+}
+
+.nav-logo {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  letter-spacing: 0.08em;
+  color: var(--text);
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  list-style: none;
+}
+
+.nav-links a {
+  font-family: var(--font-body);
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--text-muted);
+  transition: color 0.2s var(--ease);
+  letter-spacing: 0.02em;
+}
+
+.nav-links a:hover,
+.nav-links a:focus-visible {
+  color: var(--text);
+}
+
+.nav-links a.nav-active {
+  color: var(--violet);
+  position: relative;
+}
+
+.nav-links a.nav-active::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: var(--violet);
+  border-radius: 1px;
+}
+
+.btn-gold {
+  display: inline-block;
+  padding: 10px 24px;
+  background: var(--gold);
+  color: #000;
+  font-family: var(--font-display);
+  font-size: 0.9rem;
+  letter-spacing: 0.06em;
+  border-radius: var(--r-pill);
+  border: none;
+  cursor: pointer;
+  font-weight: 700;
+  transition: box-shadow 0.3s var(--ease), transform 0.2s var(--ease);
+  min-height: 44px;
+  min-width: 44px;
+  text-align: center;
+  line-height: 1.5;
+}
+
+.btn-gold:hover {
+  box-shadow: 0 0 32px var(--gold-dim), 0 4px 16px rgba(0,0,0,0.3);
+  transform: translateY(-1px);
+}
+
+.btn-gold:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 2px;
+}
+
+/* Hamburger */
+.nav-hamburger {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+  min-height: 44px;
+  min-width: 44px;
+  align-items: center;
+  justify-content: center;
+}
+
+.nav-hamburger span {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background: var(--text);
+  transition: all 0.3s var(--ease);
+  position: relative;
+}
+
+.nav-hamburger span::before,
+.nav-hamburger span::after {
+  content: '';
+  display: block;
+  width: 24px;
+  height: 2px;
+  background: var(--text);
+  position: absolute;
+  transition: all 0.3s var(--ease);
+}
+
+.nav-hamburger span::before { top: -7px; }
+.nav-hamburger span::after { top: 7px; }
+
+/* Mobile nav */
+.nav-mobile {
+  display: none;
+  position: fixed;
+  top: 64px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(5,5,8,0.97);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  z-index: 999;
+  padding: 40px 24px;
+}
+
+.nav-mobile.is-open { display: flex; flex-direction: column; gap: 24px; align-items: center; }
+
+.nav-mobile a {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  letter-spacing: 0.06em;
+  color: var(--text-muted);
+  padding: 12px 0;
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+}
+
+.nav-mobile a:hover { color: var(--text); }
+.nav-mobile a.nav-active { color: var(--violet); }
+.nav-mobile .btn-gold { margin-top: 16px; padding: 14px 32px; font-size: 1rem; }
+
+@media (max-width: 768px) {
+  .nav-links { display: none; }
+  .nav-hamburger { display: flex; }
+}
+
+/* ===== HERO ===== */
+.hero {
+  position: relative;
+  min-height: 85vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 120px 24px 80px;
+  overflow: hidden;
+}
+
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  background-image: url('https://images.unsplash.com/photo-1571266028243-e4733b0f0bb0?w=1920&q=80');
+  background-size: cover;
+  background-position: center;
+  opacity: 0.15;
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(5,5,8,0.6) 0%,
+    rgba(5,5,8,0.3) 40%,
+    rgba(5,5,8,0.85) 80%,
+    var(--bg) 100%
+  );
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 760px;
+}
+
+.hero-headline {
+  font-size: clamp(3rem, 8vw, 5rem);
+  background: linear-gradient(135deg, var(--coral) 0%, var(--violet) 50%, var(--cyan) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 20px;
+  letter-spacing: 0.08em;
+}
+
+.hero-subtitle {
+  font-family: var(--font-body);
+  font-size: clamp(0.95rem, 2vw, 1.15rem);
+  color: var(--text-muted);
+  font-weight: 300;
+  max-width: 520px;
+  margin: 0 auto;
+  line-height: 1.7;
+}
+
+.hero-subtitle span {
+  color: var(--text);
+  font-weight: 500;
+}
+
+/* Waveform decoration */
+.waveform {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  gap: 6px;
+  height: 40px;
+  margin-top: 40px;
+}
+
+.waveform-bar {
+  width: 3px;
+  background: var(--violet);
+  border-radius: 2px;
+  opacity: 0.5;
+  animation: wave 1.8s ease-in-out infinite;
+}
+
+.waveform-bar:nth-child(1) { height: 12px; animation-delay: 0s; }
+.waveform-bar:nth-child(2) { height: 24px; animation-delay: 0.15s; }
+.waveform-bar:nth-child(3) { height: 36px; animation-delay: 0.3s; }
+.waveform-bar:nth-child(4) { height: 20px; animation-delay: 0.45s; }
+.waveform-bar:nth-child(5) { height: 30px; animation-delay: 0.6s; }
+.waveform-bar:nth-child(6) { height: 16px; animation-delay: 0.75s; }
+.waveform-bar:nth-child(7) { height: 8px; animation-delay: 0.9s; }
+
+@keyframes wave {
+  0%, 100% { transform: scaleY(1); }
+  50% { transform: scaleY(0.4); }
+}
+
+/* ===== SECTION SHARED ===== */
+.section {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 80px 24px;
+}
+
+.section-label {
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+
+.section-heading {
+  font-size: clamp(1.8rem, 4vw, 2.6rem);
+  color: var(--text);
+  margin-bottom: 16px;
+}
+
+/* ===== DJ PROFILE ===== */
+.dj-profile {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 80px 24px;
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: 48px;
+  align-items: start;
+}
+
+.dj-profile--mirrored {
+  grid-template-columns: 1fr 280px;
+}
+
+.dj-profile--mirrored .dj-avatar-wrap {
+  order: 2;
+}
+
+.dj-profile--mirrored .dj-info {
+  order: 1;
+  text-align: right;
+}
+
+.dj-profile--mirrored .dj-tags {
+  justify-content: flex-end;
+}
+
+.dj-profile--mirrored .dj-socials {
+  justify-content: flex-end;
+}
+
+@media (max-width: 768px) {
+  .dj-profile,
+  .dj-profile--mirrored {
+    grid-template-columns: 1fr;
+    gap: 32px;
+    text-align: center;
+  }
+  .dj-profile--mirrored .dj-avatar-wrap { order: 0; }
+  .dj-profile--mirrored .dj-info { order: 0; text-align: center; }
+  .dj-profile--mirrored .dj-tags { justify-content: center; }
+  .dj-profile--mirrored .dj-socials { justify-content: center; }
+  .dj-avatar-wrap { justify-self: center; }
+  .dj-tags { justify-content: center; }
+  .dj-socials { justify-content: center; }
+}
+
+/* Avatar - Hexagon (Gianni) */
+.dj-avatar-wrap {
+  position: relative;
+  width: 240px;
+  height: 240px;
+}
+
+.dj-avatar-hex {
+  width: 240px;
+  height: 240px;
+  clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+  overflow: hidden;
+  position: relative;
+}
+
+.dj-avatar-hex img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.dj-avatar-hex-glow {
+  position: absolute;
+  inset: -4px;
+  clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+  background: var(--coral);
+  opacity: 0.3;
+  filter: blur(12px);
+  z-index: -1;
+}
+
+/* Avatar - Diamond (Milo) */
+.dj-avatar-diamond {
+  width: 240px;
+  height: 240px;
+  clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+  overflow: hidden;
+  position: relative;
+}
+
+.dj-avatar-diamond img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.dj-avatar-diamond-glow {
+  position: absolute;
+  inset: -4px;
+  clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+  background: var(--cyan);
+  opacity: 0.3;
+  filter: blur(12px);
+  z-index: -1;
+}
+
+/* DJ Info */
+.dj-name {
+  font-size: clamp(2rem, 5vw, 3rem);
+  letter-spacing: 0.08em;
+  margin-bottom: 4px;
+}
+
+.dj-name--coral { color: var(--coral); }
+.dj-name--cyan { color: var(--cyan); }
+
+.dj-tagline {
+  font-family: var(--font-body);
+  font-size: 1.05rem;
+  font-style: italic;
+  color: var(--text);
+  font-weight: 300;
+  margin-bottom: 4px;
+}
+
+.dj-sub {
+  font-family: var(--font-display);
+  font-size: 0.85rem;
+  letter-spacing: 0.14em;
+  margin-bottom: 16px;
+}
+
+.dj-sub--coral { color: var(--coral); opacity: 0.7; }
+.dj-sub--cyan { color: var(--cyan); opacity: 0.7; }
+
+.dj-bio {
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  font-weight: 300;
+  line-height: 1.7;
+  margin-bottom: 20px;
+  max-width: 460px;
+}
+
+@media (max-width: 768px) {
+  .dj-bio { margin-left: auto; margin-right: auto; }
+}
+
+/* Genre Tags */
+.dj-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+
+.dj-tag {
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  padding: 6px 14px;
+  border-radius: var(--r-pill);
+}
+
+.dj-tag--coral {
+  background: var(--coral-dim);
+  color: var(--coral);
+  border: 1px solid rgba(240,101,74,0.2);
+}
+
+.dj-tag--cyan {
+  background: var(--cyan-dim);
+  color: var(--cyan);
+  border: 1px solid rgba(34,211,238,0.2);
+}
+
+/* Social Links */
+.dj-socials {
+  display: flex;
+  gap: 20px;
+}
+
+.dj-social {
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  font-weight: 500;
+  transition: opacity 0.2s var(--ease);
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.dj-social:hover { opacity: 0.7; }
+
+.dj-social--coral { color: var(--coral); }
+.dj-social--cyan { color: var(--cyan); }
+
+.dj-social svg {
+  width: 16px;
+  height: 16px;
+  fill: currentColor;
+}
+
+/* Divider between profiles */
+.dj-divider {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.dj-divider-line {
+  height: 1px;
+  background: linear-gradient(90deg, transparent 0%, var(--border-hover) 50%, transparent 100%);
+}
+
+/* ===== SPOTIFY SECTION ===== */
+.spotify-section {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 80px 24px;
+  text-align: center;
+}
+
+.spotify-badge {
+  display: inline-block;
+  font-family: var(--font-body);
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 6px 16px;
+  border-radius: var(--r-pill);
+  background: var(--violet-dim);
+  color: var(--violet);
+  border: 1px solid rgba(139,92,246,0.2);
+  margin-bottom: 20px;
+}
+
+.spotify-heading {
+  font-size: clamp(1.6rem, 4vw, 2.4rem);
+  color: var(--text);
+  margin-bottom: 16px;
+  max-width: 640px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.spotify-desc {
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  font-weight: 300;
+  line-height: 1.8;
+  max-width: 560px;
+  margin: 0 auto 48px;
+}
+
+/* 3-step visual */
+.spotify-flow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+  margin-bottom: 48px;
+  flex-wrap: wrap;
+}
+
+.spotify-step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.spotify-icon {
+  width: 72px;
+  height: 72px;
+  border-radius: var(--r-md);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.spotify-icon svg {
+  width: 32px;
+  height: 32px;
+}
+
+.spotify-step-label {
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  font-weight: 400;
+}
+
+.spotify-arrow {
+  color: var(--violet);
+  font-size: 1.2rem;
+  margin-top: -20px;
+}
+
+.btn-violet {
+  display: inline-block;
+  padding: 14px 32px;
+  background: var(--violet);
+  color: #fff;
+  font-family: var(--font-display);
+  font-size: 1rem;
+  letter-spacing: 0.06em;
+  border-radius: var(--r-pill);
+  border: none;
+  cursor: pointer;
+  font-weight: 700;
+  transition: box-shadow 0.3s var(--ease), transform 0.2s var(--ease);
+  min-height: 44px;
+  min-width: 44px;
+  text-align: center;
+  line-height: 1.5;
+}
+
+.btn-violet:hover {
+  box-shadow: 0 0 32px var(--violet-dim), 0 4px 16px rgba(0,0,0,0.3);
+  transform: translateY(-1px);
+}
+
+.btn-violet:focus-visible {
+  outline: 2px solid var(--violet);
+  outline-offset: 2px;
+}
+
+/* ===== HOW IT WORKS ===== */
+.how-section {
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 80px 24px;
+}
+
+.how-heading {
+  font-size: clamp(1.8rem, 4vw, 2.4rem);
+  color: var(--text);
+  margin-bottom: 48px;
+  text-align: center;
+}
+
+.how-steps {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.how-step {
+  border-left: 3px solid var(--violet);
+  padding-left: 24px;
+}
+
+.how-number {
+  font-family: var(--font-display);
+  font-size: 2rem;
+  color: var(--violet);
+  letter-spacing: 0.04em;
+  line-height: 1;
+  margin-bottom: 4px;
+}
+
+.how-title {
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+  color: var(--text);
+  letter-spacing: 0.06em;
+  margin-bottom: 8px;
+}
+
+.how-desc {
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  font-weight: 300;
+  line-height: 1.7;
+}
+
+/* ===== BOOKING WIZARD ===== */
+.booking-section {
+  max-width: 560px;
+  margin: 0 auto;
+  padding: 80px 24px;
+}
+
+.booking-heading {
+  font-size: clamp(1.8rem, 4vw, 2.4rem);
+  color: var(--text);
+  margin-bottom: 32px;
+  text-align: center;
+}
+
+.booking-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--r-lg);
+  padding: 32px;
+  position: relative;
+  overflow: hidden;
+}
+
+.booking-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: var(--violet);
+}
+
+.booking-base {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+
+.booking-base-title {
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  color: var(--text);
+  letter-spacing: 0.06em;
+}
+
+.booking-base-price {
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+  color: var(--violet);
+  letter-spacing: 0.04em;
+}
+
+.booking-includes {
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  font-weight: 300;
+  line-height: 1.8;
+  margin-bottom: 28px;
+  padding-bottom: 24px;
+  border-bottom: 1px solid var(--border);
+}
+
+.booking-includes span {
+  display: block;
+}
+
+.booking-hours-label {
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+
+.booking-options {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 24px;
+}
+
+.booking-option {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 16px;
+  border-radius: var(--r-sm);
+  border: 1px solid var(--border);
+  cursor: pointer;
+  transition: border-color 0.2s var(--ease), background 0.2s var(--ease);
+}
+
+.booking-option:hover {
+  border-color: var(--border-hover);
+}
+
+.booking-option.is-selected {
+  border-color: var(--violet);
+  background: var(--violet-dim);
+}
+
+.booking-option-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.booking-radio {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  border: 2px solid var(--border-hover);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: border-color 0.2s var(--ease);
+}
+
+.is-selected .booking-radio {
+  border-color: var(--violet);
+}
+
+.booking-radio-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--violet);
+  opacity: 0;
+  transition: opacity 0.2s var(--ease);
+}
+
+.is-selected .booking-radio-dot {
+  opacity: 1;
+}
+
+.booking-option-label {
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  color: var(--text);
+  font-weight: 400;
+}
+
+.booking-option-extra {
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  font-weight: 300;
+  margin-left: 4px;
+}
+
+.booking-option-price {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  color: var(--text);
+  letter-spacing: 0.04em;
+}
+
+.booking-compare {
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  font-weight: 300;
+  font-style: italic;
+  text-align: center;
+  margin-bottom: 24px;
+  opacity: 0.6;
+}
+
+.booking-total {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  padding: 16px 0;
+  border-top: 1px solid var(--border);
+  margin-bottom: 24px;
+}
+
+.booking-total-label {
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  font-weight: 400;
+}
+
+.booking-total-price {
+  font-family: var(--font-display);
+  font-size: 1.8rem;
+  color: var(--violet);
+  letter-spacing: 0.04em;
+}
+
+.booking-total-btw {
+  font-family: var(--font-body);
+  font-size: 0.7rem;
+  color: var(--text-muted);
+  font-weight: 300;
+  text-align: right;
+  margin-top: -18px;
+  margin-bottom: 24px;
+}
+
+.booking-cta {
+  width: 100%;
+}
+
+/* ===== FOOTER ===== */
+.footer {
+  background: var(--void);
+  border-top: 1px solid var(--border);
+  padding: 48px 24px;
+  text-align: center;
+}
+
+.footer-logo {
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+  letter-spacing: 0.08em;
+  color: var(--text);
+  margin-bottom: 12px;
+}
+
+.footer-entity {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  margin-bottom: 16px;
+  font-weight: 300;
+}
+
+.footer-email {
+  font-size: 0.875rem;
+  color: var(--text-muted);
+  margin-bottom: 20px;
+  display: inline-block;
+  transition: color 0.2s var(--ease);
+}
+
+.footer-email:hover { color: var(--gold); }
+
+.footer-social {
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+  margin-bottom: 24px;
+}
+
+.footer-social a {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  transition: color 0.2s var(--ease);
+  min-height: 44px;
+  min-width: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.footer-social a:hover { color: var(--text); }
+
+.footer-copy {
+  font-size: 0.7rem;
+  color: rgba(237,237,240,0.30);
+  font-weight: 300;
+}
+
+/* ===== FOCUS VISIBLE ===== */
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid var(--violet);
+  outline-offset: 2px;
+}
+
+/* ===== SELECTION ===== */
+::selection {
+  background: rgba(139,92,246,0.25);
+  color: var(--text);
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav" role="navigation" aria-label="Hoofdnavigatie">
+  <div class="nav-inner">
+    <a href="/" class="nav-logo" aria-label="PicYourBooth homepage">PICYOURBOOTH</a>
+    <ul class="nav-links">
+      <li><a href="/party-booth">Party Booth</a></li>
+      <li><a href="/magic-mirror">Magic Mirror XL</a></li>
+      <li><a href="/djs" class="nav-active">DJs</a></li>
+      <li><a href="#boek" class="btn-gold">BOEK JE ERVARING</a></li>
+    </ul>
+    <button class="nav-hamburger" aria-label="Menu openen" aria-expanded="false" onclick="toggleMenu()">
+      <span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- Mobile nav overlay -->
+<div class="nav-mobile" id="mobileNav" role="dialog" aria-label="Mobiel menu">
+  <a href="/party-booth" onclick="closeMenu()">Party Booth</a>
+  <a href="/magic-mirror" onclick="closeMenu()">Magic Mirror XL</a>
+  <a href="/djs" class="nav-active" onclick="closeMenu()">DJs</a>
+  <a href="#boek" class="btn-gold" onclick="closeMenu()">BOEK JE ERVARING</a>
+</div>
+
+<!-- HERO -->
+<section class="hero" aria-label="Hero">
+  <div class="hero-bg" role="img" aria-label="DJ nightlife achtergrond"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <h1 class="hero-headline">JOUW FEEST, ONZE DJS</h1>
+    <p class="hero-subtitle">
+      Vanaf <span>&euro;149</span> per avond &middot; Spotify playlist-optimalisatie &middot; Speakers, licht &amp; rookmachine inbegrepen
+    </p>
+    <div class="waveform" aria-hidden="true">
+      <div class="waveform-bar"></div>
+      <div class="waveform-bar"></div>
+      <div class="waveform-bar"></div>
+      <div class="waveform-bar"></div>
+      <div class="waveform-bar"></div>
+      <div class="waveform-bar"></div>
+      <div class="waveform-bar"></div>
+    </div>
+  </div>
+</section>
+
+<!-- DJ GIANNI PROFILE -->
+<section class="dj-profile" aria-label="DJ Gianni profiel">
+  <div class="dj-avatar-wrap">
+    <div class="dj-avatar-hex-glow" aria-hidden="true"></div>
+    <div class="dj-avatar-hex">
+      <img src="docs/templates/djs/dj-gianni/photos/profiel.jpeg"
+           alt="DJ Gianni portretfoto"
+           onerror="this.src='https://images.unsplash.com/photo-1598387993441-a364f854c3e1?w=400&q=80'"
+           loading="lazy"
+           width="240" height="240">
+    </div>
+  </div>
+  <div class="dj-info">
+    <h2 class="dj-name dj-name--coral">DJ GIANNI</h2>
+    <p class="dj-tagline">&ldquo;Elke set een feest, elk feest een herinnering&rdquo;</p>
+    <p class="dj-sub dj-sub--coral">PURE VIBES</p>
+    <p class="dj-bio">Afro Beats, Caribbean vibes en populaire hits. Elke set wordt op maat gemaakt voor jouw event.</p>
+    <div class="dj-tags">
+      <span class="dj-tag dj-tag--coral">Afro Beats</span>
+      <span class="dj-tag dj-tag--coral">Caribbean</span>
+      <span class="dj-tag dj-tag--coral">Nederlands</span>
+      <span class="dj-tag dj-tag--coral">Hits</span>
+    </div>
+    <div class="dj-socials">
+      <a href="https://instagram.com/djgianni" target="_blank" rel="noopener noreferrer" class="dj-social dj-social--coral" aria-label="DJ Gianni Instagram">
+        <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+        Instagram
+      </a>
+      <a href="https://tiktok.com/@djgianni" target="_blank" rel="noopener noreferrer" class="dj-social dj-social--coral" aria-label="DJ Gianni TikTok">
+        <svg viewBox="0 0 24 24"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1v-3.5a6.37 6.37 0 00-.79-.05A6.34 6.34 0 003.15 15.2a6.34 6.34 0 0010.86 4.48V13a8.28 8.28 0 005.58 2.16V11.7a4.85 4.85 0 01-3.77-1.78V6.69h3.77z"/></svg>
+        TikTok
+      </a>
+      <a href="https://soundcloud.com/djgianni" target="_blank" rel="noopener noreferrer" class="dj-social dj-social--coral" aria-label="DJ Gianni SoundCloud">
+        <svg viewBox="0 0 24 24"><path d="M1.175 12.225c-.051 0-.094.046-.101.1l-.233 2.154.233 2.105c.007.058.05.098.101.098.05 0 .09-.04.099-.098l.255-2.105-.27-2.154c-.009-.06-.05-.1-.1-.1m-.899.828c-.06 0-.091.037-.104.094L0 14.479l.172 1.282c.013.06.045.094.104.094.057 0 .09-.034.104-.094l.205-1.282-.205-1.332c-.014-.057-.047-.094-.104-.094m1.79-1.065c-.067 0-.114.053-.121.117l-.209 2.374.209 2.282c.007.065.054.117.121.117s.114-.053.121-.117l.24-2.282-.24-2.374c-.007-.064-.054-.117-.121-.117m.899-.156c-.073 0-.126.058-.133.126l-.193 2.531.193 2.309c.007.072.06.126.133.126s.125-.054.133-.126l.217-2.309-.217-2.531c-.008-.068-.06-.126-.133-.126m.898-.156c-.082 0-.139.064-.147.139l-.176 2.687.176 2.336c.008.075.065.139.147.139.08 0 .137-.064.147-.139l.199-2.336-.199-2.687c-.01-.075-.067-.139-.147-.139m.921-.326c-.089 0-.152.072-.157.154l-.16 3.013.16 2.356c.005.085.068.154.157.154.086 0 .152-.069.157-.154l.183-2.356-.183-3.013c-.005-.082-.071-.154-.157-.154m.924-.329c-.095 0-.163.076-.168.164l-.145 3.342.145 2.371c.005.09.073.164.168.164.093 0 .163-.074.168-.164l.163-2.371-.163-3.342c-.005-.088-.075-.164-.168-.164m.922-.233c-.102 0-.175.08-.18.175l-.128 3.574.128 2.386c.005.096.078.175.18.175.1 0 .175-.079.18-.175l.145-2.386-.145-3.574c-.005-.095-.08-.175-.18-.175m.93-.198c-.108 0-.187.087-.19.187l-.115 3.772.115 2.394c.003.101.082.187.19.187.106 0 .187-.086.19-.187l.13-2.394-.13-3.772c-.003-.1-.084-.187-.19-.187m.924-.135c-.114 0-.199.091-.202.199l-.098 3.907.098 2.401c.003.108.088.199.202.199.112 0 .199-.091.202-.199l.11-2.401-.11-3.907c-.003-.108-.09-.199-.202-.199m.93-.088c-.12 0-.211.096-.214.211l-.082 3.995.082 2.407c.003.115.094.211.214.211.118 0 .211-.096.214-.211l.093-2.407-.093-3.995c-.003-.115-.096-.211-.214-.211m5.889 3.313c-.317 0-.622.048-.91.139a5.593 5.593 0 00-5.587-5.24 5.52 5.52 0 00-1.666.261c-.198.064-.251.13-.255.26v10.3c.004.136.105.246.24.26h8.178a3.156 3.156 0 003.155-3.155 3.156 3.156 0 00-3.155-3.025z"/></svg>
+        SoundCloud
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- Divider -->
+<div class="dj-divider" aria-hidden="true">
+  <div class="dj-divider-line"></div>
+</div>
+
+<!-- MILO PROFILE -->
+<section class="dj-profile dj-profile--mirrored" aria-label="Milo profiel">
+  <div class="dj-info">
+    <h2 class="dj-name dj-name--cyan">MILO</h2>
+    <p class="dj-tagline">&ldquo;Je voelt de bass, je vergeet de tijd&rdquo;</p>
+    <p class="dj-sub dj-sub--cyan">DEEP BEATS</p>
+    <p class="dj-bio">Bouwt sets van deep house naar hypnotiserende techno. Elke transitie naadloos, elk nummer strategisch.</p>
+    <div class="dj-tags">
+      <span class="dj-tag dj-tag--cyan">House</span>
+      <span class="dj-tag dj-tag--cyan">Techno</span>
+      <span class="dj-tag dj-tag--cyan">Deep</span>
+    </div>
+    <div class="dj-socials">
+      <a href="https://instagram.com/milodj" target="_blank" rel="noopener noreferrer" class="dj-social dj-social--cyan" aria-label="Milo Instagram">
+        <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+        Instagram
+      </a>
+      <a href="https://tiktok.com/@milodj" target="_blank" rel="noopener noreferrer" class="dj-social dj-social--cyan" aria-label="Milo TikTok">
+        <svg viewBox="0 0 24 24"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1v-3.5a6.37 6.37 0 00-.79-.05A6.34 6.34 0 003.15 15.2a6.34 6.34 0 0010.86 4.48V13a8.28 8.28 0 005.58 2.16V11.7a4.85 4.85 0 01-3.77-1.78V6.69h3.77z"/></svg>
+        TikTok
+      </a>
+      <a href="https://soundcloud.com/milodj" target="_blank" rel="noopener noreferrer" class="dj-social dj-social--cyan" aria-label="Milo SoundCloud">
+        <svg viewBox="0 0 24 24"><path d="M1.175 12.225c-.051 0-.094.046-.101.1l-.233 2.154.233 2.105c.007.058.05.098.101.098.05 0 .09-.04.099-.098l.255-2.105-.27-2.154c-.009-.06-.05-.1-.1-.1m-.899.828c-.06 0-.091.037-.104.094L0 14.479l.172 1.282c.013.06.045.094.104.094.057 0 .09-.034.104-.094l.205-1.282-.205-1.332c-.014-.057-.047-.094-.104-.094m1.79-1.065c-.067 0-.114.053-.121.117l-.209 2.374.209 2.282c.007.065.054.117.121.117s.114-.053.121-.117l.24-2.282-.24-2.374c-.007-.064-.054-.117-.121-.117m.899-.156c-.073 0-.126.058-.133.126l-.193 2.531.193 2.309c.007.072.06.126.133.126s.125-.054.133-.126l.217-2.309-.217-2.531c-.008-.068-.06-.126-.133-.126m.898-.156c-.082 0-.139.064-.147.139l-.176 2.687.176 2.336c.008.075.065.139.147.139.08 0 .137-.064.147-.139l.199-2.336-.199-2.687c-.01-.075-.067-.139-.147-.139m.921-.326c-.089 0-.152.072-.157.154l-.16 3.013.16 2.356c.005.085.068.154.157.154.086 0 .152-.069.157-.154l.183-2.356-.183-3.013c-.005-.082-.071-.154-.157-.154m.924-.329c-.095 0-.163.076-.168.164l-.145 3.342.145 2.371c.005.09.073.164.168.164.093 0 .163-.074.168-.164l.163-2.371-.163-3.342c-.005-.088-.075-.164-.168-.164m.922-.233c-.102 0-.175.08-.18.175l-.128 3.574.128 2.386c.005.096.078.175.18.175.1 0 .175-.079.18-.175l.145-2.386-.145-3.574c-.005-.095-.08-.175-.18-.175m.93-.198c-.108 0-.187.087-.19.187l-.115 3.772.115 2.394c.003.101.082.187.19.187.106 0 .187-.086.19-.187l.13-2.394-.13-3.772c-.003-.1-.084-.187-.19-.187m.924-.135c-.114 0-.199.091-.202.199l-.098 3.907.098 2.401c.003.108.088.199.202.199.112 0 .199-.091.202-.199l.11-2.401-.11-3.907c-.003-.108-.09-.199-.202-.199m.93-.088c-.12 0-.211.096-.214.211l-.082 3.995.082 2.407c.003.115.094.211.214.211.118 0 .211-.096.214-.211l.093-2.407-.093-3.995c-.003-.115-.096-.211-.214-.211m5.889 3.313c-.317 0-.622.048-.91.139a5.593 5.593 0 00-5.587-5.24 5.52 5.52 0 00-1.666.261c-.198.064-.251.13-.255.26v10.3c.004.136.105.246.24.26h8.178a3.156 3.156 0 003.155-3.155 3.156 3.156 0 00-3.155-3.025z"/></svg>
+        SoundCloud
+      </a>
+    </div>
+  </div>
+  <div class="dj-avatar-wrap">
+    <div class="dj-avatar-diamond-glow" aria-hidden="true"></div>
+    <div class="dj-avatar-diamond">
+      <img src="https://images.unsplash.com/photo-1583795128727-6ec3642408f8?w=400&q=80"
+           alt="Milo portretfoto"
+           loading="lazy"
+           width="240" height="240">
+    </div>
+  </div>
+</section>
+
+<!-- SPOTIFY SECTION -->
+<section class="spotify-section" aria-label="Spotify playlist-optimalisatie">
+  <span class="spotify-badge">ALLEEN BIJ PICYOURBOOTH</span>
+  <h2 class="spotify-heading">STUUR JE PLAYLIST, KRIJG EEN PROFESSIONELE SET</h2>
+  <p class="spotify-desc">
+    Stuur ons je Spotify playlist. Onze DJ analyseert de BPM, energie en genre-mix en bouwt er een professionele set van die klinkt als &lsquo;jouw&rsquo; muziek &mdash; maar dan 10x beter.
+  </p>
+
+  <div class="spotify-flow">
+    <!-- Step 1: Playlist -->
+    <div class="spotify-step">
+      <div class="spotify-icon">
+        <svg viewBox="0 0 32 32" fill="none">
+          <rect x="4" y="6" width="24" height="20" rx="3" stroke="#8b5cf6" stroke-width="1.5" fill="none"/>
+          <line x1="9" y1="12" x2="23" y2="12" stroke="#8b5cf6" stroke-width="1.5" stroke-linecap="round"/>
+          <line x1="9" y1="16" x2="20" y2="16" stroke="#8b5cf6" stroke-width="1.5" stroke-linecap="round" opacity="0.6"/>
+          <line x1="9" y1="20" x2="17" y2="20" stroke="#8b5cf6" stroke-width="1.5" stroke-linecap="round" opacity="0.4"/>
+        </svg>
+      </div>
+      <span class="spotify-step-label">Jouw playlist</span>
+    </div>
+
+    <span class="spotify-arrow" aria-hidden="true">&#10132;</span>
+
+    <!-- Step 2: DJ Mixing -->
+    <div class="spotify-step">
+      <div class="spotify-icon">
+        <svg viewBox="0 0 32 32" fill="none">
+          <circle cx="11" cy="16" r="5" stroke="#8b5cf6" stroke-width="1.5" fill="none"/>
+          <circle cx="21" cy="16" r="5" stroke="#8b5cf6" stroke-width="1.5" fill="none"/>
+          <circle cx="11" cy="16" r="1.5" fill="#8b5cf6"/>
+          <circle cx="21" cy="16" r="1.5" fill="#8b5cf6"/>
+          <line x1="16" y1="8" x2="16" y2="24" stroke="#8b5cf6" stroke-width="1" stroke-dasharray="2 2" opacity="0.4"/>
+        </svg>
+      </div>
+      <span class="spotify-step-label">DJ mixt &amp; optimaliseert</span>
+    </div>
+
+    <span class="spotify-arrow" aria-hidden="true">&#10132;</span>
+
+    <!-- Step 3: Professional Set -->
+    <div class="spotify-step">
+      <div class="spotify-icon">
+        <svg viewBox="0 0 32 32" fill="none">
+          <rect x="6" y="20" width="3" height="6" rx="1" fill="#8b5cf6" opacity="0.5"/>
+          <rect x="10.5" y="16" width="3" height="10" rx="1" fill="#8b5cf6" opacity="0.65"/>
+          <rect x="15" y="12" width="3" height="14" rx="1" fill="#8b5cf6" opacity="0.8"/>
+          <rect x="19.5" y="8" width="3" height="18" rx="1" fill="#8b5cf6" opacity="0.9"/>
+          <rect x="24" y="14" width="3" height="12" rx="1" fill="#8b5cf6"/>
+        </svg>
+      </div>
+      <span class="spotify-step-label">Professionele set</span>
+    </div>
+  </div>
+
+  <a href="#boek" class="btn-violet">PLAN JE FEEST MET ONS</a>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="how-section" aria-label="Hoe het werkt">
+  <h2 class="how-heading">IN 3 STAPPEN GEREGELD</h2>
+  <div class="how-steps">
+    <div class="how-step">
+      <div class="how-number">01</div>
+      <h3 class="how-title">KIES JE VIBE</h3>
+      <p class="how-desc">Afro Beats met DJ Gianni of House met Milo &mdash; jij kiest de sfeer.</p>
+    </div>
+    <div class="how-step">
+      <div class="how-number">02</div>
+      <h3 class="how-title">STUUR JE SPOTIFY</h3>
+      <p class="how-desc">Deel je playlist en wij bouwen er een professionele set van.</p>
+    </div>
+    <div class="how-step">
+      <div class="how-number">03</div>
+      <h3 class="how-title">WIJ KOMEN, JIJ GENIET</h3>
+      <p class="how-desc">Speakers, licht, rookmachine &mdash; alles geregeld. Jij danst.</p>
+    </div>
+  </div>
+</section>
+
+<!-- BOOKING WIZARD -->
+<section class="booking-section" aria-label="Boek je DJ" id="boek">
+  <h2 class="booking-heading">BOEK JE DJ</h2>
+  <div class="booking-card">
+    <div class="booking-base">
+      <span class="booking-base-title">DJ SET 3 UUR</span>
+      <span class="booking-base-price">&euro;149</span>
+    </div>
+    <div class="booking-includes">
+      <span>Professionele speakers</span>
+      <span>DJ licht</span>
+      <span>Rookmachine</span>
+      <span>Spotify playlist-optimalisatie</span>
+    </div>
+    <div class="booking-hours-label">Kies je aantal uren</div>
+    <div class="booking-options" role="radiogroup" aria-label="Kies aantal uren">
+      <div class="booking-option is-selected" role="radio" aria-checked="true" tabindex="0" data-hours="3" data-price="149" onclick="selectOption(this)">
+        <div class="booking-option-left">
+          <div class="booking-radio"><div class="booking-radio-dot"></div></div>
+          <span class="booking-option-label">3 uur</span>
+        </div>
+        <span class="booking-option-price">&euro;149</span>
+      </div>
+      <div class="booking-option" role="radio" aria-checked="false" tabindex="0" data-hours="4" data-price="198" onclick="selectOption(this)">
+        <div class="booking-option-left">
+          <div class="booking-radio"><div class="booking-radio-dot"></div></div>
+          <span class="booking-option-label">4 uur <span class="booking-option-extra">(+&euro;49)</span></span>
+        </div>
+        <span class="booking-option-price">&euro;198</span>
+      </div>
+      <div class="booking-option" role="radio" aria-checked="false" tabindex="0" data-hours="5" data-price="247" onclick="selectOption(this)">
+        <div class="booking-option-left">
+          <div class="booking-radio"><div class="booking-radio-dot"></div></div>
+          <span class="booking-option-label">5 uur <span class="booking-option-extra">(+&euro;98)</span></span>
+        </div>
+        <span class="booking-option-price">&euro;247</span>
+      </div>
+      <div class="booking-option" role="radio" aria-checked="false" tabindex="0" data-hours="6" data-price="296" onclick="selectOption(this)">
+        <div class="booking-option-left">
+          <div class="booking-radio"><div class="booking-radio-dot"></div></div>
+          <span class="booking-option-label">6 uur <span class="booking-option-extra">(+&euro;147)</span></span>
+        </div>
+        <span class="booking-option-price">&euro;296</span>
+      </div>
+    </div>
+    <p class="booking-compare">Een DJ-bureau rekent &euro;600+. Bij ons vanaf &euro;149 inclusief alles.</p>
+    <div class="booking-total">
+      <span class="booking-total-label">Totaal</span>
+      <span class="booking-total-price" id="bookingTotal">&euro;149</span>
+    </div>
+    <p class="booking-total-btw">Inclusief 21% BTW</p>
+    <a href="#" class="btn-violet booking-cta" onclick="return false;">CHECK BESCHIKBAARHEID</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-logo">PICYOURBOOTH</div>
+  <p class="footer-entity">Pic Your Moment BV</p>
+  <a href="mailto:info@picyourbooth.nl" class="footer-email">info@picyourbooth.nl</a>
+  <div class="footer-social">
+    <a href="https://instagram.com/picyourbooth" target="_blank" rel="noopener noreferrer" aria-label="Instagram">Instagram</a>
+    <a href="https://tiktok.com/@picyourbooth" target="_blank" rel="noopener noreferrer" aria-label="TikTok">TikTok</a>
+  </div>
+  <p class="footer-copy">&copy; 2026 PicYourBooth. Alle rechten voorbehouden.</p>
+</footer>
+
+<script>
+function toggleMenu() {
+  var nav = document.getElementById('mobileNav');
+  var btn = document.querySelector('.nav-hamburger');
+  var isOpen = nav.classList.toggle('is-open');
+  btn.setAttribute('aria-expanded', isOpen);
+  btn.setAttribute('aria-label', isOpen ? 'Menu sluiten' : 'Menu openen');
+  document.body.style.overflow = isOpen ? 'hidden' : '';
+}
+
+function closeMenu() {
+  var nav = document.getElementById('mobileNav');
+  var btn = document.querySelector('.nav-hamburger');
+  nav.classList.remove('is-open');
+  btn.setAttribute('aria-expanded', 'false');
+  btn.setAttribute('aria-label', 'Menu openen');
+  document.body.style.overflow = '';
+}
+
+function selectOption(el) {
+  var options = document.querySelectorAll('.booking-option');
+  options.forEach(function(opt) {
+    opt.classList.remove('is-selected');
+    opt.setAttribute('aria-checked', 'false');
+  });
+  el.classList.add('is-selected');
+  el.setAttribute('aria-checked', 'true');
+  var price = el.getAttribute('data-price');
+  var totalEl = document.getElementById('bookingTotal');
+  totalEl.textContent = '\u20AC' + price;
+}
+
+// Keyboard support for radio buttons
+document.querySelectorAll('.booking-option').forEach(function(opt) {
+  opt.addEventListener('keydown', function(e) {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      selectOption(opt);
+    }
+    var options = Array.from(document.querySelectorAll('.booking-option'));
+    var idx = options.indexOf(opt);
+    if (e.key === 'ArrowDown' || e.key === 'ArrowRight') {
+      e.preventDefault();
+      var next = options[(idx + 1) % options.length];
+      next.focus();
+      selectOption(next);
+    }
+    if (e.key === 'ArrowUp' || e.key === 'ArrowLeft') {
+      e.preventDefault();
+      var prev = options[(idx - 1 + options.length) % options.length];
+      prev.focus();
+      selectOption(prev);
+    }
+  });
+});
+</script>
+
+</body>
+</html>
