@@ -84,7 +84,7 @@ Build 5 standalone HTML page templates for picyourbooth.nl. Each page is a self-
 1. Nav
 2. Product Hero — "PARTY BOOTH" (gold gradient). Subtitle: fotoplezier voor elk feest, vanaf €199, klaar in 5 minuten.
 3. USPs (4 items) — Direct Delen Op Socials, Geen Monteur Geen Stress, Past Op Elke Locatie, Klaar In 5 Minuten
-4. AI Achtergrond callout — "Lelijke achtergrond? AI fixt het" + beautify filter. Visual before/after suggestion.
+4. AI Achtergrond callout — "Lelijke achtergrond? wij fixen het" + beautify filter. Visual before/after suggestion.
 5. Package Builder — "BOUW JOUW FEESTPAKKET"
    - Base: Party Booth €199
    - Toggles: Premium Fotostrip Design (+€25), Bezorging Installatie & Ophalen (+€49), AI Achtergrond + Beautify (+€35), Live DJ Set (+€149)

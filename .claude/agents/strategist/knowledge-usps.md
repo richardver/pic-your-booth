@@ -26,7 +26,7 @@ Unieke verkoopargumenten gerangschikt op impact. Nederlands.
 | 3 | Direct delen op socials | Gasten delen = gratis marketing voor het feest | Slimme Feestganger |
 | 4 | Compact — past op elke locatie | Geen ruimte-eisen, werkt overal | Slimme Feestganger |
 | 5 | Combineerbaar met Live DJ Set | Upgrade naar compleet entertainment | Alles-in-één |
-| 6 | AI Achtergrond + Beautify (+€35) — lelijke achtergrond? AI fixt het | Lost een echt probleem op, laagdrempelige upsell, concurrentie biedt dit niet | Slimme Feestganger |
+| 6 | AI Achtergrond + Beautify (+€35) — lelijke achtergrond? wij fixen het | Lost een echt probleem op, laagdrempelige upsell, concurrentie biedt dit niet | Slimme Feestganger |
 
 ## DJ Services
 

@@ -92,7 +92,7 @@ PYB-specifieke hooks in het Nederlands. Georganiseerd per product, segment en pl
 ## Party Booth — AI Achtergrond (+€35) & Beautify
 
 ### Advertentie Hooks
-1. "Lelijke achtergrond? AI fixt het — kies je eigen setting"
+1. "Lelijke achtergrond? wij fixen het — kies je eigen setting"
 2. "Strand, skyline of jungle — AI maakt elke achtergrond mogelijk"
 3. "AI Achtergrond + Beautify filter = foto's die je wilt delen"
 4. "Voor €35 extra zien al je foto's eruit als een professionele shoot"
