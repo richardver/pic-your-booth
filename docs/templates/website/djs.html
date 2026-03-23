@@ -981,6 +981,23 @@ a { color: inherit; text-decoration: none; }
 .waveform-bars span:nth-child(6) { height: 18px; animation-delay: 0.15s; animation-duration: 0.95s; }
 .waveform-bars span:nth-child(7) { height: 30px; animation-delay: 0.3s; animation-duration: 1.05s; }
 
+/* -- Confetti Burst ----------------------------------------- */
+@keyframes confettiBurst {
+  0%   { opacity: 1; transform: translate(0, 0) scale(1); }
+  100% { opacity: 0; transform: translate(var(--cx), var(--cy)) scale(0); }
+}
+
+.confetti-particle {
+  position: fixed;
+  width: 4px;
+  height: 4px;
+  background: var(--violet);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 200;
+  animation: confettiBurst 0.6s ease-out forwards;
+}
+
 /* -- Reduced Motion Override -------------------------------- */
 @media (prefers-reduced-motion: reduce) {
   .hero::before {
@@ -1224,6 +1241,23 @@ a { color: inherit; text-decoration: none; }
      JS - Booking Wizard + Entertainment Animations
      ============================================================ -->
 <script>
+function spawnConfetti(source) {
+  var rect = source.getBoundingClientRect();
+  var x = rect.left + rect.width / 2;
+  var y = rect.top + rect.height / 2;
+  var count = 8 + Math.floor(Math.random() * 5);
+  for (var i = 0; i < count; i++) {
+    var p = document.createElement('div');
+    p.className = 'confetti-particle';
+    p.style.left = x + 'px';
+    p.style.top = y + 'px';
+    p.style.setProperty('--cx', (Math.random() * 80 - 40) + 'px');
+    p.style.setProperty('--cy', (-30 - Math.random() * 60) + 'px');
+    document.body.appendChild(p);
+    p.addEventListener('animationend', function () { this.remove(); });
+  }
+}
+
 function selectHour(el) {
   var options = document.querySelectorAll('.hour-option');
   for (var i = 0; i < options.length; i++) {
@@ -1239,8 +1273,11 @@ function selectHour(el) {
 
   /* Price pulse on change */
   totalEl.classList.remove('price-pulse');
-  void totalEl.offsetWidth; /* reflow to restart animation */
+  void totalEl.offsetWidth;
   totalEl.classList.add('price-pulse');
+
+  /* Confetti burst from the selected option */
+  spawnConfetti(el);
 
   var baseLabel = document.querySelector('.booking-base-label');
   baseLabel.textContent = 'DJ Set ' + hours + ' uur';
