@@ -649,13 +649,21 @@ a { color: inherit; text-decoration: none; }
   position: fixed;
   top: 0;
   left: 0;
-  width: 600px;
-  height: 600px;
+  width: 400px;
+  height: 400px;
   pointer-events: none;
   z-index: 1;
-  background: radial-gradient(600px circle, rgba(212, 177, 78, 0.03), transparent 70%);
-  transform: translate(-300px, -300px);
+  border-radius: 50%;
+  background: radial-gradient(
+    circle at center,
+    rgba(212, 177, 78, 0.08) 0%,
+    rgba(212, 177, 78, 0.04) 20%,
+    rgba(212, 177, 78, 0.015) 40%,
+    transparent 65%
+  );
+  transform: translate(-200px, -200px);
   will-change: transform;
+  filter: blur(1px);
 }
 
 @media (max-width: 768px) {
@@ -928,7 +936,7 @@ a { color: inherit; text-decoration: none; }
       mouseY = e.clientY;
       if (!glowTicking) {
         requestAnimationFrame(function () {
-          glow.style.transform = 'translate(' + (mouseX - 300) + 'px, ' + (mouseY - 300) + 'px)';
+          glow.style.transform = 'translate(' + (mouseX - 200) + 'px, ' + (mouseY - 200) + 'px)';
           glowTicking = false;
         });
         glowTicking = true;
