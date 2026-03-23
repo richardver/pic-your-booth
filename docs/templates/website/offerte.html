@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Offerte Aanvragen - PicYourBooth</title>
+<meta name="description" content="Vraag vrijblijvend een voorstel aan voor jouw event. Vul 6 velden in en ontvang binnen 24 uur een offerte op maat.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --void: #050508;
+  --bg: #08080b;
+  --surface: #111116;
+  --surface-up: #18181e;
+  --text: #ededf0;
+  --text-muted: rgba(237,237,240,0.60);
+  --border: rgba(255,255,255,0.06);
+  --border-hover: rgba(255,255,255,0.12);
+  --gold: #d4b14e;
+  --gold-light: #e0c468;
+  --gold-dim: rgba(212,177,78,0.10);
+  --violet: #8b5cf6;
+  --violet-dim: rgba(139,92,246,0.12);
+  --font-display: 'Bebas Neue', Impact, sans-serif;
+  --font-body: 'Space Grotesk', system-ui, sans-serif;
+  --r-sm: 8px;
+  --r-md: 12px;
+  --r-lg: 16px;
+  --r-pill: 999px;
+  --ease: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { transition-duration: 0.01ms !important; animation-duration: 0.01ms !important; }
+}
+
+body {
+  font-family: var(--font-body);
+  background: var(--bg);
+  color: var(--text);
+  font-size: 16px;
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font-display);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  line-height: 1.1;
+  font-weight: 400;
+}
+
+a { color: inherit; text-decoration: none; }
+
+/* ===== NAV (simplified for conversion page) ===== */
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  background: rgba(8,8,11,0.85);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--border);
+  transition: background 0.3s var(--ease);
+}
+
+.nav-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 64px;
+}
+
+.nav-logo {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  letter-spacing: 0.08em;
+  color: var(--text);
+}
+
+.nav-back {
+  font-family: var(--font-body);
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--text-muted);
+  transition: color 0.2s var(--ease);
+  letter-spacing: 0.02em;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  min-height: 44px;
+  min-width: 44px;
+}
+
+.nav-back:hover,
+.nav-back:focus-visible {
+  color: var(--text);
+}
+
+/* ===== FORM HEADER ===== */
+.form-header {
+  padding: 140px 24px 0;
+  text-align: center;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.form-headline {
+  font-size: clamp(2.2rem, 5.5vw, 3.2rem);
+  background: linear-gradient(135deg, var(--gold) 0%, var(--gold-light) 50%, var(--gold) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  letter-spacing: 0.08em;
+  margin-bottom: 16px;
+}
+
+.form-subtitle {
+  font-family: var(--font-body);
+  font-size: clamp(0.95rem, 1.8vw, 1.05rem);
+  color: var(--text-muted);
+  font-weight: 300;
+  line-height: 1.7;
+  max-width: 460px;
+  margin: 0 auto;
+}
+
+/* ===== FORM CARD ===== */
+.form-section {
+  padding: 48px 24px 80px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.form-card {
+  width: 100%;
+  max-width: 560px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--r-lg);
+  padding: 40px 40px 36px;
+}
+
+@media (max-width: 600px) {
+  .form-card {
+    padding: 32px 24px 28px;
+  }
+}
+
+.form-group {
+  margin-bottom: 24px;
+}
+
+.form-group:last-of-type {
+  margin-bottom: 32px;
+}
+
+.form-label {
+  display: block;
+  font-family: var(--font-body);
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 8px;
+  letter-spacing: 0.01em;
+}
+
+.form-label-hint {
+  font-weight: 400;
+  color: var(--text-muted);
+  font-size: 0.8rem;
+}
+
+.form-input,
+.form-select,
+.form-textarea {
+  display: block;
+  width: 100%;
+  height: 48px;
+  padding: 0 16px;
+  background: var(--surface-up);
+  color: var(--text);
+  border: 1px solid var(--border);
+  border-radius: var(--r-sm);
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  font-weight: 400;
+  transition: border-color 0.2s var(--ease), box-shadow 0.2s var(--ease);
+  outline: none;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+.form-input::placeholder,
+.form-textarea::placeholder {
+  color: rgba(237,237,240,0.28);
+}
+
+.form-input:focus,
+.form-select:focus,
+.form-textarea:focus {
+  border-color: var(--gold);
+  box-shadow: 0 0 0 3px rgba(212,177,78,0.2);
+}
+
+.form-textarea {
+  height: auto;
+  padding: 12px 16px;
+  resize: vertical;
+  line-height: 1.6;
+}
+
+/* Select dropdown custom arrow */
+.form-select {
+  cursor: pointer;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='rgba(237,237,240,0.4)' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 14px center;
+  background-size: 16px;
+  padding-right: 40px;
+}
+
+.form-select option {
+  background: var(--surface-up);
+  color: var(--text);
+}
+
+/* Date input styling */
+.form-input[type="date"] {
+  color-scheme: dark;
+}
+
+/* ===== CTA BUTTON ===== */
+.btn-submit {
+  display: block;
+  width: 100%;
+  height: 56px;
+  padding: 0 24px;
+  background: var(--gold);
+  color: #000;
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  letter-spacing: 0.08em;
+  border-radius: var(--r-pill);
+  border: none;
+  cursor: pointer;
+  font-weight: 700;
+  transition: box-shadow 0.3s var(--ease), transform 0.2s var(--ease);
+  text-align: center;
+  line-height: 1;
+}
+
+.btn-submit:hover {
+  box-shadow: 0 0 40px rgba(212,177,78,0.25), 0 4px 20px rgba(0,0,0,0.3);
+  transform: translateY(-1px);
+}
+
+.btn-submit:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 3px;
+}
+
+.btn-submit:active {
+  transform: translateY(0);
+}
+
+/* ===== TRUST LINE ===== */
+.trust-line {
+  text-align: center;
+  padding-top: 24px;
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  font-weight: 400;
+  letter-spacing: 0.01em;
+  max-width: 560px;
+  width: 100%;
+}
+
+/* ===== FOOTER (minimal) ===== */
+.footer {
+  background: var(--void);
+  border-top: 1px solid var(--border);
+  padding: 40px 24px;
+  text-align: center;
+}
+
+.footer-logo {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  letter-spacing: 0.08em;
+  color: var(--text);
+  margin-bottom: 8px;
+}
+
+.footer-entity {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  font-weight: 300;
+  margin-bottom: 12px;
+}
+
+.footer-email {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  transition: color 0.2s var(--ease);
+}
+
+.footer-email:hover { color: var(--gold); }
+
+.footer-copy {
+  font-size: 0.7rem;
+  color: rgba(237,237,240,0.30);
+  font-weight: 300;
+  margin-top: 16px;
+}
+
+/* ===== FOCUS VISIBLE ===== */
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 2px;
+}
+
+/* ===== SELECTION ===== */
+::selection {
+  background: rgba(212,177,78,0.25);
+  color: var(--text);
+}
+</style>
+</head>
+<body>
+
+<!-- NAV (simplified: logo + back link only) -->
+<nav class="nav" role="navigation" aria-label="Navigatie">
+  <div class="nav-inner">
+    <a href="/" class="nav-logo" aria-label="PicYourBooth homepage">PICYOURBOOTH</a>
+    <a href="/" class="nav-back" aria-label="Terug naar homepage">&#8592; Terug</a>
+  </div>
+</nav>
+
+<!-- FORM HEADER -->
+<header class="form-header">
+  <h1 class="form-headline">IS JOUW DATUM NOG VRIJ?</h1>
+  <p class="form-subtitle">Vul 6 velden in en ontvang binnen 24 uur een vrijblijvend voorstel op maat. Geen verplichtingen, geen kleine lettertjes.</p>
+</header>
+
+<!-- FORM -->
+<section class="form-section" aria-label="Offerte aanvragen">
+  <div class="form-card">
+    <form action="#" method="POST" novalidate>
+
+      <!-- Naam -->
+      <div class="form-group">
+        <label class="form-label" for="naam">Naam</label>
+        <input
+          type="text"
+          id="naam"
+          name="naam"
+          class="form-input"
+          placeholder="Je volledige naam"
+          required
+          autocomplete="name"
+        >
+      </div>
+
+      <!-- E-mail -->
+      <div class="form-group">
+        <label class="form-label" for="email">E-mail</label>
+        <input
+          type="email"
+          id="email"
+          name="email"
+          class="form-input"
+          placeholder="naam@voorbeeld.nl"
+          required
+          autocomplete="email"
+        >
+      </div>
+
+      <!-- Telefoon -->
+      <div class="form-group">
+        <label class="form-label" for="telefoon">Telefoon</label>
+        <input
+          type="tel"
+          id="telefoon"
+          name="telefoon"
+          class="form-input"
+          placeholder="06 12345678"
+          required
+          autocomplete="tel"
+        >
+      </div>
+
+      <!-- Datum Event -->
+      <div class="form-group">
+        <label class="form-label" for="datum">
+          Datum Event
+          <span class="form-label-hint">(populaire data gaan snel)</span>
+        </label>
+        <input
+          type="date"
+          id="datum"
+          name="datum"
+          class="form-input"
+          required
+        >
+      </div>
+
+      <!-- Type Event -->
+      <div class="form-group">
+        <label class="form-label" for="type-event">Type Event</label>
+        <select
+          id="type-event"
+          name="type_event"
+          class="form-select"
+          required
+        >
+          <option value="" disabled selected>Selecteer type event</option>
+          <option value="bruiloft">Bruiloft</option>
+          <option value="bedrijfsfeest">Bedrijfsfeest</option>
+          <option value="verjaardag">Verjaardag</option>
+          <option value="festival-club">Festival / Club</option>
+          <option value="anders">Anders</option>
+        </select>
+      </div>
+
+      <!-- Bericht -->
+      <div class="form-group">
+        <label class="form-label" for="bericht">
+          Bericht
+          <span class="form-label-hint">Optioneel</span>
+        </label>
+        <textarea
+          id="bericht"
+          name="bericht"
+          class="form-textarea"
+          rows="4"
+          placeholder="Vertel ons meer over je event..."
+        ></textarea>
+      </div>
+
+      <!-- CTA -->
+      <button type="submit" class="btn-submit">
+        VRAAG VRIJBLIJVEND VOORSTEL AAN
+      </button>
+
+    </form>
+  </div>
+
+  <!-- Trust line -->
+  <p class="trust-line">Reactie binnen 24 uur &middot; 100% vrijblijvend &middot; Geen spam, beloofd</p>
+</section>
+
+<!-- FOOTER (minimal) -->
+<footer class="footer">
+  <div class="footer-logo">PICYOURBOOTH</div>
+  <p class="footer-entity">Pic Your Moment BV</p>
+  <a href="mailto:info@picyourbooth.nl" class="footer-email">info@picyourbooth.nl</a>
+  <p class="footer-copy">&copy; 2026 PicYourBooth. Alle rechten voorbehouden.</p>
+</footer>
+
+</body>
+</html>
