@@ -48,7 +48,7 @@ PYB-specific page templates, form spec, personalization rules, and conversion ta
 **Thank-you page:** "We nemen binnen 24 uur contact op!"
 
 ### Form UX (PYB-specific)
-- Gold focus ring on all fields (`border-[#d4b14e] ring-[#d4b14e]/20`)
+- Gold focus ring on all fields (`border-[#f59e42] ring-[#f59e42]/20`)
 - Input types: `tel` (numpad), `email`, `date`
 - Inline validation: "Vul een geldig e-mailadres in" (not "Fout")
 - "(populaire data gaan snel)" label on date field

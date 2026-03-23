@@ -23,10 +23,10 @@
   --border:      rgba(255, 255, 255, 0.06);
   --border-hover: rgba(255, 255, 255, 0.12);
 
-  --gold:        #d4b14e;
-  --gold-light:  #e0c468;
-  --gold-dim:    rgba(212, 177, 78, 0.10);
-  --gold-glow:   rgba(212, 177, 78, 0.20);
+  --gold:        #f59e42;
+  --gold-light:  #ffb86b;
+  --gold-dim:    rgba(245, 158, 66, 0.10);
+  --gold-glow:   rgba(245, 158, 66, 0.20);
   --violet:      #8b5cf6;
   --violet-dim:  rgba(139, 92, 246, 0.12);
   --success:     #34d399;
@@ -246,11 +246,11 @@ h1, h2, h3, h4, h5, h6 {
 .text-gold-gradient {
   background: linear-gradient(
     135deg,
-    #b8962e 0%,
-    #d4b14e 30%,
-    #f0d878 50%,
-    #d4b14e 70%,
-    #b8962e 100%
+    #c47820 0%,
+    #f59e42 30%,
+    #ffc670 50%,
+    #f59e42 70%,
+    #c47820 100%
   );
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -623,7 +623,7 @@ h1, h2, h3, h4, h5, h6 {
   border: 1px solid var(--border);
   margin-bottom: 40px;
   position: relative;
-  background-image: linear-gradient(135deg, rgba(212, 177, 78, 0.04) 0%, transparent 60%);
+  background-image: linear-gradient(135deg, rgba(245, 158, 66, 0.04) 0%, transparent 60%);
 }
 
 .builder-base__badge {
@@ -702,7 +702,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .upgrade-row.active {
-  border-color: rgba(212, 177, 78, 0.35);
+  border-color: rgba(245, 158, 66, 0.35);
   background: var(--gold-dim);
 }
 
@@ -917,8 +917,8 @@ h1, h2, h3, h4, h5, h6 {
 .form-input:focus,
 .form-select:focus,
 .form-textarea:focus {
-  border-color: rgba(212, 177, 78, 0.40);
-  box-shadow: 0 0 0 3px rgba(212, 177, 78, 0.08);
+  border-color: rgba(245, 158, 66, 0.40);
+  box-shadow: 0 0 0 3px rgba(245, 158, 66, 0.08);
 }
 
 .form-textarea {
@@ -1131,7 +1131,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .info-btn:hover {
   background: var(--gold-dim);
-  border-color: rgba(212, 177, 78, 0.3);
+  border-color: rgba(245, 158, 66, 0.3);
   color: var(--gold);
 }
 
@@ -1178,7 +1178,7 @@ h1, h2, h3, h4, h5, h6 {
   height: 220px;
   position: relative;
   overflow: hidden;
-  background: linear-gradient(135deg, rgba(212, 177, 78, 0.06) 0%, var(--surface) 100%);
+  background: linear-gradient(135deg, rgba(245, 158, 66, 0.06) 0%, var(--surface) 100%);
 }
 
 .modal__badge {
@@ -1300,19 +1300,19 @@ h1, h2, h3, h4, h5, h6 {
     <span class="section-label">Architecture</span>
     <h2 class="section-title" style="font-size:1.8rem;">How This Works</h2>
     <p style="color:rgba(237,237,240,0.6);max-width:640px;margin-bottom:24px;font-size:14px;line-height:1.7;">
-      Every component in the mockups below is built using <strong style="color:#d4b14e;">Shadcn/ui</strong> primitives + PYB theme. No custom UI from scratch.
+      Every component in the mockups below is built using <strong style="color:#f59e42;">Shadcn/ui</strong> primitives + PYB theme. No custom UI from scratch.
     </p>
     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;margin-bottom:24px;">
       <div style="background:#111116;border:1px solid rgba(255,255,255,0.06);border-radius:12px;padding:16px;">
-        <p style="font-family:'Bebas Neue',sans-serif;font-size:14px;letter-spacing:0.06em;color:#d4b14e;margin-bottom:6px;">LAYER 1: SHADCN/UI</p>
+        <p style="font-family:'Bebas Neue',sans-serif;font-size:14px;letter-spacing:0.06em;color:#f59e42;margin-bottom:6px;">LAYER 1: SHADCN/UI</p>
         <p style="font-size:12px;color:rgba(237,237,240,0.5);">Radix primitives — Button, Card, Input, Switch, Dialog, Accordion. Accessible, unstyled.</p>
       </div>
       <div style="background:#111116;border:1px solid rgba(255,255,255,0.06);border-radius:12px;padding:16px;">
-        <p style="font-family:'Bebas Neue',sans-serif;font-size:14px;letter-spacing:0.06em;color:#d4b14e;margin-bottom:6px;">LAYER 2: PYB THEME</p>
-        <p style="font-size:12px;color:rgba(237,237,240,0.5);">CSS variables override Shadcn. Dark base #08080b, gold #d4b14e accent, Bebas Neue + Space Grotesk.</p>
+        <p style="font-family:'Bebas Neue',sans-serif;font-size:14px;letter-spacing:0.06em;color:#f59e42;margin-bottom:6px;">LAYER 2: PYB THEME</p>
+        <p style="font-size:12px;color:rgba(237,237,240,0.5);">CSS variables override Shadcn. Dark base #08080b, gold #f59e42 accent, Bebas Neue + Space Grotesk.</p>
       </div>
       <div style="background:#111116;border:1px solid rgba(255,255,255,0.06);border-radius:12px;padding:16px;">
-        <p style="font-family:'Bebas Neue',sans-serif;font-size:14px;letter-spacing:0.06em;color:#d4b14e;margin-bottom:6px;">LAYER 3: PYB COMPOSITIONS</p>
+        <p style="font-family:'Bebas Neue',sans-serif;font-size:14px;letter-spacing:0.06em;color:#f59e42;margin-bottom:6px;">LAYER 3: PYB COMPOSITIONS</p>
         <p style="font-size:12px;color:rgba(237,237,240,0.5);">Nav, Hero, ServiceCard, PackageBuilder, ProposalForm — built from Shadcn parts.</p>
       </div>
     </div>
@@ -1858,8 +1858,8 @@ h1, h2, h3, h4, h5, h6 {
     <p class="comp-label">Accents</p>
     <div class="swatch-grid">
       <div class="swatch">
-        <div class="swatch__color" style="background: #d4b14e;"></div>
-        <div class="swatch__label"><strong>Gold</strong><span>#d4b14e</span></div>
+        <div class="swatch__color" style="background: #f59e42;"></div>
+        <div class="swatch__label"><strong>Gold</strong><span>#f59e42</span></div>
       </div>
       <div class="swatch">
         <div class="swatch__color" style="background: #8b5cf6;"></div>
@@ -2072,7 +2072,7 @@ h1, h2, h3, h4, h5, h6 {
     var textarea = document.getElementById('formMessage');
     if (textarea) {
       textarea.value = msg;
-      textarea.style.borderColor = 'rgba(212, 177, 78, 0.40)';
+      textarea.style.borderColor = 'rgba(245, 158, 66, 0.40)';
       setTimeout(function() { textarea.style.borderColor = ''; }, 2000);
     }
 

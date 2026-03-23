@@ -80,7 +80,7 @@ Dark cinematic aesthetic. Three-layer hierarchy:
 2. **Page-specific** — photobooth pages, DJ hub, Meta Ads
 3. **Individual DJ brands** — DJ Gianni (coral), Milo (cyan)
 
-Fonts: Bebas Neue (headings) + Space Grotesk (body). Colors: gold (#d4b14e) for photobooth, violet (#8b5cf6) for DJ, dark bg (#08080b).
+Fonts: Bebas Neue (headings) + Space Grotesk (body). Colors: gold (#f59e42) for photobooth, violet (#8b5cf6) for DJ, dark bg (#08080b).
 
 ## Design Asset Exports
 

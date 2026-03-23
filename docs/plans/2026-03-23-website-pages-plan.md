@@ -63,7 +63,7 @@ Sections to build:
 5. **Testimonial** — Gold divider lines. Italic quote. Author + event type.
 6. **Footer** — PicYourBooth · Pic Your Moment BV · info@picyourbooth.nl · Instagram · TikTok
 
-Design tokens: dark bg #08080b, surface #111116, text #ededf0, gold #d4b14e, violet #8b5cf6.
+Design tokens: dark bg #08080b, surface #111116, text #ededf0, gold #f59e42, violet #8b5cf6.
 Typography: Bebas Neue headings (uppercase, 0.06em spacing), Space Grotesk body.
 Mobile-first: responsive grid, 44px touch targets, sticky nav.
 

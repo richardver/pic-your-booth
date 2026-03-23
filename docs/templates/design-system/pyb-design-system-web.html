@@ -15,9 +15,9 @@
   --text-muted: rgba(237,237,240,0.60);
   --border: rgba(255,255,255,0.06);
   --border-hover: rgba(255,255,255,0.12);
-  --gold: #d4b14e;
-  --gold-light: #e0c468;
-  --gold-dim: rgba(212,177,78,0.10);
+  --gold: #f59e42;
+  --gold-light: #ffb86b;
+  --gold-dim: rgba(245,158,66,0.10);
   --violet: #8b5cf6;
   --violet-dim: rgba(139,92,246,0.12);
   --gi: #f0654a;
@@ -78,7 +78,7 @@ td:last-child { color: var(--text-muted); }
 .price-pill { display: inline-block; padding: 8px 20px; border-radius: var(--r-pill); font-family: var(--font-display); font-size: 1rem; letter-spacing: 0.04em; font-weight: 700; }
 .price-gold { background: var(--gold); color: #000; }
 .price-violet { background: var(--violet); color: #000; }
-.text-gold { background: linear-gradient(135deg, #b8962e, #d4b14e 30%, #f0d878 50%, #d4b14e 70%, #b8962e); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+.text-gold { background: linear-gradient(135deg, #c47820, #f59e42 30%, #ffc670 50%, #f59e42 70%, #c47820); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
 </style>
 </head>
 <body>
@@ -105,7 +105,7 @@ td:last-child { color: var(--text-muted); }
         </div>
         <div style="flex:1;min-width:200px;background:var(--surface-up);border-radius:var(--r-sm);padding:16px;">
           <p style="font-weight:600;font-size:13px;margin-bottom:6px;">2. PYB Theme</p>
-          <p style="font-size:12px;color:var(--text-muted);">CSS variables in globals.css override Shadcn defaults. Dark cinematic base (#08080b), gold accent (#d4b14e), Bebas Neue + Space Grotesk fonts.</p>
+          <p style="font-size:12px;color:var(--text-muted);">CSS variables in globals.css override Shadcn defaults. Dark cinematic base (#08080b), gold accent (#f59e42), Bebas Neue + Space Grotesk fonts.</p>
         </div>
         <div style="flex:1;min-width:200px;background:var(--surface-up);border-radius:var(--r-sm);padding:16px;">
           <p style="font-weight:600;font-size:13px;margin-bottom:6px;">3. Segment Overrides</p>
@@ -144,7 +144,7 @@ td:last-child { color: var(--text-muted); }
     <p class="desc">PicYourBooth is one premium entertainment brand. Photobooth and DJ pages share typography and dark base. Section accent colors differentiate.</p>
     <table>
       <tr><th>Page</th><th>Accent</th><th>Usage</th></tr>
-      <tr><td>Photobooth (all)</td><td>#d4b14e gold</td><td>CTAs, price pills, VIP badges, toggle active, nav button</td></tr>
+      <tr><td>Photobooth (all)</td><td>#f59e42 gold</td><td>CTAs, price pills, VIP badges, toggle active, nav button</td></tr>
       <tr><td>DJ Hub</td><td>#8b5cf6 violet</td><td>DJ CTAs (Boek een DJ), step numbers, shared accent</td></tr>
       <tr><td>DJ Gianni</td><td>#f0654a coral</td><td>Profile color, genre tags, play button, set items</td></tr>
       <tr><td>Milo</td><td>#22d3ee cyan</td><td>Profile color, genre tags, play button, set items</td></tr>
@@ -171,7 +171,7 @@ td:last-child { color: var(--text-muted); }
 
     <p class="label">Accents</p>
     <div class="palette" style="margin-bottom:24px;">
-      <div class="swatch"><div class="swatch-color" style="background:#d4b14e;color:#000;"><code>#d4b14e</code></div><div class="swatch-info"><div class="swatch-name">Gold</div><div class="swatch-role">Photobooth CTAs</div></div></div>
+      <div class="swatch"><div class="swatch-color" style="background:#f59e42;color:#000;"><code>#f59e42</code></div><div class="swatch-info"><div class="swatch-name">Gold</div><div class="swatch-role">Photobooth CTAs</div></div></div>
       <div class="swatch"><div class="swatch-color" style="background:#8b5cf6;color:#fff;"><code>#8b5cf6</code></div><div class="swatch-info"><div class="swatch-name">Violet</div><div class="swatch-role">DJ Hub CTAs</div></div></div>
       <div class="swatch"><div class="swatch-color" style="background:#f0654a;color:#fff;"><code>#f0654a</code></div><div class="swatch-info"><div class="swatch-name">Coral</div><div class="swatch-role">DJ Gianni</div></div></div>
       <div class="swatch"><div class="swatch-color" style="background:#22d3ee;color:#000;"><code>#22d3ee</code></div><div class="swatch-info"><div class="swatch-name">Cyan</div><div class="swatch-role">Milo</div></div></div>
@@ -316,7 +316,7 @@ td:last-child { color: var(--text-muted); }
       <tr><td>--muted</td><td>--surface-up</td><td>#18181e</td></tr>
       <tr><td>--muted-foreground</td><td>--text-muted</td><td>rgba(237,237,240,0.60)</td></tr>
       <tr><td>--border</td><td>--border</td><td>rgba(255,255,255,0.06)</td></tr>
-      <tr><td>--primary</td><td>--gold</td><td>#d4b14e (photobooth default)</td></tr>
+      <tr><td>--primary</td><td>--gold</td><td>#f59e42 (photobooth default)</td></tr>
       <tr><td>--primary-foreground</td><td>#000</td><td>Black text on gold buttons</td></tr>
       <tr><td>--ring</td><td>--gold</td><td>Focus ring color</td></tr>
     </table>
@@ -325,7 +325,7 @@ td:last-child { color: var(--text-muted); }
     <p class="desc">Applied via data-segment attribute on page containers. Swaps --primary accent.</p>
     <table>
       <tr><th>Segment</th><th>data-segment</th><th>--primary</th><th>--primary-foreground</th></tr>
-      <tr><td>Photobooth (default)</td><td>—</td><td style="color:var(--gold);">#d4b14e gold</td><td>#000 black</td></tr>
+      <tr><td>Photobooth (default)</td><td>—</td><td style="color:var(--gold);">#f59e42 gold</td><td>#000 black</td></tr>
       <tr><td>DJ Hub</td><td>"dj"</td><td style="color:var(--violet);">#8b5cf6 violet</td><td>#fff white</td></tr>
       <tr><td>DJ Gianni</td><td>"gianni"</td><td style="color:var(--gi);">#f0654a coral</td><td>#fff white</td></tr>
       <tr><td>Milo</td><td>"milo"</td><td style="color:var(--mi);">#22d3ee cyan</td><td>#000 black</td></tr>
@@ -381,7 +381,7 @@ td:last-child { color: var(--text-muted); }
         foreground: '#ededf0',
         surface: '#111116',
         elevated: '#18181e',
-        gold: '#d4b14e',
+        gold: '#f59e42',
         violet: '#8b5cf6',
         coral: '#f0654a',
         cyan: '#22d3ee',

@@ -24,7 +24,7 @@ Build 5 standalone HTML page templates for picyourbooth.nl. Each page is a self-
 
 ## Shared Elements
 
-- PYB design tokens (dark base #08080b, gold #d4b14e, violet #8b5cf6)
+- PYB design tokens (dark base #08080b, gold #f59e42, violet #8b5cf6)
 - Bebas Neue (headings) + Space Grotesk (body) from Google Fonts
 - Nav: PICYOURBOOTH | Party Booth | Magic Mirror XL | DJs | "BOEK JE ERVARING" (gold pill, black text)
 - Footer: minimal

@@ -14,7 +14,7 @@ Tokens, colors, typography, and component specs. Full reference in `.claude/agen
 | Text | #ededf0 | Primary text |
 | Text muted | rgba(237,237,240,0.60) | Descriptions, secondary |
 | Border | rgba(255,255,255,0.06) | Subtle borders |
-| Gold | #d4b14e | Photobooth accent, CTAs, prices |
+| Gold | #f59e42 | Photobooth accent, CTAs, prices |
 | Violet | #8b5cf6 | DJ Hub accent, DJ CTAs |
 | Coral | #f0654a | DJ Gianni (profile only) |
 | Cyan | #22d3ee | Milo (profile only) |

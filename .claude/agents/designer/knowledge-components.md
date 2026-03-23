@@ -19,7 +19,7 @@ Button, Input, Label, Select, Textarea, Card, Dialog, Switch, Badge, Separator, 
 
 | Variant | Classes | Usage |
 |---|---|---|
-| Gold CTA | `bg-[#d4b14e] text-black` | Photobooth CTAs |
+| Gold CTA | `bg-[#f59e42] text-black` | Photobooth CTAs |
 | Violet CTA | `bg-[#8b5cf6] text-white` | DJ CTAs |
 | Ghost | Shadcn default | Secondary actions |
 

@@ -32,7 +32,7 @@ Shadcn uses CSS variables for theming. We override these in `globals.css`:
   --ring: 43 62% 57%;               /* gold focus ring */
 
   /* PYB Accent Colors */
-  --primary: 43 62% 57%;            /* gold #d4b14e */
+  --primary: 43 62% 57%;            /* gold #f59e42 */
   --primary-foreground: 0 0% 0%;    /* black text on gold */
   --secondary: 240 8% 10%;          /* elevated surface */
   --secondary-foreground: 240 6% 93%;
@@ -127,7 +127,7 @@ Apply via data attributes or CSS classes on page containers:
 
 | Variant | Shadcn Base | PYB Override | Usage |
 |---|---|---|---|
-| **Gold CTA** | `default` | `bg-[#d4b14e] text-black hover:bg-[#c9a545]` | Primary CTAs: "BOEK JE ERVARING", "CHECK BESCHIKBAARHEID" |
+| **Gold CTA** | `default` | `bg-[#f59e42] text-black hover:bg-[#c9a545]` | Primary CTAs: "BOEK JE ERVARING", "CHECK BESCHIKBAARHEID" |
 | **Violet CTA** | `default` | `bg-[#8b5cf6] text-white hover:bg-[#7c4fee]` | DJ CTAs: "BOEK EEN DJ", "PLAN JE FEEST" |
 | **Ghost** | `ghost` | Default Shadcn ghost | Secondary actions, "Meer info →" |
 | **Outline** | `outline` | `border-white/10 hover:bg-white/5` | Tertiary actions |
@@ -137,7 +137,7 @@ Apply via data attributes or CSS classes on page containers:
 | Variant | Shadcn Base | PYB Override | Usage |
 |---|---|---|---|
 | **Service Card** | `card` | `bg-[#111116] border-white/6` | Homepage service cards (Party Booth, Magic Mirror, DJs) |
-| **Package Card** | `card` | `bg-[#111116] border-[#d4b14e]/20` (gold tint for base) | Package builder base package |
+| **Package Card** | `card` | `bg-[#111116] border-[#f59e42]/20` (gold tint for base) | Package builder base package |
 | **Upgrade Row** | Custom | `bg-[#18181e] rounded-lg` with Switch | Toggle upgrade in package builder |
 | **Testimonial** | `card` | `bg-transparent border-none` with gold dividers | Quote blocks |
 
@@ -145,7 +145,7 @@ Apply via data attributes or CSS classes on page containers:
 
 | Variant | PYB Override | Usage |
 |---|---|---|
-| **Gold** | `bg-[#d4b14e] text-black` | "MEEST GEKOZEN", prices |
+| **Gold** | `bg-[#f59e42] text-black` | "MEEST GEKOZEN", prices |
 | **Violet** | `bg-[#8b5cf6] text-white` | "ALLEEN BIJ PICYOURBOOTH" |
 | **Coral** | `bg-[#f0654a] text-white` | DJ Gianni genre tags |
 | **Cyan** | `bg-[#22d3ee] text-black` | Milo genre tags |
@@ -156,7 +156,7 @@ Apply via data attributes or CSS classes on page containers:
 | State | PYB Override |
 |---|---|
 | Default | `bg-[#111116] border-white/10 text-[#ededf0]` |
-| Focus | `border-[#d4b14e] ring-[#d4b14e]/20` (gold focus) |
+| Focus | `border-[#f59e42] ring-[#f59e42]/20` (gold focus) |
 | Error | `border-red-500 ring-red-500/20` |
 | Placeholder | `text-white/40` |
 

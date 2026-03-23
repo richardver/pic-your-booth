@@ -45,7 +45,7 @@ Use [Impeccable](https://impeccable.style) skills to refine frontend output. The
 
 1. **Bebas Neue (headings) + Space Grotesk (body)** — no other fonts
 2. **Dark cinematic base** — #08080b background, events happen at night
-3. **Gold #d4b14e for photobooth CTAs** — black text on gold buttons
+3. **Gold #f59e42 for photobooth CTAs** — black text on gold buttons
 4. **Violet #8b5cf6 for DJ CTAs** — distinct from photobooth
 5. **Mobile-first** — 70%+ traffic from Meta Ads is mobile
 6. **6 fields max** on proposal form — Name, Email, Phone, Date, Type, Message (optional)

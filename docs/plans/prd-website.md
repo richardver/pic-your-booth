@@ -64,7 +64,7 @@ Elevated:      #18181e
 Text:          #ededf0
 Text muted:    rgba(237,237,240,0.60)
 Border:        rgba(255,255,255,0.06)
-Gold:          #d4b14e (photobooth accent)
+Gold:          #f59e42 (photobooth accent)
 Violet:        #8b5cf6 (DJ accent)
 Coral:         #f0654a (DJ Gianni)
 Cyan:          #22d3ee (Milo)
