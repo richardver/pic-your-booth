@@ -3,56 +3,64 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Magic Mirror XL - Premium DSLR Photobooth | PicYourBooth</title>
-<meta name="description" content="Magic Mirror XL: DSLR photobooth met professionele studiobelichting, direct printen en geen tijdslimiet. Bezorging, installatie en ophalen inbegrepen. Vanaf €599.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<title>Magic Mirror XL - PicYourBooth</title>
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
+/* ============================================================
+   PICYOURBOOTH - MAGIC MIRROR XL PRODUCT PAGE
+   Dark luxury. Typography is the design. Whitespace is premium.
+   ============================================================ */
+
+/* -- Design Tokens ----------------------------------------- */
 :root {
-  --void: #050508;
-  --bg: #08080b;
-  --surface: #111116;
-  --surface-up: #18181e;
-  --text: #ededf0;
-  --text-muted: rgba(237,237,240,0.60);
-  --border: rgba(255,255,255,0.06);
-  --border-hover: rgba(255,255,255,0.12);
-  --gold: #d4b14e;
-  --gold-light: #e0c468;
-  --gold-dim: rgba(212,177,78,0.10);
-  --violet: #8b5cf6;
-  --violet-dim: rgba(139,92,246,0.12);
+  --void:        #050508;
+  --bg:          #08080b;
+  --surface:     #111116;
+  --surface-up:  #18181e;
+  --text:        #ededf0;
+  --text-muted:  rgba(237, 237, 240, 0.60);
+  --border:      rgba(255, 255, 255, 0.06);
+  --border-hover: rgba(255, 255, 255, 0.12);
+
+  --gold:        #d4b14e;
+  --gold-light:  #e0c468;
+  --gold-dim:    rgba(212, 177, 78, 0.10);
+  --gold-glow:   rgba(212, 177, 78, 0.20);
+  --violet:      #8b5cf6;
+  --violet-dim:  rgba(139, 92, 246, 0.12);
+
   --font-display: 'Bebas Neue', Impact, sans-serif;
-  --font-body: 'Space Grotesk', system-ui, sans-serif;
-  --r-sm: 8px;
-  --r-md: 12px;
-  --r-lg: 16px;
+  --font-body:    'Space Grotesk', -apple-system, sans-serif;
+
+  --r-sm:   8px;
+  --r-md:  12px;
+  --r-lg:  16px;
   --r-pill: 999px;
+
   --ease: cubic-bezier(0.16, 1, 0.3, 1);
 }
 
+/* -- Reset ------------------------------------------------- */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-html { scroll-behavior: smooth; }
-
-@media (prefers-reduced-motion: reduce) {
-  html { scroll-behavior: auto; }
-  *, *::before, *::after { transition-duration: 0.01ms !important; animation-duration: 0.01ms !important; }
+html {
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  scroll-behavior: smooth;
 }
 
 body {
   font-family: var(--font-body);
+  font-size: 15px;
+  line-height: 1.7;
   background: var(--bg);
   color: var(--text);
-  font-size: 16px;
-  line-height: 1.7;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  overflow-x: hidden;
 }
 
-h1, h2, h3, h4 {
+img { display: block; max-width: 100%; }
+
+h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-display);
   text-transform: uppercase;
   letter-spacing: 0.06em;
@@ -62,399 +70,457 @@ h1, h2, h3, h4 {
 
 a { color: inherit; text-decoration: none; }
 
-/* ===== NAV ===== */
-.nav {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 1000;
-  background: rgba(8,8,11,0.85);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border-bottom: 1px solid var(--border);
-  transition: background 0.3s var(--ease);
+::selection {
+  background: var(--gold);
+  color: #000;
 }
 
-.nav-inner {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 24px;
+:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  html { scroll-behavior: auto; }
+}
+
+/* -- Gold Gradient Text ------------------------------------ */
+.text-gold-gradient {
+  background: linear-gradient(
+    135deg,
+    #b8962e 0%,
+    #d4b14e 30%,
+    #f0d878 50%,
+    #d4b14e 70%,
+    #b8962e 100%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* -- Navigation -------------------------------------------- */
+.nav {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 64px;
+  padding: 20px 32px;
+  border-bottom: 1px solid var(--border);
+  position: relative;
+  z-index: 100;
 }
 
 .nav-logo {
   font-family: var(--font-display);
   font-size: 1.5rem;
   letter-spacing: 0.08em;
+  text-transform: uppercase;
   color: var(--text);
+  text-decoration: none;
 }
 
 .nav-links {
   display: flex;
+  gap: 24px;
   align-items: center;
-  gap: 32px;
   list-style: none;
 }
 
 .nav-links a {
-  font-family: var(--font-body);
-  font-size: 0.875rem;
-  font-weight: 500;
+  font-family: var(--font-display);
+  font-size: 0.95rem;
+  letter-spacing: 0.06em;
   color: var(--text-muted);
+  text-decoration: none;
+  text-transform: uppercase;
   transition: color 0.2s var(--ease);
-  letter-spacing: 0.02em;
 }
 
-.nav-links a:hover,
-.nav-links a:focus-visible {
+.nav-links a:hover {
   color: var(--text);
 }
 
-.btn-gold {
-  display: inline-block;
+.nav-links a.active {
+  color: var(--text);
+}
+
+.nav-links .nav-cta, .nav-cta {
   padding: 10px 24px;
-  background: var(--gold);
-  color: #000;
-  font-family: var(--font-display);
-  font-size: 0.9rem;
-  letter-spacing: 0.06em;
   border-radius: var(--r-pill);
+  font-family: var(--font-display);
+  font-size: 0.95rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  text-decoration: none;
   border: none;
   cursor: pointer;
+  display: inline-block;
+  background: var(--gold);
+  color: #000000;
   font-weight: 700;
-  transition: box-shadow 0.3s var(--ease), transform 0.2s var(--ease);
-  min-height: 44px;
-  min-width: 44px;
-  text-align: center;
-  line-height: 1.5;
+  transition: background 0.25s var(--ease), box-shadow 0.25s var(--ease);
 }
 
-.btn-gold:hover {
-  box-shadow: 0 0 32px var(--gold-dim), 0 4px 16px rgba(0,0,0,0.3);
-  transform: translateY(-1px);
+.nav-cta:hover {
+  background: var(--gold-light);
+  box-shadow: 0 0 24px var(--gold-glow);
 }
 
-.btn-gold:focus-visible {
-  outline: 2px solid var(--gold);
-  outline-offset: 2px;
-}
-
-/* Hamburger */
+/* Hamburger (mobile) */
 .nav-hamburger {
   display: none;
+  flex-direction: column;
+  gap: 5px;
   background: none;
   border: none;
   cursor: pointer;
-  padding: 8px;
-  min-height: 44px;
-  min-width: 44px;
-  align-items: center;
-  justify-content: center;
+  padding: 4px;
 }
 
 .nav-hamburger span {
   display: block;
-  width: 24px;
-  height: 2px;
+  width: 22px;
+  height: 1.5px;
   background: var(--text);
-  transition: all 0.3s var(--ease);
-  position: relative;
+  transition: transform 0.25s var(--ease), opacity 0.25s var(--ease);
 }
-
-.nav-hamburger span::before,
-.nav-hamburger span::after {
-  content: '';
-  display: block;
-  width: 24px;
-  height: 2px;
-  background: var(--text);
-  position: absolute;
-  transition: all 0.3s var(--ease);
-}
-
-.nav-hamburger span::before { top: -7px; }
-.nav-hamburger span::after { top: 7px; }
-
-/* Mobile nav */
-.nav-mobile {
-  display: none;
-  position: fixed;
-  top: 64px;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: rgba(8,8,11,0.97);
-  backdrop-filter: blur(24px);
-  -webkit-backdrop-filter: blur(24px);
-  z-index: 999;
-  padding: 40px 24px;
-}
-
-.nav-mobile.is-open { display: flex; flex-direction: column; gap: 24px; align-items: center; }
-
-.nav-mobile a {
-  font-family: var(--font-display);
-  font-size: 1.5rem;
-  letter-spacing: 0.06em;
-  color: var(--text-muted);
-  padding: 12px 0;
-  min-height: 44px;
-  display: flex;
-  align-items: center;
-}
-
-.nav-mobile a:hover { color: var(--text); }
-
-.nav-mobile .btn-gold { margin-top: 16px; padding: 14px 32px; font-size: 1rem; }
 
 @media (max-width: 768px) {
   .nav-links { display: none; }
   .nav-hamburger { display: flex; }
 }
 
-/* ===== PRODUCT HERO ===== */
+/* -- Hero -------------------------------------------------- */
 .hero {
+  text-align: center;
+  min-height: 70vh;
+  padding: 120px 32px 120px;
   position: relative;
-  min-height: 80vh;
+  overflow: hidden;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
-  text-align: center;
-  padding: 120px 24px 80px;
-  overflow: hidden;
 }
 
-.hero-bg {
+.hero::before {
+  content: '';
   position: absolute;
   inset: 0;
   background-image: url('https://images.unsplash.com/photo-1519671482749-fd09be7ccebf?w=1920&q=80');
   background-size: cover;
-  background-position: center;
+  background-position: center 40%;
   opacity: 0.15;
+  pointer-events: none;
 }
 
 .hero-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(
-    180deg,
-    rgba(8,8,11,0.6) 0%,
-    rgba(8,8,11,0.4) 40%,
-    rgba(8,8,11,0.85) 80%,
-    var(--bg) 100%
+  background: linear-gradient(180deg,
+    rgba(8, 8, 11, 0.3) 0%,
+    rgba(8, 8, 11, 0.6) 50%,
+    rgba(8, 8, 11, 1) 100%
   );
+  pointer-events: none;
+  z-index: 1;
 }
 
 .hero-content {
   position: relative;
   z-index: 2;
-  max-width: 760px;
+  animation: heroFadeUp 0.8s var(--ease) both;
 }
 
-.hero-badge {
-  display: inline-block;
-  background: var(--gold-dim);
+@keyframes heroFadeUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.hero-label {
+  font-family: var(--font-body);
+  font-size: 10px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
   color: var(--gold);
-  font-family: var(--font-display);
-  font-size: 0.75rem;
-  letter-spacing: 0.12em;
-  padding: 6px 16px;
-  border-radius: var(--r-pill);
-  border: 1px solid rgba(212,177,78,0.2);
-  margin-bottom: 24px;
+  margin-bottom: 12px;
+  display: block;
 }
 
-.hero-headline {
-  font-size: clamp(3rem, 8vw, 5rem);
-  background: linear-gradient(135deg, var(--gold) 0%, var(--gold-light) 50%, var(--gold) 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  margin-bottom: 20px;
+.hero-title {
+  font-size: clamp(2.5rem, 6vw, 3.5rem);
   letter-spacing: 0.08em;
+  margin-bottom: 16px;
 }
 
 .hero-subtitle {
-  font-family: var(--font-body);
-  font-size: clamp(0.95rem, 2vw, 1.15rem);
+  font-size: 15px;
   color: var(--text-muted);
+  max-width: 520px;
+  margin: 0 auto 24px;
   font-weight: 300;
-  max-width: 540px;
-  margin: 0 auto 32px;
   line-height: 1.7;
-  letter-spacing: 0.04em;
 }
 
 .hero-price {
-  font-family: var(--font-display);
-  font-size: clamp(1.3rem, 3vw, 1.6rem);
+  font-family: var(--font-body);
+  font-size: 1.1rem;
+  font-weight: 600;
   color: var(--gold);
-  letter-spacing: 0.06em;
+  font-variant-numeric: tabular-nums;
 }
 
-/* ===== USPs ===== */
-.usps {
-  max-width: 720px;
+/* -- USP Section ------------------------------------------- */
+.usp-section {
+  padding: 80px 32px;
+  max-width: 640px;
   margin: 0 auto;
-  padding: 80px 24px;
 }
 
-.usps-heading {
+.usp-section-header {
   text-align: center;
   margin-bottom: 48px;
 }
 
-.usps-heading h2 {
-  font-size: clamp(1.8rem, 4vw, 2.4rem);
-  color: var(--text);
-  margin-bottom: 12px;
+.usp-section-label {
+  font-family: var(--font-body);
+  font-size: 10px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--gold);
+  margin-bottom: 8px;
+  display: block;
 }
 
-.usps-heading p {
-  color: var(--text-muted);
-  font-size: 1rem;
-  font-weight: 300;
+.usp-section-title {
+  font-size: 2rem;
+  letter-spacing: 0.06em;
+}
+
+.usp-list {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
 }
 
 .usp-item {
   display: flex;
+  gap: 20px;
   align-items: flex-start;
-  gap: 24px;
-  padding: 28px 0;
-  border-left: 3px solid var(--gold);
-  padding-left: 24px;
-  margin-bottom: 8px;
 }
 
-.usp-img {
+.usp-item__img {
   width: 80px;
   height: 80px;
-  border-radius: var(--r-md);
-  object-fit: cover;
+  border-radius: var(--r-sm);
   flex-shrink: 0;
+  background-size: cover;
+  background-position: center;
+  border: 1px solid var(--border);
 }
 
-.usp-text {
+.usp-item__text {
   flex: 1;
+  border-left: 3px solid var(--gold);
+  padding-left: 20px;
 }
 
-.usp-title {
-  font-size: 1.3rem;
-  color: var(--text);
-  margin-bottom: 6px;
+.usp-item__title {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
   letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin-bottom: 6px;
+  color: var(--gold);
 }
 
-.usp-desc {
-  font-size: 0.95rem;
+.usp-item__desc {
+  font-size: 0.85rem;
   color: var(--text-muted);
+  line-height: 1.6;
   font-weight: 300;
-  line-height: 1.7;
 }
 
-@media (max-width: 600px) {
-  .usp-item { flex-direction: column; gap: 16px; }
-  .usp-img { width: 100%; height: 160px; }
-}
-
-/* ===== PACKAGE BUILDER ===== */
+/* -- Package Builder --------------------------------------- */
 .builder {
   max-width: 640px;
   margin: 0 auto;
-  padding: 80px 24px;
+  padding: 96px 32px;
 }
 
 .builder-heading {
-  text-align: center;
-  margin-bottom: 40px;
-}
-
-.builder-heading h2 {
-  font-size: clamp(1.8rem, 4vw, 2.4rem);
-  color: var(--text);
-}
-
-/* Base card */
-.base-card {
-  background: linear-gradient(135deg, rgba(212,177,78,0.08) 0%, rgba(212,177,78,0.03) 100%);
-  border: 1px solid rgba(212,177,78,0.2);
-  border-radius: var(--r-lg);
-  padding: 28px 24px;
-  margin-bottom: 12px;
-}
-
-.base-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: 16px;
-}
-
-.base-title {
-  font-size: 1.4rem;
-  color: var(--text);
+  font-size: 2rem;
   letter-spacing: 0.06em;
+  text-align: center;
+  margin-bottom: 8px;
+  color: var(--text);
 }
 
-.base-price {
-  font-family: var(--font-display);
-  font-size: 1.4rem;
-  color: var(--gold);
-  letter-spacing: 0.04em;
+.builder-subheading {
+  text-align: center;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  margin-bottom: 48px;
 }
 
-.base-lock {
-  display: inline-block;
-  background: var(--gold-dim);
-  color: var(--gold);
+.builder-base {
+  background: var(--surface);
+  border-radius: var(--r-md);
+  padding: 28px;
+  border: 1px solid var(--border);
+  margin-bottom: 40px;
+  position: relative;
+  background-image: linear-gradient(135deg, rgba(212, 177, 78, 0.04) 0%, transparent 60%);
+}
+
+.builder-base__badge {
+  position: absolute;
+  top: 16px;
+  right: 16px;
   font-family: var(--font-body);
-  font-size: 0.65rem;
+  font-size: 0.7rem;
   font-weight: 600;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  padding: 3px 10px;
+  padding: 4px 10px;
   border-radius: var(--r-pill);
-  margin-left: 12px;
+  background: rgba(255, 255, 255, 0.06);
+  color: var(--text-muted);
 }
 
-.base-includes {
+.builder-base__name {
+  font-size: 1.5rem;
+  letter-spacing: 0.06em;
+  margin-bottom: 8px;
+}
+
+.builder-base__price {
+  font-family: var(--font-body);
+  font-size: 2rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  margin-bottom: 16px;
+  color: var(--gold);
+  font-variant-numeric: tabular-nums;
+}
+
+.builder-base__features {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.builder-base__features li {
   font-size: 0.875rem;
   color: var(--text-muted);
-  font-weight: 300;
-  line-height: 1.8;
+  padding-left: 20px;
+  position: relative;
 }
 
-/* Upgrade rows */
+.builder-base__features li::before {
+  content: '\2713';
+  position: absolute;
+  left: 0;
+  font-weight: 600;
+  color: var(--gold);
+}
+
+/* -- Upgrade Title ----------------------------------------- */
+.builder-upgrades-title {
+  font-size: 1.25rem;
+  letter-spacing: 0.06em;
+  margin-bottom: 20px;
+}
+
+/* -- Upgrade Row ------------------------------------------- */
 .upgrade-row {
   background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: var(--r-lg);
+  border-radius: var(--r-md);
   padding: 20px 24px;
-  margin-bottom: 8px;
+  border: 1px solid var(--border);
+  margin-bottom: 12px;
   display: flex;
   align-items: center;
-  gap: 16px;
-  transition: border-color 0.3s var(--ease), box-shadow 0.3s var(--ease);
+  gap: 20px;
+  transition: border-color 0.25s, background 0.25s;
+  cursor: pointer;
 }
 
 .upgrade-row:hover {
   border-color: var(--border-hover);
 }
 
-.upgrade-row.is-active {
-  border-color: rgba(212,177,78,0.25);
-  box-shadow: 0 0 24px rgba(212,177,78,0.05);
+.upgrade-row.active {
+  border-color: rgba(212, 177, 78, 0.35);
+  background: var(--gold-dim);
 }
 
-/* Toggle switch */
+.upgrade-row__info {
+  flex: 1;
+}
+
+.upgrade-row__name {
+  font-family: var(--font-display);
+  font-size: 0.95rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  margin-bottom: 2px;
+}
+
+.upgrade-row__desc {
+  font-size: 13px;
+  color: var(--text-muted);
+  line-height: 1.4;
+}
+
+.upgrade-row__price {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  white-space: nowrap;
+  color: var(--gold);
+  font-variant-numeric: tabular-nums;
+}
+
+/* -- Info Button (?) --------------------------------------- */
+.info-btn {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--border);
+  color: var(--text-muted);
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: all 0.25s var(--ease);
+}
+
+.info-btn:hover {
+  background: var(--gold-dim);
+  border-color: rgba(212, 177, 78, 0.3);
+  color: var(--gold);
+}
+
+/* -- Toggle Switch ----------------------------------------- */
 .toggle {
   position: relative;
-  width: 48px;
-  height: 28px;
+  width: 44px;
+  height: 24px;
   flex-shrink: 0;
 }
 
@@ -469,523 +535,589 @@ a { color: inherit; text-decoration: none; }
   position: absolute;
   inset: 0;
   background: var(--surface-up);
-  border-radius: 14px;
-  border: 1px solid var(--border-hover);
+  border-radius: var(--r-pill);
+  transition: background 0.3s var(--ease);
   cursor: pointer;
-  transition: background 0.3s var(--ease), border-color 0.3s var(--ease);
 }
 
 .toggle-track::after {
   content: '';
   position: absolute;
-  top: 3px;
-  left: 3px;
+  top: 2px;
+  left: 2px;
   width: 20px;
   height: 20px;
   border-radius: 50%;
-  background: var(--text-muted);
-  transition: transform 0.3s var(--ease), background 0.3s var(--ease);
+  background: #fff;
+  transition: transform 0.3s var(--ease);
 }
 
 .toggle input:checked + .toggle-track {
   background: var(--gold);
-  border-color: var(--gold);
 }
 
 .toggle input:checked + .toggle-track::after {
   transform: translateX(20px);
-  background: #000;
 }
 
-.toggle input:focus-visible + .toggle-track {
-  outline: 2px solid var(--gold);
-  outline-offset: 2px;
-}
-
-.upgrade-info {
-  flex: 1;
-  min-width: 0;
-}
-
-.upgrade-name {
-  font-family: var(--font-display);
-  font-size: 1.05rem;
-  color: var(--text);
-  letter-spacing: 0.04em;
-  line-height: 1.3;
-}
-
-.upgrade-desc {
-  font-size: 0.8rem;
-  color: var(--text-muted);
-  font-weight: 300;
-  line-height: 1.5;
-  margin-top: 2px;
-}
-
-.upgrade-price {
-  font-family: var(--font-display);
-  font-size: 1.05rem;
-  color: var(--gold);
-  letter-spacing: 0.04em;
-  flex-shrink: 0;
-  white-space: nowrap;
-}
-
-.upgrade-help {
-  width: 28px;
-  height: 28px;
-  border-radius: 50%;
-  background: var(--surface-up);
-  border: 1px solid var(--border-hover);
-  color: var(--text-muted);
-  font-family: var(--font-body);
-  font-size: 0.75rem;
-  font-weight: 600;
+/* -- Running Total ----------------------------------------- */
+.builder-total {
   display: flex;
   align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  flex-shrink: 0;
-  transition: color 0.2s var(--ease), border-color 0.2s var(--ease);
-  position: relative;
-}
-
-.upgrade-help:hover {
-  color: var(--gold);
-  border-color: var(--gold);
-}
-
-/* Tooltip */
-.tooltip {
-  display: none;
-  position: absolute;
-  bottom: calc(100% + 12px);
-  right: -8px;
-  width: 260px;
-  background: var(--surface-up);
-  border: 1px solid var(--border-hover);
-  border-radius: var(--r-md);
-  padding: 16px;
-  font-family: var(--font-body);
-  font-size: 0.8rem;
-  color: var(--text-muted);
-  font-weight: 300;
-  line-height: 1.6;
-  z-index: 100;
-  box-shadow: 0 8px 32px rgba(0,0,0,0.4);
-}
-
-.tooltip::after {
-  content: '';
-  position: absolute;
-  bottom: -6px;
-  right: 16px;
-  width: 12px;
-  height: 12px;
-  background: var(--surface-up);
-  border-right: 1px solid var(--border-hover);
-  border-bottom: 1px solid var(--border-hover);
-  transform: rotate(45deg);
-}
-
-.upgrade-help:hover .tooltip,
-.upgrade-help:focus .tooltip {
-  display: block;
-}
-
-/* Total bar */
-.total-bar {
+  justify-content: space-between;
+  padding: 20px 24px;
   background: var(--surface);
+  border-radius: var(--r-md);
   border: 1px solid var(--border);
-  border-radius: var(--r-lg);
-  padding: 28px 24px;
-  margin-top: 20px;
-  text-align: center;
+  margin-top: 24px;
+  margin-bottom: 20px;
 }
 
-.total-label {
-  font-family: var(--font-display);
-  font-size: 1rem;
+.builder-total__label {
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  font-weight: 500;
   color: var(--text-muted);
-  letter-spacing: 0.1em;
-  margin-bottom: 4px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
 }
 
-.total-price {
-  font-family: var(--font-display);
-  font-size: clamp(2.2rem, 5vw, 3rem);
-  color: var(--gold);
+.builder-total__amount {
+  font-family: var(--font-body);
+  font-size: 1.5rem;
+  font-weight: 600;
   letter-spacing: 0.04em;
-  line-height: 1.2;
+  color: var(--gold);
+  font-variant-numeric: tabular-nums;
 }
 
-.total-btw {
-  font-size: 0.75rem;
-  color: var(--text-muted);
-  font-weight: 300;
-  margin-top: 4px;
-}
-
-.builder-cta {
+/* -- CTA Button -------------------------------------------- */
+.cta-btn {
   display: block;
   width: 100%;
   padding: 16px 32px;
-  background: var(--gold);
-  color: #000;
-  font-family: var(--font-display);
-  font-size: 1.1rem;
-  letter-spacing: 0.08em;
-  border-radius: var(--r-pill);
   border: none;
+  border-radius: var(--r-pill);
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
   cursor: pointer;
-  font-weight: 700;
-  margin-top: 16px;
-  transition: box-shadow 0.3s var(--ease), transform 0.2s var(--ease);
-  min-height: 52px;
   text-align: center;
-  line-height: 1.5;
+  text-decoration: none;
+  transition: opacity 0.25s, transform 0.25s, box-shadow 0.25s;
+  background: var(--gold);
+  color: #000000;
+  font-weight: 700;
 }
 
-.builder-cta:hover {
-  box-shadow: 0 0 40px rgba(212,177,78,0.2), 0 4px 16px rgba(0,0,0,0.3);
+.cta-btn:hover {
+  opacity: 0.92;
   transform: translateY(-1px);
+  box-shadow: 0 8px 32px var(--gold-glow);
 }
 
-.builder-cta:focus-visible {
-  outline: 2px solid var(--gold);
-  outline-offset: 2px;
+/* -- Gold Divider ------------------------------------------ */
+.gold-divider {
+  width: 80px;
+  height: 1px;
+  background: var(--gold);
+  margin: 0 auto;
+  opacity: 0.35;
 }
 
-@media (max-width: 600px) {
-  .upgrade-row { flex-wrap: wrap; gap: 12px; }
-  .upgrade-price { order: 4; margin-left: 64px; }
-  .upgrade-help { order: 5; }
-  .base-header { flex-direction: column; align-items: flex-start; gap: 8px; }
-  .tooltip { right: auto; left: -100px; }
-  .tooltip::after { right: auto; left: 116px; }
-}
-
-/* ===== FOOTER ===== */
+/* -- Footer ------------------------------------------------ */
 .footer {
   background: var(--void);
-  border-top: 1px solid var(--border);
-  padding: 48px 24px;
+  padding: 48px 32px;
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
 }
 
-.footer-logo {
+.footer-brand {
   font-family: var(--font-display);
-  font-size: 1.3rem;
+  font-size: 1rem;
   letter-spacing: 0.08em;
-  color: var(--text);
-  margin-bottom: 12px;
-}
-
-.footer-entity {
-  font-size: 0.75rem;
-  color: var(--text-muted);
-  margin-bottom: 16px;
-  font-weight: 300;
+  text-transform: uppercase;
 }
 
 .footer-email {
-  font-size: 0.875rem;
-  color: var(--text-muted);
-  margin-bottom: 20px;
+  font-size: 12px;
+  color: rgba(237, 237, 240, 0.35);
+  text-decoration: none;
   transition: color 0.2s var(--ease);
 }
 
-.footer-email:hover { color: var(--gold); }
+.footer-email:hover {
+  color: var(--gold);
+}
 
-.footer-social {
-  display: flex;
+.footer-copy {
+  font-size: 10px;
+  color: rgba(237, 237, 240, 0.25);
+  margin-top: 16px;
+}
+
+/* -- Modal Overlay ----------------------------------------- */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.80);
+  backdrop-filter: blur(8px);
+  z-index: 10001;
+  display: none;
+  align-items: center;
   justify-content: center;
-  gap: 24px;
+  padding: 24px;
+  animation: modalFadeIn 0.3s var(--ease);
+}
+
+.modal-overlay.active {
+  display: flex;
+}
+
+@keyframes modalFadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.modal {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--r-lg);
+  max-width: 520px;
+  width: 100%;
+  overflow: hidden;
+  animation: modalSlideUp 0.4s var(--ease);
+  box-shadow: 0 32px 96px rgba(0, 0, 0, 0.5);
+}
+
+@keyframes modalSlideUp {
+  from { opacity: 0; transform: translateY(24px) scale(0.96); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+.modal__image {
+  height: 260px;
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(135deg, rgba(212, 177, 78, 0.06) 0%, var(--surface) 100%);
+}
+
+.modal__badge {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  font-family: var(--font-display);
+  font-size: 0.7rem;
+  letter-spacing: 0.08em;
+  background: var(--gold);
+  color: #000;
+  padding: 4px 14px;
+  border-radius: var(--r-pill);
+}
+
+.modal__body {
+  padding: 28px;
+}
+
+.modal__title {
+  font-size: 1.5rem;
+  letter-spacing: 0.06em;
+  margin-bottom: 8px;
+  color: var(--gold);
+}
+
+.modal__price {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  margin-bottom: 16px;
+  font-variant-numeric: tabular-nums;
+}
+
+.modal__desc {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  font-weight: 300;
+  line-height: 1.7;
   margin-bottom: 24px;
 }
 
-.footer-social a {
-  font-size: 0.85rem;
-  color: var(--text-muted);
-  transition: color 0.2s var(--ease);
-  min-height: 44px;
-  min-width: 44px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.modal__close {
+  width: 100%;
+  padding: 14px;
+  background: var(--gold);
+  color: #000;
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  border: none;
+  border-radius: var(--r-pill);
+  cursor: pointer;
+  transition: background 0.2s;
 }
 
-.footer-social a:hover { color: var(--text); }
-
-.footer-copy {
-  font-size: 0.7rem;
-  color: rgba(237,237,240,0.30);
-  font-weight: 300;
+.modal__close:hover {
+  background: var(--gold-light);
 }
 
-/* ===== FOCUS VISIBLE ===== */
-a:focus-visible,
-button:focus-visible {
-  outline: 2px solid var(--gold);
-  outline-offset: 2px;
+/* -- Responsive -------------------------------------------- */
+@media (max-width: 768px) {
+  .hero {
+    padding: 80px 20px 80px;
+    min-height: 60vh;
+  }
+  .usp-section {
+    padding: 48px 20px;
+  }
+  .builder {
+    padding: 64px 20px;
+  }
+  .upgrade-row {
+    flex-wrap: wrap;
+    gap: 12px;
+    padding: 16px 20px;
+  }
+  .upgrade-row__price {
+    margin-left: auto;
+  }
 }
 
-/* ===== SELECTION ===== */
-::selection {
-  background: rgba(212,177,78,0.25);
-  color: var(--text);
+@media (max-width: 480px) {
+  .usp-item {
+    flex-direction: column;
+    gap: 16px;
+  }
+  .usp-item__text {
+    border-left: none;
+    border-top: 3px solid var(--gold);
+    padding-left: 0;
+    padding-top: 16px;
+  }
 }
 </style>
 </head>
 <body>
 
-<!-- NAV -->
-<nav class="nav" role="navigation" aria-label="Hoofdnavigatie">
-  <div class="nav-inner">
-    <a href="/" class="nav-logo" aria-label="PicYourBooth homepage">PICYOURBOOTH</a>
-    <ul class="nav-links">
-      <li><a href="/party-booth">Party Booth</a></li>
-      <li><a href="/magic-mirror">Magic Mirror XL</a></li>
-      <li><a href="/djs">DJs</a></li>
-      <li><a href="#pakket" class="btn-gold">BOEK JE ERVARING</a></li>
-    </ul>
-    <button class="nav-hamburger" aria-label="Menu openen" aria-expanded="false" onclick="toggleMenu()">
-      <span></span>
-    </button>
-  </div>
+<!-- ============================================================
+     NAVIGATION
+     ============================================================ -->
+<nav class="nav">
+  <a href="/" class="nav-logo">PicYourBooth</a>
+  <ul class="nav-links">
+    <li><a href="/party-booth">Party Booth</a></li>
+    <li><a href="/magic-mirror" class="active">Magic Mirror XL</a></li>
+    <li><a href="/djs">DJs</a></li>
+    <li><a href="/offerte" class="nav-cta">Boek Je Ervaring</a></li>
+  </ul>
+  <button class="nav-hamburger" aria-label="Menu">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
 </nav>
 
-<!-- Mobile nav overlay -->
-<div class="nav-mobile" id="mobileNav" role="dialog" aria-label="Mobiel menu">
-  <a href="/party-booth" onclick="closeMenu()">Party Booth</a>
-  <a href="/magic-mirror" onclick="closeMenu()">Magic Mirror XL</a>
-  <a href="/djs" onclick="closeMenu()">DJs</a>
-  <a href="#pakket" class="btn-gold" onclick="closeMenu()">BOEK JE ERVARING</a>
-</div>
-
-<!-- PRODUCT HERO -->
-<section class="hero" aria-label="Magic Mirror XL hero">
-  <div class="hero-bg" role="img" aria-label="Elegant feest achtergrond"></div>
+<!-- ============================================================
+     HERO
+     ============================================================ -->
+<section class="hero">
   <div class="hero-overlay"></div>
   <div class="hero-content">
-    <span class="hero-badge">MEEST GEKOZEN</span>
-    <h1 class="hero-headline">MAGIC MIRROR XL</h1>
-    <p class="hero-subtitle">DSLR kwaliteit &middot; Geen tijdslimiet &middot; Bezorging, installatie &amp; ophalen inbegrepen</p>
+    <span class="hero-label">Meest Gekozen</span>
+    <h1 class="hero-title text-gold-gradient">Magic Mirror XL</h1>
+    <p class="hero-subtitle">Foto's die je wilt inlijsten. Geen tijdslimiet.<br>Wij bezorgen, installeren en halen op.</p>
     <span class="hero-price">Vanaf &euro;599 per event</span>
   </div>
 </section>
 
-<!-- USPs -->
-<section class="usps" aria-label="Voordelen">
-  <div class="usps-heading">
-    <h2>DIT IS GEEN PHOTOBOOTH &mdash; DIT IS EEN ERVARING</h2>
-    <p>DSLR camera, professionele studiobelichting, direct printen. Geen tablet, geen compromis.</p>
+<!-- ============================================================
+     USPs
+     ============================================================ -->
+<section class="usp-section">
+  <div class="usp-section-header">
+    <span class="usp-section-label">Waarom Magic Mirror XL</span>
+    <h2 class="usp-section-title">Het Verschil Zit In Elk Detail</h2>
   </div>
+  <div class="usp-list">
 
-  <div class="usp-item">
-    <img class="usp-img" src="https://images.unsplash.com/photo-1516035069371-29a1b244cc32?w=200&q=80" alt="DSLR camera close-up" loading="lazy">
-    <div class="usp-text">
-      <h3 class="usp-title">FOTO'S DIE JE WILT INLIJSTEN</h3>
-      <p class="usp-desc">Echte DSLR camera met professionele studiobelichting. Geen tablet, geen compromis.</p>
+    <div class="usp-item">
+      <div class="usp-item__img" style="background-image:url('https://images.unsplash.com/photo-1516035069371-29a1b244cc32?w=400&q=80&auto=format');"></div>
+      <div class="usp-item__text">
+        <h3 class="usp-item__title">Foto's Die Je Wilt Inlijsten</h3>
+        <p class="usp-item__desc">Professionele camera met studiobelichting. Scherp, helder en kleurrijk. Het verschil met een gewone photobooth zie je meteen.</p>
+      </div>
     </div>
-  </div>
 
-  <div class="usp-item">
-    <img class="usp-img" src="https://images.unsplash.com/photo-1529543544282-ea57407bc2e3?w=200&q=80" alt="Professionele belichting op een feest" loading="lazy">
-    <div class="usp-text">
-      <h3 class="usp-title">IEDEREEN ZIET ER GEWELDIG UIT</h3>
-      <p class="usp-desc">Professionele belichting die iedereen flatteert. Elke foto is een keeper.</p>
+    <div class="usp-item">
+      <div class="usp-item__img" style="background-image:url('https://images.unsplash.com/photo-1565127452828-4cafa0404f8a?w=400&q=80&auto=format');"></div>
+      <div class="usp-item__text">
+        <h3 class="usp-item__title">Iedereen Ziet Er Geweldig Uit</h3>
+        <p class="usp-item__desc">Professionele studiobelichting die iedereen flatteert. Geen harde schaduwen, geen rode ogen. Elke foto is een keeper.</p>
+      </div>
     </div>
-  </div>
 
-  <div class="usp-item">
-    <img class="usp-img" src="https://images.unsplash.com/photo-1531058020387-3be344556be6?w=200&q=80" alt="Geprinte foto's als aandenken" loading="lazy">
-    <div class="usp-text">
-      <h3 class="usp-title">MEENEMEN, NIET VERGETEN</h3>
-      <p class="usp-desc">Direct geprinte foto's als aandenken. Gasten nemen hun herinnering mee naar huis.</p>
+    <div class="usp-item">
+      <div class="usp-item__img" style="background-image:url('https://images.unsplash.com/photo-1531973486364-5fa64260d75b?w=400&q=80&auto=format');"></div>
+      <div class="usp-item__text">
+        <h3 class="usp-item__title">Meenemen, Niet Vergeten</h3>
+        <p class="usp-item__desc">Elke gast loopt weg met een geprinte foto in de hand. Geen "stuur ik later". Direct een tastbaar aandenken van jouw avond.</p>
+      </div>
     </div>
-  </div>
 
-  <div class="usp-item">
-    <img class="usp-img" src="https://images.unsplash.com/photo-1505236858219-8359eb29e329?w=200&q=80" alt="VIP rode loper ervaring" loading="lazy">
-    <div class="usp-text">
-      <h3 class="usp-title">GASTEN VOELEN ZICH EEN STER</h3>
-      <p class="usp-desc">VIP ervaring met rode loper en stijlvolle props. Jouw event voelt als een premi&egrave;re.</p>
+    <div class="usp-item">
+      <div class="usp-item__img" style="background-image:url('https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?w=400&q=80&auto=format');"></div>
+      <div class="usp-item__text">
+        <h3 class="usp-item__title">Gasten Voelen Zich Een Ster</h3>
+        <p class="usp-item__desc">Rode loper, backdrop en luxe props. Vanaf het moment dat ze de booth zien, voelen ze: dit is geen gewoon feest.</p>
+      </div>
     </div>
+
   </div>
 </section>
 
-<!-- PACKAGE BUILDER -->
-<section class="builder" id="pakket" aria-label="Pakket samenstellen">
-  <div class="builder-heading">
-    <h2>BOUW JOUW PERFECTE AVOND</h2>
+<div class="gold-divider"></div>
+
+<!-- ============================================================
+     PACKAGE BUILDER
+     ============================================================ -->
+<div class="builder">
+  <h2 class="builder-heading">Bouw Jouw Perfecte Avond</h2>
+  <p class="builder-subheading">Start met alles wat je nodig hebt. Voeg toe wat jouw event onvergetelijk maakt.</p>
+
+  <!-- Base Package -->
+  <div class="builder-base">
+    <span class="builder-base__badge">Dit zit er altijd in</span>
+    <h2 class="builder-base__name">Magic Mirror XL</h2>
+    <div class="builder-base__price">&euro;599</div>
+    <ul class="builder-base__features">
+      <li>Geen tijdslimiet. De booth blijft zolang het feest duurt</li>
+      <li>Professionele camera en studiobelichting. Foto's om in te lijsten</li>
+      <li>Direct printen op locatie. Elke gast neemt een aandenken mee</li>
+      <li>Digitale galerij achteraf. Alle foto's deelbaar met iedereen</li>
+      <li>Bezorging, installatie en ophalen binnen 50 kilometer</li>
+    </ul>
   </div>
 
-  <!-- Base package -->
-  <div class="base-card">
-    <div class="base-header">
-      <div>
-        <h3 class="base-title">MAGIC MIRROR XL</h3>
-        <span class="base-lock">Inbegrepen</span>
-      </div>
-      <span class="base-price">&euro;599</span>
+  <!-- Upgrades -->
+  <h3 class="builder-upgrades-title">Maak Het Compleet</h3>
+
+  <div class="upgrade-row" data-price="149" data-builder="mirror" onclick="toggleUpgrade(this)">
+    <button class="info-btn" onclick="event.stopPropagation(); openModal('vip')" title="Meer info">?</button>
+    <div class="upgrade-row__info">
+      <div class="upgrade-row__name">VIP Upgrade</div>
+      <div class="upgrade-row__desc">Rode loper, stijlvolle backdrop en luxe props. Jouw gasten voelen zich een celebrity vanaf het eerste moment.</div>
     </div>
-    <p class="base-includes">Per event (geen tijdslimiet) &middot; DSLR camera &middot; Direct printen &middot; Digitale galerij &middot; Bezorging, installatie &amp; ophalen (50km)</p>
-  </div>
-
-  <!-- Upgrade: VIP -->
-  <div class="upgrade-row" data-price="149">
-    <label class="toggle">
-      <input type="checkbox" aria-label="VIP Upgrade toevoegen" onchange="updateTotal()">
+    <div class="upgrade-row__price">+&euro;149</div>
+    <label class="toggle" onclick="event.stopPropagation()">
+      <input type="checkbox" onchange="toggleUpgrade(this.closest('.upgrade-row'))">
       <span class="toggle-track"></span>
     </label>
-    <div class="upgrade-info">
-      <div class="upgrade-name">VIP UPGRADE</div>
-      <div class="upgrade-desc">Backdrop, rode loper, afzetpalen, luxe props</div>
-    </div>
-    <span class="upgrade-price">+&euro;149</span>
-    <button class="upgrade-help" aria-label="Meer info over VIP Upgrade" type="button">
-      ?
-      <div class="tooltip">Transformeer de Magic Mirror tot een Hollywood-ervaring: professioneel backdrop, rode loper met afzetpalen en stijlvolle luxe props. Gasten voelen zich een VIP.</div>
-    </button>
   </div>
 
-  <!-- Upgrade: Wedding Keychain Station -->
-  <div class="upgrade-row" data-price="499">
-    <label class="toggle">
-      <input type="checkbox" aria-label="Wedding Keychain Station toevoegen" onchange="updateTotal()">
+  <div class="upgrade-row" data-price="499" data-builder="mirror" onclick="toggleUpgrade(this)">
+    <button class="info-btn" onclick="event.stopPropagation(); openModal('wedding')" title="Meer info">?</button>
+    <div class="upgrade-row__info">
+      <div class="upgrade-row__name">Wedding Keychain Station</div>
+      <div class="upgrade-row__desc">Onbeperkt gepersonaliseerde sleutelhangers voor alle gasten. Geen apart bedankje meer nodig. De herinnering die ze elke dag zien.</div>
+    </div>
+    <div class="upgrade-row__price">+&euro;499</div>
+    <label class="toggle" onclick="event.stopPropagation()">
+      <input type="checkbox" onchange="toggleUpgrade(this.closest('.upgrade-row'))">
       <span class="toggle-track"></span>
     </label>
-    <div class="upgrade-info">
-      <div class="upgrade-name">WEDDING KEYCHAIN STATION</div>
-      <div class="upgrade-desc">Onbeperkt gepersonaliseerde sleutelhangers &mdash; geen apart bedankje meer kopen</div>
-    </div>
-    <span class="upgrade-price">+&euro;499</span>
-    <button class="upgrade-help" aria-label="Meer info over Wedding Keychain Station" type="button">
-      ?
-      <div class="tooltip">Elke gast ontvangt een gepersonaliseerde sleutelhanger met hun foto. Onbeperkt printen, dus iedereen krijgt er een. Vervangt het traditionele bedankje en bespaart tijd en geld.</div>
-    </button>
   </div>
 
-  <!-- Upgrade: On-Site Host -->
-  <div class="upgrade-row" data-price="149">
-    <label class="toggle">
-      <input type="checkbox" aria-label="On-Site Host toevoegen" onchange="updateTotal()">
+  <div class="upgrade-row" data-price="149" data-builder="mirror" onclick="toggleUpgrade(this)">
+    <button class="info-btn" onclick="event.stopPropagation(); openModal('host')" title="Meer info">?</button>
+    <div class="upgrade-row__info">
+      <div class="upgrade-row__name">On-Site Host</div>
+      <div class="upgrade-row__desc">Ons teamlid begeleidt gasten, regelt de poses en houdt de energie hoog. Jij hoeft niks te doen.</div>
+    </div>
+    <div class="upgrade-row__price">+&euro;149</div>
+    <label class="toggle" onclick="event.stopPropagation()">
+      <input type="checkbox" onchange="toggleUpgrade(this.closest('.upgrade-row'))">
       <span class="toggle-track"></span>
     </label>
-    <div class="upgrade-info">
-      <div class="upgrade-name">ON-SITE HOST</div>
-      <div class="upgrade-desc">PYB teamlid begeleidt gasten de hele avond</div>
-    </div>
-    <span class="upgrade-price">+&euro;149</span>
-    <button class="upgrade-help" aria-label="Meer info over On-Site Host" type="button">
-      ?
-      <div class="tooltip">Een PYB teamlid blijft de hele avond op locatie. Begeleidt gasten, zorgt voor maximale interactie en lost eventuele problemen direct op. Ideaal voor grote events.</div>
-    </button>
   </div>
 
-  <!-- Upgrade: AI Photo Experience -->
-  <div class="upgrade-row" data-price="499">
-    <label class="toggle">
-      <input type="checkbox" aria-label="AI Photo Experience toevoegen" onchange="updateTotal()">
+  <div class="upgrade-row" data-price="499" data-builder="mirror" onclick="toggleUpgrade(this)">
+    <button class="info-btn" onclick="event.stopPropagation(); openModal('ai')" title="Meer info">?</button>
+    <div class="upgrade-row__info">
+      <div class="upgrade-row__name">AI Photo Experience</div>
+      <div class="upgrade-row__desc">AI transformeert elke foto naar jouw gewenste stijl of thema. Ideaal voor productlanceringen en bedrijfsevents.</div>
+    </div>
+    <div class="upgrade-row__price">+&euro;499</div>
+    <label class="toggle" onclick="event.stopPropagation()">
+      <input type="checkbox" onchange="toggleUpgrade(this.closest('.upgrade-row'))">
       <span class="toggle-track"></span>
     </label>
-    <div class="upgrade-info">
-      <div class="upgrade-name">AI PHOTO EXPERIENCE</div>
-      <div class="upgrade-desc">AI genereert unieke branded foto's &mdash; ideaal voor productlanceringen</div>
-    </div>
-    <span class="upgrade-price">+&euro;499</span>
-    <button class="upgrade-help" aria-label="Meer info over AI Photo Experience" type="button">
-      ?
-      <div class="tooltip">AI combineert de foto van je gast met een gewenst thema tot een uniek beeld. Gasten als astronaut, in je merkwereld of als onderdeel van je campagne. Niemand anders biedt dit.</div>
-    </button>
   </div>
 
-  <!-- Upgrade: Live DJ Set -->
-  <div class="upgrade-row" data-price="149">
-    <label class="toggle">
-      <input type="checkbox" aria-label="Live DJ Set toevoegen" onchange="updateTotal()">
+  <div class="upgrade-row" data-price="149" data-builder="mirror" onclick="toggleUpgrade(this)">
+    <button class="info-btn" onclick="event.stopPropagation(); openModal('dj')" title="Meer info">?</button>
+    <div class="upgrade-row__info">
+      <div class="upgrade-row__name">Live DJ Set</div>
+      <div class="upgrade-row__desc">Complete DJ setup met rookmachine, sfeerverlichting en speakers. Stuur je Spotify playlist, wij bouwen de set.</div>
+    </div>
+    <div class="upgrade-row__price">+&euro;149</div>
+    <label class="toggle" onclick="event.stopPropagation()">
+      <input type="checkbox" onchange="toggleUpgrade(this.closest('.upgrade-row'))">
       <span class="toggle-track"></span>
     </label>
-    <div class="upgrade-info">
-      <div class="upgrade-name">LIVE DJ SET</div>
-      <div class="upgrade-desc">DJ met speakers, licht &amp; rookmachine &mdash; 3 uur</div>
-    </div>
-    <span class="upgrade-price">+&euro;149</span>
-    <button class="upgrade-help" aria-label="Meer info over Live DJ Set" type="button">
-      ?
-      <div class="tooltip">Professionele DJ met speakers, lichtshow en rookmachine. 3 uur non-stop entertainment. Keuze uit DJ Gianni (Afro Beats, Caribbean, Nederlands) of Milo (House, Techno). +49 per extra uur.</div>
-    </button>
   </div>
 
   <!-- Total -->
-  <div class="total-bar">
-    <div class="total-label">TOTAAL</div>
-    <div class="total-price" id="totalPrice"></div>
-    <div class="total-btw">Inclusief 21% BTW</div>
+  <div class="builder-total">
+    <span class="builder-total__label">Totaalprijs <span style="font-size:0.7rem;font-weight:400;opacity:0.6;">(incl. 21% BTW)</span></span>
+    <span class="builder-total__amount" id="mirror-total">&euro;599</span>
   </div>
 
-  <button class="builder-cta" onclick="window.location.href='#boek'">CHECK BESCHIKBAARHEID</button>
-</section>
+  <!-- CTA -->
+  <a href="/offerte" class="cta-btn">Check Beschikbaarheid</a>
+</div>
 
-<!-- FOOTER -->
-<footer class="footer" id="boek">
-  <div class="footer-logo">PICYOURBOOTH</div>
-  <p class="footer-entity">Pic Your Moment BV</p>
+<!-- ============================================================
+     FOOTER
+     ============================================================ -->
+<footer class="footer">
+  <p class="footer-brand">PicYourBooth</p>
   <a href="mailto:info@picyourbooth.nl" class="footer-email">info@picyourbooth.nl</a>
-  <div class="footer-social">
-    <a href="https://instagram.com/picyourbooth" target="_blank" rel="noopener noreferrer" aria-label="Instagram">Instagram</a>
-    <a href="https://tiktok.com/@picyourbooth" target="_blank" rel="noopener noreferrer" aria-label="TikTok">TikTok</a>
-  </div>
-  <p class="footer-copy">&copy; 2026 PicYourBooth. Alle rechten voorbehouden.</p>
+  <p class="footer-copy">&copy; 2026 PicYourBooth</p>
 </footer>
 
+<!-- ============================================================
+     MODAL
+     ============================================================ -->
+<div class="modal-overlay" id="modalOverlay">
+  <div class="modal">
+    <div class="modal__image" id="modalImage">
+      <div class="modal__badge" id="modalBadge">UPGRADE</div>
+    </div>
+    <div class="modal__body">
+      <h2 class="modal__title" id="modalTitle"></h2>
+      <div class="modal__price" id="modalPrice"></div>
+      <p class="modal__desc" id="modalDesc"></p>
+      <button class="modal__close" onclick="closeModal()">Begrepen</button>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================================
+     JAVASCRIPT - Package Builder Logic
+     ============================================================ -->
 <script>
-/* Mobile menu */
-function toggleMenu() {
-  var nav = document.getElementById('mobileNav');
-  var btn = document.querySelector('.nav-hamburger');
-  var isOpen = nav.classList.toggle('is-open');
-  btn.setAttribute('aria-expanded', isOpen);
-  btn.setAttribute('aria-label', isOpen ? 'Menu sluiten' : 'Menu openen');
-  document.body.style.overflow = isOpen ? 'hidden' : '';
-}
+(function() {
+  'use strict';
 
-function closeMenu() {
-  var nav = document.getElementById('mobileNav');
-  var btn = document.querySelector('.nav-hamburger');
-  nav.classList.remove('is-open');
-  btn.setAttribute('aria-expanded', 'false');
-  btn.setAttribute('aria-label', 'Menu openen');
-  document.body.style.overflow = '';
-}
+  var BASE_PRICE = 599;
 
-/* Package builder total */
-var BASE_PRICE = 599;
-
-function formatPrice(amount) {
-  return '\u20AC' + amount;
-}
-
-function updateTotal() {
-  var total = BASE_PRICE;
-  var rows = document.querySelectorAll('.upgrade-row');
-  rows.forEach(function(row) {
+  window.toggleUpgrade = function(row) {
     var checkbox = row.querySelector('input[type="checkbox"]');
-    var price = parseInt(row.getAttribute('data-price'), 10);
-    if (checkbox.checked) {
-      total += price;
-      row.classList.add('is-active');
-    } else {
-      row.classList.remove('is-active');
-    }
-  });
-  document.getElementById('totalPrice').textContent = formatPrice(total);
-}
 
-/* Set initial price on load */
-updateTotal();
+    if (document.activeElement !== checkbox) {
+      checkbox.checked = !checkbox.checked;
+    }
+
+    if (checkbox.checked) {
+      row.classList.add('active');
+    } else {
+      row.classList.remove('active');
+    }
+
+    recalculate();
+  };
+
+  function recalculate() {
+    var total = BASE_PRICE;
+    var rows = document.querySelectorAll('.upgrade-row[data-builder="mirror"]');
+    for (var i = 0; i < rows.length; i++) {
+      var cb = rows[i].querySelector('input[type="checkbox"]');
+      if (cb && cb.checked) {
+        total += parseInt(rows[i].dataset.price, 10);
+      }
+    }
+    var el = document.getElementById('mirror-total');
+    if (el) {
+      el.textContent = '\u20AC' + total;
+    }
+  }
+})();
+</script>
+
+<script>
+(function() {
+  var overlay = document.getElementById('modalOverlay');
+  var modalTitle = document.getElementById('modalTitle');
+  var modalPrice = document.getElementById('modalPrice');
+  var modalDesc = document.getElementById('modalDesc');
+  var modalImage = document.getElementById('modalImage');
+  var modalBadge = document.getElementById('modalBadge');
+
+  var modalData = {
+    vip: {
+      title: 'VIP Upgrade',
+      price: '+\u20AC149',
+      image: 'https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?w=800&q=80&auto=format',
+      desc: 'Stel je voor: je gasten lopen over een rode loper, stappen voor een stijlvolle backdrop en kiezen uit luxe props. Dat is geen photobooth meer, dat is een beleving. Perfect voor bruiloften, galas en bedrijfsfeesten.'
+    },
+    wedding: {
+      title: 'Wedding Keychain Station',
+      price: '+\u20AC499',
+      image: 'https://images.unsplash.com/photo-1519741497674-611481863552?w=800&q=80&auto=format',
+      desc: 'Elke gast loopt naar huis met een gepersonaliseerde sleutelhanger. Jullie namen, jullie datum, hun favoriete foto. Geen apart bedankje meer kopen. Direct gemaakt op locatie. De herinnering die ze elke dag zien.'
+    },
+    host: {
+      title: 'On-Site Host',
+      price: '+\u20AC149',
+      image: 'https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=800&q=80&auto=format',
+      desc: 'Zonder host moeten gasten het zelf uitzoeken. Met host wordt elke foto een hit. Ons ervaren teamlid begeleidt de poses, houdt de flow erin en zorgt dat niemand de booth overslaat. Jij hoeft niks te regelen.'
+    },
+    ai: {
+      title: 'AI Photo Experience',
+      price: '+\u20AC499',
+      image: 'https://images.unsplash.com/photo-1677442136019-21780ecad995?w=800&q=80&auto=format',
+      desc: 'Geavanceerde AI transformeert elke foto naar jouw gewenste resultaat. Definieer het eindbeeld, de artefacten en de stijl. De gast maakt een foto, AI doet de rest. Perfect voor productlanceringen, beurzen en corporate events.'
+    },
+    dj: {
+      title: 'Live DJ Set',
+      price: '+\u20AC149',
+      image: 'https://images.unsplash.com/photo-1571266028243-3716f02d2d56?w=800&q=80&auto=format',
+      desc: 'Foto\'s en muziek van hetzelfde team, dat klikt als geen ander. Complete DJ setup met rookmachine, sfeerverlichting en professionele speakers. Stuur je Spotify playlist, wij bouwen de perfecte set. Een DJ bureau rekent makkelijk \u20AC500+, bij ons erbij voor een fractie.'
+    }
+  };
+
+  window.openModal = function(key) {
+    var data = modalData[key];
+    if (!data || !overlay) return;
+    modalTitle.textContent = data.title;
+    modalPrice.textContent = data.price;
+    modalDesc.textContent = data.desc;
+    modalBadge.textContent = 'UPGRADE';
+    modalImage.style.backgroundImage = "linear-gradient(180deg, transparent 60%, #111116 100%), url('" + data.image + "')";
+    modalImage.style.backgroundSize = 'cover';
+    modalImage.style.backgroundPosition = 'center';
+    overlay.classList.add('active');
+  };
+
+  window.closeModal = function() {
+    if (overlay) overlay.classList.remove('active');
+  };
+
+  overlay.addEventListener('click', function(e) {
+    if (e.target === overlay) closeModal();
+  });
+
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') closeModal();
+  });
+})();
 </script>
 
 </body>

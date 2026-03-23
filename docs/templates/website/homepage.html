@@ -3,56 +3,64 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>PicYourBooth - Premium Photobooths & DJ Entertainment</title>
-<meta name="description" content="Premium photobooths en DJ entertainment in de Randstad. Party Booth vanaf €199, Magic Mirror XL vanaf €599, DJs vanaf €149.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<title>PicYourBooth - Premium Entertainment</title>
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
+/* ============================================================
+   PICYOURBOOTH - HOMEPAGE
+   Dark luxury. Typography is the design. Whitespace is premium.
+   ============================================================ */
+
+/* -- Design Tokens ----------------------------------------- */
 :root {
-  --void: #050508;
-  --bg: #08080b;
-  --surface: #111116;
-  --surface-up: #18181e;
-  --text: #ededf0;
-  --text-muted: rgba(237,237,240,0.60);
-  --border: rgba(255,255,255,0.06);
-  --border-hover: rgba(255,255,255,0.12);
-  --gold: #d4b14e;
-  --gold-light: #e0c468;
-  --gold-dim: rgba(212,177,78,0.10);
-  --violet: #8b5cf6;
-  --violet-dim: rgba(139,92,246,0.12);
+  --void:        #050508;
+  --bg:          #08080b;
+  --surface:     #111116;
+  --surface-up:  #18181e;
+  --text:        #ededf0;
+  --text-muted:  rgba(237, 237, 240, 0.60);
+  --border:      rgba(255, 255, 255, 0.06);
+  --border-hover: rgba(255, 255, 255, 0.12);
+
+  --gold:        #d4b14e;
+  --gold-light:  #e0c468;
+  --gold-dim:    rgba(212, 177, 78, 0.10);
+  --gold-glow:   rgba(212, 177, 78, 0.20);
+  --violet:      #8b5cf6;
+  --violet-dim:  rgba(139, 92, 246, 0.12);
+
   --font-display: 'Bebas Neue', Impact, sans-serif;
-  --font-body: 'Space Grotesk', system-ui, sans-serif;
-  --r-sm: 8px;
-  --r-md: 12px;
-  --r-lg: 16px;
+  --font-body:    'Space Grotesk', -apple-system, sans-serif;
+
+  --r-sm:   8px;
+  --r-md:  12px;
+  --r-lg:  16px;
   --r-pill: 999px;
+
   --ease: cubic-bezier(0.16, 1, 0.3, 1);
 }
 
+/* -- Reset ------------------------------------------------- */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-html { scroll-behavior: smooth; }
-
-@media (prefers-reduced-motion: reduce) {
-  html { scroll-behavior: auto; }
-  *, *::before, *::after { transition-duration: 0.01ms !important; animation-duration: 0.01ms !important; }
+html {
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  scroll-behavior: smooth;
 }
 
 body {
   font-family: var(--font-body);
+  font-size: 15px;
+  line-height: 1.7;
   background: var(--bg);
   color: var(--text);
-  font-size: 16px;
-  line-height: 1.7;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  overflow-x: hidden;
 }
 
-h1, h2, h3, h4 {
+img { display: block; max-width: 100%; }
+
+h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-display);
   text-transform: uppercase;
   letter-spacing: 0.06em;
@@ -62,669 +70,576 @@ h1, h2, h3, h4 {
 
 a { color: inherit; text-decoration: none; }
 
-/* ===== NAV ===== */
-.nav {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 1000;
-  background: rgba(8,8,11,0.85);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border-bottom: 1px solid var(--border);
-  transition: background 0.3s var(--ease);
+::selection {
+  background: var(--gold);
+  color: #000;
 }
 
-.nav-inner {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 24px;
+:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  html { scroll-behavior: auto; }
+}
+
+/* -- Gold Gradient Text ------------------------------------ */
+.text-gold-gradient {
+  background: linear-gradient(
+    135deg,
+    #b8962e 0%,
+    #d4b14e 30%,
+    #f0d878 50%,
+    #d4b14e 70%,
+    #b8962e 100%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* -- Navigation -------------------------------------------- */
+.nav {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 64px;
+  padding: 20px 32px;
+  border-bottom: 1px solid var(--border);
+  position: relative;
+  z-index: 100;
 }
 
 .nav-logo {
   font-family: var(--font-display);
   font-size: 1.5rem;
   letter-spacing: 0.08em;
+  text-transform: uppercase;
   color: var(--text);
+  text-decoration: none;
 }
 
 .nav-links {
   display: flex;
+  gap: 24px;
   align-items: center;
-  gap: 32px;
   list-style: none;
 }
 
 .nav-links a {
-  font-family: var(--font-body);
-  font-size: 0.875rem;
-  font-weight: 500;
+  font-family: var(--font-display);
+  font-size: 0.95rem;
+  letter-spacing: 0.06em;
   color: var(--text-muted);
+  text-decoration: none;
+  text-transform: uppercase;
   transition: color 0.2s var(--ease);
-  letter-spacing: 0.02em;
 }
 
-.nav-links a:hover,
-.nav-links a:focus-visible {
+.nav-links a:hover {
   color: var(--text);
 }
 
-.btn-gold {
-  display: inline-block;
+.nav-links .nav-cta, .nav-cta {
   padding: 10px 24px;
-  background: var(--gold);
-  color: #000;
-  font-family: var(--font-display);
-  font-size: 0.9rem;
-  letter-spacing: 0.06em;
   border-radius: var(--r-pill);
+  font-family: var(--font-display);
+  font-size: 0.95rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  text-decoration: none;
   border: none;
   cursor: pointer;
+  display: inline-block;
+  background: var(--gold);
+  color: #000000;
   font-weight: 700;
-  transition: box-shadow 0.3s var(--ease), transform 0.2s var(--ease);
-  min-height: 44px;
-  min-width: 44px;
-  text-align: center;
-  line-height: 1.5;
+  transition: background 0.25s var(--ease), box-shadow 0.25s var(--ease);
 }
 
-.btn-gold:hover {
-  box-shadow: 0 0 32px var(--gold-dim), 0 4px 16px rgba(0,0,0,0.3);
-  transform: translateY(-1px);
+.nav-cta:hover {
+  background: var(--gold-light);
+  box-shadow: 0 0 24px var(--gold-glow);
 }
 
-.btn-gold:focus-visible {
-  outline: 2px solid var(--gold);
-  outline-offset: 2px;
-}
-
-/* Hamburger */
+/* Hamburger (mobile) */
 .nav-hamburger {
   display: none;
+  flex-direction: column;
+  gap: 5px;
   background: none;
   border: none;
   cursor: pointer;
-  padding: 8px;
-  min-height: 44px;
-  min-width: 44px;
-  align-items: center;
-  justify-content: center;
+  padding: 4px;
 }
 
 .nav-hamburger span {
   display: block;
-  width: 24px;
-  height: 2px;
+  width: 22px;
+  height: 1.5px;
   background: var(--text);
-  transition: all 0.3s var(--ease);
-  position: relative;
+  transition: transform 0.25s var(--ease), opacity 0.25s var(--ease);
 }
-
-.nav-hamburger span::before,
-.nav-hamburger span::after {
-  content: '';
-  display: block;
-  width: 24px;
-  height: 2px;
-  background: var(--text);
-  position: absolute;
-  transition: all 0.3s var(--ease);
-}
-
-.nav-hamburger span::before { top: -7px; }
-.nav-hamburger span::after { top: 7px; }
-
-/* Mobile nav */
-.nav-mobile {
-  display: none;
-  position: fixed;
-  top: 64px;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: rgba(8,8,11,0.97);
-  backdrop-filter: blur(24px);
-  -webkit-backdrop-filter: blur(24px);
-  z-index: 999;
-  padding: 40px 24px;
-}
-
-.nav-mobile.is-open { display: flex; flex-direction: column; gap: 24px; align-items: center; }
-
-.nav-mobile a {
-  font-family: var(--font-display);
-  font-size: 1.5rem;
-  letter-spacing: 0.06em;
-  color: var(--text-muted);
-  padding: 12px 0;
-  min-height: 44px;
-  display: flex;
-  align-items: center;
-}
-
-.nav-mobile a:hover { color: var(--text); }
-
-.nav-mobile .btn-gold { margin-top: 16px; padding: 14px 32px; font-size: 1rem; }
 
 @media (max-width: 768px) {
   .nav-links { display: none; }
   .nav-hamburger { display: flex; }
 }
 
-/* ===== HERO ===== */
+/* -- Hero -------------------------------------------------- */
 .hero {
+  text-align: center;
+  min-height: 70vh;
+  padding: 120px 32px 120px;
   position: relative;
-  min-height: 90vh;
+  overflow: hidden;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
-  text-align: center;
-  padding: 120px 24px 80px;
-  overflow: hidden;
 }
 
-.hero-bg {
+.hero::before {
+  content: '';
   position: absolute;
   inset: 0;
   background-image: url('https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=1920&q=80');
   background-size: cover;
-  background-position: center;
+  background-position: center 40%;
   opacity: 0.15;
+  pointer-events: none;
 }
 
 .hero-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(
-    180deg,
-    rgba(8,8,11,0.6) 0%,
-    rgba(8,8,11,0.4) 40%,
-    rgba(8,8,11,0.85) 80%,
-    var(--bg) 100%
+  background: linear-gradient(180deg,
+    rgba(8, 8, 11, 0.3) 0%,
+    rgba(8, 8, 11, 0.6) 50%,
+    rgba(8, 8, 11, 1) 100%
   );
+  pointer-events: none;
+  z-index: 1;
 }
 
 .hero-content {
   position: relative;
   z-index: 2;
-  max-width: 720px;
+  animation: heroFadeUp 0.8s var(--ease) both;
 }
 
-.hero-headline {
+@keyframes heroFadeUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.hero-label {
+  font-family: var(--font-body);
+  font-size: 10px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--gold);
+  margin-bottom: 12px;
+  display: block;
+}
+
+.hero-title {
   font-size: clamp(2.5rem, 6vw, 3.5rem);
-  background: linear-gradient(135deg, var(--gold) 0%, var(--gold-light) 50%, var(--gold) 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  margin-bottom: 20px;
   letter-spacing: 0.08em;
+  margin-bottom: 16px;
 }
 
 .hero-subtitle {
-  font-family: var(--font-body);
-  font-size: clamp(1rem, 2vw, 1.2rem);
+  font-size: 15px;
   color: var(--text-muted);
-  font-weight: 300;
   max-width: 480px;
   margin: 0 auto;
+  font-weight: 300;
   line-height: 1.7;
 }
 
-/* ===== SOCIAL PROOF BAR ===== */
+/* -- Social Proof Bar -------------------------------------- */
 .proof-bar {
-  background: var(--surface);
-  border-top: 1px solid var(--border);
-  border-bottom: 1px solid var(--border);
-  padding: 28px 24px;
-}
-
-.proof-inner {
-  max-width: 800px;
-  margin: 0 auto;
   display: flex;
-  align-items: center;
   justify-content: center;
-  gap: 0;
+  align-items: center;
+  gap: 40px;
+  padding: 48px 32px;
+  max-width: 640px;
+  margin: 0 auto;
 }
 
-.proof-stat {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+.proof-item {
   text-align: center;
-  flex: 1;
 }
 
 .proof-number {
+  display: block;
   font-family: var(--font-display);
-  font-size: 1.8rem;
-  color: var(--gold);
+  font-size: 2rem;
   letter-spacing: 0.04em;
-  line-height: 1.2;
+  color: var(--gold);
+  line-height: 1;
+  margin-bottom: 6px;
 }
 
 .proof-label {
   font-family: var(--font-body);
-  font-size: 0.8rem;
+  font-size: 10px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
   color: var(--text-muted);
-  font-weight: 400;
-  margin-top: 2px;
 }
 
 .proof-divider {
   width: 1px;
-  height: 40px;
+  height: 24px;
   background: var(--gold);
-  opacity: 0.3;
+  opacity: 0.25;
   flex-shrink: 0;
 }
 
 @media (max-width: 600px) {
-  .proof-inner { flex-direction: column; gap: 20px; }
-  .proof-divider { width: 40px; height: 1px; }
+  .proof-bar {
+    flex-direction: column;
+    gap: 24px;
+  }
+  .proof-divider { display: none; }
 }
 
-/* ===== SERVICE CARDS ===== */
-.services {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 80px 24px;
-}
-
-.services-heading {
+/* -- Section Header ---------------------------------------- */
+.section-header {
   text-align: center;
   margin-bottom: 48px;
 }
 
-.services-heading h2 {
-  font-size: clamp(1.8rem, 4vw, 2.4rem);
-  color: var(--text);
-  margin-bottom: 12px;
-}
-
-.services-heading p {
-  color: var(--text-muted);
-  font-size: 1rem;
-  font-weight: 300;
-}
-
-.cards-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
-}
-
-@media (max-width: 900px) {
-  .cards-grid { grid-template-columns: 1fr; max-width: 480px; margin: 0 auto; }
-}
-
-.card {
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: var(--r-lg);
-  padding: 32px 28px;
-  display: flex;
-  flex-direction: column;
-  position: relative;
-  transition: border-color 0.3s var(--ease), box-shadow 0.3s var(--ease);
-}
-
-.card:hover {
-  border-color: var(--border-hover);
-  box-shadow: 0 8px 32px rgba(0,0,0,0.3);
-}
-
-.card-badge {
-  position: absolute;
-  top: 16px;
-  right: 16px;
-  background: var(--gold-dim);
+.section-label {
+  font-family: var(--font-body);
+  font-size: 10px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
   color: var(--gold);
-  font-family: var(--font-display);
-  font-size: 0.7rem;
-  letter-spacing: 0.1em;
-  padding: 5px 12px;
-  border-radius: var(--r-pill);
-  border: 1px solid rgba(212,177,78,0.2);
+  margin-bottom: 8px;
+  display: block;
 }
 
-.card-dot {
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background: var(--gold);
-  margin-bottom: 16px;
-  flex-shrink: 0;
-}
-
-.card-dot.violet { background: var(--violet); }
-
-.card-title {
-  font-size: 1.6rem;
-  color: var(--text);
-  margin-bottom: 12px;
+.section-title {
+  font-size: 2rem;
   letter-spacing: 0.06em;
 }
 
-.card-desc {
-  font-size: 0.95rem;
+/* -- Service Cards ----------------------------------------- */
+.services {
+  padding: 80px 32px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+@media (max-width: 768px) {
+  .services-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+}
+
+.service-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--r-md);
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  transition: border-color 0.25s var(--ease);
+}
+
+.service-card:hover {
+  border-color: var(--border-hover);
+}
+
+.service-card__badge {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  font-family: var(--font-display);
+  font-size: 0.65rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  background: var(--gold);
+  color: #000000;
+  padding: 4px 12px;
+  border-radius: var(--r-pill);
+  white-space: nowrap;
+}
+
+.service-card__title {
+  font-size: 1.3rem;
+  letter-spacing: 0.06em;
+  margin-bottom: 12px;
+}
+
+.service-card__desc {
+  font-size: 14px;
+  font-weight: 300;
   color: var(--text-muted);
   line-height: 1.7;
-  font-weight: 300;
+  margin-bottom: 28px;
   flex: 1;
-  margin-bottom: 24px;
-  max-width: 65ch;
 }
 
-.card-link {
-  font-family: var(--font-body);
-  font-size: 0.875rem;
-  font-weight: 500;
-  color: var(--text-muted);
-  margin-bottom: 24px;
-  transition: color 0.2s var(--ease);
-  display: inline-block;
-  min-height: 44px;
+.service-card__footer {
+  margin-top: auto;
   display: flex;
   align-items: center;
+  justify-content: space-between;
+  gap: 12px;
 }
 
-.card-link:hover,
-.card-link:focus-visible {
-  color: var(--text);
+.service-card__link {
+  font-size: 13px;
+  font-weight: 400;
+  color: var(--text-muted);
+  text-decoration: none;
+  letter-spacing: 0.02em;
+  transition: color 0.2s var(--ease);
+  white-space: nowrap;
 }
 
-.price-pill {
-  display: inline-block;
+.service-card__link:hover {
+  color: var(--gold);
+}
+
+.service-card__link--violet:hover {
+  color: var(--violet);
+}
+
+.service-card__price {
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
   padding: 8px 20px;
   border-radius: var(--r-pill);
-  font-family: var(--font-display);
-  font-size: 1rem;
-  letter-spacing: 0.04em;
-  font-weight: 700;
-  align-self: flex-start;
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
 }
 
-.price-gold {
+.service-card__price--gold {
   background: var(--gold);
-  color: #000;
+  color: #000000;
 }
 
-.price-violet {
+.service-card__price--violet {
   background: var(--violet);
-  color: #000;
+  color: #000000;
 }
 
-.price-sub {
-  font-family: var(--font-body);
-  font-size: 0.75rem;
-  color: var(--text-muted);
-  margin-top: 6px;
-  font-weight: 400;
-}
-
-/* ===== TESTIMONIAL ===== */
+/* -- Testimonial ------------------------------------------- */
 .testimonial {
-  max-width: 760px;
-  margin: 0 auto;
-  padding: 40px 24px 80px;
   text-align: center;
+  padding: 80px 32px;
+  max-width: 640px;
+  margin: 0 auto;
 }
 
-.testimonial-divider {
-  width: 64px;
+.gold-divider {
+  width: 80px;
   height: 1px;
   background: var(--gold);
-  margin: 0 auto 40px;
-  opacity: 0.4;
-}
-
-.testimonial-divider-bottom {
-  width: 64px;
-  height: 1px;
-  background: var(--gold);
-  margin: 40px auto 0;
-  opacity: 0.4;
+  margin: 0 auto;
+  opacity: 0.35;
 }
 
 .testimonial-quote {
   font-family: var(--font-body);
-  font-size: clamp(1.05rem, 2vw, 1.25rem);
+  font-size: 1.1rem;
+  font-weight: 300;
   font-style: italic;
   color: var(--text);
-  line-height: 1.8;
-  font-weight: 300;
-  max-width: 600px;
-  margin: 0 auto 24px;
+  line-height: 1.7;
+  margin: 40px 0 20px;
 }
 
 .testimonial-author {
   font-family: var(--font-body);
-  font-size: 0.875rem;
-  color: var(--text-muted);
-  font-weight: 400;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text);
 }
 
-/* ===== FOOTER ===== */
+.testimonial-event {
+  font-family: var(--font-body);
+  font-size: 12px;
+  color: var(--text-muted);
+  margin-top: 2px;
+}
+
+/* -- Footer ------------------------------------------------ */
 .footer {
   background: var(--void);
-  border-top: 1px solid var(--border);
-  padding: 48px 24px;
+  padding: 48px 32px;
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
 }
 
-.footer-logo {
+.footer-brand {
   font-family: var(--font-display);
-  font-size: 1.3rem;
+  font-size: 1rem;
   letter-spacing: 0.08em;
-  color: var(--text);
-  margin-bottom: 12px;
-}
-
-.footer-entity {
-  font-size: 0.75rem;
-  color: var(--text-muted);
-  margin-bottom: 16px;
-  font-weight: 300;
+  text-transform: uppercase;
 }
 
 .footer-email {
-  font-size: 0.875rem;
-  color: var(--text-muted);
-  margin-bottom: 20px;
+  font-size: 12px;
+  color: rgba(237, 237, 240, 0.35);
+  text-decoration: none;
   transition: color 0.2s var(--ease);
 }
 
-.footer-email:hover { color: var(--gold); }
-
-.footer-social {
-  display: flex;
-  justify-content: center;
-  gap: 24px;
-  margin-bottom: 24px;
+.footer-email:hover {
+  color: var(--gold);
 }
-
-.footer-social a {
-  font-size: 0.85rem;
-  color: var(--text-muted);
-  transition: color 0.2s var(--ease);
-  min-height: 44px;
-  min-width: 44px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.footer-social a:hover { color: var(--text); }
 
 .footer-copy {
-  font-size: 0.7rem;
-  color: rgba(237,237,240,0.30);
-  font-weight: 300;
-}
-
-/* ===== FOCUS VISIBLE ===== */
-a:focus-visible,
-button:focus-visible {
-  outline: 2px solid var(--gold);
-  outline-offset: 2px;
-}
-
-/* ===== SELECTION ===== */
-::selection {
-  background: rgba(212,177,78,0.25);
-  color: var(--text);
+  font-size: 10px;
+  margin-top: 16px;
+  color: rgba(237, 237, 240, 0.25);
+  margin-top: 24px;
 }
 </style>
 </head>
 <body>
 
-<!-- NAV -->
-<nav class="nav" role="navigation" aria-label="Hoofdnavigatie">
-  <div class="nav-inner">
-    <a href="/" class="nav-logo" aria-label="PicYourBooth homepage">PICYOURBOOTH</a>
-    <ul class="nav-links">
-      <li><a href="#party-booth">Party Booth</a></li>
-      <li><a href="#magic-mirror">Magic Mirror XL</a></li>
-      <li><a href="#djs">DJs</a></li>
-      <li><a href="#boek" class="btn-gold">BOEK JE ERVARING</a></li>
-    </ul>
-    <button class="nav-hamburger" aria-label="Menu openen" aria-expanded="false" onclick="toggleMenu()">
-      <span></span>
-    </button>
-  </div>
+<!-- ============================================================
+     NAVIGATION
+     ============================================================ -->
+<nav class="nav">
+  <a href="/" class="nav-logo">PicYourBooth</a>
+  <ul class="nav-links">
+    <li><a href="/party-booth">Party Booth</a></li>
+    <li><a href="/magic-mirror">Magic Mirror XL</a></li>
+    <li><a href="/djs">DJs</a></li>
+    <li><a href="/offerte" class="nav-cta">Boek Je Ervaring</a></li>
+  </ul>
+  <button class="nav-hamburger" aria-label="Menu">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
 </nav>
 
-<!-- Mobile nav overlay -->
-<div class="nav-mobile" id="mobileNav" role="dialog" aria-label="Mobiel menu">
-  <a href="#party-booth" onclick="closeMenu()">Party Booth</a>
-  <a href="#magic-mirror" onclick="closeMenu()">Magic Mirror XL</a>
-  <a href="#djs" onclick="closeMenu()">DJs</a>
-  <a href="#boek" class="btn-gold" onclick="closeMenu()">BOEK JE ERVARING</a>
-</div>
-
-<!-- HERO -->
-<section class="hero" aria-label="Hero">
-  <div class="hero-bg" role="img" aria-label="Event fotografie achtergrond"></div>
+<!-- ============================================================
+     HERO
+     ============================================================ -->
+<section class="hero">
   <div class="hero-overlay"></div>
   <div class="hero-content">
-    <h1 class="hero-headline">JOUW EVENT VERDIENT DIT MOMENT</h1>
-    <p class="hero-subtitle">Premium photobooths &amp; DJ entertainment in de Randstad.</p>
+    <span class="hero-label">Premium Entertainment</span>
+    <h1 class="hero-title text-gold-gradient">Jouw Event Verdient Dit Moment</h1>
+    <p class="hero-subtitle">Premium photobooths en DJ entertainment in de Randstad</p>
   </div>
 </section>
 
-<!-- SOCIAL PROOF BAR -->
-<section class="proof-bar" aria-label="Sociale bewijskracht">
-  <div class="proof-inner">
-    <div class="proof-stat">
-      <span class="proof-number">237+</span>
-      <span class="proof-label">Events Verzorgd</span>
-    </div>
-    <div class="proof-divider" aria-hidden="true"></div>
-    <div class="proof-stat">
-      <span class="proof-number">4.9&#9733;</span>
-      <span class="proof-label">Google Reviews</span>
-    </div>
-    <div class="proof-divider" aria-hidden="true"></div>
-    <div class="proof-stat">
-      <span class="proof-number">Randstad</span>
-      <span class="proof-label">&amp; Omgeving</span>
-    </div>
+<!-- ============================================================
+     SOCIAL PROOF BAR
+     ============================================================ -->
+<div class="proof-bar">
+  <div class="proof-item">
+    <span class="proof-number">237+</span>
+    <span class="proof-label">Events Verzorgd</span>
   </div>
-</section>
+  <div class="proof-divider"></div>
+  <div class="proof-item">
+    <span class="proof-number">4.9&#9733;</span>
+    <span class="proof-label">Google Reviews</span>
+  </div>
+  <div class="proof-divider"></div>
+  <div class="proof-item">
+    <span class="proof-number">Randstad</span>
+    <span class="proof-label">& Omgeving</span>
+  </div>
+</div>
 
-<!-- SERVICE CARDS -->
-<section class="services" aria-label="Onze diensten">
-  <div class="services-heading">
-    <h2>KIES JOUW ERVARING</h2>
-    <p>Van intiem feest tot groot event, wij maken het onvergetelijk.</p>
+<!-- ============================================================
+     SERVICE CARDS
+     ============================================================ -->
+<section class="services">
+  <div class="section-header">
+    <span class="section-label">Ons Aanbod</span>
+    <h2 class="section-title">Kies Jouw Entertainment</h2>
   </div>
-  <div class="cards-grid">
+  <div class="services-grid">
 
     <!-- Party Booth -->
-    <article class="card" id="party-booth">
-      <div class="card-dot"></div>
-      <h3 class="card-title">PARTY BOOTH</h3>
-      <p class="card-desc">Foto plezier voor elk feest. Zelf ophalen, 5 minuten opzetten, klaar.</p>
-      <a href="#boek" class="card-link">Meer info &#8594;</a>
-      <div>
-        <span class="price-pill price-gold">Vanaf &euro;199</span>
+    <div class="service-card">
+      <h3 class="service-card__title">Party Booth</h3>
+      <p class="service-card__desc">Foto plezier voor elk feest. Zelf ophalen, 5 minuten opzetten, klaar.</p>
+      <div class="service-card__footer">
+        <a href="/party-booth" class="service-card__link">Meer info &#8594;</a>
+        <span class="service-card__price service-card__price--gold">Vanaf &euro;199</span>
       </div>
-    </article>
+    </div>
 
     <!-- Magic Mirror XL -->
-    <article class="card" id="magic-mirror">
-      <span class="card-badge">MEEST GEKOZEN</span>
-      <div class="card-dot"></div>
-      <h3 class="card-title">MAGIC MIRROR XL</h3>
-      <p class="card-desc">Niet zomaar een booth &mdash; een ervaring. DSLR kwaliteit, geen tijdslimiet.</p>
-      <a href="#boek" class="card-link">Meer info &#8594;</a>
-      <div>
-        <span class="price-pill price-gold">Vanaf &euro;599</span>
+    <div class="service-card">
+      <span class="service-card__badge">Meest Gekozen</span>
+      <h3 class="service-card__title">Magic Mirror XL</h3>
+      <p class="service-card__desc">DSLR kwaliteit, professionele belichting, geen tijdslimiet. Per event, niet per uur.</p>
+      <div class="service-card__footer">
+        <a href="/magic-mirror" class="service-card__link">Meer info &#8594;</a>
+        <span class="service-card__price service-card__price--gold">Vanaf &euro;599</span>
       </div>
-    </article>
+    </div>
 
     <!-- DJs -->
-    <article class="card" id="djs">
-      <div class="card-dot violet"></div>
-      <h3 class="card-title">DJS</h3>
-      <p class="card-desc">De perfecte soundtrack voor je event. Spotify playlist-optimalisatie inbegrepen.</p>
-      <a href="#boek" class="card-link">Meer info &#8594;</a>
-      <div>
-        <span class="price-pill price-violet">Vanaf &euro;149</span>
-        <p class="price-sub">3 uur &middot; +&euro;49 per extra uur</p>
+    <div class="service-card">
+      <h3 class="service-card__title">DJs</h3>
+      <p class="service-card__desc">Spotify playlist-optimalisatie. Speakers, licht en rookmachine inbegrepen.</p>
+      <div class="service-card__footer">
+        <a href="/djs" class="service-card__link service-card__link--violet">Meer info &#8594;</a>
+        <span class="service-card__price service-card__price--violet">Vanaf &euro;149</span>
       </div>
-    </article>
+    </div>
 
   </div>
 </section>
 
-<!-- TESTIMONIAL -->
-<section class="testimonial" aria-label="Klantervaring">
-  <div class="testimonial-divider" aria-hidden="true"></div>
-  <blockquote>
-    <p class="testimonial-quote">&ldquo;De Magic Mirror was het hoogtepunt van ons feest. Gasten praten er weken later nog over!&rdquo;</p>
-    <cite class="testimonial-author">Lisa &amp; Tom &mdash; Bruiloft Juni 2025</cite>
-  </blockquote>
-  <div class="testimonial-divider-bottom" aria-hidden="true"></div>
+<!-- ============================================================
+     TESTIMONIAL
+     ============================================================ -->
+<section class="testimonial">
+  <div class="gold-divider"></div>
+  <p class="testimonial-quote">"De Magic Mirror was het hoogtepunt van ons feest. Gasten praten er weken later nog over."</p>
+  <p class="testimonial-author">Lisa & Tom</p>
+  <p class="testimonial-event">Bruiloft Juni 2025</p>
+  <div class="gold-divider" style="margin-top: 40px;"></div>
 </section>
 
-<!-- FOOTER -->
-<footer class="footer" id="boek">
-  <div class="footer-logo">PICYOURBOOTH</div>
-  <p class="footer-entity">Pic Your Moment BV</p>
+<!-- ============================================================
+     FOOTER
+     ============================================================ -->
+<footer class="footer">
+  <p class="footer-brand">PicYourBooth</p>
   <a href="mailto:info@picyourbooth.nl" class="footer-email">info@picyourbooth.nl</a>
-  <div class="footer-social">
-    <a href="https://instagram.com/picyourbooth" target="_blank" rel="noopener noreferrer" aria-label="Instagram">Instagram</a>
-    <a href="https://tiktok.com/@picyourbooth" target="_blank" rel="noopener noreferrer" aria-label="TikTok">TikTok</a>
-  </div>
-  <p class="footer-copy">&copy; 2026 PicYourBooth. Alle rechten voorbehouden.</p>
+  <p class="footer-copy">&copy; 2026 PicYourBooth</p>
 </footer>
-
-<script>
-function toggleMenu() {
-  var nav = document.getElementById('mobileNav');
-  var btn = document.querySelector('.nav-hamburger');
-  var isOpen = nav.classList.toggle('is-open');
-  btn.setAttribute('aria-expanded', isOpen);
-  btn.setAttribute('aria-label', isOpen ? 'Menu sluiten' : 'Menu openen');
-  document.body.style.overflow = isOpen ? 'hidden' : '';
-}
-
-function closeMenu() {
-  var nav = document.getElementById('mobileNav');
-  var btn = document.querySelector('.nav-hamburger');
-  nav.classList.remove('is-open');
-  btn.setAttribute('aria-expanded', 'false');
-  btn.setAttribute('aria-label', 'Menu openen');
-  document.body.style.overflow = '';
-}
-</script>
 
 </body>
 </html>
