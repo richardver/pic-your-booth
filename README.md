@@ -28,6 +28,7 @@ Six specialist agents handle different domains:
 | **Social Media** | Social & Creative | Content plans, video scripts, DJ profiles, social graphics |
 | **Strategist** | Strategy & Brand | Vision, USPs, hooks, competition, pricing strategy, brand quality gate, orchestrates other agents |
 | **Ad Specialist** | Paid Advertising | Meta Ads + Google Ads campaigns, audiences, ad copy, 17 ads skills |
+| **SEO** | Search & LLM Optimization | Keywords, meta tags, structured data, LLM discoverability, local SEO |
 
 Agents are routed via `.claude/agents/_registry.md`.
 

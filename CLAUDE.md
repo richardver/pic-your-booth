@@ -101,8 +101,18 @@ pic-your-booth/
 │   │       ├── knowledge-google-ads.md  - Google Ads search, PMax, keywords
 │   │       ├── knowledge-ad-copy.md     - Hooks, frameworks, testing
 │   │       └── knowledge-creative-testing.md - Fatigue, lifecycle, refresh
+│   │   ├── seo.md                         - SEO & LLM optimization
+│   │   └── seo/                           - SEO knowledge (6 files)
+│   │       ├── _index.md                - Keyword map, audit rules
+│   │       ├── knowledge-keywords.md    - Focus keywords per page, long-tail
+│   │       ├── knowledge-technical-seo.md - Meta tags, schema, performance
+│   │       ├── knowledge-on-page.md     - Headings, content, internal links
+│   │       ├── knowledge-llm-optimization.md - AI answer visibility, FAQ schema
+│   │       ├── knowledge-competition-seo.md - Competitor rankings, gaps
+│   │       └── knowledge-local-seo.md   - Google Business, city pages, reviews
 │   ├── skills/
 │   │   ├── brand-audit/SKILL.md          - /brand-audit
+│   │   ├── seo-audit/SKILL.md            - /seo-audit (SEO + LLM audit)
 │   │   ├── landing-page-audit/SKILL.md   - /landing-page-audit
 │   │   ├── ad-campaign/SKILL.md          - /ad-campaign (Meta + Google)
 │   │   ├── ads/                          - 17 ads skills from labofideas/ads-skills
@@ -138,6 +148,7 @@ pic-your-booth/
 - `/product-info` - Look up product specs, packages, and pricing
 - `/design-page` - Design a complete website page using full knowledge stack
 - `/design-landingpage` - Design a conversion-optimized landing page for Meta Ads traffic
+- `/seo-audit` - SEO & LLM optimization audit with scoring
 
 ## Design Asset Exports
 

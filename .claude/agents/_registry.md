@@ -23,6 +23,7 @@ Routing: user request -> keyword match -> agent -> agent loads knowledge + execu
 | Strategist | Strategy & Brand | vision, mission, pain points, USPs, hooks, competition, pricing strategy, growth, brand, tone, voice, audit, segments, orchestrate, campaign planning | `strategist.md` | Read, Grep, Glob, Bash, Write, Edit |
 | Ad Specialist | Paid Advertising | Meta Ads, Google Ads, Facebook, Instagram, campaign, audience, ROAS, CPA, targeting, search, PMax, RSA, pixel, funnel | `ad-specialist.md` | Read, Grep, Glob |
 | Product Specialist | Product Knowledge | product, specs, equipment, package, upgrade, pricing, Party Booth, Magic Mirror, DJ, Spotify, what's included | `product-specialist.md` | Read, Grep, Glob |
+| SEO | Search & LLM Optimization | SEO, keywords, meta tags, structured data, schema, ranking, search, LLM, AI answers, local SEO, Google Business, sitemap | `seo.md` | Read, Grep, Glob, Bash, Write, Edit |
 
 ## Domain Routing Matrix
 
