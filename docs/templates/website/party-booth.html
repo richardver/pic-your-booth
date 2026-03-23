@@ -1,0 +1,1020 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Party Booth - Fotoplezier Voor Elk Feest | PicYourBooth</title>
+<meta name="description" content="Party Booth: digitale photobooth voor elk feest. Zelf ophalen, 5 minuten opzetten, direct delen via QR. Vanaf €199 inclusief BTW.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --void: #050508;
+  --bg: #08080b;
+  --surface: #111116;
+  --surface-up: #18181e;
+  --text: #ededf0;
+  --text-muted: rgba(237,237,240,0.60);
+  --border: rgba(255,255,255,0.06);
+  --border-hover: rgba(255,255,255,0.12);
+  --gold: #d4b14e;
+  --gold-light: #e0c468;
+  --gold-dim: rgba(212,177,78,0.10);
+  --violet: #8b5cf6;
+  --violet-dim: rgba(139,92,246,0.12);
+  --font-display: 'Bebas Neue', Impact, sans-serif;
+  --font-body: 'Space Grotesk', system-ui, sans-serif;
+  --r-sm: 8px;
+  --r-md: 12px;
+  --r-lg: 16px;
+  --r-pill: 999px;
+  --ease: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { transition-duration: 0.01ms !important; animation-duration: 0.01ms !important; }
+}
+
+body {
+  font-family: var(--font-body);
+  background: var(--bg);
+  color: var(--text);
+  font-size: 16px;
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font-display);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  line-height: 1.1;
+  font-weight: 400;
+}
+
+a { color: inherit; text-decoration: none; }
+
+/* ===== NAV ===== */
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  background: rgba(8,8,11,0.85);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--border);
+  transition: background 0.3s var(--ease);
+}
+
+.nav-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 64px;
+}
+
+.nav-logo {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  letter-spacing: 0.08em;
+  color: var(--text);
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  list-style: none;
+}
+
+.nav-links a {
+  font-family: var(--font-body);
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--text-muted);
+  transition: color 0.2s var(--ease);
+  letter-spacing: 0.02em;
+}
+
+.nav-links a:hover,
+.nav-links a:focus-visible {
+  color: var(--text);
+}
+
+.btn-gold {
+  display: inline-block;
+  padding: 10px 24px;
+  background: var(--gold);
+  color: #000;
+  font-family: var(--font-display);
+  font-size: 0.9rem;
+  letter-spacing: 0.06em;
+  border-radius: var(--r-pill);
+  border: none;
+  cursor: pointer;
+  font-weight: 700;
+  transition: box-shadow 0.3s var(--ease), transform 0.2s var(--ease);
+  min-height: 44px;
+  min-width: 44px;
+  text-align: center;
+  line-height: 1.5;
+}
+
+.btn-gold:hover {
+  box-shadow: 0 0 32px var(--gold-dim), 0 4px 16px rgba(0,0,0,0.3);
+  transform: translateY(-1px);
+}
+
+.btn-gold:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 2px;
+}
+
+/* Hamburger */
+.nav-hamburger {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+  min-height: 44px;
+  min-width: 44px;
+  align-items: center;
+  justify-content: center;
+}
+
+.nav-hamburger span {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background: var(--text);
+  transition: all 0.3s var(--ease);
+  position: relative;
+}
+
+.nav-hamburger span::before,
+.nav-hamburger span::after {
+  content: '';
+  display: block;
+  width: 24px;
+  height: 2px;
+  background: var(--text);
+  position: absolute;
+  transition: all 0.3s var(--ease);
+}
+
+.nav-hamburger span::before { top: -7px; }
+.nav-hamburger span::after { top: 7px; }
+
+/* Mobile nav */
+.nav-mobile {
+  display: none;
+  position: fixed;
+  top: 64px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(8,8,11,0.97);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  z-index: 999;
+  padding: 40px 24px;
+}
+
+.nav-mobile.is-open { display: flex; flex-direction: column; gap: 24px; align-items: center; }
+
+.nav-mobile a {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  letter-spacing: 0.06em;
+  color: var(--text-muted);
+  padding: 12px 0;
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+}
+
+.nav-mobile a:hover { color: var(--text); }
+
+.nav-mobile .btn-gold { margin-top: 16px; padding: 14px 32px; font-size: 1rem; }
+
+@media (max-width: 768px) {
+  .nav-links { display: none; }
+  .nav-hamburger { display: flex; }
+}
+
+/* ===== PRODUCT HERO ===== */
+.hero {
+  position: relative;
+  min-height: 80vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 120px 24px 80px;
+  overflow: hidden;
+}
+
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  background-image: url('https://images.unsplash.com/photo-1530103862676-de8c9debad1d?w=1920&q=80');
+  background-size: cover;
+  background-position: center;
+  opacity: 0.18;
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(8,8,11,0.5) 0%,
+    rgba(8,8,11,0.3) 40%,
+    rgba(8,8,11,0.85) 80%,
+    var(--bg) 100%
+  );
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 760px;
+}
+
+.hero-headline {
+  font-size: clamp(3rem, 8vw, 5rem);
+  background: linear-gradient(135deg, var(--gold) 0%, var(--gold-light) 50%, var(--gold) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 20px;
+  letter-spacing: 0.08em;
+}
+
+.hero-subtitle {
+  font-family: var(--font-body);
+  font-size: clamp(0.95rem, 2vw, 1.15rem);
+  color: var(--text-muted);
+  font-weight: 300;
+  max-width: 540px;
+  margin: 0 auto 32px;
+  line-height: 1.7;
+  letter-spacing: 0.04em;
+}
+
+.hero-price {
+  font-family: var(--font-display);
+  font-size: clamp(1.3rem, 3vw, 1.6rem);
+  color: var(--gold);
+  letter-spacing: 0.06em;
+}
+
+/* ===== USPs ===== */
+.usps {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 80px 24px;
+}
+
+.usps-heading {
+  text-align: center;
+  margin-bottom: 48px;
+}
+
+.usps-heading h2 {
+  font-size: clamp(1.8rem, 4vw, 2.4rem);
+  color: var(--text);
+  margin-bottom: 12px;
+}
+
+.usps-heading p {
+  color: var(--text-muted);
+  font-size: 1rem;
+  font-weight: 300;
+}
+
+.usps-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+}
+
+.usp-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--r-lg);
+  padding: 28px 24px;
+  transition: border-color 0.3s var(--ease), box-shadow 0.3s var(--ease);
+}
+
+.usp-card:hover {
+  border-color: var(--border-hover);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+}
+
+.usp-icon {
+  font-size: 1.8rem;
+  margin-bottom: 16px;
+  display: block;
+  line-height: 1;
+}
+
+.usp-title {
+  font-size: 1.2rem;
+  color: var(--text);
+  margin-bottom: 8px;
+  letter-spacing: 0.06em;
+}
+
+.usp-desc {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  font-weight: 300;
+  line-height: 1.7;
+}
+
+@media (max-width: 600px) {
+  .usps-grid { grid-template-columns: 1fr; }
+}
+
+/* ===== AI CALLOUT ===== */
+.ai-callout {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 0 24px 80px;
+}
+
+.ai-callout-inner {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--r-lg);
+  padding: 48px 36px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.ai-callout-inner::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, transparent 0%, var(--gold) 50%, transparent 100%);
+}
+
+.ai-callout h2 {
+  font-size: clamp(1.6rem, 4vw, 2.2rem);
+  color: var(--text);
+  margin-bottom: 16px;
+  letter-spacing: 0.06em;
+}
+
+.ai-callout-desc {
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  font-weight: 300;
+  line-height: 1.8;
+  max-width: 560px;
+  margin: 0 auto 36px;
+}
+
+.ai-compare {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  margin-bottom: 28px;
+}
+
+.ai-box {
+  flex: 1;
+  max-width: 240px;
+  border-radius: var(--r-md);
+  padding: 32px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.ai-box-before {
+  background: var(--surface-up);
+  border: 1px solid var(--border);
+}
+
+.ai-box-after {
+  background: linear-gradient(135deg, rgba(212,177,78,0.08) 0%, rgba(212,177,78,0.03) 100%);
+  border: 2px solid rgba(212,177,78,0.35);
+  box-shadow: 0 0 32px rgba(212,177,78,0.06);
+}
+
+.ai-box-icon {
+  font-size: 2.4rem;
+  line-height: 1;
+}
+
+.ai-box-label {
+  font-family: var(--font-display);
+  font-size: 0.9rem;
+  letter-spacing: 0.1em;
+}
+
+.ai-box-before .ai-box-label {
+  color: var(--text-muted);
+}
+
+.ai-box-after .ai-box-label {
+  color: var(--gold);
+}
+
+.ai-box-text {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  font-weight: 300;
+  line-height: 1.5;
+}
+
+.ai-box-after .ai-box-text {
+  color: var(--text);
+}
+
+.ai-price-pill {
+  display: inline-block;
+  padding: 8px 24px;
+  background: var(--gold);
+  color: #000;
+  font-family: var(--font-display);
+  font-size: 1rem;
+  letter-spacing: 0.06em;
+  border-radius: var(--r-pill);
+  font-weight: 700;
+}
+
+@media (max-width: 500px) {
+  .ai-callout-inner { padding: 36px 20px; }
+  .ai-compare { flex-direction: column; align-items: center; }
+  .ai-box { max-width: 100%; width: 100%; }
+}
+
+/* ===== PACKAGE BUILDER ===== */
+.builder {
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 0 24px 80px;
+}
+
+.builder-heading {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.builder-heading h2 {
+  font-size: clamp(1.8rem, 4vw, 2.4rem);
+  color: var(--text);
+}
+
+/* Base card */
+.base-card {
+  background: linear-gradient(135deg, rgba(212,177,78,0.08) 0%, rgba(212,177,78,0.03) 100%);
+  border: 1px solid rgba(212,177,78,0.2);
+  border-radius: var(--r-lg);
+  padding: 28px 24px;
+  margin-bottom: 12px;
+}
+
+.base-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+
+.base-title {
+  font-size: 1.4rem;
+  color: var(--text);
+  letter-spacing: 0.06em;
+}
+
+.base-price {
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  color: var(--gold);
+  letter-spacing: 0.04em;
+}
+
+.base-lock {
+  display: inline-block;
+  background: var(--gold-dim);
+  color: var(--gold);
+  font-family: var(--font-body);
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 3px 10px;
+  border-radius: var(--r-pill);
+  margin-left: 12px;
+}
+
+.base-includes {
+  font-size: 0.875rem;
+  color: var(--text-muted);
+  font-weight: 300;
+  line-height: 1.8;
+}
+
+/* Upgrade rows */
+.upgrade-row {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--r-lg);
+  padding: 20px 24px;
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  transition: border-color 0.3s var(--ease), box-shadow 0.3s var(--ease);
+}
+
+.upgrade-row:hover {
+  border-color: var(--border-hover);
+}
+
+.upgrade-row.is-active {
+  border-color: rgba(212,177,78,0.25);
+  box-shadow: 0 0 24px rgba(212,177,78,0.05);
+}
+
+/* Toggle switch */
+.toggle {
+  position: relative;
+  width: 48px;
+  height: 28px;
+  flex-shrink: 0;
+}
+
+.toggle input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+  position: absolute;
+}
+
+.toggle-track {
+  position: absolute;
+  inset: 0;
+  background: var(--surface-up);
+  border-radius: 14px;
+  border: 1px solid var(--border-hover);
+  cursor: pointer;
+  transition: background 0.3s var(--ease), border-color 0.3s var(--ease);
+}
+
+.toggle-track::after {
+  content: '';
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: var(--text-muted);
+  transition: transform 0.3s var(--ease), background 0.3s var(--ease);
+}
+
+.toggle input:checked + .toggle-track {
+  background: var(--gold);
+  border-color: var(--gold);
+}
+
+.toggle input:checked + .toggle-track::after {
+  transform: translateX(20px);
+  background: #000;
+}
+
+.toggle input:focus-visible + .toggle-track {
+  outline: 2px solid var(--gold);
+  outline-offset: 2px;
+}
+
+.upgrade-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.upgrade-name {
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  color: var(--text);
+  letter-spacing: 0.04em;
+  line-height: 1.3;
+}
+
+.upgrade-desc {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  font-weight: 300;
+  line-height: 1.5;
+  margin-top: 2px;
+}
+
+.upgrade-price {
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  color: var(--gold);
+  letter-spacing: 0.04em;
+  flex-shrink: 0;
+  white-space: nowrap;
+}
+
+/* Total bar */
+.total-bar {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--r-lg);
+  padding: 28px 24px;
+  margin-top: 20px;
+  text-align: center;
+}
+
+.total-label {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  color: var(--text-muted);
+  letter-spacing: 0.1em;
+  margin-bottom: 4px;
+}
+
+.total-price {
+  font-family: var(--font-display);
+  font-size: clamp(2.2rem, 5vw, 3rem);
+  color: var(--gold);
+  letter-spacing: 0.04em;
+  line-height: 1.2;
+}
+
+.total-btw {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  font-weight: 300;
+  margin-top: 4px;
+}
+
+.builder-cta {
+  display: block;
+  width: 100%;
+  padding: 16px 32px;
+  background: var(--gold);
+  color: #000;
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  letter-spacing: 0.08em;
+  border-radius: var(--r-pill);
+  border: none;
+  cursor: pointer;
+  font-weight: 700;
+  margin-top: 16px;
+  transition: box-shadow 0.3s var(--ease), transform 0.2s var(--ease);
+  min-height: 52px;
+  text-align: center;
+  line-height: 1.5;
+}
+
+.builder-cta:hover {
+  box-shadow: 0 0 40px rgba(212,177,78,0.2), 0 4px 16px rgba(0,0,0,0.3);
+  transform: translateY(-1px);
+}
+
+.builder-cta:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 2px;
+}
+
+@media (max-width: 600px) {
+  .upgrade-row { flex-wrap: wrap; gap: 12px; }
+  .upgrade-price { order: 4; margin-left: 64px; }
+  .base-header { flex-direction: column; align-items: flex-start; gap: 8px; }
+}
+
+/* ===== FOOTER ===== */
+.footer {
+  background: var(--void);
+  border-top: 1px solid var(--border);
+  padding: 48px 24px;
+  text-align: center;
+}
+
+.footer-logo {
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+  letter-spacing: 0.08em;
+  color: var(--text);
+  margin-bottom: 12px;
+}
+
+.footer-entity {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  margin-bottom: 16px;
+  font-weight: 300;
+}
+
+.footer-email {
+  font-size: 0.875rem;
+  color: var(--text-muted);
+  margin-bottom: 20px;
+  transition: color 0.2s var(--ease);
+}
+
+.footer-email:hover { color: var(--gold); }
+
+.footer-social {
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+  margin-bottom: 24px;
+}
+
+.footer-social a {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  transition: color 0.2s var(--ease);
+  min-height: 44px;
+  min-width: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.footer-social a:hover { color: var(--text); }
+
+.footer-copy {
+  font-size: 0.7rem;
+  color: rgba(237,237,240,0.30);
+  font-weight: 300;
+}
+
+/* ===== FOCUS VISIBLE ===== */
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 2px;
+}
+
+/* ===== SELECTION ===== */
+::selection {
+  background: rgba(212,177,78,0.25);
+  color: var(--text);
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav" role="navigation" aria-label="Hoofdnavigatie">
+  <div class="nav-inner">
+    <a href="/" class="nav-logo" aria-label="PicYourBooth homepage">PICYOURBOOTH</a>
+    <ul class="nav-links">
+      <li><a href="/party-booth">Party Booth</a></li>
+      <li><a href="/magic-mirror">Magic Mirror XL</a></li>
+      <li><a href="/djs">DJs</a></li>
+      <li><a href="#pakket" class="btn-gold">BOEK JE ERVARING</a></li>
+    </ul>
+    <button class="nav-hamburger" aria-label="Menu openen" aria-expanded="false" onclick="toggleMenu()">
+      <span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- Mobile nav overlay -->
+<div class="nav-mobile" id="mobileNav" role="dialog" aria-label="Mobiel menu">
+  <a href="/party-booth" onclick="closeMenu()">Party Booth</a>
+  <a href="/magic-mirror" onclick="closeMenu()">Magic Mirror XL</a>
+  <a href="/djs" onclick="closeMenu()">DJs</a>
+  <a href="#pakket" class="btn-gold" onclick="closeMenu()">BOEK JE ERVARING</a>
+</div>
+
+<!-- PRODUCT HERO -->
+<section class="hero" aria-label="Party Booth hero">
+  <div class="hero-bg" role="img" aria-label="Kleurrijk feest met confetti"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <h1 class="hero-headline">PARTY BOOTH</h1>
+    <p class="hero-subtitle">Fotoplezier voor elk feest &middot; Vanaf &euro;199 &middot; Klaar in 5 minuten</p>
+    <span class="hero-price">Ophalen, opzetten, feesten.</span>
+  </div>
+</section>
+
+<!-- USPs -->
+<section class="usps" aria-label="Voordelen">
+  <div class="usps-heading">
+    <h2>GEEN GEDOE, WEL EEN FEESTJE</h2>
+    <p>Alles wat je nodig hebt voor een avond vol foto's en lol.</p>
+  </div>
+
+  <div class="usps-grid">
+    <div class="usp-card">
+      <span class="usp-icon" aria-hidden="true">&#128242;</span>
+      <h3 class="usp-title">DIRECT DELEN OP SOCIALS</h3>
+      <p class="usp-desc">Gasten delen foto's direct via QR code op hun telefoon. Geen app, geen gedoe.</p>
+    </div>
+
+    <div class="usp-card">
+      <span class="usp-icon" aria-hidden="true">&#9889;</span>
+      <h3 class="usp-title">GEEN MONTEUR, GEEN STRESS</h3>
+      <p class="usp-desc">Zelf ophalen, 5 minuten opzetten, klaar. Zo simpel is het.</p>
+    </div>
+
+    <div class="usp-card">
+      <span class="usp-icon" aria-hidden="true">&#127968;</span>
+      <h3 class="usp-title">PAST OP ELKE LOCATIE</h3>
+      <p class="usp-desc">Compact genoeg voor je woonkamer, stijlvol genoeg voor een zaal.</p>
+    </div>
+
+    <div class="usp-card">
+      <span class="usp-icon" aria-hidden="true">&#9201;</span>
+      <h3 class="usp-title">KLAAR IN 5 MINUTEN</h3>
+      <p class="usp-desc">Uitpakken, neerzetten, aan. Jij hebt wel wat beters te doen.</p>
+    </div>
+  </div>
+</section>
+
+<!-- AI ACHTERGROND CALLOUT -->
+<section class="ai-callout" aria-label="AI Achtergrond feature">
+  <div class="ai-callout-inner">
+    <h2>LELIJKE ACHTERGROND? AI FIXT HET</h2>
+    <p class="ai-callout-desc">Rommelige kamer? Lelijke muur? Geen probleem. Kies je droomachtergrond &mdash; strand, skyline, jungle of je eigen design &mdash; en AI vervangt het automatisch. Inclusief beautify filter voor super strakke resultaten.</p>
+
+    <div class="ai-compare">
+      <div class="ai-box ai-box-before">
+        <span class="ai-box-icon" aria-hidden="true">&#128247;</span>
+        <span class="ai-box-label">ZONDER AI</span>
+        <span class="ai-box-text">Rommelige kamer, lelijke muur, onscherpe achtergrond</span>
+      </div>
+      <div class="ai-box ai-box-after">
+        <span class="ai-box-icon" aria-hidden="true">&#10024;</span>
+        <span class="ai-box-label">MET AI</span>
+        <span class="ai-box-text">Strand, skyline, jungle &mdash; jij kiest, AI regelt het</span>
+      </div>
+    </div>
+
+    <span class="ai-price-pill">+&euro;35</span>
+  </div>
+</section>
+
+<!-- PACKAGE BUILDER -->
+<section class="builder" id="pakket" aria-label="Pakket samenstellen">
+  <div class="builder-heading">
+    <h2>BOUW JOUW FEESTPAKKET</h2>
+  </div>
+
+  <!-- Base package -->
+  <div class="base-card">
+    <div class="base-header">
+      <div>
+        <h3 class="base-title">PARTY BOOTH</h3>
+        <span class="base-lock">Basis</span>
+      </div>
+      <span class="base-price">&euro;199</span>
+    </div>
+    <p class="base-includes">Ophalen bij ons &middot; Basis fotostrip design &middot; Digitaal delen via QR &middot; Setup instructies</p>
+  </div>
+
+  <!-- Upgrade: Premium Fotostrip Design -->
+  <div class="upgrade-row" data-price="25">
+    <label class="toggle">
+      <input type="checkbox" aria-label="Premium Fotostrip Design toevoegen" onchange="updateTotal()">
+      <span class="toggle-track"></span>
+    </label>
+    <div class="upgrade-info">
+      <div class="upgrade-name">PREMIUM FOTOSTRIP DESIGN</div>
+      <div class="upgrade-desc">Gepersonaliseerde fotostrip met jouw thema en branding</div>
+    </div>
+    <span class="upgrade-price">+&euro;25</span>
+  </div>
+
+  <!-- Upgrade: Bezorging, Installatie & Ophalen -->
+  <div class="upgrade-row" data-price="49">
+    <label class="toggle">
+      <input type="checkbox" aria-label="Bezorging, Installatie en Ophalen toevoegen" onchange="updateTotal()">
+      <span class="toggle-track"></span>
+    </label>
+    <div class="upgrade-info">
+      <div class="upgrade-name">BEZORGING, INSTALLATIE &amp; OPHALEN</div>
+      <div class="upgrade-desc">Wij brengen, installeren en halen op bij je locatie</div>
+    </div>
+    <span class="upgrade-price">+&euro;49</span>
+  </div>
+
+  <!-- Upgrade: AI Achtergrond + Beautify -->
+  <div class="upgrade-row" data-price="35">
+    <label class="toggle">
+      <input type="checkbox" aria-label="AI Achtergrond plus Beautify toevoegen" onchange="updateTotal()">
+      <span class="toggle-track"></span>
+    </label>
+    <div class="upgrade-info">
+      <div class="upgrade-name">AI ACHTERGROND + BEAUTIFY</div>
+      <div class="upgrade-desc">AI achtergrond + beautify filter voor strakke foto's</div>
+    </div>
+    <span class="upgrade-price">+&euro;35</span>
+  </div>
+
+  <!-- Upgrade: Live DJ Set -->
+  <div class="upgrade-row" data-price="149">
+    <label class="toggle">
+      <input type="checkbox" aria-label="Live DJ Set toevoegen" onchange="updateTotal()">
+      <span class="toggle-track"></span>
+    </label>
+    <div class="upgrade-info">
+      <div class="upgrade-name">LIVE DJ SET</div>
+      <div class="upgrade-desc">DJ met speakers, licht &amp; rookmachine &mdash; 3 uur</div>
+    </div>
+    <span class="upgrade-price">+&euro;149</span>
+  </div>
+
+  <!-- Total -->
+  <div class="total-bar">
+    <div class="total-label">TOTAAL</div>
+    <div class="total-price" id="totalPrice"></div>
+    <div class="total-btw">Inclusief 21% BTW</div>
+  </div>
+
+  <button class="builder-cta" onclick="window.location.href='#boek'">CHECK BESCHIKBAARHEID</button>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer" id="boek">
+  <div class="footer-logo">PICYOURBOOTH</div>
+  <p class="footer-entity">Pic Your Moment BV</p>
+  <a href="mailto:info@picyourbooth.nl" class="footer-email">info@picyourbooth.nl</a>
+  <div class="footer-social">
+    <a href="https://instagram.com/picyourbooth" target="_blank" rel="noopener noreferrer" aria-label="Instagram">Instagram</a>
+    <a href="https://tiktok.com/@picyourbooth" target="_blank" rel="noopener noreferrer" aria-label="TikTok">TikTok</a>
+  </div>
+  <p class="footer-copy">&copy; 2026 PicYourBooth. Alle rechten voorbehouden.</p>
+</footer>
+
+<script>
+/* Mobile menu */
+function toggleMenu() {
+  var nav = document.getElementById('mobileNav');
+  var btn = document.querySelector('.nav-hamburger');
+  var isOpen = nav.classList.toggle('is-open');
+  btn.setAttribute('aria-expanded', isOpen);
+  btn.setAttribute('aria-label', isOpen ? 'Menu sluiten' : 'Menu openen');
+  document.body.style.overflow = isOpen ? 'hidden' : '';
+}
+
+function closeMenu() {
+  var nav = document.getElementById('mobileNav');
+  var btn = document.querySelector('.nav-hamburger');
+  nav.classList.remove('is-open');
+  btn.setAttribute('aria-expanded', 'false');
+  btn.setAttribute('aria-label', 'Menu openen');
+  document.body.style.overflow = '';
+}
+
+/* Package builder total */
+var BASE_PRICE = 199;
+
+function formatPrice(amount) {
+  return '\u20AC' + amount;
+}
+
+function updateTotal() {
+  var total = BASE_PRICE;
+  var rows = document.querySelectorAll('.upgrade-row');
+  rows.forEach(function(row) {
+    var checkbox = row.querySelector('input[type="checkbox"]');
+    var price = parseInt(row.getAttribute('data-price'), 10);
+    if (checkbox.checked) {
+      total += price;
+      row.classList.add('is-active');
+    } else {
+      row.classList.remove('is-active');
+    }
+  });
+  document.getElementById('totalPrice').textContent = formatPrice(total);
+}
+
+/* Set initial price on load */
+updateTotal();
+</script>
+
+</body>
+</html>
