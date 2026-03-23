@@ -335,6 +335,27 @@ a { color: inherit; text-decoration: none; }
   border-color: rgba(245, 158, 66, 0.18);
 }
 
+.usp-card__icon {
+  width: 40px;
+  height: 40px;
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--r-sm);
+  background: rgba(245, 158, 66, 0.08);
+}
+
+.usp-card__icon svg {
+  width: 22px;
+  height: 22px;
+  stroke: var(--gold);
+  fill: none;
+  stroke-width: 1.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
 .usp-card__title {
   font-family: var(--font-display);
   font-size: 1.1rem;
@@ -409,6 +430,32 @@ a { color: inherit; text-decoration: none; }
   letter-spacing: 0.06em;
   text-transform: uppercase;
   margin-bottom: 8px;
+}
+
+.ai-compare__icon {
+  width: 36px;
+  height: 36px;
+  margin: 0 auto 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ai-compare__icon svg {
+  width: 24px;
+  height: 24px;
+  fill: none;
+  stroke-width: 1.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.ai-compare__box--before .ai-compare__icon svg {
+  stroke: var(--text-muted);
+}
+
+.ai-compare__box--after .ai-compare__icon svg {
+  stroke: var(--gold);
 }
 
 .ai-compare__box--before .ai-compare__label {
@@ -1105,21 +1152,25 @@ a { color: inherit; text-decoration: none; }
   <div class="usp-grid">
 
     <div class="usp-card">
+      <div class="usp-card__icon"><svg viewBox="0 0 24 24"><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"/><polyline points="16 6 12 2 8 6"/><line x1="12" y1="2" x2="12" y2="15"/></svg></div>
       <h3 class="usp-card__title">Direct Delen</h3>
       <p class="usp-card__desc">Scan de QR code en deel je foto's direct op social media.</p>
     </div>
 
     <div class="usp-card">
+      <div class="usp-card__icon"><svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 7V4a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v3"/></svg></div>
       <h3 class="usp-card__title">Zelf Opzetten</h3>
       <p class="usp-card__desc">Ophalen, neerzetten, aanzetten. Klaar in 5 minuten.</p>
     </div>
 
     <div class="usp-card">
+      <div class="usp-card__icon"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
       <h3 class="usp-card__title">Past Overal</h3>
       <p class="usp-card__desc">Compact genoeg voor thuis, leuk genoeg voor een zaal.</p>
     </div>
 
     <div class="usp-card">
+      <div class="usp-card__icon"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
       <h3 class="usp-card__title">Geen Gedoe</h3>
       <p class="usp-card__desc">Geen monteur, geen handleiding. Jij feest, de booth draait.</p>
     </div>
@@ -1138,10 +1189,12 @@ a { color: inherit; text-decoration: none; }
 
   <div class="ai-compare">
     <div class="ai-compare__box ai-compare__box--before">
+      <div class="ai-compare__icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg></div>
       <div class="ai-compare__label">Zonder AI</div>
       <p class="ai-compare__text">Rommelige achtergrond, afleiding, niet deelbaar</p>
     </div>
     <div class="ai-compare__box ai-compare__box--after">
+      <div class="ai-compare__icon"><svg viewBox="0 0 24 24"><path d="M12 2L15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2z"/></svg></div>
       <div class="ai-compare__label">Met AI</div>
       <p class="ai-compare__text">Strakke achtergrond naar keuze, beautify filter, direct deelbaar</p>
     </div>
