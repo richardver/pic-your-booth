@@ -1,0 +1,35 @@
+# Meta Ads
+
+Meta Ads strategy, audiences, specs, and benchmarks. Full reference in `docs/marketing/meta-ads.md`.
+
+---
+
+## Key Concepts
+
+- **CBO vs ABO**: CBO for prospecting (3+ ad sets), ABO for retargeting (fixed budgets)
+- **Advantage+ Audience**: ML-driven, outperforms manual in 60-70% of tests — use as default
+- **CAPI**: Server-side event tracking, event match quality >6.0, deduplicate with Pixel
+- **20% Rule**: Never increase budget more than 20% every 3-5 days
+
+## Available Skills
+
+| Task | Invoke Skill |
+|---|---|
+| Write ad copy | `skills/ads/meta/meta-ads-ad-copy.md` |
+| Audit Advantage+ campaigns | `skills/ads/meta/meta-ads-asc-auditor.md` |
+| Build audiences | `skills/ads/meta/meta-ads-audience-builder.md` |
+| Analyze creative performance | `skills/ads/meta/meta-ads-creative-analyzer.md` |
+| Optimize hooks | `skills/ads/meta/meta-ads-hook-optimizer.md` |
+| Audit pixel/tracking | `skills/ads/meta/meta-ads-pixel-auditor.md` |
+
+## Benchmarks (NL Market)
+
+| Metric | Prospecting | Retargeting |
+|---|---|---|
+| CTR | 0.8-1.5% | 1.5-3.0% |
+| CPC | €0.60-€2.00 | €0.30-€1.00 |
+| CPM | €8-€18 | €10-€25 |
+| Conv Rate | 1-3% | 4-10% |
+| Frequency (healthy) | < 3.0 | < 6.0 |
+
+For full Meta Ads reference: `docs/marketing/meta-ads.md`

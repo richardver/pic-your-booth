@@ -1,9 +1,9 @@
 ---
 name: ad-campaign
-description: "Create a complete Meta Ads campaign - structure, audiences, ad copy (Dutch), creative briefs, budget allocation, and testing plan. Use /ad-campaign to design a new campaign or optimize an existing one."
+description: "Create a complete Meta Ads or Google Ads campaign - structure, audiences, ad copy (Dutch), creative briefs, budget allocation, and testing plan. Use /ad-campaign to design a new campaign or optimize an existing one."
 user-invocable: true
 context: fork
-agent: meta-ads-specialist
+agent: ad-specialist
 ---
 
 # Ad Campaign Creator
@@ -12,10 +12,10 @@ Design a complete Meta Ads campaign for Pic Your Booth.
 
 ## Process
 
-1. Read `knowledge/brand/brand.md` for brand context
-2. Read `knowledge/marketing/meta-ads.md` for campaign structure and benchmarks
-3. Read `knowledge/marketing/ad-copy-frameworks.md` for copy specs and hook formulas
-4. Ask which segment to target (Magic Mirror / iPad / DJ Combo / All)
+1. Read `.claude/agents/brand/knowledge-brand.md` for brand context
+2. Read `docs/marketing/meta-ads.md` for campaign structure and benchmarks
+3. Read `docs/marketing/ad-copy-frameworks.md` for copy specs and hook formulas
+4. Ask which segment to target (Magic Mirror / Party Booth / DJ Combo / All)
 5. Build campaign structure, audiences, copy, and testing plan
 
 ## Input

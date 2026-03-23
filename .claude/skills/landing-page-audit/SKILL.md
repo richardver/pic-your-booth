@@ -3,7 +3,7 @@ name: landing-page-audit
 description: "Audit a landing page for conversion performance using the 55-item CRO checklist. Produces a scored report with prioritized recommendations. Use /landing-page-audit with a URL or page description."
 user-invocable: true
 context: fork
-agent: website-designer
+agent: designer
 ---
 
 # Landing Page Audit
@@ -12,9 +12,9 @@ Audit a landing page for conversion rate optimization.
 
 ## Process
 
-1. Read `knowledge/photobooth/website-design-cro.md` for the 55-item checklist and scoring rubric
-2. Read `knowledge/photobooth/website-design-landing-pages.md` for structure best practices
-3. Read `knowledge/marketing/marketing-psychology-pricing.md` for persuasion principles
+1. Read `docs/website/website-design-cro.md` for the 55-item checklist and scoring rubric
+2. Read `docs/website/website-design-landing-pages.md` for structure best practices
+3. Read `docs/marketing/marketing-psychology-pricing.md` for persuasion principles
 4. Evaluate the page section by section against the checklist
 5. Score each category (weighted) and calculate overall Landing Page Score (0-100)
 
