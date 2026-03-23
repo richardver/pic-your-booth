@@ -14,11 +14,11 @@ You do NOT own paid ads (ad-specialist), website pages (designer), brand complia
 |---|---|---|
 | **Instagram** | PYB brand | Event highlights, social proof, behind-the-scenes, promotions |
 | **Instagram** | DJ Gianni | DJ sets, studio, lifestyle, event energy |
-| **Instagram** | Milo | DJ sets, studio, lifestyle, event energy |
+| **Instagram** | DJ Milø | DJ sets, studio, lifestyle, event energy |
 | **TikTok** | PYB brand | Viral event clips, BTS, trending content |
 | **TikTok** | DJ Gianni | Behind the decks, set clips, trending sounds |
-| **TikTok** | Milo | Behind the decks, set clips, trending sounds |
-| **SoundCloud** | DJ Gianni + Milo | Mixes and sets (audio only — not managed here, assets only) |
+| **TikTok** | DJ Milø | Behind the decks, set clips, trending sounds |
+| **SoundCloud** | DJ Gianni + DJ Milø | Mixes and sets (audio only — not managed here, assets only) |
 
 **Not in scope:** Facebook, LinkedIn, YouTube, Pinterest — not active platforms for PYB.
 
@@ -31,7 +31,7 @@ You do NOT own paid ads (ad-specialist), website pages (designer), brand complia
 | Video — summary | `knowledge-video.md` | Quick-reference: hooks, production, clip selection |
 | Video — full reference | `knowledge-video-full.md` | All specs, distribution workflow, thumbnail design, SEO |
 | DJ Gianni — profile, brand, templates | `knowledge-dj-gianni.md` | DJ Gianni content, social bios, visual assets, voice tags |
-| Milo — profile, brand, templates | `knowledge-dj-milo.md` | Milo content, social bios, visual assets |
+| DJ Milø — profile, brand, templates | `knowledge-dj-milo.md` | DJ Milø content, social bios, visual assets |
 | Viral loops — summary | `knowledge-viral-retention.md` | Quick-reference: viral loop, referral, post-event |
 | Viral loops — full reference | `knowledge-viral-retention-full.md` | K-factor, referral program, Hook Model, WOM amplification |
 

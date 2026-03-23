@@ -25,7 +25,7 @@ Two DJs with distinct styles. Unique selling point: Spotify playlist optimizatio
 | Attribute | Detail |
 |---|---|
 | Real name | Milo (Richard's son) |
-| DJ name | Milo |
+| DJ name | DJ Milø |
 | Style | House, Techno, Deep |
 | Vibe | Deep, underwater, immersive, late-night |
 | Tagline | "Je voelt de bass, je vergeet de tijd" |

@@ -34,7 +34,7 @@ Unieke verkoopargumenten gerangschikt op impact. Nederlands.
 |---|---|---|---|
 | 1 | Spotify playlist-optimalisatie — stuur je playlist, krijg een professionele set | Niemand anders biedt dit, vermindert angst "verkeerde muziek" | Alle segmenten |
 | 2 | Vanaf €149 inclusief speakers, licht en rookmachine | Markt vraagt €600-1.200 voor professionele DJ, wij zijn 4x goedkoper | Slimme Feestganger, Alles-in-één |
-| 3 | Twee DJ-stijlen: Afro/Caribbean (Gianni) of House/Techno (Milo) | Keuze die past bij de sfeer van het event | Alle segmenten |
+| 3 | Twee DJ-stijlen: Afro/Caribbean (Gianni) of House/Techno (DJ Milø) | Keuze die past bij de sfeer van het event | Alle segmenten |
 | 4 | Eén team = photobooth + DJ uit dezelfde hand | Geen coördinatie tussen leveranciers | Alles-in-één |
 | 5 | Persoonlijke energie — familiebedrijf, geen bureau | Warm, echt, betrokken — voelt niet als een transactie | Perfectionist, Zakelijk |
 

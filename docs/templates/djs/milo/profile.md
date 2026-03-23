@@ -1,10 +1,10 @@
-# Milo
+# DJ Milø
 
 ## Role
 Photobooth operator & DJ at PicYourBooth. Richard's son.
 
 ## DJ Brand
-- **DJ name:** Milo
+- **DJ name:** DJ Milø
 - **Music style:** House, Techno, Deep
 - **Tagline:** "Je voelt de bass, je vergeet de tijd"
 - **Color:** Cyan #22d3ee
@@ -23,16 +23,16 @@ Photobooth operator & DJ at PicYourBooth. Richard's son.
 ## Social Bios
 
 ### TikTok
-Milo
+DJ Milø
 House · Techno · Deep
 Je voelt de bass, je vergeet de tijd
 info@picyourbooth.nl
 
 ### SoundCloud
-Milo - DJ uit Nederland. Bouwt sets van deep house naar hypnotiserende techno. Elke transitie naadloos, elk nummer strategisch. Boekingen: info@picyourbooth.nl
+DJ Milø - DJ uit Nederland. Bouwt sets van deep house naar hypnotiserende techno. Elke transitie naadloos, elk nummer strategisch. Boekingen: info@picyourbooth.nl
 
 ### Instagram
-Milo
+DJ Milø
 House · Techno
 Deep beats, strakke sets
 Boekingen via link in bio

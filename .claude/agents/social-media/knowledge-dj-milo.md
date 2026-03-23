@@ -8,7 +8,7 @@ Profile and brand for social content. Full profile in `docs/templates/djs/milo/p
 
 | Attribute | Detail |
 |---|---|
-| DJ name | Milo |
+| DJ name | DJ Milø |
 | Style | House, Techno, Deep |
 | Tagline | "Je voelt de bass, je vergeet de tijd" |
 | Color | Cyan #22d3ee |
@@ -24,11 +24,11 @@ Profile and brand for social content. Full profile in `docs/templates/djs/milo/p
 
 ## Social Bios
 
-**TikTok:** Milo | House · Techno · Deep | Je voelt de bass, je vergeet de tijd | info@picyourbooth.nl
+**TikTok:** DJ Milø | House · Techno · Deep | Je voelt de bass, je vergeet de tijd | info@picyourbooth.nl
 
-**SoundCloud:** Milo - DJ uit Nederland. Bouwt sets van deep house naar hypnotiserende techno. Elke transitie naadloos, elk nummer strategisch. Boekingen: info@picyourbooth.nl
+**SoundCloud:** DJ Milø - DJ uit Nederland. Bouwt sets van deep house naar hypnotiserende techno. Elke transitie naadloos, elk nummer strategisch. Boekingen: info@picyourbooth.nl
 
-**Instagram:** Milo | House · Techno | Deep beats, strakke sets | Boekingen via link in bio
+**Instagram:** DJ Milø | House · Techno | Deep beats, strakke sets | Boekingen via link in bio
 
 ## Profile Photo Direction
 

@@ -112,7 +112,7 @@ PYB-specifieke hooks in het Nederlands. Georganiseerd per product, segment en pl
 1. "Stuur je Spotify playlist — wij maken er een professionele set van"
 2. "DJ + speakers + licht + rookmachine — vanaf €149 per avond"
 3. "Een DJ-bureau rekent €600+. Bij ons vanaf €149 inclusief alles."
-4. "Twee DJ-stijlen: Afro Beats met DJ Gianni of House met Milo"
+4. "Twee DJ-stijlen: Afro Beats met DJ Gianni of House met DJ Milø"
 5. "Geen standaard playlist maar jouw muziek, professioneel gemixt"
 
 ### Social Media Hooks
