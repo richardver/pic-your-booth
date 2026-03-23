@@ -29,7 +29,7 @@ Two DJs with distinct styles. Unique selling point: Spotify playlist optimizatio
 | Style | House, Techno, Deep |
 | Vibe | Deep, underwater, immersive, late-night |
 | Tagline | "Je voelt de bass, je vergeet de tijd" |
-| Color | Cyan #0ea5e9 |
+| Color | Cyan #34d399 |
 | Logo mark | Diamond (M) — rotated square |
 | Platforms | TikTok, SoundCloud |
 

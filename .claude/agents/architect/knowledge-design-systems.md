@@ -49,7 +49,7 @@ pyb-design-system-web.html          <- Layer 1: Parent (general web tokens & com
 `pyb-design-tokens.json` is actually a **Pic Your Moment mobile app** token file (Poppins font, `pym.color.*` namespace, Flutter references, navy/muted-red palette). It does NOT contain PYB web tokens.
 
 **PYB web tokens** live in:
-- `brand.md` — canonical colors (gold #f59e42, violet #8b5cf6, coral #f0654a, cyan #0ea5e9, bg #08080b)
+- `brand.md` — canonical colors (gold #f59e42, violet #8b5cf6, coral #f0654a, cyan #34d399, bg #08080b)
 - `pyb-design-system-web.html` — rendered design system with all web tokens
 - `prd-website.md` — design tokens section with exact hex values
 

@@ -14,7 +14,7 @@ When creating ANY marketing content for PicYourBooth:
 ## Products
 - **Party Booth** (not "iPad Photobooth") - accessible, fun, every party
 - **Magic Mirror XL** - premium, VIP, experience
-- **DJs** - DJ Gianni (coral, afro beats/caribbean/nederlands/hits) & DJ Milø (sky blue, house/techno)
+- **DJs** - DJ Gianni (coral, afro beats/caribbean/nederlands/hits) & DJ Milø (mint, house/techno)
 
 ## Pricing (charm pricing)
 - Party Booth: €199 (not €200)
