@@ -1302,6 +1302,112 @@ body.loaded {
     display: none;
   }
 }
+/* ============================================================
+   MOBILE RESPONSIVENESS ADDITIONS
+   ============================================================ */
+
+/* -- Tablet (max 768px) additions ------------------------- */
+@media (max-width: 768px) {
+  .nav-hamburger {
+    padding: 10px;
+    min-width: 44px;
+    min-height: 44px;
+    justify-content: center;
+    align-items: center;
+  }
+  .dj-avatar {
+    width: 180px;
+    height: 180px;
+  }
+  .dj-section {
+    padding: 64px 24px;
+  }
+  .waveform-wrap {
+    margin-top: 40px;
+    gap: 16px;
+  }
+  .waveform-bars {
+    height: 60px;
+  }
+  .waveform-bars span {
+    width: 4px;
+  }
+  .faq {
+    padding: 64px 24px;
+  }
+}
+
+/* -- Mobile (max 600px) ----------------------------------- */
+@media (max-width: 600px) {
+  .hero {
+    min-height: 50vh;
+    padding: 64px 20px 48px;
+  }
+  .hero-title {
+    font-size: clamp(1.8rem, 7vw, 2.5rem);
+  }
+  .hero-subtitle {
+    font-size: 13px;
+  }
+  .dj-avatar {
+    width: 160px;
+    height: 160px;
+  }
+  .dj-name {
+    font-size: clamp(2rem, 8vw, 3rem);
+  }
+  .dj-section {
+    padding: 48px 20px;
+  }
+  .audio-toggle {
+    width: 48px;
+    height: 48px;
+  }
+  .audio-toggle svg {
+    width: 18px;
+    height: 18px;
+  }
+  .faq {
+    padding: 48px 20px;
+  }
+}
+
+/* -- Small mobile (max 480px) ----------------------------- */
+@media (max-width: 480px) {
+  .hero {
+    padding: 48px 16px 36px;
+  }
+  .hero-title {
+    font-size: clamp(1.5rem, 9vw, 2rem);
+  }
+  .nav {
+    padding: 16px 16px;
+  }
+  .dj-avatar {
+    width: 140px;
+    height: 140px;
+  }
+  .dj-name {
+    font-size: clamp(1.8rem, 9vw, 2.5rem);
+  }
+  .dj-tagline {
+    font-size: 14px;
+  }
+  .waveform-bars {
+    height: 48px;
+    gap: 3px;
+  }
+  .waveform-bars span {
+    width: 3px;
+  }
+  .waveform-wrap {
+    margin-top: 32px;
+    gap: 12px;
+  }
+  .dj-section {
+    padding: 40px 16px;
+  }
+}
 </style>
 </head>
 <body>
