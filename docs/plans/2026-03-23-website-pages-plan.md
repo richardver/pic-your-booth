@@ -198,7 +198,7 @@ Sections:
 1. **Nav** (DJs link active state)
 2. **Hero** — Unsplash DJ photo (blurred, 0.15 opacity). Gradient text (coral → violet → cyan): "JOUW FEEST, ONZE DJS". Subtitle: "Vanaf €149 per avond · Spotify playlist-optimalisatie · Speakers, licht & rookmachine inbegrepen". Waveform decoration (subtle CSS animated bars).
 3. **DJ Gianni Profile** — Real photo (`docs/templates/djs/dj-gianni/photos/profiel.jpeg`), coral accent (#f0654a). Name: "DJ GIANNI". Tagline: "Elke set een feest, elk feest een herinnering". Bio. Genre tags (coral): Afro Beats, Caribbean, Nederlands, Hits. Social links: IG, TikTok, SoundCloud.
-4. **Milo Profile** — Unsplash placeholder, cyan accent (#34d399). Name: "MILO". Tagline: "Je voelt de bass, je vergeet de tijd". Bio. Genre tags (cyan): House, Techno, Deep. Social links.
+4. **Milo Profile** — Unsplash placeholder, cyan accent (#0ea5e9). Name: "MILO". Tagline: "Je voelt de bass, je vergeet de tijd". Bio. Genre tags (cyan): House, Techno, Deep. Social links.
 5. **Spotify Section** — "ALLEEN BIJ PICYOURBOOTH" badge (violet). "STUUR JE PLAYLIST, KRIJG EEN PROFESSIONELE SET". Explain: stuur playlist → DJ analyseert → professionele set op maat. Playlist visual. CTA: "PLAN JE FEEST MET ONS" (violet).
 6. **How It Works** — "IN 3 STAPPEN GEREGELD" (violet left border):
    - 01 KIES JE VIBE — Afro Beats met DJ Gianni of House met Milo

@@ -104,7 +104,7 @@ Premium DSLR photobooth with professional lighting and direct printing.
 
 **Dark cinematic base** — events happen at night. The website feels like walking into a VIP event.
 
-**Key identity markers:** Gold = photobooth, Violet = DJ hub, Coral = DJ Gianni, Mint = DJ Milø. No red, no pink. Gold buttons always black text.
+**Key identity markers:** Gold = photobooth, Violet = DJ hub, Coral = DJ Gianni, Sky Blue = DJ Milø. No red, no pink. Gold buttons always black text.
 
 For full design system (tokens, typography, colors, Shadcn/ui components): see designer agent `knowledge-design-system.md` and `knowledge-design-system-full.md`.
 
@@ -119,7 +119,7 @@ PicYourBooth (standalone premium entertainment brand)
 │   └── Upgrades: VIP, Wedding Keychain Station, On-Site Host, Live DJ Set
 └── DJs (separate service section)
     ├── DJ Gianni (Luca) - coral accent - afro beats, caribbean, nederlands, hits
-    └── DJ Milø - mint accent - house, techno
+    └── DJ Milø - sky blue accent - house, techno
 ```
 
 **Note:** PicYourBooth is one word. Legal entity is Pic Your Moment BV (only appears on invoices, never in marketing).
@@ -145,7 +145,7 @@ The DJs maintain personal profiles (Instagram, SoundCloud, TikTok) promoted alon
 |------|------|----------|
 | Richard | Owner - business, tech, marketing | - |
 | Luca | Photobooth operator & DJ | DJ Gianni: afro beats, caribbean, nederlands, hits - coral accent |
-| DJ Milø | Photobooth operator & DJ | House, techno - mint accent |
+| DJ Milø | Photobooth operator & DJ | House, techno - sky blue accent |
 
 ---
 

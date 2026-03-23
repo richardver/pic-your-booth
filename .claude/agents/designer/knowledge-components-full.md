@@ -64,7 +64,7 @@ Apply via data attributes or CSS classes on page containers:
 
 /* Milo profile */
 [data-segment="milo"] {
-  --primary: 187 82% 53%;           /* cyan #34d399 */
+  --primary: 187 82% 53%;           /* cyan #0ea5e9 */
   --primary-foreground: 0 0% 0%;
 }
 ```
@@ -148,7 +148,7 @@ Apply via data attributes or CSS classes on page containers:
 | **Gold** | `bg-[#f59e42] text-black` | "MEEST GEKOZEN", prices |
 | **Violet** | `bg-[#8b5cf6] text-white` | "ALLEEN BIJ PICYOURBOOTH" |
 | **Coral** | `bg-[#f0654a] text-white` | DJ Gianni genre tags |
-| **Cyan** | `bg-[#34d399] text-black` | Milo genre tags |
+| **Cyan** | `bg-[#0ea5e9] text-black` | Milo genre tags |
 | **Muted** | `bg-white/10 text-white/60` | Secondary labels |
 
 ### Input (Form)

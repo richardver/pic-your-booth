@@ -17,7 +17,7 @@ Tokens, colors, typography, and component specs. Full reference in `.claude/agen
 | Gold | #f59e42 | Photobooth accent, CTAs, prices |
 | Violet | #8b5cf6 | DJ Hub accent, DJ CTAs |
 | Coral | #f0654a | DJ Gianni (profile only) |
-| Cyan | #34d399 | Milo (profile only) |
+| Cyan | #0ea5e9 | Milo (profile only) |
 
 **Removed colors:** No red (#ff494a), no pink (#e839a0).
 

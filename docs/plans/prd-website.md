@@ -67,7 +67,7 @@ Border:        rgba(255,255,255,0.06)
 Gold:          #f59e42 (photobooth accent)
 Violet:        #8b5cf6 (DJ accent)
 Coral:         #f0654a (DJ Gianni)
-Cyan:          #34d399 (Milo)
+Cyan:          #0ea5e9 (Milo)
 ```
 
 ### Typography
