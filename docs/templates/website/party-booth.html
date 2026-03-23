@@ -1134,15 +1134,43 @@ a { color: inherit; text-decoration: none; }
 
 .faq-item {
   border-bottom: 1px solid var(--border);
-  padding: 24px 0;
 }
 
-.faq-question {
+.faq-item summary {
   font-family: var(--font-body);
   font-size: 1rem;
   font-weight: 600;
   color: var(--text);
-  margin-bottom: 8px;
+  padding: 20px 0;
+  cursor: pointer;
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: color 0.2s;
+}
+
+.faq-item summary:hover {
+  color: var(--gold);
+}
+
+.faq-item summary::-webkit-details-marker {
+  display: none;
+}
+
+.faq-item summary::after {
+  content: "+";
+  font-family: var(--font-body);
+  font-size: 1.2rem;
+  font-weight: 300;
+  color: var(--text-muted);
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  flex-shrink: 0;
+  margin-left: 16px;
+}
+
+.faq-item[open] summary::after {
+  content: "-";
 }
 
 .faq-answer {
@@ -1151,6 +1179,7 @@ a { color: inherit; text-decoration: none; }
   font-weight: 300;
   color: var(--text-muted);
   line-height: 1.7;
+  padding-bottom: 20px;
 }
 </style>
 </head>
@@ -1342,22 +1371,10 @@ a { color: inherit; text-decoration: none; }
      ============================================================ -->
 <section class="faq" id="faq">
   <h2 class="faq-title">Veelgestelde Vragen</h2>
-  <div class="faq-item">
-    <h3 class="faq-question">Wat kost een photobooth huren?</h3>
-    <p class="faq-answer">Party Booth vanaf €199 per dag. Digitale photobooth, foto's delen via QR code.</p>
-  </div>
-  <div class="faq-item">
-    <h3 class="faq-question">Moet ik het zelf opzetten?</h3>
-    <p class="faq-answer">Ja, ophalen en in 5 minuten klaar. Of bezorging, installatie en ophalen voor €49.</p>
-  </div>
-  <div class="faq-item">
-    <h3 class="faq-question">Wat is AI Achtergrond?</h3>
-    <p class="faq-answer">AI vervangt de achtergrond automatisch. Kies strand, skyline of jungle. Inclusief beautify filter. +€35.</p>
-  </div>
-  <div class="faq-item">
-    <h3 class="faq-question">Kan ik er een DJ bij boeken?</h3>
-    <p class="faq-answer">Ja, Live DJ Set als upgrade voor €149 inclusief speakers, licht en rookmachine.</p>
-  </div>
+  <details class="faq-item"><summary>Wat kost een photobooth huren?</summary><p class="faq-answer">Party Booth vanaf €199 per dag. Digitale photobooth, foto's delen via QR code.</p></details>
+  <details class="faq-item"><summary>Moet ik het zelf opzetten?</summary><p class="faq-answer">Ja, ophalen en in 5 minuten klaar. Of bezorging, installatie en ophalen voor €49.</p></details>
+  <details class="faq-item"><summary>Wat is AI Achtergrond?</summary><p class="faq-answer">AI vervangt de achtergrond automatisch. Kies strand, skyline of jungle. Inclusief beautify filter. +€35.</p></details>
+  <details class="faq-item"><summary>Kan ik er een DJ bij boeken?</summary><p class="faq-answer">Ja, Live DJ Set als upgrade voor €149 inclusief speakers, licht en rookmachine.</p></details>
 </section>
 
 <!-- ============================================================
