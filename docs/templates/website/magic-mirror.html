@@ -821,6 +821,100 @@ a { color: inherit; text-decoration: none; }
     padding-top: 16px;
   }
 }
+
+/* -- Hero Slow Zoom (Ken Burns) ----------------------------- */
+@keyframes heroZoom {
+  from { transform: scale(1); }
+  to   { transform: scale(1.08); }
+}
+
+.hero::before {
+  animation: heroZoom 20s ease-out forwards;
+}
+
+/* -- Price Pulse (reusable) --------------------------------- */
+@keyframes pricePulse {
+  0%   { text-shadow: 0 0 0 transparent; }
+  50%  { text-shadow: 0 0 16px rgba(212, 177, 78, 0.5); }
+  100% { text-shadow: 0 0 0 transparent; }
+}
+
+.price-pulse {
+  animation: pricePulse 0.4s ease-out;
+}
+
+/* -- Scroll-Reveal ------------------------------------------ */
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* -- Nav Scroll Progress Bar -------------------------------- */
+.scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 0%;
+  height: 2px;
+  background: var(--gold);
+  z-index: 101;
+  pointer-events: none;
+  transition: none;
+}
+
+/* -- Cursor Glow (desktop only) ----------------------------- */
+.cursor-glow {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 400px;
+  height: 400px;
+  pointer-events: none;
+  z-index: 1;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle at center,
+    rgba(212, 177, 78, 0.08) 0%,
+    rgba(212, 177, 78, 0.04) 20%,
+    rgba(212, 177, 78, 0.015) 40%,
+    transparent 65%
+  );
+  transform: translate(-200px, -200px);
+  will-change: transform;
+  filter: blur(1px);
+}
+
+@media (max-width: 768px) {
+  .cursor-glow { display: none; }
+}
+
+/* -- Reduced Motion Override -------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  .hero::before {
+    animation: none;
+  }
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+  .price-pulse {
+    animation: none;
+  }
+  .scroll-progress {
+    display: none;
+  }
+  .cursor-glow {
+    display: none;
+  }
+}
 </style>
 </head>
 <body>
@@ -859,7 +953,7 @@ a { color: inherit; text-decoration: none; }
 <!-- ============================================================
      USPs
      ============================================================ -->
-<section class="usp-section">
+<section class="usp-section reveal">
   <div class="usp-section-header">
     <span class="usp-section-label">Waarom Magic Mirror XL</span>
     <h2 class="usp-section-title">Het Verschil Zit In Elk Detail</h2>
@@ -906,7 +1000,7 @@ a { color: inherit; text-decoration: none; }
 <!-- ============================================================
      PACKAGE BUILDER
      ============================================================ -->
-<div class="builder">
+<div class="builder reveal">
   <h2 class="builder-heading">Bouw Jouw Perfecte Avond</h2>
   <p class="builder-subheading">Start met alles wat je nodig hebt. Voeg toe wat jouw event onvergetelijk maakt.</p>
 
@@ -1066,6 +1160,13 @@ a { color: inherit; text-decoration: none; }
     var el = document.getElementById('mirror-total');
     if (el) {
       el.textContent = '\u20AC' + total;
+      el.classList.remove('price-pulse');
+      void el.offsetWidth;
+      el.classList.add('price-pulse');
+      el.addEventListener('animationend', function handler() {
+        el.classList.remove('price-pulse');
+        el.removeEventListener('animationend', handler);
+      });
     }
   }
 })();
@@ -1137,6 +1238,82 @@ a { color: inherit; text-decoration: none; }
   document.addEventListener('keydown', function(e) {
     if (e.key === 'Escape') closeModal();
   });
+})();
+</script>
+
+<!-- Scroll Progress Bar -->
+<div class="scroll-progress" id="scrollProgress"></div>
+
+<!-- Cursor Glow -->
+<div class="cursor-glow" id="cursorGlow"></div>
+
+<script>
+(function () {
+  'use strict';
+
+  /* -- Respect reduced motion -------------------------------- */
+  var prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (prefersReduced) return;
+
+  /* ==========================================================
+     1. SCROLL-REVEAL SECTIONS
+     ========================================================== */
+  var revealObserver = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        revealObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.15 });
+
+  document.querySelectorAll('.reveal').forEach(function (el) {
+    revealObserver.observe(el);
+  });
+
+  /* ==========================================================
+     2. NAV SCROLL PROGRESS BAR
+     ========================================================== */
+  var progressBar = document.getElementById('scrollProgress');
+  var ticking = false;
+
+  function updateProgress() {
+    var scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+    var docHeight = document.documentElement.scrollHeight - window.innerHeight;
+    var scrollPercent = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+    progressBar.style.width = scrollPercent + '%';
+    ticking = false;
+  }
+
+  window.addEventListener('scroll', function () {
+    if (!ticking) {
+      requestAnimationFrame(updateProgress);
+      ticking = true;
+    }
+  }, { passive: true });
+
+  /* ==========================================================
+     3. CURSOR GLOW (DESKTOP ONLY)
+     ========================================================== */
+  if (window.innerWidth > 768) {
+    var glow = document.getElementById('cursorGlow');
+    var glowTicking = false;
+    var mouseX = -600;
+    var mouseY = -600;
+
+    document.addEventListener('mousemove', function (e) {
+      mouseX = e.clientX;
+      mouseY = e.clientY;
+      if (!glowTicking) {
+        requestAnimationFrame(function () {
+          glow.style.transform = 'translate(' + (mouseX - 200) + 'px, ' + (mouseY - 200) + 'px)';
+          glowTicking = false;
+        });
+        glowTicking = true;
+      }
+    }, { passive: true });
+  }
+
 })();
 </script>
 
