@@ -53,6 +53,7 @@ pic-your-booth/
 │   ├── plans/             → Brainstorm sessions, design docs, implementation plans
 │   ├── templates/         → Visual templates & assets
 │   │   ├── design-system/ → HTML design systems, tokens JSON
+│   │   ├── website/       → 5 page templates (homepage, magic-mirror, party-booth, djs, offerte)
 │   │   ├── djs/           → DJ Gianni (brand, social, photos) + Milo
 │   │   └── ads/meta/      → Meta Ads design system
 │   ├── marketing/         → Shared psychology frameworks

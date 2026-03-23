@@ -44,6 +44,7 @@ pic-your-booth/
 │   ├── plans/                            - PRD, brainstorm sessions, design documents
 │   └── templates/                        - Visual assets only (HTML, images, JSON)
 │       ├── design-system/               - HTML design systems, tokens JSON
+│       ├── website/                    - 5 page templates (homepage, magic-mirror, party-booth, djs, offerte)
 │       ├── djs/dj-gianni/              - Brand guide, social/, photos/
 │       ├── djs/milo/                   - Brand guide, profile
 │       └── ads/meta/                   - Meta Ads design system

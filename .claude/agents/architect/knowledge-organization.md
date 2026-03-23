@@ -48,12 +48,9 @@ docs/
 | Design documents | `docs/plans/` | `design-doc-package-builder.md` |
 | Implementation plans | `docs/plans/` | `plan-website-phase-1.md` |
 | HTML design systems | `docs/templates/design-system/` | `pyb-design-system-web.html` |
+| Website page templates | `docs/templates/website/` | `homepage.html`, `magic-mirror.html`, `party-booth.html`, `djs.html`, `offerte.html` |
 | DJ templates & assets | `docs/templates/djs/dj-gianni/` | `brand-guide.html`, `social/` |
 | Ad creative templates | `docs/templates/ads/meta/` | `pyb-design-system-meta-ads.html` |
-| Website PRD | `docs/website/` | `prd-website.md` |
-| CRO & conversion | `docs/website/` | `website-design-cro.md` |
-| Landing page frameworks | `docs/website/` | `website-design-landing-pages.md` |
-| Export workflow | `docs/` | `export-guide.md` |
 
 ---
 
