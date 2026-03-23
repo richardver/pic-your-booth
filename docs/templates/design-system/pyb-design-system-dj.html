@@ -29,7 +29,7 @@
   --gi-light: #f4826c;
   --gi-dim: rgba(240,101,74,0.10);
 
-  --mi: #a78bfa;
+  --mi: #34d399;
   --mi-light: #5ae0f0;
   --mi-dim: rgba(34,211,238,0.10);
 
@@ -1217,7 +1217,7 @@ body {
 
 .tag-coral { background: var(--gi-dim); color: var(--gi-light); border: 1px solid rgba(240,101,74,0.15); }
 .tag-cyan { background: var(--mi-dim); color: var(--mi-light); border: 1px solid rgba(34,211,238,0.15); }
-.tag-violet { background: var(--violet-dim); color: #a78bfa; border: 1px solid rgba(139,92,246,0.15); }
+.tag-violet { background: var(--violet-dim); color: #34d399; border: 1px solid rgba(139,92,246,0.15); }
 
 /* -- Toggle Switch ----------------------------------------- */
 .toggle {
@@ -1307,8 +1307,8 @@ body {
           <p style="font-size:11px;color:rgba(237,237,240,0.4);">data-segment="gianni" → --primary: coral #f0654a</p>
         </div>
         <div style="background:rgba(34,211,238,0.08);border:1px solid rgba(34,211,238,0.15);border-radius:10px;padding:14px;">
-          <p style="font-family:'Bebas Neue',sans-serif;font-size:12px;letter-spacing:0.08em;color:#a78bfa;margin-bottom:4px;">MILO</p>
-          <p style="font-size:11px;color:rgba(237,237,240,0.4);">data-segment="milo" → --primary: cyan #a78bfa</p>
+          <p style="font-family:'Bebas Neue',sans-serif;font-size:12px;letter-spacing:0.08em;color:#34d399;margin-bottom:4px;">MILO</p>
+          <p style="font-size:11px;color:rgba(237,237,240,0.4);">data-segment="milo" → --primary: cyan #34d399</p>
         </div>
       </div>
       <div style="font-size:11px;color:rgba(237,237,240,0.35);border-top:1px solid rgba(255,255,255,0.06);padding-top:10px;">
@@ -1594,8 +1594,8 @@ body {
       <div class="swatch-info"><div class="swatch-name">Gianni Coral</div><div class="swatch-hex">#f0654a</div></div>
     </div>
     <div class="swatch">
-      <div class="swatch-color" style="background:#a78bfa;"></div>
-      <div class="swatch-info"><div class="swatch-name">Milo Cyan</div><div class="swatch-hex">#a78bfa</div></div>
+      <div class="swatch-color" style="background:#34d399;"></div>
+      <div class="swatch-info"><div class="swatch-name">Milo Cyan</div><div class="swatch-hex">#34d399</div></div>
     </div>
     <div class="swatch">
       <div class="swatch-color" style="background:#8b5cf6;"></div>
@@ -1792,7 +1792,7 @@ body {
         item.classList.add('playing');
         var title = item.querySelector('.set-info strong');
         var isGianni = item.closest('.gianni-profile') !== null;
-        var color = isGianni ? '#f0654a' : '#a78bfa';
+        var color = isGianni ? '#f0654a' : '#34d399';
 
         if (npBar && npTitle && title) {
           npTitle.textContent = title.textContent;

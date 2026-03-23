@@ -7,7 +7,7 @@ Photobooth operator & DJ at PicYourBooth. Richard's son.
 - **DJ name:** DJ Milø
 - **Music style:** House, Techno, Deep
 - **Tagline:** "Je voelt de bass, je vergeet de tijd"
-- **Color:** Cyan #a78bfa
+- **Color:** Cyan #34d399
 - **Logo mark:** Diamond (M) - rotated square, angular, geometric
 - **Platforms:** Instagram, SoundCloud, TikTok
 - **Contact:** info@picyourbooth.nl

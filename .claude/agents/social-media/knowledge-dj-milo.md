@@ -11,13 +11,13 @@ Profile and brand for social content. Full profile in `docs/templates/djs/milo/p
 | DJ name | DJ Milø |
 | Style | House, Techno, Deep |
 | Tagline | "Je voelt de bass, je vergeet de tijd" |
-| Color | Cyan #a78bfa |
+| Color | Cyan #34d399 |
 | Logo mark | Diamond (M) — rotated square |
 | Platforms | Instagram, SoundCloud, TikTok |
 
 ## Visual Mode
 
-- Cyan #a78bfa accent, diamond motif
+- Cyan #34d399 accent, diamond motif
 - Deep, underwater, immersive aesthetic
 - Bebas Neue + Space Grotesk typography
 - Brand guide: `docs/templates/djs/milo/brand-guide.html`
