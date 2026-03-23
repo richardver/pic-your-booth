@@ -1,0 +1,19 @@
+# Security Headers
+Header set X-Frame-Options "SAMEORIGIN"
+Header set X-Content-Type-Options "nosniff"
+Header set Referrer-Policy "strict-origin-when-cross-origin"
+Header set Permissions-Policy "camera=(), microphone=(), geolocation=()"
+
+# HSTS (uncomment after confirming HTTPS works)
+# Header set Strict-Transport-Security "max-age=31536000; includeSubDomains"
+
+# Basic CSP - allows inline styles/scripts (needed for current setup), Google Fonts, and Unsplash images
+Header set Content-Security-Policy "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' https://images.unsplash.com data:; connect-src 'self'; frame-ancestors 'self'"
+
+# Prevent directory listing
+Options -Indexes
+
+# Force HTTPS (uncomment after confirming HTTPS works on TransIP)
+# RewriteEngine On
+# RewriteCond %{HTTPS} off
+# RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]

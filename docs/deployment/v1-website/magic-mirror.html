@@ -3,19 +3,22 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Photobooth Huren Goedkoop | Party Booth vanaf €199 - PicYourBooth</title>
-<meta name="description" content="Digitale photobooth voor elk feest. Zelf ophalen, 5 minuten opzetten. AI achtergrond beschikbaar. Vanaf €199 per dag.">
-<link rel="canonical" href="https://picyourbooth.nl/party-booth">
-<meta property="og:title" content="Photobooth Huren Goedkoop | Party Booth vanaf €199">
-<meta property="og:description" content="Digitale photobooth voor elk feest. Zelf ophalen, 5 minuten opzetten. Vanaf €199 per dag.">
+<title>Fotospiegel Huren | AI Photobooth | Magic Mirror XL - PicYourBooth</title>
+<meta name="description" content="Premium fotospiegel met professionele camera. Geen tijdslimiet, bezorging inbegrepen. AI Photo Experience beschikbaar. Vanaf €599 per event.">
+<link rel="canonical" href="https://picyourbooth.nl/magic-mirror">
+<meta property="og:title" content="Fotospiegel Huren | AI Photobooth | Magic Mirror XL">
+<meta property="og:description" content="Premium fotospiegel met professionele camera. Geen tijdslimiet, bezorging inbegrepen. Vanaf €599 per event.">
 <meta property="og:type" content="website">
-<meta property="og:url" content="https://picyourbooth.nl/party-booth">
+<meta property="og:url" content="https://picyourbooth.nl/magic-mirror">
 <meta property="og:locale" content="nl_NL">
+<meta property="og:image" content="https://picyourbooth.nl/assets/images/magic-mirror-hero-1280x720.webp">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
 /* ============================================================
-   PICYOURBOOTH — PARTY BOOTH
-   Fun, accessible, inviting. Still premium. Not dark luxury.
+   PICYOURBOOTH — MAGIC MIRROR XL
+   Dark luxury. Typography is the design. Whitespace is premium.
    ============================================================ */
 
 /* -- Design Tokens ------------------------------------- */
@@ -135,7 +138,7 @@ a { color: inherit; text-decoration: none; }
   top: 0;
   z-index: 100;
   background: var(--bg);
-  transition: background 0.3s ease, backdrop-filter 0.3s ease;
+  transition: background 0.3s ease, backdrop-filter 0.3s ease, -webkit-backdrop-filter 0.3s ease;
 }
 
 .nav-bar.scrolled {
@@ -260,7 +263,7 @@ a { color: inherit; text-decoration: none; }
   content: '';
   position: absolute;
   inset: 0;
-  background-image: url('../../assets/web/party-booth-hero-1920x1080.webp');
+  background-image: url('assets/images/magic-mirror-hero-1920x1080.webp');
   background-size: cover;
   background-position: center 30%;
   opacity: 0.2;
@@ -294,17 +297,13 @@ a { color: inherit; text-decoration: none; }
 
 .hero-label {
   font-family: var(--font-body);
-  font-size: 0.75rem;
+  font-size: 10px;
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.15em;
   color: var(--gold);
   margin-bottom: 12px;
-  display: inline-block;
-  padding: 6px 16px;
-  border-radius: var(--r-pill);
-  background: var(--gold-dim);
-  font-variant-numeric: tabular-nums;
+  display: block;
 }
 
 .hero-title {
@@ -316,23 +315,21 @@ a { color: inherit; text-decoration: none; }
 .hero-subtitle {
   font-size: 15px;
   color: var(--text-muted);
-  max-width: 480px;
-  margin: 0 auto;
+  max-width: 520px;
+  margin: 0 auto 24px;
   font-weight: 300;
   line-height: 1.7;
 }
 
 .hero-price {
-  display: inline-block;
-  margin-top: 20px;
   font-family: var(--font-body);
-  font-size: 1rem;
+  font-size: 1.1rem;
   font-weight: 600;
   color: var(--gold);
   font-variant-numeric: tabular-nums;
 }
 
-/* -- USP Section (2x2 Grid) ---------------------------- */
+/* -- USP Section --------------------------------------- */
 .usp-section {
   padding: 120px 32px;
   max-width: 800px;
@@ -344,51 +341,63 @@ a { color: inherit; text-decoration: none; }
   margin-bottom: 48px;
 }
 
+.usp-section-label {
+  font-family: var(--font-body);
+  font-size: 10px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--gold);
+  margin-bottom: 8px;
+  display: block;
+}
+
 .usp-section-title {
   font-size: 2rem;
   letter-spacing: 0.06em;
 }
 
-.usp-grid {
+.usp-list {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 20px;
+  gap: 24px;
 }
 
-.usp-card {
-  background: linear-gradient(165deg, #111116 0%, #15151c 100%);
-  border: 1px solid rgba(245, 158, 66, 0.08);
-  border-radius: var(--r-md);
-  padding: 28px;
-  transition: border-color 0.25s var(--ease);
-}
-
-.usp-card:hover {
-  border-color: rgba(245, 158, 66, 0.18);
-}
-
-.usp-card__icon {
-  width: 40px;
-  height: 40px;
-  margin-bottom: 16px;
+.usp-item {
   display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: var(--r-sm);
-  background: rgba(245, 158, 66, 0.08);
+  flex-direction: column;
+  gap: 0;
+  background: linear-gradient(165deg, var(--surface) 0%, var(--surface-up) 100%);
+  border: 1px solid var(--border);
+  border-radius: var(--r-md);
+  overflow: hidden;
+  transition: border-color 0.25s var(--ease), transform 0.35s var(--ease), box-shadow 0.35s var(--ease);
 }
 
-.usp-card__icon svg {
-  width: 22px;
-  height: 22px;
-  stroke: var(--gold);
-  fill: none;
-  stroke-width: 1.5;
-  stroke-linecap: round;
-  stroke-linejoin: round;
+.usp-item:hover {
+  border-color: rgba(245, 158, 66, 0.18);
+  transform: translateY(-4px);
+  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.3), 0 0 16px rgba(245, 158, 66, 0.06);
 }
 
-.usp-card__title {
+.usp-item__img {
+  width: 100%;
+  height: 180px;
+  border-radius: 0;
+  flex-shrink: 0;
+  background-size: cover;
+  background-position: center;
+  border: none;
+  border-bottom: 1px solid var(--border);
+}
+
+.usp-item__text {
+  flex: 1;
+  padding: 24px;
+  border-left: none;
+}
+
+.usp-item__title {
   font-family: var(--font-display);
   font-size: 1.1rem;
   letter-spacing: 0.06em;
@@ -397,144 +406,11 @@ a { color: inherit; text-decoration: none; }
   color: var(--gold);
 }
 
-.usp-card__desc {
+.usp-item__desc {
   font-size: 0.85rem;
   color: var(--text-muted);
   line-height: 1.6;
   font-weight: 300;
-}
-
-@media (max-width: 600px) {
-  .usp-grid {
-    grid-template-columns: 1fr;
-    gap: 16px;
-  }
-}
-
-/* -- AI Callout Section -------------------------------- */
-.ai-callout {
-  max-width: 640px;
-  margin: 0 auto;
-  padding: 0 32px 80px;
-  text-align: center;
-}
-
-.ai-callout__title {
-  font-size: 1.75rem;
-  letter-spacing: 0.06em;
-  margin-bottom: 12px;
-}
-
-.ai-callout__desc {
-  font-size: 0.9rem;
-  color: var(--text-muted);
-  font-weight: 300;
-  line-height: 1.7;
-  max-width: 520px;
-  margin: 0 auto 32px;
-}
-
-.ai-compare {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 16px;
-}
-
-.ai-compare__box {
-  border-radius: var(--r-md);
-  padding: 24px 20px;
-  text-align: center;
-}
-
-.ai-compare__box--before {
-  background: var(--surface);
-  border: 1px solid var(--border);
-}
-
-.ai-compare__box--after {
-  background: linear-gradient(165deg, #111116 0%, #15151c 100%);
-  border: 1px solid rgba(245, 158, 66, 0.25);
-}
-
-.ai-compare__label {
-  font-family: var(--font-display);
-  font-size: 1rem;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  margin-bottom: 8px;
-}
-
-.ai-compare__icon {
-  width: 36px;
-  height: 36px;
-  margin: 0 auto 12px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.ai-compare__icon svg {
-  width: 24px;
-  height: 24px;
-  fill: none;
-  stroke-width: 1.5;
-  stroke-linecap: round;
-  stroke-linejoin: round;
-}
-
-.ai-compare__box--before .ai-compare__icon svg {
-  stroke: var(--text-muted);
-}
-
-.ai-compare__box--after .ai-compare__icon svg {
-  stroke: var(--gold);
-}
-
-.ai-compare__box--before .ai-compare__label {
-  color: var(--text-muted);
-}
-
-.ai-compare__box--after .ai-compare__label {
-  color: var(--gold);
-}
-
-.ai-compare__text {
-  font-size: 0.8rem;
-  color: var(--text-muted);
-  font-weight: 300;
-  line-height: 1.5;
-}
-
-.ai-compare__box--after .ai-compare__text {
-  color: var(--text);
-}
-
-.ai-price {
-  display: inline-block;
-  margin-top: 24px;
-  font-family: var(--font-body);
-  font-size: 0.85rem;
-  font-weight: 600;
-  color: var(--gold);
-  padding: 6px 16px;
-  border-radius: var(--r-pill);
-  background: var(--gold-dim);
-  font-variant-numeric: tabular-nums;
-}
-
-@media (max-width: 480px) {
-  .ai-compare {
-    grid-template-columns: 1fr;
-  }
-}
-
-/* -- Gold Divider -------------------------------------- */
-.gold-divider {
-  width: 80px;
-  height: 1px;
-  background: var(--gold);
-  margin: 0 auto;
-  opacity: 0.35;
 }
 
 /* -- Package Builder ----------------------------------- */
@@ -560,10 +436,10 @@ a { color: inherit; text-decoration: none; }
 }
 
 .builder-base {
-  background: linear-gradient(165deg, #111116 0%, #15151c 100%);
+  background: var(--surface);
   border-radius: var(--r-md);
   padding: 28px;
-  border: 1px solid rgba(245, 158, 66, 0.08);
+  border: 1px solid var(--border);
   margin-bottom: 40px;
   position: relative;
   background-image: linear-gradient(135deg, rgba(245, 158, 66, 0.04) 0%, transparent 60%);
@@ -631,10 +507,10 @@ a { color: inherit; text-decoration: none; }
 
 /* -- Upgrade Row --------------------------------------- */
 .upgrade-row {
-  background: linear-gradient(165deg, #111116 0%, #15151c 100%);
+  background: var(--surface);
   border-radius: var(--r-md);
   padding: 20px 24px;
-  border: 1px solid rgba(245, 158, 66, 0.08);
+  border: 1px solid var(--border);
   margin-bottom: 12px;
   display: flex;
   align-items: center;
@@ -653,7 +529,6 @@ a { color: inherit; text-decoration: none; }
   width: 50%;
   height: 100%;
   background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.04), transparent);
-  transition: none;
   pointer-events: none;
 }
 
@@ -662,13 +537,13 @@ a { color: inherit; text-decoration: none; }
 }
 
 @keyframes shimmerSweep {
-  0% { left: -50%; }
+  0%   { left: -50%; }
   100% { left: 150%; }
 }
 
 .upgrade-row:hover {
   box-shadow: 0 0 30px rgba(245, 158, 66, 0.04);
-  border-color: rgba(245, 158, 66, 0.18);
+  border-color: var(--border-hover);
 }
 
 .upgrade-row.active {
@@ -776,29 +651,45 @@ a { color: inherit; text-decoration: none; }
 /* -- Running Total ------------------------------------- */
 .builder-total {
   text-align: center;
-  padding: 20px 24px;
-  background: var(--surface);
-  border-radius: var(--r-md);
-  border: 1px solid var(--border);
-  margin-top: 24px;
-  margin-bottom: 20px;
+  padding: 28px 32px;
+  background: linear-gradient(165deg, var(--surface) 0%, rgba(245, 158, 66, 0.03) 100%);
+  border-radius: var(--r-lg);
+  border: 1px solid rgba(245, 158, 66, 0.15);
+  margin-top: 28px;
+  margin-bottom: 24px;
+  position: relative;
+  box-shadow: 0 0 24px rgba(245, 158, 66, 0.04);
 }
 
 .builder-total__label {
-  font-size: 11px;
-  font-weight: 500;
+  font-family: var(--font-display);
+  font-size: 0.75rem;
+  font-weight: 400;
   color: var(--text-muted);
   text-transform: uppercase;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.14em;
+  margin-bottom: 4px;
 }
 
 .builder-total__amount {
-  font-family: var(--font-body);
-  font-size: 2.2rem;
-  font-weight: 600;
+  font-family: var(--font-display);
+  font-size: 3rem;
+  font-weight: 400;
   letter-spacing: 0.04em;
-  color: var(--gold);
+  background: linear-gradient(135deg, var(--gold) 0%, var(--gold-light) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
   font-variant-numeric: tabular-nums;
+  line-height: 1.1;
+}
+
+.builder-total__btw {
+  font-size: 11px;
+  color: var(--text-muted);
+  font-weight: 300;
+  margin-top: 6px;
+  letter-spacing: 0.04em;
 }
 
 /* -- CTA Button ---------------------------------------- */
@@ -825,6 +716,15 @@ a { color: inherit; text-decoration: none; }
   opacity: 0.92;
   transform: translateY(-1px);
   box-shadow: 0 8px 32px var(--gold-glow);
+}
+
+/* -- Gold Divider -------------------------------------- */
+.gold-divider {
+  width: 80px;
+  height: 1px;
+  background: var(--gold);
+  margin: 0 auto;
+  opacity: 0.35;
 }
 
 /* -- Footer -------------------------------------------- */
@@ -976,13 +876,13 @@ a { color: inherit; text-decoration: none; }
   height: 3px;
   border-radius: 50%;
   pointer-events: none;
-  z-index: 149;
+  z-index: 10000;
   animation: floatUp 3s ease-out forwards;
   opacity: 0.4;
 }
 
 @keyframes floatUp {
-  0% { opacity: 0.4; transform: translateY(0) scale(1); }
+  0%   { opacity: 0.4; transform: translateY(0) scale(1); }
   100% { opacity: 0; transform: translateY(-120px) scale(0.3); }
 }
 
@@ -994,9 +894,6 @@ a { color: inherit; text-decoration: none; }
   }
   .usp-section {
     padding: 48px 20px;
-  }
-  .ai-callout {
-    padding: 0 20px 48px;
   }
   .builder {
     padding: 64px 20px;
@@ -1011,12 +908,24 @@ a { color: inherit; text-decoration: none; }
   }
 }
 
-@media (max-width: 480px) {
-  .usp-grid {
+@media (max-width: 600px) {
+  .usp-list {
     grid-template-columns: 1fr;
   }
-  .ai-compare {
-    grid-template-columns: 1fr;
+  .usp-item__img {
+    height: 160px;
+  }
+  .usp-item__text {
+    border-left: none;
+    border-top: none;
+    padding: 24px;
+  }
+  .usp-item__title {
+    font-size: 1rem;
+    margin-bottom: 8px;
+  }
+  .usp-item__desc {
+    font-size: 0.82rem;
   }
 }
 
@@ -1028,6 +937,17 @@ a { color: inherit; text-decoration: none; }
 
 .hero::before {
   animation: heroZoom 20s ease-out forwards;
+}
+
+/* -- Price Pulse (reusable) ---------------------------- */
+@keyframes pricePulse {
+  0%   { text-shadow: 0 0 0 transparent; }
+  50%  { text-shadow: 0 0 16px rgba(245, 158, 66, 0.5); }
+  100% { text-shadow: 0 0 0 transparent; }
+}
+
+.price-pulse {
+  animation: pricePulse 0.4s ease-out;
 }
 
 /* -- Scroll-Reveal ------------------------------------- */
@@ -1043,7 +963,7 @@ a { color: inherit; text-decoration: none; }
   transform: translateY(0);
 }
 
-/* -- Staggered Child Reveals -------------------------- */
+/* -- Staggered Children Reveal ------------------------- */
 .reveal > * {
   opacity: 0;
   transform: translateY(16px);
@@ -1101,21 +1021,10 @@ a { color: inherit; text-decoration: none; }
   .cursor-glow { display: none; }
 }
 
-/* -- Price Pulse (reusable) ---------------------------- */
-@keyframes pricePulse {
-  0%   { text-shadow: 0 0 0 transparent; }
-  50%  { text-shadow: 0 0 16px rgba(245, 158, 66, 0.5); }
-  100% { text-shadow: 0 0 0 transparent; }
-}
-
-.price-pulse {
-  animation: pricePulse 0.4s ease-out;
-}
-
 /* -- Confetti Burst ------------------------------------ */
 @keyframes confettiBurst {
   0%   { opacity: 1; transform: translate(0, 0) scale(1); }
-  100% { opacity: 0; transform: translate(var(--cx), var(--cy)) scale(0.4); }
+  100% { opacity: 0; transform: translate(var(--cx), var(--cy)) scale(0); }
 }
 
 .confetti-particle {
@@ -1123,9 +1032,10 @@ a { color: inherit; text-decoration: none; }
   width: 4px;
   height: 4px;
   background: var(--gold);
+  border-radius: 50%;
   pointer-events: none;
-  z-index: 10000;
-  animation: confettiBurst 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  z-index: 200;
+  animation: confettiBurst 0.6s ease-out forwards;
 }
 
 /* -- Mobile Menu Open State ---------------------------- */
@@ -1141,17 +1051,33 @@ a { color: inherit; text-decoration: none; }
   align-items: center;
   gap: 32px;
   padding: 32px;
+  animation: menuFadeIn 0.2s ease both;
+}
+
+@keyframes menuFadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
 }
 
 .nav-links.open li {
   list-style: none;
+  opacity: 1 !important;
+  transform: none !important;
+  transition: none !important;
 }
 
 .nav-links.open a {
   font-size: 1.5rem;
   color: var(--text);
+  opacity: 1 !important;
+  transform: none !important;
 }
 
+.nav-links.open .nav-cta {
+  color: #000000;
+  font-size: 1.3rem;
+  padding: 14px 36px;
+}
 .nav-hamburger.active {
   position: fixed;
   top: 20px;
@@ -1171,89 +1097,19 @@ a { color: inherit; text-decoration: none; }
   transform: rotate(-45deg) translate(4px, -4px);
 }
 
-/* -- Tablet touch targets (601px-768px) ---------------- */
-@media (max-width: 768px) {
-  .nav-hamburger {
-    padding: 10px;
-    min-width: 44px;
-    min-height: 44px;
-    justify-content: center;
-    align-items: center;
-  }
-}
-
-/* -- Mobile layout (max 600px) ------------------------- */
-@media (max-width: 600px) {
-  .hero {
-    min-height: 50vh;
-    padding: 64px 20px 48px;
-  }
-  .hero-title {
-    font-size: clamp(1.8rem, 7vw, 2.5rem);
-  }
-  .usp-section,
-  .ai-callout,
-  .builder,
-  .faq {
-    padding-top: 64px;
-    padding-bottom: 64px;
-    padding-left: 20px;
-    padding-right: 20px;
-  }
-  .usp-card {
-    padding: 20px;
-  }
-  .ai-compare {
-    grid-template-columns: 1fr;
-  }
-}
-
-/* -- Small mobile (max 480px) -------------------------- */
-@media (max-width: 480px) {
-  .hero {
-    padding: 56px 16px 40px;
-  }
-  .hero-title {
-    font-size: clamp(1.6rem, 8vw, 2.2rem);
-  }
-  .hero-subtitle {
-    font-size: 13px;
-  }
-  .nav {
-    padding: 16px 16px;
-  }
-  .modal {
-    max-width: calc(100vw - 32px);
-    margin: 16px;
-    padding: 24px 20px;
-  }
-  .modal__image {
-    height: 180px;
-  }
-  .upgrade-row {
-    padding: 14px 16px;
-  }
-  .upgrade-row__name {
-    font-size: 13px;
-  }
+.nav-bar.menu-open {
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  background: transparent;
+  border-bottom-color: transparent;
 }
 
 /* -- Reduced Motion Override --------------------------- */
 @media (prefers-reduced-motion: reduce) {
-  body {
-    opacity: 1 !important;
-    transition: none !important;
-  }
   .hero::before {
     animation: none;
-    transform: none !important;
   }
   .reveal {
-    opacity: 1;
-    transform: none;
-    transition: none;
-  }
-  .reveal > * {
     opacity: 1;
     transform: none;
     transition: none;
@@ -1267,16 +1123,19 @@ a { color: inherit; text-decoration: none; }
   .cursor-glow {
     display: none;
   }
-  .confetti-particle {
-    animation: none;
+  body {
+    opacity: 1 !important;
+    transition: none !important;
+  }
+  .reveal > * {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+  .upgrade-row::after {
     display: none;
   }
   .modal-particle {
-    animation: none;
-    display: none;
-  }
-  .upgrade-row::after {
-    animation: none;
     display: none;
   }
 }
@@ -1346,6 +1205,87 @@ a { color: inherit; text-decoration: none; }
   line-height: 1.7;
   padding-bottom: 20px;
 }
+
+/* -- Tablet touch targets (max 768px) ------------------- */
+@media (max-width: 768px) {
+  .nav-hamburger {
+    padding: 10px;
+    min-width: 44px;
+    min-height: 44px;
+    justify-content: center;
+    align-items: center;
+  }
+  .faq {
+    padding: 64px 24px;
+  }
+}
+
+/* -- Mobile (max 600px) --------------------------------- */
+@media (max-width: 600px) {
+  .hero {
+    min-height: 50vh;
+    padding: 64px 20px 48px;
+  }
+  .hero-title {
+    font-size: clamp(1.8rem, 7vw, 2.5rem);
+  }
+  .usp-section,
+  .builder,
+  .faq {
+    padding-top: 64px;
+    padding-bottom: 64px;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  .usp-item {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+
+/* -- Small mobile (max 480px) --------------------------- */
+@media (max-width: 480px) {
+  .hero {
+    padding: 56px 16px 40px;
+  }
+  .hero-title {
+    font-size: clamp(1.6rem, 8vw, 2.2rem);
+  }
+  .hero-subtitle {
+    font-size: 13px;
+  }
+  .nav {
+    padding: 16px 16px;
+  }
+  .modal {
+    max-width: calc(100vw - 32px);
+    margin: 16px;
+  }
+  .modal__body {
+    padding: 24px 20px;
+  }
+  .modal__image {
+    height: 180px;
+  }
+  .upgrade-row {
+    padding: 14px 16px;
+  }
+  .faq-item summary {
+    font-size: 0.95rem;
+  }
+}
+
+/* -- Responsive Hero Images ------------------------------- */
+@media (max-width: 1280px) {
+  .hero::before {
+    background-image: url('assets/images/magic-mirror-hero-1280x720.webp');
+  }
+}
+@media (max-width: 768px) {
+  .hero::before {
+    background-image: url('assets/images/magic-mirror-hero-768x432.webp');
+  }
+}
 </style>
 </head>
 <body>
@@ -1354,10 +1294,10 @@ a { color: inherit; text-decoration: none; }
      NAVIGATION
      ============================================================ -->
 <div class="nav-bar"><nav class="nav">
-  <a href="homepage.html" class="nav-logo">PicYourBooth</a>
+  <a href="index.html" class="nav-logo">PicYourBooth</a>
   <ul class="nav-links">
-    <li><a href="party-booth.html" class="active">Party Booth</a></li>
-    <li><a href="magic-mirror.html">Magic Mirror XL</a></li>
+    <li><a href="party-booth.html">Party Booth</a></li>
+    <li><a href="magic-mirror.html" class="active">Magic Mirror XL</a></li>
     <li><a href="djs.html">DJs</a></li>
     <li><a href="offerte.html" class="nav-cta">Boek Je Ervaring</a></li>
   </ul>
@@ -1368,78 +1308,64 @@ a { color: inherit; text-decoration: none; }
   </button>
 </nav></div>
 
+<main>
+
 <!-- ============================================================
      HERO
      ============================================================ -->
 <section class="hero">
   <div class="hero-overlay"></div>
   <div class="hero-content">
-    <span class="hero-label">Digitale Photobooth</span>
-    <h1 class="hero-title text-gold-gradient">Photobooth Huren. Party Booth</h1>
-    <p class="hero-subtitle">Digitaal foto plezier voor elk feest.<br>Ophalen, opzetten, feesten.</p>
-    <span class="hero-price">Vanaf &euro;199 per dag</span>
+    <span class="hero-label">Meest Gekozen</span>
+    <h1 class="hero-title text-gold-gradient">Fotospiegel Huren.<br>Magic Mirror XL</h1>
+    <p class="hero-subtitle">Foto's die je wilt inlijsten. Geen tijdslimiet.<br>Wij bezorgen, installeren en halen op.</p>
+    <span class="hero-price">Vanaf &euro;599 per event</span>
   </div>
 </section>
 
 <!-- ============================================================
-     USPs - 2x2 Card Grid
+     USPs
      ============================================================ -->
 <section class="usp-section reveal">
   <div class="usp-section-header">
-    <h2 class="usp-section-title">Geen Gedoe, Wel Een Feestje</h2>
+    <span class="usp-section-label">Waarom Magic Mirror XL</span>
+    <h2 class="usp-section-title">Het Verschil Zit In Elk Detail</h2>
   </div>
-  <div class="usp-grid">
+  <div class="usp-list">
 
-    <div class="usp-card">
-      <div class="usp-card__icon"><svg viewBox="0 0 24 24"><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"/><polyline points="16 6 12 2 8 6"/><line x1="12" y1="2" x2="12" y2="15"/></svg></div>
-      <h3 class="usp-card__title">Direct Delen</h3>
-      <p class="usp-card__desc">Scan de QR code en deel je foto's direct op social media.</p>
+    <div class="usp-item">
+      <div class="usp-item__img" style="background-image:url('https://images.unsplash.com/photo-1516035069371-29a1b244cc32?w=400&q=80&auto=format');"></div>
+      <div class="usp-item__text">
+        <h3 class="usp-item__title">Foto's Die Je Wilt Inlijsten</h3>
+        <p class="usp-item__desc">Professionele camera met studiobelichting. Scherp, helder en kleurrijk. Het verschil met een gewone photobooth zie je meteen.</p>
+      </div>
     </div>
 
-    <div class="usp-card">
-      <div class="usp-card__icon"><svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 7V4a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v3"/></svg></div>
-      <h3 class="usp-card__title">Zelf Opzetten</h3>
-      <p class="usp-card__desc">Ophalen, neerzetten, aanzetten. Klaar in 5 minuten.</p>
+    <div class="usp-item">
+      <div class="usp-item__img" style="background-image:url('https://images.unsplash.com/photo-1565127452828-4cafa0404f8a?w=400&q=80&auto=format');"></div>
+      <div class="usp-item__text">
+        <h3 class="usp-item__title">Iedereen Ziet Er Geweldig Uit</h3>
+        <p class="usp-item__desc">Professionele studiobelichting waardoor iedereen er goed uitziet. Geen harde schaduwen, geen rode ogen. Elke foto is een keeper.</p>
+      </div>
     </div>
 
-    <div class="usp-card">
-      <div class="usp-card__icon"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
-      <h3 class="usp-card__title">Past Overal</h3>
-      <p class="usp-card__desc">Compact genoeg voor thuis, leuk genoeg voor een zaal.</p>
+    <div class="usp-item">
+      <div class="usp-item__img" style="background-image:url('https://images.unsplash.com/photo-1531973486364-5fa64260d75b?w=400&q=80&auto=format');"></div>
+      <div class="usp-item__text">
+        <h3 class="usp-item__title">Meenemen, Niet Vergeten</h3>
+        <p class="usp-item__desc">Elke gast loopt weg met een geprinte foto in de hand. Geen "stuur ik later". Direct een tastbaar aandenken van jouw avond.</p>
+      </div>
     </div>
 
-    <div class="usp-card">
-      <div class="usp-card__icon"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
-      <h3 class="usp-card__title">Geen Gedoe</h3>
-      <p class="usp-card__desc">Geen monteur, geen handleiding. Jij feest, de booth draait.</p>
+    <div class="usp-item">
+      <div class="usp-item__img" style="background-image:url('https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?w=400&q=80&auto=format');"></div>
+      <div class="usp-item__text">
+        <h3 class="usp-item__title">Gasten Voelen Zich Een Ster</h3>
+        <p class="usp-item__desc">De interactieve spiegel begeleidt je gasten stap voor stap. Upgrade naar VIP voor rode loper, backdrop en luxe props.</p>
+      </div>
     </div>
 
   </div>
-</section>
-
-<div class="gold-divider"></div>
-
-<!-- ============================================================
-     AI ACHTERGROND CALLOUT
-     ============================================================ -->
-<section class="ai-callout reveal" style="padding-top: 80px;">
-  <h2 class="ai-callout__title">Lelijke Achtergrond? Wij Fixen Het</h2>
-  <p class="ai-callout__desc">Rommelige kamer? Lelijke muur? Kies je droomachtergrond en AI vervangt het automatisch. Inclusief beautify filter voor strakke resultaten.</p>
-
-  <div class="ai-compare">
-    <div class="ai-compare__box ai-compare__box--before">
-      <div class="ai-compare__icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg></div>
-      <div class="ai-compare__label">Zonder AI</div>
-      <p class="ai-compare__text">Rommelige achtergrond, afleiding, niet deelbaar</p>
-    </div>
-    <div class="ai-compare__box ai-compare__box--after">
-      <div class="ai-compare__icon"><svg viewBox="0 0 24 24"><path d="M12 2L15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2z"/></svg></div>
-      <div class="ai-compare__label">Met AI</div>
-      <p class="ai-compare__text">Strakke achtergrond naar keuze, beautify filter, direct deelbaar</p>
-    </div>
-  </div>
-
-  <span class="ai-price">+&euro;35</span>
 </section>
 
 <div class="gold-divider"></div>
@@ -1448,74 +1374,87 @@ a { color: inherit; text-decoration: none; }
      PACKAGE BUILDER
      ============================================================ -->
 <div class="builder reveal">
-  <h2 class="builder-heading">Bouw Jouw Feestpakket</h2>
-  <p class="builder-subheading">Alles wat je nodig hebt. Voeg toe wat past bij jouw feest.</p>
+  <h2 class="builder-heading">Bouw Jouw Perfecte Avond</h2>
+  <p class="builder-subheading">Start met alles wat je nodig hebt. Voeg toe wat jouw event onvergetelijk maakt.</p>
 
   <!-- Base Package -->
   <div class="builder-base">
     <span class="builder-base__badge">Dit zit er altijd in</span>
-    <h2 class="builder-base__name">Party Booth</h2>
-    <div class="builder-base__price">&euro;199</div>
+    <h3 class="builder-base__name">Magic Mirror XL</h3>
+    <div class="builder-base__price">&euro;599</div>
     <ul class="builder-base__features">
-      <li>Digitale photobooth. Geen printer, wel direct delen</li>
-      <li>Foto's delen via QR code op je telefoon</li>
+      <li>Geen tijdslimiet. De booth blijft zolang het feest duurt</li>
+      <li>Professionele camera en studiobelichting. Foto's om in te lijsten</li>
+      <li>Direct printen op locatie. Elke gast neemt een aandenken mee</li>
       <li>Digitale galerij achteraf. Alle foto's deelbaar met iedereen</li>
-      <li>Basis fotostrip design inbegrepen</li>
-      <li>Ophalen bij ons. Klaar om te gebruiken</li>
+      <li>Bezorging, installatie en ophalen binnen 50 kilometer</li>
     </ul>
   </div>
 
   <!-- Upgrades -->
-  <h3 class="builder-upgrades-title">Maak Het Extra Bijzonder</h3>
+  <h3 class="builder-upgrades-title">Maak Het Compleet</h3>
 
-  <div class="upgrade-row" data-price="25" data-builder="party" onclick="toggleUpgrade(this)">
-    <button class="info-btn" onclick="event.stopPropagation(); openModal('design')" title="Meer info">?</button>
+  <div class="upgrade-row" data-price="149" data-builder="mirror">
+    <button class="info-btn" data-modal="vip" title="Meer info">?</button>
     <div class="upgrade-row__info">
-      <div class="upgrade-row__name">Premium Design</div>
-      <div class="upgrade-row__desc">Fotostrip, touchscreen en animaties op maat. Keuze uit duizenden templates.</div>
+      <div class="upgrade-row__name">VIP Upgrade</div>
+      <div class="upgrade-row__desc">Rode loper, backdrop en luxe props. Jouw gasten voelen zich celebrity.</div>
     </div>
-    <div class="upgrade-row__price">+&euro;25</div>
-    <label class="toggle" onclick="event.stopPropagation()">
-      <input type="checkbox" onchange="toggleUpgrade(this.closest('.upgrade-row'))">
+    <div class="upgrade-row__price">+&euro;149</div>
+    <label class="toggle">
+      <input type="checkbox" aria-label="VIP Upgrade">
       <span class="toggle-track"></span>
     </label>
   </div>
 
-  <div class="upgrade-row" data-price="49" data-builder="party" onclick="toggleUpgrade(this)">
-    <button class="info-btn" onclick="event.stopPropagation(); openModal('delivery')" title="Meer info">?</button>
+  <div class="upgrade-row" data-price="499" data-builder="mirror">
+    <button class="info-btn" data-modal="wedding" title="Meer info">?</button>
     <div class="upgrade-row__info">
-      <div class="upgrade-row__name">Bezorging, Installatie &amp; Ophalen</div>
-      <div class="upgrade-row__desc">Wij brengen, installeren en halen op bij je locatie.</div>
+      <div class="upgrade-row__name">Wedding Keychain Station</div>
+      <div class="upgrade-row__desc">Onbeperkt gepersonaliseerde sleutelhangers. Geen apart bedankje meer nodig.</div>
     </div>
-    <div class="upgrade-row__price">+&euro;49</div>
-    <label class="toggle" onclick="event.stopPropagation()">
-      <input type="checkbox" onchange="toggleUpgrade(this.closest('.upgrade-row'))">
+    <div class="upgrade-row__price">+&euro;499</div>
+    <label class="toggle">
+      <input type="checkbox" aria-label="Wedding Keychain Station">
       <span class="toggle-track"></span>
     </label>
   </div>
 
-  <div class="upgrade-row" data-price="35" data-builder="party" onclick="toggleUpgrade(this)">
-    <button class="info-btn" onclick="event.stopPropagation(); openModal('aibg')" title="Meer info">?</button>
+  <div class="upgrade-row" data-price="149" data-builder="mirror">
+    <button class="info-btn" data-modal="host" title="Meer info">?</button>
     <div class="upgrade-row__info">
-      <div class="upgrade-row__name">AI Achtergrond + Beautify</div>
-      <div class="upgrade-row__desc">AI achtergrond en beautify filter voor strakke foto's.</div>
+      <div class="upgrade-row__name">On-Site Host</div>
+      <div class="upgrade-row__desc">Ons teamlid begeleidt gasten, regelt de poses en houdt de energie hoog.</div>
     </div>
-    <div class="upgrade-row__price">+&euro;35</div>
-    <label class="toggle" onclick="event.stopPropagation()">
-      <input type="checkbox" onchange="toggleUpgrade(this.closest('.upgrade-row'))">
+    <div class="upgrade-row__price">+&euro;149</div>
+    <label class="toggle">
+      <input type="checkbox" aria-label="On-Site Host">
       <span class="toggle-track"></span>
     </label>
   </div>
 
-  <div class="upgrade-row" data-price="149" data-builder="party" onclick="toggleUpgrade(this)">
-    <button class="info-btn" onclick="event.stopPropagation(); openModal('dj')" title="Meer info">?</button>
+  <div class="upgrade-row" data-price="499" data-builder="mirror">
+    <button class="info-btn" data-modal="ai" title="Meer info">?</button>
+    <div class="upgrade-row__info">
+      <div class="upgrade-row__name">AI Photo Experience</div>
+      <div class="upgrade-row__desc">AI transformeert elke foto naar jouw stijl of thema. Ideaal voor productlanceringen en bedrijfsevents.</div>
+    </div>
+    <div class="upgrade-row__price">+&euro;499</div>
+    <label class="toggle">
+      <input type="checkbox" aria-label="AI Photo Experience">
+      <span class="toggle-track"></span>
+    </label>
+  </div>
+
+  <div class="upgrade-row" data-price="149" data-builder="mirror">
+    <button class="info-btn" data-modal="dj" title="Meer info">?</button>
     <div class="upgrade-row__info">
       <div class="upgrade-row__name">Live DJ Set</div>
       <div class="upgrade-row__desc">DJ met speakers, licht en rookmachine.</div>
     </div>
     <div class="upgrade-row__price">+&euro;149</div>
-    <label class="toggle" onclick="event.stopPropagation()">
-      <input type="checkbox" onchange="toggleUpgrade(this.closest('.upgrade-row'))">
+    <label class="toggle">
+      <input type="checkbox" aria-label="Live DJ Set">
       <span class="toggle-track"></span>
     </label>
   </div>
@@ -1523,8 +1462,8 @@ a { color: inherit; text-decoration: none; }
   <!-- Total -->
   <div class="builder-total">
     <div class="builder-total__label">Totaal</div>
-    <div class="builder-total__amount" id="party-total">&euro;199</div>
-    <div style="font-size:11px;color:var(--text-muted);margin-top:4px;">Inclusief 21% BTW</div>
+    <div class="builder-total__amount" id="mirror-total">&euro;599</div>
+    <div class="builder-total__btw">Inclusief 21% BTW</div>
   </div>
 
   <!-- CTA -->
@@ -1536,11 +1475,13 @@ a { color: inherit; text-decoration: none; }
      ============================================================ -->
 <section class="faq" id="faq">
   <h2 class="faq-title">Veelgestelde Vragen</h2>
-  <details class="faq-item"><summary>Wat kost een photobooth huren?</summary><p class="faq-answer">De Party Booth huur je vanaf €199 per dag. Dat is een digitale photobooth die je zelf ophaalt en in 5 minuten klaar zet. Foto's worden gedeeld via QR code op de telefoon van je gasten. Na afloop krijg je een digitale galerij met alle foto's. Wil je het nog leuker maken? Voeg AI Achtergrond toe voor €35 of laat ons bezorgen voor €49.</p></details>
-  <details class="faq-item"><summary>Moet ik het zelf opzetten?</summary><p class="faq-answer">Ja, en dat is juist het mooie. Ophalen bij ons, neerzetten op een tafel, aanzetten. Klaar in 5 minuten, geen technische kennis nodig. Heb je liever dat wij het regelen? Voor €49 bezorgen, installeren en halen wij de booth op bij je locatie.</p></details>
-  <details class="faq-item"><summary>Wat is AI Achtergrond?</summary><p class="faq-answer">Rommelige kamer of lelijke muur achter de booth? Met AI Achtergrond (+€35) kies je zelf de achtergrond. Strand, skyline, jungle of je eigen ontwerp. AI vervangt de echte achtergrond automatisch. Inclusief beautify filter die ervoor zorgt dat iedereen er strak op staat. Het verschil in fotokwaliteit is enorm.</p></details>
-  <details class="faq-item"><summary>Kan ik er een DJ bij boeken?</summary><p class="faq-answer">Ja. Voeg een Live DJ Set toe als upgrade voor €149. Dat is inclusief professionele speakers, sfeerverlichting en rookmachine. Stuur je Spotify playlist en onze DJ bouwt er een professionele set van. Alles van hetzelfde team, dat scheelt een hoop coordinatie.</p></details>
+  <details class="faq-item"><summary>Wat kost een fotospiegel huren?</summary><p class="faq-answer">De Magic Mirror XL huur je vanaf €599 per event. Dat is een vaste prijs zonder tijdslimiet. De booth blijft zolang jouw feest duurt. Bezorging, installatie en ophalen binnen 50 kilometer zijn inbegrepen. Wil je er meer van maken? Voeg upgrades toe zoals de VIP setup met rode loper (+€149) of de AI Photo Experience (+€499).</p></details>
+  <details class="faq-item"><summary>Is bezorging inbegrepen?</summary><p class="faq-answer">Ja. Wij bezorgen de Magic Mirror XL op je locatie, installeren alles en halen het na afloop weer op. Dit geldt voor locaties binnen 50 kilometer. Je hoeft zelf niks te regelen. We zijn er ruim voor aanvang om alles klaar te zetten zodat jij je op je gasten kunt focussen.</p></details>
+  <details class="faq-item"><summary>Wat is AI Photo Experience?</summary><p class="faq-answer">Met de AI Photo Experience (+€499) transformeert AI elke foto naar jouw gewenste stijl of thema. Definieer het eindbeeld en de stijl, de gast maakt een foto, en AI doet de rest. Ideaal voor productlanceringen, beurzen en bedrijfsevents waar elke foto on-brand moet zijn. Gasten delen de resultaten op hun socials, wat zorgt voor extra zichtbaarheid voor jouw merk.</p></details>
+  <details class="faq-item"><summary>Heb ik een operator nodig?</summary><p class="faq-answer">Nee. De interactieve spiegel begeleidt gasten stap voor stap door het proces. Alles werkt self-service. Wil je toch iemand die de poses regelt, de flow bewaakt en de energie hoog houdt? Dan kun je de On-Site Host upgrade bijboeken voor €149. Ons teamlid zorgt ervoor dat geen enkele gast de booth overslaat.</p></details>
 </section>
+
+</main>
 
 <!-- ============================================================
      FOOTER
@@ -1551,17 +1492,11 @@ a { color: inherit; text-decoration: none; }
   <p class="footer-copy">&copy; 2026 PicYourMoment B.V.</p>
 </footer>
 
-<!-- Scroll Progress Bar -->
-<div class="scroll-progress" id="scrollProgress"></div>
-
-<!-- Cursor Glow -->
-<div class="cursor-glow" id="cursorGlow"></div>
-
 <!-- ============================================================
      MODAL
      ============================================================ -->
 <div class="modal-overlay" id="modalOverlay">
-  <div class="modal">
+  <div class="modal" role="dialog" aria-modal="true">
     <div class="modal__image" id="modalImage">
       <div class="modal__badge" id="modalBadge">UPGRADE</div>
     </div>
@@ -1569,7 +1504,7 @@ a { color: inherit; text-decoration: none; }
       <h2 class="modal__title" id="modalTitle"></h2>
       <div class="modal__price" id="modalPrice"></div>
       <p class="modal__desc" id="modalDesc"></p>
-      <button class="modal__close" onclick="closeModal()">Begrepen</button>
+      <button class="modal__close" id="modalClose">Begrepen</button>
     </div>
   </div>
 </div>
@@ -1581,9 +1516,26 @@ a { color: inherit; text-decoration: none; }
 (function() {
   'use strict';
 
-  var BASE_PRICE = 199;
+  var BASE_PRICE = 599;
 
-  window.toggleUpgrade = function(row) {
+  function spawnConfetti(source) {
+    var rect = source.getBoundingClientRect();
+    var x = rect.left + rect.width / 2;
+    var y = rect.top + rect.height / 2;
+    var count = 8 + Math.floor(Math.random() * 5);
+    for (var i = 0; i < count; i++) {
+      var p = document.createElement('div');
+      p.className = 'confetti-particle';
+      p.style.left = x + 'px';
+      p.style.top = y + 'px';
+      p.style.setProperty('--cx', (Math.random() * 80 - 40) + 'px');
+      p.style.setProperty('--cy', (-30 - Math.random() * 60) + 'px');
+      document.body.appendChild(p);
+      p.addEventListener('animationend', function () { this.remove(); });
+    }
+  }
+
+  function toggleUpgrade(row) {
     var checkbox = row.querySelector('input[type="checkbox"]');
 
     if (document.activeElement !== checkbox) {
@@ -1598,55 +1550,41 @@ a { color: inherit; text-decoration: none; }
     }
 
     recalculate();
+  }
 
-    /* Price pulse on total */
-    var totalEl = document.getElementById('party-total');
-    if (totalEl) {
-      totalEl.classList.remove('price-pulse');
-      void totalEl.offsetWidth; /* reflow to restart animation */
-      totalEl.classList.add('price-pulse');
-    }
-  };
-
-  function spawnConfetti(row) {
-    var prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    if (prefersReduced) return;
-
-    var toggle = row.querySelector('.toggle-track');
-    if (!toggle) return;
-    var rect = toggle.getBoundingClientRect();
-    var originX = rect.left + rect.width / 2;
-    var originY = rect.top + rect.height / 2;
-    var count = 8 + Math.floor(Math.random() * 5); /* 8-12 particles */
-
-    for (var i = 0; i < count; i++) {
-      var particle = document.createElement('div');
-      particle.className = 'confetti-particle';
-      var cx = (Math.random() - 0.5) * 80;
-      var cy = -(30 + Math.random() * 60);
-      particle.style.setProperty('--cx', cx + 'px');
-      particle.style.setProperty('--cy', cy + 'px');
-      particle.style.left = originX + 'px';
-      particle.style.top = originY + 'px';
-      document.body.appendChild(particle);
-      particle.addEventListener('animationend', function() {
-        this.remove();
+  /* -- Upgrade row event delegation ----------------------- */
+  document.querySelectorAll('.upgrade-row[data-builder="mirror"]').forEach(function(row) {
+    row.addEventListener('click', function(e) {
+      if (e.target.closest('.info-btn') || e.target.closest('.toggle')) return;
+      toggleUpgrade(row);
+    });
+    var checkbox = row.querySelector('input[type="checkbox"]');
+    if (checkbox) {
+      checkbox.addEventListener('change', function() {
+        toggleUpgrade(row);
       });
     }
-  }
+  });
 
   function recalculate() {
     var total = BASE_PRICE;
-    var rows = document.querySelectorAll('.upgrade-row[data-builder="party"]');
+    var rows = document.querySelectorAll('.upgrade-row[data-builder="mirror"]');
     for (var i = 0; i < rows.length; i++) {
       var cb = rows[i].querySelector('input[type="checkbox"]');
       if (cb && cb.checked) {
         total += parseInt(rows[i].dataset.price, 10);
       }
     }
-    var el = document.getElementById('party-total');
+    var el = document.getElementById('mirror-total');
     if (el) {
       el.textContent = '\u20AC' + total;
+      el.classList.remove('price-pulse');
+      void el.offsetWidth;
+      el.classList.add('price-pulse');
+      el.addEventListener('animationend', function handler() {
+        el.classList.remove('price-pulse');
+        el.removeEventListener('animationend', handler);
+      });
     }
   }
 })();
@@ -1662,33 +1600,57 @@ a { color: inherit; text-decoration: none; }
   var modalBadge = document.getElementById('modalBadge');
 
   var modalData = {
-    design: {
-      title: 'Premium Design',
-      price: '+\u20AC25',
-      image: 'https://images.unsplash.com/photo-1513151233558-d860c5398176?w=800&q=80&auto=format',
-      desc: 'Veel meer dan alleen een fotostrip. De complete booth-ervaring wordt aangepast aan jouw feest. Fotostrip design, touchscreen layout en animaties allemaal op maat. Keuze uit duizenden professionele templates of een volledig eigen ontwerp met jouw kleuren, thema en stijl. Het verschil tussen een standaard booth en eentje waar gasten over praten.'
+    vip: {
+      title: 'VIP Upgrade',
+      price: '+\u20AC149',
+      image: 'https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?w=800&q=80&auto=format',
+      desc: 'Stel je voor: je gasten lopen over een rode loper, stappen voor een stijlvolle backdrop en kiezen uit luxe props. Dat is geen photobooth meer, dat is een beleving. Perfect voor bruiloften, galas en bedrijfsfeesten.'
     },
-    delivery: {
-      title: 'Bezorging, Installatie & Ophalen',
-      price: '+\u20AC49',
-      image: 'https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=800&q=80&auto=format',
-      desc: 'Geen auto nodig, geen gesjouw. Wij bezorgen de Party Booth op je locatie, volledig opgeladen en klaar voor gebruik. Na afloop halen wij alles weer op. Jij hoeft alleen de deur open te doen.'
+    wedding: {
+      title: 'Wedding Keychain Station',
+      price: '+\u20AC499',
+      image: 'https://images.unsplash.com/photo-1519741497674-611481863552?w=800&q=80&auto=format',
+      desc: 'Elke gast loopt naar huis met een gepersonaliseerde sleutelhanger. Jullie namen, jullie datum, hun favoriete foto. Geen apart bedankje meer kopen. Direct gemaakt op locatie. De herinnering die ze elke dag zien.'
     },
-    aibg: {
-      title: 'AI Achtergrond + Beautify',
-      price: '+\u20AC35',
+    host: {
+      title: 'On-Site Host',
+      price: '+\u20AC149',
+      image: 'https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=800&q=80&auto=format',
+      desc: 'Zonder host moeten gasten het zelf uitzoeken. Met host wordt elke foto een hit. Ons ervaren teamlid begeleidt de poses, houdt de flow erin en zorgt dat niemand de booth overslaat. Jij hoeft niks te regelen.'
+    },
+    ai: {
+      title: 'AI Photo Experience',
+      price: '+\u20AC499',
       image: 'https://images.unsplash.com/photo-1677442136019-21780ecad995?w=800&q=80&auto=format',
-      desc: 'AI verwijdert automatisch alle achtergrondrommel en vervangt het door een gepersonaliseerde achtergrond naar keuze. Tropisch strand, skyline, feestthema. Jij kiest, de AI doet de rest. Inclusief beautify filter voor strakke resultaten.'
+      desc: 'Geavanceerde AI transformeert elke foto naar jouw gewenste resultaat. Definieer het eindbeeld, de artefacten en de stijl. De gast maakt een foto, AI doet de rest. Perfect voor productlanceringen, beurzen en corporate events.'
     },
     dj: {
       title: 'Live DJ Set',
       price: '+\u20AC149',
       image: 'https://images.unsplash.com/photo-1571266028243-3716f02d2d56?w=800&q=80&auto=format',
-      desc: 'Foto's en muziek van hetzelfde team. Complete DJ setup met rookmachine, sfeerverlichting en professionele speakers. Stuur je Spotify playlist, wij bouwen de perfecte set.'
+      desc: 'Foto's en muziek van hetzelfde team, dat klikt als geen ander. Complete DJ setup met rookmachine, sfeerverlichting en professionele speakers. Stuur je Spotify playlist, wij bouwen de perfecte set. Een DJ bureau rekent makkelijk \u20AC500+, bij ons erbij voor een fractie.'
     }
   };
 
-  window.openModal = function(key) {
+  function spawnModalParticles() {
+    var prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (prefersReduced) return;
+    var particleColors = ['#f59e42', '#ffb86b', '#8b5cf6', '#a78bfa'];
+    var count = 15;
+    for (var i = 0; i < count; i++) {
+      var p = document.createElement('div');
+      p.className = 'modal-particle';
+      p.style.left = (Math.random() * window.innerWidth) + 'px';
+      p.style.top = (window.innerHeight * 0.4 + Math.random() * window.innerHeight * 0.5) + 'px';
+      p.style.background = particleColors[Math.floor(Math.random() * particleColors.length)];
+      p.style.animationDelay = (Math.random() * 0.6) + 's';
+      p.style.animationDuration = (2 + Math.random() * 2) + 's';
+      document.body.appendChild(p);
+      p.addEventListener('animationend', function () { this.remove(); });
+    }
+  }
+
+  function openModal(key) {
     var data = modalData[key];
     if (!data || !overlay) return;
     modalTitle.textContent = data.title;
@@ -1700,28 +1662,27 @@ a { color: inherit; text-decoration: none; }
     modalImage.style.backgroundPosition = 'center';
     overlay.classList.add('active');
     spawnModalParticles();
-  };
-
-  function spawnModalParticles() {
-    var prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    if (prefersReduced) return;
-    var colors = ['#f59e42', '#8b5cf6', '#ffb86b'];
-    for (var i = 0; i < 15; i++) {
-      var p = document.createElement('div');
-      p.className = 'modal-particle';
-      p.style.left = Math.random() * 100 + 'vw';
-      p.style.top = 40 + Math.random() * 50 + 'vh';
-      p.style.background = colors[Math.floor(Math.random() * colors.length)];
-      p.style.animationDelay = Math.random() * 1.5 + 's';
-      p.style.animationDuration = 2 + Math.random() * 2 + 's';
-      document.body.appendChild(p);
-      p.addEventListener('animationend', function() { this.remove(); });
-    }
   }
 
-  window.closeModal = function() {
+  function closeModal() {
     if (overlay) overlay.classList.remove('active');
-  };
+  }
+
+  /* -- Info button event delegation ----------------------- */
+  document.querySelectorAll('.info-btn[data-modal]').forEach(function(btn) {
+    btn.addEventListener('click', function(e) {
+      e.stopPropagation();
+      openModal(this.dataset.modal);
+    });
+  });
+
+  /* -- Modal close button --------------------------------- */
+  var modalCloseBtn = document.getElementById('modalClose');
+  if (modalCloseBtn) {
+    modalCloseBtn.addEventListener('click', function() {
+      closeModal();
+    });
+  }
 
   overlay.addEventListener('click', function(e) {
     if (e.target === overlay) closeModal();
@@ -1733,43 +1694,19 @@ a { color: inherit; text-decoration: none; }
 })();
 </script>
 
-<!-- ============================================================
-     JAVASCRIPT - Entertainment Animations
-     ============================================================ -->
+<!-- Scroll Progress Bar -->
+<div class="scroll-progress" id="scrollProgress"></div>
+
+<!-- Cursor Glow -->
+<div class="cursor-glow" id="cursorGlow"></div>
+
 <script>
 (function () {
   'use strict';
 
-  /* -- Smooth Page Entrance ------------------------------ */
-  document.body.classList.add('loaded');
-
   /* -- Respect reduced motion ---------------------------- */
   var prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   if (prefersReduced) return;
-
-  /* ==========================================================
-     0. PARALLAX HERO + GLASSMORPHISM NAV
-     ========================================================== */
-  var hero = document.querySelector('.hero');
-  var navBar = document.querySelector('.nav-bar');
-
-  window.addEventListener('scroll', function() {
-    var scrolled = window.pageYOffset;
-
-    /* Parallax hero background */
-    if (hero && scrolled < hero.offsetHeight) {
-      hero.style.setProperty('--parallax-y', (scrolled * 0.4) + 'px');
-    }
-
-    /* Glassmorphism sticky nav */
-    if (navBar) {
-      if (scrolled > 40) {
-        navBar.classList.add('scrolled');
-      } else {
-        navBar.classList.remove('scrolled');
-      }
-    }
-  }, { passive: true });
 
   /* ==========================================================
      1. SCROLL-REVEAL SECTIONS
@@ -1831,14 +1768,50 @@ a { color: inherit; text-decoration: none; }
   }
 
   /* ==========================================================
-     4. PRICE PULSE CLEANUP ON ANIMATION END
+     4. PARALLAX HERO
      ========================================================== */
-  var totalEl = document.getElementById('party-total');
-  if (totalEl) {
-    totalEl.addEventListener('animationend', function () {
-      totalEl.classList.remove('price-pulse');
-    });
+  var heroEl = document.querySelector('.hero');
+  var parallaxTicking = false;
+
+  function updateParallax() {
+    var scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+    if (heroEl) {
+      heroEl.style.setProperty('--parallax-y', (scrollTop * 0.4) + 'px');
+    }
+    parallaxTicking = false;
   }
+
+  window.addEventListener('scroll', function () {
+    if (!parallaxTicking) {
+      requestAnimationFrame(updateParallax);
+      parallaxTicking = true;
+    }
+  }, { passive: true });
+
+  /* ==========================================================
+     5. GLASSMORPHISM STICKY NAV
+     ========================================================== */
+  var navBar = document.querySelector('.nav-bar');
+  var navScrollTicking = false;
+
+  function updateNavScroll() {
+    var scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+    if (navBar) {
+      if (scrollTop > 40) {
+        navBar.classList.add('scrolled');
+      } else {
+        navBar.classList.remove('scrolled');
+      }
+    }
+    navScrollTicking = false;
+  }
+
+  window.addEventListener('scroll', function () {
+    if (!navScrollTicking) {
+      requestAnimationFrame(updateNavScroll);
+      navScrollTicking = true;
+    }
+  }, { passive: true });
 
   /* ==========================================================
      MOBILE MENU TOGGLE
@@ -1848,11 +1821,13 @@ a { color: inherit; text-decoration: none; }
   if (hamburger && navLinks) {
     hamburger.addEventListener('click', function () {
       hamburger.classList.toggle('active');
+      navBar.classList.toggle('menu-open');
       navLinks.classList.toggle('open');
     });
     navLinks.querySelectorAll('a').forEach(function (link) {
       link.addEventListener('click', function () {
         hamburger.classList.remove('active');
+        navBar.classList.remove('menu-open');
         navLinks.classList.remove('open');
       });
     });
@@ -1888,16 +1863,16 @@ a { color: inherit; text-decoration: none; }
 {
   "@context": "https://schema.org",
   "@type": "Product",
-  "name": "Party Booth - Digitale Photobooth Huren",
-  "description": "Digitale photobooth, zelf ophalen, 5 minuten opzetten, AI achtergrond beschikbaar",
+  "name": "Magic Mirror XL - Fotospiegel Huren",
+  "description": "Premium fotospiegel met professionele camera, geen tijdslimiet, bezorging en installatie inbegrepen binnen 50km",
   "brand": {"@type": "Brand", "name": "PicYourBooth"},
   "offers": {
     "@type": "Offer",
-    "price": "199",
+    "price": "599",
     "priceCurrency": "EUR",
     "availability": "https://schema.org/InStock",
     "priceValidUntil": "2026-12-31",
-    "url": "https://picyourbooth.nl/party-booth"
+    "url": "https://picyourbooth.nl/magic-mirror"
   },
   "aggregateRating": {
     "@type": "AggregateRating",
@@ -1913,12 +1888,28 @@ a { color: inherit; text-decoration: none; }
   "@context": "https://schema.org",
   "@type": "FAQPage",
   "mainEntity": [
-    {"@type": "Question", "name": "Wat kost een photobooth huren?", "acceptedAnswer": {"@type": "Answer", "text": "Party Booth vanaf €199 per dag. Digitale photobooth, foto's delen via QR code."}},
-    {"@type": "Question", "name": "Moet ik het zelf opzetten?", "acceptedAnswer": {"@type": "Answer", "text": "Ja, ophalen en in 5 minuten klaar. Of bezorging, installatie en ophalen voor €49."}},
-    {"@type": "Question", "name": "Wat is AI Achtergrond?", "acceptedAnswer": {"@type": "Answer", "text": "AI vervangt de achtergrond automatisch. Kies strand, skyline of jungle. Inclusief beautify filter. +€35."}},
-    {"@type": "Question", "name": "Kan ik er een DJ bij boeken?", "acceptedAnswer": {"@type": "Answer", "text": "Ja, Live DJ Set als upgrade voor €149 inclusief speakers, licht en rookmachine."}}
+    {"@type": "Question", "name": "Wat kost een fotospiegel huren?", "acceptedAnswer": {"@type": "Answer", "text": "Bij PicYourBooth huur je de Magic Mirror XL vanaf €599 per event. Geen tijdslimiet. Bezorging, installatie en ophalen binnen 50km inbegrepen."}},
+    {"@type": "Question", "name": "Is bezorging inbegrepen?", "acceptedAnswer": {"@type": "Answer", "text": "Ja. Wij bezorgen, installeren en halen op binnen 50 kilometer. Je hoeft zelf niks te regelen."}},
+    {"@type": "Question", "name": "Wat is AI Photo Experience?", "acceptedAnswer": {"@type": "Answer", "text": "AI genereert unieke foto's in jouw stijl of thema. Ideaal voor productlanceringen en bedrijfsevents. De upgrade kost €499."}},
+    {"@type": "Question", "name": "Heb ik een operator nodig?", "acceptedAnswer": {"@type": "Answer", "text": "Nee. Gasten bedienen de booth zelf. Wil je begeleiding? Boek de On-Site Host upgrade voor €149."}}
   ]
 }
+</script>
+
+<!-- Page Entrance + Modal Particles -->
+<script>
+(function () {
+  'use strict';
+
+  /* -- Smooth page entrance -------------------------------- */
+  document.body.classList.add('loaded');
+
+  /* -- Modal backdrop particles ---------------------------- */
+  var prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (prefersReduced) return;
+
+  /* Modal particles are handled in the modal IIFE above */
+})();
 </script>
 
 </body>

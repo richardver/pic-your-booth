@@ -11,6 +11,9 @@
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://picyourbooth.nl/">
 <meta property="og:locale" content="nl_NL">
+<meta property="og:image" content="https://picyourbooth.nl/assets/images/homepage-hero-1280x720.webp">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
 /* ============================================================
@@ -260,7 +263,7 @@ a { color: inherit; text-decoration: none; }
   content: '';
   position: absolute;
   inset: 0;
-  background-image: url('../../assets/web/homepage-hero-1920x1080.webp');
+  background-image: url('assets/images/homepage-hero-1920x1080.webp');
   background-size: cover;
   background-position: center 30%;
   opacity: 0.2;
@@ -755,15 +758,32 @@ a { color: inherit; text-decoration: none; }
   align-items: center;
   gap: 32px;
   padding: 32px;
+  animation: menuFadeIn 0.2s ease both;
+}
+
+@keyframes menuFadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
 }
 
 .nav-links.open li {
   list-style: none;
+  opacity: 1 !important;
+  transform: none !important;
+  transition: none !important;
 }
 
 .nav-links.open a {
   font-size: 1.5rem;
   color: var(--text);
+  opacity: 1 !important;
+  transform: none !important;
+}
+
+.nav-links.open .nav-cta {
+  color: #000000;
+  font-size: 1.3rem;
+  padding: 14px 36px;
 }
 
 .nav-hamburger.active {
@@ -783,6 +803,14 @@ a { color: inherit; text-decoration: none; }
 
 .nav-hamburger.active span:nth-child(3) {
   transform: rotate(-45deg) translate(4px, -4px);
+}
+
+/* When mobile menu is open, disable backdrop-filter so fixed positioning escapes stacking context */
+.nav-bar.menu-open {
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  background: transparent;
+  border-bottom-color: transparent;
 }
 
 /* -- Tablet (601px-768px) ------------------------------ */
@@ -880,6 +908,18 @@ a { color: inherit; text-decoration: none; }
     transition: none;
   }
 }
+
+/* -- Responsive Hero Images ------------------------------- */
+@media (max-width: 1280px) {
+  .hero::before {
+    background-image: url('assets/images/homepage-hero-1280x720.webp');
+  }
+}
+@media (max-width: 768px) {
+  .hero::before {
+    background-image: url('assets/images/homepage-hero-768x432.webp');
+  }
+}
 </style>
 </head>
 <body>
@@ -888,7 +928,7 @@ a { color: inherit; text-decoration: none; }
      NAVIGATION
      ============================================================ -->
 <div class="nav-bar"><nav class="nav">
-  <a href="homepage.html" class="nav-logo">PicYourBooth</a>
+  <a href="index.html" class="nav-logo">PicYourBooth</a>
   <ul class="nav-links">
     <li><a href="party-booth.html">Party Booth</a></li>
     <li><a href="magic-mirror.html">Magic Mirror XL</a></li>
@@ -901,6 +941,8 @@ a { color: inherit; text-decoration: none; }
     <span></span>
   </button>
 </nav></div>
+
+<main>
 
 <!-- ============================================================
      HERO
@@ -994,6 +1036,8 @@ a { color: inherit; text-decoration: none; }
     </div>
   </div>
 </section>
+
+</main>
 
 <!-- ============================================================
      FOOTER
@@ -1184,11 +1228,13 @@ a { color: inherit; text-decoration: none; }
   if (hamburger && navLinks) {
     hamburger.addEventListener('click', function () {
       hamburger.classList.toggle('active');
+      navBar.classList.toggle('menu-open');
       navLinks.classList.toggle('open');
     });
     navLinks.querySelectorAll('a').forEach(function (link) {
       link.addEventListener('click', function () {
         hamburger.classList.remove('active');
+        navBar.classList.remove('menu-open');
         navLinks.classList.remove('open');
       });
     });
