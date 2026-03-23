@@ -16,11 +16,11 @@
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
 /* ============================================================
-   PICYOURBOOTH - DJS PAGE
+   PICYOURBOOTH — DJS
    Dark nightlife. Violet primary. Coral = Gianni. Cyan = DJ Milø.
    ============================================================ */
 
-/* -- Design Tokens ----------------------------------------- */
+/* -- Design Tokens ------------------------------------- */
 :root {
   --void:        #050508;
   --bg:          #08080b;
@@ -59,7 +59,7 @@
   --ease: cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-/* -- Reset ------------------------------------------------- */
+/* -- Reset --------------------------------------------- */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 html {
@@ -118,13 +118,14 @@ a { color: inherit; text-decoration: none; }
   html { scroll-behavior: auto; }
 }
 
-.nav-bar { border-top: 2px solid var(--violet);
+/* -- Navigation ---------------------------------------- */
+.nav-bar {
+  border-top: 2px solid var(--violet);
   border-bottom: 1px solid rgba(255, 255, 255, 0.06);
   position: relative;
   z-index: 100;
 }
 
-/* -- Navigation -------------------------------------------- */
 .nav {
   display: flex;
   align-items: center;
@@ -193,7 +194,7 @@ a { color: inherit; text-decoration: none; }
 }
 
 .nav-cta:hover {
-  color: #000000;
+  color: #000000 !important;
   transform: scale(1.02);
   background: var(--gold-light);
   box-shadow: 0 0 24px var(--gold-glow);
@@ -223,7 +224,7 @@ a { color: inherit; text-decoration: none; }
   .nav-hamburger { display: flex; }
 }
 
-/* -- Hero -------------------------------------------------- */
+/* -- Hero ---------------------------------------------- */
 .hero {
   text-align: center;
   min-height: 70vh;
@@ -343,7 +344,7 @@ a { color: inherit; text-decoration: none; }
 .waveform-bars span:nth-child(6) { height: 16px; animation-delay: 0.75s; }
 .waveform-bars span:nth-child(7) { height: 24px; animation-delay: 0.9s; }
 
-/* -- DJ Profile Section ------------------------------------ */
+/* -- DJ Profile Section -------------------------------- */
 .dj-section {
   padding: 96px 32px;
   max-width: 960px;
@@ -463,7 +464,6 @@ a { color: inherit; text-decoration: none; }
 }
 
 .dj-sub--coral { color: var(--coral); }
-.dj-sub--cyan { color: var(--cyan); }
 
 .dj-bio {
   font-size: 15px;
@@ -521,7 +521,7 @@ a { color: inherit; text-decoration: none; }
 .dj-social--coral:hover { color: var(--coral); }
 .dj-social--cyan:hover { color: var(--cyan); }
 
-/* -- Spotify Section --------------------------------------- */
+/* -- Spotify Section ----------------------------------- */
 .spotify {
   padding: 96px 32px;
   text-align: center;
@@ -580,7 +580,7 @@ a { color: inherit; text-decoration: none; }
   transform: translateY(-2px);
 }
 
-/* -- How It Works ------------------------------------------ */
+/* -- How It Works -------------------------------------- */
 .hiw {
   padding: 96px 32px;
   border-top: 1px solid var(--border);
@@ -635,7 +635,7 @@ a { color: inherit; text-decoration: none; }
   line-height: 1.7;
 }
 
-/* -- Booking Wizard ---------------------------------------- */
+/* -- Booking Wizard ------------------------------------ */
 .booking {
   padding: 96px 32px;
   border-top: 1px solid var(--border);
@@ -787,15 +787,6 @@ a { color: inherit; text-decoration: none; }
   color: var(--text);
 }
 
-/* Comparison */
-.booking-compare {
-  font-size: 12px;
-  color: var(--text-muted);
-  text-align: center;
-  margin-bottom: 28px;
-  font-weight: 300;
-}
-
 /* Total */
 .booking-total {
   text-align: center;
@@ -852,7 +843,7 @@ a { color: inherit; text-decoration: none; }
   transform: translateY(-2px);
 }
 
-/* -- Footer ------------------------------------------------ */
+/* -- Footer -------------------------------------------- */
 .footer {
   background: var(--void);
   padding: 48px 32px;
@@ -861,7 +852,6 @@ a { color: inherit; text-decoration: none; }
   flex-direction: column;
   align-items: center;
   gap: 4px;
-  border-top: 1px solid var(--border);
 }
 
 .footer-brand {
@@ -892,7 +882,7 @@ a { color: inherit; text-decoration: none; }
    ENTERTAINMENT ANIMATIONS - Violet accent
    ============================================================ */
 
-/* -- Hero Slow Zoom (Ken Burns) ----------------------------- */
+/* -- Hero Slow Zoom (Ken Burns) ------------------------ */
 @keyframes heroZoom {
   from { transform: scale(1); }
   to   { transform: scale(1.08); }
@@ -902,7 +892,7 @@ a { color: inherit; text-decoration: none; }
   animation: heroZoom 20s ease-out forwards;
 }
 
-/* -- Scroll-Reveal ------------------------------------------ */
+/* -- Scroll-Reveal ------------------------------------- */
 .reveal {
   opacity: 0;
   transform: translateY(30px);
@@ -915,7 +905,7 @@ a { color: inherit; text-decoration: none; }
   transform: translateY(0);
 }
 
-/* -- Cursor Glow (desktop only, VIOLET) --------------------- */
+/* -- Cursor Glow (desktop only, VIOLET) ---------------- */
 .cursor-glow {
   position: fixed;
   top: 0;
@@ -941,7 +931,7 @@ a { color: inherit; text-decoration: none; }
   .cursor-glow { display: none; }
 }
 
-/* -- Scroll Progress Bar (VIOLET) --------------------------- */
+/* -- Scroll Progress Bar (VIOLET) ---------------------- */
 .scroll-progress {
   position: fixed;
   top: 0;
@@ -954,7 +944,7 @@ a { color: inherit; text-decoration: none; }
   transition: none;
 }
 
-/* -- Price Pulse (VIOLET) ----------------------------------- */
+/* -- Price Pulse (VIOLET) ------------------------------ */
 @keyframes pricePulse {
   0%   { text-shadow: 0 0 0 transparent; }
   50%  { text-shadow: 0 0 16px rgba(139, 92, 246, 0.5); }
@@ -965,7 +955,7 @@ a { color: inherit; text-decoration: none; }
   animation: pricePulse 0.4s ease-out;
 }
 
-/* -- Enhanced Waveform -------------------------------------- */
+/* -- Enhanced Waveform --------------------------------- */
 @keyframes waveBobEnergetic {
   0%   { transform: scaleY(0.2); }
   15%  { transform: scaleY(0.9); }
@@ -988,7 +978,7 @@ a { color: inherit; text-decoration: none; }
 .waveform-bars span:nth-child(6) { height: 18px; animation-delay: 0.15s; animation-duration: 0.95s; }
 .waveform-bars span:nth-child(7) { height: 30px; animation-delay: 0.3s; animation-duration: 1.05s; }
 
-/* -- Confetti Burst ----------------------------------------- */
+/* -- Confetti Burst ------------------------------------ */
 @keyframes confettiBurst {
   0%   { opacity: 1; transform: translate(0, 0) scale(1); }
   100% { opacity: 0; transform: translate(var(--cx), var(--cy)) scale(0); }
@@ -1005,8 +995,7 @@ a { color: inherit; text-decoration: none; }
   animation: confettiBurst 0.6s ease-out forwards;
 }
 
-
-/* -- Mobile Menu Open State --------------------------------- */
+/* -- Mobile Menu Open State ---------------------------- */
 .nav-links.open {
   display: flex;
   flex-direction: column;
@@ -1048,7 +1037,8 @@ a { color: inherit; text-decoration: none; }
 .nav-hamburger.active span:nth-child(3) {
   transform: rotate(-45deg) translate(4px, -4px);
 }
-/* -- Reduced Motion Override -------------------------------- */
+
+/* -- Reduced Motion Override --------------------------- */
 @media (prefers-reduced-motion: reduce) {
   .hero::before {
     animation: none;
@@ -1073,7 +1063,7 @@ a { color: inherit; text-decoration: none; }
   }
 }
 
-/* -- FAQ Section --------------------------------------------- */
+/* -- FAQ Section --------------------------------------- */
 .faq {
   max-width: 720px;
   margin: 0 auto;
@@ -1355,7 +1345,7 @@ a { color: inherit; text-decoration: none; }
 <footer class="footer">
   <p class="footer-brand">PicYourBooth</p>
   <a href="mailto:info@picyourbooth.nl" class="footer-email">info@picyourbooth.nl</a>
-  <p class="footer-copy">&copy; 2026 PicYourBooth</p>
+  <p class="footer-copy">&copy; 2026 PicYourMoment B.V.</p>
 </footer>
 
 <!-- Scroll Progress Bar -->
@@ -1416,7 +1406,7 @@ function selectHour(el) {
 (function () {
   'use strict';
 
-  /* -- Respect reduced motion -------------------------------- */
+  /* -- Respect reduced motion ---------------------------- */
   var prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   if (prefersReduced) return;
 
@@ -1501,7 +1491,6 @@ function selectHour(el) {
       });
     }, 2400);
   }
-
 
   /* ==========================================================
      MOBILE MENU TOGGLE

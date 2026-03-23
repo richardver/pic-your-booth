@@ -14,11 +14,11 @@
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
 /* ============================================================
-   PICYOURBOOTH - MAGIC MIRROR XL PRODUCT PAGE
+   PICYOURBOOTH — MAGIC MIRROR XL
    Dark luxury. Typography is the design. Whitespace is premium.
    ============================================================ */
 
-/* -- Design Tokens ----------------------------------------- */
+/* -- Design Tokens ------------------------------------- */
 :root {
   --void:        #050508;
   --bg:          #08080b;
@@ -47,7 +47,7 @@
   --ease: cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-/* -- Reset ------------------------------------------------- */
+/* -- Reset --------------------------------------------- */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 html {
@@ -106,7 +106,7 @@ a { color: inherit; text-decoration: none; }
   html { scroll-behavior: auto; }
 }
 
-/* -- Gold Gradient Text ------------------------------------ */
+/* -- Gold Gradient Text -------------------------------- */
 .text-gold-gradient {
   background: linear-gradient(
     135deg,
@@ -121,13 +121,14 @@ a { color: inherit; text-decoration: none; }
   background-clip: text;
 }
 
-.nav-bar { border-top: 2px solid var(--gold);
+/* -- Navigation ---------------------------------------- */
+.nav-bar {
+  border-top: 2px solid var(--gold);
   border-bottom: 1px solid rgba(255, 255, 255, 0.06);
   position: relative;
   z-index: 100;
 }
 
-/* -- Navigation -------------------------------------------- */
 .nav {
   display: flex;
   align-items: center;
@@ -190,8 +191,13 @@ a { color: inherit; text-decoration: none; }
   transition: background 0.25s var(--ease), box-shadow 0.25s var(--ease);
 }
 
+.nav-links .nav-cta.active {
+  border-bottom: none;
+  padding-bottom: 10px;
+}
+
 .nav-cta:hover {
-  color: #000000;
+  color: #000000 !important;
   transform: scale(1.02);
   background: var(--gold-light);
   box-shadow: 0 0 24px var(--gold-glow);
@@ -221,7 +227,7 @@ a { color: inherit; text-decoration: none; }
   .nav-hamburger { display: flex; }
 }
 
-/* -- Hero -------------------------------------------------- */
+/* -- Hero ---------------------------------------------- */
 .hero {
   text-align: center;
   min-height: 70vh;
@@ -302,7 +308,7 @@ a { color: inherit; text-decoration: none; }
   font-variant-numeric: tabular-nums;
 }
 
-/* -- USP Section ------------------------------------------- */
+/* -- USP Section --------------------------------------- */
 .usp-section {
   padding: 120px 32px;
   max-width: 640px;
@@ -374,7 +380,7 @@ a { color: inherit; text-decoration: none; }
   font-weight: 300;
 }
 
-/* -- Package Builder --------------------------------------- */
+/* -- Package Builder ----------------------------------- */
 .builder {
   max-width: 640px;
   margin: 0 auto;
@@ -459,14 +465,14 @@ a { color: inherit; text-decoration: none; }
   color: var(--gold);
 }
 
-/* -- Upgrade Title ----------------------------------------- */
+/* -- Upgrade Title ------------------------------------- */
 .builder-upgrades-title {
   font-size: 1.25rem;
   letter-spacing: 0.06em;
   margin-bottom: 20px;
 }
 
-/* -- Upgrade Row ------------------------------------------- */
+/* -- Upgrade Row --------------------------------------- */
 .upgrade-row {
   background: var(--surface);
   border-radius: var(--r-md);
@@ -518,7 +524,7 @@ a { color: inherit; text-decoration: none; }
   font-variant-numeric: tabular-nums;
 }
 
-/* -- Info Button (?) --------------------------------------- */
+/* -- Info Button (?) ----------------------------------- */
 .info-btn {
   width: 28px;
   height: 28px;
@@ -543,7 +549,7 @@ a { color: inherit; text-decoration: none; }
   color: var(--gold);
 }
 
-/* -- Toggle Switch ----------------------------------------- */
+/* -- Toggle Switch ------------------------------------- */
 .toggle {
   position: relative;
   width: 44px;
@@ -587,7 +593,7 @@ a { color: inherit; text-decoration: none; }
   transform: translateX(20px);
 }
 
-/* -- Running Total ----------------------------------------- */
+/* -- Running Total ------------------------------------- */
 .builder-total {
   text-align: center;
   padding: 20px 24px;
@@ -600,9 +606,6 @@ a { color: inherit; text-decoration: none; }
 
 .builder-total__label {
   font-size: 11px;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
   font-weight: 500;
   color: var(--text-muted);
   text-transform: uppercase;
@@ -618,7 +621,7 @@ a { color: inherit; text-decoration: none; }
   font-variant-numeric: tabular-nums;
 }
 
-/* -- CTA Button -------------------------------------------- */
+/* -- CTA Button ---------------------------------------- */
 .cta-btn {
   display: block;
   width: 100%;
@@ -644,7 +647,7 @@ a { color: inherit; text-decoration: none; }
   box-shadow: 0 8px 32px var(--gold-glow);
 }
 
-/* -- Gold Divider ------------------------------------------ */
+/* -- Gold Divider -------------------------------------- */
 .gold-divider {
   width: 80px;
   height: 1px;
@@ -653,7 +656,7 @@ a { color: inherit; text-decoration: none; }
   opacity: 0.35;
 }
 
-/* -- Footer ------------------------------------------------ */
+/* -- Footer -------------------------------------------- */
 .footer {
   background: var(--void);
   padding: 48px 32px;
@@ -685,10 +688,10 @@ a { color: inherit; text-decoration: none; }
 .footer-copy {
   font-size: 10px;
   color: rgba(237, 237, 240, 0.25);
-  margin-top: 16px;
+  margin-top: 24px;
 }
 
-/* -- Modal Overlay ----------------------------------------- */
+/* -- Modal Overlay ------------------------------------- */
 .modal-overlay {
   position: fixed;
   inset: 0;
@@ -795,7 +798,7 @@ a { color: inherit; text-decoration: none; }
   background: var(--gold-light);
 }
 
-/* -- Responsive -------------------------------------------- */
+/* -- Responsive ---------------------------------------- */
 @media (max-width: 768px) {
   .hero {
     padding: 80px 20px 80px;
@@ -830,7 +833,7 @@ a { color: inherit; text-decoration: none; }
   }
 }
 
-/* -- Hero Slow Zoom (Ken Burns) ----------------------------- */
+/* -- Hero Slow Zoom (Ken Burns) ------------------------ */
 @keyframes heroZoom {
   from { transform: scale(1); }
   to   { transform: scale(1.08); }
@@ -840,7 +843,7 @@ a { color: inherit; text-decoration: none; }
   animation: heroZoom 20s ease-out forwards;
 }
 
-/* -- Price Pulse (reusable) --------------------------------- */
+/* -- Price Pulse (reusable) ---------------------------- */
 @keyframes pricePulse {
   0%   { text-shadow: 0 0 0 transparent; }
   50%  { text-shadow: 0 0 16px rgba(245, 158, 66, 0.5); }
@@ -851,7 +854,7 @@ a { color: inherit; text-decoration: none; }
   animation: pricePulse 0.4s ease-out;
 }
 
-/* -- Scroll-Reveal ------------------------------------------ */
+/* -- Scroll-Reveal ------------------------------------- */
 .reveal {
   opacity: 0;
   transform: translateY(30px);
@@ -864,7 +867,7 @@ a { color: inherit; text-decoration: none; }
   transform: translateY(0);
 }
 
-/* -- Nav Scroll Progress Bar -------------------------------- */
+/* -- Nav Scroll Progress Bar --------------------------- */
 .scroll-progress {
   position: fixed;
   top: 0;
@@ -877,7 +880,7 @@ a { color: inherit; text-decoration: none; }
   transition: none;
 }
 
-/* -- Cursor Glow (desktop only) ----------------------------- */
+/* -- Cursor Glow (desktop only) ------------------------ */
 .cursor-glow {
   position: fixed;
   top: 0;
@@ -903,7 +906,7 @@ a { color: inherit; text-decoration: none; }
   .cursor-glow { display: none; }
 }
 
-/* -- Confetti Burst ----------------------------------------- */
+/* -- Confetti Burst ------------------------------------ */
 @keyframes confettiBurst {
   0%   { opacity: 1; transform: translate(0, 0) scale(1); }
   100% { opacity: 0; transform: translate(var(--cx), var(--cy)) scale(0); }
@@ -920,8 +923,7 @@ a { color: inherit; text-decoration: none; }
   animation: confettiBurst 0.6s ease-out forwards;
 }
 
-
-/* -- Mobile Menu Open State --------------------------------- */
+/* -- Mobile Menu Open State ---------------------------- */
 .nav-links.open {
   display: flex;
   flex-direction: column;
@@ -963,7 +965,8 @@ a { color: inherit; text-decoration: none; }
 .nav-hamburger.active span:nth-child(3) {
   transform: rotate(-45deg) translate(4px, -4px);
 }
-/* -- Reduced Motion Override -------------------------------- */
+
+/* -- Reduced Motion Override --------------------------- */
 @media (prefers-reduced-motion: reduce) {
   .hero::before {
     animation: none;
@@ -984,7 +987,7 @@ a { color: inherit; text-decoration: none; }
   }
 }
 
-/* -- FAQ Section --------------------------------------------- */
+/* -- FAQ Section --------------------------------------- */
 .faq {
   max-width: 720px;
   margin: 0 auto;
@@ -1248,7 +1251,7 @@ a { color: inherit; text-decoration: none; }
 <footer class="footer">
   <p class="footer-brand">PicYourBooth</p>
   <a href="mailto:info@picyourbooth.nl" class="footer-email">info@picyourbooth.nl</a>
-  <p class="footer-copy">&copy; 2026 PicYourBooth</p>
+  <p class="footer-copy">&copy; 2026 PicYourMoment B.V.</p>
 </footer>
 
 <!-- ============================================================
@@ -1373,7 +1376,7 @@ a { color: inherit; text-decoration: none; }
       title: 'Live DJ Set',
       price: '+\u20AC149',
       image: 'https://images.unsplash.com/photo-1571266028243-3716f02d2d56?w=800&q=80&auto=format',
-      desc: 'Foto\'s en muziek van hetzelfde team, dat klikt als geen ander. Complete DJ setup met rookmachine, sfeerverlichting en professionele speakers. Stuur je Spotify playlist, wij bouwen de perfecte set. Een DJ bureau rekent makkelijk \u20AC500+, bij ons erbij voor een fractie.'
+      desc: 'Foto's en muziek van hetzelfde team, dat klikt als geen ander. Complete DJ setup met rookmachine, sfeerverlichting en professionele speakers. Stuur je Spotify playlist, wij bouwen de perfecte set. Een DJ bureau rekent makkelijk \u20AC500+, bij ons erbij voor een fractie.'
     }
   };
 
@@ -1414,7 +1417,7 @@ a { color: inherit; text-decoration: none; }
 (function () {
   'use strict';
 
-  /* -- Respect reduced motion -------------------------------- */
+  /* -- Respect reduced motion ---------------------------- */
   var prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   if (prefersReduced) return;
 
@@ -1476,7 +1479,6 @@ a { color: inherit; text-decoration: none; }
       }
     }, { passive: true });
   }
-
 
   /* ==========================================================
      MOBILE MENU TOGGLE
