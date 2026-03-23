@@ -68,6 +68,12 @@ body {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+body.loaded {
+  opacity: 1;
 }
 
 img { display: block; max-width: 100%; }
@@ -146,6 +152,24 @@ a { color: inherit; text-decoration: none; }
 
 .nav-back:hover {
   color: var(--text);
+}
+
+/* -- Sticky Glassmorphism Nav --------------------------- */
+.nav-wrapper {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  border-top: 2px solid var(--gold);
+  border-bottom: 1px solid var(--border);
+  background: rgba(8, 8, 11, 0.75);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  transition: background 0.3s var(--ease), box-shadow 0.3s var(--ease);
+}
+
+.nav-wrapper.scrolled {
+  background: rgba(8, 8, 11, 0.92);
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.4);
 }
 
 /* -- Form Header --------------------------------------- */
@@ -400,6 +424,114 @@ a { color: inherit; text-decoration: none; }
   .form-section { animation: none; }
   .cursor-glow { display: none; }
 }
+
+/* -- Form Progress Indicator ---------------------------- */
+.form-progress {
+  width: 100%;
+  height: 3px;
+  background: var(--border);
+  border-radius: 2px;
+  margin-bottom: 32px;
+  overflow: hidden;
+}
+
+.form-progress-bar {
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, var(--gold), var(--gold-light));
+  border-radius: 2px;
+  transition: width 0.4s var(--ease);
+  box-shadow: 0 0 8px rgba(245, 158, 66, 0.3);
+}
+
+.form-progress-label {
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(237, 237, 240, 0.5);
+  margin-bottom: 8px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.form-progress-label span {
+  color: var(--gold);
+  font-variant-numeric: tabular-nums;
+}
+
+/* -- Form Success State --------------------------------- */
+.form-success {
+  text-align: center;
+  padding: 64px 32px;
+  animation: successFadeIn 0.6s var(--ease) both;
+}
+
+@keyframes successFadeIn {
+  from { opacity: 0; transform: scale(0.95) translateY(12px); }
+  to   { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+.success-checkmark {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--gold), var(--gold-light));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 24px;
+  animation: checkPop 0.5s var(--ease) 0.2s both;
+  box-shadow: 0 0 32px rgba(245, 158, 66, 0.3);
+}
+
+@keyframes checkPop {
+  0%   { transform: scale(0); }
+  60%  { transform: scale(1.15); }
+  100% { transform: scale(1); }
+}
+
+.success-checkmark svg {
+  width: 32px;
+  height: 32px;
+  stroke: #000;
+  stroke-width: 3;
+  fill: none;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.success-title {
+  font-family: var(--font-display);
+  font-size: 2rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+  color: var(--gold);
+}
+
+.success-text {
+  color: var(--text-muted);
+  font-size: 15px;
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+/* -- Confetti Particles --------------------------------- */
+.confetti-particle {
+  position: fixed;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 200;
+  animation: confettiBurst 0.8s ease-out forwards;
+}
+
+@keyframes confettiBurst {
+  0%   { opacity: 1; transform: translate(0, 0) scale(1); }
+  100% { opacity: 0; transform: translate(var(--cx), var(--cy)) scale(0); }
+}
 </style>
 </head>
 <body>
@@ -407,7 +539,7 @@ a { color: inherit; text-decoration: none; }
 <!-- ============================================================
      NAVIGATION (simplified: logo + terug)
      ============================================================ -->
-<div style="border-top: 2px solid #f59e42; border-bottom: 1px solid rgba(255,255,255,0.06);"><nav class="nav">
+<div class="nav-wrapper" id="navWrapper"><nav class="nav">
   <a href="homepage.html" class="nav-logo">PicYourBooth</a>
   <a href="homepage.html" class="nav-back">Terug</a>
 </nav></div>
@@ -426,6 +558,15 @@ a { color: inherit; text-decoration: none; }
 <section class="form-section" aria-label="Offerte aanvragen">
   <div class="form-card">
     <form action="#" method="POST" novalidate>
+
+      <!-- Progress Indicator -->
+      <div class="form-progress-label">
+        <span>Voortgang</span>
+        <span id="progressPercent">0%</span>
+      </div>
+      <div class="form-progress">
+        <div class="form-progress-bar" id="progressBar"></div>
+      </div>
 
       <!-- Naam -->
       <div class="form-group">
@@ -595,6 +736,113 @@ a { color: inherit; text-decoration: none; }
     "bestRating": "5"
   }
 }
+</script>
+
+<script>
+(function () {
+  'use strict';
+
+  /* -- Smooth page entrance ----------------------------- */
+  document.body.classList.add('loaded');
+
+  /* -- Sticky nav glassmorphism on scroll --------------- */
+  var navWrapper = document.getElementById('navWrapper');
+  if (navWrapper) {
+    var scrollTicking = false;
+    window.addEventListener('scroll', function () {
+      if (!scrollTicking) {
+        requestAnimationFrame(function () {
+          if (window.scrollY > 20) {
+            navWrapper.classList.add('scrolled');
+          } else {
+            navWrapper.classList.remove('scrolled');
+          }
+          scrollTicking = false;
+        });
+        scrollTicking = true;
+      }
+    }, { passive: true });
+  }
+
+  /* -- Form progress indicator -------------------------- */
+  var formFields = document.querySelectorAll('form input:not([type="hidden"]):not([type="submit"]), form select, form textarea');
+  var progressBar = document.getElementById('progressBar');
+  var progressPercent = document.getElementById('progressPercent');
+
+  function updateProgress() {
+    if (!formFields.length || !progressBar) return;
+    var filled = 0;
+    formFields.forEach(function (f) {
+      if (f.type === 'checkbox' || f.type === 'radio') {
+        if (f.checked) filled++;
+      } else if (f.value.trim() !== '') {
+        filled++;
+      }
+    });
+    var pct = Math.round((filled / formFields.length) * 100);
+    progressBar.style.width = pct + '%';
+    if (progressPercent) progressPercent.textContent = pct + '%';
+  }
+
+  formFields.forEach(function (f) {
+    f.addEventListener('input', updateProgress);
+    f.addEventListener('change', updateProgress);
+  });
+
+  /* -- Form success state with confetti ----------------- */
+  var form = document.querySelector('form');
+  if (form) {
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+
+      /* Confetti burst */
+      var colors = ['#f59e42', '#8b5cf6', '#ffb86b', '#34d399'];
+      for (var i = 0; i < 30; i++) {
+        var p = document.createElement('div');
+        p.className = 'confetti-particle';
+        var angle = Math.random() * Math.PI * 2;
+        var dist = 60 + Math.random() * 120;
+        p.style.setProperty('--cx', Math.cos(angle) * dist + 'px');
+        p.style.setProperty('--cy', Math.sin(angle) * dist - 40 + 'px');
+        p.style.left = '50%';
+        p.style.top = '40%';
+        p.style.background = colors[Math.floor(Math.random() * colors.length)];
+        p.style.animationDelay = Math.random() * 0.3 + 's';
+        document.body.appendChild(p);
+        p.addEventListener('animationend', function () { this.remove(); });
+      }
+
+      /* Replace form with success message using safe DOM methods */
+      var formContainer = form.parentElement;
+      form.style.display = 'none';
+
+      var success = document.createElement('div');
+      success.className = 'form-success';
+
+      var checkmark = document.createElement('div');
+      checkmark.className = 'success-checkmark';
+      var svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+      svg.setAttribute('viewBox', '0 0 24 24');
+      var polyline = document.createElementNS('http://www.w3.org/2000/svg', 'polyline');
+      polyline.setAttribute('points', '20 6 9 17 4 12');
+      svg.appendChild(polyline);
+      checkmark.appendChild(svg);
+
+      var title = document.createElement('h2');
+      title.className = 'success-title';
+      title.textContent = 'Verstuurd!';
+
+      var text = document.createElement('p');
+      text.className = 'success-text';
+      text.textContent = 'Bedankt voor je aanvraag. We nemen zo snel mogelijk contact met je op met een vrijblijvend voorstel.';
+
+      success.appendChild(checkmark);
+      success.appendChild(title);
+      success.appendChild(text);
+      formContainer.appendChild(success);
+    });
+  }
+})();
 </script>
 
 </body>

@@ -73,6 +73,12 @@ body {
   line-height: 1.7;
   background: var(--bg);
   color: var(--text);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+body.loaded {
+  opacity: 1;
 }
 
 img { display: block; max-width: 100%; }
@@ -125,8 +131,18 @@ a { color: inherit; text-decoration: none; }
 .nav-bar {
   border-top: 2px solid var(--gold);
   border-bottom: 1px solid rgba(255, 255, 255, 0.06);
-  position: relative;
+  position: sticky;
+  top: 0;
   z-index: 100;
+  background: var(--bg);
+  transition: background 0.3s ease, backdrop-filter 0.3s ease;
+}
+
+.nav-bar.scrolled {
+  background: rgba(8, 8, 11, 0.85);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom-color: rgba(255, 255, 255, 0.08);
 }
 
 .nav {
@@ -249,6 +265,8 @@ a { color: inherit; text-decoration: none; }
   background-position: center 30%;
   opacity: 0.2;
   pointer-events: none;
+  transform: translateY(var(--parallax-y, 0));
+  will-change: transform;
 }
 
 .hero-overlay {
@@ -623,6 +641,29 @@ a { color: inherit; text-decoration: none; }
   gap: 20px;
   transition: border-color 0.25s, background 0.25s;
   cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+
+.upgrade-row::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.04), transparent);
+  transition: none;
+  pointer-events: none;
+}
+
+.upgrade-row:hover::after {
+  animation: shimmerSweep 0.8s ease-out;
+}
+
+@keyframes shimmerSweep {
+  0% { left: -50%; }
+  100% { left: 150%; }
 }
 
 .upgrade-row:hover {
@@ -928,6 +969,23 @@ a { color: inherit; text-decoration: none; }
   background: var(--gold-light);
 }
 
+/* -- Modal Backdrop Particles -------------------------- */
+.modal-particle {
+  position: fixed;
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 149;
+  animation: floatUp 3s ease-out forwards;
+  opacity: 0.4;
+}
+
+@keyframes floatUp {
+  0% { opacity: 0.4; transform: translateY(0) scale(1); }
+  100% { opacity: 0; transform: translateY(-120px) scale(0.3); }
+}
+
 /* -- Responsive ---------------------------------------- */
 @media (max-width: 768px) {
   .hero {
@@ -984,6 +1042,25 @@ a { color: inherit; text-decoration: none; }
   opacity: 1;
   transform: translateY(0);
 }
+
+/* -- Staggered Child Reveals -------------------------- */
+.reveal > * {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 0.5s var(--ease), transform 0.5s var(--ease);
+}
+
+.reveal.visible > * {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.reveal.visible > *:nth-child(1) { transition-delay: 0s; }
+.reveal.visible > *:nth-child(2) { transition-delay: 0.08s; }
+.reveal.visible > *:nth-child(3) { transition-delay: 0.16s; }
+.reveal.visible > *:nth-child(4) { transition-delay: 0.24s; }
+.reveal.visible > *:nth-child(5) { transition-delay: 0.32s; }
+.reveal.visible > *:nth-child(6) { transition-delay: 0.40s; }
 
 /* -- Nav Scroll Progress Bar --------------------------- */
 .scroll-progress {
@@ -1096,10 +1173,20 @@ a { color: inherit; text-decoration: none; }
 
 /* -- Reduced Motion Override --------------------------- */
 @media (prefers-reduced-motion: reduce) {
+  body {
+    opacity: 1 !important;
+    transition: none !important;
+  }
   .hero::before {
     animation: none;
+    transform: none !important;
   }
   .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+  .reveal > * {
     opacity: 1;
     transform: none;
     transition: none;
@@ -1114,6 +1201,14 @@ a { color: inherit; text-decoration: none; }
     display: none;
   }
   .confetti-particle {
+    animation: none;
+    display: none;
+  }
+  .modal-particle {
+    animation: none;
+    display: none;
+  }
+  .upgrade-row::after {
     animation: none;
     display: none;
   }
@@ -1537,7 +1632,25 @@ a { color: inherit; text-decoration: none; }
     modalImage.style.backgroundSize = 'cover';
     modalImage.style.backgroundPosition = 'center';
     overlay.classList.add('active');
+    spawnModalParticles();
   };
+
+  function spawnModalParticles() {
+    var prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (prefersReduced) return;
+    var colors = ['#f59e42', '#8b5cf6', '#ffb86b'];
+    for (var i = 0; i < 15; i++) {
+      var p = document.createElement('div');
+      p.className = 'modal-particle';
+      p.style.left = Math.random() * 100 + 'vw';
+      p.style.top = 40 + Math.random() * 50 + 'vh';
+      p.style.background = colors[Math.floor(Math.random() * colors.length)];
+      p.style.animationDelay = Math.random() * 1.5 + 's';
+      p.style.animationDuration = 2 + Math.random() * 2 + 's';
+      document.body.appendChild(p);
+      p.addEventListener('animationend', function() { this.remove(); });
+    }
+  }
 
   window.closeModal = function() {
     if (overlay) overlay.classList.remove('active');
@@ -1560,9 +1673,36 @@ a { color: inherit; text-decoration: none; }
 (function () {
   'use strict';
 
+  /* -- Smooth Page Entrance ------------------------------ */
+  document.body.classList.add('loaded');
+
   /* -- Respect reduced motion ---------------------------- */
   var prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   if (prefersReduced) return;
+
+  /* ==========================================================
+     0. PARALLAX HERO + GLASSMORPHISM NAV
+     ========================================================== */
+  var hero = document.querySelector('.hero');
+  var navBar = document.querySelector('.nav-bar');
+
+  window.addEventListener('scroll', function() {
+    var scrolled = window.pageYOffset;
+
+    /* Parallax hero background */
+    if (hero && scrolled < hero.offsetHeight) {
+      hero.style.setProperty('--parallax-y', (scrolled * 0.4) + 'px');
+    }
+
+    /* Glassmorphism sticky nav */
+    if (navBar) {
+      if (scrolled > 40) {
+        navBar.classList.add('scrolled');
+      } else {
+        navBar.classList.remove('scrolled');
+      }
+    }
+  }, { passive: true });
 
   /* ==========================================================
      1. SCROLL-REVEAL SECTIONS

@@ -311,38 +311,123 @@ a { color: inherit; text-decoration: none; }
   font-variant-numeric: tabular-nums;
 }
 
-/* Waveform bars */
-.waveform-bars {
+/* Waveform + Play/Pause container — centered column */
+.waveform-wrap {
   display: flex;
+  flex-direction: column;
   justify-content: center;
-  align-items: flex-end;
-  gap: 4px;
+  align-items: center;
+  gap: 20px;
   margin-top: 56px;
-  height: 40px;
   position: relative;
   z-index: 2;
 }
 
+/* Play/Pause button */
+.audio-toggle {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  border: 2px solid var(--violet);
+  background: rgba(139, 92, 246, 0.12);
+  color: var(--violet);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.25s var(--ease), box-shadow 0.25s var(--ease), transform 0.15s var(--ease), border-color 0.25s var(--ease);
+  flex-shrink: 0;
+  box-shadow: 0 0 16px var(--violet-glow);
+}
+
+.audio-toggle:hover {
+  background: rgba(139, 92, 246, 0.25);
+  box-shadow: 0 0 28px var(--violet-glow);
+  transform: scale(1.1);
+  border-color: var(--coral);
+}
+
+.audio-toggle svg {
+  width: 22px;
+  height: 22px;
+  fill: currentColor;
+}
+
+.audio-toggle .icon-pause { display: none; }
+.audio-toggle.playing .icon-play  { display: none; }
+.audio-toggle.playing .icon-pause { display: block; }
+
+/* Waveform bars — large, colourful equalizer */
+.waveform-bars {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  gap: 5px;
+  height: 80px;
+}
+
 .waveform-bars span {
   display: block;
-  width: 2.5px;
-  border-radius: 2px;
+  width: 5px;
+  border-radius: 3px;
+  animation: waveBob 1.6s ease-in-out infinite;
+  /* Gradient from coral → violet → cyan across bars */
   background: var(--violet);
-  animation: waveBob 2s ease-in-out infinite;
+}
+
+/* Coral bars (left) */
+.waveform-bars span:nth-child(1)  { background: var(--coral); }
+.waveform-bars span:nth-child(2)  { background: var(--coral); }
+.waveform-bars span:nth-child(3)  { background: var(--coral-light); }
+/* Coral → violet transition */
+.waveform-bars span:nth-child(4)  { background: #d06090; }
+.waveform-bars span:nth-child(5)  { background: #b560b8; }
+/* Violet bars (center) */
+.waveform-bars span:nth-child(6)  { background: var(--violet); }
+.waveform-bars span:nth-child(7)  { background: var(--violet); }
+.waveform-bars span:nth-child(8)  { background: var(--violet); }
+.waveform-bars span:nth-child(9)  { background: var(--violet); }
+/* Violet → cyan transition */
+.waveform-bars span:nth-child(10) { background: #6b8be6; }
+.waveform-bars span:nth-child(11) { background: #50a8d8; }
+/* Cyan bars (right) */
+.waveform-bars span:nth-child(12) { background: var(--cyan); }
+.waveform-bars span:nth-child(13) { background: var(--cyan); }
+.waveform-bars span:nth-child(14) { background: var(--cyan-light); }
+.waveform-bars span:nth-child(15) { background: var(--cyan); }
+
+/* Glow effect per bar */
+.waveform-bars span:nth-child(-n+3)  { box-shadow: 0 0 8px rgba(240, 101, 74, 0.4); }
+.waveform-bars span:nth-child(n+6):nth-child(-n+9)  { box-shadow: 0 0 8px var(--violet-glow); }
+.waveform-bars span:nth-child(n+12) { box-shadow: 0 0 8px rgba(34, 211, 153, 0.4); }
+
+/* Heights & stagger */
+.waveform-bars span:nth-child(1)  { height: 28px; animation-delay: 0s;     animation-duration: 1.4s; }
+.waveform-bars span:nth-child(2)  { height: 48px; animation-delay: 0.12s;  animation-duration: 1.1s; }
+.waveform-bars span:nth-child(3)  { height: 64px; animation-delay: 0.24s;  animation-duration: 1.5s; }
+.waveform-bars span:nth-child(4)  { height: 40px; animation-delay: 0.08s;  animation-duration: 1.3s; }
+.waveform-bars span:nth-child(5)  { height: 56px; animation-delay: 0.32s;  animation-duration: 0.9s; }
+.waveform-bars span:nth-child(6)  { height: 72px; animation-delay: 0.16s;  animation-duration: 1.6s; }
+.waveform-bars span:nth-child(7)  { height: 50px; animation-delay: 0.04s;  animation-duration: 1.2s; }
+.waveform-bars span:nth-child(8)  { height: 80px; animation-delay: 0.28s;  animation-duration: 1.0s; }
+.waveform-bars span:nth-child(9)  { height: 60px; animation-delay: 0.20s;  animation-duration: 1.4s; }
+.waveform-bars span:nth-child(10) { height: 44px; animation-delay: 0.36s;  animation-duration: 1.1s; }
+.waveform-bars span:nth-child(11) { height: 68px; animation-delay: 0.10s;  animation-duration: 1.5s; }
+.waveform-bars span:nth-child(12) { height: 52px; animation-delay: 0.22s;  animation-duration: 0.95s; }
+.waveform-bars span:nth-child(13) { height: 76px; animation-delay: 0.06s;  animation-duration: 1.3s; }
+.waveform-bars span:nth-child(14) { height: 36px; animation-delay: 0.30s;  animation-duration: 1.15s; }
+.waveform-bars span:nth-child(15) { height: 58px; animation-delay: 0.18s;  animation-duration: 1.45s; }
+
+/* Paused state — bars freeze */
+.waveform-bars.paused span {
+  animation-play-state: paused;
+  opacity: 0.5;
 }
 
 @keyframes waveBob {
-  0%, 100% { transform: scaleY(0.35); }
+  0%, 100% { transform: scaleY(0.3); }
   50%      { transform: scaleY(1); }
 }
-
-.waveform-bars span:nth-child(1) { height: 20px; animation-delay: 0s; }
-.waveform-bars span:nth-child(2) { height: 32px; animation-delay: 0.15s; }
-.waveform-bars span:nth-child(3) { height: 40px; animation-delay: 0.3s; }
-.waveform-bars span:nth-child(4) { height: 28px; animation-delay: 0.45s; }
-.waveform-bars span:nth-child(5) { height: 36px; animation-delay: 0.6s; }
-.waveform-bars span:nth-child(6) { height: 16px; animation-delay: 0.75s; }
-.waveform-bars span:nth-child(7) { height: 24px; animation-delay: 0.9s; }
 
 /* -- DJ Profile Section -------------------------------- */
 .dj-section {
@@ -967,16 +1052,8 @@ a { color: inherit; text-decoration: none; }
 }
 
 .waveform-bars span {
-  animation: waveBobEnergetic 1.2s ease-in-out infinite;
+  animation-name: waveBobEnergetic;
 }
-
-.waveform-bars span:nth-child(1) { height: 22px; animation-delay: 0s; animation-duration: 1.0s; }
-.waveform-bars span:nth-child(2) { height: 34px; animation-delay: 0.1s; animation-duration: 0.9s; }
-.waveform-bars span:nth-child(3) { height: 40px; animation-delay: 0.2s; animation-duration: 1.15s; }
-.waveform-bars span:nth-child(4) { height: 28px; animation-delay: 0.05s; animation-duration: 0.85s; }
-.waveform-bars span:nth-child(5) { height: 38px; animation-delay: 0.25s; animation-duration: 1.1s; }
-.waveform-bars span:nth-child(6) { height: 18px; animation-delay: 0.15s; animation-duration: 0.95s; }
-.waveform-bars span:nth-child(7) { height: 30px; animation-delay: 0.3s; animation-duration: 1.05s; }
 
 /* -- Confetti Burst ------------------------------------ */
 @keyframes confettiBurst {
@@ -1128,9 +1205,107 @@ a { color: inherit; text-decoration: none; }
   line-height: 1.7;
   padding-bottom: 20px;
 }
+
+/* ============================================================
+   PREMIUM VISUAL ENHANCEMENTS
+   ============================================================ */
+
+/* -- 1. Smooth Page Entrance ------------------------------ */
+body {
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+body.loaded {
+  opacity: 1;
+}
+
+/* -- 2. Staggered Scroll Reveals -------------------------- */
+.reveal > * {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 0.5s var(--ease), transform 0.5s var(--ease);
+}
+
+.reveal.visible > * {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.reveal.visible > *:nth-child(1) { transition-delay: 0s; }
+.reveal.visible > *:nth-child(2) { transition-delay: 0.08s; }
+.reveal.visible > *:nth-child(3) { transition-delay: 0.08s; }
+.reveal.visible > *:nth-child(4) { transition-delay: 0.24s; }
+.reveal.visible > *:nth-child(5) { transition-delay: 0.32s; }
+.reveal.visible > *:nth-child(6) { transition-delay: 0.40s; }
+
+/* -- 3. Parallax Hero ------------------------------------- */
+.hero::before {
+  transform: translateY(var(--parallax-y, 0));
+}
+
+/* -- 4. Glassmorphism Sticky Nav -------------------------- */
+.nav-bar {
+  position: sticky;
+  top: 0;
+  transition: background 0.3s ease, backdrop-filter 0.3s ease;
+}
+
+.nav-bar.scrolled {
+  background: rgba(8, 8, 11, 0.85);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom-color: rgba(255, 255, 255, 0.08);
+}
+
+/* -- 9. Hero Background Beat Pulse ------------------------ */
+.hero.beat-pulse::before {
+  animation: heroBeatPulse 0.48s ease-out;
+}
+
+@keyframes heroBeatPulse {
+  0%   { opacity: 0.25; }
+  100% { opacity: 0.2; }
+}
+
+/* -- 10. Floating Music Notes ----------------------------- */
+.floating-note {
+  position: absolute;
+  font-size: 16px;
+  pointer-events: none;
+  z-index: 3;
+  opacity: 0;
+  animation: noteFloat 2.5s ease-out forwards;
+}
+
+@keyframes noteFloat {
+  0%   { opacity: 0.7; transform: translateY(0) rotate(0deg); }
+  50%  { opacity: 0.5; }
+  100% { opacity: 0; transform: translateY(-80px) rotate(15deg) translateX(20px); }
+}
+
+/* -- Reduced Motion: disable new enhancements ------------- */
+@media (prefers-reduced-motion: reduce) {
+  body {
+    opacity: 1;
+    transition: none;
+  }
+  .reveal > * {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+  .hero.beat-pulse::before {
+    animation: none;
+  }
+  .floating-note {
+    display: none;
+  }
+}
 </style>
 </head>
 <body>
+<script>document.body.classList.add('loaded');</script>
 
 <!-- ============================================================
      NAVIGATION
@@ -1161,15 +1336,30 @@ a { color: inherit; text-decoration: none; }
     <p class="hero-subtitle">Spotify playlist-optimalisatie.<br>Speakers, licht en rookmachine inbegrepen.</p>
     <span class="hero-price">Vanaf &euro;149 per avond</span>
   </div>
-  <div class="waveform-bars">
-    <span></span>
-    <span></span>
-    <span></span>
-    <span></span>
-    <span></span>
-    <span></span>
-    <span></span>
+  <div class="waveform-wrap">
+    <button class="audio-toggle" id="audioToggle" aria-label="Speel muziek af">
+      <svg class="icon-play" viewBox="0 0 24 24"><polygon points="6,3 20,12 6,21"/></svg>
+      <svg class="icon-pause" viewBox="0 0 24 24"><rect x="5" y="3" width="4" height="18"/><rect x="15" y="3" width="4" height="18"/></svg>
+    </button>
+    <div class="waveform-bars paused" id="waveformBars">
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
   </div>
+  <!-- Audio generated via Web Audio API — no external file needed -->
 </section>
 
 <!-- ============================================================
@@ -1470,6 +1660,41 @@ function selectHour(el) {
   }
 
   /* ==========================================================
+     PARALLAX HERO
+     ========================================================== */
+  var heroEl = document.querySelector('.hero');
+  var parallaxTicking = false;
+
+  function updateParallax() {
+    if (heroEl) {
+      heroEl.style.setProperty('--parallax-y', (window.pageYOffset * 0.4) + 'px');
+    }
+    parallaxTicking = false;
+  }
+
+  window.addEventListener('scroll', function () {
+    if (!parallaxTicking) {
+      requestAnimationFrame(updateParallax);
+      parallaxTicking = true;
+    }
+  }, { passive: true });
+
+  /* ==========================================================
+     GLASSMORPHISM STICKY NAV
+     ========================================================== */
+  var navBar = document.querySelector('.nav-bar');
+
+  window.addEventListener('scroll', function () {
+    if (navBar) {
+      if (window.pageYOffset > 40) {
+        navBar.classList.add('scrolled');
+      } else {
+        navBar.classList.remove('scrolled');
+      }
+    }
+  }, { passive: true });
+
+  /* ==========================================================
      4. PRICE PULSE - clean up class after animation ends
      ========================================================== */
   var totalEl = document.getElementById('totalPrice');
@@ -1480,9 +1705,194 @@ function selectHour(el) {
   }
 
   /* ==========================================================
-     5. ENHANCED WAVEFORM - randomise heights periodically
+     5. AUDIO PLAY/PAUSE + WAVEFORM (Web Audio API beat)
      ========================================================== */
-  var bars = document.querySelectorAll('.waveform-bars span');
+  var toggleBtn = document.getElementById('audioToggle');
+  var waveform  = document.getElementById('waveformBars');
+  var bars      = waveform ? waveform.querySelectorAll('span') : [];
+  var audioCtx  = null;
+  var isPlaying = false;
+  var beatInterval = null;
+
+  function setPlaying(playing) {
+    isPlaying = playing;
+    if (playing) {
+      toggleBtn.classList.add('playing');
+      toggleBtn.setAttribute('aria-label', 'Pauzeer muziek');
+      waveform.classList.remove('paused');
+    } else {
+      toggleBtn.classList.remove('playing');
+      toggleBtn.setAttribute('aria-label', 'Speel muziek af');
+      waveform.classList.add('paused');
+    }
+  }
+
+  /* ==========================================================
+     FLOATING MUSIC NOTES
+     ========================================================== */
+  var noteSymbols = ['\u266A', '\u266B', '\u266C'];
+  var noteColors = ['var(--coral)', 'var(--violet)', 'var(--cyan)'];
+  var noteInterval = null;
+
+  function startNotes() {
+    if (noteInterval) return;
+    noteInterval = setInterval(function() {
+      var wrap = document.querySelector('.waveform-wrap');
+      if (!wrap) return;
+      var note = document.createElement('span');
+      note.className = 'floating-note';
+      note.textContent = noteSymbols[Math.floor(Math.random() * noteSymbols.length)];
+      note.style.color = noteColors[Math.floor(Math.random() * noteColors.length)];
+      note.style.left = (20 + Math.random() * 60) + '%';
+      note.style.bottom = '80px';
+      wrap.appendChild(note);
+      note.addEventListener('animationend', function() { note.remove(); });
+    }, 1800);
+  }
+
+  function stopNotes() {
+    if (noteInterval) { clearInterval(noteInterval); noteInterval = null; }
+  }
+
+  // Synthesised deep-house loop using Web Audio API
+  function createBeat() {
+    if (!audioCtx) {
+      audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+    }
+    if (audioCtx.state === 'suspended') {
+      audioCtx.resume();
+    }
+
+    var bpm = 124;
+    var stepTime = 60 / bpm / 4; // 16th notes
+    var step = 0;
+
+    // Master volume
+    var master = audioCtx.createGain();
+    master.gain.value = 0.35;
+    master.connect(audioCtx.destination);
+
+    // Kick pattern: steps 0, 4, 8, 12 (four-on-the-floor)
+    function playKick(time) {
+      var osc = audioCtx.createOscillator();
+      var gain = audioCtx.createGain();
+      osc.type = 'sine';
+      osc.frequency.setValueAtTime(150, time);
+      osc.frequency.exponentialRampToValueAtTime(30, time + 0.12);
+      gain.gain.setValueAtTime(0.9, time);
+      gain.gain.exponentialRampToValueAtTime(0.001, time + 0.3);
+      osc.connect(gain);
+      gain.connect(master);
+      osc.start(time);
+      osc.stop(time + 0.3);
+    }
+
+    // Hi-hat using noise
+    function playHat(time, open) {
+      var bufferSize = audioCtx.sampleRate * 0.05;
+      var buffer = audioCtx.createBuffer(1, bufferSize, audioCtx.sampleRate);
+      var data = buffer.getChannelData(0);
+      for (var i = 0; i < bufferSize; i++) {
+        data[i] = (Math.random() * 2 - 1) * 0.3;
+      }
+      var src = audioCtx.createBufferSource();
+      src.buffer = buffer;
+      var hp = audioCtx.createBiquadFilter();
+      hp.type = 'highpass';
+      hp.frequency.value = 8000;
+      var gain = audioCtx.createGain();
+      var dur = open ? 0.12 : 0.04;
+      gain.gain.setValueAtTime(open ? 0.25 : 0.18, time);
+      gain.gain.exponentialRampToValueAtTime(0.001, time + dur);
+      src.connect(hp);
+      hp.connect(gain);
+      gain.connect(master);
+      src.start(time);
+      src.stop(time + dur);
+    }
+
+    // Bass synth
+    function playBass(time, freq) {
+      var osc = audioCtx.createOscillator();
+      var gain = audioCtx.createGain();
+      osc.type = 'sawtooth';
+      osc.frequency.value = freq;
+      var lp = audioCtx.createBiquadFilter();
+      lp.type = 'lowpass';
+      lp.frequency.setValueAtTime(600, time);
+      lp.frequency.exponentialRampToValueAtTime(150, time + 0.2);
+      gain.gain.setValueAtTime(0.2, time);
+      gain.gain.exponentialRampToValueAtTime(0.001, time + 0.25);
+      osc.connect(lp);
+      lp.connect(gain);
+      gain.connect(master);
+      osc.start(time);
+      osc.stop(time + 0.25);
+    }
+
+    // Pattern: 16 steps per bar, 4 bars loop
+    var bassNotes = [55, 55, 0, 55, 0, 0, 65.41, 0, 55, 0, 55, 0, 0, 73.42, 0, 0];
+
+    function scheduleStep() {
+      var time = audioCtx.currentTime + 0.05;
+      var s = step % 16;
+
+      // Kick: four-on-the-floor
+      if (s % 4 === 0) {
+        playKick(time);
+        // Beat pulse on hero background
+        var hero = document.querySelector('.hero');
+        if (hero) {
+          hero.classList.add('beat-pulse');
+          setTimeout(function() { hero.classList.remove('beat-pulse'); }, 480);
+        }
+      }
+
+      // Hi-hat: every 2 steps, open on offbeats
+      if (s % 2 === 0) playHat(time, s % 4 === 2);
+
+      // Bass
+      if (bassNotes[s] > 0) playBass(time, bassNotes[s]);
+
+      step++;
+    }
+
+    beatInterval = setInterval(scheduleStep, stepTime * 1000);
+    setPlaying(true);
+    startNotes();
+  }
+
+  function stopBeat() {
+    if (beatInterval) {
+      clearInterval(beatInterval);
+      beatInterval = null;
+    }
+    setPlaying(false);
+    stopNotes();
+  }
+
+  if (toggleBtn) {
+    toggleBtn.addEventListener('click', function () {
+      if (isPlaying) {
+        stopBeat();
+      } else {
+        createBeat();
+      }
+    });
+
+    // Auto-start on first user interaction (click/touch/key anywhere)
+    function autoStart() {
+      if (!isPlaying) createBeat();
+      document.removeEventListener('click', autoStart);
+      document.removeEventListener('touchstart', autoStart);
+      document.removeEventListener('keydown', autoStart);
+    }
+    document.addEventListener('click', autoStart, { once: true });
+    document.addEventListener('touchstart', autoStart, { once: true });
+    document.addEventListener('keydown', autoStart, { once: true });
+  }
+
+  // Randomise bar heights periodically for organic feel
   if (bars.length) {
     setInterval(function () {
       bars.forEach(function (bar) {

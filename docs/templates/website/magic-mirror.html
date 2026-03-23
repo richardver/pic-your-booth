@@ -73,6 +73,12 @@ body {
   line-height: 1.7;
   background: var(--bg);
   color: var(--text);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+body.loaded {
+  opacity: 1;
 }
 
 img { display: block; max-width: 100%; }
@@ -125,8 +131,18 @@ a { color: inherit; text-decoration: none; }
 .nav-bar {
   border-top: 2px solid var(--gold);
   border-bottom: 1px solid rgba(255, 255, 255, 0.06);
-  position: relative;
+  position: sticky;
+  top: 0;
   z-index: 100;
+  background: var(--bg);
+  transition: background 0.3s ease, backdrop-filter 0.3s ease, -webkit-backdrop-filter 0.3s ease;
+}
+
+.nav-bar.scrolled {
+  background: rgba(8, 8, 11, 0.85);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom-color: rgba(255, 255, 255, 0.08);
 }
 
 .nav {
@@ -249,6 +265,8 @@ a { color: inherit; text-decoration: none; }
   background-position: center 30%;
   opacity: 0.2;
   pointer-events: none;
+  transform: translateY(var(--parallax-y, 0));
+  will-change: transform;
 }
 
 .hero-overlay {
@@ -484,6 +502,28 @@ a { color: inherit; text-decoration: none; }
   gap: 20px;
   transition: border-color 0.25s, background 0.25s;
   cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+
+.upgrade-row::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.04), transparent);
+  pointer-events: none;
+}
+
+.upgrade-row:hover::after {
+  animation: shimmerSweep 0.8s ease-out;
+}
+
+@keyframes shimmerSweep {
+  0%   { left: -50%; }
+  100% { left: 150%; }
 }
 
 .upgrade-row:hover {
@@ -798,6 +838,23 @@ a { color: inherit; text-decoration: none; }
   background: var(--gold-light);
 }
 
+/* -- Modal Backdrop Particles -------------------------- */
+.modal-particle {
+  position: fixed;
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 10000;
+  animation: floatUp 3s ease-out forwards;
+  opacity: 0.4;
+}
+
+@keyframes floatUp {
+  0%   { opacity: 0.4; transform: translateY(0) scale(1); }
+  100% { opacity: 0; transform: translateY(-120px) scale(0.3); }
+}
+
 /* -- Responsive ---------------------------------------- */
 @media (max-width: 768px) {
   .hero {
@@ -866,6 +923,25 @@ a { color: inherit; text-decoration: none; }
   opacity: 1;
   transform: translateY(0);
 }
+
+/* -- Staggered Children Reveal ------------------------- */
+.reveal > * {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 0.5s var(--ease), transform 0.5s var(--ease);
+}
+
+.reveal.visible > * {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.reveal.visible > *:nth-child(1) { transition-delay: 0s; }
+.reveal.visible > *:nth-child(2) { transition-delay: 0.08s; }
+.reveal.visible > *:nth-child(3) { transition-delay: 0.16s; }
+.reveal.visible > *:nth-child(4) { transition-delay: 0.24s; }
+.reveal.visible > *:nth-child(5) { transition-delay: 0.32s; }
+.reveal.visible > *:nth-child(6) { transition-delay: 0.40s; }
 
 /* -- Nav Scroll Progress Bar --------------------------- */
 .scroll-progress {
@@ -983,6 +1059,21 @@ a { color: inherit; text-decoration: none; }
     display: none;
   }
   .cursor-glow {
+    display: none;
+  }
+  body {
+    opacity: 1 !important;
+    transition: none !important;
+  }
+  .reveal > * {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+  .upgrade-row::after {
+    display: none;
+  }
+  .modal-particle {
     display: none;
   }
 }
@@ -1481,6 +1572,52 @@ a { color: inherit; text-decoration: none; }
   }
 
   /* ==========================================================
+     4. PARALLAX HERO
+     ========================================================== */
+  var heroEl = document.querySelector('.hero');
+  var parallaxTicking = false;
+
+  function updateParallax() {
+    var scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+    if (heroEl) {
+      heroEl.style.setProperty('--parallax-y', (scrollTop * 0.4) + 'px');
+    }
+    parallaxTicking = false;
+  }
+
+  window.addEventListener('scroll', function () {
+    if (!parallaxTicking) {
+      requestAnimationFrame(updateParallax);
+      parallaxTicking = true;
+    }
+  }, { passive: true });
+
+  /* ==========================================================
+     5. GLASSMORPHISM STICKY NAV
+     ========================================================== */
+  var navBar = document.querySelector('.nav-bar');
+  var navScrollTicking = false;
+
+  function updateNavScroll() {
+    var scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+    if (navBar) {
+      if (scrollTop > 40) {
+        navBar.classList.add('scrolled');
+      } else {
+        navBar.classList.remove('scrolled');
+      }
+    }
+    navScrollTicking = false;
+  }
+
+  window.addEventListener('scroll', function () {
+    if (!navScrollTicking) {
+      requestAnimationFrame(updateNavScroll);
+      navScrollTicking = true;
+    }
+  }, { passive: true });
+
+  /* ==========================================================
      MOBILE MENU TOGGLE
      ========================================================== */
   var hamburger = document.querySelector('.nav-hamburger');
@@ -1559,6 +1696,43 @@ a { color: inherit; text-decoration: none; }
     {"@type": "Question", "name": "Heb ik een operator nodig?", "acceptedAnswer": {"@type": "Answer", "text": "Nee. Gasten bedienen de booth zelf. Wil je begeleiding? Boek de On-Site Host upgrade voor €149."}}
   ]
 }
+</script>
+
+<!-- Page Entrance + Modal Particles -->
+<script>
+(function () {
+  'use strict';
+
+  /* -- Smooth page entrance -------------------------------- */
+  document.body.classList.add('loaded');
+
+  /* -- Modal backdrop particles ---------------------------- */
+  var prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (prefersReduced) return;
+
+  var originalOpenModal = window.openModal;
+  var particleColors = ['#f59e42', '#ffb86b', '#8b5cf6', '#a78bfa'];
+
+  window.openModal = function (key) {
+    originalOpenModal(key);
+    spawnModalParticles();
+  };
+
+  function spawnModalParticles() {
+    var count = 15;
+    for (var i = 0; i < count; i++) {
+      var p = document.createElement('div');
+      p.className = 'modal-particle';
+      p.style.left = (Math.random() * window.innerWidth) + 'px';
+      p.style.top = (window.innerHeight * 0.4 + Math.random() * window.innerHeight * 0.5) + 'px';
+      p.style.background = particleColors[Math.floor(Math.random() * particleColors.length)];
+      p.style.animationDelay = (Math.random() * 0.6) + 's';
+      p.style.animationDuration = (2 + Math.random() * 2) + 's';
+      document.body.appendChild(p);
+      p.addEventListener('animationend', function () { this.remove(); });
+    }
+  }
+})();
 </script>
 
 </body>
