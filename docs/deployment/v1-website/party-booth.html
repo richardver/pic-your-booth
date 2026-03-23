@@ -276,9 +276,9 @@ a { color: inherit; text-decoration: none; }
   position: absolute;
   inset: 0;
   background: linear-gradient(180deg,
-    rgba(8, 8, 11, 0.3) 0%,
-    rgba(8, 8, 11, 0.6) 50%,
-    rgba(8, 8, 11, 1) 100%
+    rgba(8, 8, 11, 0.15) 0%,
+    rgba(8, 8, 11, 0.4) 50%,
+    rgba(8, 8, 11, 0.85) 100%
   );
   pointer-events: none;
   z-index: 1;
@@ -304,9 +304,6 @@ a { color: inherit; text-decoration: none; }
   color: var(--gold);
   margin-bottom: 12px;
   display: inline-block;
-  padding: 6px 16px;
-  border-radius: var(--r-pill);
-  background: var(--gold-dim);
   font-variant-numeric: tabular-nums;
 }
 
@@ -720,6 +717,8 @@ a { color: inherit; text-decoration: none; }
   cursor: pointer;
   flex-shrink: 0;
   transition: all 0.25s var(--ease);
+  position: relative;
+  z-index: 2;
 }
 
 .info-btn:hover {
@@ -1135,12 +1134,13 @@ a { color: inherit; text-decoration: none; }
 
 .confetti-particle {
   position: fixed;
-  width: 4px;
-  height: 4px;
-  background: var(--gold);
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
   pointer-events: none;
   z-index: 10000;
-  animation: confettiBurst 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation: confettiBurst 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  box-shadow: 0 0 6px currentColor;
 }
 
 /* -- Mobile Menu Open State ---------------------------- */
@@ -1408,8 +1408,8 @@ a { color: inherit; text-decoration: none; }
   <ul class="nav-links">
     <li><a href="party-booth.html" class="active">Party Booth</a></li>
     <li><a href="magic-mirror.html">Magic Mirror XL</a></li>
-    <li><a href="djs.html">DJs</a></li>
-    <li><a href="offerte.html" class="nav-cta">Boek Je Ervaring</a></li>
+    <li><a href="djs.html">DJ's</a></li>
+    <li><a href="offerte.html?service=party-booth" class="nav-cta">Boek Je Ervaring</a></li>
   </ul>
   <button class="nav-hamburger" aria-label="Menu">
     <span></span>
@@ -1588,7 +1588,7 @@ a { color: inherit; text-decoration: none; }
   </div>
 
   <!-- CTA -->
-  <a href="offerte.html" class="cta-btn">Check Beschikbaarheid</a>
+  <a href="offerte.html?service=party-booth" class="cta-btn">Check Beschikbaarheid</a>
 </div>
 
 <!-- ============================================================
@@ -1597,9 +1597,9 @@ a { color: inherit; text-decoration: none; }
 <section class="faq" id="faq">
   <h2 class="faq-title">Veelgestelde Vragen</h2>
   <details class="faq-item"><summary>Wat kost een photobooth huren?</summary><p class="faq-answer">De Party Booth huur je vanaf €199 per dag. Dat is een digitale photobooth die je zelf ophaalt en in 5 minuten klaar zet. Foto's worden gedeeld via QR code op de telefoon van je gasten. Na afloop krijg je een digitale galerij met alle foto's. Wil je het nog leuker maken? Voeg AI Achtergrond toe voor €35 of laat ons bezorgen voor €49.</p></details>
-  <details class="faq-item"><summary>Moet ik het zelf opzetten?</summary><p class="faq-answer">Ja, en dat is juist het mooie. Ophalen bij ons, neerzetten op een tafel, aanzetten. Klaar in 5 minuten, geen technische kennis nodig. Heb je liever dat wij het regelen? Voor €49 bezorgen, installeren en halen wij de booth op bij je locatie.</p></details>
+  <details class="faq-item"><summary>Moet ik het zelf opzetten?</summary><p class="faq-answer">Ja, en dat is juist het mooie. Zelf ophalen bij ons, neerzetten en aanzetten. Klaar in 5 minuten, geen technische kennis nodig. Omdat alles digitaal is en je zelf ophaalt, kunnen wij scherpe tarieven hanteren. Heb je liever dat wij het regelen? Voor €49 bezorgen, installeren en halen wij de booth op bij je locatie.</p></details>
   <details class="faq-item"><summary>Wat is AI Achtergrond?</summary><p class="faq-answer">Rommelige kamer of lelijke muur achter de booth? Met AI Achtergrond (+€35) kies je zelf de achtergrond. Strand, skyline, jungle of je eigen ontwerp. AI vervangt de echte achtergrond automatisch. Inclusief beautify filter die ervoor zorgt dat iedereen er strak op staat. Het verschil in fotokwaliteit is enorm.</p></details>
-  <details class="faq-item"><summary>Kan ik er een DJ bij boeken?</summary><p class="faq-answer">Ja. Voeg een Live DJ Set toe als upgrade voor €149. Dat is inclusief professionele speakers, sfeerverlichting en rookmachine. Stuur je Spotify playlist en onze DJ bouwt er een professionele set van. Alles van hetzelfde team, dat scheelt een hoop coordinatie.</p></details>
+  <details class="faq-item"><summary>Kan ik er een DJ bij boeken?</summary><p class="faq-answer">Ja. Voeg een Live DJ Set toe als upgrade voor €149. Dat is inclusief professionele speakers, lichtshow en rookmachine. Stuur je Spotify playlist en onze DJ bouwt er een professionele set van. Alles van hetzelfde team, dat scheelt een hoop coordinatie.</p></details>
 </section>
 
 </main>
@@ -1693,17 +1693,20 @@ a { color: inherit; text-decoration: none; }
     var rect = toggle.getBoundingClientRect();
     var originX = rect.left + rect.width / 2;
     var originY = rect.top + rect.height / 2;
-    var count = 8 + Math.floor(Math.random() * 5); /* 8-12 particles */
+    var count = 12 + Math.floor(Math.random() * 6); /* 12-17 particles */
+    var colors = ['#f59e42', '#ffb86b', '#8b5cf6', '#34d399'];
 
     for (var i = 0; i < count; i++) {
       var particle = document.createElement('div');
       particle.className = 'confetti-particle';
-      var cx = (Math.random() - 0.5) * 80;
-      var cy = -(30 + Math.random() * 60);
+      var cx = (Math.random() - 0.5) * 120;
+      var cy = -(40 + Math.random() * 80);
       particle.style.setProperty('--cx', cx + 'px');
       particle.style.setProperty('--cy', cy + 'px');
       particle.style.left = originX + 'px';
       particle.style.top = originY + 'px';
+      particle.style.background = colors[Math.floor(Math.random() * colors.length)];
+      particle.style.color = colors[Math.floor(Math.random() * colors.length)];
       document.body.appendChild(particle);
       particle.addEventListener('animationend', function() {
         this.remove();
@@ -1760,7 +1763,7 @@ a { color: inherit; text-decoration: none; }
       title: 'Live DJ Set',
       price: '+\u20AC149',
       image: 'https://images.unsplash.com/photo-1571266028243-3716f02d2d56?w=800&q=80&auto=format',
-      desc: 'Foto's en muziek van hetzelfde team. Complete DJ setup met rookmachine, sfeerverlichting en professionele speakers. Stuur je Spotify playlist, wij bouwen de perfecte set.'
+      desc: "Foto\u2019s en muziek van hetzelfde team. Complete DJ setup met rookmachine, lichtshow en professionele speakers. Stuur je Spotify playlist, wij bouwen de perfecte set."
     }
   };
 
@@ -2008,7 +2011,7 @@ a { color: inherit; text-decoration: none; }
   "@type": "FAQPage",
   "mainEntity": [
     {"@type": "Question", "name": "Wat kost een photobooth huren?", "acceptedAnswer": {"@type": "Answer", "text": "Party Booth vanaf €199 per dag. Digitale photobooth, foto's delen via QR code."}},
-    {"@type": "Question", "name": "Moet ik het zelf opzetten?", "acceptedAnswer": {"@type": "Answer", "text": "Ja, ophalen en in 5 minuten klaar. Of bezorging, installatie en ophalen voor €49."}},
+    {"@type": "Question", "name": "Moet ik het zelf opzetten?", "acceptedAnswer": {"@type": "Answer", "text": "Ja, zelf ophalen en in 5 minuten klaar. Digitaal en zelf ophalen = scherpe tarieven. Of bezorging, installatie en ophalen voor €49."}},
     {"@type": "Question", "name": "Wat is AI Achtergrond?", "acceptedAnswer": {"@type": "Answer", "text": "AI vervangt de achtergrond automatisch. Kies strand, skyline of jungle. Inclusief beautify filter. +€35."}},
     {"@type": "Question", "name": "Kan ik er een DJ bij boeken?", "acceptedAnswer": {"@type": "Answer", "text": "Ja, Live DJ Set als upgrade voor €149 inclusief speakers, licht en rookmachine."}}
   ]

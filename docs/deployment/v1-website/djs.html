@@ -230,7 +230,7 @@ a { color: inherit; text-decoration: none; }
 .hero {
   text-align: center;
   min-height: 70vh;
-  padding: 120px 32px 160px;
+  padding: 120px 32px 48px;
   position: relative;
   overflow: hidden;
   display: flex;
@@ -254,9 +254,9 @@ a { color: inherit; text-decoration: none; }
   position: absolute;
   inset: 0;
   background: linear-gradient(180deg,
-    rgba(5, 5, 8, 0.3) 0%,
-    rgba(5, 5, 8, 0.6) 50%,
-    rgba(5, 5, 8, 1) 100%
+    rgba(5, 5, 8, 0.15) 0%,
+    rgba(5, 5, 8, 0.4) 50%,
+    rgba(5, 5, 8, 0.85) 100%
   );
   pointer-events: none;
   z-index: 1;
@@ -313,18 +313,17 @@ a { color: inherit; text-decoration: none; }
   font-variant-numeric: tabular-nums;
 }
 
-/* Waveform + Play/Pause container — pinned to bottom of hero */
+/* Waveform + Play/Pause container — below hero content */
 .waveform-wrap {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   gap: 20px;
-  position: absolute;
-  bottom: 32px;
-  left: 50%;
-  transform: translateX(-50%);
+  position: relative;
   z-index: 2;
+  margin-top: auto;
+  padding-top: 32px;
 }
 
 /* Play/Pause button */
@@ -430,13 +429,14 @@ a { color: inherit; text-decoration: none; }
 
 /* -- DJ Profile Section -------------------------------- */
 .dj-section {
-  padding: 96px 32px;
+  padding: 64px 32px;
   max-width: 960px;
   margin: 0 auto;
 }
 
 .dj-section + .dj-section {
   border-top: none;
+  padding-top: 0;
 }
 
 .dj-profile {
@@ -1504,8 +1504,8 @@ a { color: inherit; text-decoration: none; }
   <ul class="nav-links">
     <li><a href="party-booth.html">Party Booth</a></li>
     <li><a href="magic-mirror.html">Magic Mirror XL</a></li>
-    <li><a href="djs.html" class="active">DJs</a></li>
-    <li><a href="offerte.html" class="nav-cta">Boek Je Ervaring</a></li>
+    <li><a href="djs.html" class="active">DJ's</a></li>
+    <li><a href="offerte.html?service=dj" class="nav-cta">Boek Je Ervaring</a></li>
   </ul>
   <button class="nav-hamburger" aria-label="Menu">
     <span></span>
@@ -1626,7 +1626,7 @@ a { color: inherit; text-decoration: none; }
   <span class="spotify-badge">Alleen bij PicYourBooth</span>
   <h2 class="spotify-title">Jouw Playlist, Onze Set</h2>
   <p class="spotify-desc">Stuur je Spotify playlist. Onze DJ analyseert energie, tempo en sfeer en bouwt er een professionele set van. Jouw muziek, maar dan beter.</p>
-  <a href="offerte.html" class="btn-violet">Plan Je Feest Met Ons</a>
+  <a href="offerte.html?service=dj" class="btn-violet">Plan Je Feest Met Ons</a>
 </section>
 
 <!-- ============================================================
@@ -1666,7 +1666,7 @@ a { color: inherit; text-decoration: none; }
 
     <ul class="booking-includes">
       <li>DJ met professionele speakers</li>
-      <li>Sfeerverlichting</li>
+      <li>Lichtshow</li>
       <li>Rookmachine</li>
       <li>Spotify playlist-optimalisatie</li>
     </ul>
@@ -1705,7 +1705,7 @@ a { color: inherit; text-decoration: none; }
       <div class="booking-total-btw">Inclusief 21% BTW</div>
     </div>
 
-    <a href="offerte.html" class="booking-cta">Check Beschikbaarheid</a>
+    <a href="offerte.html?service=dj" class="booking-cta">Check Beschikbaarheid</a>
   </div>
 </section>
 
@@ -1714,7 +1714,7 @@ a { color: inherit; text-decoration: none; }
      ============================================================ -->
 <section class="faq" id="faq">
   <h2 class="faq-title">Veelgestelde Vragen</h2>
-  <details class="faq-item"><summary>Wat kost een DJ huren?</summary><p class="faq-answer">Vanaf €149 per avond voor een complete DJ set van 3 uur. Dat is inclusief professionele speakers, sfeerverlichting en rookmachine. Extra uren bijboeken kan voor €49 per uur, tot maximaal 6 uur. Een DJ-bureau rekent al snel €600 of meer. Bij ons krijg je hetzelfde, voor een fractie van de prijs.</p></details>
+  <details class="faq-item"><summary>Wat kost een DJ huren?</summary><p class="faq-answer">Vanaf €149 per avond voor een complete DJ set van 3 uur. Dat is inclusief professionele speakers, lichtshow en rookmachine. Extra uren bijboeken kan voor €49 per uur, tot maximaal 6 uur. Een DJ-bureau rekent al snel €600 of meer. Bij ons krijg je hetzelfde, voor een fractie van de prijs.</p></details>
   <details class="faq-item"><summary>Wat is Spotify playlist-optimalisatie?</summary><p class="faq-answer">Stuur ons je Spotify playlist voor het event. Onze DJ analyseert de energie, het tempo en de sfeer van je muziek en bouwt daar een professionele set omheen. Jouw nummers, aangevuld met tracks die perfect passen bij de vibe. Het resultaat klinkt als jouw muziek, maar dan beter gemixt en met betere flow. Geen enkele andere DJ in de regio biedt dit.</p></details>
   <details class="faq-item"><summary>Welke DJ-stijlen zijn er?</summary><p class="faq-answer">Twee stijlen, twee vibes. DJ Gianni brengt warme energie met Afro Beats, Caribbean vibes en Nederlandse hits. Perfect voor bruiloften en feesten waar iedereen moet dansen. DJ Milø bouwt sets van deep house naar hypnotiserende techno. Strak, naadloos, strategisch. Ideaal voor late-night events en club-achtige sferen. Jij kiest de vibe die past bij jouw event.</p></details>
   <details class="faq-item"><summary>Kan ik de DJ combineren met een photobooth?</summary><p class="faq-answer">Ja, en dat is waar PicYourBooth uniek is. Boek de Magic Mirror XL (vanaf €599) of Party Booth (vanaf €199) en voeg een Live DJ Set toe als upgrade voor €149. Alles van hetzelfde team betekent betere afstemming, een contactpersoon en geen gedoe met meerdere leveranciers.</p></details>

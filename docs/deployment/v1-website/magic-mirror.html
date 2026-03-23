@@ -276,9 +276,9 @@ a { color: inherit; text-decoration: none; }
   position: absolute;
   inset: 0;
   background: linear-gradient(180deg,
-    rgba(8, 8, 11, 0.3) 0%,
-    rgba(8, 8, 11, 0.6) 50%,
-    rgba(8, 8, 11, 1) 100%
+    rgba(8, 8, 11, 0.15) 0%,
+    rgba(8, 8, 11, 0.4) 50%,
+    rgba(8, 8, 11, 0.85) 100%
   );
   pointer-events: none;
   z-index: 1;
@@ -596,6 +596,8 @@ a { color: inherit; text-decoration: none; }
   cursor: pointer;
   flex-shrink: 0;
   transition: all 0.25s var(--ease);
+  position: relative;
+  z-index: 2;
 }
 
 .info-btn:hover {
@@ -1029,13 +1031,13 @@ a { color: inherit; text-decoration: none; }
 
 .confetti-particle {
   position: fixed;
-  width: 4px;
-  height: 4px;
-  background: var(--gold);
+  width: 6px;
+  height: 6px;
   border-radius: 50%;
   pointer-events: none;
   z-index: 200;
-  animation: confettiBurst 0.6s ease-out forwards;
+  animation: confettiBurst 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  box-shadow: 0 0 6px currentColor;
 }
 
 /* -- Mobile Menu Open State ---------------------------- */
@@ -1298,8 +1300,8 @@ a { color: inherit; text-decoration: none; }
   <ul class="nav-links">
     <li><a href="party-booth.html">Party Booth</a></li>
     <li><a href="magic-mirror.html" class="active">Magic Mirror XL</a></li>
-    <li><a href="djs.html">DJs</a></li>
-    <li><a href="offerte.html" class="nav-cta">Boek Je Ervaring</a></li>
+    <li><a href="djs.html">DJ's</a></li>
+    <li><a href="offerte.html?service=magic-mirror" class="nav-cta">Boek Je Ervaring</a></li>
   </ul>
   <button class="nav-hamburger" aria-label="Menu">
     <span></span>
@@ -1467,7 +1469,7 @@ a { color: inherit; text-decoration: none; }
   </div>
 
   <!-- CTA -->
-  <a href="offerte.html" class="cta-btn">Check Beschikbaarheid</a>
+  <a href="offerte.html?service=magic-mirror" class="cta-btn">Check Beschikbaarheid</a>
 </div>
 
 <!-- ============================================================
@@ -1522,14 +1524,17 @@ a { color: inherit; text-decoration: none; }
     var rect = source.getBoundingClientRect();
     var x = rect.left + rect.width / 2;
     var y = rect.top + rect.height / 2;
-    var count = 8 + Math.floor(Math.random() * 5);
+    var count = 12 + Math.floor(Math.random() * 6);
+    var colors = ['#f59e42', '#ffb86b', '#8b5cf6', '#34d399'];
     for (var i = 0; i < count; i++) {
       var p = document.createElement('div');
       p.className = 'confetti-particle';
       p.style.left = x + 'px';
       p.style.top = y + 'px';
-      p.style.setProperty('--cx', (Math.random() * 80 - 40) + 'px');
-      p.style.setProperty('--cy', (-30 - Math.random() * 60) + 'px');
+      p.style.setProperty('--cx', (Math.random() * 120 - 60) + 'px');
+      p.style.setProperty('--cy', (-40 - Math.random() * 80) + 'px');
+      p.style.background = colors[Math.floor(Math.random() * colors.length)];
+      p.style.color = colors[Math.floor(Math.random() * colors.length)];
       document.body.appendChild(p);
       p.addEventListener('animationend', function () { this.remove(); });
     }
@@ -1628,7 +1633,7 @@ a { color: inherit; text-decoration: none; }
       title: 'Live DJ Set',
       price: '+\u20AC149',
       image: 'https://images.unsplash.com/photo-1571266028243-3716f02d2d56?w=800&q=80&auto=format',
-      desc: 'Foto's en muziek van hetzelfde team, dat klikt als geen ander. Complete DJ setup met rookmachine, sfeerverlichting en professionele speakers. Stuur je Spotify playlist, wij bouwen de perfecte set. Een DJ bureau rekent makkelijk \u20AC500+, bij ons erbij voor een fractie.'
+      desc: "Foto\u2019s en muziek van hetzelfde team, dat klikt als geen ander. Complete DJ setup met rookmachine, lichtshow en professionele speakers. Stuur je Spotify playlist, wij bouwen de perfecte set. Een DJ bureau rekent makkelijk \u20AC500+, bij ons erbij voor een fractie."
     }
   };
 

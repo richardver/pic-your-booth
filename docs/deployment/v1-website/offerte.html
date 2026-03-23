@@ -857,6 +857,43 @@ a { color: inherit; text-decoration: none; }
     f.addEventListener('change', updateProgress);
   });
 
+  /* -- Pre-fill from query params ----------------------- */
+  var params = new URLSearchParams(window.location.search);
+  var serviceParam = params.get('service');
+  if (serviceParam) {
+    var serviceSelect = document.getElementById('service');
+    var berichtField = document.getElementById('bericht');
+    if (serviceSelect) {
+      serviceSelect.value = serviceParam;
+      serviceSelect.dispatchEvent(new Event('change'));
+    }
+    var upgrades = {
+      'party-booth': [
+        'Premium Design (+\u20AC25)',
+        'Bezorging, Installatie & Ophalen (+\u20AC49)',
+        'AI Achtergrond + Beautify (+\u20AC35)',
+        'Live DJ Set (+\u20AC149)'
+      ],
+      'magic-mirror': [
+        'VIP Upgrade — rode loper, backdrop & luxe props (+\u20AC149)',
+        'Wedding Keychain Station (+\u20AC499)',
+        'On-Site Host (+\u20AC149)',
+        'AI Photo Experience (+\u20AC499)',
+        'Live DJ Set (+\u20AC149)'
+      ],
+      'dj': [
+        'Extra uren bijboeken (+\u20AC49/uur, max 6 uur)',
+        'Party Booth erbij (vanaf \u20AC199)',
+        'Magic Mirror XL erbij (vanaf \u20AC599)'
+      ]
+    };
+    if (berichtField && upgrades[serviceParam]) {
+      berichtField.value = 'Beschikbare upgrades:\n' + upgrades[serviceParam].map(function (u) { return '- ' + u; }).join('\n') + '\n\nMijn wensen: ';
+      berichtField.dispatchEvent(new Event('input'));
+    }
+    updateProgress();
+  }
+
   /* -- Form success state with confetti ----------------- */
   var form = document.querySelector('form');
   if (form) {
