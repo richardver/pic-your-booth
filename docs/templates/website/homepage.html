@@ -596,6 +596,92 @@ a { color: inherit; text-decoration: none; }
   color: rgba(237, 237, 240, 0.25);
   margin-top: 24px;
 }
+
+/* -- Hero Slow Zoom (Ken Burns) ----------------------------- */
+@keyframes heroZoom {
+  from { transform: scale(1); }
+  to   { transform: scale(1.08); }
+}
+
+.hero::before {
+  animation: heroZoom 20s ease-out forwards;
+}
+
+/* -- Price Pulse (reusable) --------------------------------- */
+@keyframes pricePulse {
+  0%   { text-shadow: 0 0 0 transparent; }
+  50%  { text-shadow: 0 0 16px rgba(212, 177, 78, 0.5); }
+  100% { text-shadow: 0 0 0 transparent; }
+}
+
+.price-pulse {
+  animation: pricePulse 0.4s ease-out;
+}
+
+/* -- Scroll-Reveal ------------------------------------------ */
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* -- Nav Scroll Progress Bar -------------------------------- */
+.scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 0%;
+  height: 2px;
+  background: var(--gold);
+  z-index: 101;
+  pointer-events: none;
+  transition: none;
+}
+
+/* -- Cursor Glow (desktop only) ----------------------------- */
+.cursor-glow {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 600px;
+  height: 600px;
+  pointer-events: none;
+  z-index: 1;
+  background: radial-gradient(600px circle, rgba(212, 177, 78, 0.03), transparent 70%);
+  transform: translate(-300px, -300px);
+  will-change: transform;
+}
+
+@media (max-width: 768px) {
+  .cursor-glow { display: none; }
+}
+
+/* -- Reduced Motion Override -------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  .hero::before {
+    animation: none;
+  }
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+  .price-pulse {
+    animation: none;
+  }
+  .scroll-progress {
+    display: none;
+  }
+  .cursor-glow {
+    display: none;
+  }
+}
 </style>
 </head>
 <body>
@@ -633,7 +719,7 @@ a { color: inherit; text-decoration: none; }
 <!-- ============================================================
      SOCIAL PROOF BAR
      ============================================================ -->
-<div class="proof-bar">
+<div class="proof-bar reveal">
   <div class="proof-item">
     <span class="proof-number">237+</span>
     <span class="proof-label">Events Verzorgd</span>
@@ -653,7 +739,7 @@ a { color: inherit; text-decoration: none; }
 <!-- ============================================================
      SERVICE CARDS
      ============================================================ -->
-<section class="services">
+<section class="services reveal">
   <div class="section-header">
     <span class="section-label">Ons Aanbod</span>
     <h2 class="section-title">Kies Jouw Entertainment</h2>
@@ -697,7 +783,7 @@ a { color: inherit; text-decoration: none; }
 <!-- ============================================================
      TESTIMONIAL
      ============================================================ -->
-<section class="testimonial">
+<section class="testimonial reveal">
   <div class="testimonial-card">
     <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
     <p class="testimonial-quote">"De Magic Mirror was het hoogtepunt van ons feest. Gasten praten er weken later nog over."</p>
@@ -719,6 +805,151 @@ a { color: inherit; text-decoration: none; }
   <a href="mailto:info@picyourbooth.nl" class="footer-email">info@picyourbooth.nl</a>
   <p class="footer-copy">&copy; 2026 PicYourBooth</p>
 </footer>
+
+<!-- Scroll Progress Bar -->
+<div class="scroll-progress" id="scrollProgress"></div>
+
+<!-- Cursor Glow -->
+<div class="cursor-glow" id="cursorGlow"></div>
+
+<script>
+(function () {
+  'use strict';
+
+  /* -- Respect reduced motion -------------------------------- */
+  var prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (prefersReduced) return;
+
+  /* ==========================================================
+     1. ANIMATED COUNTERS ON SOCIAL PROOF
+     ========================================================== */
+  function easeOutQuad(t) {
+    return t * (2 - t);
+  }
+
+  function animateCounter(el) {
+    var raw = el.textContent.trim();
+
+    /* Skip non-numeric entries like "Randstad" */
+    var numMatch = raw.match(/^([\d.]+)/);
+    if (!numMatch) return;
+
+    var target = parseFloat(numMatch[1]);
+    var suffix = raw.replace(numMatch[1], '');
+    var isDecimal = raw.indexOf('.') !== -1;
+    var duration = 1500;
+    var startTime = null;
+
+    function step(timestamp) {
+      if (!startTime) startTime = timestamp;
+      var elapsed = timestamp - startTime;
+      var progress = Math.min(elapsed / duration, 1);
+      var easedProgress = easeOutQuad(progress);
+      var current = easedProgress * target;
+
+      if (isDecimal) {
+        el.textContent = current.toFixed(1) + suffix;
+      } else {
+        el.textContent = Math.floor(current) + suffix;
+      }
+
+      if (progress < 1) {
+        requestAnimationFrame(step);
+      } else {
+        /* Ensure final value is exact */
+        el.textContent = (isDecimal ? target.toFixed(1) : target) + suffix;
+      }
+    }
+
+    requestAnimationFrame(step);
+  }
+
+  var counterObserver = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      if (entry.isIntersecting) {
+        animateCounter(entry.target);
+        counterObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.5 });
+
+  document.querySelectorAll('.proof-number').forEach(function (el) {
+    counterObserver.observe(el);
+  });
+
+  /* ==========================================================
+     2. SCROLL-REVEAL SECTIONS
+     ========================================================== */
+  var revealObserver = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        revealObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.15 });
+
+  document.querySelectorAll('.reveal').forEach(function (el) {
+    revealObserver.observe(el);
+  });
+
+  /* ==========================================================
+     3. NAV SCROLL PROGRESS BAR
+     ========================================================== */
+  var progressBar = document.getElementById('scrollProgress');
+  var ticking = false;
+
+  function updateProgress() {
+    var scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+    var docHeight = document.documentElement.scrollHeight - window.innerHeight;
+    var scrollPercent = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+    progressBar.style.width = scrollPercent + '%';
+    ticking = false;
+  }
+
+  window.addEventListener('scroll', function () {
+    if (!ticking) {
+      requestAnimationFrame(updateProgress);
+      ticking = true;
+    }
+  }, { passive: true });
+
+  /* ==========================================================
+     4. CURSOR GLOW (DESKTOP ONLY)
+     ========================================================== */
+  if (window.innerWidth > 768) {
+    var glow = document.getElementById('cursorGlow');
+    var glowTicking = false;
+    var mouseX = -600;
+    var mouseY = -600;
+
+    document.addEventListener('mousemove', function (e) {
+      mouseX = e.clientX;
+      mouseY = e.clientY;
+      if (!glowTicking) {
+        requestAnimationFrame(function () {
+          glow.style.transform = 'translate(' + (mouseX - 300) + 'px, ' + (mouseY - 300) + 'px)';
+          glowTicking = false;
+        });
+        glowTicking = true;
+      }
+    }, { passive: true });
+  }
+
+  /* ==========================================================
+     5. PRICE PULSE ON HOVER
+     ========================================================== */
+  document.querySelectorAll('.service-card__price').forEach(function (el) {
+    el.addEventListener('mouseenter', function () {
+      el.classList.add('price-pulse');
+    });
+    el.addEventListener('animationend', function () {
+      el.classList.remove('price-pulse');
+    });
+  });
+
+})();
+</script>
 
 </body>
 </html>
