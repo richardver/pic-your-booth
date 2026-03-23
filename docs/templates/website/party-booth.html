@@ -903,6 +903,120 @@ a { color: inherit; text-decoration: none; }
     grid-template-columns: 1fr;
   }
 }
+
+/* -- Hero Slow Zoom (Ken Burns) ----------------------------- */
+@keyframes heroZoom {
+  from { transform: scale(1); }
+  to   { transform: scale(1.08); }
+}
+
+.hero::before {
+  animation: heroZoom 20s ease-out forwards;
+}
+
+/* -- Scroll-Reveal ------------------------------------------ */
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* -- Nav Scroll Progress Bar -------------------------------- */
+.scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 0%;
+  height: 2px;
+  background: var(--gold);
+  z-index: 101;
+  pointer-events: none;
+  transition: none;
+}
+
+/* -- Cursor Glow (desktop only) ----------------------------- */
+.cursor-glow {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 400px;
+  height: 400px;
+  pointer-events: none;
+  z-index: 1;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle at center,
+    rgba(212, 177, 78, 0.08) 0%,
+    rgba(212, 177, 78, 0.04) 20%,
+    rgba(212, 177, 78, 0.015) 40%,
+    transparent 65%
+  );
+  transform: translate(-200px, -200px);
+  will-change: transform;
+  filter: blur(1px);
+}
+
+@media (max-width: 768px) {
+  .cursor-glow { display: none; }
+}
+
+/* -- Price Pulse (reusable) --------------------------------- */
+@keyframes pricePulse {
+  0%   { text-shadow: 0 0 0 transparent; }
+  50%  { text-shadow: 0 0 16px rgba(212, 177, 78, 0.5); }
+  100% { text-shadow: 0 0 0 transparent; }
+}
+
+.price-pulse {
+  animation: pricePulse 0.4s ease-out;
+}
+
+/* -- Confetti Burst ----------------------------------------- */
+@keyframes confettiBurst {
+  0%   { opacity: 1; transform: translate(0, 0) scale(1); }
+  100% { opacity: 0; transform: translate(var(--cx), var(--cy)) scale(0.4); }
+}
+
+.confetti-particle {
+  position: fixed;
+  width: 4px;
+  height: 4px;
+  background: var(--gold);
+  pointer-events: none;
+  z-index: 10000;
+  animation: confettiBurst 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* -- Reduced Motion Override -------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  .hero::before {
+    animation: none;
+  }
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+  .price-pulse {
+    animation: none;
+  }
+  .scroll-progress {
+    display: none;
+  }
+  .cursor-glow {
+    display: none;
+  }
+  .confetti-particle {
+    animation: none;
+    display: none;
+  }
+}
 </style>
 </head>
 <body>
@@ -911,12 +1025,12 @@ a { color: inherit; text-decoration: none; }
      NAVIGATION
      ============================================================ -->
 <div class="nav-bar"><nav class="nav">
-  <a href="/" class="nav-logo">PicYourBooth</a>
+  <a href="homepage.html" class="nav-logo">PicYourBooth</a>
   <ul class="nav-links">
-    <li><a href="/party-booth" class="active">Party Booth</a></li>
-    <li><a href="/magic-mirror">Magic Mirror XL</a></li>
-    <li><a href="/djs">DJs</a></li>
-    <li><a href="/offerte" class="nav-cta">Boek Je Ervaring</a></li>
+    <li><a href="party-booth.html" class="active">Party Booth</a></li>
+    <li><a href="magic-mirror.html">Magic Mirror XL</a></li>
+    <li><a href="djs.html">DJs</a></li>
+    <li><a href="offerte.html" class="nav-cta">Boek Je Ervaring</a></li>
   </ul>
   <button class="nav-hamburger" aria-label="Menu">
     <span></span>
@@ -941,7 +1055,7 @@ a { color: inherit; text-decoration: none; }
 <!-- ============================================================
      USPs - 2x2 Card Grid
      ============================================================ -->
-<section class="usp-section">
+<section class="usp-section reveal">
   <div class="usp-section-header">
     <h2 class="usp-section-title">Geen Gedoe, Wel Een Feestje</h2>
   </div>
@@ -975,7 +1089,7 @@ a { color: inherit; text-decoration: none; }
 <!-- ============================================================
      AI ACHTERGROND CALLOUT
      ============================================================ -->
-<section class="ai-callout" style="padding-top: 80px;">
+<section class="ai-callout reveal" style="padding-top: 80px;">
   <h2 class="ai-callout__title">Lelijke Achtergrond? AI Fixt Het</h2>
   <p class="ai-callout__desc">Rommelige kamer? Lelijke muur? Kies je droomachtergrond en AI vervangt het automatisch. Inclusief beautify filter voor strakke resultaten.</p>
 
@@ -998,7 +1112,7 @@ a { color: inherit; text-decoration: none; }
 <!-- ============================================================
      PACKAGE BUILDER
      ============================================================ -->
-<div class="builder">
+<div class="builder reveal">
   <h2 class="builder-heading">Bouw Jouw Feestpakket</h2>
   <p class="builder-subheading">Alles wat je nodig hebt. Voeg toe wat past bij jouw feest.</p>
 
@@ -1079,7 +1193,7 @@ a { color: inherit; text-decoration: none; }
   </div>
 
   <!-- CTA -->
-  <a href="/offerte" class="cta-btn">Check Beschikbaarheid</a>
+  <a href="offerte.html" class="cta-btn">Check Beschikbaarheid</a>
 </div>
 
 <!-- ============================================================
@@ -1090,6 +1204,12 @@ a { color: inherit; text-decoration: none; }
   <a href="mailto:info@picyourbooth.nl" class="footer-email">info@picyourbooth.nl</a>
   <p class="footer-copy">&copy; 2026 PicYourBooth</p>
 </footer>
+
+<!-- Scroll Progress Bar -->
+<div class="scroll-progress" id="scrollProgress"></div>
+
+<!-- Cursor Glow -->
+<div class="cursor-glow" id="cursorGlow"></div>
 
 <!-- ============================================================
      MODAL
@@ -1126,12 +1246,48 @@ a { color: inherit; text-decoration: none; }
 
     if (checkbox.checked) {
       row.classList.add('active');
+      spawnConfetti(row);
     } else {
       row.classList.remove('active');
     }
 
     recalculate();
+
+    /* Price pulse on total */
+    var totalEl = document.getElementById('party-total');
+    if (totalEl) {
+      totalEl.classList.remove('price-pulse');
+      void totalEl.offsetWidth; /* reflow to restart animation */
+      totalEl.classList.add('price-pulse');
+    }
   };
+
+  function spawnConfetti(row) {
+    var prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (prefersReduced) return;
+
+    var toggle = row.querySelector('.toggle-track');
+    if (!toggle) return;
+    var rect = toggle.getBoundingClientRect();
+    var originX = rect.left + rect.width / 2;
+    var originY = rect.top + rect.height / 2;
+    var count = 8 + Math.floor(Math.random() * 5); /* 8-12 particles */
+
+    for (var i = 0; i < count; i++) {
+      var particle = document.createElement('div');
+      particle.className = 'confetti-particle';
+      var cx = (Math.random() - 0.5) * 80;
+      var cy = -(30 + Math.random() * 60);
+      particle.style.setProperty('--cx', cx + 'px');
+      particle.style.setProperty('--cy', cy + 'px');
+      particle.style.left = originX + 'px';
+      particle.style.top = originY + 'px';
+      document.body.appendChild(particle);
+      particle.addEventListener('animationend', function() {
+        this.remove();
+      });
+    }
+  }
 
   function recalculate() {
     var total = BASE_PRICE;
@@ -1210,6 +1366,89 @@ a { color: inherit; text-decoration: none; }
   document.addEventListener('keydown', function(e) {
     if (e.key === 'Escape') closeModal();
   });
+})();
+</script>
+
+<!-- ============================================================
+     JAVASCRIPT - Entertainment Animations
+     ============================================================ -->
+<script>
+(function () {
+  'use strict';
+
+  /* -- Respect reduced motion -------------------------------- */
+  var prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (prefersReduced) return;
+
+  /* ==========================================================
+     1. SCROLL-REVEAL SECTIONS
+     ========================================================== */
+  var revealObserver = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        revealObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.15 });
+
+  document.querySelectorAll('.reveal').forEach(function (el) {
+    revealObserver.observe(el);
+  });
+
+  /* ==========================================================
+     2. NAV SCROLL PROGRESS BAR
+     ========================================================== */
+  var progressBar = document.getElementById('scrollProgress');
+  var ticking = false;
+
+  function updateProgress() {
+    var scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+    var docHeight = document.documentElement.scrollHeight - window.innerHeight;
+    var scrollPercent = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+    progressBar.style.width = scrollPercent + '%';
+    ticking = false;
+  }
+
+  window.addEventListener('scroll', function () {
+    if (!ticking) {
+      requestAnimationFrame(updateProgress);
+      ticking = true;
+    }
+  }, { passive: true });
+
+  /* ==========================================================
+     3. CURSOR GLOW (DESKTOP ONLY)
+     ========================================================== */
+  if (window.innerWidth > 768) {
+    var glow = document.getElementById('cursorGlow');
+    var glowTicking = false;
+    var mouseX = -600;
+    var mouseY = -600;
+
+    document.addEventListener('mousemove', function (e) {
+      mouseX = e.clientX;
+      mouseY = e.clientY;
+      if (!glowTicking) {
+        requestAnimationFrame(function () {
+          glow.style.transform = 'translate(' + (mouseX - 200) + 'px, ' + (mouseY - 200) + 'px)';
+          glowTicking = false;
+        });
+        glowTicking = true;
+      }
+    }, { passive: true });
+  }
+
+  /* ==========================================================
+     4. PRICE PULSE CLEANUP ON ANIMATION END
+     ========================================================== */
+  var totalEl = document.getElementById('party-total');
+  if (totalEl) {
+    totalEl.addEventListener('animationend', function () {
+      totalEl.classList.remove('price-pulse');
+    });
+  }
+
 })();
 </script>
 

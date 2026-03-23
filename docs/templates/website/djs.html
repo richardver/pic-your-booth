@@ -880,6 +880,131 @@ a { color: inherit; text-decoration: none; }
   color: rgba(237, 237, 240, 0.25);
   margin-top: 24px;
 }
+
+/* ============================================================
+   ENTERTAINMENT ANIMATIONS - Violet accent
+   ============================================================ */
+
+/* -- Hero Slow Zoom (Ken Burns) ----------------------------- */
+@keyframes heroZoom {
+  from { transform: scale(1); }
+  to   { transform: scale(1.08); }
+}
+
+.hero::before {
+  animation: heroZoom 20s ease-out forwards;
+}
+
+/* -- Scroll-Reveal ------------------------------------------ */
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* -- Cursor Glow (desktop only, VIOLET) --------------------- */
+.cursor-glow {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 400px;
+  height: 400px;
+  pointer-events: none;
+  z-index: 1;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle at center,
+    rgba(139, 92, 246, 0.08) 0%,
+    rgba(139, 92, 246, 0.04) 20%,
+    rgba(139, 92, 246, 0.015) 40%,
+    transparent 65%
+  );
+  transform: translate(-200px, -200px);
+  will-change: transform;
+  filter: blur(1px);
+}
+
+@media (max-width: 768px) {
+  .cursor-glow { display: none; }
+}
+
+/* -- Scroll Progress Bar (VIOLET) --------------------------- */
+.scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 0%;
+  height: 2px;
+  background: var(--violet);
+  z-index: 101;
+  pointer-events: none;
+  transition: none;
+}
+
+/* -- Price Pulse (VIOLET) ----------------------------------- */
+@keyframes pricePulse {
+  0%   { text-shadow: 0 0 0 transparent; }
+  50%  { text-shadow: 0 0 16px rgba(139, 92, 246, 0.5); }
+  100% { text-shadow: 0 0 0 transparent; }
+}
+
+.price-pulse {
+  animation: pricePulse 0.4s ease-out;
+}
+
+/* -- Enhanced Waveform -------------------------------------- */
+@keyframes waveBobEnergetic {
+  0%   { transform: scaleY(0.2); }
+  15%  { transform: scaleY(0.9); }
+  30%  { transform: scaleY(0.35); }
+  50%  { transform: scaleY(1); }
+  65%  { transform: scaleY(0.4); }
+  80%  { transform: scaleY(0.75); }
+  100% { transform: scaleY(0.2); }
+}
+
+.waveform-bars span {
+  animation: waveBobEnergetic 1.2s ease-in-out infinite;
+}
+
+.waveform-bars span:nth-child(1) { height: 22px; animation-delay: 0s; animation-duration: 1.0s; }
+.waveform-bars span:nth-child(2) { height: 34px; animation-delay: 0.1s; animation-duration: 0.9s; }
+.waveform-bars span:nth-child(3) { height: 40px; animation-delay: 0.2s; animation-duration: 1.15s; }
+.waveform-bars span:nth-child(4) { height: 28px; animation-delay: 0.05s; animation-duration: 0.85s; }
+.waveform-bars span:nth-child(5) { height: 38px; animation-delay: 0.25s; animation-duration: 1.1s; }
+.waveform-bars span:nth-child(6) { height: 18px; animation-delay: 0.15s; animation-duration: 0.95s; }
+.waveform-bars span:nth-child(7) { height: 30px; animation-delay: 0.3s; animation-duration: 1.05s; }
+
+/* -- Reduced Motion Override -------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  .hero::before {
+    animation: none;
+  }
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+  .price-pulse {
+    animation: none;
+  }
+  .scroll-progress {
+    display: none;
+  }
+  .cursor-glow {
+    display: none;
+  }
+  .waveform-bars span {
+    animation: none;
+    transform: scaleY(0.6);
+  }
+}
 </style>
 </head>
 <body>
@@ -888,12 +1013,12 @@ a { color: inherit; text-decoration: none; }
      NAVIGATION
      ============================================================ -->
 <div class="nav-bar"><nav class="nav">
-  <a href="/" class="nav-logo">PicYourBooth</a>
+  <a href="homepage.html" class="nav-logo">PicYourBooth</a>
   <ul class="nav-links">
-    <li><a href="/party-booth">Party Booth</a></li>
-    <li><a href="/magic-mirror">Magic Mirror XL</a></li>
-    <li><a href="/djs" class="active">DJs</a></li>
-    <li><a href="/offerte" class="nav-cta">Boek Je Ervaring</a></li>
+    <li><a href="party-booth.html">Party Booth</a></li>
+    <li><a href="magic-mirror.html">Magic Mirror XL</a></li>
+    <li><a href="djs.html" class="active">DJs</a></li>
+    <li><a href="offerte.html" class="nav-cta">Boek Je Ervaring</a></li>
   </ul>
   <button class="nav-hamburger" aria-label="Menu">
     <span></span>
@@ -927,7 +1052,7 @@ a { color: inherit; text-decoration: none; }
 <!-- ============================================================
      DJ GIANNI - CORAL
      ============================================================ -->
-<section class="dj-section">
+<section class="dj-section reveal">
   <div class="dj-profile">
     <div class="dj-avatar-wrap">
       <div class="dj-avatar-glow dj-avatar-glow--coral">
@@ -961,7 +1086,7 @@ a { color: inherit; text-decoration: none; }
 <!-- ============================================================
      MILO - CYAN
      ============================================================ -->
-<section class="dj-section">
+<section class="dj-section reveal">
   <div class="dj-profile dj-profile--reverse">
     <div class="dj-info">
       <h2 class="dj-name dj-name--cyan">DJ Milø</h2>
@@ -993,17 +1118,17 @@ a { color: inherit; text-decoration: none; }
 <!-- ============================================================
      SPOTIFY SECTION
      ============================================================ -->
-<section class="spotify">
+<section class="spotify reveal">
   <span class="spotify-badge">Alleen bij PicYourBooth</span>
   <h2 class="spotify-title">Jouw Playlist, Onze Set</h2>
   <p class="spotify-desc">Stuur je Spotify playlist. Onze DJ analyseert energie, tempo en sfeer en bouwt er een professionele set van. Jouw muziek, maar dan beter.</p>
-  <a href="/offerte" class="btn-violet">Plan Je Feest Met Ons</a>
+  <a href="offerte.html" class="btn-violet">Plan Je Feest Met Ons</a>
 </section>
 
 <!-- ============================================================
      HOW IT WORKS
      ============================================================ -->
-<section class="hiw">
+<section class="hiw reveal">
   <h2 class="hiw-title">In 3 Stappen Geregeld</h2>
   <div class="hiw-steps">
     <div class="hiw-step">
@@ -1027,7 +1152,7 @@ a { color: inherit; text-decoration: none; }
 <!-- ============================================================
      BOOKING WIZARD
      ============================================================ -->
-<section class="booking">
+<section class="booking reveal">
   <h2 class="booking-title">Boek Je DJ</h2>
   <div class="booking-card">
     <div class="booking-base">
@@ -1076,7 +1201,7 @@ a { color: inherit; text-decoration: none; }
       <div class="booking-total-btw">Inclusief 21% BTW</div>
     </div>
 
-    <a href="/offerte" class="booking-cta">Check Beschikbaarheid</a>
+    <a href="offerte.html" class="booking-cta">Check Beschikbaarheid</a>
   </div>
 </section>
 
@@ -1089,8 +1214,14 @@ a { color: inherit; text-decoration: none; }
   <p class="footer-copy">&copy; 2026 PicYourBooth</p>
 </footer>
 
+<!-- Scroll Progress Bar -->
+<div class="scroll-progress" id="scrollProgress"></div>
+
+<!-- Cursor Glow -->
+<div class="cursor-glow" id="cursorGlow"></div>
+
 <!-- ============================================================
-     JS - Booking Wizard
+     JS - Booking Wizard + Entertainment Animations
      ============================================================ -->
 <script>
 function selectHour(el) {
@@ -1103,7 +1234,13 @@ function selectHour(el) {
   var price = el.getAttribute('data-price');
   var hours = el.getAttribute('data-hours');
 
-  document.getElementById('totalPrice').textContent = '\u20AC' + price;
+  var totalEl = document.getElementById('totalPrice');
+  totalEl.textContent = '\u20AC' + price;
+
+  /* Price pulse on change */
+  totalEl.classList.remove('price-pulse');
+  void totalEl.offsetWidth; /* reflow to restart animation */
+  totalEl.classList.add('price-pulse');
 
   var baseLabel = document.querySelector('.booking-base-label');
   baseLabel.textContent = 'DJ Set ' + hours + ' uur';
@@ -1111,6 +1248,97 @@ function selectHour(el) {
   var basePrice = document.querySelector('.booking-base-price');
   basePrice.innerHTML = '&euro;' + price;
 }
+
+(function () {
+  'use strict';
+
+  /* -- Respect reduced motion -------------------------------- */
+  var prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (prefersReduced) return;
+
+  /* ==========================================================
+     1. SCROLL-REVEAL SECTIONS
+     ========================================================== */
+  var revealObserver = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        revealObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.15 });
+
+  document.querySelectorAll('.reveal').forEach(function (el) {
+    revealObserver.observe(el);
+  });
+
+  /* ==========================================================
+     2. SCROLL PROGRESS BAR
+     ========================================================== */
+  var progressBar = document.getElementById('scrollProgress');
+  var ticking = false;
+
+  function updateProgress() {
+    var scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+    var docHeight = document.documentElement.scrollHeight - window.innerHeight;
+    var scrollPercent = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+    progressBar.style.width = scrollPercent + '%';
+    ticking = false;
+  }
+
+  window.addEventListener('scroll', function () {
+    if (!ticking) {
+      requestAnimationFrame(updateProgress);
+      ticking = true;
+    }
+  }, { passive: true });
+
+  /* ==========================================================
+     3. CURSOR GLOW (DESKTOP ONLY)
+     ========================================================== */
+  if (window.innerWidth > 768) {
+    var glow = document.getElementById('cursorGlow');
+    var glowTicking = false;
+    var mouseX = -600;
+    var mouseY = -600;
+
+    document.addEventListener('mousemove', function (e) {
+      mouseX = e.clientX;
+      mouseY = e.clientY;
+      if (!glowTicking) {
+        requestAnimationFrame(function () {
+          glow.style.transform = 'translate(' + (mouseX - 200) + 'px, ' + (mouseY - 200) + 'px)';
+          glowTicking = false;
+        });
+        glowTicking = true;
+      }
+    }, { passive: true });
+  }
+
+  /* ==========================================================
+     4. PRICE PULSE - clean up class after animation ends
+     ========================================================== */
+  var totalEl = document.getElementById('totalPrice');
+  if (totalEl) {
+    totalEl.addEventListener('animationend', function () {
+      totalEl.classList.remove('price-pulse');
+    });
+  }
+
+  /* ==========================================================
+     5. ENHANCED WAVEFORM - randomise heights periodically
+     ========================================================== */
+  var bars = document.querySelectorAll('.waveform-bars span');
+  if (bars.length) {
+    setInterval(function () {
+      bars.forEach(function (bar) {
+        var h = 14 + Math.floor(Math.random() * 28);
+        bar.style.height = h + 'px';
+      });
+    }, 2400);
+  }
+
+})();
 </script>
 
 </body>

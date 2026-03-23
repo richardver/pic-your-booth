@@ -353,6 +353,47 @@ a { color: inherit; text-decoration: none; }
   margin-top: 24px;
   color: rgba(237, 237, 240, 0.25);
 }
+
+/* -- Form Card Entrance ------------------------------------- */
+@keyframes formReveal {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.form-section {
+  animation: formReveal 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.2s both;
+}
+
+/* -- Cursor Glow (desktop only) ----------------------------- */
+.cursor-glow {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 400px;
+  height: 400px;
+  pointer-events: none;
+  z-index: 1;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle at center,
+    rgba(212, 177, 78, 0.08) 0%,
+    rgba(212, 177, 78, 0.04) 20%,
+    rgba(212, 177, 78, 0.015) 40%,
+    transparent 65%
+  );
+  transform: translate(-200px, -200px);
+  will-change: transform;
+  filter: blur(1px);
+}
+
+@media (max-width: 768px) {
+  .cursor-glow { display: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .form-section { animation: none; }
+  .cursor-glow { display: none; }
+}
 </style>
 </head>
 <body>
@@ -361,8 +402,8 @@ a { color: inherit; text-decoration: none; }
      NAVIGATION (simplified: logo + terug)
      ============================================================ -->
 <div style="border-top: 2px solid #d4b14e; border-bottom: 1px solid rgba(255,255,255,0.06);"><nav class="nav">
-  <a href="/" class="nav-logo">PicYourBooth</a>
-  <a href="/" class="nav-back">Terug</a>
+  <a href="homepage.html" class="nav-logo">PicYourBooth</a>
+  <a href="homepage.html" class="nav-back">Terug</a>
 </nav></div>
 
 <!-- ============================================================
@@ -507,5 +548,25 @@ a { color: inherit; text-decoration: none; }
   <p class="footer-copy">&copy; 2026 PicYourBooth</p>
 </footer>
 
+<div class="cursor-glow" id="cursorGlow"></div>
+<script>
+(function () {
+  'use strict';
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  if (window.innerWidth > 768) {
+    var glow = document.getElementById('cursorGlow');
+    var ticking = false;
+    document.addEventListener('mousemove', function (e) {
+      if (!ticking) {
+        requestAnimationFrame(function () {
+          glow.style.transform = 'translate(' + (e.clientX - 200) + 'px, ' + (e.clientY - 200) + 'px)';
+          ticking = false;
+        });
+        ticking = true;
+      }
+    }, { passive: true });
+  }
+})();
+</script>
 </body>
 </html>
