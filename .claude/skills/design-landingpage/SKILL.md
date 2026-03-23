@@ -25,29 +25,29 @@ The user specifies:
 ### Phase 1: Load Conversion Knowledge (mandatory)
 
 1. **CRO framework** — Read these files:
-   - `docs/website/website-design-cro.md` — 55-item audit checklist, scoring rubric, conversion killers
-   - `docs/website/website-design-landing-pages.md` — page structure, hero formulas, CTA optimization, social proof placement
-   - `docs/website/landing-page-forms-personalization.md` — form optimization, message match rules, personalization, email sequences
+   - `.claude/agents/designer/knowledge-cro-checklist.md` — 55-item audit checklist, scoring rubric, conversion killers
+   - `.claude/agents/designer/knowledge-landing-pages.md` — page structure, hero formulas, CTA optimization, social proof placement
+   - `.claude/agents/designer/knowledge-forms.md` — form optimization, message match rules, personalization, email sequences
 
 2. **Pricing psychology** — Read:
-   - `docs/marketing/marketing-psychology-pricing.md` — anchoring, decoy, charm pricing, loss aversion, endowment, Cialdini, Fogg B=MAP
-   - `docs/marketing/marketing-psychology-buyer-journey.md` — JTBD, four forces of switching, psychographic profiles, moments of truth
+   - `.claude/agents/strategist/knowledge-psychology-pricing.md` — anchoring, decoy, charm pricing, loss aversion, endowment, Cialdini, Fogg B=MAP
+   - `.claude/agents/strategist/knowledge-psychology-buyer-journey.md` — JTBD, four forces of switching, psychographic profiles, moments of truth
 
 3. **Product specs** — Dispatch product-specialist agent for the relevant product:
    - Read `.claude/agents/product-specialist/_index.md` → route to product + pricing knowledge
 
 4. **Brand & design** — Read:
-   - `.claude/agents/brand/knowledge-brand.md` — brand guide, visual identity, tone
+   - `.claude/agents/strategist/knowledge-brand.md` — brand guide, visual identity, tone
    - `.claude/agents/designer/knowledge-design-system-full.md` — tokens, colors, typography
    - `docs/templates/design-system/pyb-design-system-photobooth.html` — page-specific design system (if photobooth)
    - `docs/templates/design-system/pyb-design-system-dj.html` — page-specific design system (if DJ)
 
 5. **Ad context** — Read:
-   - `docs/marketing/meta-ads.md` — campaign structure, creative specs
-   - `docs/marketing/ad-copy-frameworks.md` — hook formulas, copy specs
-   - `docs/marketing/creative-testing-and-fatigue.md` — testing framework
+   - `.claude/agents/ad-specialist/knowledge-meta-ads-full.md` — campaign structure, creative specs
+   - `.claude/agents/ad-specialist/knowledge-ad-copy-full.md` — hook formulas, copy specs
+   - `.claude/agents/ad-specialist/knowledge-creative-testing-full.md` — testing framework
 
-6. **PRD reference** — Read `docs/website/prd-website.md` for canonical page spec.
+6. **PRD reference** — Read `docs/plans/prd-website.md` for canonical page spec.
 
 ### Phase 2: Conversion Architecture
 

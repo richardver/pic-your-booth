@@ -1,6 +1,6 @@
 # Ad Copy
 
-Frameworks, hooks, and testing for ad copy. Full reference in `docs/marketing/ad-copy-frameworks.md`.
+Frameworks, hooks, and testing for ad copy. Full reference in `.claude/agents/ad-specialist/knowledge-ad-copy-full.md`.
 
 ---
 
@@ -54,4 +54,4 @@ Priority order: Hook → Value prop → Social proof type → CTA → Offer → 
 | Generate Google RSAs | `skills/ads/google/google-ads-rsa-generator.md` |
 | Write video ad scripts | `skills/ads/cross-platform/video-ad-script-writer.md` |
 
-For full copy reference: `docs/marketing/ad-copy-frameworks.md`
+For full copy reference: `.claude/agents/ad-specialist/knowledge-ad-copy-full.md`

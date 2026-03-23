@@ -9,8 +9,8 @@ Present a higher-priced option first to make the target option seem reasonable.
 |---|---|---|
 | High anchor first | Show most expensive package first in list | Lead with Magic Mirror VIP (€749+) before Basic (€599) |
 | "Was / Now" pricing | Show original price crossed out | Seasonal promotions |
-| Context anchor | Compare to more expensive alternatives | "Een DJ bureau rekent €500+, bij ons vanaf €150 erbij" |
-| Per-unit framing | Break price into smaller units | "Vanaf €150 per uur entertainment" |
+| Context anchor | Compare to more expensive alternatives | "Een DJ bureau rekent €500+, bij ons vanaf €149 erbij" |
+| Per-unit framing | Break price into smaller units | "Vanaf €149 per avond entertainment" |
 
 ### 2. The Decoy Effect (Asymmetric Dominance)
 Introduce a strategically inferior option to push buyers toward the target plan.
@@ -30,13 +30,13 @@ Introduce a strategically inferior option to push buyers toward the target plan.
 |---|---|---|
 | Party Booth (€199-250) | Yes | Budget-conscious, price-sensitive segment |
 | Magic Mirror Basic | Yes (€599) | Already using it |
-| Premium add-ons | No - use round numbers | Add-ons feel more premium at €150 vs €149 |
+| Premium add-ons | Yes (€149, €499) | Charm pricing on all customer-facing prices |
 
 ### 4. Price Partitioning
 Break the total price into components to make it feel smaller.
 
 **Instead of**: "Complete pakket €899"
-**Try**: "Magic Mirror €599 + VIP upgrade €150 + DJ €150"
+**Try**: "Magic Mirror €599 + VIP upgrade €149 + DJ €149"
 
 People evaluate each component separately and perceive the total as less painful.
 

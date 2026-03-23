@@ -1,6 +1,6 @@
 # Viral Loops & Retention
 
-Cross-promotion, referrals, and post-event engagement. Full reference in `docs/marketing/marketing-psychology-viral-retention.md`.
+Cross-promotion, referrals, and post-event engagement. Full reference in `.claude/agents/social-media/knowledge-viral-retention-full.md`.
 
 ---
 

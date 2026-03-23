@@ -50,7 +50,6 @@ docs/
 | HTML design systems | `docs/templates/design-system/` | `pyb-design-system-web.html` |
 | DJ templates & assets | `docs/templates/djs/dj-gianni/` | `brand-guide.html`, `social/` |
 | Ad creative templates | `docs/templates/ads/meta/` | `pyb-design-system-meta-ads.html` |
-| Psychology frameworks | `docs/marketing/` | `marketing-psychology-pricing.md` |
 | Website PRD | `docs/website/` | `prd-website.md` |
 | CRO & conversion | `docs/website/` | `website-design-cro.md` |
 | Landing page frameworks | `docs/website/` | `website-design-landing-pages.md` |

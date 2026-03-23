@@ -19,5 +19,5 @@ Read `.claude/agents/designer/_index.md` before executing any task. It contains 
 - Does NOT: create social content plans, write ad copy, manage DJ profiles, check brand compliance
 - For social media content & DJ assets: call social-media agent
 - For ad campaigns: call ad-specialist agent
-- For brand review: call brand agent
+- For brand review: call strategist agent
 - For product specs: call product-specialist agent

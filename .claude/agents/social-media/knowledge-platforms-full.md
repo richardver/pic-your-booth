@@ -1,5 +1,9 @@
 # Social Creatives - Platform-by-Platform Guide
 
+**PYB actieve platformen: Instagram + TikTok only.** LinkedIn, Facebook, YouTube secties hieronder zijn generieke referentie — niet actief voor PYB.
+
+---
+
 ## Instagram
 
 ### Feed vs Stories vs Reels Strategy

@@ -1,5 +1,9 @@
 # Video Marketing - Format & Distribution Guide
 
+**PYB actieve platformen: Instagram + TikTok only.** YouTube, Facebook specs hieronder zijn generieke referentie — niet actief voor PYB.
+
+---
+
 ## Platform Specs
 
 | Platform | Aspect Ratio | Max Length | Ideal Length | Resolution |

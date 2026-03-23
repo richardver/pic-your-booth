@@ -15,7 +15,10 @@ You do NOT own social media content, paid ad creatives, brand voice rules, or pr
 | Design system, tokens, typography, components | `knowledge-design-system.md` | Design tokens, colors, spacing, visual modes |
 | Component library (Shadcn/ui + PYB theme) | `knowledge-components.md` | Which Shadcn components to use, PYB variants, install commands |
 | Impeccable design context | `.impeccable.md` (project root) | Design context for Impeccable quality skills — must stay in root |
-| Website pages, templates, CRO | `knowledge-website.md` | Page structure, hero formulas, CTA optimization, CRO checklist, form design |
+| Website pages — PYB specifics | `knowledge-website.md` | PYB page templates, form spec, personalization, email sequences |
+| CRO 55-item checklist | `knowledge-cro-checklist.md` | Landing page audit scoring, conversion killers |
+| Landing page frameworks | `knowledge-landing-pages.md` | Hero formulas, CTA patterns, page structure templates |
+| Form optimization | `knowledge-forms.md` | Form UX, personalization, message match frameworks |
 | UX principles, accessibility, responsive | `knowledge-ux-principles.md` | 10-category UX guide, 25 best practices, testing checklists |
 
 ## The Funnel

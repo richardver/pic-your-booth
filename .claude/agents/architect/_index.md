@@ -44,5 +44,5 @@ You do NOT own domain content — marketing, design, ads, social, or brand voice
 3. **Knowledge files are domain-scoped** — one topic per file, named `knowledge-<topic>.md`
 4. **_index.md is the routing hub** — always read it before executing any task
 5. **Design systems cascade** — web (parent) → DJ Hub → individual DJ brand guides
-6. **Exports use Playwright** — never screenshot tools, always `docs/export-guide.md` workflow
+6. **Exports use Playwright** — never screenshot tools, always `.claude/agents/architect/knowledge-exports-guide.md` workflow
 7. **Keep README.md in sync** — update `README.md` whenever agents, skills, or repo structure changes

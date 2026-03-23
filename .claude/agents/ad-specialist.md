@@ -20,4 +20,4 @@ Read `.claude/agents/ad-specialist/_index.md` before executing any task. It cont
 - For ad visual assets: call social-media agent
 - For landing pages that ads drive to: call designer agent (or use `/design-landingpage`)
 - For product specs in ad copy: call product-specialist agent
-- For brand compliance on ad copy: call brand agent
+- For brand compliance on ad copy: call strategist agent

@@ -162,7 +162,7 @@ Post-Event:   Happy        [+4] ████████████
 - **Motivation**: "I want something fun without breaking the bank"
 - **Fear**: "Is it worth spending money on?"
 - **Message**: Emphasize affordability, ease, fun-factor
-- **Proof needed**: Party photos, price clarity, "vanaf €200"
+- **Proof needed**: Party photos, price clarity, "vanaf €199"
 
 ### The All-in-One Seeker (DJ + Photobooth Combo)
 - **Values**: Convenience, one-stop-shop, stress reduction

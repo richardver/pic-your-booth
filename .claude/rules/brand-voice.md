@@ -20,7 +20,7 @@ When creating ANY marketing content for PicYourBooth:
 - Party Booth: €199 (not €200)
 - Magic Mirror XL: €599
 - DJs: €149/3hr (not €150), +€49/extra uur
-- Wedding Keepsakes: +€499 (not €500)
+- Wedding Keychain Station: +€499 (not €500)
 - All prices include 21% BTW
 
 ## Do

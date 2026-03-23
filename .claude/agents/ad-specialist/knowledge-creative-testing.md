@@ -1,6 +1,6 @@
 # Creative Testing & Fatigue
 
-Testing framework and fatigue management. Full reference in `docs/marketing/creative-testing-and-fatigue.md`.
+Testing framework and fatigue management. Full reference in `.claude/agents/ad-specialist/knowledge-creative-testing-full.md`.
 
 ---
 
@@ -43,5 +43,5 @@ Testing framework and fatigue management. Full reference in `docs/marketing/crea
 | Design full funnel | `skills/ads/cross-platform/ads-funnel-builder.md` |
 | Generate performance reports | `skills/ads/cross-platform/ads-report-generator.md` |
 
-For full testing framework: `docs/marketing/creative-testing-and-fatigue.md`
-For A/B testing methodology: `docs/marketing/ab-testing.md`
+For full testing framework: `.claude/agents/ad-specialist/knowledge-creative-testing-full.md`
+For A/B testing methodology: `.claude/agents/ad-specialist/knowledge-ab-testing.md`

@@ -10,27 +10,28 @@ Premium DSLR photobooth with professional lighting and direct printing. The flag
 - Professional studio lighting
 - Direct on-site printing of photos
 - Digital gallery for all guests
-- On-site operation by PYB team member
+- Self-service operation by guests (on-site host is upgrade)
 - No time limit on usage during the event
 
 ## What's Included (Base Package — €599)
 
 - Magic Mirror XL hardware + DSLR camera
-- 4 uur on-site
+- Per event (geen tijdslimiet)
 - Professional studio lighting
 - Direct printen (unlimited prints)
 - Digitale galerij (all photos accessible online)
-- PYB team member operates the booth
+- Bezorging, installatie en ophalen (binnen 50km)
 - Standard photo strip design
+- Self-service — gasten bedienen de booth zelf
 
 ## Upgrades
 
 | Upgrade | Price | What It Adds |
 |---|---|---|
 | VIP Upgrade | +€149 | Backdrop, rode loper (red carpet), afzetpalen (stanchions), luxe props |
-| Wedding Keepsakes | +€499 | Gepersonaliseerde sleutelhangers (personalized keychains) for all guests |
-| On-Site Host | +€149 | Dedicated PYB team member guiding guests to the booth |
-| AI Photo Experience | +€499 | AI-powered photo effects and transformations |
+| Wedding Keychain Station | +€499 | Wedding Keychain Station — onbeperkt gepersonaliseerde sleutelhangers voor alle gasten |
+| On-Site Host | +€149 | PYB teamlid blijft op locatie — begeleidt gasten, lost problemen op, zorgt voor maximale interactie |
+| AI Photo Experience | +€499 | AI-gegenereerde foto's: gewenst resultaat + gastfoto + gewenste artefacten worden via prompting gecombineerd tot uniek beeld. Ideaal voor productlanceringen en branding-events |
 | Live DJ Set | +€149 | DJ with speakers, lights, smoke machine (3 uur) |
 
 ## Target Segment
@@ -45,6 +46,30 @@ Premium DSLR photobooth with professional lighting and direct printing. The flag
 2. **Iedereen Ziet Er Geweldig Uit** — professional lighting flatters everyone
 3. **Meenemen, Niet Vergeten** — instant printed photos as keepsakes
 4. **Gasten Voelen Zich Een Ster** — VIP experience, red carpet treatment
+
+## AI Photo Experience (Upgrade +€499)
+
+Unieke AI-integratie voor de Magic Mirror XL, ideaal voor zakelijke events en productlanceringen.
+
+**Hoe het werkt:**
+1. Klant definieert het gewenste eindresultaat (bijv. "gasten als astronaut", "product launch thema")
+2. Gast maakt foto bij de Magic Mirror
+3. AI combineert gastfoto + gewenst resultaat + artefacten via prompting
+4. Uniek, gepersonaliseerd AI-beeld wordt gegenereerd en geprint
+
+**Ideaal voor:**
+- Productlanceringen — gasten worden onderdeel van de campagne
+- Branding events — bedrijfsidentiteit verwerkt in elke foto
+- Thema-feesten — gasten in elke gewenste setting
+- Corporate activaties — unieke branded content die gasten delen
+
+**Waarom dit verkoopt:**
+- Niemand anders biedt dit in de photobooth-markt
+- Gasten delen AI-foto's vaker op social media (nieuwigheidsfactor)
+- Zakelijke klanten betalen premium voor branded AI-ervaringen
+- Extra omzet: +€499 per boeking op het zakelijke segment
+
+---
 
 ## Equipment Specs
 
@@ -62,13 +87,14 @@ Premium DSLR photobooth with professional lighting and direct printing. The flag
 - Power outlet (2 sockets)
 - ~3m² floor space (more with VIP red carpet setup)
 - Indoor location preferred (weather protection for equipment)
-- PYB team arrives 60-90 min before event start for setup
-- PYB team handles all setup and teardown
+- Bezorging, installatie en ophalen inbegrepen (binnen 50km)
+- PYB levert, installeert en haalt op — gasten bedienen de booth zelf
+- On-Site Host (+€149) voor begeleiding tijdens het event
 
 ## Differentiators vs Competition
 
 - **Real DSLR camera** — not a tablet on a stick
-- **No time limit** — unlimited usage during 4-hour booking
+- **No time limit** — per event, geen tijdslimiet (concurrentie rekent per uur)
 - **Professional lighting** — everyone looks great
 - **Direct printing** — guests take home physical photos
 - **One team** — same team can DJ + photobooth

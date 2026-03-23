@@ -26,7 +26,7 @@ Six specialist agents handle different domains:
 | **Product Specialist** | Products | Specs, packages, upgrades, pricing (source of truth) |
 | **Designer** | Website & Visual | Website pages, landing pages, CRO, UI components, frontend code |
 | **Social Media** | Social & Creative | Content plans, video scripts, DJ profiles, social graphics |
-| **Brand Guardian** | Brand Compliance | Tone review, messaging quality, brand consistency checks |
+| **Strategist** | Strategy & Brand | Vision, USPs, hooks, competition, pricing strategy, brand quality gate, orchestrates other agents |
 | **Ad Specialist** | Paid Advertising | Meta Ads + Google Ads campaigns, audiences, ad copy, 17 ads skills |
 
 Agents are routed via `.claude/agents/_registry.md`.
@@ -83,7 +83,7 @@ Fonts: Bebas Neue (headings) + Space Grotesk (body). Colors: gold (#d4b14e) for 
 
 ## Design Asset Exports
 
-All visual assets exported via Playwright. See `docs/export-guide.md`.
+All visual assets exported via Playwright. See `.claude/agents/architect/knowledge-exports-guide.md`.
 
 ## Setup
 

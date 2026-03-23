@@ -12,9 +12,9 @@ Audit a landing page for conversion rate optimization.
 
 ## Process
 
-1. Read `docs/website/website-design-cro.md` for the 55-item checklist and scoring rubric
-2. Read `docs/website/website-design-landing-pages.md` for structure best practices
-3. Read `docs/marketing/marketing-psychology-pricing.md` for persuasion principles
+1. Read `.claude/agents/designer/knowledge-cro-checklist.md` for the 55-item checklist and scoring rubric
+2. Read `.claude/agents/designer/knowledge-landing-pages.md` for structure best practices
+3. Read `.claude/agents/strategist/knowledge-psychology-pricing.md` for persuasion principles
 4. Evaluate the page section by section against the checklist
 5. Score each category (weighted) and calculate overall Landing Page Score (0-100)
 

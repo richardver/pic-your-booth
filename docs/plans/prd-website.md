@@ -53,7 +53,7 @@ All design decisions are documented in the existing design system files:
 | `docs/templates/design-system/pyb-design-system-web.html` | Tokens, colors, typography, components |
 | `docs/templates/design-system/pyb-design-system-photobooth.html` | Homepage, Magic Mirror, Party Booth, Form mockups |
 | `docs/templates/design-system/pyb-design-system-dj.html` | DJ Hub page mockup |
-| `.claude/agents/brand/knowledge-brand.md` | Brand guide, services, pricing |
+| `.claude/agents/strategist/knowledge-brand.md` | Brand guide, services, pricing |
 
 ### Design Tokens
 
@@ -113,7 +113,7 @@ Cyan:          #22d3ee (Milo)
    - Base: Magic Mirror XL - €599 (locked, gold tint)
    - Upgrades (toggle switches):
      - VIP Upgrade (+€149)
-     - Wedding Keepsakes (+€499)
+     - Wedding Keychain Station (+€499)
      - On-Site Host (+€149)
      - AI Photo Experience (+€499)
      - Live DJ Set (+€149)
@@ -140,9 +140,9 @@ Cyan:          #22d3ee (Milo)
 4. **Package Builder** - "BOUW JOUW FEESTPAKKET"
    - Base: Party Booth - €199
    - Upgrades:
-     - Premium Fotostrip Design (+€24)
-     - Bezorging Door Ons (+€24)
-     - AI Achtergrond (+€39)
+     - Premium Fotostrip Design (+€25)
+     - Bezorging, Installatie & Ophalen (+€49)
+     - AI Achtergrond (+€35)
      - Live DJ Set (+€149)
    - Running total (incl. 21% BTW)
    - CTA → pre-fills form
@@ -288,9 +288,9 @@ All copy is finalized and documented in the design system files. Key conversion 
 | Item | Price |
 |------|-------|
 | Base | €199 |
-| Premium Fotostrip Design | +€24 |
-| Bezorging Door Ons | +€24 |
-| AI Achtergrond | +€39 |
+| Premium Fotostrip Design | +€25 |
+| Bezorging, Installatie & Ophalen | +€49 |
+| AI Achtergrond | +€35 |
 | Live DJ Set | +€149 |
 
 ### Magic Mirror XL
@@ -298,7 +298,7 @@ All copy is finalized and documented in the design system files. Key conversion 
 |------|-------|
 | Base | €599 |
 | VIP Upgrade | +€149 |
-| Wedding Keepsakes | +€499 |
+| Wedding Keychain Station | +€499 |
 | On-Site Host | +€149 |
 | AI Photo Experience | +€499 |
 | Live DJ Set | +€149 |

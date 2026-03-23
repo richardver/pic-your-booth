@@ -17,5 +17,5 @@ Read `.claude/agents/architect/_index.md` before executing any task. It contains
 - For visual design work: call designer agent
 - For ad campaigns: call ad-specialist agent
 - For social content: call social-media agent
-- For brand checks: call brand agent
+- For brand checks: call strategist agent
 - For website pages: call designer agent

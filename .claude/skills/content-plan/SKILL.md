@@ -12,9 +12,9 @@ Create a social media content plan for Pic Your Booth and/or DJ personal brands.
 
 ## Process
 
-1. Read `.claude/agents/brand/knowledge-brand.md` for brand context
+1. Read `.claude/agents/strategist/knowledge-brand.md` for brand context
 2. Read `.claude/agents/social-media/knowledge-platforms-full.md` for platform guides and content pillars
-3. Read `docs/marketing/video-marketing.md` for video specs and repurposing
+3. Read `.claude/agents/social-media/knowledge-video-full.md` for video specs and repurposing
 4. Ask for timeframe (week/month) and any specific events or priorities
 5. Build content calendar with posts, scripts, and visual direction
 

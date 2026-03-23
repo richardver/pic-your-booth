@@ -19,4 +19,4 @@ Read `.claude/agents/product-specialist/_index.md` before executing any task. It
 - For visual design of product pages: call designer agent
 - For social content featuring products: call social-media agent
 - For website product pages: call designer agent
-- For brand compliance check: call brand agent
+- For brand compliance check: call strategist agent

@@ -25,7 +25,7 @@ Next.js + Tailwind CSS + Vercel + HubSpot + Meta Ads + Google Analytics
 ## Knowledge Architecture
 
 Three layers in `.claude/`:
-- **`agents/`** — 6 domain agents with routing registry (`_registry.md`)
+- **`agents/`** — 6 domain agents with routing registry (`_registry.md`), strategist orchestrates
 - **`skills/`** — Actionable workflows invoked via `/commands`
 - **`rules/`** — Always-active rules (brand voice)
 
@@ -41,15 +41,12 @@ Agent registry: `.claude/agents/_registry.md`
 pic-your-booth/
 ├── CLAUDE.md                              ← You are here
 ├── docs/
-│   ├── plans/                            - Brainstorm sessions, design docs, implementation plans
-│   ├── templates/                        - All visual templates & assets
-│   │   ├── design-system/               - HTML design systems, tokens JSON
-│   │   ├── djs/dj-gianni/              - Brand guide, social/, photos/, profile, voice-tags
-│   │   ├── djs/milo/                   - Brand guide, profile
-│   │   └── ads/meta/                   - Meta Ads design system
-│   ├── marketing/                        - Shared psychology frameworks (buyer-journey, pricing)
-│   ├── website/                          - PRD, CRO checklist, landing page frameworks
-│   └── export-guide.md                   - Playwright export workflow
+│   ├── plans/                            - PRD, brainstorm sessions, design documents
+│   └── templates/                        - Visual assets only (HTML, images, JSON)
+│       ├── design-system/               - HTML design systems, tokens JSON
+│       ├── djs/dj-gianni/              - Brand guide, social/, photos/
+│       ├── djs/milo/                   - Brand guide, profile
+│       └── ads/meta/                   - Meta Ads design system
 ├── .claude/
 │   ├── agents/
 │   │   ├── _registry.md                  - Master routing table (all agents)
@@ -82,7 +79,19 @@ pic-your-booth/
 │   │   │   ├── knowledge-dj-gianni.md   - DJ Gianni profile, brand, assets
 │   │   │   ├── knowledge-dj-milo.md     - Milo profile, brand, assets
 │   │   │   └── knowledge-viral-retention.md - Viral loops, referrals, post-event
-│   │   ├── brand.md              - Brand quality gate
+│   │   ├── strategist.md                  - Strategy, brand, orchestration
+│   │   ├── strategist/                    - Strategist knowledge (10 files)
+│   │   │   ├── _index.md                - Router + orchestration pattern
+│   │   │   ├── knowledge-brand.md       - Mission, vision, identity, tone
+│   │   │   ├── knowledge-voice.md       - Voice rules, do's/don'ts
+│   │   │   ├── knowledge-review.md      - Brand audit checklist
+│   │   │   ├── knowledge-segments.md    - Buyer segments, pain points, JTBD (NL)
+│   │   │   ├── knowledge-usps.md        - USP matrix per product/segment (NL)
+│   │   │   ├── knowledge-hooks.md       - Hooks library (NL, per segment/platform)
+│   │   │   ├── knowledge-competition.md - Competitive landscape photobooth + DJ NL
+│   │   │   ├── knowledge-competition-references.md - Raw intel, URLs, pricing
+│   │   │   ├── knowledge-pricing-strategy.md - Why we price this way
+│   │   │   └── knowledge-growth.md      - Growth priorities, phased roadmap
 │   │   ├── ad-specialist.md              - Paid ads (Meta + Google)
 │   │   └── ad-specialist/                 - Ad specialist knowledge directory
 │   │       ├── _index.md                - Sub-topic router + 17 ads skills index
@@ -131,4 +140,4 @@ pic-your-booth/
 
 ## Design Asset Exports
 
-Always use Playwright for exports. See `docs/export-guide.md` for workflow.
+Always use Playwright for exports. See `.claude/agents/architect/knowledge-exports-guide.md` for workflow.

@@ -1,6 +1,6 @@
 # Meta Ads
 
-Meta Ads strategy, audiences, specs, and benchmarks. Full reference in `docs/marketing/meta-ads.md`.
+Meta Ads strategy, audiences, specs, and benchmarks. Full reference in `.claude/agents/ad-specialist/knowledge-meta-ads-full.md`.
 
 ---
 
@@ -32,4 +32,4 @@ Meta Ads strategy, audiences, specs, and benchmarks. Full reference in `docs/mar
 | Conv Rate | 1-3% | 4-10% |
 | Frequency (healthy) | < 3.0 | < 6.0 |
 
-For full Meta Ads reference: `docs/marketing/meta-ads.md`
+For full Meta Ads reference: `.claude/agents/ad-specialist/knowledge-meta-ads-full.md`

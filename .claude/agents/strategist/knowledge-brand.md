@@ -71,8 +71,8 @@ Compact, digital-only photobooth. Pick up, set up, enjoy.
 | Package | Price | Includes |
 |---------|-------|----------|
 | Basic | €199 | Ophalen bij ons, basis fotostrip design |
-| + Premium Design | +€24 | Upgrade naar premium fotostrip design |
-| + Bezorging | +€24 | Wij bezorgen en halen op bij je locatie |
+| + Premium Design | +€25 | Gepersonaliseerde fotostrip met thema en branding |
+| + Bezorging, Installatie & Ophalen | +€49 | Wij brengen, installeren en halen op |
 
 ### Magic Mirror XL (Populair)
 **Niet zomaar een booth - een ervaring.**
@@ -80,9 +80,9 @@ Premium DSLR photobooth with professional lighting and direct printing.
 
 | Package | Price | Includes |
 |---------|-------|----------|
-| Basic | €599 | 4 uur, DSLR kwaliteit, direct printen, digitale galerij |
+| Basic | €599 | Per event (geen tijdslimiet), DSLR, direct printen, digitale galerij, bezorging/installatie/ophalen (50km) |
 | + VIP Upgrade | +€149 | Backdrop, rode loper, afzetpalen, luxe props |
-| + Wedding Keepsakes | +€499 | Gepersonaliseerde sleutelhangers |
+| + Wedding Keychain Station | +€499 | Gepersonaliseerde sleutelhangers |
 | + On-Site Host | +€149 | Teamlid begeleidt gasten |
 | + Live DJ Set | +€149 | DJ met rookmachine, lichten, speakers |
 
@@ -102,39 +102,11 @@ Premium DSLR photobooth with professional lighting and direct printing.
 
 ## Visual Identity
 
-### Design System
+**Dark cinematic base** — events happen at night. The website feels like walking into a VIP event.
 
-**Dark cinematic base** - events happen at night. The website feels like walking into a VIP event.
+**Key identity markers:** Gold = photobooth, Violet = DJ hub, Coral = DJ Gianni, Cyan = Milo. No red, no pink. Gold buttons always black text.
 
-| Element | Value | Usage |
-|---------|-------|-------|
-| Background | #08080b | Page background |
-| Surface | #111116 | Cards, elevated elements |
-| Text | #ededf0 | Primary text |
-| Text muted | rgba(237,237,240,0.60) | Descriptions, secondary text |
-| Gold | #d4b14e | Photobooth accent, VIP badges, book button, prices |
-| Violet | #8b5cf6 | DJ Hub accent, DJ CTAs |
-| Coral | #f0654a | DJ Gianni personal color |
-| Cyan | #22d3ee | Milo personal color |
-
-### Typography
-
-| Font | Usage |
-|------|-------|
-| Bebas Neue | All headings, nav logo, prices, labels (uppercase) |
-| Space Grotesk | All body text, descriptions, forms |
-
-Shared across photobooth and DJ pages - unified brand.
-
-### Color Rules
-
-- **Gold** for all photobooth CTAs, price pills, "Boek je ervaring" nav button
-- **Violet** for DJ-specific CTAs ("Boek een DJ", "Plan je feest")
-- **Coral** only for DJ Gianni profile elements
-- **Cyan** only for Milo profile elements
-- **No red (#ff494a)** - removed from brand
-- **No pink (#e839a0)** - removed from brand
-- **Gold buttons always use black (#000) text**
+For full design system (tokens, typography, colors, Shadcn/ui components): see designer agent `knowledge-design-system.md` and `knowledge-design-system-full.md`.
 
 ---
 
@@ -144,7 +116,7 @@ Shared across photobooth and DJ pages - unified brand.
 PicYourBooth (standalone premium entertainment brand)
 ├── Party Booth (accessible entry point)
 ├── Magic Mirror XL (premium photobooth - populair)
-│   └── Upgrades: VIP, Wedding Keepsakes, On-Site Host, Live DJ Set
+│   └── Upgrades: VIP, Wedding Keychain Station, On-Site Host, Live DJ Set
 └── DJs (separate service section)
     ├── DJ Gianni (Luca) - coral accent - afro beats, caribbean, nederlands, hits
     └── Milo - cyan accent - house, techno

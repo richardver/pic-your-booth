@@ -74,11 +74,11 @@ Read `.claude/agents/<name>/_index.md` before executing any task.
 | Agent | Domain | Structure | Keywords |
 |---|---|---|---|
 | Architect | Infrastructure | Deep (5 knowledge files) | architecture, agents, skills, knowledge, structure, exports |
+| Strategist | Strategy & Brand | Deep (10 knowledge files) | vision, USPs, hooks, competition, pricing, growth, brand, orchestration |
 | Product Specialist | Product Knowledge | Deep (4 knowledge files) | product, specs, equipment, package, upgrade, pricing |
-| Designer | Website & Visual Design | Deep (3 knowledge files) | design, UI, landing page, website, CRO, form, components |
-| Social Media | Social & Creative | Deep (5 knowledge files) | social, Instagram, TikTok, DJ profiles, video, content |
-| Brand Guardian | Brand Compliance | Flat | brand, tone, voice, review, audit, compliance |
-| Ad Specialist | Paid Advertising | Deep (5 knowledge files + 17 skills) | Meta Ads, Google Ads, campaign, audience, ROAS, PMax, RSA |
+| Designer | Website & Visual Design | Deep (5 knowledge files) | design, UI, landing page, website, CRO, form, components |
+| Social Media | Social & Creative | Deep (8 knowledge files) | social, Instagram, TikTok, DJ profiles, video, content |
+| Ad Specialist | Paid Advertising | Deep (9 knowledge files + 17 skills) | Meta Ads, Google Ads, campaign, audience, ROAS, PMax, RSA |
 
 ---
 
@@ -96,7 +96,7 @@ PYB uses a mix:
 
 | Type | Structure | Example |
 |---|---|---|
-| **Flat** (simple) | Single `.md` file, no subdirectory | brand, social-creative |
+| **Flat** (simple) | Single `.md` file, no subdirectory | (none currently — all agents are deep) |
 | **Deep** (complex) | `.md` + subdirectory with `_index.md` + `knowledge-*.md` | architect |
 
 Migrate flat agents to deep structure only when they accumulate enough domain knowledge to warrant multiple knowledge files. Don't over-engineer — a single-file agent is fine for focused domains.

@@ -66,14 +66,19 @@ Pic Your Booth Google Ads
 | All-in-One Seeker | DJ + Combo | Energy, convenience | "Eén team, één vibe" | Vanaf €348 |
 | Wedding Planners | Magic Mirror + DJ | Premium, personal | "Jullie dag, onze ervaring" | Vanaf €748 |
 
-## Budget Allocation (Starting)
+## Budget Allocation — Fase 1 (Photobooth Focus)
 
-| Channel | % of Total | Monthly Budget |
-|---|---|---|
-| Meta Ads - Prospecting | 40% | €600-800 |
-| Meta Ads - Retargeting | 15% | €225-300 |
-| Google Ads - Search | 35% | €525-700 |
-| Google Ads - PMax | 10% | €150-200 |
+**Fase 1 regel: 100% ad budget op photobooth verhuur. DJ is upgrade (+€149), geen aparte campagnes.**
+
+| Channel | % of Total | Focus | Monthly Budget |
+|---|---|---|---|
+| Meta Ads - Prospecting | 50% | Magic Mirror XL + Party Booth | €750-1.000 |
+| Meta Ads - Retargeting | 10% | Website bezoekers, form abandoners | €150-200 |
+| Google Ads - Search | 40% | "photobooth huren" + brand | €600-800 |
+
+**DJ-boekingen in Fase 1:** komen via combo-upgrade op website en organisch social media. Geen apart DJ ad budget.
+
+**Fase 2 (later):** DJ-campagnes toevoegen, "dj huren" search, PMax, retargeting schalen.
 
 ## Funnel: Ad → Conversion
 

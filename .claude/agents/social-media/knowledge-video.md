@@ -1,6 +1,6 @@
 # Video Content
 
-Video scripting, hooks, production, and distribution. Full reference in `docs/marketing/video-marketing.md`.
+Video scripting, hooks, production, and distribution. Full reference in `.claude/agents/social-media/knowledge-video-full.md`.
 
 ---
 
@@ -58,4 +58,4 @@ Event Highlight Video (2-3 min)
 └─→ Testimonial clips → Website, ads, social proof
 ```
 
-For full video specs and distribution workflow, load `docs/marketing/video-marketing.md`.
+For full video specs and distribution workflow, load `.claude/agents/social-media/knowledge-video-full.md`.

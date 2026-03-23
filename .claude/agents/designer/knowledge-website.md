@@ -147,6 +147,6 @@ PYB-specific page templates, form spec, personalization rules, and conversion ta
 
 ## References (generic frameworks)
 
-- CRO 55-item checklist: `docs/website/website-design-cro.md`
-- Landing page structure templates: `docs/website/website-design-landing-pages.md`
-- Full PRD: `docs/website/prd-website.md`
+- CRO 55-item checklist: `.claude/agents/designer/knowledge-cro-checklist.md`
+- Landing page structure templates: `.claude/agents/designer/knowledge-landing-pages.md`
+- Full PRD: `docs/plans/prd-website.md`

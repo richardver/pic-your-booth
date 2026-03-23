@@ -8,7 +8,7 @@ How PYB exports design assets from HTML design systems.
 
 All design asset exports use Playwright. Never use screenshot tools or browser extensions.
 
-Full workflow documented in `docs/export-guide.md`.
+Full workflow documented in `.claude/agents/architect/knowledge-exports-guide.md`.
 
 ---
 
@@ -33,5 +33,5 @@ Full workflow documented in `docs/export-guide.md`.
 
 1. **Always Playwright** — the canonical export method
 2. **Exports live with their source** — DJ assets in `docs/templates/djs/`
-3. **Reference `docs/export-guide.md`** — for the detailed step-by-step workflow
+3. **Reference `.claude/agents/architect/knowledge-exports-guide.md`** — for the detailed step-by-step workflow
 4. **Re-export after any HTML change** — keep PNGs in sync with source

@@ -30,7 +30,7 @@ The user specifies which page to build:
    - For offerte: load pricing (all products)
 
 2. **Brand context** — Read these files:
-   - `.claude/agents/brand/knowledge-brand.md` — brand guide, services, tone, visual identity
+   - `.claude/agents/strategist/knowledge-brand.md` — brand guide, services, tone, visual identity
    - `.claude/rules/brand-voice.md` — always-active voice rules (auto-loaded, but verify)
 
 3. **Design system** — Read these files:
@@ -42,15 +42,15 @@ The user specifies which page to build:
      - DJ page → `docs/templates/design-system/pyb-design-system-dj.html`
 
 4. **CRO & conversion knowledge** — Read these files:
-   - `docs/website/website-design-landing-pages.md` — page structure, hero formulas, CTAs
-   - `docs/website/website-design-cro.md` — 55-item audit checklist
-   - `docs/website/landing-page-forms-personalization.md` — form optimization, message match
+   - `.claude/agents/designer/knowledge-landing-pages.md` — page structure, hero formulas, CTAs
+   - `.claude/agents/designer/knowledge-cro-checklist.md` — 55-item audit checklist
+   - `.claude/agents/designer/knowledge-forms.md` — form optimization, message match
 
 5. **Psychology & buyer journey** — Read these files:
-   - `docs/marketing/marketing-psychology-pricing.md` — anchoring, charm pricing, Cialdini
-   - `docs/marketing/marketing-psychology-buyer-journey.md` — JTBD, journey map, psychographics
+   - `.claude/agents/strategist/knowledge-psychology-pricing.md` — anchoring, charm pricing, Cialdini
+   - `.claude/agents/strategist/knowledge-psychology-buyer-journey.md` — JTBD, journey map, psychographics
 
-6. **PRD reference** — Read `docs/website/prd-website.md` for the canonical page specification (sections, copy, interactions, integrations).
+6. **PRD reference** — Read `docs/plans/prd-website.md` for the canonical page specification (sections, copy, interactions, integrations).
 
 ### Phase 2: Plan
 

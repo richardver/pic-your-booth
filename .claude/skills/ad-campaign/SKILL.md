@@ -12,9 +12,9 @@ Design a complete Meta Ads campaign for Pic Your Booth.
 
 ## Process
 
-1. Read `.claude/agents/brand/knowledge-brand.md` for brand context
-2. Read `docs/marketing/meta-ads.md` for campaign structure and benchmarks
-3. Read `docs/marketing/ad-copy-frameworks.md` for copy specs and hook formulas
+1. Read `.claude/agents/strategist/knowledge-brand.md` for brand context
+2. Read `.claude/agents/ad-specialist/knowledge-meta-ads-full.md` for campaign structure and benchmarks
+3. Read `.claude/agents/ad-specialist/knowledge-ad-copy-full.md` for copy specs and hook formulas
 4. Ask which segment to target (Magic Mirror / Party Booth / DJ Combo / All)
 5. Build campaign structure, audiences, copy, and testing plan
 

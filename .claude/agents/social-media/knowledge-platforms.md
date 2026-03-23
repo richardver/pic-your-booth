@@ -24,7 +24,7 @@ Platform-specific guides. Full reference in `.claude/agents/social-media/knowled
 | Event energy | 15% | Crowd reactions, dance floors |
 | Collaborations | 5% | Other DJs, artists, venues |
 
-## Platform Summary
+## Active Platforms (Instagram + TikTok only)
 
 | Platform | Primary Format | Cadence | Tone |
 |---|---|---|---|
@@ -32,7 +32,8 @@ Platform-specific guides. Full reference in `.claude/agents/social-media/knowled
 | Instagram Stories | Polls, BTS | Daily | Casual, real-time |
 | Instagram Reels | Short video | 3-5x/week | Discovery, viral |
 | TikTok | Short video | 1-3x/day (growth) | Authentic, native |
-| Facebook | Video, albums | 2-3x/week | Community, events |
+
+**Not active:** Facebook, LinkedIn, YouTube, Pinterest.
 
 ## Caption Formula
 
@@ -49,7 +50,6 @@ Platform-specific guides. Full reference in `.claude/agents/social-media/knowled
 | Instagram Feed | Image/Carousel | 1:1 or 4:5 | 1080x1080 / 1080x1350 |
 | Instagram Stories/Reels | Video | 9:16 | 1080x1920 |
 | TikTok | Video | 9:16 | 1080x1920 |
-| Facebook Feed | Image/Video | 1:1 or 4:5 | 1080x1080 / 1080x1350 |
 | SoundCloud | Banner | Custom | 2480x520 |
 | SoundCloud | Track cover | 1:1 | 1400x1400 |
 
