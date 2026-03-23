@@ -1276,8 +1276,8 @@ function selectHour(el) {
   void totalEl.offsetWidth;
   totalEl.classList.add('price-pulse');
 
-  /* Confetti burst from the selected option */
-  spawnConfetti(el);
+  /* Confetti burst from the radio dot */
+  spawnConfetti(el.querySelector('.hour-radio'));
 
   var baseLabel = document.querySelector('.booking-base-label');
   baseLabel.textContent = 'DJ Set ' + hours + ' uur';
