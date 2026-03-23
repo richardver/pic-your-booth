@@ -18,7 +18,7 @@ Two DJs with distinct styles. Unique selling point: Spotify playlist optimizatio
 | Sub-tagline | Pure Vibes |
 | Color | Coral #f0654a |
 | Logo mark | Hexagon (G) |
-| Platforms | Instagram, SoundCloud, TikTok |
+| Platforms | TikTok, SoundCloud |
 
 ### Milo
 
@@ -31,7 +31,7 @@ Two DJs with distinct styles. Unique selling point: Spotify playlist optimizatio
 | Tagline | "Je voelt de bass, je vergeet de tijd" |
 | Color | Cyan #22d3ee |
 | Logo mark | Diamond (M) — rotated square |
-| Platforms | Instagram, SoundCloud, TikTok |
+| Platforms | TikTok, SoundCloud |
 
 ## What's Included (Base — €149)
 
