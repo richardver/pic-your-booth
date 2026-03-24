@@ -25,7 +25,7 @@ When creating ANY marketing content for PicYourBooth:
 
 ## Do
 - Match tone to segment (premium for Mirror, fun for Party Booth, energy for DJs)
-- Highlight differentiators (DSLR quality, Spotify playlist optimization, no time limit on Mirror)
+- Highlight differentiators (DSLR quality, Spotify playlist optimization, 5 uur inclusief on Mirror)
 - Use specific social proof ("237+ events") over vague claims
 - CTAs: "Check beschikbaarheid" / "Vraag vrijblijvend voorstel aan"
 - Use scarcity where true ("populaire data gaan snel")

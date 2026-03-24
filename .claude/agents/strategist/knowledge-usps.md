@@ -11,7 +11,7 @@ Unieke verkoopargumenten gerangschikt op impact. Nederlands.
 | 1 | Echte DSLR-camera met professionele studiobelichting | Direct herkenbaar verschil met concurrentie | Alle segmenten |
 | 2 | Professionele studiobelichting — iedereen ziet er geweldig uit | Verlicht angst "slechte foto's" | Perfectionist, Zakelijk |
 | 3 | Direct printen — fysiek aandenken om mee te nemen | Tastbaar resultaat, geen digitaal gedoe | Perfectionist |
-| 4 | Geen tijdslimiet — onbeperkt gebruik tijdens je event | Uniek in de markt, concurrentie rekent per uur | Alle segmenten |
+| 4 | Tot 5 uur inclusief — ruimste standaard in de markt | Concurrentie rekent per uur (2-3 uur pakketten), langer in overleg mogelijk | Alle segmenten |
 | 5 | Eén team voor DJ + photobooth | Minder leveranciers, betere afstemming | Alles-in-één |
 | 6 | VIP-setup met rode loper en stijlvolle props | Creëert een "Hollywood-moment" voor gasten | Perfectionist, Zakelijk |
 | 7 | AI Photo Experience (+€499) — AI genereert unieke branded foto's | Niemand anders biedt dit, ideaal voor productlanceringen en branding | Zakelijk |
@@ -26,7 +26,7 @@ Unieke verkoopargumenten gerangschikt op impact. Nederlands.
 | 3 | Direct delen op socials | Gasten delen = gratis marketing voor het feest | Slimme Feestganger |
 | 4 | Compact — past op elke locatie | Geen ruimte-eisen, werkt overal | Slimme Feestganger |
 | 5 | Combineerbaar met Live DJ Set | Upgrade naar compleet entertainment | Alles-in-één |
-| 6 | AI Achtergrond + Beautify (+€35) — lelijke achtergrond? wij fixen het | Lost een echt probleem op, laagdrempelige upsell, concurrentie biedt dit niet | Slimme Feestganger |
+| 6 | AI Foto's + Filters (+€49) — lelijke achtergrond? wij fixen het | Lost een echt probleem op, laagdrempelige upsell, concurrentie biedt dit niet | Slimme Feestganger |
 
 ## DJ Services
 
@@ -56,7 +56,7 @@ Unieke verkoopargumenten gerangschikt op impact. Nederlands.
 
 *Opmerking: deze suggesties veranderen niets aan het huidige aanbod, alleen aan hoe we het presenteren.*
 
-- **"Geen tijdslimiet"** prominenter maken — dit is uniek, concurrentie rekent per uur
+- **"5 uur inclusief"** prominenter maken — ruimste standaard in de markt, concurrentie rekent per uur (2-3 uur pakketten)
 - **Spotify-optimalisatie** altijd benoemen bij DJ — het is de sterkste differentiator
 - **DSLR-kwaliteit tonen** — voorbeeldfoto's van Magic Mirror XL laten zien (niet vergelijken met tablet, wij bieden zelf ook Party Booth)
 - **Familiebedrijf-verhaal** inzetten voor vertrouwen — mensen boeken bij mensen, niet bij bedrijven

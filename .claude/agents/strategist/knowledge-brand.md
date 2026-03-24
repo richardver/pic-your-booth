@@ -71,7 +71,7 @@ Compact, digital-only photobooth. Pick up, set up, enjoy.
 | Package | Price | Includes |
 |---------|-------|----------|
 | Basic | €199 | Ophalen bij ons, basis fotostrip design |
-| + Premium Design | +€25 | Gepersonaliseerde fotostrip met thema en branding |
+| + Premium Ontwerp | +€25 | Gepersonaliseerde fotostrip met thema en branding |
 | + Bezorging, Installatie & Ophalen | +€49 | Wij brengen, installeren en halen op |
 
 ### Magic Mirror XL (Populair)
@@ -80,10 +80,10 @@ Premium DSLR photobooth with professional lighting and direct printing.
 
 | Package | Price | Includes |
 |---------|-------|----------|
-| Basic | €599 | Per event (geen tijdslimiet), DSLR, direct printen, digitale galerij, bezorging/installatie/ophalen (50km) |
+| Basic | €599 | Per event (tot 5 uur inclusief), DSLR, direct printen, digitale galerij, bezorging/installatie/ophalen (50km) |
 | + VIP Upgrade | +€149 | Backdrop, rode loper, afzetpalen, luxe props |
 | + Wedding Keychain Station | +€499 | Gepersonaliseerde sleutelhangers |
-| + On-Site Host | +€149 | Teamlid begeleidt gasten |
+| + Photobooth Host | +€149 | Teamlid begeleidt gasten |
 | + Live DJ Set | +€149 | DJ met rookmachine, lichten, speakers |
 
 ### DJs
@@ -116,7 +116,7 @@ For full design system (tokens, typography, colors, Shadcn/ui components): see d
 PicYourBooth (standalone premium entertainment brand)
 ├── Party Booth (accessible entry point)
 ├── Magic Mirror XL (premium photobooth - populair)
-│   └── Upgrades: VIP, Wedding Keychain Station, On-Site Host, Live DJ Set
+│   └── Upgrades: VIP, Wedding Keychain Station, Photobooth Host, Live DJ Set
 └── DJs (separate service section)
     ├── DJ Gianni (Luca) - coral accent - afro beats, caribbean, nederlands, hits
     └── DJ Milø - mint accent - house, techno

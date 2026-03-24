@@ -10,13 +10,13 @@ Premium DSLR photobooth with professional lighting and direct printing. The flag
 - Professional studio lighting
 - Direct on-site printing of photos
 - Digital gallery for all guests
-- Self-service operation by guests (on-site host is upgrade)
-- No time limit on usage during the event
+- Self-service operation by guests (photobooth host is upgrade)
+- Tot 5 uur inclusief (langer in overleg mogelijk)
 
 ## What's Included (Base Package — €599)
 
 - Magic Mirror XL hardware + DSLR camera
-- Per event (geen tijdslimiet)
+- Per event (tot 5 uur inclusief)
 - Professional studio lighting
 - Direct printen (unlimited prints)
 - Digitale galerij (all photos accessible online)
@@ -30,7 +30,7 @@ Premium DSLR photobooth with professional lighting and direct printing. The flag
 |---|---|---|
 | VIP Upgrade | +€149 | Backdrop, rode loper (red carpet), afzetpalen (stanchions), luxe props |
 | Wedding Keychain Station | +€499 | Wedding Keychain Station — onbeperkt gepersonaliseerde sleutelhangers voor alle gasten |
-| On-Site Host | +€149 | PYB teamlid blijft op locatie — begeleidt gasten, lost problemen op, zorgt voor maximale interactie |
+| Photobooth Host | +€149 | PYB teamlid blijft op locatie — begeleidt gasten, lost problemen op, zorgt voor maximale interactie |
 | AI Photo Experience | +€499 | AI-gegenereerde foto's: gewenst resultaat + gastfoto + gewenste artefacten worden via prompting gecombineerd tot uniek beeld. Ideaal voor productlanceringen en branding-events |
 | Live DJ Set | +€149 | DJ with speakers, lights, smoke machine (3 uur) |
 
@@ -89,12 +89,12 @@ Unieke AI-integratie voor de Magic Mirror XL, ideaal voor zakelijke events en pr
 - Indoor location preferred (weather protection for equipment)
 - Bezorging, installatie en ophalen inbegrepen (binnen 50km)
 - PYB levert, installeert en haalt op — gasten bedienen de booth zelf
-- On-Site Host (+€149) voor begeleiding tijdens het event
+- Photobooth Host (+€149) voor begeleiding tijdens het event
 
 ## Differentiators vs Competition
 
 - **Real DSLR camera** — not a tablet on a stick
-- **No time limit** — per event, geen tijdslimiet (concurrentie rekent per uur)
+- **5 uur inclusief** — per event, tot 5 uur (concurrentie rekent per uur in pakketten van 2-3 uur)
 - **Professional lighting** — everyone looks great
 - **Direct printing** — guests take home physical photos
 - **One team** — same team can DJ + photobooth

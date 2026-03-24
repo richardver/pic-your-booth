@@ -30,7 +30,7 @@ Build 5 standalone HTML page templates for picyourbooth.nl. Each page is a self-
 - Footer: minimal
 - Unsplash placeholder images (event/party/DJ photography)
 - All copy in Dutch — from strategist hooks + product specs
-- Current pricing: €199 / €599 / €149 / €25 / €35 / €49 / €499
+- Current pricing: €199 / €599 / €149 / €25 / €49 / €499
 - Standalone HTML — no external deps except Google Fonts + Unsplash
 
 ## Build Process Per Page
@@ -65,16 +65,16 @@ Build 5 standalone HTML page templates for picyourbooth.nl. Each page is a self-
 
 **Sections:**
 1. Nav
-2. Product Hero — "MAGIC MIRROR XL" (gold gradient). Subtitle: DSLR kwaliteit, geen tijdslimiet, bezorging/installatie/ophalen inbegrepen.
+2. Product Hero — "MAGIC MIRROR XL" (gold gradient). Subtitle: DSLR kwaliteit, 5 uur inclusief, bezorging/installatie/ophalen inbegrepen.
 3. USPs (4 items, gold left border) — Foto's Die Je Wilt Inlijsten, Iedereen Ziet Er Geweldig Uit, Meenemen Niet Vergeten, Gasten Voelen Zich Een Ster
 4. Package Builder — "BOUW JOUW PERFECTE AVOND"
    - Base: Magic Mirror XL €599 (locked, gold tint)
-   - Toggles: VIP (+€149), Wedding Keychain Station (+€499), On-Site Host (+€149), AI Photo Experience (+€499), Live DJ Set (+€149)
+   - Toggles: VIP (+€149), Wedding Keychain Station (+€499), Photobooth Host (+€149), AI Photo Experience (+€499), Live DJ Set (+€149)
    - Running total incl. BTW
    - CTA: "CHECK BESCHIKBAARHEID"
 5. Footer
 
-**Key messaging:** "Geen tijdslimiet", "Wij bezorgen, installeren en halen op", DSLR quality. AI Photo Experience prominent for zakelijk segment.
+**Key messaging:** "Tot 5 uur. Langer nodig? Geen probleem.", "Wij bezorgen, installeren en halen op", DSLR quality. AI Photo Experience prominent for zakelijk segment.
 
 ### 3. Party Booth (`/party-booth`)
 
@@ -84,15 +84,15 @@ Build 5 standalone HTML page templates for picyourbooth.nl. Each page is a self-
 1. Nav
 2. Product Hero — "PARTY BOOTH" (gold gradient). Subtitle: fotoplezier voor elk feest, vanaf €199, klaar in 5 minuten.
 3. USPs (4 items) — Direct Delen Op Socials, Geen Monteur Geen Stress, Past Op Elke Locatie, Klaar In 5 Minuten
-4. AI Achtergrond callout — "Lelijke achtergrond? wij fixen het" + beautify filter. Visual before/after suggestion.
+4. AI Foto's + Filters callout — "Lelijke achtergrond? wij fixen het" + beautify filter + Instagram-achtige filters. Visual before/after suggestion.
 5. Package Builder — "BOUW JOUW FEESTPAKKET"
    - Base: Party Booth €199
-   - Toggles: Premium Fotostrip Design (+€25), Bezorging Installatie & Ophalen (+€49), AI Achtergrond + Beautify (+€35), Live DJ Set (+€149)
+   - Toggles: Premium Fotostrip Design (+€25), Bezorging Installatie & Ophalen (+€49), AI Foto's + Filters (+€49), Live DJ Set (+€149)
    - Running total incl. BTW
    - CTA: "CHECK BESCHIKBAARHEID"
 6. Footer
 
-**Key messaging:** Easiest, cheapest, fun. AI Achtergrond as differentiator. DJ as surprise upgrade.
+**Key messaging:** Easiest, cheapest, fun. AI Foto's + Filters as differentiator. DJ as surprise upgrade.
 
 ### 4. DJs (`/djs`)
 
@@ -134,7 +134,7 @@ Build 5 standalone HTML page templates for picyourbooth.nl. Each page is a self-
 ## Success Criteria
 
 - Each page scores 85+ on CRO 55-item checklist
-- All pricing matches current specs (€199/€599/€149/€25/€35/€49/€499)
+- All pricing matches current specs (€199/€599/€149/€25/€49/€499)
 - All copy in native Dutch (not translated)
 - Brand voice check passes
 - Mobile-responsive (70%+ traffic is mobile)

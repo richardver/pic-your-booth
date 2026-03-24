@@ -2,14 +2,16 @@
 """
 PicYourBooth Asset Generator
 
-Two modes:
+Three modes:
   1. enhance — Real photo as reference + Gemini AI styling
   2. generate — Text prompt only, Gemini creates from scratch
+  3. resize  — No AI, just resize/crop an existing image
 
-Then: resize/crop to all needed dimensions, convert to WebP.
+Then: apply brand color grading, resize/crop to all needed dimensions, convert to WebP.
 
 Usage:
   python asset-generator.py enhance --source path/to/photo.jpg --page magic-mirror --usage hero
+  python asset-generator.py enhance --source photo.jpg --page magic-mirror --usage usp --name fotos-inlijsten
   python asset-generator.py generate --page magic-mirror --usage hero --scene "Custom scene description"
   python asset-generator.py resize --input path/to/image.png --page magic-mirror --usage hero
 """
@@ -17,6 +19,7 @@ Usage:
 import os
 import sys
 import argparse
+from datetime import datetime
 from pathlib import Path
 from dotenv import load_dotenv
 
@@ -25,7 +28,7 @@ PROJECT_ROOT = Path(__file__).resolve().parents[5]  # up from scripts/asset-gene
 load_dotenv(PROJECT_ROOT / ".env")
 
 try:
-    from PIL import Image
+    from PIL import Image, ImageEnhance, ImageOps
 except ImportError:
     print("Error: Pillow not installed. Run: pip install Pillow")
     sys.exit(1)
@@ -54,6 +57,74 @@ SIZES = {
 
 WEBP_QUALITY = 85
 
+# Brand color grading presets per page
+COLOR_GRADES = {
+    "magic-mirror": {
+        "red_mult": 1.06,
+        "blue_mult": 0.90,
+        "green_mult": 1.01,
+        "contrast": 1.12,
+        "saturation": 1.10,
+        "sharpness": 1.15,
+        "brightness": 1.0,
+    },
+    "party-booth": {
+        "red_mult": 1.05,
+        "blue_mult": 0.92,
+        "green_mult": 1.0,
+        "contrast": 1.14,
+        "saturation": 1.18,
+        "sharpness": 1.12,
+        "brightness": 1.04,
+    },
+    "djs": {
+        "red_mult": 1.02,
+        "blue_mult": 1.02,
+        "green_mult": 1.0,
+        "contrast": 1.15,
+        "saturation": 1.12,
+        "sharpness": 1.10,
+        "brightness": 0.98,
+    },
+    "homepage": {
+        "red_mult": 1.04,
+        "blue_mult": 0.93,
+        "green_mult": 1.01,
+        "contrast": 1.10,
+        "saturation": 1.08,
+        "sharpness": 1.10,
+        "brightness": 1.0,
+    },
+}
+
+
+def build_output_name(page, usage, name=None, ext="png"):
+    """Build unique output filename. Uses --name if provided, else timestamp."""
+    if name:
+        return f"{page}-{usage}-{name}.{ext}"
+    timestamp = datetime.now().strftime("%H%M%S")
+    return f"{page}-{usage}-{timestamp}.{ext}"
+
+
+def apply_color_grade(img, page):
+    """Apply brand color grading based on page/product."""
+    grade = COLOR_GRADES.get(page, COLOR_GRADES["homepage"])
+
+    # Channel adjustments
+    r, g, b = img.split()
+    r = r.point(lambda x: min(255, int(x * grade["red_mult"])))
+    g = g.point(lambda x: min(255, int(x * grade["green_mult"])))
+    b = b.point(lambda x: int(x * grade["blue_mult"]))
+    img = Image.merge("RGB", (r, g, b))
+
+    # Enhancement chain
+    img = ImageEnhance.Contrast(img).enhance(grade["contrast"])
+    img = ImageEnhance.Color(img).enhance(grade["saturation"])
+    img = ImageEnhance.Sharpness(img).enhance(grade["sharpness"])
+    img = ImageEnhance.Brightness(img).enhance(grade["brightness"])
+
+    return img
+
 
 def setup_gemini():
     """Configure Gemini API."""
@@ -65,7 +136,7 @@ def setup_gemini():
     return client
 
 
-def enhance_image(client, source_path, page, usage, scene_override=None):
+def enhance_image(client, source_path, page, usage, scene_override=None, name=None):
     """Mode 1: Enhance a real photo with Gemini AI styling."""
     source = Path(source_path)
     if not source.exists():
@@ -85,9 +156,9 @@ def enhance_image(client, source_path, page, usage, scene_override=None):
         aspect_ratio=aspect,
     )
 
-    # Read source image
+    # Read source image (auto-rotate based on EXIF)
     print("Reading source photo...")
-    source_image = Image.open(source)
+    source_image = ImageOps.exif_transpose(Image.open(source))
 
     # Generate with Gemini
     print("Generating styled image with Gemini...")
@@ -99,8 +170,8 @@ def enhance_image(client, source_path, page, usage, scene_override=None):
         ),
     )
 
-    # Save generated image
-    output_name = f"{page}-{usage}-generated.png"
+    # Save generated image with unique name
+    output_name = build_output_name(page, usage, name, "png")
     output_path = GENERATED_DIR / output_name
     GENERATED_DIR.mkdir(parents=True, exist_ok=True)
 
@@ -118,7 +189,7 @@ def enhance_image(client, source_path, page, usage, scene_override=None):
     return None
 
 
-def generate_image(client, page, usage, scene_override=None):
+def generate_image(client, page, usage, scene_override=None, name=None):
     """Mode 2: Generate image from scratch with Gemini."""
     print(f"Generating from scratch")
     print(f"Page: {page}, Usage: {usage}")
@@ -140,7 +211,7 @@ def generate_image(client, page, usage, scene_override=None):
         ),
     )
 
-    output_name = f"{page}-{usage}-generated.png"
+    output_name = build_output_name(page, usage, name, "png")
     output_path = GENERATED_DIR / output_name
     GENERATED_DIR.mkdir(parents=True, exist_ok=True)
 
@@ -158,8 +229,8 @@ def generate_image(client, page, usage, scene_override=None):
     return None
 
 
-def resize_image(input_path, page, usage):
-    """Resize a master image to all needed dimensions and convert to WebP."""
+def resize_image(input_path, page, usage, name=None, grade=True):
+    """Resize a master image to all needed dimensions, apply color grading, convert to WebP."""
     input_path = Path(input_path)
     if not input_path.exists():
         print(f"Error: Input image not found: {input_path}")
@@ -168,8 +239,14 @@ def resize_image(input_path, page, usage):
     WEB_DIR.mkdir(parents=True, exist_ok=True)
 
     img = Image.open(input_path)
+    img = ImageOps.exif_transpose(img)
     if img.mode == "RGBA":
         img = img.convert("RGB")
+
+    # Apply brand color grading
+    if grade:
+        print(f"  Applying {page} color grade...")
+        img = apply_color_grade(img, page)
 
     sizes = SIZES.get(usage, [(1920, 1080)])
     output_files = []
@@ -193,8 +270,12 @@ def resize_image(input_path, page, usage):
         cropped = img.crop(box)
         resized = cropped.resize((width, height), Image.LANCZOS)
 
-        # Save WebP
-        webp_name = f"{page}-{usage}-{width}x{height}.webp"
+        # Build filename
+        if name:
+            webp_name = f"{page}-{usage}-{name}-{width}x{height}.webp"
+        else:
+            webp_name = f"{page}-{usage}-{width}x{height}.webp"
+
         webp_path = WEB_DIR / webp_name
         resized.save(webp_path, "WEBP", quality=WEBP_QUALITY)
         output_files.append(webp_path)
@@ -202,7 +283,7 @@ def resize_image(input_path, page, usage):
 
         # Also save PNG for OG images
         if usage == "og":
-            png_name = f"{page}-{usage}-{width}x{height}.png"
+            png_name = webp_name.replace(".webp", ".png")
             png_path = WEB_DIR / png_name
             resized.save(png_path, "PNG")
             output_files.append(png_path)
@@ -221,18 +302,24 @@ def main():
     enhance_parser.add_argument("--page", required=True, choices=["homepage", "magic-mirror", "party-booth", "djs", "offerte"])
     enhance_parser.add_argument("--usage", required=True, choices=list(SIZES.keys()))
     enhance_parser.add_argument("--scene", help="Custom scene description (overrides default)")
+    enhance_parser.add_argument("--name", help="Asset name (e.g. 'fotos-inlijsten'). Prevents file overwrites.")
+    enhance_parser.add_argument("--no-grade", action="store_true", help="Skip brand color grading")
 
     # Generate mode
     gen_parser = subparsers.add_parser("generate", help="Generate image from scratch")
     gen_parser.add_argument("--page", required=True, choices=["homepage", "magic-mirror", "party-booth", "djs", "offerte"])
     gen_parser.add_argument("--usage", required=True, choices=list(SIZES.keys()))
     gen_parser.add_argument("--scene", help="Custom scene description (overrides default)")
+    gen_parser.add_argument("--name", help="Asset name (e.g. 'vip-upgrade'). Prevents file overwrites.")
+    gen_parser.add_argument("--no-grade", action="store_true", help="Skip brand color grading")
 
     # Resize mode (no AI, just resize an existing image)
     resize_parser = subparsers.add_parser("resize", help="Resize an existing image to web sizes")
     resize_parser.add_argument("--input", required=True, help="Path to input image")
     resize_parser.add_argument("--page", required=True, choices=["homepage", "magic-mirror", "party-booth", "djs", "offerte"])
     resize_parser.add_argument("--usage", required=True, choices=list(SIZES.keys()))
+    resize_parser.add_argument("--name", help="Asset name for output files")
+    resize_parser.add_argument("--no-grade", action="store_true", help="Skip brand color grading")
 
     args = parser.parse_args()
 
@@ -243,10 +330,15 @@ def main():
     print(f"\n{'='*50}")
     print(f"PicYourBooth Asset Generator")
     print(f"Mode: {args.mode}")
+    if hasattr(args, "name") and args.name:
+        print(f"Name: {args.name}")
     print(f"{'='*50}\n")
 
+    grade = not getattr(args, "no_grade", False)
+    name = getattr(args, "name", None)
+
     if args.mode == "resize":
-        files = resize_image(args.input, args.page, args.usage)
+        files = resize_image(args.input, args.page, args.usage, name=name, grade=grade)
         print(f"\nGenerated {len(files)} files in {WEB_DIR}")
         return
 
@@ -254,13 +346,13 @@ def main():
     client = setup_gemini()
 
     if args.mode == "enhance":
-        result = enhance_image(client, args.source, args.page, args.usage, args.scene)
+        result = enhance_image(client, args.source, args.page, args.usage, args.scene, name=name)
     elif args.mode == "generate":
-        result = generate_image(client, args.page, args.usage, args.scene)
+        result = generate_image(client, args.page, args.usage, args.scene, name=name)
 
     if result:
         print(f"\nResizing to web dimensions...")
-        files = resize_image(result, args.page, args.usage)
+        files = resize_image(result, args.page, args.usage, name=name, grade=grade)
         print(f"\nDone! Generated {len(files)} web-ready files in {WEB_DIR}")
     else:
         print("\nFailed to generate image.")

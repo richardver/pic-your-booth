@@ -40,7 +40,7 @@ How to review content for brand compliance. Used by `/brand-audit` skill.
 
 | Segment | Tone | Emphasize |
 |---|---|---|
-| Magic Mirror XL | Polished, premium, trust | Quality, experience, DSLR, no time limit |
+| Magic Mirror XL | Polished, premium, trust | Quality, experience, DSLR, 5 uur inclusief |
 | Party Booth | Casual, fun, accessible | Ease, value, fun factor |
 | DJ Services | Energetic, personal | Vibe, uniqueness, Spotify |
 

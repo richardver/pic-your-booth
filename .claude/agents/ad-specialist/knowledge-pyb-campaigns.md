@@ -61,7 +61,7 @@ Pic Your Booth Google Ads
 
 | Segment | Product | Tone | Key Message | Price Anchor |
 |---|---|---|---|---|
-| Perfectionist Planner | Magic Mirror XL | Premium, trust | "DSLR kwaliteit, geen tijdslimiet" | Vanaf €599 |
+| Perfectionist Planner | Magic Mirror XL | Premium, trust | "DSLR kwaliteit, 5 uur inclusief" | Vanaf €599 |
 | Budget Celebrator | Party Booth | Fun, easy | "Foto plezier voor elk feest" | Vanaf €199 |
 | All-in-One Seeker | DJ + Combo | Energy, convenience | "Eén team, één vibe" | Vanaf €348 |
 | Wedding Planners | Magic Mirror + DJ | Premium, personal | "Jullie dag, onze ervaring" | Vanaf €748 |

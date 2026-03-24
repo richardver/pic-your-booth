@@ -371,7 +371,7 @@ a { color: inherit; text-decoration: none; }
 
 .usp-card__img {
   width: 100%;
-  height: 180px;
+  aspect-ratio: 1;
   background-size: cover;
   background-position: center;
   border-bottom: 1px solid var(--border);
@@ -383,11 +383,29 @@ a { color: inherit; text-decoration: none; }
 
 .usp-card__title {
   font-family: var(--font-display);
-  font-size: 1.1rem;
+  font-size: 1.3rem;
   letter-spacing: 0.06em;
   text-transform: uppercase;
   margin-bottom: 8px;
   color: var(--gold);
+}
+
+.usp-card__title::before {
+  content: "\2726";
+  margin-right: 6px;
+  font-size: 0.75em;
+  display: inline-block;
+  animation: sparkle-star 3.6s ease-in-out infinite;
+}
+
+.usp-card:nth-child(1) .usp-card__title::before { animation-delay: 0s; }
+.usp-card:nth-child(2) .usp-card__title::before { animation-delay: 0.9s; }
+.usp-card:nth-child(3) .usp-card__title::before { animation-delay: 1.8s; }
+.usp-card:nth-child(4) .usp-card__title::before { animation-delay: 2.7s; }
+
+@keyframes sparkle-star {
+  0%, 100% { opacity: 0.3; filter: drop-shadow(0 0 0px var(--gold)); }
+  50% { opacity: 1; filter: drop-shadow(0 0 8px var(--gold)); }
 }
 
 .usp-card__desc {
@@ -403,7 +421,7 @@ a { color: inherit; text-decoration: none; }
     gap: 24px;
   }
   .usp-card__img {
-    height: 160px;
+    aspect-ratio: 1;
   }
 }
 
@@ -963,24 +981,50 @@ a { color: inherit; text-decoration: none; }
   margin-bottom: 24px;
 }
 
-.modal__close {
-  width: 100%;
+.modal__actions {
+  display: flex;
+  gap: 12px;
+  margin-top: 4px;
+}
+
+.modal__select {
+  flex: 1;
   padding: 14px;
   background: var(--gold);
   color: #000;
   font-family: var(--font-display);
-  font-size: 1rem;
-  font-weight: 700;
-  letter-spacing: 0.06em;
+  font-size: 0.95rem;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
   border: none;
   border-radius: var(--r-pill);
   cursor: pointer;
-  transition: background 0.2s;
+  transition: background 0.2s, transform 0.15s;
+}
+
+.modal__select:hover {
+  background: var(--gold-light);
+  transform: translateY(-1px);
+}
+
+.modal__close {
+  flex: 0 0 auto;
+  padding: 14px 28px;
+  background: transparent;
+  color: var(--text-muted);
+  font-family: var(--font-display);
+  font-size: 0.95rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  border: 1px solid var(--border);
+  border-radius: var(--r-pill);
+  cursor: pointer;
+  transition: color 0.2s, border-color 0.2s;
 }
 
 .modal__close:hover {
-  background: var(--gold-light);
+  color: var(--text);
+  border-color: var(--text-muted);
 }
 
 /* -- Modal Backdrop Particles -------------------------- */
@@ -1265,7 +1309,7 @@ a { color: inherit; text-decoration: none; }
     padding-right: 20px;
   }
   .usp-card__img {
-    height: 160px;
+    aspect-ratio: 1;
   }
   .ai-compare {
     grid-template-columns: 1fr;
@@ -1454,7 +1498,7 @@ a { color: inherit; text-decoration: none; }
   <div class="hero-content">
     <span class="hero-label">Digitale Photobooth</span>
     <h1 class="hero-title text-gold-gradient">Photobooth Huren.<br>Party Booth</h1>
-    <p class="hero-subtitle">Digitaal foto plezier voor elk feest.<br>Ophalen, opzetten, feesten.</p>
+    <p class="hero-subtitle">Digitale photobooth voor elk feest.<br>Ophalen, opzetten, feesten.</p>
     <span class="hero-price">Vanaf &euro;199 per dag</span>
   </div>
 </section>
@@ -1469,34 +1513,34 @@ a { color: inherit; text-decoration: none; }
   <div class="usp-grid">
 
     <div class="usp-card">
-      <div class="usp-card__img" style="background-image:url('https://images.unsplash.com/photo-1527529482837-4698179dc6ce?w=400&q=80&auto=format');"></div>
+      <div class="usp-card__img" role="img" aria-label="Vrienden delen photobooth foto via QR code op telefoon" style="background-image:url('assets/images/party-booth-usp-direct-delen-400x400.webp');"></div>
       <div class="usp-card__body">
         <h3 class="usp-card__title">Direct Delen</h3>
-        <p class="usp-card__desc">Scan de QR code en deel je foto's direct op social media.</p>
+        <p class="usp-card__desc">QR code scannen, foto op je telefoon, posten op Instagram. Binnen 10 seconden van booth naar story.</p>
       </div>
     </div>
 
     <div class="usp-card">
-      <div class="usp-card__img" style="background-image:url('https://images.unsplash.com/photo-1504270997636-07ddfbd48945?w=400&q=80&auto=format');"></div>
+      <div class="usp-card__img" role="img" aria-label="Compacte photobooth wordt op tafel gezet tijdens huisfeest" style="background-image:url('assets/images/party-booth-usp-zelf-opzetten-400x400.webp');"></div>
       <div class="usp-card__body">
         <h3 class="usp-card__title">Zelf Opzetten</h3>
-        <p class="usp-card__desc">Ophalen, neerzetten, aanzetten. Klaar in 5 minuten.</p>
+        <p class="usp-card__desc">Ophalen, neerzetten, aanzetten. Klaar in 5 minuten. Geen monteur, geen handleiding, geen stress.</p>
       </div>
     </div>
 
     <div class="usp-card">
-      <div class="usp-card__img" style="background-image:url('https://images.unsplash.com/photo-1519671482749-fd09be7ccebf?w=400&q=80&auto=format');"></div>
+      <div class="usp-card__img" role="img" aria-label="Party Booth past in kleine woonkamer met verjaardagsdecoratie" style="background-image:url('assets/images/party-booth-usp-past-overal-400x400.webp');"></div>
       <div class="usp-card__body">
         <h3 class="usp-card__title">Past Overal</h3>
-        <p class="usp-card__desc">Compact genoeg voor thuis, leuk genoeg voor een zaal.</p>
+        <p class="usp-card__desc">Woonkamer, tuin, zaal, kroeg. Zet het neer waar je wilt. De booth is compact genoeg voor elke locatie.</p>
       </div>
     </div>
 
     <div class="usp-card">
-      <div class="usp-card__img" style="background-image:url('https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?w=400&q=80&auto=format');"></div>
+      <div class="usp-card__img" role="img" aria-label="Vrienden lachen bij de photobooth op een huisfeest" style="background-image:url('assets/images/party-booth-usp-geen-gedoe-400x400.webp');"></div>
       <div class="usp-card__body">
         <h3 class="usp-card__title">Geen Gedoe</h3>
-        <p class="usp-card__desc">Geen monteur, geen handleiding. Jij feest, de booth draait.</p>
+        <p class="usp-card__desc">Jij feest, de booth draait. Gasten snappen het meteen. Na afloop krijg je een galerij met alle foto's.</p>
       </div>
     </div>
 
@@ -1506,11 +1550,11 @@ a { color: inherit; text-decoration: none; }
 <div class="gold-divider"></div>
 
 <!-- ============================================================
-     AI ACHTERGROND CALLOUT
+     AI FOTO'S + FILTERS CALLOUT
      ============================================================ -->
 <section class="ai-callout reveal" style="padding-top: 80px;">
   <h2 class="ai-callout__title">Lelijke Achtergrond? Wij Fixen Het</h2>
-  <p class="ai-callout__desc">Rommelige kamer? Lelijke muur? Kies je droomachtergrond en AI vervangt het automatisch. Inclusief beautify filter voor strakke resultaten.</p>
+  <p class="ai-callout__desc">Rommelige kamer? Lelijke muur? Kies je droomachtergrond en AI vervangt het automatisch. Inclusief beautify filter en Instagram-achtige filters voor strakke, creatieve foto's.</p>
 
   <div class="ai-compare">
     <div class="ai-compare__box ai-compare__box--before">
@@ -1521,11 +1565,11 @@ a { color: inherit; text-decoration: none; }
     <div class="ai-compare__box ai-compare__box--after">
       <div class="ai-compare__icon"><svg viewBox="0 0 24 24"><path d="M12 2L15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2z"/></svg></div>
       <div class="ai-compare__label">Met AI</div>
-      <p class="ai-compare__text">Strakke achtergrond naar keuze, beautify filter, direct deelbaar</p>
+      <p class="ai-compare__text">Strakke achtergrond naar keuze, beautify filter, Instagram-filters, direct deelbaar</p>
     </div>
   </div>
 
-  <span class="ai-price">+&euro;35</span>
+  <span class="ai-price">+&euro;49</span>
 </section>
 
 <div class="gold-divider"></div>
@@ -1541,7 +1585,7 @@ a { color: inherit; text-decoration: none; }
   <div class="builder-base">
     <span class="builder-base__badge">Dit zit er altijd in</span>
     <h3 class="builder-base__name">Party Booth</h3>
-    <div class="builder-base__price">&euro;199</div>
+    <div class="builder-base__price">&euro;199 <span style="font-size:0.5em;font-weight:400;color:var(--text-muted);letter-spacing:0.02em">per dag</span></div>
     <ul class="builder-base__features">
       <li>Digitale photobooth. Geen printer, wel direct delen</li>
       <li>Foto's delen via QR code op je telefoon</li>
@@ -1557,12 +1601,12 @@ a { color: inherit; text-decoration: none; }
   <div class="upgrade-row" data-price="25" data-builder="party">
     <button class="info-btn" data-modal="design" title="Meer info">?</button>
     <div class="upgrade-row__info">
-      <div class="upgrade-row__name">Premium Design</div>
-      <div class="upgrade-row__desc">Fotostrip, touchscreen en animaties op maat. Keuze uit duizenden templates.</div>
+      <div class="upgrade-row__name">Premium Ontwerp</div>
+      <div class="upgrade-row__desc">Fotostrip, touchscreen en animaties op maat. Keuze uit duizenden gepersonaliseerde thema's.</div>
     </div>
     <div class="upgrade-row__price">+&euro;25</div>
     <label class="toggle">
-      <input type="checkbox" aria-label="Premium Design">
+      <input type="checkbox" aria-label="Premium Ontwerp">
       <span class="toggle-track"></span>
     </label>
   </div>
@@ -1580,15 +1624,15 @@ a { color: inherit; text-decoration: none; }
     </label>
   </div>
 
-  <div class="upgrade-row" data-price="35" data-builder="party">
+  <div class="upgrade-row" data-price="49" data-builder="party">
     <button class="info-btn" data-modal="aibg" title="Meer info">?</button>
     <div class="upgrade-row__info">
-      <div class="upgrade-row__name">AI Achtergrond + Beautify</div>
-      <div class="upgrade-row__desc">AI achtergrond en beautify filter voor strakke foto's.</div>
+      <div class="upgrade-row__name">AI Foto's + Filters</div>
+      <div class="upgrade-row__desc">AI achtergrond, beautify filter en Instagram-achtige filters.</div>
     </div>
-    <div class="upgrade-row__price">+&euro;35</div>
+    <div class="upgrade-row__price">+&euro;49</div>
     <label class="toggle">
-      <input type="checkbox" aria-label="AI Achtergrond">
+      <input type="checkbox" aria-label="AI Foto's + Filters">
       <span class="toggle-track"></span>
     </label>
   </div>
@@ -1622,9 +1666,9 @@ a { color: inherit; text-decoration: none; }
      ============================================================ -->
 <section class="faq" id="faq">
   <h2 class="faq-title">Veelgestelde Vragen</h2>
-  <details class="faq-item"><summary>Wat kost een photobooth huren?</summary><p class="faq-answer">De Party Booth huur je vanaf €199 per dag. Dat is een digitale photobooth die je zelf ophaalt en in 5 minuten klaar zet. Foto's worden gedeeld via QR code op de telefoon van je gasten. Na afloop krijg je een digitale galerij met alle foto's. Wil je het nog leuker maken? Voeg AI Achtergrond toe voor €35 of laat ons bezorgen voor €49.</p></details>
+  <details class="faq-item"><summary>Wat kost een photobooth huren?</summary><p class="faq-answer">De Party Booth huur je vanaf €199 per dag. Dat is een digitale photobooth die je zelf ophaalt en in 5 minuten klaar zet. Foto's worden gedeeld via QR code op de telefoon van je gasten. Na afloop krijg je een digitale galerij met alle foto's. Wil je het nog leuker maken? Voeg AI Foto's + Filters toe voor €49 of laat ons bezorgen voor €49.</p></details>
   <details class="faq-item"><summary>Moet ik het zelf opzetten?</summary><p class="faq-answer">Ja, en dat is juist het mooie. Zelf ophalen bij ons, neerzetten en aanzetten. Klaar in 5 minuten, geen technische kennis nodig. Omdat alles digitaal is en je zelf ophaalt, kunnen wij scherpe tarieven hanteren. Heb je liever dat wij het regelen? Voor €49 bezorgen, installeren en halen wij de booth op bij je locatie.</p></details>
-  <details class="faq-item"><summary>Wat is AI Achtergrond?</summary><p class="faq-answer">Rommelige kamer of lelijke muur achter de booth? Met AI Achtergrond (+€35) kies je zelf de achtergrond. Strand, skyline, jungle of je eigen ontwerp. AI vervangt de echte achtergrond automatisch. Inclusief beautify filter die ervoor zorgt dat iedereen er strak op staat. Het verschil in fotokwaliteit is enorm.</p></details>
+  <details class="faq-item"><summary>Wat is AI Foto's + Filters?</summary><p class="faq-answer">Rommelige kamer of lelijke muur achter de booth? Met AI Foto's + Filters (+€49) kies je zelf de achtergrond. Strand, skyline, jungle of je eigen ontwerp. AI vervangt de echte achtergrond automatisch. Inclusief beautify filter die ervoor zorgt dat iedereen er strak op staat, plus Instagram-achtige filters (zwart-wit, warm, vintage, etc.) zodat gasten hun favoriete look kiezen. Het verschil in fotokwaliteit is enorm.</p></details>
   <details class="faq-item"><summary>Kan ik er een DJ bij boeken?</summary><p class="faq-answer">Ja. Voeg een Live DJ Set toe als upgrade voor €149. Dat is inclusief professionele speakers, lichtshow en rookmachine. Stuur je Spotify playlist en onze DJ bouwt er een professionele set van. Alles van hetzelfde team, dat scheelt een hoop coordinatie.</p></details>
 </section>
 
@@ -1657,7 +1701,10 @@ a { color: inherit; text-decoration: none; }
       <h2 class="modal__title" id="modalTitle"></h2>
       <div class="modal__price" id="modalPrice"></div>
       <p class="modal__desc" id="modalDesc"></p>
-      <button class="modal__close" id="modalClose">Begrepen</button>
+      <div class="modal__actions">
+        <button class="modal__select" id="modalSelect">Toevoegen</button>
+        <button class="modal__close" id="modalClose">Niet nu</button>
+      </div>
     </div>
   </div>
 </div>
@@ -1768,34 +1815,37 @@ a { color: inherit; text-decoration: none; }
 
   var modalData = {
     design: {
-      title: 'Premium Design',
+      title: 'Premium Ontwerp',
       price: '+\u20AC25',
-      image: 'https://images.unsplash.com/photo-1513151233558-d860c5398176?w=800&q=80&auto=format',
-      desc: 'Veel meer dan alleen een fotostrip. De complete booth-ervaring wordt aangepast aan jouw feest. Fotostrip design, touchscreen layout en animaties allemaal op maat. Keuze uit duizenden professionele templates of een volledig eigen ontwerp met jouw kleuren, thema en stijl. Het verschil tussen een standaard booth en eentje waar gasten over praten.'
+      image: 'assets/images/party-booth-upgrade-premium-design-800x600.webp',
+      desc: 'Veel meer dan alleen een fotostrip. De complete booth-ervaring wordt aangepast aan jouw feest. Fotostrip design, touchscreen layout en animaties allemaal op maat. Keuze uit duizenden gepersonaliseerde thema\'s of een volledig eigen ontwerp met jouw kleuren en stijl.'
     },
     delivery: {
       title: 'Bezorging, Installatie & Ophalen',
       price: '+\u20AC49',
-      image: 'https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=800&q=80&auto=format',
+      image: 'assets/images/party-booth-upgrade-bezorging-800x600.webp',
       desc: 'Geen auto nodig, geen gesjouw. Wij bezorgen de Party Booth op je locatie, volledig opgeladen en klaar voor gebruik. Na afloop halen wij alles weer op. Jij hoeft alleen de deur open te doen.'
     },
     aibg: {
-      title: 'AI Achtergrond + Beautify',
-      price: '+\u20AC35',
-      image: 'https://images.unsplash.com/photo-1677442136019-21780ecad995?w=800&q=80&auto=format',
-      desc: 'AI verwijdert automatisch alle achtergrondrommel en vervangt het door een gepersonaliseerde achtergrond naar keuze. Tropisch strand, skyline, feestthema. Jij kiest, de AI doet de rest. Inclusief beautify filter voor strakke resultaten.'
+      title: 'AI Foto\'s + Filters',
+      price: '+\u20AC49',
+      image: 'assets/images/party-booth-upgrade-ai-filters-800x600.webp',
+      desc: 'AI verwijdert automatisch alle achtergrondrommel en vervangt het door een gepersonaliseerde achtergrond naar keuze. Tropisch strand, skyline, feestthema. Jij kiest, de AI doet de rest. Inclusief beautify filter voor strakke resultaten én Instagram-achtige filters (zwart-wit, warm, vintage, etc.) zodat gasten hun favoriete look kiezen.'
     },
     dj: {
       title: 'Live DJ Set',
       price: '+\u20AC149',
-      image: 'https://images.unsplash.com/photo-1571266028243-3716f02d2d56?w=800&q=80&auto=format',
+      image: 'assets/images/party-booth-upgrade-live-dj-800x600.webp',
       desc: "Foto\u2019s en muziek van hetzelfde team. Complete DJ setup met rookmachine, lichtshow en professionele speakers. Stuur je Spotify playlist, wij bouwen de perfecte set."
     }
   };
 
+  var currentModalKey = null;
+
   function openModal(key) {
     var data = modalData[key];
     if (!data || !overlay) return;
+    currentModalKey = key;
     modalTitle.textContent = data.title;
     modalPrice.textContent = data.price;
     modalDesc.textContent = data.desc;
@@ -1836,10 +1886,36 @@ a { color: inherit; text-decoration: none; }
     });
   });
 
-  /* -- Modal close button --------------------------------- */
+  /* -- Modal select button (flips toggle) ----------------- */
+  var modalSelectBtn = document.getElementById('modalSelect');
+  if (modalSelectBtn) {
+    modalSelectBtn.addEventListener('click', function() {
+      if (currentModalKey) {
+        var infoBtn = document.querySelector('.info-btn[data-modal="' + currentModalKey + '"]');
+        if (infoBtn) {
+          var row = infoBtn.closest('.upgrade-row');
+          if (row && !row.classList.contains('active')) {
+            row.click();
+          }
+        }
+      }
+      closeModal();
+    });
+  }
+
+  /* -- Modal close button (deselects if active) ----------- */
   var modalCloseBtn = document.getElementById('modalClose');
   if (modalCloseBtn) {
     modalCloseBtn.addEventListener('click', function() {
+      if (currentModalKey) {
+        var infoBtn = document.querySelector('.info-btn[data-modal="' + currentModalKey + '"]');
+        if (infoBtn) {
+          var row = infoBtn.closest('.upgrade-row');
+          if (row && row.classList.contains('active')) {
+            row.click();
+          }
+        }
+      }
       closeModal();
     });
   }
@@ -2038,7 +2114,7 @@ a { color: inherit; text-decoration: none; }
   "mainEntity": [
     {"@type": "Question", "name": "Wat kost een photobooth huren?", "acceptedAnswer": {"@type": "Answer", "text": "Party Booth vanaf €199 per dag. Digitale photobooth, foto's delen via QR code."}},
     {"@type": "Question", "name": "Moet ik het zelf opzetten?", "acceptedAnswer": {"@type": "Answer", "text": "Ja, zelf ophalen en in 5 minuten klaar. Digitaal en zelf ophalen = scherpe tarieven. Of bezorging, installatie en ophalen voor €49."}},
-    {"@type": "Question", "name": "Wat is AI Achtergrond?", "acceptedAnswer": {"@type": "Answer", "text": "AI vervangt de achtergrond automatisch. Kies strand, skyline of jungle. Inclusief beautify filter. +€35."}},
+    {"@type": "Question", "name": "Wat is AI Foto's + Filters?", "acceptedAnswer": {"@type": "Answer", "text": "AI vervangt de achtergrond automatisch. Kies strand, skyline of jungle. Inclusief beautify filter en Instagram-achtige filters. +€49."}},
     {"@type": "Question", "name": "Kan ik er een DJ bij boeken?", "acceptedAnswer": {"@type": "Answer", "text": "Ja, Live DJ Set als upgrade voor €149 inclusief speakers, licht en rookmachine."}}
   ]
 }

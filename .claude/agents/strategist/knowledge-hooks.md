@@ -10,7 +10,7 @@ PYB-specifieke hooks in het Nederlands. Georganiseerd per product, segment en pl
 1. "Dit is geen photobooth — dit is een ervaring"
 2. "DSLR camera, professionele belichting, direct printen — vanaf €599"
 3. "De meeste photobooths missen professionele belichting. Bij ons niet."
-4. "Geen tijdslimiet. Geen stress. Eén prijs per event."
+4. "5 uur inclusief. Geen haast. Eén prijs per event."
 5. "237+ events verzorgd met DSLR kwaliteit"
 6. "Wij bezorgen, installeren en halen op — jij geniet"
 
@@ -18,7 +18,7 @@ PYB-specifieke hooks in het Nederlands. Georganiseerd per product, segment en pl
 1. "Zo zien DSLR Magic Mirror foto's eruit vs een gewone photobooth 📸"
 2. "Zo reageren gasten als ze hun foto zien 🔥"
 3. "POV: De Magic Mirror staat klaar voor je event"
-4. "€599 voor een hele avond DSLR fotoplezier — geen tijdslimiet"
+4. "€599 voor een hele avond DSLR fotoplezier — 5 uur inclusief"
 
 ---
 
@@ -89,18 +89,18 @@ PYB-specifieke hooks in het Nederlands. Georganiseerd per product, segment en pl
 
 ---
 
-## Party Booth — AI Achtergrond (+€35) & Beautify
+## Party Booth — AI Foto's + Filters (+€49)
 
 ### Advertentie Hooks
 1. "Lelijke achtergrond? wij fixen het — kies je eigen setting"
 2. "Strand, skyline of jungle — AI maakt elke achtergrond mogelijk"
-3. "AI Achtergrond + Beautify filter = foto's die je wilt delen"
-4. "Voor €35 extra zien al je foto's eruit als een professionele shoot"
+3. "AI Foto's + Filters = foto's die je wilt delen"
+4. "Voor €49 extra zien al je foto's eruit als een professionele shoot"
 5. "Geen doeken, geen schermen — AI vervangt je achtergrond automatisch"
 
 ### Social Media Hooks
-1. "Links: zonder AI achtergrond. Rechts: met. Het verschil is 🤯"
-2. "€35 voor AI achtergrond + beautify filter. Ja, echt."
+1. "Links: zonder AI. Rechts: met. Het verschil is 🤯"
+2. "€49 voor AI achtergrond, beautify filter én Instagram-filters. Ja, echt."
 3. "POV: Je foto's zien er professioneel uit dankzij AI"
 4. "Beautify filter aan vs uit — welke kies jij?"
 
@@ -156,4 +156,4 @@ PYB-specifieke hooks in het Nederlands. Georganiseerd per product, segment en pl
 3. **Specifiek > vaag** — "237+ events" niet "veel tevreden klanten"
 4. **Segment-toon matchen** — premium hooks voor Mirror, fun voor Party Booth
 5. **Altijd een CTA** — "Check beschikbaarheid" / "Vraag vrijblijvend voorstel aan"
-6. **AI hooks apart** — AI Photo Experience (zakelijk) en AI Achtergrond (party) zijn aparte upsell-hooks
+6. **AI hooks apart** — AI Photo Experience (zakelijk) en AI Foto's + Filters (party) zijn aparte upsell-hooks

@@ -59,7 +59,7 @@ Ruwe competitieve intel. URLs, prijzen, aanbod per concurrent. Laatste update: m
 - **Type:** Keychain station als los product — geen eigen photobooth, moet apart gehuurd worden
 - **USP:** Luxe foto-sleutelhangers on-site, professionele begeleiding inbegrepen, kleurselectie, 30 min setup
 - **Zwakte:** Photobooth niet inbegrepen (apart €400-600), prijs per aantal keychains (niet onbeperkt), beperkte online informatie
-- **Relevantie:** Enige bekende concurrent met keychain station. PYB biedt onbeperkt voor €499 als upgrade bij Magic Mirror XL. Totaalvergelijking: Fancy Day €255 + photobooth €400-600 = €655-855 vs PYB €599 + €499 = €1.098 maar met DSLR + geen tijdslimiet + onbeperkt keychains.
+- **Relevantie:** Enige bekende concurrent met keychain station. PYB biedt onbeperkt voor €499 als upgrade bij Magic Mirror XL. Totaalvergelijking: Fancy Day €255 + photobooth €400-600 = €655-855 vs PYB €599 + €499 = €1.098 maar met DSLR + tot 5 uur inclusief + onbeperkt keychains.
 
 ### JuNo How To Party
 - **URL:** https://junohowtoparty.nl/

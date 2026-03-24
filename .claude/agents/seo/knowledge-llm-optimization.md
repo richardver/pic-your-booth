@@ -20,7 +20,7 @@ Steeds meer mensen vragen AI "photobooth huren randstad" of "beste photobooth vo
 Elke productpagina moet een FAQ sectie hebben met schema markup. LLMs citeren FAQ antwoorden direct.
 
 **Magic Mirror XL FAQ:**
-- Wat kost een fotospiegel huren? → Vanaf €599 per event, geen tijdslimiet.
+- Wat kost een fotospiegel huren? → Vanaf €599 per event, tot 5 uur inclusief.
 - Is bezorging inbegrepen? → Ja, bezorging, installatie en ophalen binnen 50km.
 - Wat is het verschil met een gewone photobooth? → Professionele camera en studiobelichting. Foto's om in te lijsten.
 - Wat is AI Photo Experience? → AI genereert unieke foto's in jouw stijl. Ideaal voor productlanceringen.
@@ -28,7 +28,7 @@ Elke productpagina moet een FAQ sectie hebben met schema markup. LLMs citeren FA
 **Party Booth FAQ:**
 - Wat kost een photobooth huren? → Party Booth vanaf €199 per dag.
 - Moet ik het zelf opzetten? → Ja, ophalen en in 5 minuten klaar. Of bezorging voor €49.
-- Wat is AI Achtergrond? → AI vervangt de achtergrond automatisch. Inclusief beautify filter. +€35.
+- Wat is AI Foto's + Filters? → AI vervangt de achtergrond automatisch, inclusief beautify filter en Instagram-achtige filter selectie. +€49.
 - Kan ik er ook een DJ bij boeken? → Ja, Live DJ Set als upgrade voor €149.
 
 **DJs FAQ:**

@@ -24,7 +24,7 @@ Compact, digital-only photobooth. Customer picks it up, sets it up themselves, a
 |---|---|---|
 | Premium Fotostrip Design | +€25 | Gepersonaliseerde fotostrip met thema en branding |
 | Bezorging, Installatie & Ophalen | +€49 | Wij brengen, installeren en halen op bij je locatie |
-| AI Achtergrond | +€35 | AI vervangt de achtergrond automatisch met een gewenste setting — geen gedoe met doeken of schermen. Inclusief beautify-filter voor super strakke eindresultaten |
+| AI Foto's + Filters | +€49 | AI achtergrond, beautify filter en Instagram-achtige filters. AI vervangt de achtergrond automatisch, beautify zorgt dat iedereen er strak op staat, en gasten kiezen uit fotofilters zoals op Instagram (zwart-wit, warm, vintage, etc.) |
 | Live DJ Set | +€149 | DJ with speakers, lights, smoke machine (3 uur) |
 
 ## Target Segment
@@ -40,9 +40,11 @@ Compact, digital-only photobooth. Customer picks it up, sets it up themselves, a
 3. **Past Op Elke Locatie** — compact, fits anywhere
 4. **Klaar In 5 Minuten** — quick setup
 
-## AI Achtergrond (Upgrade +€35) + Beautify Filter
+## AI Foto's + Filters (Upgrade +€49)
 
-**AI Achtergrond — het probleem dat het oplost:**
+**Drie features in één upgrade:**
+
+### 1. AI Achtergrond
 Achtergronden zijn altijd lastig bij foto's. Rommelige ruimte, lelijke muren, slechte belichting achter de gasten. Met AI Achtergrond kiest de klant de gewenste setting en AI vervangt de achtergrond automatisch.
 
 **Hoe het werkt:**
@@ -51,15 +53,21 @@ Achtergronden zijn altijd lastig bij foto's. Rommelige ruimte, lelijke muren, sl
 3. AI verwijdert de echte achtergrond en plaatst de gewenste setting
 4. Resultaat: professionele foto zonder doeken of schermen
 
-**Beautify Filter (standaard inbegrepen bij AI Achtergrond):**
+### 2. Beautify Filter
 - Automatische huidverbetering — zacht, natuurlijk, niet overdreven
 - Betere kleuren en contrast
 - Super strakke eindresultaten die gasten wél willen delen
 
+### 3. Filter Selectie
+- Kies uit fotofilters zoals op Instagram (zwart-wit, warm, vintage, etc.)
+- Gasten selecteren zelf hun favoriete filter
+- Elke foto krijgt een unieke look
+
 **Waarom dit verkoopt:**
-- €35 is een makkelijke upsell — laagdrempelig
+- €49 is een makkelijke upsell — laagdrempelig
 - Lost een echt probleem op (lelijke achtergrond)
 - Beautify maakt dat mensen er beter uitzien = meer delen = meer virale waarde
+- Filter selectie geeft gasten creatieve controle
 - Concurrentie biedt dit niet in het budget-segment
 
 ---

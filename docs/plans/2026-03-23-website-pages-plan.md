@@ -104,7 +104,7 @@ git commit -m "feat: homepage template — hero, social proof, service cards, te
 
 Sections:
 1. **Nav** (same as homepage)
-2. **Product Hero** — "MAGIC MIRROR XL" (gold gradient). Subtitle: "DSLR kwaliteit · Geen tijdslimiet · Bezorging, installatie & ophalen inbegrepen". Unsplash event/photobooth image.
+2. **Product Hero** — "MAGIC MIRROR XL" (gold gradient). Subtitle: "DSLR kwaliteit · 5 uur inclusief · Bezorging, installatie & ophalen inbegrepen". Unsplash event/photobooth image.
 3. **USPs** (4 items, vertical, gold left border):
    - "FOTO'S DIE JE WILT INLIJSTEN" — DSLR camera met professionele studiobelichting
    - "IEDEREEN ZIET ER GEWELDIG UIT" — Professionele belichting die iedereen flatteert
@@ -114,7 +114,7 @@ Sections:
    - Base: Magic Mirror XL — €599 (locked, gold tint card)
    - Toggle: VIP Upgrade — +€149 (backdrop, rode loper, afzetpalen, luxe props)
    - Toggle: Wedding Keychain Station — +€499 (onbeperkt gepersonaliseerde sleutelhangers — geen apart bedankje meer kopen)
-   - Toggle: On-Site Host — +€149 (PYB teamlid begeleidt gasten de hele avond)
+   - Toggle: Photobooth Host — +€149 (PYB teamlid begeleidt gasten de hele avond)
    - Toggle: AI Photo Experience — +€499 (AI genereert unieke branded foto's — ideaal voor productlanceringen)
    - Toggle: Live DJ Set — +€149 (DJ met speakers, licht, rookmachine — 3 uur)
    - Each toggle: ? info button
@@ -128,7 +128,7 @@ Interactive: toggles update running total. CTA links to offerte with pre-fill.
 
 **Step 4: Brand check + CRO check**
 - Score against CRO checklist — target 85+
-- Verify "geen tijdslimiet" is prominent
+- Verify "5 uur inclusief" is prominent
 - Verify "bezorging, installatie & ophalen inbegrepen" is visible
 - AI Photo Experience clearly explains the AI process
 
@@ -146,9 +146,9 @@ git commit -m "feat: magic mirror template — hero, USPs, package builder with 
 - Create: `docs/templates/website/party-booth.html`
 
 **Step 1: Load context**
-- Read strategist `knowledge-hooks.md` → Party Booth + AI Achtergrond hooks
+- Read strategist `knowledge-hooks.md` → Party Booth + AI Foto's + Filters hooks
 - Read strategist `knowledge-segments.md` → Slimme Feestganger segment
-- Read product-specialist `knowledge-party-booth.md` → full specs, AI Achtergrond + Beautify
+- Read product-specialist `knowledge-party-booth.md` → full specs, AI Foto's + Filters
 - Read PRD lines 127-149 → Party Booth spec
 
 **Step 2: Build page with `/impeccable:frontend-design`**
@@ -161,12 +161,12 @@ Sections:
    - "GEEN MONTEUR, GEEN STRESS" — Zelf ophalen, 5 minuten opzetten, klaar
    - "PAST OP ELKE LOCATIE" — Compact, werkt overal
    - "KLAAR IN 5 MINUTEN" — Simpel, snel, zonder gedoe
-4. **AI Achtergrond Callout** — "LELIJKE ACHTERGROND? AI FIXT HET" + before/after visual suggestion. "Inclusief beautify filter voor super strakke resultaten." Price: +€35.
+4. **AI Foto's + Filters Callout** — "LELIJKE ACHTERGROND? AI FIXT HET" + before/after visual suggestion. "AI achtergrond, beautify filter en Instagram-achtige filters." Price: +€49.
 5. **Package Builder** — "BOUW JOUW FEESTPAKKET"
    - Base: Party Booth — €199
    - Toggle: Premium Fotostrip Design — +€25
    - Toggle: Bezorging, Installatie & Ophalen — +€49
-   - Toggle: AI Achtergrond + Beautify — +€35
+   - Toggle: AI Foto's + Filters — +€49
    - Toggle: Live DJ Set — +€149
    - Running total, CTA
 6. **Footer**

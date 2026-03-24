@@ -29,7 +29,7 @@ Google Business, lokale zoekresultaten, stadspagina's en review strategie.
 ### Posts (Wekelijks)
 - Recente events
 - Seizoensaanbiedingen
-- Nieuwe features (AI Photo Experience, AI Achtergrond)
+- Nieuwe features (AI Photo Experience, AI Foto's + Filters)
 
 ---
 

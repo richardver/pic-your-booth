@@ -29,7 +29,7 @@ Wie rankt waarvoor, gaps en kansen.
 |---|---|---|---|
 | ai photobooth | Informatief | LAAG | HOOG — niemand target dit, PYB biedt het |
 | ai photobooth huren | Commercieel | LAAG | HOOG — first mover |
-| photobooth met ai achtergrond | Commercieel | LAAG | HOOG — exacte PYB feature |
+| photobooth met ai achtergrond | Commercieel | LAAG | HOOG — exacte PYB feature (AI Foto's + Filters) |
 | spotify dj huren | Commercieel | LAAG | HOOG — unieke PYB USP |
 | photobooth en dj huren | Commercieel | LAAG | MIDDEL — combo-aanbod |
 | photobooth huren zonder monteur | Informatief | LAAG | HOOG — Party Booth self-service |

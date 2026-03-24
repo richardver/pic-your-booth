@@ -11,7 +11,7 @@ PYB zit bewust in de **"premium kwaliteit, toegankelijke prijs"** hoek. We lever
 
 ### Waarom Dit Werkt
 1. **Party Booth (€199)** — net onder de psychologische €200-grens. Concurrentie zit op €175-295 voor vergelijkbare digitale booths.
-2. **Magic Mirror XL (€599)** — onder de gemiddelde fotospiegel (€550) maar met DSLR-kwaliteit die concurrenten pas leveren vanaf €700+. Inclusief bezorging, installatie en ophalen (50km). Geen tijdslimiet. On-site host is upgrade (+€149).
+2. **Magic Mirror XL (€599)** — onder de gemiddelde fotospiegel (€550) maar met DSLR-kwaliteit die concurrenten pas leveren vanaf €700+. Inclusief bezorging, installatie en ophalen (50km). Tot 5 uur inclusief. Photobooth host is upgrade (+€149).
 3. **DJ (€149)** — 4x goedkoper dan een professionele DJ (€600+). Dit is de "te mooi om waar te zijn" prijs die mensen naar de combo trekt.
 
 ---
@@ -24,7 +24,7 @@ PYB zit bewust in de **"premium kwaliteit, toegankelijke prijs"** hoek. We lever
 | Magic Mirror XL | €599 | Net onder €600 — voelt als "5-honderd-en" |
 | DJ Set (3 uur) | €149 | Net onder €150 — voelt als "honderd-en" |
 | Extra uur DJ | +€49 | Net onder €50 — laagdrempelig |
-| Upgrades | €25, €35, €49, €149, €499 | Altijd net onder het ronde getal |
+| Upgrades | €25, €49, €149, €499 | Altijd net onder het ronde getal |
 
 **Regel:** Altijd charm pricing. Nooit ronde getallen in klantcommunicatie.
 

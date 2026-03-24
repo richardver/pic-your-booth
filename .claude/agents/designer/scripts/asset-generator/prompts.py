@@ -50,11 +50,11 @@ SCENES = {
         "usp-4": "Red carpet and velvet stanchions leading to a photobooth. VIP premium setup with elegant props.",
     },
     "party-booth": {
-        "hero": "Colorful, fun party atmosphere with a compact digital photobooth on a table. Birthday decorations, balloons, warm festive lighting. Casual, accessible, joyful.",
-        "usp-1": "Friends looking at phone screens, sharing photos via QR code. Warm party lighting, social media vibe.",
-        "usp-2": "Someone easily setting up a compact photobooth on a table. Simple, quick, no stress.",
-        "usp-3": "Compact photobooth fitting perfectly in a living room party setting. Cozy but fun.",
-        "usp-4": "Before/after comparison of a photo: messy background vs AI-enhanced clean background with beautify filter.",
+        "hero": "Fun birthday party with a compact digital photobooth on a table. Warm string lights, balloons, a living room or small venue. Friends laughing together. Feels real, relatable, not corporate. Warm tones but casual energy.",
+        "usp-1": "Two friends laughing while scanning a QR code on their phones at a house party. Warm festive lighting, birthday decorations in background. Casual, fun, social media moment.",
+        "usp-2": "A person placing a compact photobooth on a dining table. Simple setup, takes 5 minutes. Living room or backyard party setting. No stress, no tools. Warm natural light.",
+        "usp-3": "Compact photobooth on a small table in a cozy living room party. Balloons, fairy lights, snacks nearby. Shows the booth fits anywhere, even small spaces. Warm, inviting atmosphere.",
+        "usp-4": "Split comparison: left side shows a casual phone selfie with messy background, right side shows the same photo with AI-enhanced clean background and beautify filter. Night and day difference.",
     },
     "djs": {
         "hero": "DJ performing at a premium nightlife event. Purple/violet lighting, fog machine, crowd dancing. Dark, energetic, immersive atmosphere.",

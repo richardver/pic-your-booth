@@ -21,10 +21,10 @@ Kopersprofielen met psychografie, pijnpunten, Jobs-to-be-Done en aanbod-match. A
 > Als ik mijn bruiloft plan, wil ik een onvergetelijke ervaring voor mijn gasten creëren, zodat ze weken later nog over ons feest praten en ik eruitzie als een geweldige gastheer/gastvrouw.
 
 **PYB Aanbod-match:**
-- Magic Mirror XL (€599) — DSLR, geen tijdslimiet, bezorging/installatie/ophalen inbegrepen
+- Magic Mirror XL (€599) — DSLR, tot 5 uur inclusief, bezorging/installatie/ophalen inbegrepen
 - VIP Upgrade (+€149) — rode loper, afzetpalen, luxe props
 - Wedding Keychain Station (+€499) — onbeperkt gepersonaliseerde sleutelhangers
-- On-Site Host (+€149) — teamlid begeleidt gasten de hele avond
+- Photobooth Host (+€149) — teamlid begeleidt gasten de hele avond
 - Live DJ Set (+€149) — Spotify playlist-optimalisatie, één team
 
 **Wat ze nodig hebben als bewijs:**
@@ -32,7 +32,7 @@ Kopersprofielen met psychografie, pijnpunten, Jobs-to-be-Done en aanbod-match. A
 - DSLR-kwaliteit voorbeeldfoto's (Magic Mirror XL resultaten)
 - Professionele uitstraling (rode loper, stijlvolle setup)
 - Persoonlijk contact — geen formulier-fabriek
-- "Geen tijdslimiet" als geruststellend verschil
+- "Tot 5 uur, geen haast" als geruststellend verschil
 
 **Toon:** Premium, vertrouwenwekkend, persoonlijk
 **Primaire hook:** "Dit is geen photobooth — dit is een ervaring"
@@ -60,16 +60,16 @@ Kopersprofielen met psychografie, pijnpunten, Jobs-to-be-Done en aanbod-match. A
 - Party Booth (€199) — zelf ophalen, 5 minuten opzetten, klaar
 - Premium Fotostrip Design (+€25) — gepersonaliseerd met thema en branding
 - Bezorging, Installatie & Ophalen (+€49) — wij brengen, zetten neer en halen op
-- AI Achtergrond + Beautify (+€35) — AI vervangt lelijke achtergrond, beautify filter voor strakke resultaten
+- AI Foto's + Filters (+€49) — AI achtergrond, beautify filter en Instagram-achtige filters
 - Live DJ Set (+€149) — upgrade naar compleet entertainment
 
-**Upsell-kans:** AI Achtergrond (+€35) is de makkelijkste upsell — lost een echt probleem op (lelijke achtergrond) voor een laag bedrag. Beautify filter maakt dat gasten er beter uitzien = meer delen = meer virale waarde.
+**Upsell-kans:** AI Foto's + Filters (+€49) is de makkelijkste upsell — lost een echt probleem op (lelijke achtergrond) voor een laag bedrag. Beautify filter en filter selectie maken dat gasten er beter uitzien = meer delen = meer virale waarde.
 
 **Wat ze nodig hebben als bewijs:**
 - Duidelijke prijs (geen verborgen kosten)
 - "Klaar in 5 minuten" — gemak
 - Voorbeelden van casual feesten (niet alleen bruiloften)
-- AI Achtergrond voor/na voorbeeld
+- AI Foto's + Filters voor/na voorbeeld
 - Reviews van mensen zoals zij
 
 **Toon:** Toegankelijk, leuk, makkelijk
@@ -137,7 +137,7 @@ Kopersprofielen met psychografie, pijnpunten, Jobs-to-be-Done en aanbod-match. A
 **PYB Aanbod-match:**
 - Magic Mirror XL (€599) — DSLR, professionele uitstraling
 - AI Photo Experience (+€499) — AI genereert branded foto's: gasten worden onderdeel van campagne/product. Ideaal voor productlanceringen.
-- On-Site Host (+€149) — professionele begeleiding
+- Photobooth Host (+€149) — professionele begeleiding
 - VIP Upgrade (+€149) — rode loper, premium setup
 - Custom branding op fotostrips en interface
 
@@ -159,10 +159,10 @@ Kopersprofielen met psychografie, pijnpunten, Jobs-to-be-Done en aanbod-match. A
 
 | Segment | Primair Product | Key Upgrades | Gem. Orderwaarde |
 |---|---|---|---|
-| Perfectionist (Bruiloft) | Magic Mirror XL €599 | VIP, Keychain Station, On-Site Host, DJ | €800-1.400 |
-| Slimme Feestganger | Party Booth €199 | AI Achtergrond, Premium Design, Bezorging | €250-350 |
+| Perfectionist (Bruiloft) | Magic Mirror XL €599 | VIP, Keychain Station, Photobooth Host, DJ | €800-1.400 |
+| Slimme Feestganger | Party Booth €199 | AI Foto's + Filters, Premium Ontwerp, Bezorging | €250-350 |
 | Alles-in-één Zoeker | Magic Mirror/Party + DJ | DJ Set, VIP | €350-900 |
-| Zakelijke Organisator | Magic Mirror XL €599 | AI Photo Experience, On-Site Host, VIP | €900-1.500 |
+| Zakelijke Organisator | Magic Mirror XL €599 | AI Photo Experience, Photobooth Host, VIP | €900-1.500 |
 
 ---
 

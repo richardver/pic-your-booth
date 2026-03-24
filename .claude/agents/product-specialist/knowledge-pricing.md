@@ -9,10 +9,10 @@ All prices include 21% BTW. Charm pricing applied (€199 not €200).
 | Base | €199 |
 | + Premium Fotostrip Design | +€25 |
 | + Bezorging, Installatie & Ophalen | +€49 |
-| + AI Achtergrond | +€35 |
+| + AI Foto's + Filters | +€49 |
 | + Live DJ Set | +€149 |
 
-**Range:** €199 (base) → €457 (fully loaded)
+**Range:** €199 (base) → €471 (fully loaded)
 
 ## Magic Mirror XL
 
@@ -21,7 +21,7 @@ All prices include 21% BTW. Charm pricing applied (€199 not €200).
 | Base | €599 |
 | + VIP Upgrade | +€149 |
 | + Wedding Keychain Station | +€499 |
-| + On-Site Host | +€149 |
+| + Photobooth Host | +€149 |
 | + AI Photo Experience | +€499 |
 | + Live DJ Set | +€149 |
 
@@ -50,7 +50,7 @@ All prices include 21% BTW. Charm pricing applied (€199 not €200).
 
 1. **All prices include 21% BTW** — never quote ex-BTW
 2. **Charm pricing** — use €199/€599/€149, not round numbers
-3. **Add-ons use charm pricing too** — €25, €35, €49, €149, €499
+3. **Add-ons use charm pricing too** — €25, €49, €149, €499
 4. **Show "vanaf" pricing** — "Vanaf €199" / "Vanaf €599" / "Vanaf €149"
 5. **Package builder on website** — shows running total including BTW
 6. **No hidden costs** — price on website = price on invoice

@@ -23,7 +23,7 @@ De Magic Mirror XL is een premium photobooth met een professionele DSLR camera e
 - Digitale galerij (alle foto's online beschikbaar voor gasten)
 - Bezorging, installatie en ophalen inbegrepen (binnen 50km)
 - Standaard fotostrip design
-- Geen tijdslimiet: per event, niet per uur
+- Tot 5 uur inclusief: per event, niet per uur
 - Zelfbediening door gasten
 
 ### Upgrades Magic Mirror XL
@@ -32,7 +32,7 @@ De Magic Mirror XL is een premium photobooth met een professionele DSLR camera e
 |---|---|---|
 | VIP Upgrade | +E149 | Backdrop, rode loper, afzetpalen, luxe props |
 | Wedding Keychain Station | +E499 | Onbeperkt gepersonaliseerde sleutelhangers voor alle gasten |
-| On-Site Host | +E149 | PYB teamlid op locatie voor begeleiding en maximale interactie |
+| Photobooth Host | +E149 | PYB teamlid op locatie voor begeleiding en maximale interactie |
 | AI Photo Experience | +E499 | AI-gegenereerde foto's: gastfoto + gewenst thema worden gecombineerd tot uniek beeld. Ideaal voor productlanceringen en branding-events |
 | Live DJ Set | +E149 | DJ met speakers, licht en rookmachine (3 uur) |
 
@@ -75,13 +75,13 @@ De Party Booth is een compacte digitale photobooth die je zelf ophaalt en in 5 m
 |---|---|---|
 | Premium Fotostrip Design | +E25 | Gepersonaliseerde fotostrip met thema en branding |
 | Bezorging, Installatie en Ophalen | +E49 | PicYourBooth brengt, installeert en haalt de booth op |
-| AI Achtergrond | +E35 | AI vervangt de achtergrond automatisch met een gewenste setting. Inclusief beautify-filter voor strakke eindresultaten. Geen doeken of schermen nodig |
+| AI Foto's + Filters | +E49 | AI achtergrond, beautify filter en Instagram-achtige filters. AI vervangt de achtergrond automatisch, beautify zorgt dat iedereen er strak op staat, en gasten kiezen uit fotofilters (zwart-wit, warm, vintage, etc.) |
 | Live DJ Set | +E149 | DJ met speakers, licht en rookmachine (3 uur) |
 
 ### Prijsrange Party Booth
 
 - Basispakket: E199
-- Volledig geladen (alle upgrades): E457
+- Volledig geladen (alle upgrades): E471
 
 ### Ideaal voor
 
@@ -184,8 +184,8 @@ Ja, alle prijzen zijn inclusief 21% BTW. De prijs op de website is de prijs op d
 **Wat kost een fotospiegel huren?**
 De Magic Mirror XL kost vanaf E599 per event. Bezorging, installatie en ophalen zijn inbegrepen.
 
-**Is er een tijdslimiet?**
-Nee. De Magic Mirror XL is per event, niet per uur. Geen tijdslimiet.
+**Hoeveel uur is inbegrepen?**
+Tot 5 uur. Langer nodig? Geen probleem, we stemmen het af. Per event, niet per uur.
 
 **Is bezorging inbegrepen?**
 Ja, bezorging, installatie en ophalen zijn inbegrepen binnen 50km.
@@ -204,8 +204,8 @@ De Party Booth kost vanaf E199 per dag. Je haalt de booth zelf op en zet hem in 
 **Moet ik het zelf opzetten?**
 Standaard haal je de booth op en zet je hem zelf op. Voor E49 extra brengen wij de booth, installeren we hem en halen we hem weer op.
 
-**Wat is AI Achtergrond?**
-Een upgrade (+E35) waarbij AI automatisch de achtergrond vervangt met een gewenste setting. Inclusief beautify-filter. Geen doeken of schermen nodig.
+**Wat is AI Foto's + Filters?**
+Een upgrade (+E49) met drie features: AI vervangt automatisch de achtergrond met een gewenste setting, beautify filter zorgt dat iedereen er strak op staat, en gasten kiezen uit Instagram-achtige filters (zwart-wit, warm, vintage, etc.).
 
 **Kan ik er een DJ bij boeken?**
 Ja, een Live DJ Set is beschikbaar als upgrade voor E149 (3 uur inclusief speakers, licht en rookmachine).
@@ -229,8 +229,8 @@ Ja, elk extra uur kost E49. Maximaal 6 uur totaal.
 ## Wat maakt PicYourBooth anders
 
 1. **DSLR kwaliteit** - De Magic Mirror XL gebruikt een professionele camera, geen tablet. Foto's van inlijstkwaliteit.
-2. **Geen tijdslimiet** - De Magic Mirror XL is per event. Concurrenten rekenen per uur.
-3. **AI technologie** - AI Achtergrond (Party Booth) en AI Photo Experience (Magic Mirror XL). Geen andere photobooth-verhuurder biedt dit.
+2. **5 uur inclusief** - De Magic Mirror XL is per event met tot 5 uur. Concurrenten rekenen per uur in pakketten van 2-3 uur.
+3. **AI technologie** - AI Foto's + Filters (Party Booth) en AI Photo Experience (Magic Mirror XL). Geen andere photobooth-verhuurder biedt dit.
 4. **Spotify playlist-optimalisatie** - Unieke DJ-service. Stuur je playlist, krijg een professionele set.
 5. **Photobooth + DJ combo** - Boek alles bij hetzelfde team. Een aanspreekpunt, minder stress.
 6. **Transparante prijzen** - Alle prijzen inclusief BTW. Geen verborgen kosten. Wat je ziet is wat je betaalt.

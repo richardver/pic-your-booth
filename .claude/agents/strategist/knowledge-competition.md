@@ -21,18 +21,18 @@ Photobooth en DJ markt in Nederland. Analyse van waar PYB wint en waar kansen li
 | PYB Voordeel | Concurrentie | Impact |
 |---|---|---|
 | **DSLR camera** (Canon EOS) | 90% gebruikt tablets/webcams | HOOG — zichtbaar kwaliteitsverschil |
-| **Geen tijdslimiet** | Bijna iedereen rekent per uur of pakket | HOOG — uniek in de markt |
+| **Tot 5 uur inclusief** | Bijna iedereen rekent per uur (2-3 uur pakketten) | HOOG — ruimste standaard in de markt |
 | **Professionele studiobelichting** | Basis LED of ring light | MIDDEL — gasten zien er beter uit |
 | **Direct printen** inbegrepen | Vaak meerprijs of niet beschikbaar | MIDDEL |
 | **DJ combo** mogelijk | Photobooths en DJs zijn aparte bedrijven | HOOG — uniek aanbod |
 | **AI Photo Experience** (+€499) | Niemand in de markt biedt AI-gegenereerde eventfoto's | HOOG — uniek voor zakelijk segment |
 | **Party Booth vanaf €199** | Vergelijkbaar segment start bij €175-295 | MIDDEL — competitief geprijsd |
-| **AI Achtergrond + Beautify** (+€35) | Concurrentie biedt geen AI in budget-segment | MIDDEL — makkelijke upsell |
+| **AI Foto's + Filters** (+€49) | Concurrentie biedt geen AI in budget-segment | MIDDEL — makkelijke upsell |
 
 ### Waar Kansen Liggen
 
 - **Visueel bewijs**: Magic Mirror XL DSLR-kwaliteit voorbeelden prominenter op website
-- **"Geen tijdslimiet"** claim prominenter — concurrentie kan dit niet matchen
+- **"5 uur inclusief"** claim prominenter — concurrentie biedt standaard 2-3 uur pakketten
 - **Reviews**: meer Google reviews verzamelen — concurrenten met 500+ reviews domineren zoekresultaten
 - **SEO**: "photobooth huren [stad]" landingspagina's per Randstad-stad
 

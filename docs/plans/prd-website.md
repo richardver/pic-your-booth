@@ -103,7 +103,7 @@ Cyan:          #34d399 (Milo)
 **Sections:**
 
 1. **Nav** (same as homepage)
-2. **Product Hero** - Centered. Gold gradient title "MAGIC MIRROR XL". Subtitle about DSLR, no time limit, VIP experience.
+2. **Product Hero** - Centered. Gold gradient title "MAGIC MIRROR XL". Subtitle about DSLR, 5 uur inclusief, VIP experience.
 3. **USPs** (4 items, vertical list) - Each: small image (80px), gold left border, title + description.
    - Foto's Die Je Wilt Inlijsten
    - Iedereen Ziet Er Geweldig Uit
@@ -114,7 +114,7 @@ Cyan:          #34d399 (Milo)
    - Upgrades (toggle switches):
      - VIP Upgrade (+€149)
      - Wedding Keychain Station (+€499)
-     - On-Site Host (+€149)
+     - Photobooth Host (+€149)
      - AI Photo Experience (+€499)
      - Live DJ Set (+€149)
    - Each upgrade has `?` info button → opens modal with photo + description
@@ -142,7 +142,7 @@ Cyan:          #34d399 (Milo)
    - Upgrades:
      - Premium Fotostrip Design (+€25)
      - Bezorging, Installatie & Ophalen (+€49)
-     - AI Achtergrond (+€35)
+     - AI Foto's + Filters (+€49)
      - Live DJ Set (+€149)
    - Running total (incl. 21% BTW)
    - CTA → pre-fills form
@@ -290,7 +290,7 @@ All copy is finalized and documented in the design system files. Key conversion 
 | Base | €199 |
 | Premium Fotostrip Design | +€25 |
 | Bezorging, Installatie & Ophalen | +€49 |
-| AI Achtergrond | +€35 |
+| AI Foto's + Filters | +€49 |
 | Live DJ Set | +€149 |
 
 ### Magic Mirror XL
@@ -299,7 +299,7 @@ All copy is finalized and documented in the design system files. Key conversion 
 | Base | €599 |
 | VIP Upgrade | +€149 |
 | Wedding Keychain Station | +€499 |
-| On-Site Host | +€149 |
+| Photobooth Host | +€149 |
 | AI Photo Experience | +€499 |
 | Live DJ Set | +€149 |
 
