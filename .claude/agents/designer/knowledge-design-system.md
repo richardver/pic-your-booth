@@ -62,13 +62,12 @@ Each product has its own photography-driven visual DNA. See `prompts.py` for Gem
 
 ## Responsive Breakpoints
 
-Three tiers — desktop first, then override down:
+Two tiers only — desktop + phone. iPad renders as desktop.
 
 | Tier | Breakpoint | Devices | Padding |
 |------|-----------|---------|---------|
-| Desktop | > 768px | Laptops, desktops, large tablets | 32px side |
-| Tablet | ≤ 768px | iPads, small tablets, large phones landscape | 20px side |
-| Phone | ≤ 600px | All phones portrait | 20px side |
+| Desktop | > 768px | Laptops, desktops, iPads, tablets | 32px side |
+| Phone | ≤ 768px | All phones | 20px side |
 
 ### Desktop (> 768px) — Base styles
 
@@ -83,52 +82,45 @@ Three tiers — desktop first, then override down:
 | Section title | 2rem | Bebas Neue |
 | Section padding | 120px top/bottom | |
 | USP grid | 2 columns | |
-| Upgrade row name | inherit | |
-| Upgrade row desc | inherit | |
-| FAQ summary | inherit | |
-| Nav logo | 1.75rem | With camera + headphone icons |
+| Nav | Full link bar | Logo + links + CTA |
 
-### Tablet (≤ 768px) — `@media (max-width: 768px)`
+### Phone (≤ 768px) — `@media (max-width: 768px)`
 
-| Element | Size | Change |
-|---------|------|--------|
+| Element | Size | Change from desktop |
+|---------|------|---------------------|
 | Body font | **16px**, line-height **1.75** | Bumped for readability |
-| Hero title | **2rem** | Smaller, tighter letter-spacing 0.05em |
+| Hero title | **2rem**, letter-spacing 0.05em | Fixed size, not clamp |
 | Hero subtitle | **16px**, line-height 1.6 | Bumped from 15px |
 | Hero label | **11px** | Slightly larger |
 | Hero padding | **60px top, 48px bottom** | Less empty space |
 | Hero min-height | **50vh** | Shorter |
-| Section title | **1.6rem** | Slightly smaller |
+| Section title | **1.6rem** | |
 | Section label | **12px** | |
 | Section padding | **48px** | Reduced |
-| USP grid | 2 columns (kept) | |
-| USP card title | **1.3rem** | Bumped |
-| USP card desc | **15px** | Bumped |
-| Upgrade row name | **16px** | Bumped with letter-spacing |
-| Upgrade row desc | **14px** | |
+| USP grid | **1 column** | Stacked |
+| USP image | **1:1 aspect ratio** | Square |
+| USP card title | **1.3rem** | |
+| USP card desc | **15px** | |
+| Upgrade row name | **16px**, letter-spacing 0.04em | |
+| Upgrade row desc | **14px**, line-height 1.6 | |
 | Upgrade row price | **1.1rem** | |
 | FAQ summary | **16px** | |
-| FAQ answer | **15px** | |
-| Builder features | **15px** | |
+| FAQ answer | **15px**, line-height 1.7 | |
 | Builder title | **1.6rem** | |
 | Builder product name | **1.4rem** | |
 | Builder price | **2rem** | |
-| Nav: hamburger menu | visible | Links hidden, hamburger shown |
-
-### Phone (≤ 600px) — `@media (max-width: 600px)`
-
-| Element | Size | Change |
-|---------|------|--------|
-| USP grid | **1 column** | Stacked |
-| USP image | **1:1 aspect ratio** | Square |
+| Builder features | **15px** | |
+| Modal title | **1.3rem** | |
+| Modal body | **15px**, line-height 1.7 | |
+| Nav | **Hamburger menu** | Links hidden |
 
 ### Key Learnings (from production testing)
 
-1. **Mobile text was too small** — 15px body on phone screens is hard to read. Always use 16px+ for mobile body text.
-2. **Hero titles need aggressive scaling** — clamp() values that work on desktop are too large on mobile. Use fixed 2rem for phones.
-3. **Subtitles need bumping not shrinking** — subtitle should be 16px on mobile (same as body), not smaller.
-4. **Hero padding creates dead space** — 120px padding is too much on mobile. Use 60px max.
-5. **Modal backdrop-filter can block touches** — after modal close, force pointer-events reset to prevent touch blocking on mobile Safari.
+1. **Mobile text was too small** — 15px body on phone is hard to read. Always 16px+ on phone.
+2. **Hero titles need fixed size on phone** — clamp() breaks on small screens. Use fixed 2rem.
+3. **Subtitles bump UP not down** — subtitle 16px on phone (same as body), never smaller.
+4. **Hero padding creates dead space** — 120px is too much on phone. Max 60px.
+5. **Modal backdrop-filter blocks touches** — force pointer-events reset on modal close for mobile Safari.
 
 ## Logo Specification
 
