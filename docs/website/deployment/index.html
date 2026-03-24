@@ -660,6 +660,72 @@ a { color: inherit; text-decoration: none; }
   margin-top: 2px;
 }
 
+/* -- FAQ ----------------------------------------------- */
+.faq {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 120px 32px;
+}
+
+.faq-title {
+  font-family: var(--font-display);
+  font-size: 2rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  text-align: center;
+  margin-bottom: 48px;
+}
+
+.faq-item {
+  border-bottom: 1px solid var(--border);
+}
+
+.faq-item summary {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text);
+  padding: 20px 0;
+  cursor: pointer;
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: color 0.2s;
+}
+
+.faq-item summary:hover {
+  color: var(--gold);
+}
+
+.faq-item summary::-webkit-details-marker {
+  display: none;
+}
+
+.faq-item summary::after {
+  content: "+";
+  font-family: var(--font-body);
+  font-size: 1.2rem;
+  font-weight: 300;
+  color: var(--text-muted);
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  flex-shrink: 0;
+  margin-left: 16px;
+}
+
+.faq-item[open] summary::after {
+  content: "-";
+}
+
+.faq-answer {
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  font-weight: 300;
+  color: var(--text-muted);
+  line-height: 1.7;
+  padding-bottom: 20px;
+}
+
 /* -- Footer -------------------------------------------- */
 .footer {
   background: var(--void);
@@ -935,6 +1001,12 @@ a { color: inherit; text-decoration: none; }
   .testimonial-card {
     padding: 32px 24px;
   }
+  .faq {
+    padding-top: 64px;
+    padding-bottom: 64px;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
 }
 
 /* -- Small mobile (max 480px) ------------------------- */
@@ -1111,6 +1183,17 @@ a { color: inherit; text-decoration: none; }
       </div>
     </div>
   </div>
+</section>
+
+<!-- ============================================================
+     FAQ
+     ============================================================ -->
+<section class="faq" id="faq">
+  <h2 class="faq-title">Veelgestelde Vragen</h2>
+  <details class="faq-item"><summary>Wat is PicYourBooth?</summary><p class="faq-answer">PicYourBooth levert premium photobooth en DJ entertainment in de Randstad. Van compacte digitale photobooths (Party Booth, vanaf €199) tot professionele fotospiegels (Magic Mirror XL, vanaf €599) en DJ's (vanaf €149). Eén team voor je complete feest.</p></details>
+  <details class="faq-item"><summary>Welke diensten bieden jullie?</summary><p class="faq-answer">Drie diensten: Party Booth (digitale photobooth, zelf ophalen en opzetten), Magic Mirror XL (premium fotospiegel met DSLR-camera, bezorging inbegrepen) en Live DJ Sets met DJ Gianni of DJ Milø. Alles combineerbaar in één boeking.</p></details>
+  <details class="faq-item"><summary>In welk gebied zijn jullie actief?</summary><p class="faq-answer">Wij bedienen de Randstad en omgeving — Amsterdam, Rotterdam, Den Haag, Utrecht, Leiden en alles daartussen. Bezorging binnen 50 kilometer is inbegrepen bij de Magic Mirror XL.</p></details>
+  <details class="faq-item"><summary>Hoe boek ik?</summary><p class="faq-answer">Vraag een vrijblijvend voorstel aan via ons offerteformulier. Je ontvangt binnen 24 uur een persoonlijk voorstel. Geen verplichtingen, wel direct duidelijkheid over beschikbaarheid en prijs.</p></details>
 </section>
 
 </main>
@@ -1338,6 +1421,19 @@ a { color: inherit; text-decoration: none; }
     "reviewCount": "237",
     "bestRating": "5"
   }
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {"@type": "Question", "name": "Wat is PicYourBooth?", "acceptedAnswer": {"@type": "Answer", "text": "PicYourBooth levert premium photobooth en DJ entertainment in de Randstad. Van compacte digitale photobooths (Party Booth, vanaf €199) tot professionele fotospiegels (Magic Mirror XL, vanaf €599) en DJ's (vanaf €149). Eén team voor je complete feest."}},
+    {"@type": "Question", "name": "Welke diensten bieden jullie?", "acceptedAnswer": {"@type": "Answer", "text": "Drie diensten: Party Booth (digitale photobooth, zelf ophalen en opzetten), Magic Mirror XL (premium fotospiegel met DSLR-camera, bezorging inbegrepen) en Live DJ Sets met DJ Gianni of DJ Milø. Alles combineerbaar in één boeking."}},
+    {"@type": "Question", "name": "In welk gebied zijn jullie actief?", "acceptedAnswer": {"@type": "Answer", "text": "Wij bedienen de Randstad en omgeving — Amsterdam, Rotterdam, Den Haag, Utrecht, Leiden en alles daartussen. Bezorging binnen 50 kilometer is inbegrepen bij de Magic Mirror XL."}},
+    {"@type": "Question", "name": "Hoe boek ik?", "acceptedAnswer": {"@type": "Answer", "text": "Vraag een vrijblijvend voorstel aan via ons offerteformulier. Je ontvangt binnen 24 uur een persoonlijk voorstel. Geen verplichtingen, wel direct duidelijkheid over beschikbaarheid en prijs."}}
+  ]
 }
 </script>
 
