@@ -1,0 +1,1046 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PicYourBooth Funnel Overview</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    /* ── Reset & Tokens ─────────────────────────────── */
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --bg: #08080b;
+      --surface: #111116;
+      --surface-up: #18181e;
+      --surface-top: #1f1f27;
+      --text: #ededf0;
+      --text-muted: rgba(237,237,240,0.55);
+      --text-mid: rgba(237,237,240,0.75);
+      --gold: #f59e42;
+      --gold-light: #ffb86b;
+      --violet: #8b5cf6;
+      --violet-light: #a78bfa;
+      --coral: #f0654a;
+      --cyan: #34d399;
+      --cyan-dim: rgba(52,211,153,0.15);
+      --coral-dim: rgba(240,101,74,0.15);
+      --violet-dim: rgba(139,92,246,0.12);
+      --gold-dim: rgba(245,158,66,0.10);
+      --border: rgba(237,237,240,0.08);
+      --border-hover: rgba(237,237,240,0.15);
+      --radius-sm: 8px;
+      --radius-md: 12px;
+      --radius-lg: 16px;
+      --font-display: 'Bebas Neue', sans-serif;
+      --font-body: 'Space Grotesk', sans-serif;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--font-body);
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      min-height: 100vh;
+    }
+
+    /* ── Layout ──────────────────────────────────────── */
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px 16px 40px;
+    }
+
+    @media (min-width: 768px) {
+      .container { padding: 30px 28px 50px; }
+    }
+
+    /* ── Logo ────────────────────────────────────────── */
+    .logo {
+      font-family: var(--font-display);
+      font-size: 1.5rem;
+      letter-spacing: 1px;
+      margin-bottom: 4px;
+    }
+    .logo-gold {
+      background: linear-gradient(135deg, var(--gold), var(--gold-light));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .logo-dot {
+      display: inline-block;
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: var(--gold);
+      margin-left: 2px;
+      vertical-align: super;
+      font-size: 0;
+    }
+
+    /* ── Header ──────────────────────────────────────── */
+    .header {
+      text-align: center;
+      margin-bottom: 28px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid var(--border);
+    }
+    .header .subtitle {
+      font-family: var(--font-display);
+      font-size: 1.2rem;
+      letter-spacing: 2px;
+      color: var(--text-mid);
+      margin-top: 2px;
+    }
+    .header .meta-line {
+      margin-top: 8px;
+      color: var(--text-muted);
+      font-size: 0.8rem;
+    }
+
+    /* ── Section ─────────────────────────────────────── */
+    .section {
+      margin-bottom: 32px;
+    }
+    .section-title {
+      font-family: var(--font-display);
+      font-size: 1.3rem;
+      letter-spacing: 2px;
+      color: var(--gold);
+      margin-bottom: 4px;
+    }
+    .section-desc {
+      color: var(--text-muted);
+      font-size: 0.8rem;
+      margin-bottom: 14px;
+    }
+
+    /* ── Section 1: Funnel Pipeline ──────────────────── */
+    .pipeline {
+      display: flex;
+      align-items: center;
+      gap: 0;
+      overflow-x: auto;
+      padding: 24px 0;
+      -webkit-overflow-scrolling: touch;
+    }
+    .pipeline-node {
+      flex: 0 0 auto;
+      min-width: 110px;
+      padding: 12px 10px;
+      border-radius: var(--radius-md);
+      border: 1px solid var(--border);
+      text-align: center;
+      transition: border-color 0.2s, transform 0.2s, box-shadow 0.2s;
+      position: relative;
+    }
+    .pipeline-node:hover {
+      border-color: var(--border-hover);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+    }
+    .pipeline-node.violet { background: var(--violet-dim); border-color: rgba(139,92,246,0.25); }
+    .pipeline-node.gold   { background: var(--gold-dim);   border-color: rgba(245,158,66,0.2);  }
+    .pipeline-node.cyan   { background: var(--cyan-dim);   border-color: rgba(52,211,153,0.2);  }
+
+    .pipeline-node .node-icon {
+      font-size: 1.1rem;
+      margin-bottom: 4px;
+      display: block;
+    }
+    .pipeline-node .node-label {
+      font-weight: 600;
+      font-size: 0.75rem;
+      line-height: 1.2;
+    }
+    .pipeline-node .node-sub {
+      font-size: 0.65rem;
+      color: var(--text-muted);
+      margin-top: 2px;
+    }
+    .pipeline-node.violet .node-label { color: var(--violet-light); }
+    .pipeline-node.gold .node-label   { color: var(--gold-light); }
+    .pipeline-node.cyan .node-label   { color: var(--cyan); }
+
+    .pipeline-arrow {
+      flex: 0 0 auto;
+      width: 28px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--text-muted);
+      font-size: 1.2rem;
+      position: relative;
+    }
+    .pipeline-arrow::before {
+      content: '';
+      display: block;
+      width: 32px;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, var(--text-muted));
+      position: absolute;
+      left: 4px;
+    }
+    .pipeline-arrow::after {
+      content: '';
+      display: block;
+      width: 0;
+      height: 0;
+      border-top: 5px solid transparent;
+      border-bottom: 5px solid transparent;
+      border-left: 8px solid var(--text-muted);
+      position: absolute;
+      right: 4px;
+    }
+
+    /* ── Section 2: Campaign Cards ───────────────────── */
+    .campaigns {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 24px;
+    }
+    @media (min-width: 768px) {
+      .campaigns { grid-template-columns: 1fr 1fr; }
+    }
+
+    .campaign-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 16px 14px;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+    .campaign-card:hover {
+      border-color: var(--border-hover);
+      box-shadow: 0 4px 24px rgba(0,0,0,0.2);
+    }
+    .campaign-card.cyan-accent  { border-top: 3px solid var(--cyan);  }
+    .campaign-card.coral-accent { border-top: 3px solid var(--coral); }
+
+    .campaign-header {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      margin-bottom: 6px;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .campaign-type {
+      font-family: var(--font-display);
+      font-size: 0.85rem;
+      letter-spacing: 2px;
+      color: var(--text-muted);
+    }
+    .campaign-budget {
+      font-weight: 700;
+      font-size: 0.9rem;
+    }
+    .cyan-accent .campaign-budget  { color: var(--cyan);  }
+    .coral-accent .campaign-budget { color: var(--coral); }
+
+    .campaign-name {
+      font-family: var(--font-display);
+      font-size: 1.1rem;
+      letter-spacing: 1px;
+      margin-bottom: 10px;
+    }
+    .cyan-accent .campaign-name  { color: var(--cyan);  }
+    .coral-accent .campaign-name { color: var(--coral); }
+
+    .adset {
+      background: var(--surface-up);
+      border-radius: var(--radius-sm);
+      padding: 10px 12px;
+      margin-bottom: 8px;
+    }
+    .adset:last-child { margin-bottom: 0; }
+    .adset-label {
+      font-weight: 600;
+      font-size: 0.75rem;
+      margin-bottom: 2px;
+    }
+    .adset-targeting {
+      font-size: 0.7rem;
+      color: var(--text-muted);
+      margin-bottom: 4px;
+    }
+    .adset-hook {
+      font-size: 0.7rem;
+      color: var(--text-mid);
+      padding-left: 12px;
+      border-left: 2px solid;
+      font-style: italic;
+    }
+    .cyan-accent .adset-hook  { border-color: var(--cyan);  }
+    .coral-accent .adset-hook { border-color: var(--coral); }
+
+    /* ── Section 3: Timeline ─────────────────────────── */
+    .timeline {
+      display: flex;
+      gap: 0;
+      position: relative;
+    }
+    .timeline::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: var(--border);
+      z-index: 0;
+    }
+    .timeline-phase {
+      flex: 1;
+      text-align: center;
+      position: relative;
+      z-index: 1;
+      padding: 0 8px;
+    }
+    .phase-dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      margin: 0 auto 8px;
+      border: 2px solid;
+      background: var(--bg);
+    }
+    .phase-test .phase-dot    { border-color: var(--violet); }
+    .phase-optimize .phase-dot { border-color: var(--gold);   }
+    .phase-review .phase-dot  { border-color: var(--cyan);   }
+
+    .phase-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 12px 10px;
+      transition: border-color 0.2s, transform 0.2s;
+    }
+    .phase-card:hover {
+      border-color: var(--border-hover);
+      transform: translateY(-2px);
+    }
+    .phase-label {
+      font-family: var(--font-display);
+      font-size: 0.9rem;
+      letter-spacing: 2px;
+      margin-bottom: 2px;
+    }
+    .phase-test .phase-label    { color: var(--violet); }
+    .phase-optimize .phase-label { color: var(--gold);   }
+    .phase-review .phase-label  { color: var(--cyan);   }
+
+    .phase-period {
+      font-size: 0.7rem;
+      color: var(--text-muted);
+      margin-bottom: 6px;
+    }
+    .phase-desc {
+      font-size: 0.7rem;
+      color: var(--text-mid);
+      line-height: 1.5;
+    }
+
+    /* ── Section 4: KPI Table ────────────────────────── */
+    .kpi-wrapper {
+      overflow-x: auto;
+    }
+    .kpi-table {
+      width: 100%;
+      border-collapse: separate;
+      border-spacing: 0;
+      background: var(--surface);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      border: 1px solid var(--border);
+      min-width: 520px;
+    }
+    .kpi-table thead {
+      background: var(--surface-up);
+    }
+    .kpi-table th {
+      font-family: var(--font-display);
+      font-size: 0.7rem;
+      letter-spacing: 1.5px;
+      color: var(--gold);
+      text-align: left;
+      padding: 8px 10px;
+      font-weight: 400;
+      border-bottom: 1px solid var(--border);
+    }
+    .kpi-table td {
+      padding: 6px 10px;
+      font-size: 0.75rem;
+      border-bottom: 1px solid var(--border);
+    }
+    .kpi-table tr:last-child td { border-bottom: none; }
+    .kpi-table .metric-name {
+      font-weight: 600;
+      color: var(--text);
+    }
+    .kpi-table .target {
+      color: var(--cyan);
+      font-weight: 600;
+    }
+    .kpi-table .kill {
+      color: var(--coral);
+      font-weight: 500;
+    }
+
+    .monthly-targets {
+      margin-top: 20px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    .target-pill {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 100px;
+      padding: 4px 12px;
+      font-size: 0.7rem;
+      color: var(--text-mid);
+    }
+    .target-pill strong {
+      color: var(--gold-light);
+      font-weight: 600;
+    }
+
+    /* ── Section 5: Hook Matrix ──────────────────────── */
+    .hook-matrix {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 24px;
+    }
+    @media (min-width: 768px) {
+      .hook-matrix { grid-template-columns: 1fr 1fr; }
+    }
+
+    .hook-column {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 14px;
+    }
+    .hook-column-title {
+      font-family: var(--font-display);
+      font-size: 1rem;
+      letter-spacing: 1px;
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .hook-column.cyan .hook-column-title  { color: var(--cyan); }
+    .hook-column.coral .hook-column-title { color: var(--coral); }
+
+    .hook-list {
+      list-style: none;
+      counter-reset: hooks;
+    }
+    .hook-list li {
+      counter-increment: hooks;
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+      padding: 6px 0;
+      border-bottom: 1px solid var(--border);
+      font-size: 0.72rem;
+      color: var(--text-mid);
+      line-height: 1.4;
+    }
+    .hook-list li:last-child { border-bottom: none; }
+    .hook-list li::before {
+      content: counter(hooks);
+      flex: 0 0 auto;
+      width: 18px;
+      height: 18px;
+      border-radius: 4px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.75rem;
+      font-weight: 700;
+      margin-top: 1px;
+    }
+    .hook-column.cyan .hook-list li::before  { background: var(--cyan-dim); color: var(--cyan); }
+    .hook-column.coral .hook-list li::before { background: var(--coral-dim); color: var(--coral); }
+
+    /* ── Section 6: Automation Cards ─────────────────── */
+    .automations {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 16px;
+    }
+    @media (min-width: 640px) {
+      .automations { grid-template-columns: 1fr 1fr; }
+    }
+
+    .auto-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 12px;
+      transition: border-color 0.2s, transform 0.2s;
+    }
+    .auto-card:hover {
+      border-color: var(--border-hover);
+      transform: translateY(-2px);
+    }
+    .auto-card-number {
+      font-family: var(--font-display);
+      font-size: 1.3rem;
+      color: var(--violet);
+      line-height: 1;
+      margin-bottom: 4px;
+      opacity: 0.5;
+    }
+    .auto-card-name {
+      font-weight: 700;
+      font-size: 0.8rem;
+      margin-bottom: 4px;
+    }
+    .auto-card-trigger {
+      display: inline-block;
+      background: var(--violet-dim);
+      color: var(--violet-light);
+      border-radius: 100px;
+      padding: 2px 8px;
+      font-size: 0.6rem;
+      font-weight: 600;
+      margin-bottom: 6px;
+    }
+    .auto-card-desc {
+      font-size: 0.7rem;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+
+    /* ── Section 7: Checklist ────────────────────────── */
+    .checklist {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 14px 14px;
+      columns: 1;
+      column-gap: 32px;
+    }
+    @media (min-width: 640px) {
+      .checklist { columns: 2; }
+    }
+    .check-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 5px 0;
+      break-inside: avoid;
+      border-bottom: 1px solid var(--border);
+      font-size: 0.75rem;
+      color: var(--text-mid);
+    }
+    .check-item:last-child { border-bottom: none; }
+    .check-box {
+      flex: 0 0 auto;
+      width: 16px;
+      height: 16px;
+      border-radius: 4px;
+      border: 2px solid var(--border-hover);
+      background: transparent;
+      position: relative;
+    }
+
+    /* ── Section 8: Asset Badges ─────────────────────── */
+    .asset-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+    .asset-badge {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 10px 16px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      transition: border-color 0.2s;
+    }
+    .asset-badge:hover { border-color: var(--border-hover); }
+    .asset-count {
+      font-family: var(--font-display);
+      font-size: 1.6rem;
+      line-height: 1;
+    }
+    .asset-badge.cyan .asset-count  { color: var(--cyan);  }
+    .asset-badge.coral .asset-count { color: var(--coral); }
+    .asset-badge.violet .asset-count { color: var(--violet); }
+    .asset-label {
+      font-size: 0.75rem;
+      color: var(--text-mid);
+      font-weight: 500;
+    }
+    .asset-sub {
+      font-size: 0.65rem;
+      color: var(--text-muted);
+    }
+
+    /* ── Footer ──────────────────────────────────────── */
+    .footer {
+      text-align: center;
+      padding-top: 20px;
+      border-top: 1px solid var(--border);
+      color: var(--text-muted);
+      font-size: 0.8rem;
+      letter-spacing: 0.5px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+
+    <!-- ─── Header ─────────────────────────────────── -->
+    <header class="header">
+      <div class="logo">
+        PicYour<span class="logo-gold">Booth</span><span class="logo-dot"></span>
+      </div>
+      <div class="subtitle">ADVERTISING FUNNEL OVERVIEW</div>
+      <div class="meta-line">Meta Ads to Booking pipeline &mdash; Split test approach &mdash; v1</div>
+    </header>
+
+    <!-- ─── Section 1: Funnel Flow ─────────────────── -->
+    <section class="section">
+      <h2 class="section-title">FUNNEL FLOW</h2>
+      <p class="section-desc">End-to-end pipeline from ad impression to booked event.</p>
+      <div class="pipeline">
+        <div class="pipeline-node violet">
+          <span class="node-icon">&#9672;</span>
+          <span class="node-label">Meta Ad</span>
+          <span class="node-sub">Impression</span>
+        </div>
+        <div class="pipeline-arrow"></div>
+        <div class="pipeline-node gold">
+          <span class="node-icon">&#9638;</span>
+          <span class="node-label">Landing Page</span>
+          <span class="node-sub">Website</span>
+        </div>
+        <div class="pipeline-arrow"></div>
+        <div class="pipeline-node gold">
+          <span class="node-icon">&#9998;</span>
+          <span class="node-label">Proposal Form</span>
+          <span class="node-sub">6 fields</span>
+        </div>
+        <div class="pipeline-arrow"></div>
+        <div class="pipeline-node cyan">
+          <span class="node-icon">&#9881;</span>
+          <span class="node-label">HubSpot Lead</span>
+          <span class="node-sub">CRM</span>
+        </div>
+        <div class="pipeline-arrow"></div>
+        <div class="pipeline-node cyan">
+          <span class="node-icon">&#9993;</span>
+          <span class="node-label">Proposal Sent</span>
+          <span class="node-sub">Voorstel</span>
+        </div>
+        <div class="pipeline-arrow"></div>
+        <div class="pipeline-node cyan">
+          <span class="node-icon">&#10003;</span>
+          <span class="node-label">Event Booked</span>
+          <span class="node-sub">Boeking</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ─── Section 2: Campaign Structure ──────────── -->
+    <section class="section">
+      <h2 class="section-title">CAMPAIGN STRUCTURE</h2>
+      <p class="section-desc">Two prospecting campaigns running in parallel, each with broad and interest-targeted ad sets.</p>
+      <div class="campaigns">
+
+        <div class="campaign-card cyan-accent">
+          <div class="campaign-header">
+            <span class="campaign-type">PROSPECTING</span>
+            <span class="campaign-budget">&euro;250/month</span>
+          </div>
+          <h3 class="campaign-name">MAGIC MIRROR XL</h3>
+          <div class="adset">
+            <div class="adset-label">Ad Set MM-A: Advantage+</div>
+            <div class="adset-targeting">Broad targeting, Randstad</div>
+            <div class="adset-hook">DSLR kwaliteit + 5 uur inclusief</div>
+          </div>
+          <div class="adset">
+            <div class="adset-label">Ad Set MM-B: Interest Targeting</div>
+            <div class="adset-targeting">Weddings, corporate events</div>
+            <div class="adset-hook">VIP ervaring + direct printen</div>
+          </div>
+        </div>
+
+        <div class="campaign-card coral-accent">
+          <div class="campaign-header">
+            <span class="campaign-type">PROSPECTING</span>
+            <span class="campaign-budget">&euro;250/month</span>
+          </div>
+          <h3 class="campaign-name">PARTY BOOTH</h3>
+          <div class="adset">
+            <div class="adset-label">Ad Set PB-A: Advantage+</div>
+            <div class="adset-targeting">Broad targeting, Randstad</div>
+            <div class="adset-hook">Vanaf &euro;199, elk feest</div>
+          </div>
+          <div class="adset">
+            <div class="adset-label">Ad Set PB-B: Interest Targeting</div>
+            <div class="adset-targeting">Birthday parties, celebrations</div>
+            <div class="adset-hook">Zelf opzetten, direct delen</div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ─── Section 3: Testing Timeline ────────────── -->
+    <section class="section">
+      <h2 class="section-title">TESTING TIMELINE</h2>
+      <p class="section-desc">Structured testing cadence: launch, learn, optimize, repeat.</p>
+      <div class="timeline">
+        <div class="timeline-phase phase-test">
+          <div class="phase-dot"></div>
+          <div class="phase-card">
+            <div class="phase-label">TEST</div>
+            <div class="phase-period">Week 1 &ndash; 2</div>
+            <div class="phase-desc">All 4 ad sets live with equal budget. 2-3 creatives per ad set. Gather baseline data.</div>
+          </div>
+        </div>
+        <div class="timeline-phase phase-optimize">
+          <div class="phase-dot"></div>
+          <div class="phase-card">
+            <div class="phase-label">OPTIMIZE</div>
+            <div class="phase-period">Week 3 &ndash; 4</div>
+            <div class="phase-desc">Kill underperformers, scale winners. Shift to 70/30 budget split based on results.</div>
+          </div>
+        </div>
+        <div class="timeline-phase phase-review">
+          <div class="phase-dot"></div>
+          <div class="phase-card">
+            <div class="phase-label">REVIEW</div>
+            <div class="phase-period">Monthly</div>
+            <div class="phase-desc">Full performance audit. Creative refresh. Plan next month's tests and budget allocation.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ─── Section 4: Historical Performance (Vizibooth) ── -->
+    <section class="section">
+      <h2 class="section-title">HISTORICAL PERFORMANCE</h2>
+      <p class="section-desc">Vizibooth 2025-2026 benchmark data. Source: KPI Rapport Excel files.</p>
+
+      <div class="kpi-wrapper" style="overflow-x:auto;">
+        <table class="kpi-table" style="min-width:700px;">
+          <thead>
+            <tr>
+              <th>MAAND</th>
+              <th>FORMS</th>
+              <th>FB ADS</th>
+              <th>GOOGLE ADS</th>
+              <th>TOTAL SPEND</th>
+              <th>REVENUE</th>
+              <th>ROAS</th>
+              <th>MoM</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td class="metric-name">Jan '25</td><td>26</td><td>—</td><td>—</td><td>€0</td><td>€0</td><td>—</td><td>—</td></tr>
+            <tr><td class="metric-name">Feb</td><td>21</td><td>—</td><td>—</td><td>€0</td><td>€329</td><td>—</td><td>—</td></tr>
+            <tr><td class="metric-name">Mrt</td><td>30</td><td>—</td><td>—</td><td>€0</td><td>€2,930</td><td>—</td><td>+790%</td></tr>
+            <tr><td class="metric-name">Apr</td><td>21</td><td>—</td><td>—</td><td>€500</td><td>€1,977</td><td class="target">3.95x</td><td>-33%</td></tr>
+            <tr><td class="metric-name">Mei</td><td>6</td><td>—</td><td>—</td><td>€715</td><td>€4,653</td><td class="target">6.51x</td><td>+135%</td></tr>
+            <tr><td class="metric-name">Jun</td><td>20</td><td>€200</td><td>€92</td><td>€292</td><td>€1,960</td><td class="target">6.71x</td><td>-58%</td></tr>
+            <tr><td class="metric-name">Jul</td><td>40</td><td>€465</td><td>€72</td><td>€537</td><td>€3,510</td><td class="target">6.54x</td><td>+79%</td></tr>
+            <tr><td class="metric-name">Aug</td><td>40</td><td>€500</td><td>€75</td><td>€575</td><td>€3,392</td><td class="target">3.98x</td><td>-3%</td></tr>
+            <tr><td class="metric-name">Sep</td><td>47</td><td>€530</td><td>€65</td><td>€595</td><td>€4,400</td><td class="target">4.88x</td><td>+30%</td></tr>
+            <tr><td class="metric-name">Okt</td><td>62</td><td>€700</td><td>€75</td><td>€775</td><td>€5,500</td><td class="target">4.58x</td><td>+25%</td></tr>
+            <tr><td class="metric-name">Nov</td><td>57</td><td>€700</td><td>€75</td><td>€775</td><td>€3,770</td><td class="kill">2.99x</td><td>-31%</td></tr>
+            <tr><td class="metric-name">Dec</td><td>32</td><td>€503</td><td>€0</td><td>€503</td><td>€1,900</td><td class="kill">2.36x</td><td>-50%</td></tr>
+            <tr style="border-top:2px solid var(--gold); font-weight:700;">
+              <td class="metric-name" style="color:var(--gold)">2025 TOTAAL</td><td>402</td><td colspan="2">—</td><td>€4,767</td><td>€34,321</td><td class="target">4.50x</td><td>—</td>
+            </tr>
+            <tr style="border-top:1px solid var(--violet); background:var(--violet-dim);">
+              <td class="metric-name" style="color:var(--violet-light)">Jan '26</td><td>72</td><td>€620</td><td>€0</td><td>€620</td><td>€2,470</td><td class="target">3.04x</td><td>—</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="monthly-targets" style="margin-top:20px;">
+        <div class="target-pill"><strong>~€12</strong>&nbsp; avg CPL (2025)</div>
+        <div class="target-pill"><strong>4.5x</strong>&nbsp; avg ROAS</div>
+        <div class="target-pill"><strong>6.7x</strong>&nbsp; peak ROAS (Jun)</div>
+        <div class="target-pill"><strong>62</strong>&nbsp; peak forms (Okt)</div>
+      </div>
+      <div style="margin-top:14px; padding:10px 14px; background:var(--surface); border:1px solid rgba(245,158,66,0.15); border-radius:8px; border-left:3px solid var(--gold);">
+        <p style="font-size:0.72rem; color:var(--text-mid); margin:0; line-height:1.5;">
+          <strong style="color:var(--gold);">Note:</strong> Vizibooth operated at a lower price point. Magic Mirror XL (&euro;599) will likely generate <strong>lower lead volume</strong> but <strong>higher AOV</strong> per booking. Party Booth (&euro;199) is closer to Vizibooth pricing. Use this data as directional benchmark, not a direct target.
+        </p>
+      </div>
+    </section>
+
+    <!-- ─── Section 4b: KPI Targets ────────────────── -->
+    <section class="section">
+      <h2 class="section-title">KPI TARGETS</h2>
+      <p class="section-desc">PicYourBooth targets based on Vizibooth benchmarks. Ad performance + funnel health.</p>
+
+      <h3 style="font-family:'Bebas Neue',sans-serif; font-size:1rem; letter-spacing:0.06em; color:var(--gold); margin-bottom:8px;">AD PERFORMANCE</h3>
+      <div class="kpi-wrapper">
+        <table class="kpi-table">
+          <thead>
+            <tr>
+              <th>METRIC</th>
+              <th>TARGET</th>
+              <th>KILL THRESHOLD</th>
+              <th>VIZIBOOTH BENCHMARK</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="metric-name">CTR</td>
+              <td class="target">&gt; 1.0%</td>
+              <td class="kill">&lt; 0.6%</td>
+              <td style="color:var(--text-muted)">—</td>
+            </tr>
+            <tr>
+              <td class="metric-name">CPC</td>
+              <td class="target">&lt; &euro;1.50</td>
+              <td class="kill">&gt; &euro;2.50</td>
+              <td style="color:var(--text-muted)">—</td>
+            </tr>
+            <tr>
+              <td class="metric-name">CPL (Cost per Lead)</td>
+              <td class="target">&lt; &euro;25</td>
+              <td class="kill">&gt; &euro;35</td>
+              <td class="target">~&euro;12 avg</td>
+            </tr>
+            <tr>
+              <td class="metric-name">ROAS</td>
+              <td class="target">&gt; 4.0x</td>
+              <td class="kill">&lt; 2.0x</td>
+              <td class="target">4.5x avg</td>
+            </tr>
+            <tr>
+              <td class="metric-name">Form Conversion Rate</td>
+              <td class="target">&gt; 5%</td>
+              <td class="kill">&lt; 2%</td>
+              <td style="color:var(--text-muted)">—</td>
+            </tr>
+            <tr>
+              <td class="metric-name">Frequency</td>
+              <td class="target">&lt; 3.0</td>
+              <td class="kill">&gt; 4.0</td>
+              <td style="color:var(--text-muted)">—</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3 style="font-family:'Bebas Neue',sans-serif; font-size:1rem; letter-spacing:0.06em; color:var(--gold); margin:14px 0 8px;">FUNNEL HEALTH</h3>
+      <div class="kpi-wrapper">
+        <table class="kpi-table">
+          <thead>
+            <tr>
+              <th>METRIC</th>
+              <th>TARGET</th>
+              <th>FORMULA</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="metric-name">ROAS</td>
+              <td class="target">&gt; 4.0x</td>
+              <td style="color:var(--text-muted)">Revenue from ad leads / Ad spend</td>
+            </tr>
+            <tr>
+              <td class="metric-name">AOV (Avg Order Value)</td>
+              <td style="color:var(--text-mid)">Track</td>
+              <td style="color:var(--text-muted)">Total revenue / Number of bookings</td>
+            </tr>
+            <tr>
+              <td class="metric-name">Lead &rarr; Proposal Rate</td>
+              <td class="target">&gt; 60%</td>
+              <td style="color:var(--text-muted)">Proposals sent / Form submissions</td>
+            </tr>
+            <tr>
+              <td class="metric-name">Proposal &rarr; Booking Rate</td>
+              <td class="target">&gt; 30%</td>
+              <td style="color:var(--text-muted)">Bookings / Proposals sent</td>
+            </tr>
+            <tr>
+              <td class="metric-name">Lead &rarr; Booking Rate</td>
+              <td class="target">&gt; 20%</td>
+              <td style="color:var(--text-muted)">Bookings / Form submissions</td>
+            </tr>
+            <tr>
+              <td class="metric-name">Revenue per Lead</td>
+              <td style="color:var(--text-mid)">Track</td>
+              <td style="color:var(--text-muted)">Total revenue / Total leads</td>
+            </tr>
+            <tr>
+              <td class="metric-name">Customer Acq Cost (CAC)</td>
+              <td class="target">&lt; &euro;50</td>
+              <td style="color:var(--text-muted)">Ad spend / Bookings</td>
+            </tr>
+            <tr>
+              <td class="metric-name">Lifetime Value (LTV)</td>
+              <td style="color:var(--text-mid)">Track</td>
+              <td style="color:var(--text-muted)">Avg booking + repeat + referral</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="monthly-targets" style="margin-top:20px;">
+        <div class="target-pill"><strong>30-60K</strong>&nbsp; impressions</div>
+        <div class="target-pill"><strong>300-600</strong>&nbsp; clicks</div>
+        <div class="target-pill"><strong>15-25</strong>&nbsp; leads</div>
+        <div class="target-pill"><strong>&gt; 4.0x</strong>&nbsp; ROAS</div>
+        <div class="target-pill"><strong>&gt; &euro;2,000</strong>&nbsp; revenue target</div>
+      </div>
+    </section>
+
+    <!-- ─── Section 5: USP + Hook Test Matrix ──────── -->
+    <section class="section">
+      <h2 class="section-title">USP + HOOK TEST MATRIX</h2>
+      <p class="section-desc">Hooks to A/B test per product. Rotate creatives to find winning angles.</p>
+      <div class="hook-matrix">
+        <div class="hook-column cyan">
+          <h3 class="hook-column-title">Magic Mirror XL</h3>
+          <ol class="hook-list">
+            <li>"DSLR kwaliteit fotos die je echt wilt inlijsten" -- Studio quality, VIP uitstraling</li>
+            <li>"5 uur inclusief, geen verborgen kosten" -- Transparante prijs, all-in pakket</li>
+            <li>"Direct printen op je feest" -- Instant prints, tastbaar aandenken</li>
+            <li>"De VIP photobooth voor bruiloften en events" -- Premium positionering, social proof</li>
+          </ol>
+        </div>
+        <div class="hook-column coral">
+          <h3 class="hook-column-title">Party Booth</h3>
+          <ol class="hook-list">
+            <li>"Photobooth huren vanaf &euro;199" -- Prijs als hook, drempelverlagend</li>
+            <li>"Zelf opzetten in 5 minuten" -- Geen gedoe, geen operator nodig</li>
+            <li>"Direct delen via QR code" -- Digitaal, instant social sharing</li>
+            <li>"Elk feest verdient een photobooth" -- Universeel, FOMO trigger</li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <!-- ─── Section 6: n8n Automations ─────────────── -->
+    <section class="section">
+      <h2 class="section-title">N8N AUTOMATIONS</h2>
+      <p class="section-desc">Automated monitoring, reporting, and lead handling workflows.</p>
+      <div class="automations">
+        <div class="auto-card">
+          <div class="auto-card-number">01</div>
+          <div class="auto-card-name">Daily KPI Monitor</div>
+          <div class="auto-card-trigger">09:00 daily</div>
+          <div class="auto-card-desc">Alerts via Slack/email if CPL, CTR, or frequency breach kill thresholds.</div>
+        </div>
+        <div class="auto-card">
+          <div class="auto-card-number">02</div>
+          <div class="auto-card-name">Weekly Performance Report</div>
+          <div class="auto-card-trigger">Monday 09:00</div>
+          <div class="auto-card-desc">Aggregated spend, CPL, CTR, winners and losers. Delivered to Slack and email.</div>
+        </div>
+        <div class="auto-card">
+          <div class="auto-card-number">03</div>
+          <div class="auto-card-name">Lead Notification</div>
+          <div class="auto-card-trigger">Form webhook</div>
+          <div class="auto-card-desc">New lead triggers HubSpot contact creation, Slack ping, and email notification to Richard.</div>
+        </div>
+        <div class="auto-card">
+          <div class="auto-card-number">04</div>
+          <div class="auto-card-name">Creative Fatigue Alert</div>
+          <div class="auto-card-trigger">Daily check</div>
+          <div class="auto-card-desc">Detects frequency spikes combined with CTR decline. Flags creatives needing refresh.</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ─── Section 7: To-Do Checklist ────────────── -->
+    <section class="section">
+      <h2 class="section-title">TO-DO CHECKLIST</h2>
+      <p class="section-desc">All tasks needed to go from zero to running, optimized campaigns.</p>
+      <div class="checklist">
+        <div class="check-item" style="color:var(--gold);font-weight:600;border-bottom:1px solid rgba(245,158,66,0.15);">Phase 0 — Prerequisites</div>
+        <div class="check-item"><div class="check-box"></div>Deploy website to picyourbooth.nl</div>
+        <div class="check-item"><div class="check-box"></div>Meta Pixel on all pages</div>
+        <div class="check-item"><div class="check-box"></div>Conversions API (server-side via n8n)</div>
+        <div class="check-item"><div class="check-box"></div>UTM capture in proposal form</div>
+        <div class="check-item"><div class="check-box"></div>HubSpot form integration</div>
+        <div class="check-item"><div class="check-box"></div>Thank you page conversion tracking</div>
+        <div class="check-item"><div class="check-box"></div>Google Analytics 4</div>
+        <div class="check-item"><div class="check-box"></div>Richard shares Vizibooth campaign data</div>
+
+        <div class="check-item" style="color:var(--violet-light);font-weight:600;border-bottom:1px solid rgba(139,92,246,0.15);margin-top:8px;">Phase 1 — Campaign Prep</div>
+        <div class="check-item"><div class="check-box"></div>Refine USPs per product for ads</div>
+        <div class="check-item"><div class="check-box"></div>Refine hooks per product for ads</div>
+        <div class="check-item"><div class="check-box"></div>Research competitor winning campaigns</div>
+        <div class="check-item"><div class="check-box"></div>Generate campaign specs (Party Booth + Magic Mirror)</div>
+        <div class="check-item"><div class="check-box"></div>Build USP + hook A/B test matrix</div>
+        <div class="check-item"><div class="check-box"></div>Create creative briefs (using source photos)</div>
+        <div class="check-item"><div class="check-box"></div>Design ad creative mockups (HTML visuals)</div>
+        <div class="check-item"><div class="check-box"></div>Set up n8n automations</div>
+
+        <div class="check-item" style="color:var(--cyan);font-weight:600;border-bottom:1px solid rgba(52,211,153,0.15);margin-top:8px;">Phase 2 — Test &amp; Optimize</div>
+        <div class="check-item"><div class="check-box"></div>Launch 4 ad sets with &euro;500 split budget</div>
+        <div class="check-item"><div class="check-box"></div>Monitor daily KPIs (CTR, CPC, CPL, ROAS)</div>
+        <div class="check-item"><div class="check-box"></div>Kill underperformers after 3-5 days</div>
+        <div class="check-item"><div class="check-box"></div>Move budget to winners (70/30 shift)</div>
+        <div class="check-item"><div class="check-box"></div>Log results in docs/funnel/results/</div>
+
+        <div class="check-item" style="color:var(--coral);font-weight:600;border-bottom:1px solid rgba(240,101,74,0.15);margin-top:8px;">Phase 3 — Ongoing</div>
+        <div class="check-item"><div class="check-box"></div>Monthly creative refresh cycle</div>
+        <div class="check-item"><div class="check-box"></div>Set up retargeting (website visitors, form openers)</div>
+        <div class="check-item"><div class="check-box"></div>Monthly performance review &amp; ROAS report</div>
+        <div class="check-item"><div class="check-box"></div>Scale winners, test new hooks</div>
+      </div>
+    </section>
+
+    <!-- ─── Section 8: Photo Assets Summary ────────── -->
+    <section class="section">
+      <h2 class="section-title">PHOTO ASSETS SUMMARY</h2>
+      <p class="section-desc">Available source photography for ad creatives and website.</p>
+      <div class="asset-badges">
+        <div class="asset-badge cyan">
+          <div class="asset-count">71</div>
+          <div>
+            <div class="asset-label">Magic Mirror XL</div>
+            <div class="asset-sub">source photos</div>
+          </div>
+        </div>
+        <div class="asset-badge coral">
+          <div class="asset-count">9</div>
+          <div>
+            <div class="asset-label">Party Booth</div>
+            <div class="asset-sub">source photos</div>
+          </div>
+        </div>
+        <div class="asset-badge violet">
+          <div class="asset-count">5</div>
+          <div>
+            <div class="asset-label">DJ</div>
+            <div class="asset-sub">photos</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ─── Footer ─────────────────────────────────── -->
+    <footer class="footer">
+      PicYourBooth Funnel v1 &mdash; &euro;500/month split test &mdash; Approach A
+    </footer>
+
+  </div>
+</body>
+</html>

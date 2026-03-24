@@ -99,7 +99,7 @@ PYB-specific page templates, form spec, personalization rules, and conversion ta
 |---|---|
 | Unclear pricing | "Vanaf €X" on every package — don't hide prices |
 | No availability info | "Check beschikbaarheid" CTA with date field |
-| Too many choices | Max 3 packages, "Meest gekozen" badge on Magic Mirror |
+| Too many choices | Max 3 packages, Magic Mirror XL centraal in pricing — anchor via charm pricing €599 en social proof |
 | No trust signals | Google reviews widget, testimonial near form, "237+ events" |
 | Slow response | "Binnen 24 uur reactie" — automate confirmation email |
 | No risk reversal | "Vrijblijvend voorstel" prominently near form |

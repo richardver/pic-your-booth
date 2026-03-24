@@ -1,0 +1,1403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DJ Gianni - Visual Brand Guide</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* ============================================================
+   DJ GIANNI - VISUAL BRAND GUIDE
+   Less is more. Typography is the design. Whitespace is luxury.
+   ============================================================ */
+
+/* -- Design Tokens ----------------------------------------- */
+:root {
+  --void: #050508;
+  --surface: #111116;
+  --card: #111116;
+  --border: rgba(255,255,255,0.06);
+
+  --white: #ededf0;
+  --muted: rgba(237,237,240,0.40);
+  --subtle: rgba(237,237,240,0.10);
+
+  --gi: #f0654a;
+  --gi-light: #f4826c;
+  --gi-dim: rgba(240,101,74,0.10);
+
+  --mi: #34d399;
+  --mi-light: #5ae0f0;
+  --mi-dim: rgba(34,211,238,0.10);
+
+  --violet: #8b5cf6;
+  --violet-dim: rgba(139,92,246,0.12);
+
+  --gold: #f59e42;
+
+  --font-display: 'Bebas Neue', Impact, sans-serif;
+  --font-body: 'Space Grotesk', system-ui, sans-serif;
+
+  --ease: cubic-bezier(0.16, 1, 0.3, 1);
+
+  --r-sm: 6px;
+  --r-md: 10px;
+  --r-lg: 16px;
+  --r-xl: 24px;
+  --r-pill: 999px;
+}
+
+/* -- Reset ------------------------------------------------- */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html {
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-body);
+  background: var(--void);
+  color: var(--white);
+  font-size: 15px;
+  line-height: 1.7;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+  html { scroll-behavior: auto; }
+}
+
+/* -- Layout ------------------------------------------------ */
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* -- Hero -------------------------------------------------- */
+.hero {
+  text-align: center;
+  padding: 96px 24px 72px;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 50% 80%, rgba(240,101,74,0.08) 0%, transparent 60%);
+  pointer-events: none;
+}
+
+.hero-title {
+  font-family: var(--font-display);
+  font-size: clamp(48px, 8vw, 96px);
+  letter-spacing: 0.04em;
+  line-height: 1;
+  background: linear-gradient(135deg, var(--gi) 0%, var(--violet) 50%, var(--mi) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 12px;
+  position: relative;
+}
+
+.hero-tagline {
+  font-family: var(--font-body);
+  font-size: 18px;
+  font-style: italic;
+  color: var(--gi);
+  letter-spacing: 0.04em;
+  margin-bottom: 8px;
+}
+
+.hero-subtitle {
+  font-family: var(--font-body);
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: var(--muted);
+  font-weight: 400;
+}
+
+/* -- Waveform Decoration ----------------------------------- */
+.waveform-deco {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  gap: 3px;
+  margin-top: 48px;
+  height: 32px;
+  opacity: 0.06;
+}
+
+.waveform-deco span {
+  display: block;
+  width: 3px;
+  border-radius: 2px;
+  background: linear-gradient(to top, var(--gi), var(--violet));
+  animation: wave 1.8s ease-in-out infinite;
+}
+
+@keyframes wave {
+  0%, 100% { transform: scaleY(0.3); }
+  50% { transform: scaleY(1); }
+}
+
+/* -- Gold Divider ------------------------------------------ */
+.gold-divider {
+  width: 48px;
+  height: 1px;
+  background: var(--gold);
+  margin: 0 auto;
+  opacity: 0.4;
+}
+
+/* -- Section Dividers -------------------------------------- */
+section {
+  padding: 72px 0;
+  border-top: 1px solid var(--border);
+}
+
+section:first-of-type { border-top: none; }
+
+.section-num {
+  font-family: var(--font-display);
+  font-size: 14px;
+  letter-spacing: 0.15em;
+  color: var(--gi);
+  margin-bottom: 8px;
+  display: block;
+}
+
+h2 {
+  font-family: var(--font-display);
+  font-size: 42px;
+  letter-spacing: 0.06em;
+  color: var(--white);
+  margin-bottom: 8px;
+}
+
+.section-desc {
+  font-size: 14px;
+  color: var(--muted);
+  margin-bottom: 40px;
+  max-width: 640px;
+  line-height: 1.7;
+}
+
+h3 {
+  font-family: var(--font-display);
+  font-size: 22px;
+  letter-spacing: 0.04em;
+  color: var(--white);
+  margin-bottom: 16px;
+}
+
+p, li {
+  font-size: 15px;
+  color: rgba(237,237,240,0.55);
+  line-height: 1.7;
+}
+
+ul { list-style: none; padding-left: 0; }
+ul li {
+  margin-bottom: 8px;
+  padding-left: 20px;
+  position: relative;
+}
+ul li::before {
+  content: "//";
+  position: absolute;
+  left: 0;
+  color: var(--gi);
+  font-weight: 700;
+  font-size: 12px;
+}
+
+/* -- Split-Energy Note ------------------------------------- */
+.split-note {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--r-md);
+  padding: 24px;
+  margin-bottom: 40px;
+  display: flex;
+  gap: 24px;
+  align-items: center;
+}
+
+.split-note-gi,
+.split-note-mi {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.split-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.split-note-gi .split-dot { background: var(--gi); }
+.split-note-mi .split-dot { background: var(--mi); }
+.split-note-gi { color: var(--gi-light); }
+.split-note-mi { color: var(--mi-light); }
+
+.split-divider {
+  width: 1px;
+  height: 32px;
+  background: var(--border);
+}
+
+/* -- Logo Mark - Hexagon ----------------------------------- */
+.logo-grid {
+  display: flex;
+  gap: 48px;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+
+.logo-variant {
+  text-align: center;
+}
+
+.logo-variant .label {
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--muted);
+  margin-top: 16px;
+}
+
+.hexagon {
+  width: 80px;
+  height: 92px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+  font-family: var(--font-display);
+  font-size: 48px;
+  letter-spacing: 0.04em;
+}
+
+.hex-coral {
+  background: var(--gi);
+  color: var(--void);
+}
+
+.hex-outline {
+  position: relative;
+}
+
+.hex-outline-outer {
+  width: 80px;
+  height: 92px;
+  clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+  background: var(--gi);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hex-outline-inner {
+  width: 72px;
+  height: 83px;
+  clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+  background: var(--void);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-display);
+  font-size: 42px;
+  color: var(--gi);
+  letter-spacing: 0.04em;
+}
+
+.hex-dark {
+  background: var(--surface);
+  color: var(--white);
+  border: none;
+}
+
+.hex-small {
+  width: 44px;
+  height: 51px;
+  font-size: 26px;
+}
+
+/* Brand mark also available as rounded square for inline/UI use */
+.brand-mark-rounded {
+  width: 56px;
+  height: 56px;
+  border-radius: var(--r-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-display);
+  font-size: 32px;
+  letter-spacing: 0.04em;
+  background: var(--gi);
+  color: var(--void);
+  flex-shrink: 0;
+}
+
+.brand-text-lock {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-top: 32px;
+  padding: 24px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--r-md);
+}
+
+.brand-text-lock .lock-name {
+  font-family: var(--font-display);
+  font-size: 36px;
+  letter-spacing: 0.04em;
+  color: var(--gi);
+  line-height: 1;
+}
+
+.brand-text-lock .lock-tagline {
+  font-size: 13px;
+  font-style: italic;
+  color: var(--muted);
+  margin-top: 2px;
+}
+
+/* -- Typography Showcase ----------------------------------- */
+.type-specimen {
+  margin-bottom: 32px;
+}
+
+.type-row {
+  display: flex;
+  align-items: baseline;
+  gap: 32px;
+  padding: 20px 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.type-row:last-child { border-bottom: none; }
+
+.type-label {
+  min-width: 160px;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--muted);
+  flex-shrink: 0;
+  line-height: 1.5;
+}
+
+.type-sample {
+  flex: 1;
+  color: var(--white);
+}
+
+/* -- Color System ------------------------------------------ */
+.color-group-label {
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--muted);
+  margin-bottom: 16px;
+  margin-top: 32px;
+}
+
+.color-group-label:first-child { margin-top: 0; }
+
+.palette-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: 16px;
+  margin-bottom: 32px;
+}
+
+.swatch {
+  border-radius: var(--r-md);
+  overflow: hidden;
+  border: 1px solid var(--border);
+}
+
+.swatch-color {
+  height: 80px;
+}
+
+.swatch-info {
+  padding: 12px;
+  background: var(--card);
+}
+
+.swatch-name {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--white);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-bottom: 2px;
+}
+
+.swatch-hex {
+  font-size: 11px;
+  color: var(--muted);
+  font-family: var(--font-body);
+  font-variant-numeric: tabular-nums;
+}
+
+/* -- Component Examples ------------------------------------ */
+.component-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  align-items: center;
+  margin-bottom: 28px;
+}
+
+.component-label {
+  width: 100%;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--muted);
+  margin-bottom: 4px;
+}
+
+/* DJ Card Mini */
+.dj-card-demo {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--r-lg);
+  overflow: hidden;
+  width: 320px;
+  transition: border-color 0.3s;
+}
+
+.dj-card-demo:hover {
+  border-color: rgba(255,255,255,0.12);
+}
+
+.dj-card-photo {
+  height: 120px;
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(135deg, rgba(240,101,74,0.12) 0%, transparent 60%);
+}
+
+.eq-bars {
+  position: absolute;
+  bottom: 12px;
+  right: 12px;
+  display: flex;
+  align-items: flex-end;
+  gap: 3px;
+  height: 28px;
+}
+
+.eq-bars span {
+  display: block;
+  width: 4px;
+  border-radius: 2px;
+  background: var(--gi);
+  animation: eq 1.2s ease-in-out infinite;
+}
+
+@keyframes eq {
+  0%, 100% { height: 6px; }
+  50% { height: 24px; }
+}
+
+.dj-card-body {
+  padding: 24px;
+}
+
+.dj-card-accent {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--gi);
+  margin-bottom: 14px;
+}
+
+.dj-card-name {
+  font-family: var(--font-display);
+  font-size: 48px;
+  letter-spacing: 0.04em;
+  line-height: 1;
+  color: var(--gi);
+  margin-bottom: 4px;
+}
+
+.dj-card-tagline {
+  font-size: 14px;
+  color: var(--muted);
+  font-style: italic;
+  margin-bottom: 16px;
+}
+
+.genre-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.genre-tag {
+  padding: 4px 12px;
+  border-radius: var(--r-pill);
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  background: var(--gi-dim);
+  color: var(--gi-light);
+  border: 1px solid rgba(240,101,74,0.15);
+}
+
+.genre-tag.cyan {
+  background: var(--mi-dim);
+  color: var(--mi-light);
+  border-color: rgba(34,211,238,0.15);
+}
+
+.genre-tag.violet {
+  background: var(--violet-dim);
+  color: #34d399;
+  border-color: rgba(139,92,246,0.15);
+}
+
+.dj-card-desc {
+  font-size: 14px;
+  color: rgba(237,237,240,0.55);
+  line-height: 1.7;
+  margin-bottom: 20px;
+}
+
+.dj-card-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.dj-socials {
+  display: flex;
+  gap: 8px;
+}
+
+.dj-social-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: 600;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid var(--border);
+  color: var(--muted);
+  cursor: pointer;
+  transition: all 0.25s;
+  text-decoration: none;
+}
+
+.dj-social-icon:hover {
+  background: var(--gi-dim);
+  border-color: rgba(240,101,74,0.3);
+  color: var(--gi);
+}
+
+.dj-play-btn {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: none;
+  background: var(--gi);
+  color: var(--void);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: transform 0.25s var(--ease);
+}
+
+.dj-play-btn:hover {
+  transform: scale(1.06);
+}
+
+.play-icon {
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 8px 0 8px 14px;
+  border-color: transparent transparent transparent var(--void);
+  margin-left: 3px;
+}
+
+/* -- Profile Demo ------------------------------------------ */
+.profile-demo {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--r-lg);
+  padding: 40px;
+  margin-bottom: 32px;
+}
+
+.profile-header {
+  display: flex;
+  gap: 32px;
+  align-items: flex-start;
+}
+
+.profile-avatar {
+  width: 140px;
+  height: 140px;
+  border-radius: var(--r-xl);
+  flex-shrink: 0;
+  background: linear-gradient(135deg, rgba(240,101,74,0.15) 0%, transparent 60%);
+  border: 1px solid rgba(240,101,74,0.15);
+  position: relative;
+  overflow: hidden;
+}
+
+.profile-avatar-initials {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-display);
+  font-size: 48px;
+  letter-spacing: 0.04em;
+  opacity: 0.15;
+}
+
+.profile-info { flex: 1; }
+
+.profile-name {
+  font-family: var(--font-display);
+  font-size: clamp(48px, 6vw, 72px);
+  letter-spacing: 0.04em;
+  line-height: 1;
+  color: var(--gi);
+  margin-bottom: 6px;
+}
+
+.profile-tagline {
+  font-size: 16px;
+  color: var(--muted);
+  font-style: italic;
+  margin-bottom: 12px;
+}
+
+.profile-bio {
+  font-size: 14px;
+  color: rgba(237,237,240,0.55);
+  line-height: 1.8;
+  max-width: 480px;
+  margin-bottom: 16px;
+}
+
+/* -- Set List Demo ----------------------------------------- */
+.set-item {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 14px 0;
+  border-bottom: 1px solid var(--border);
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.set-item:last-child { border-bottom: none; }
+
+.set-item:hover { background: rgba(255,255,255,0.02); border-radius: var(--r-sm); padding-left: 8px; padding-right: 8px; }
+
+.set-play {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: none;
+  background: var(--gi-dim);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: background 0.25s;
+}
+
+.set-play:hover { background: var(--gi); }
+
+.set-play-icon {
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 5px 0 5px 9px;
+  border-color: transparent transparent transparent var(--gi);
+  margin-left: 2px;
+}
+
+.set-play:hover .set-play-icon { border-color: transparent transparent transparent var(--void); }
+
+.set-info { flex: 1; }
+.set-info strong { display: block; font-size: 14px; color: var(--white); margin-bottom: 2px; }
+.set-info span { font-size: 12px; color: var(--muted); }
+
+.set-duration {
+  font-size: 12px;
+  color: var(--muted);
+  min-width: 48px;
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+/* -- Buttons Demo ------------------------------------------ */
+.btn-demo {
+  padding: 10px 28px;
+  font-family: var(--font-display);
+  font-size: 15px;
+  letter-spacing: 0.06em;
+  border: none;
+  border-radius: var(--r-pill);
+  cursor: pointer;
+  transition: transform 0.25s, background 0.25s;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.btn-demo:hover { transform: translateY(-1px); }
+
+.btn-coral { background: var(--gi); color: var(--void); }
+.btn-violet { background: var(--violet); color: #fff; }
+.btn-gold { background: var(--gold); color: #000; }
+.btn-ghost {
+  background: transparent;
+  color: var(--white);
+  border: 1px solid var(--border);
+}
+.btn-ghost:hover {
+  border-color: rgba(255,255,255,0.15);
+  background: rgba(255,255,255,0.03);
+}
+
+/* -- Design Rules ------------------------------------------ */
+.rules-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 16px;
+}
+
+.rule-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--r-md);
+  padding: 24px;
+  transition: border-color 0.3s;
+}
+
+.rule-card:hover {
+  border-color: rgba(240,101,74,0.15);
+}
+
+.rule-number {
+  font-family: var(--font-display);
+  font-size: 32px;
+  color: var(--gi);
+  line-height: 1;
+  margin-bottom: 8px;
+}
+
+.rule-text {
+  font-size: 14px;
+  color: rgba(237,237,240,0.55);
+  line-height: 1.6;
+}
+
+/* -- Gemini Prompt ----------------------------------------- */
+.prompt-box {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--r-md);
+  padding: 28px;
+  font-family: var(--font-body);
+  font-size: 13px;
+  line-height: 1.8;
+  color: rgba(237,237,240,0.55);
+  white-space: pre-wrap;
+  overflow-x: auto;
+}
+
+.prompt-box strong {
+  color: var(--gi);
+}
+
+/* -- Footer ------------------------------------------------ */
+footer {
+  text-align: center;
+  padding: 48px 24px;
+  border-top: 1px solid var(--border);
+}
+
+.footer-logo {
+  font-family: var(--font-display);
+  font-size: 16px;
+  letter-spacing: 0.1em;
+  color: rgba(237,237,240,0.15);
+  margin-bottom: 8px;
+}
+
+footer p {
+  font-size: 12px;
+  color: var(--muted);
+}
+
+/* -- Responsive -------------------------------------------- */
+@media (max-width: 768px) {
+  .hero-title { font-size: 48px; }
+  .type-row { flex-direction: column; gap: 8px; }
+  .type-label { min-width: auto; }
+  .logo-grid { gap: 24px; }
+  .profile-header { flex-direction: column; align-items: center; text-align: center; }
+  .profile-bio { margin-left: auto; margin-right: auto; }
+  .dj-card-demo { width: 100%; }
+  .rules-grid { grid-template-columns: 1fr; }
+  .split-note { flex-direction: column; gap: 12px; }
+  .palette-grid { grid-template-columns: repeat(2, 1fr); }
+}
+</style>
+</head>
+<body>
+
+<!-- ================================================================
+     HERO
+     ================================================================ -->
+<header class="hero">
+  <div class="container">
+    <h1 class="hero-title">DJ GIANNI</h1>
+    <div class="hero-tagline">Pure Vibes</div>
+    <div class="hero-subtitle">Visual Brand Guide  - PicYourBooth DJ System</div>
+    <div class="waveform-deco" id="heroWave"></div>
+  </div>
+</header>
+
+<div class="container">
+
+<!-- ================================================================
+     00 - SPLIT-ENERGY SYSTEM
+     ================================================================ -->
+<section>
+  <span class="section-num">00</span>
+  <h2>SPLIT-ENERGY SYSTEM</h2>
+  <p class="section-desc">PicYourBooth DJs use a split-energy identity. Each DJ owns a signature color. This guide focuses on DJ Gianni (coral), but documents how both identities coexist within the same design system.</p>
+
+  <div class="split-note">
+    <div class="split-note-gi">
+      <span class="split-dot"></span>
+      DJ Gianni  - Coral #f0654a  - Afro Beats, Caribbean, Nederlands, Hits
+    </div>
+    <div class="split-divider"></div>
+    <div class="split-note-mi">
+      <span class="split-dot"></span>
+      Milo  - Cyan #34d399  - House, Techno, Deep
+    </div>
+  </div>
+
+  <ul>
+    <li>Each DJ gets their own accent color applied to: name, EQ bars, genre tags, play buttons, social icon hovers, and card photo overlays</li>
+    <li>Shared elements stay neutral: backgrounds use --void (#050508) and --surface (#111116), text uses --white (#ededf0)</li>
+    <li>Violet (#8b5cf6) is the shared brand accent for non-DJ-specific elements: Spotify section, booking wizard, step indicators</li>
+    <li>Gold (#f59e42) is reserved for the nav CTA button "BOEK JE ERVARING"  - always pill-shaped, always gold</li>
+  </ul>
+</section>
+
+<!-- ================================================================
+     01 - BRAND MARK
+     ================================================================ -->
+<section>
+  <span class="section-num">01</span>
+  <h2>BRAND MARK</h2>
+  <p class="section-desc">The G hexagon is DJ Gianni's signature mark  - it differentiates his personal DJ brand from the PYB web system (which uses rounded rectangles). The hexagon connects to vinyl/DJ culture and gives Gianni a distinct identity. Always rendered in coral or white.</p>
+
+  <div class="logo-grid">
+    <div class="logo-variant">
+      <div class="hexagon hex-coral">G</div>
+      <div class="label">Coral / Primary</div>
+    </div>
+    <div class="logo-variant">
+      <div class="hex-outline-outer">
+        <div class="hex-outline-inner">G</div>
+      </div>
+      <div class="label">Outline / Dark BG</div>
+    </div>
+    <div class="logo-variant">
+      <div class="hexagon hex-dark">G</div>
+      <div class="label">Neutral / Shared</div>
+    </div>
+    <div class="logo-variant">
+      <div class="hexagon hex-coral hex-small">G</div>
+      <div class="label">Favicon / Small</div>
+    </div>
+  </div>
+
+  <p style="margin-top:32px;margin-bottom:16px;color:var(--muted);font-size:14px;">The hexagon is for DJ Gianni's personal brand (mixtape covers, social profiles, merch). On the PYB website, the rounded-square variant is used inline within UI components.</p>
+
+  <div class="brand-text-lock">
+    <div class="brand-mark-rounded">G</div>
+    <div>
+      <div class="lock-name">DJ GIANNI</div>
+      <div class="lock-tagline">"Elke set een feest, elk feest een herinnering"</div>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================
+     02 - TYPOGRAPHY
+     ================================================================ -->
+<section>
+  <span class="section-num">02</span>
+  <h2>TYPOGRAPHY</h2>
+  <p class="section-desc">Two fonts only. Bebas Neue for display/headings, Space Grotesk for everything else. No Oswald. No Montserrat. All fonts loaded via Google Fonts.</p>
+
+  <div class="type-specimen">
+    <div class="type-row">
+      <div class="type-label">Display XL<br>Bebas Neue, 80px<br>letter-spacing: 0.04em</div>
+      <div class="type-sample" style="font-family:var(--font-display);font-size:80px;line-height:1;letter-spacing:0.04em;">DJ GIANNI</div>
+    </div>
+    <div class="type-row">
+      <div class="type-label">Display LG<br>Bebas Neue, 48px<br>letter-spacing: 0.04em</div>
+      <div class="type-sample" style="font-family:var(--font-display);font-size:48px;line-height:1;letter-spacing:0.04em;color:var(--gi);">DJ GIANNI</div>
+    </div>
+    <div class="type-row">
+      <div class="type-label">Display MD<br>Bebas Neue, 28px<br>letter-spacing: 0.06em</div>
+      <div class="type-sample" style="font-family:var(--font-display);font-size:28px;line-height:1;letter-spacing:0.06em;">RECENTE SETS</div>
+    </div>
+    <div class="type-row">
+      <div class="type-label">Nav / Button<br>Bebas Neue, 15px<br>letter-spacing: 0.06em</div>
+      <div class="type-sample" style="font-family:var(--font-display);font-size:15px;letter-spacing:0.06em;">BOEK JE ERVARING</div>
+    </div>
+    <div class="type-row">
+      <div class="type-label">Body<br>Space Grotesk, 15px<br>font-weight: 300&ndash;400</div>
+      <div class="type-sample" style="font-size:15px;font-weight:300;line-height:1.7;">DJ Gianni brengt de Afro Beats, Caribbean vibes en populaire hits naar jouw event. Hij leest de zaal, voelt de energie en weet precies wanneer de bas moet knallen.</div>
+    </div>
+    <div class="type-row">
+      <div class="type-label">Body SM<br>Space Grotesk, 14px<br>color: 55% white</div>
+      <div class="type-sample" style="font-size:14px;color:rgba(237,237,240,0.55);line-height:1.7;">Stuur je Spotify playlist  - hij bouwt er een set van waar je gasten weken over praten.</div>
+    </div>
+    <div class="type-row">
+      <div class="type-label">Tagline<br>Space Grotesk, 18px<br>italic, color: --gi</div>
+      <div class="type-sample" style="font-size:18px;font-style:italic;color:var(--gi);">Pure Vibes</div>
+    </div>
+    <div class="type-row">
+      <div class="type-label">Label / Tag<br>Space Grotesk, 11px<br>uppercase, 600</div>
+      <div class="type-sample" style="font-size:11px;text-transform:uppercase;letter-spacing:0.1em;font-weight:600;color:var(--muted);">Afro Beats &bull; Caribbean &bull; Nederlands &bull; Hits</div>
+    </div>
+    <div class="type-row">
+      <div class="type-label">Gradient Text<br>Bebas Neue, 48px</div>
+      <div class="type-sample" style="font-family:var(--font-display);font-size:48px;line-height:1;letter-spacing:0.04em;background:linear-gradient(135deg,var(--gi),var(--violet),var(--mi));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">JOUW FEEST, ONZE DJS</div>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================
+     03 - COLOR SYSTEM
+     ================================================================ -->
+<section>
+  <span class="section-num">03</span>
+  <h2>COLOR SYSTEM</h2>
+  <p class="section-desc">All colors are defined as CSS custom properties. Gianni's coral is the primary DJ accent. Dim variants (10% opacity) are used for tag backgrounds and hover states.</p>
+
+  <div class="color-group-label">Backgrounds</div>
+  <div class="palette-grid">
+    <div class="swatch">
+      <div class="swatch-color" style="background:#050508;"></div>
+      <div class="swatch-info"><div class="swatch-name">Void</div><div class="swatch-hex">#050508</div></div>
+    </div>
+    <div class="swatch">
+      <div class="swatch-color" style="background:#111116;"></div>
+      <div class="swatch-info"><div class="swatch-name">Surface / Card</div><div class="swatch-hex">#111116</div></div>
+    </div>
+    <div class="swatch">
+      <div class="swatch-color" style="background:rgba(255,255,255,0.06); border-bottom:1px solid rgba(255,255,255,0.1);"></div>
+      <div class="swatch-info"><div class="swatch-name">Border</div><div class="swatch-hex">rgba(255,255,255,0.06)</div></div>
+    </div>
+  </div>
+
+  <div class="color-group-label">Text</div>
+  <div class="palette-grid">
+    <div class="swatch">
+      <div class="swatch-color" style="background:#ededf0;"></div>
+      <div class="swatch-info"><div class="swatch-name">White</div><div class="swatch-hex">#ededf0</div></div>
+    </div>
+    <div class="swatch">
+      <div class="swatch-color" style="background:rgba(237,237,240,0.40);"></div>
+      <div class="swatch-info"><div class="swatch-name">Muted</div><div class="swatch-hex">40% white</div></div>
+    </div>
+    <div class="swatch">
+      <div class="swatch-color" style="background:rgba(237,237,240,0.10);"></div>
+      <div class="swatch-info"><div class="swatch-name">Subtle</div><div class="swatch-hex">10% white</div></div>
+    </div>
+  </div>
+
+  <div class="color-group-label">DJ Gianni (Primary for this guide)</div>
+  <div class="palette-grid">
+    <div class="swatch">
+      <div class="swatch-color" style="background:#f0654a;"></div>
+      <div class="swatch-info"><div class="swatch-name">Coral / --gi</div><div class="swatch-hex">#f0654a</div></div>
+    </div>
+    <div class="swatch">
+      <div class="swatch-color" style="background:#f4826c;"></div>
+      <div class="swatch-info"><div class="swatch-name">Coral Light</div><div class="swatch-hex">#f4826c</div></div>
+    </div>
+    <div class="swatch">
+      <div class="swatch-color" style="background:rgba(240,101,74,0.10);"></div>
+      <div class="swatch-info"><div class="swatch-name">Coral Dim</div><div class="swatch-hex">10% coral</div></div>
+    </div>
+  </div>
+
+  <div class="color-group-label">Shared Brand Accents</div>
+  <div class="palette-grid">
+    <div class="swatch">
+      <div class="swatch-color" style="background:#8b5cf6;"></div>
+      <div class="swatch-info"><div class="swatch-name">Violet</div><div class="swatch-hex">#8b5cf6</div></div>
+    </div>
+    <div class="swatch">
+      <div class="swatch-color" style="background:#f59e42;"></div>
+      <div class="swatch-info"><div class="swatch-name">Gold</div><div class="swatch-hex">#f59e42</div></div>
+    </div>
+    <div class="swatch">
+      <div class="swatch-color" style="background:#34d399;"></div>
+      <div class="swatch-info"><div class="swatch-name">Milo Cyan</div><div class="swatch-hex">#34d399</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================
+     04 - COMPONENT EXAMPLES
+     ================================================================ -->
+<section>
+  <span class="section-num">04</span>
+  <h2>COMPONENTS</h2>
+  <p class="section-desc">Key UI components from the DJ design system, shown with DJ Gianni's coral accent applied.</p>
+
+  <!-- DJ Card -->
+  <h3>DJ Card</h3>
+  <p style="margin-bottom:24px;">The DJ card is the primary showcase component. Photo area with coral gradient overlay, EQ bars animation, accent dot, large Bebas Neue name, genre tags, social icons, and play button.</p>
+
+  <div style="margin-bottom:48px;">
+    <div class="dj-card-demo">
+      <div class="dj-card-photo">
+        <div class="eq-bars" id="eqDemo"></div>
+      </div>
+      <div class="dj-card-body">
+        <div class="dj-card-accent"></div>
+        <div class="dj-card-name">DJ GIANNI</div>
+        <div class="dj-card-tagline">"Elke set een feest, elk feest een herinnering"</div>
+        <div class="genre-tags">
+          <span class="genre-tag">Afro Beats</span>
+          <span class="genre-tag">Caribbean</span>
+          <span class="genre-tag">Hits</span>
+        </div>
+        <div class="dj-card-desc">Afro Beats, Caribbean vibes en populaire hits. Hij leest de zaal en weet wanneer de bas moet knallen.</div>
+        <div class="dj-card-footer">
+          <div class="dj-socials">
+            <a class="dj-social-icon">IG</a>
+            <a class="dj-social-icon">TT</a>
+            <a class="dj-social-icon">SC</a>
+          </div>
+          <button class="dj-play-btn"><div class="play-icon"></div></button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Genre Tags -->
+  <h3>Genre Tags</h3>
+  <div class="component-row" style="margin-bottom:40px;">
+    <div class="component-label">Gianni Tags (Coral Dim BG + Coral Light Text)</div>
+    <span class="genre-tag">Afro Beats</span>
+    <span class="genre-tag">Caribbean</span>
+    <span class="genre-tag">Hits</span>
+    <span class="genre-tag cyan">House</span>
+    <span class="genre-tag cyan">Techno</span>
+    <span class="genre-tag violet">DJ Set</span>
+  </div>
+
+  <!-- EQ Bars -->
+  <h3>EQ Bars</h3>
+  <p style="margin-bottom:16px;">Animated equalizer bars in the DJ's accent color. Positioned absolute, bottom-right of photo areas and avatars. 5 bars, 4px wide, staggered animation delay.</p>
+  <div class="component-row" style="margin-bottom:40px;">
+    <div style="background:var(--surface);border:1px solid var(--border);border-radius:var(--r-md);padding:24px;position:relative;width:160px;height:80px;">
+      <div class="eq-bars" id="eqDemo2" style="bottom:16px;right:16px;"></div>
+    </div>
+  </div>
+
+  <!-- Buttons -->
+  <h3>Buttons</h3>
+  <div class="component-row" style="margin-bottom:40px;">
+    <div class="component-label">Pill-shaped, Bebas Neue, letter-spacing 0.06em</div>
+    <button class="btn-demo btn-coral">BOEK GIANNI</button>
+    <button class="btn-demo btn-violet">BOEK EEN DJ</button>
+    <button class="btn-demo btn-gold">BOEK JE ERVARING</button>
+    <button class="btn-demo btn-ghost">MEER INFO</button>
+  </div>
+
+  <!-- Profile -->
+  <h3>DJ Profile</h3>
+  <p style="margin-bottom:24px;">Full profile with avatar (200x200, rounded-xl), large name, tagline, bio, genre tags, socials, and set list. Max-width 640px, centered.</p>
+
+  <div class="profile-demo">
+    <div class="profile-header">
+      <div class="profile-avatar">
+        <div class="profile-avatar-initials">G</div>
+        <div class="eq-bars" id="eqProfile" style="bottom:12px;right:12px;"></div>
+      </div>
+      <div class="profile-info">
+        <h2 class="profile-name">DJ GIANNI</h2>
+        <p class="profile-tagline">"Elke set een feest, elk feest een herinnering"</p>
+        <p class="profile-bio">DJ Gianni brengt de Afro Beats, Caribbean vibes en populaire hits naar jouw event. Hij leest de zaal, voelt de energie en weet precies wanneer de bas moet knallen.en wanneer de bass moet knallen.</p>
+        <div class="genre-tags">
+          <span class="genre-tag">Afro Beats</span>
+          <span class="genre-tag">Caribbean</span>
+          <span class="genre-tag">Hits</span>
+        </div>
+        <div class="dj-socials">
+          <a class="dj-social-icon">IG</a>
+          <a class="dj-social-icon">TT</a>
+          <a class="dj-social-icon">SC</a>
+        </div>
+      </div>
+    </div>
+
+    <div style="margin-top:32px;">
+      <h3 style="font-size:28px;letter-spacing:0.06em;">RECENTE SETS</h3>
+      <div class="set-item">
+        <button class="set-play"><div class="set-play-icon"></div></button>
+        <div class="set-info"><strong>Sunset Festival Haarlem 2025</strong><span>Festival &bull; Outdoor &bull; 3000+ bezoekers</span></div>
+        <span class="set-duration">1:24:00</span>
+      </div>
+      <div class="set-item">
+        <button class="set-play"><div class="set-play-icon"></div></button>
+        <div class="set-info"><strong>Bruiloft Nadia &amp; Youssef</strong><span>Bruiloft &bull; 180 gasten</span></div>
+        <span class="set-duration">4:30:00</span>
+      </div>
+      <div class="set-item">
+        <button class="set-play"><div class="set-play-icon"></div></button>
+        <div class="set-info"><strong>Eindejaarsfeest Deloitte</strong><span>Bedrijfsfeest &bull; 400 gasten</span></div>
+        <span class="set-duration">3:00:00</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================
+     05 - DESIGN RULES
+     ================================================================ -->
+<section>
+  <span class="section-num">05</span>
+  <h2>DESIGN RULES</h2>
+  <p class="section-desc">Non-negotiable rules for maintaining DJ Gianni's visual identity within the PicYourBooth system.</p>
+
+  <div class="rules-grid">
+    <div class="rule-card">
+      <div class="rule-number">01</div>
+      <div class="rule-text">Two fonts only: Bebas Neue (display) and Space Grotesk (body). Never use Oswald, Montserrat, or any other typeface.</div>
+    </div>
+    <div class="rule-card">
+      <div class="rule-number">02</div>
+      <div class="rule-text">Coral (#f0654a) is Gianni's signature. Always used for: DJ name, EQ bars, genre tag backgrounds, play buttons, social icon hovers.</div>
+    </div>
+    <div class="rule-card">
+      <div class="rule-number">03</div>
+      <div class="rule-text">Never mix Gianni coral with Milo cyan on the same component. Each DJ element gets exactly one accent color.</div>
+    </div>
+    <div class="rule-card">
+      <div class="rule-number">04</div>
+      <div class="rule-text">Backgrounds are always --void (#050508) or --surface (#111116). No pure black (#000) or dark grays. The system is tinted.</div>
+    </div>
+    <div class="rule-card">
+      <div class="rule-number">05</div>
+      <div class="rule-text">Typography is the design. Whitespace is luxury. The G hexagon is the one bold graphic element  - everything else stays minimal.</div>
+    </div>
+    <div class="rule-card">
+      <div class="rule-number">06</div>
+      <div class="rule-text">The G hexagon is for Gianni's personal brand (covers, social, merch). PYB website UI uses rounded rectangles from the token scale: 6px (sm) to 999px (pill).</div>
+    </div>
+    <div class="rule-card">
+      <div class="rule-number">07</div>
+      <div class="rule-text">"Pure Vibes" is Gianni's tagline. "Elke set een feest, elk feest een herinnering" is the profile quote. Both appear consistently.</div>
+    </div>
+    <div class="rule-card">
+      <div class="rule-number">08</div>
+      <div class="rule-text">Gradient text (coral > violet > cyan) is for hero titles only. Never on body text, tags, or buttons. Applied via background-clip: text.</div>
+    </div>
+    <div class="rule-card">
+      <div class="rule-number">09</div>
+      <div class="rule-text">Dim color variants (10% opacity) are for tag backgrounds and hover states only. Never use full-opacity coral as a background fill on large areas.</div>
+    </div>
+    <div class="rule-card">
+      <div class="rule-number">10</div>
+      <div class="rule-text">Gold (#f59e42) is reserved for the nav CTA "BOEK JE ERVARING". It never appears as a section heading or DJ accent color.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================
+     06 - GEMINI PRO PROMPT TEMPLATE
+     ================================================================ -->
+<section>
+  <span class="section-num">06</span>
+  <h2>GEMINI PRO PROMPT TEMPLATE</h2>
+  <p class="section-desc">Updated prompt for generating DJ Gianni visual assets in the new minimal, typographic style. Swap the <strong style="color:var(--gi);">highlighted</strong> parts for each variation.</p>
+  <div class="prompt-box">Design a minimal, premium DJ social media graphic for "<strong>DJ GIANNI</strong>"  - <strong>Meezingers Set at Festival Haarlem</strong>.
+
+Layout:
+- Square format (1:1), 3000x3000px
+- "DJ GIANNI" as dominant title in Bebas Neue style (heavy, condensed, uppercase, letter-spacing 0.04em)
+- "<strong>AFRO BEATS</strong>" as a genre tag  - small, pill-shaped, uppercase, Space Grotesk Bold
+- "<strong>Pure Vibes</strong>" in italic Space Grotesk below the name
+- Clean, structured typography hierarchy  - no clutter
+
+Visual style:
+- Very dark background (#050508) with subtle coral (#f0654a) gradient glow at bottom or side
+- MINIMAL design: no patterns, no textures, no noise  - pure typography and whitespace
+- If photo included: B&amp;W studio portrait, 200x200px area, rounded corners (24px radius)
+- EQ-bar motif: 5 thin vertical bars in coral, varying heights, as a subtle decorative element
+- Gold/coral hexagon with letter "G" as the DJ brand logo mark  - top-left or bottom-right corner
+
+Color palette:
+- Background: #050508 (void)
+- Primary accent: <strong>#f0654a (coral)</strong>  - for name, EQ bars, tags
+- Text: #ededf0 (white) for headings, rgba(237,237,240,0.40) for secondary text
+- Subtle: rgba(240,101,74,0.10) for tag backgrounds
+
+Typography:
+- Display: Bebas Neue (or similar heavy condensed sans-serif)
+- Body: Space Grotesk (or similar geometric sans-serif)
+- NO Oswald, NO Montserrat, NO serif fonts
+
+Mood: Dark, minimal, premium, confident  - "less is more" nightlife aesthetic
+Brand reference: PicYourBooth DJ page design system
+
+Do NOT include: realistic human faces, watermarks, busy backgrounds, neon glows, or old gold (#FFD700) accents</div>
+</section>
+
+<!-- ================================================================
+     07 - CSS VARIABLE REFERENCE
+     ================================================================ -->
+<section>
+  <span class="section-num">07</span>
+  <h2>CSS VARIABLE REFERENCE</h2>
+  <p class="section-desc">Complete token reference for implementing DJ Gianni's brand in code. Copy these into any project to maintain consistency.</p>
+  <div class="prompt-box">:root {
+  /* Backgrounds */
+  --void: #050508;
+  --surface: #111116;
+  --card: #111116;
+  --border: rgba(255,255,255,0.06);
+
+  /* Text */
+  --white: #ededf0;
+  --muted: rgba(237,237,240,0.40);
+  --subtle: rgba(237,237,240,0.10);
+
+  /* DJ Gianni */
+  <strong>--gi: #f0654a;</strong>
+  <strong>--gi-light: #f4826c;</strong>
+  <strong>--gi-dim: rgba(240,101,74,0.10);</strong>
+
+  /* DJ Milo (for reference) */
+  --mi: #34d399;
+  --mi-light: #5ae0f0;
+  --mi-dim: rgba(34,211,238,0.10);
+
+  /* Shared accents */
+  --violet: #8b5cf6;
+  --violet-dim: rgba(139,92,246,0.12);
+  --gold: #f59e42;
+
+  /* Typography */
+  --font-display: 'Bebas Neue', Impact, sans-serif;
+  --font-body: 'Space Grotesk', system-ui, sans-serif;
+
+  /* Animation */
+  --ease: cubic-bezier(0.16, 1, 0.3, 1);
+
+  /* Radius scale */
+  --r-sm: 6px;
+  --r-md: 10px;
+  --r-lg: 16px;
+  --r-xl: 24px;
+  --r-pill: 999px;
+}</div>
+</section>
+
+</div>
+
+<!-- ================================================================
+     FOOTER
+     ================================================================ -->
+<footer>
+  <div class="footer-logo">PICYOURBOOTH</div>
+  <p>DJ Gianni  - Brand Guide  - 2026</p>
+</footer>
+
+<!-- ================================================================
+     JAVASCRIPT
+     ================================================================ -->
+<script>
+(function() {
+  'use strict';
+
+  /* -- Waveform generator ---------------------------------- */
+  function createWaveform(container, count) {
+    if (!container) return;
+    for (var i = 0; i < count; i++) {
+      var bar = document.createElement('span');
+      var h = 6 + Math.random() * 26;
+      bar.style.height = h + 'px';
+      bar.style.animationDelay = (i * 0.06) + 's';
+      bar.style.animationDuration = (1.2 + Math.random() * 1.0) + 's';
+      container.appendChild(bar);
+    }
+  }
+
+  createWaveform(document.getElementById('heroWave'), 50);
+
+  /* -- EQ bars generator ----------------------------------- */
+  function createEQ(container, count) {
+    if (!container) return;
+    for (var i = 0; i < count; i++) {
+      var bar = document.createElement('span');
+      bar.style.animationDelay = (i * 0.15) + 's';
+      bar.style.animationDuration = (0.6 + Math.random() * 0.8) + 's';
+      container.appendChild(bar);
+    }
+  }
+
+  createEQ(document.getElementById('eqDemo'), 5);
+  createEQ(document.getElementById('eqDemo2'), 5);
+  createEQ(document.getElementById('eqProfile'), 5);
+
+})();
+</script>
+
+</body>
+</html>

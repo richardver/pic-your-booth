@@ -22,12 +22,19 @@ Waar PYB nu op moet focussen, en wat later kan.
 | 8 | Eerste 10+ Google Reviews verzamelen | — | Te doen |
 
 **Fase 1 Ad strategie:**
+- **Budget: €500/maand** (Phase 1 test budget)
+- **Approach A split test:** €250 Magic Mirror XL + €250 Party Booth (all Meta Ads)
+- Google Ads pas in Phase 2
 - 100% ad budget op photobooth (Magic Mirror XL + Party Booth)
 - Geen aparte DJ-advertenties — DJ wordt gepromoot als upgrade (+€149) in photobooth-campagnes
 - DJ-boekingen komen organisch via combo-aanbod op website en social media
 - Pas in Fase 2 starten met aparte DJ-advertenties
+- **n8n automations** for daily KPI monitoring, weekly reports, lead notifications, creative fatigue alerts
+
+> Vizibooth 2025 historical data: `docs/kpi/`. Funnel architecture: `docs/funnel/`.
 
 **KPI's Fase 1:**
+- **ROAS >4.0x** (Vizibooth 2025 avg was 4.5x)
 - 20+ photobooth leads/maand via website
 - CPL < €25
 - 5+ events/maand
@@ -78,10 +85,10 @@ Waar PYB nu op moet focussen, en wat later kan.
 ### Betaald (Ads)
 | Kanaal | Fase 1 | Fase 2-3 |
 |---|---|---|
-| **Meta Ads** | 60% budget — alleen photobooth prospecting | + DJ-campagnes, retargeting |
-| **Google Ads** | 40% — "photobooth huren" + brand search | + "dj huren", PMax, stadsspecifiek |
+| **Meta Ads** | 100% budget (€500/mo) — €250 MM XL + €250 PB split test | + DJ-campagnes, retargeting schalen |
+| **Google Ads** | Niet in Fase 1 | + "photobooth huren", "dj huren", PMax, stadsspecifiek |
 
-**Fase 1 regel:** 0% ad budget op DJ. DJ is upgrade in photobooth-campagnes.
+**Fase 1 regel:** 0% ad budget op DJ. DJ is upgrade in photobooth-campagnes. ROAS target >4.0x.
 
 ### Organisch (Social — Instagram + TikTok only)
 | Account | Fase 1 | Fase 2-3 |

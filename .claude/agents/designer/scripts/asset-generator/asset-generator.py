@@ -40,11 +40,11 @@ except ImportError:
     print("Error: google-genai not installed. Run: pip install google-genai")
     sys.exit(1)
 
-from prompts import BRAND_CONTEXT, ENHANCE_PROMPT, GENERATE_PROMPT, SCENES, ASPECT_RATIOS
+from prompts import BRAND_CONTEXTS, REALISM_DIRECTIVES, ENHANCE_PROMPT, GENERATE_PROMPT, SCENES, ASPECT_RATIOS
 
 # Output directories
-GENERATED_DIR = PROJECT_ROOT / "docs" / "assets" / "generated"
-WEB_DIR = PROJECT_ROOT / "docs" / "assets" / "web"
+GENERATED_DIR = PROJECT_ROOT / "docs" / "images" / "photos-generated"
+WEB_DIR = PROJECT_ROOT / "docs" / "images" / "website"
 
 # Size configs per usage type
 SIZES = {
@@ -60,22 +60,23 @@ WEBP_QUALITY = 85
 # Brand color grading presets per page
 COLOR_GRADES = {
     "magic-mirror": {
-        "red_mult": 1.06,
-        "blue_mult": 0.90,
-        "green_mult": 1.01,
-        "contrast": 1.12,
-        "saturation": 1.10,
-        "sharpness": 1.15,
-        "brightness": 1.0,
+        "red_mult": 1.10,      # strong warm gold push
+        "blue_mult": 0.85,     # crush blues — deep warm shadows
+        "green_mult": 0.97,    # slight green reduction for cleaner gold
+        "contrast": 1.22,      # high contrast — deep blacks, bright highlights
+        "saturation": 1.14,    # rich but not neon
+        "sharpness": 1.18,     # crisp editorial detail
+        "brightness": 0.94,    # pull down — darker, moodier
+        "vignette": True,      # darken edges for editorial focus
     },
     "party-booth": {
-        "red_mult": 1.05,
-        "blue_mult": 0.92,
-        "green_mult": 1.0,
-        "contrast": 1.14,
-        "saturation": 1.18,
-        "sharpness": 1.12,
-        "brightness": 1.04,
+        "red_mult": 1.03,      # subtle warmth, not amber push
+        "blue_mult": 0.97,     # keep blues alive for pastels
+        "green_mult": 1.01,    # slight mint lift
+        "contrast": 1.06,      # gentle — Fujifilm is soft, not punchy
+        "saturation": 1.08,    # mild boost, pastels not neons
+        "sharpness": 1.05,     # soft film look, not razor sharp
+        "brightness": 1.06,    # lifted — airy Instax feel
     },
     "djs": {
         "red_mult": 1.02,
@@ -98,12 +99,52 @@ COLOR_GRADES = {
 }
 
 
-def build_output_name(page, usage, name=None, ext="png"):
-    """Build unique output filename. Uses --name if provided, else timestamp."""
+# Map page arg to subfolder name
+PAGE_FOLDERS = {
+    "magic-mirror": "magicmirror",
+    "party-booth": "partybooth",
+    "djs": "dj",
+    "homepage": "homepage",
+    "offerte": "homepage",
+}
+
+
+def build_output_path(page, usage, name=None, ext="png"):
+    """Build output path with product/usage subfolder. Creates dirs if needed."""
+    folder = PAGE_FOLDERS.get(page, page)
+    subdir = GENERATED_DIR / folder / usage
+    subdir.mkdir(parents=True, exist_ok=True)
+
     if name:
-        return f"{page}-{usage}-{name}.{ext}"
-    timestamp = datetime.now().strftime("%H%M%S")
-    return f"{page}-{usage}-{timestamp}.{ext}"
+        filename = f"{page}-{usage}-{name}.{ext}"
+    else:
+        timestamp = datetime.now().strftime("%H%M%S")
+        filename = f"{page}-{usage}-{timestamp}.{ext}"
+
+    return subdir / filename
+
+
+def apply_vignette(img, strength=0.4):
+    """Apply a radial vignette — darkens edges, keeps center bright."""
+    import math
+    width, height = img.size
+    cx, cy = width / 2, height / 2
+    max_dist = math.sqrt(cx**2 + cy**2)
+
+    # Create a luminance mask
+    mask = Image.new("L", (width, height), 255)
+    pixels = mask.load()
+    for y in range(height):
+        for x in range(width):
+            dist = math.sqrt((x - cx)**2 + (y - cy)**2)
+            # Smooth falloff from center to edges
+            factor = 1.0 - strength * (dist / max_dist) ** 1.5
+            pixels[x, y] = max(0, min(255, int(255 * factor)))
+
+    # Apply: blend original with darkened version using the mask
+    dark = ImageEnhance.Brightness(img).enhance(0.3)
+    img = Image.composite(img, dark, mask)
+    return img
 
 
 def apply_color_grade(img, page):
@@ -122,6 +163,11 @@ def apply_color_grade(img, page):
     img = ImageEnhance.Color(img).enhance(grade["saturation"])
     img = ImageEnhance.Sharpness(img).enhance(grade["sharpness"])
     img = ImageEnhance.Brightness(img).enhance(grade["brightness"])
+
+    # Optional vignette for editorial focus
+    if grade.get("vignette"):
+        print("  Applying editorial vignette...")
+        img = apply_vignette(img, strength=0.45)
 
     return img
 
@@ -146,11 +192,13 @@ def enhance_image(client, source_path, page, usage, scene_override=None, name=No
     print(f"Enhancing: {source.name}")
     print(f"Page: {page}, Usage: {usage}")
 
-    # Build prompt
+    # Build prompt with product-specific brand context
     scene = scene_override or SCENES.get(page, {}).get(usage, "Premium event atmosphere")
     aspect = ASPECT_RATIOS.get(usage, "16:9 landscape")
+    brand_context = BRAND_CONTEXTS.get(page, BRAND_CONTEXTS["homepage"])
     prompt = ENHANCE_PROMPT.format(
-        brand_context=BRAND_CONTEXT,
+        brand_context=brand_context,
+        realism=REALISM_DIRECTIVES,
         product="Magic Mirror XL photobooth" if "mirror" in page else "Party Booth" if "party" in page else "DJ setup",
         scene_description=scene,
         aspect_ratio=aspect,
@@ -170,10 +218,8 @@ def enhance_image(client, source_path, page, usage, scene_override=None, name=No
         ),
     )
 
-    # Save generated image with unique name
-    output_name = build_output_name(page, usage, name, "png")
-    output_path = GENERATED_DIR / output_name
-    GENERATED_DIR.mkdir(parents=True, exist_ok=True)
+    # Save generated image to product/usage subfolder
+    output_path = build_output_path(page, usage, name, "png")
 
     if response.candidates:
         for part in response.candidates[0].content.parts:
@@ -196,8 +242,10 @@ def generate_image(client, page, usage, scene_override=None, name=None):
 
     scene = scene_override or SCENES.get(page, {}).get(usage, "Premium event atmosphere")
     aspect = ASPECT_RATIOS.get(usage, "16:9 landscape")
+    brand_context = BRAND_CONTEXTS.get(page, BRAND_CONTEXTS["homepage"])
     prompt = GENERATE_PROMPT.format(
-        brand_context=BRAND_CONTEXT,
+        brand_context=brand_context,
+        realism=REALISM_DIRECTIVES,
         scene_description=scene,
         aspect_ratio=aspect,
     )
@@ -211,9 +259,7 @@ def generate_image(client, page, usage, scene_override=None, name=None):
         ),
     )
 
-    output_name = build_output_name(page, usage, name, "png")
-    output_path = GENERATED_DIR / output_name
-    GENERATED_DIR.mkdir(parents=True, exist_ok=True)
+    output_path = build_output_path(page, usage, name, "png")
 
     if response.candidates:
         for part in response.candidates[0].content.parts:

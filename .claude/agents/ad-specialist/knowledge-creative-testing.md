@@ -29,6 +29,11 @@ Testing framework and fatigue management. Full reference in `.claude/agents/ad-s
 | CTR | Below 80% of baseline | Below 70% of baseline |
 | CPM | Above 115% of baseline | Above 130% of baseline |
 | Cost per result | Above 120% of baseline | Above 140% of baseline |
+| ROAS | Below 4.5x | Below 4.0x target |
+
+## PYB Budget Context
+
+With €250/product budget, narrow audiences fatigue faster — monitor closely. ROAS is the key success metric alongside CTR/CPM/CPA.
 
 ## Testing Cadence
 

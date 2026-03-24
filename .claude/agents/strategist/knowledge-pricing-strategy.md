@@ -33,7 +33,7 @@ PYB zit bewust in de **"premium kwaliteit, toegankelijke prijs"** hoek. We lever
 ## Ankeringsstrategie
 
 ### Op de Website
-1. **Homepage**: Magic Mirror XL in het midden met "MEEST GEKOZEN" badge — anker
+1. **Homepage**: Magic Mirror XL centraal gepositioneerd met charm pricing €599 als primair anker. Social proof en scarcity als versterking — geen expliciete badge. *(Badge 'Meest Gekozen' verwijderd, maart 2026. Anker nu via prijspsychologie + testimonials.)*
 2. **Productpagina's**: Duurste upgrade bovenaan in de builder
 3. **Voorstel-email**: VIP-pakket als "Aanbevolen" markeren
 

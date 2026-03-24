@@ -1,0 +1,2274 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DJ Huren | DJ Gianni & DJ Milø vanaf €149 - PicYourBooth</title>
+<meta name="description" content="DJ huren met Spotify playlist-optimalisatie. Speakers, licht en rookmachine inbegrepen. Vanaf €149 per avond. Randstad.">
+<link rel="canonical" href="https://picyourbooth.nl/djs">
+<meta property="og:title" content="DJ Huren | DJ Gianni & DJ Milø vanaf €149">
+<meta property="og:description" content="DJ huren met Spotify playlist-optimalisatie. Speakers, licht en rookmachine inbegrepen. Vanaf €149 per avond.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://picyourbooth.nl/djs">
+<meta property="og:locale" content="nl_NL">
+<meta property="og:image" content="https://picyourbooth.nl/assets/images/djs-hero-1280x720.webp">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* ============================================================
+   PICYOURBOOTH — DJS
+   Dark nightlife. Violet primary. Coral = Gianni. Cyan = DJ Milø.
+   ============================================================ */
+
+/* -- Design Tokens ------------------------------------- */
+:root {
+  --void:        #050508;
+  --bg:          #08080b;
+  --surface:     #111116;
+  --surface-up:  #18181e;
+  --text:        #ededf0;
+  --text-muted:  rgba(237, 237, 240, 0.75);
+  --border:      rgba(255, 255, 255, 0.06);
+  --border-hover: rgba(255, 255, 255, 0.12);
+
+  --gold:        #f59e42;
+  --gold-light:  #ffb86b;
+  --gold-dim:    rgba(245, 158, 66, 0.10);
+  --gold-glow:   rgba(245, 158, 66, 0.20);
+
+  --violet:      #8b5cf6;
+  --violet-dim:  rgba(139, 92, 246, 0.12);
+  --violet-glow: rgba(139, 92, 246, 0.20);
+
+  --coral:       #f0654a;
+  --coral-light: #f4826c;
+  --coral-dim:   rgba(240, 101, 74, 0.10);
+
+  --cyan:        #34d399;
+  --cyan-light:  #5ae0f0;
+  --cyan-dim:    rgba(34, 211, 238, 0.10);
+
+  --font-display: 'Bebas Neue', Impact, sans-serif;
+  --font-body:    'Space Grotesk', -apple-system, sans-serif;
+
+  --r-sm:   8px;
+  --r-md:  12px;
+  --r-lg:  16px;
+  --r-pill: 999px;
+
+  --ease: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* -- Reset --------------------------------------------- */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html {
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  scroll-behavior: smooth;
+}
+
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  pointer-events: none;
+  opacity: 0.03;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+body {
+  font-family: var(--font-body);
+  font-size: 15px;
+  line-height: 1.7;
+  background: var(--void);
+  color: var(--text);
+}
+
+img { display: block; max-width: 100%; }
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  line-height: 1.1;
+  font-weight: 400;
+}
+
+a { color: inherit; text-decoration: none; }
+
+::selection {
+  background: var(--violet);
+  color: #fff;
+}
+
+:focus-visible {
+  outline: 2px solid var(--violet);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  html { scroll-behavior: auto; }
+}
+
+/* -- Navigation ---------------------------------------- */
+.nav-bar {
+  border-top: 2px solid var(--violet);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px 32px;
+}
+
+.nav-logo {
+  font-family: var(--font-display);
+  font-size: 1.75rem;
+  letter-spacing: 0.10em;
+  text-transform: uppercase;
+  color: var(--text);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0;
+  transition: filter 0.3s var(--ease);
+}
+
+.nav-logo:hover {
+  filter: drop-shadow(0 0 8px rgba(245, 158, 66, 0.35));
+}
+
+.nav-logo .logo-accent {
+  background: linear-gradient(135deg, var(--gold) 0%, var(--gold-light) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.nav-logo .logo-dot {
+  display: inline-block;
+  width: 5px;
+  height: 5px;
+  background: var(--gold);
+  border-radius: 50%;
+  margin-left: 3px;
+  margin-bottom: 2px;
+  box-shadow: 0 0 6px rgba(245, 158, 66, 0.4);
+}
+
+.nav-links {
+  display: flex;
+  gap: 24px;
+  align-items: center;
+  list-style: none;
+}
+
+.nav-links a {
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  letter-spacing: 0.06em;
+  color: var(--text-muted);
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: color 0.2s var(--ease);
+}
+
+.nav-links a:hover {
+  color: var(--text);
+}
+
+.nav-links a.active {
+  color: var(--text);
+  border-bottom: 2px solid var(--violet);
+  padding-bottom: 2px;
+}
+
+.nav-links .nav-cta, .nav-cta {
+  padding: 10px 24px;
+  border-radius: var(--r-pill);
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  display: inline-block;
+  background: var(--gold);
+  color: #000000;
+  font-weight: 700;
+  transition: background 0.25s var(--ease), box-shadow 0.25s var(--ease);
+}
+
+.nav-links .nav-cta.active {
+  border-bottom: none;
+  padding-bottom: 10px;
+}
+
+.nav-cta:hover {
+  color: #000000 !important;
+  transform: scale(1.02);
+  background: var(--gold-light);
+  box-shadow: 0 0 24px var(--gold-glow);
+}
+
+/* Hamburger (mobile) */
+.nav-hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+}
+
+.nav-hamburger span {
+  display: block;
+  width: 22px;
+  height: 1.5px;
+  background: var(--text);
+  transition: transform 0.25s var(--ease), opacity 0.25s var(--ease);
+}
+
+@media (max-width: 768px) {
+  .nav-links { display: none; }
+  .nav-hamburger { display: flex; }
+}
+
+/* -- Hero ---------------------------------------------- */
+.hero {
+  text-align: center;
+  min-height: 70vh;
+  padding: 120px 32px 48px;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url('assets/images/djs-hero-1920x1080.webp');
+  background-size: cover;
+  background-position: center 30%;
+  opacity: 0.25;
+  pointer-events: none;
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg,
+    rgba(5, 5, 8, 0.12) 0%,
+    rgba(5, 5, 8, 0.35) 50%,
+    rgba(5, 5, 8, 0.80) 100%
+  );
+  pointer-events: none;
+  z-index: 1;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  animation: heroFadeUp 0.8s var(--ease) both;
+}
+
+@keyframes heroFadeUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.hero-label {
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--violet);
+  margin-bottom: 12px;
+  display: block;
+}
+
+.hero-title {
+  font-size: clamp(2.5rem, 6vw, 3.5rem);
+  letter-spacing: 0.08em;
+  margin-bottom: 16px;
+  line-height: 1;
+  background: linear-gradient(135deg, var(--coral) 0%, var(--violet) 50%, var(--cyan) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.hero-subtitle {
+  font-size: 15px;
+  color: var(--text-muted);
+  max-width: 520px;
+  margin: 0 auto;
+  font-weight: 300;
+  line-height: 1.7;
+}
+
+.hero-price {
+  display: inline-block;
+  margin-top: 20px;
+  font-family: var(--font-body);
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--violet);
+  font-variant-numeric: tabular-nums;
+}
+
+/* Waveform + Play/Pause container — below hero content */
+.waveform-wrap {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  position: relative;
+  z-index: 2;
+  margin-top: auto;
+  padding-top: 32px;
+}
+
+/* Play/Pause button */
+.audio-toggle {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  border: 2px solid var(--violet);
+  background: rgba(139, 92, 246, 0.12);
+  color: var(--violet);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.25s var(--ease), box-shadow 0.25s var(--ease), transform 0.15s var(--ease), border-color 0.25s var(--ease);
+  flex-shrink: 0;
+  box-shadow: 0 0 16px var(--violet-glow);
+}
+
+.audio-toggle:hover {
+  background: rgba(139, 92, 246, 0.25);
+  box-shadow: 0 0 28px var(--violet-glow);
+  transform: scale(1.1);
+  border-color: var(--coral);
+}
+
+.audio-toggle svg {
+  width: 22px;
+  height: 22px;
+  fill: currentColor;
+}
+
+.audio-toggle .icon-pause { display: none; }
+.audio-toggle.playing .icon-play  { display: none; }
+.audio-toggle.playing .icon-pause { display: block; }
+
+/* Waveform bars — large, colourful equalizer */
+.waveform-bars {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  gap: 5px;
+  height: 80px;
+}
+
+.waveform-bars span {
+  display: block;
+  width: 5px;
+  border-radius: 3px;
+  animation: waveBob 1.6s ease-in-out infinite;
+  /* Gradient from coral → violet → cyan across bars */
+  background: var(--violet);
+}
+
+/* Coral bars (left) */
+.waveform-bars span:nth-child(1)  { background: var(--coral); }
+.waveform-bars span:nth-child(2)  { background: var(--coral); }
+.waveform-bars span:nth-child(3)  { background: var(--coral-light); }
+/* Coral → violet transition */
+.waveform-bars span:nth-child(4)  { background: #d06090; }
+.waveform-bars span:nth-child(5)  { background: #b560b8; }
+/* Violet bars (center) */
+.waveform-bars span:nth-child(6)  { background: var(--violet); }
+.waveform-bars span:nth-child(7)  { background: var(--violet); }
+.waveform-bars span:nth-child(8)  { background: var(--violet); }
+.waveform-bars span:nth-child(9)  { background: var(--violet); }
+/* Violet → cyan transition */
+.waveform-bars span:nth-child(10) { background: #6b8be6; }
+.waveform-bars span:nth-child(11) { background: #50a8d8; }
+/* Cyan bars (right) */
+.waveform-bars span:nth-child(12) { background: var(--cyan); }
+.waveform-bars span:nth-child(13) { background: var(--cyan); }
+.waveform-bars span:nth-child(14) { background: var(--cyan-light); }
+.waveform-bars span:nth-child(15) { background: var(--cyan); }
+
+/* Glow effect per bar */
+.waveform-bars span:nth-child(-n+3)  { box-shadow: 0 0 8px rgba(240, 101, 74, 0.4); }
+.waveform-bars span:nth-child(n+6):nth-child(-n+9)  { box-shadow: 0 0 8px var(--violet-glow); }
+.waveform-bars span:nth-child(n+12) { box-shadow: 0 0 8px rgba(34, 211, 153, 0.4); }
+
+/* Heights & stagger */
+.waveform-bars span:nth-child(1)  { height: 28px; animation-delay: 0s;     animation-duration: 1.4s; }
+.waveform-bars span:nth-child(2)  { height: 48px; animation-delay: 0.12s;  animation-duration: 1.1s; }
+.waveform-bars span:nth-child(3)  { height: 64px; animation-delay: 0.24s;  animation-duration: 1.5s; }
+.waveform-bars span:nth-child(4)  { height: 40px; animation-delay: 0.08s;  animation-duration: 1.3s; }
+.waveform-bars span:nth-child(5)  { height: 56px; animation-delay: 0.32s;  animation-duration: 0.9s; }
+.waveform-bars span:nth-child(6)  { height: 72px; animation-delay: 0.16s;  animation-duration: 1.6s; }
+.waveform-bars span:nth-child(7)  { height: 50px; animation-delay: 0.04s;  animation-duration: 1.2s; }
+.waveform-bars span:nth-child(8)  { height: 80px; animation-delay: 0.28s;  animation-duration: 1.0s; }
+.waveform-bars span:nth-child(9)  { height: 60px; animation-delay: 0.20s;  animation-duration: 1.4s; }
+.waveform-bars span:nth-child(10) { height: 44px; animation-delay: 0.36s;  animation-duration: 1.1s; }
+.waveform-bars span:nth-child(11) { height: 68px; animation-delay: 0.10s;  animation-duration: 1.5s; }
+.waveform-bars span:nth-child(12) { height: 52px; animation-delay: 0.22s;  animation-duration: 0.95s; }
+.waveform-bars span:nth-child(13) { height: 76px; animation-delay: 0.06s;  animation-duration: 1.3s; }
+.waveform-bars span:nth-child(14) { height: 36px; animation-delay: 0.30s;  animation-duration: 1.15s; }
+.waveform-bars span:nth-child(15) { height: 58px; animation-delay: 0.18s;  animation-duration: 1.45s; }
+
+/* Paused state — bars freeze */
+.waveform-bars.paused span {
+  animation-play-state: paused;
+  opacity: 0.5;
+}
+
+/* -- DJ Profile Section -------------------------------- */
+.dj-section {
+  padding: 64px 32px;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+.dj-section + .dj-section {
+  border-top: none;
+  padding-top: 0;
+}
+
+.dj-profile {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: 0;
+  align-items: stretch;
+  background: linear-gradient(165deg, var(--surface) 0%, var(--surface-up) 100%);
+  border-radius: var(--r-lg);
+  overflow: hidden;
+  transition: border-color 0.25s var(--ease), transform 0.35s var(--ease), box-shadow 0.35s var(--ease);
+}
+
+.dj-profile--coral {
+  border: 1px solid rgba(240, 101, 74, 0.12);
+}
+@media (hover: hover) {
+  .dj-profile--coral:hover {
+    border-color: rgba(240, 101, 74, 0.25);
+    transform: translateY(-4px);
+    box-shadow: 0 16px 48px rgba(0, 0, 0, 0.3), 0 0 20px rgba(240, 101, 74, 0.08);
+  }
+}
+
+.dj-profile--cyan {
+  border: 1px solid rgba(34, 211, 153, 0.12);
+}
+@media (hover: hover) {
+  .dj-profile--cyan:hover {
+    border-color: rgba(34, 211, 153, 0.25);
+    transform: translateY(-4px);
+    box-shadow: 0 16px 48px rgba(0, 0, 0, 0.3), 0 0 20px rgba(34, 211, 153, 0.08);
+  }
+}
+
+.dj-profile--reverse {
+  grid-template-columns: 1fr 280px;
+}
+
+@media (max-width: 768px) {
+  .dj-profile,
+  .dj-profile--reverse {
+    grid-template-columns: 1fr;
+    gap: 0;
+    text-align: center;
+  }
+
+  .dj-avatar-wrap {
+    min-height: 220px;
+  }
+
+  .dj-profile--reverse .dj-avatar-wrap {
+    order: -1;
+  }
+
+  .dj-profile .dj-info,
+  .dj-profile--reverse .dj-info {
+    align-items: center;
+  }
+}
+
+/* Avatar */
+.dj-avatar-wrap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 280px;
+}
+
+.dj-profile--coral .dj-avatar-wrap {
+  background: radial-gradient(circle at 50% 50%, rgba(240, 101, 74, 0.15) 0%, var(--void) 70%);
+}
+
+.dj-profile--cyan .dj-avatar-wrap {
+  background: radial-gradient(circle at 50% 50%, rgba(34, 211, 153, 0.15) 0%, var(--void) 70%);
+}
+
+.dj-avatar {
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.dj-avatar--hex {
+  clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+}
+
+.dj-avatar--diamond {
+  clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+}
+
+.dj-avatar-glow {
+  position: relative;
+  display: inline-block;
+}
+
+.dj-avatar-glow--coral::before {
+  content: '';
+  position: absolute;
+  inset: -12px;
+  background: radial-gradient(circle, rgba(240, 101, 74, 0.25) 0%, transparent 70%);
+  z-index: -1;
+  filter: blur(20px);
+}
+
+.dj-avatar-glow--cyan::before {
+  content: '';
+  position: absolute;
+  inset: -12px;
+  background: radial-gradient(circle, rgba(34, 211, 238, 0.25) 0%, transparent 70%);
+  z-index: -1;
+  filter: blur(20px);
+}
+
+/* Info */
+.dj-info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0;
+  padding: 36px 32px;
+}
+
+.dj-name {
+  font-size: clamp(2.5rem, 5vw, 3.5rem);
+  letter-spacing: 0.04em;
+  line-height: 1;
+  margin-bottom: 6px;
+}
+
+.dj-name--coral { color: var(--coral); }
+.dj-name--cyan { color: var(--cyan); }
+
+.dj-tagline {
+  font-size: 16px;
+  font-style: italic;
+  color: var(--text-muted);
+  margin-bottom: 4px;
+}
+
+.dj-sub {
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  margin-bottom: 16px;
+}
+
+.dj-sub--coral { color: var(--coral); }
+
+.dj-bio {
+  font-size: 15px;
+  font-weight: 300;
+  color: var(--text-muted);
+  line-height: 1.7;
+  max-width: 480px;
+  margin-bottom: 20px;
+}
+
+/* Genre tags */
+.genre-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+
+.genre-tag {
+  padding: 5px 14px;
+  border-radius: var(--r-pill);
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.genre-tag--coral {
+  background: var(--coral-dim);
+  color: var(--coral-light);
+  border: 1px solid rgba(240, 101, 74, 0.15);
+}
+
+.genre-tag--cyan {
+  background: var(--cyan-dim);
+  color: var(--cyan-light);
+  border: 1px solid rgba(34, 211, 238, 0.15);
+}
+
+/* Social links */
+.dj-socials {
+  display: flex;
+  gap: 16px;
+}
+
+.dj-social {
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--text-muted);
+  text-decoration: none;
+  letter-spacing: 0.04em;
+  transition: color 0.2s var(--ease);
+}
+
+.dj-social--coral:hover { color: var(--coral); }
+.dj-social--cyan:hover { color: var(--cyan); }
+
+/* -- Spotify Section ----------------------------------- */
+.spotify {
+  padding: 96px 32px;
+  text-align: center;
+  border-top: 1px solid var(--border);
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.spotify-badge {
+  display: inline-block;
+  padding: 6px 18px;
+  background: var(--violet);
+  color: #fff;
+  font-size: 10px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  border-radius: var(--r-pill);
+  margin-bottom: 24px;
+}
+
+.spotify-title {
+  font-size: clamp(1.8rem, 4vw, 2.5rem);
+  letter-spacing: 0.06em;
+  margin-bottom: 16px;
+  color: var(--text);
+}
+
+.spotify-desc {
+  font-size: 15px;
+  font-weight: 300;
+  color: var(--text-muted);
+  line-height: 1.7;
+  max-width: 560px;
+  margin: 0 auto 40px;
+}
+
+.btn-violet {
+  display: inline-block;
+  padding: 14px 36px;
+  background: var(--violet);
+  color: #fff;
+  font-family: var(--font-display);
+  font-size: 1rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  border: none;
+  border-radius: var(--r-pill);
+  cursor: pointer;
+  text-decoration: none;
+  transition: background 0.25s var(--ease), transform 0.25s var(--ease);
+}
+
+.btn-violet:hover {
+  background: #7c3aed;
+  transform: translateY(-2px);
+}
+
+/* -- How It Works -------------------------------------- */
+.hiw {
+  padding: 96px 32px;
+  border-top: 1px solid var(--border);
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+.hiw-title {
+  font-size: clamp(1.8rem, 4vw, 2.5rem);
+  letter-spacing: 0.06em;
+  text-align: center;
+  margin-bottom: 56px;
+  color: var(--text);
+}
+
+.hiw-steps {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+@media (max-width: 768px) {
+  .hiw-steps {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+}
+
+.hiw-step {
+  padding: 32px 28px;
+  background: linear-gradient(165deg, var(--surface) 0%, var(--surface-up) 100%);
+  border: 1px solid var(--border);
+  border-radius: var(--r-md);
+  border-top: 3px solid var(--violet);
+  transition: border-color 0.25s var(--ease), transform 0.35s var(--ease), box-shadow 0.35s var(--ease);
+}
+
+.hiw-step:hover {
+  border-color: rgba(139, 92, 246, 0.2);
+  border-top-color: var(--violet);
+  transform: translateY(-4px);
+  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.3), 0 0 16px var(--violet-glow);
+}
+
+.hiw-num {
+  font-family: var(--font-display);
+  font-size: 2.8rem;
+  line-height: 1;
+  margin-bottom: 8px;
+  color: var(--violet);
+  opacity: 0.7;
+}
+
+.hiw-step h3 {
+  font-size: 1.2rem;
+  letter-spacing: 0.04em;
+  margin-bottom: 8px;
+  color: var(--text);
+}
+
+.hiw-step p {
+  font-size: 13px;
+  color: var(--text-muted);
+  line-height: 1.7;
+}
+
+/* -- Booking Wizard ------------------------------------ */
+.booking {
+  padding: 96px 32px;
+  border-top: 1px solid var(--border);
+  max-width: 560px;
+  margin: 0 auto;
+}
+
+.booking-title {
+  font-size: clamp(1.8rem, 4vw, 2.5rem);
+  letter-spacing: 0.06em;
+  text-align: center;
+  margin-bottom: 40px;
+  color: var(--text);
+}
+
+.booking-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--r-lg);
+  padding: 40px 32px;
+}
+
+.booking-base {
+  text-align: center;
+  margin-bottom: 28px;
+}
+
+.booking-base-label {
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text);
+  margin-bottom: 4px;
+}
+
+.booking-base-price {
+  font-family: var(--font-body);
+  font-size: 2rem;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+  color: var(--violet);
+}
+
+/* Includes list */
+.booking-includes {
+  list-style: none;
+  margin-bottom: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.booking-includes li {
+  font-size: 14px;
+  font-weight: 300;
+  color: var(--text-muted);
+  padding-left: 20px;
+  position: relative;
+}
+
+.booking-includes li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 8px;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--violet);
+  opacity: 0.6;
+}
+
+/* Hour selector */
+.hour-selector {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 28px;
+}
+
+.hour-option {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 16px;
+  border: 1px solid var(--border);
+  border-radius: var(--r-md);
+  cursor: pointer;
+  transition: border-color 0.2s var(--ease), background 0.2s var(--ease);
+}
+
+.hour-option:hover {
+  border-color: var(--border-hover);
+}
+
+.hour-option.selected {
+  border-color: var(--violet);
+  background: var(--violet-dim);
+}
+
+.hour-radio {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  border: 2px solid rgba(255, 255, 255, 0.15);
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: border-color 0.2s var(--ease);
+}
+
+.hour-option.selected .hour-radio {
+  border-color: var(--violet);
+}
+
+.hour-radio-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--violet);
+  opacity: 0;
+  transform: scale(0);
+  transition: opacity 0.2s var(--ease), transform 0.2s var(--ease);
+}
+
+.hour-option.selected .hour-radio-dot {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.hour-label {
+  flex: 1;
+  font-size: 14px;
+  color: var(--text);
+}
+
+.hour-extra {
+  font-size: 12px;
+  color: var(--text-muted);
+}
+
+.hour-price {
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+  color: var(--text);
+}
+
+/* Total */
+.booking-total {
+  text-align: center;
+  margin-bottom: 24px;
+  padding: 28px 32px;
+  background: linear-gradient(165deg, var(--surface) 0%, rgba(139, 92, 246, 0.03) 100%);
+  border-radius: var(--r-lg);
+  border: 1px solid rgba(139, 92, 246, 0.15);
+  box-shadow: 0 0 24px var(--violet-glow);
+}
+
+.booking-total-label {
+  font-family: var(--font-display);
+  font-size: 0.75rem;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--text-muted);
+  margin-bottom: 4px;
+}
+
+.booking-total-price {
+  font-family: var(--font-display);
+  font-size: 3rem;
+  font-weight: 400;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.04em;
+  background: linear-gradient(135deg, var(--violet) 0%, #a78bfa 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  line-height: 1.1;
+}
+
+.booking-total-btw {
+  font-size: 11px;
+  color: var(--text-muted);
+  font-weight: 300;
+  margin-top: 2px;
+}
+
+/* CTA */
+.booking-cta {
+  display: block;
+  width: 100%;
+  padding: 16px 32px;
+  background: var(--violet);
+  color: #fff;
+  font-family: var(--font-display);
+  font-size: 1rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-align: center;
+  border: none;
+  border-radius: var(--r-pill);
+  cursor: pointer;
+  text-decoration: none;
+  transition: background 0.25s var(--ease), transform 0.25s var(--ease);
+}
+
+.booking-cta:hover {
+  background: #7c3aed;
+  transform: translateY(-2px);
+}
+
+/* -- Footer -------------------------------------------- */
+.footer {
+  background: var(--void);
+  padding: 48px 32px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.footer-brand {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.footer-email {
+  font-size: 12px;
+  color: rgba(237, 237, 240, 0.35);
+  text-decoration: none;
+  transition: color 0.2s var(--ease);
+}
+
+.footer-email:hover {
+  color: var(--gold);
+}
+
+.footer-copy {
+  font-size: 10px;
+  color: rgba(237, 237, 240, 0.25);
+  margin-top: 24px;
+}
+
+/* ============================================================
+   ENTERTAINMENT ANIMATIONS - Violet accent
+   ============================================================ */
+
+/* -- Hero Slow Zoom (Ken Burns) ------------------------ */
+@keyframes heroZoom {
+  from { transform: scale(1); }
+  to   { transform: scale(1.08); }
+}
+
+.hero::before {
+  animation: heroZoom 20s ease-out forwards;
+}
+
+/* -- Scroll-Reveal ------------------------------------- */
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* -- Cursor Glow (desktop only, VIOLET) ---------------- */
+.cursor-glow {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 400px;
+  height: 400px;
+  pointer-events: none;
+  z-index: 1;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle at center,
+    rgba(139, 92, 246, 0.08) 0%,
+    rgba(139, 92, 246, 0.04) 20%,
+    rgba(139, 92, 246, 0.015) 40%,
+    transparent 65%
+  );
+  transform: translate(-200px, -200px);
+  will-change: transform;
+  filter: blur(1px);
+}
+
+@media (max-width: 768px) {
+  .cursor-glow { display: none; }
+}
+
+/* -- Scroll Progress Bar (VIOLET) ---------------------- */
+.scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 0%;
+  height: 2px;
+  background: var(--violet);
+  z-index: 101;
+  pointer-events: none;
+  transition: none;
+}
+
+/* -- Price Pulse (VIOLET) ------------------------------ */
+@keyframes pricePulse {
+  0%   { text-shadow: 0 0 0 transparent; }
+  50%  { text-shadow: 0 0 16px rgba(139, 92, 246, 0.5); }
+  100% { text-shadow: 0 0 0 transparent; }
+}
+
+.price-pulse {
+  animation: pricePulse 0.4s ease-out;
+}
+
+/* -- Enhanced Waveform --------------------------------- */
+@keyframes waveBobEnergetic {
+  0%   { transform: scaleY(0.2); }
+  15%  { transform: scaleY(0.9); }
+  30%  { transform: scaleY(0.35); }
+  50%  { transform: scaleY(1); }
+  65%  { transform: scaleY(0.4); }
+  80%  { transform: scaleY(0.75); }
+  100% { transform: scaleY(0.2); }
+}
+
+.waveform-bars span {
+  animation-name: waveBobEnergetic;
+}
+
+/* -- Confetti Burst ------------------------------------ */
+@keyframes confettiBurst {
+  0%   { opacity: 1; transform: translate(0, 0) scale(1); }
+  100% { opacity: 0; transform: translate(var(--cx), var(--cy)) scale(0); }
+}
+
+.confetti-particle {
+  position: fixed;
+  width: 4px;
+  height: 4px;
+  background: var(--violet);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 200;
+  animation: confettiBurst 0.6s ease-out forwards;
+}
+
+/* -- Mobile Menu Open State ---------------------------- */
+.nav-links.open {
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  inset: 0;
+  background: rgba(8, 8, 11, 0.97);
+  backdrop-filter: blur(12px);
+  z-index: 200;
+  justify-content: center;
+  align-items: center;
+  gap: 32px;
+  padding: 32px;
+  animation: menuFadeIn 0.2s ease both;
+}
+
+@keyframes menuFadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+.nav-links.open li {
+  list-style: none;
+  opacity: 1 !important;
+  transform: none !important;
+  transition: none !important;
+}
+
+.nav-links.open a {
+  font-size: 1.5rem;
+  color: var(--text);
+  opacity: 1 !important;
+  transform: none !important;
+}
+
+.nav-links.open .nav-cta {
+  color: #000000;
+  font-size: 1.3rem;
+  padding: 14px 36px;
+}
+.nav-hamburger.active {
+  position: fixed;
+  top: 20px;
+  right: 32px;
+  z-index: 201;
+}
+
+.nav-hamburger.active span:nth-child(1) {
+  transform: rotate(45deg) translate(4px, 4px);
+}
+
+.nav-hamburger.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.nav-hamburger.active span:nth-child(3) {
+  transform: rotate(-45deg) translate(4px, -4px);
+}
+
+.nav-bar.menu-open {
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  background: transparent;
+  border-bottom-color: transparent;
+}
+
+/* -- Reduced Motion Override --------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  .hero::before {
+    animation: none;
+  }
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+  .price-pulse {
+    animation: none;
+  }
+  .scroll-progress {
+    display: none;
+  }
+  .cursor-glow {
+    display: none;
+  }
+  .waveform-bars span {
+    animation: none;
+    transform: scaleY(0.6);
+  }
+}
+
+/* -- FAQ Section --------------------------------------- */
+.faq {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 120px 32px;
+}
+
+.faq-title {
+  font-family: var(--font-display);
+  font-size: 2rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  text-align: center;
+  margin-bottom: 48px;
+}
+
+.faq-item {
+  border-bottom: 1px solid var(--border);
+}
+
+.faq-item summary {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text);
+  padding: 20px 0;
+  cursor: pointer;
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: color 0.2s;
+}
+
+.faq-item summary:hover {
+  color: var(--gold);
+}
+
+.faq-item summary::-webkit-details-marker {
+  display: none;
+}
+
+.faq-item summary::after {
+  content: "+";
+  font-family: var(--font-body);
+  font-size: 1.2rem;
+  font-weight: 300;
+  color: var(--text-muted);
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  flex-shrink: 0;
+  margin-left: 16px;
+}
+
+.faq-item[open] summary::after {
+  content: "-";
+}
+
+.faq-answer {
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  font-weight: 300;
+  color: var(--text-muted);
+  line-height: 1.7;
+  padding-bottom: 20px;
+}
+
+/* ============================================================
+   PREMIUM VISUAL ENHANCEMENTS
+   ============================================================ */
+
+/* -- DJ Card Entrances ------------------------------------ */
+.dj-section.reveal-left .dj-profile {
+  opacity: 0;
+  transform: translateX(-120px) rotate(-3deg) scale(0.92);
+  transition: opacity 1.8s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 1.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.dj-section.reveal-right .dj-profile {
+  opacity: 0;
+  transform: translateX(120px) rotate(3deg) scale(0.92);
+  transition: opacity 1.8s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 1.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.dj-section.reveal-left.visible .dj-profile,
+.dj-section.reveal-right.visible .dj-profile {
+  opacity: 1;
+  transform: translateX(0) rotate(0deg) scale(1);
+}
+
+@media (max-width: 768px) {
+  .dj-section.reveal-left .dj-profile {
+    transform: translateX(-60px) rotate(-2deg) scale(0.95);
+  }
+  .dj-section.reveal-right .dj-profile {
+    transform: translateX(60px) rotate(2deg) scale(0.95);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .dj-section.reveal-left .dj-profile,
+  .dj-section.reveal-right .dj-profile {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
+/* -- 2. Staggered Scroll Reveals -------------------------- */
+.reveal > * {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 0.5s var(--ease), transform 0.5s var(--ease);
+}
+
+.reveal.visible > * {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.reveal.visible > *:nth-child(1) { transition-delay: 0s; }
+.reveal.visible > *:nth-child(2) { transition-delay: 0.08s; }
+.reveal.visible > *:nth-child(3) { transition-delay: 0.08s; }
+.reveal.visible > *:nth-child(4) { transition-delay: 0.24s; }
+.reveal.visible > *:nth-child(5) { transition-delay: 0.32s; }
+.reveal.visible > *:nth-child(6) { transition-delay: 0.40s; }
+
+/* -- 3. Parallax Hero ------------------------------------- */
+.hero::before {
+  transform: translateY(var(--parallax-y, 0));
+}
+
+/* -- 4. Glassmorphism Sticky Nav -------------------------- */
+.nav-bar.scrolled {
+  background: rgba(8, 8, 11, 0.85);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom-color: rgba(255, 255, 255, 0.08);
+}
+
+/* -- 9. Hero Background Beat Pulse ------------------------ */
+.hero.beat-pulse::before {
+  animation: heroBeatPulse 0.48s ease-out;
+}
+
+@keyframes heroBeatPulse {
+  0%   { opacity: 0.25; }
+  100% { opacity: 0.2; }
+}
+
+/* -- 10. Floating Music Notes ----------------------------- */
+.floating-note {
+  position: absolute;
+  font-size: 16px;
+  pointer-events: none;
+  z-index: 3;
+  opacity: 0;
+  animation: noteFloat 2.5s ease-out forwards;
+}
+
+@keyframes noteFloat {
+  0%   { opacity: 0.7; transform: translateY(0) rotate(0deg); }
+  50%  { opacity: 0.5; }
+  100% { opacity: 0; transform: translateY(-80px) rotate(15deg) translateX(20px); }
+}
+
+/* -- Reduced Motion: disable new enhancements ------------- */
+@media (prefers-reduced-motion: reduce) {
+  body {
+    opacity: 1;
+    transition: none;
+  }
+  .reveal > * {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+  .hero.beat-pulse::before {
+    animation: none;
+  }
+  .floating-note {
+    display: none;
+  }
+}
+/* ============================================================
+   MOBILE RESPONSIVENESS ADDITIONS
+   ============================================================ */
+
+/* -- Tablet (max 768px) additions ------------------------- */
+@media (max-width: 768px) {
+  .hero {
+    min-height: 60vh;
+    padding: 80px 24px 64px;
+  }
+  .hero-title {
+    font-size: clamp(2rem, 5vw, 3rem);
+  }
+  .nav-hamburger {
+    padding: 10px;
+    min-width: 44px;
+    min-height: 44px;
+    justify-content: center;
+    align-items: center;
+  }
+  .dj-avatar {
+    width: 180px;
+    height: 180px;
+  }
+  .dj-section {
+    padding: 64px 24px;
+  }
+  .waveform-wrap {
+    margin-top: 40px;
+    gap: 16px;
+  }
+  .waveform-bars {
+    height: 60px;
+  }
+  .waveform-bars span {
+    width: 4px;
+  }
+  .faq {
+    padding: 64px 24px;
+  }
+}
+
+/* -- Mobile (max 600px) ----------------------------------- */
+@media (max-width: 600px) {
+  .hero {
+    min-height: 50vh;
+    padding: 64px 20px 48px;
+  }
+  .hero-title {
+    font-size: clamp(1.8rem, 7vw, 2.5rem);
+  }
+  .hero-subtitle {
+    font-size: 13px;
+  }
+  .dj-avatar {
+    width: 160px;
+    height: 160px;
+  }
+  .dj-name {
+    font-size: clamp(2rem, 8vw, 3rem);
+  }
+  .dj-section {
+    padding: 48px 20px;
+  }
+  .audio-toggle {
+    width: 48px;
+    height: 48px;
+  }
+  .audio-toggle svg {
+    width: 18px;
+    height: 18px;
+  }
+  .faq {
+    padding: 48px 20px;
+  }
+}
+
+/* -- Small mobile (max 480px) ----------------------------- */
+@media (max-width: 480px) {
+  .hero {
+    padding: 48px 16px 36px;
+  }
+  .hero-title {
+    font-size: clamp(1.5rem, 9vw, 2rem);
+  }
+  .nav {
+    padding: 16px 16px;
+  }
+  .dj-avatar {
+    width: 140px;
+    height: 140px;
+  }
+  .dj-name {
+    font-size: clamp(1.8rem, 9vw, 2.5rem);
+  }
+  .dj-tagline {
+    font-size: 14px;
+  }
+  .waveform-bars {
+    height: 48px;
+    gap: 3px;
+  }
+  .waveform-bars span {
+    width: 3px;
+  }
+  .waveform-wrap {
+    margin-top: 32px;
+    gap: 12px;
+  }
+  .dj-section {
+    padding: 40px 16px;
+  }
+}
+
+/* -- Responsive Hero Images ------------------------------- */
+@media (max-width: 1280px) {
+  .hero::before {
+    background-image: url('assets/images/djs-hero-1280x720.webp');
+  }
+}
+@media (max-width: 768px) {
+  .hero::before {
+    background-image: url('assets/images/djs-hero-768x432.webp');
+  }
+}
+</style>
+</head>
+<body>
+<script>document.body.classList.add('loaded');</script>
+
+<!-- ============================================================
+     NAVIGATION
+     ============================================================ -->
+<div class="nav-bar"><nav class="nav">
+  <a href="index.html" class="nav-logo">PicYour<span class="logo-accent">Booth</span><span class="logo-dot"></span></a>
+  <ul class="nav-links">
+    <li><a href="party-booth.html">Party Booth</a></li>
+    <li><a href="magic-mirror.html">Magic Mirror XL</a></li>
+    <li><a href="djs.html" class="active">DJ's</a></li>
+    <li><a href="offerte.html?service=dj" class="nav-cta">Boek Je Ervaring</a></li>
+  </ul>
+  <button class="nav-hamburger" aria-label="Menu">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+</nav></div>
+
+<main>
+
+<!-- ============================================================
+     HERO
+     ============================================================ -->
+<section class="hero">
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <span class="hero-label">DJ Entertainment</span>
+    <h1 class="hero-title">DJ Huren.<br>DJ Gianni & DJ Milø</h1>
+    <p class="hero-subtitle">Spotify playlist-optimalisatie.<br>Speakers, licht en rookmachine inbegrepen.</p>
+    <span class="hero-price">Vanaf &euro;149 per avond</span>
+  </div>
+  <div class="waveform-wrap">
+    <button class="audio-toggle" id="audioToggle" aria-label="Speel muziek af">
+      <svg class="icon-play" viewBox="0 0 24 24"><polygon points="6,3 20,12 6,21"/></svg>
+      <svg class="icon-pause" viewBox="0 0 24 24"><rect x="5" y="3" width="4" height="18"/><rect x="15" y="3" width="4" height="18"/></svg>
+    </button>
+    <div class="waveform-bars paused" id="waveformBars">
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </div>
+  <!-- Audio generated via Web Audio API — no external file needed -->
+</section>
+
+<!-- ============================================================
+     DJ GIANNI - CORAL
+     ============================================================ -->
+<section class="dj-section reveal reveal-left">
+  <div class="dj-profile dj-profile--coral">
+    <div class="dj-avatar-wrap">
+      <div class="dj-avatar-glow dj-avatar-glow--coral">
+        <img
+          src="assets/images/dj-gianni-profiel-480.jpeg"
+          data-fallback="https://images.unsplash.com/photo-1571266028243-d220e7a25dd5?w=480&h=480&fit=crop&q=80"
+          alt="DJ Gianni"
+          class="dj-avatar dj-avatar--hex"
+        >
+      </div>
+    </div>
+    <div class="dj-info">
+      <h2 class="dj-name dj-name--coral">DJ Gianni</h2>
+      <p class="dj-tagline">Elke set een feest, elk feest een herinnering</p>
+      <span class="dj-sub dj-sub--coral">Pure Vibes</span>
+      <p class="dj-bio">Afro Beats, Caribbean vibes en populaire hits. Elke set wordt op maat gemaakt voor jouw event.</p>
+      <div class="genre-tags">
+        <span class="genre-tag genre-tag--coral">Afro Beats</span>
+        <span class="genre-tag genre-tag--coral">Caribbean</span>
+        <span class="genre-tag genre-tag--coral">Nederlands</span>
+        <span class="genre-tag genre-tag--coral">Hits</span>
+      </div>
+      <div class="dj-socials">
+        <a href="#" class="dj-social dj-social--coral">TikTok</a>
+        <a href="#" class="dj-social dj-social--coral">SoundCloud</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     MILO - CYAN
+     ============================================================ -->
+<section class="dj-section reveal reveal-right">
+  <div class="dj-profile dj-profile--reverse dj-profile--cyan">
+    <div class="dj-info">
+      <h2 class="dj-name dj-name--cyan">DJ Milø</h2>
+      <p class="dj-tagline">Je voelt de bass, je vergeet de tijd</p>
+      <p class="dj-bio">Bouwt sets van deep house naar hypnotiserende techno. Elke transitie naadloos, elk nummer strategisch.</p>
+      <div class="genre-tags">
+        <span class="genre-tag genre-tag--cyan">House</span>
+        <span class="genre-tag genre-tag--cyan">Techno</span>
+        <span class="genre-tag genre-tag--cyan">Deep</span>
+      </div>
+      <div class="dj-socials">
+        <a href="#" class="dj-social dj-social--cyan">Instagram</a>
+        <a href="#" class="dj-social dj-social--cyan">TikTok</a>
+        <a href="#" class="dj-social dj-social--cyan">SoundCloud</a>
+      </div>
+    </div>
+    <div class="dj-avatar-wrap">
+      <div class="dj-avatar-glow dj-avatar-glow--cyan">
+        <img
+          src="assets/images/dj-milo-profiel-480.jpeg"
+          alt="DJ Milø"
+          class="dj-avatar dj-avatar--diamond"
+        >
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     SPOTIFY SECTION
+     ============================================================ -->
+<section class="spotify reveal">
+  <h2 class="spotify-title">Jouw Playlist, Onze Set</h2>
+  <p class="spotify-desc">Stuur je Spotify playlist. Onze DJ analyseert energie, tempo en sfeer en bouwt er een professionele set van. Jouw muziek, maar dan beter.</p>
+  <a href="offerte.html?service=dj" class="btn-violet">Plan Je Feest Met Ons</a>
+</section>
+
+<!-- ============================================================
+     HOW IT WORKS
+     ============================================================ -->
+<section class="hiw reveal">
+  <h2 class="hiw-title">In 3 Stappen Geregeld</h2>
+  <div class="hiw-steps">
+    <div class="hiw-step">
+      <div class="hiw-num">01</div>
+      <h3>Kies Je Vibe</h3>
+      <p>Afro Beats met DJ Gianni of House met DJ Milø. Jij kiest de sfeer.</p>
+    </div>
+    <div class="hiw-step">
+      <div class="hiw-num">02</div>
+      <h3>Stuur Je Spotify</h3>
+      <p>Deel je playlist en wij bouwen er een professionele set van.</p>
+    </div>
+    <div class="hiw-step">
+      <div class="hiw-num">03</div>
+      <h3>Wij Komen, Jij Geniet</h3>
+      <p>Speakers, licht, rookmachine. Alles geregeld. Jij danst.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     BOOKING WIZARD
+     ============================================================ -->
+<section class="booking reveal">
+  <h2 class="booking-title">Boek Je DJ</h2>
+  <div class="booking-card">
+    <div class="booking-base">
+      <div class="booking-base-label">DJ Set 3 uur</div>
+      <div class="booking-base-price">&euro;149</div>
+    </div>
+
+    <ul class="booking-includes">
+      <li>DJ met professionele speakers</li>
+      <li>Lichtshow</li>
+      <li>Rookmachine</li>
+      <li>Spotify playlist-optimalisatie</li>
+    </ul>
+
+    <div class="hour-selector" id="hourSelector">
+      <div class="hour-option selected" data-hours="3" data-price="149">
+        <div class="hour-radio"><div class="hour-radio-dot"></div></div>
+        <span class="hour-label">3 uur</span>
+        <span class="hour-price">&euro;149</span>
+      </div>
+      <div class="hour-option" data-hours="4" data-price="198">
+        <div class="hour-radio"><div class="hour-radio-dot"></div></div>
+        <span class="hour-label">4 uur</span>
+        <span class="hour-extra">+&euro;49</span>
+        <span class="hour-price">&euro;198</span>
+      </div>
+      <div class="hour-option" data-hours="5" data-price="247">
+        <div class="hour-radio"><div class="hour-radio-dot"></div></div>
+        <span class="hour-label">5 uur</span>
+        <span class="hour-extra">+&euro;98</span>
+        <span class="hour-price">&euro;247</span>
+      </div>
+      <div class="hour-option" data-hours="6" data-price="296">
+        <div class="hour-radio"><div class="hour-radio-dot"></div></div>
+        <span class="hour-label">6 uur</span>
+        <span class="hour-extra">+&euro;147</span>
+        <span class="hour-price">&euro;296</span>
+      </div>
+    </div>
+
+    <!-- price comparison removed -->
+
+    <div class="booking-total">
+      <div class="booking-total-label">Totaal</div>
+      <div class="booking-total-price" id="totalPrice">&euro;149</div>
+      <div class="booking-total-btw">Inclusief 21% BTW</div>
+    </div>
+
+    <a href="offerte.html?service=dj" class="booking-cta">Check Beschikbaarheid</a>
+  </div>
+</section>
+
+<!-- ============================================================
+     FAQ
+     ============================================================ -->
+<section class="faq" id="faq">
+  <h2 class="faq-title">Veelgestelde Vragen</h2>
+  <details class="faq-item"><summary>Wat kost een DJ huren?</summary><p class="faq-answer">Vanaf €149 per avond voor een complete DJ set van 3 uur. Dat is inclusief professionele speakers, lichtshow en rookmachine. Extra uren bijboeken kan voor €49 per uur, tot maximaal 6 uur. Een DJ-bureau rekent al snel €600 of meer. Bij ons krijg je hetzelfde, voor een fractie van de prijs.</p></details>
+  <details class="faq-item"><summary>Wat is Spotify playlist-optimalisatie?</summary><p class="faq-answer">Stuur ons je Spotify playlist voor het event. Onze DJ analyseert de energie, het tempo en de sfeer van je muziek en bouwt daar een professionele set omheen. Jouw nummers, aangevuld met tracks die perfect passen bij de vibe. Het resultaat klinkt als jouw muziek, maar dan beter gemixt en met betere flow. Geen enkele andere DJ in de regio biedt dit.</p></details>
+  <details class="faq-item"><summary>Welke DJ-stijlen zijn er?</summary><p class="faq-answer">Twee stijlen, twee vibes. DJ Gianni brengt warme energie met Afro Beats, Caribbean vibes en Nederlandse hits. Perfect voor bruiloften en feesten waar iedereen moet dansen. DJ Milø bouwt sets van deep house naar hypnotiserende techno. Strak, naadloos, strategisch. Ideaal voor late-night events en club-achtige sferen. Jij kiest de vibe die past bij jouw event.</p></details>
+  <details class="faq-item"><summary>Kan ik de DJ combineren met een photobooth?</summary><p class="faq-answer">Ja, en dat is waar PicYourBooth uniek is. Boek de Magic Mirror XL (vanaf €599) of Party Booth (vanaf €199) en voeg een Live DJ Set toe als upgrade voor €149. Alles van hetzelfde team betekent betere afstemming, een contactpersoon en geen gedoe met meerdere leveranciers.</p></details>
+</section>
+
+</main>
+
+<!-- ============================================================
+     FOOTER
+     ============================================================ -->
+<footer class="footer">
+  <p class="footer-brand">PicYourBooth</p>
+  <a href="mailto:info@picyourbooth.nl" class="footer-email">info@picyourbooth.nl</a>
+  <p class="footer-copy">&copy; 2026 PicYourMoment B.V.</p>
+</footer>
+
+<!-- Scroll Progress Bar -->
+<div class="scroll-progress" id="scrollProgress"></div>
+
+<!-- Cursor Glow -->
+<div class="cursor-glow" id="cursorGlow"></div>
+
+<!-- ============================================================
+     JS - Booking Wizard + Entertainment Animations
+     ============================================================ -->
+<script>
+(function () {
+  'use strict';
+
+  /* -- Image fallback listener ----------------------------- */
+  document.querySelectorAll('img[data-fallback]').forEach(function(img) {
+    img.addEventListener('error', function() {
+      if (this.dataset.fallback) {
+        this.src = this.dataset.fallback;
+        delete this.dataset.fallback;
+      }
+    });
+  });
+
+  function spawnConfetti(source) {
+    var rect = source.getBoundingClientRect();
+    var x = rect.left + rect.width / 2;
+    var y = rect.top + rect.height / 2;
+    var count = 8 + Math.floor(Math.random() * 5);
+    for (var i = 0; i < count; i++) {
+      var p = document.createElement('div');
+      p.className = 'confetti-particle';
+      p.style.left = x + 'px';
+      p.style.top = y + 'px';
+      p.style.setProperty('--cx', (Math.random() * 80 - 40) + 'px');
+      p.style.setProperty('--cy', (-30 - Math.random() * 60) + 'px');
+      document.body.appendChild(p);
+      p.addEventListener('animationend', function () { this.remove(); });
+    }
+  }
+
+  function selectHour(el) {
+    var options = document.querySelectorAll('.hour-option');
+    for (var i = 0; i < options.length; i++) {
+      options[i].classList.remove('selected');
+    }
+    el.classList.add('selected');
+
+    var price = el.getAttribute('data-price');
+    var hours = el.getAttribute('data-hours');
+
+    var totalEl = document.getElementById('totalPrice');
+    totalEl.textContent = '\u20AC' + price;
+
+    /* Price pulse on change */
+    totalEl.classList.remove('price-pulse');
+    void totalEl.offsetWidth;
+    totalEl.classList.add('price-pulse');
+
+    /* Confetti burst from the radio dot */
+    spawnConfetti(el.querySelector('.hour-radio'));
+
+    var baseLabel = document.querySelector('.booking-base-label');
+    baseLabel.textContent = 'DJ Set ' + hours + ' uur';
+
+    var basePrice = document.querySelector('.booking-base-price');
+    basePrice.textContent = '\u20AC' + price;
+  }
+
+  /* -- Hour selector event delegation ---------------------- */
+  var hourSelector = document.getElementById('hourSelector');
+  if (hourSelector) {
+    hourSelector.addEventListener('click', function(e) {
+      var option = e.target.closest('.hour-option');
+      if (option) {
+        selectHour(option);
+      }
+    });
+  }
+})();
+
+(function () {
+  'use strict';
+
+  /* -- Respect reduced motion ---------------------------- */
+  var prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (prefersReduced) return;
+
+  /* ==========================================================
+     1. SCROLL-REVEAL SECTIONS
+     ========================================================== */
+  var revealObserver = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        revealObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.15 });
+
+  document.querySelectorAll('.reveal').forEach(function (el) {
+    revealObserver.observe(el);
+  });
+
+  /* ==========================================================
+     2. SCROLL PROGRESS BAR
+     ========================================================== */
+  var progressBar = document.getElementById('scrollProgress');
+  var ticking = false;
+
+  function updateProgress() {
+    var scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+    var docHeight = document.documentElement.scrollHeight - window.innerHeight;
+    var scrollPercent = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+    progressBar.style.width = scrollPercent + '%';
+    ticking = false;
+  }
+
+  window.addEventListener('scroll', function () {
+    if (!ticking) {
+      requestAnimationFrame(updateProgress);
+      ticking = true;
+    }
+  }, { passive: true });
+
+  /* ==========================================================
+     3. CURSOR GLOW (DESKTOP ONLY)
+     ========================================================== */
+  if (window.innerWidth > 768) {
+    var glow = document.getElementById('cursorGlow');
+    var glowTicking = false;
+    var mouseX = -600;
+    var mouseY = -600;
+
+    document.addEventListener('mousemove', function (e) {
+      mouseX = e.clientX;
+      mouseY = e.clientY;
+      if (!glowTicking) {
+        requestAnimationFrame(function () {
+          glow.style.transform = 'translate(' + (mouseX - 200) + 'px, ' + (mouseY - 200) + 'px)';
+          glowTicking = false;
+        });
+        glowTicking = true;
+      }
+    }, { passive: true });
+  }
+
+  /* ==========================================================
+     PARALLAX HERO
+     ========================================================== */
+  var heroEl = document.querySelector('.hero');
+  var parallaxTicking = false;
+
+  function updateParallax() {
+    if (heroEl) {
+      heroEl.style.setProperty('--parallax-y', (window.pageYOffset * 0.4) + 'px');
+    }
+    parallaxTicking = false;
+  }
+
+  window.addEventListener('scroll', function () {
+    if (!parallaxTicking) {
+      requestAnimationFrame(updateParallax);
+      parallaxTicking = true;
+    }
+  }, { passive: true });
+
+  /* ==========================================================
+     GLASSMORPHISM STICKY NAV
+     ========================================================== */
+  var navBar = document.querySelector('.nav-bar');
+
+  window.addEventListener('scroll', function () {
+    if (navBar) {
+      if (window.pageYOffset > 40) {
+        navBar.classList.add('scrolled');
+      } else {
+        navBar.classList.remove('scrolled');
+      }
+    }
+  }, { passive: true });
+
+  /* ==========================================================
+     4. PRICE PULSE - clean up class after animation ends
+     ========================================================== */
+  var totalEl = document.getElementById('totalPrice');
+  if (totalEl) {
+    totalEl.addEventListener('animationend', function () {
+      totalEl.classList.remove('price-pulse');
+    });
+  }
+
+  /* ==========================================================
+     5. AUDIO PLAY/PAUSE + WAVEFORM (Web Audio API beat)
+     ========================================================== */
+  var toggleBtn = document.getElementById('audioToggle');
+  var waveform  = document.getElementById('waveformBars');
+  var bars      = waveform ? waveform.querySelectorAll('span') : [];
+  var audioCtx  = null;
+  var isPlaying = false;
+  var beatInterval = null;
+
+  function setPlaying(playing) {
+    isPlaying = playing;
+    if (playing) {
+      toggleBtn.classList.add('playing');
+      toggleBtn.setAttribute('aria-label', 'Pauzeer muziek');
+      waveform.classList.remove('paused');
+    } else {
+      toggleBtn.classList.remove('playing');
+      toggleBtn.setAttribute('aria-label', 'Speel muziek af');
+      waveform.classList.add('paused');
+    }
+  }
+
+  /* ==========================================================
+     FLOATING MUSIC NOTES
+     ========================================================== */
+  var noteSymbols = ['\u266A', '\u266B', '\u266C'];
+  var noteColors = ['var(--coral)', 'var(--violet)', 'var(--cyan)'];
+  var noteInterval = null;
+
+  function startNotes() {
+    if (noteInterval) return;
+    noteInterval = setInterval(function() {
+      var wrap = document.querySelector('.waveform-wrap');
+      if (!wrap) return;
+      var note = document.createElement('span');
+      note.className = 'floating-note';
+      note.textContent = noteSymbols[Math.floor(Math.random() * noteSymbols.length)];
+      note.style.color = noteColors[Math.floor(Math.random() * noteColors.length)];
+      note.style.left = (20 + Math.random() * 60) + '%';
+      note.style.bottom = '80px';
+      wrap.appendChild(note);
+      note.addEventListener('animationend', function() { note.remove(); });
+    }, 1800);
+  }
+
+  function stopNotes() {
+    if (noteInterval) { clearInterval(noteInterval); noteInterval = null; }
+  }
+
+  // Synthesised deep-house loop using Web Audio API
+  function createBeat() {
+    if (!audioCtx) {
+      audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+    }
+    if (audioCtx.state === 'suspended') {
+      audioCtx.resume();
+    }
+
+    var bpm = 124;
+    var stepTime = 60 / bpm / 4; // 16th notes
+    var step = 0;
+
+    // Master volume
+    var master = audioCtx.createGain();
+    master.gain.value = 0.35;
+    master.connect(audioCtx.destination);
+
+    // Kick pattern: steps 0, 4, 8, 12 (four-on-the-floor)
+    function playKick(time) {
+      var osc = audioCtx.createOscillator();
+      var gain = audioCtx.createGain();
+      osc.type = 'sine';
+      osc.frequency.setValueAtTime(150, time);
+      osc.frequency.exponentialRampToValueAtTime(30, time + 0.12);
+      gain.gain.setValueAtTime(0.9, time);
+      gain.gain.exponentialRampToValueAtTime(0.001, time + 0.3);
+      osc.connect(gain);
+      gain.connect(master);
+      osc.start(time);
+      osc.stop(time + 0.3);
+    }
+
+    // Hi-hat using noise
+    function playHat(time, open) {
+      var bufferSize = audioCtx.sampleRate * 0.05;
+      var buffer = audioCtx.createBuffer(1, bufferSize, audioCtx.sampleRate);
+      var data = buffer.getChannelData(0);
+      for (var i = 0; i < bufferSize; i++) {
+        data[i] = (Math.random() * 2 - 1) * 0.3;
+      }
+      var src = audioCtx.createBufferSource();
+      src.buffer = buffer;
+      var hp = audioCtx.createBiquadFilter();
+      hp.type = 'highpass';
+      hp.frequency.value = 8000;
+      var gain = audioCtx.createGain();
+      var dur = open ? 0.12 : 0.04;
+      gain.gain.setValueAtTime(open ? 0.25 : 0.18, time);
+      gain.gain.exponentialRampToValueAtTime(0.001, time + dur);
+      src.connect(hp);
+      hp.connect(gain);
+      gain.connect(master);
+      src.start(time);
+      src.stop(time + dur);
+    }
+
+    // Bass synth
+    function playBass(time, freq) {
+      var osc = audioCtx.createOscillator();
+      var gain = audioCtx.createGain();
+      osc.type = 'sawtooth';
+      osc.frequency.value = freq;
+      var lp = audioCtx.createBiquadFilter();
+      lp.type = 'lowpass';
+      lp.frequency.setValueAtTime(600, time);
+      lp.frequency.exponentialRampToValueAtTime(150, time + 0.2);
+      gain.gain.setValueAtTime(0.2, time);
+      gain.gain.exponentialRampToValueAtTime(0.001, time + 0.25);
+      osc.connect(lp);
+      lp.connect(gain);
+      gain.connect(master);
+      osc.start(time);
+      osc.stop(time + 0.25);
+    }
+
+    // Pattern: 16 steps per bar, 4 bars loop
+    var bassNotes = [55, 55, 0, 55, 0, 0, 65.41, 0, 55, 0, 55, 0, 0, 73.42, 0, 0];
+
+    function scheduleStep() {
+      var time = audioCtx.currentTime + 0.05;
+      var s = step % 16;
+
+      // Kick: four-on-the-floor
+      if (s % 4 === 0) {
+        playKick(time);
+        // Beat pulse on hero background
+        var hero = document.querySelector('.hero');
+        if (hero) {
+          hero.classList.add('beat-pulse');
+          setTimeout(function() { hero.classList.remove('beat-pulse'); }, 480);
+        }
+      }
+
+      // Hi-hat: every 2 steps, open on offbeats
+      if (s % 2 === 0) playHat(time, s % 4 === 2);
+
+      // Bass
+      if (bassNotes[s] > 0) playBass(time, bassNotes[s]);
+
+      step++;
+    }
+
+    beatInterval = setInterval(scheduleStep, stepTime * 1000);
+    setPlaying(true);
+    startNotes();
+  }
+
+  function stopBeat() {
+    if (beatInterval) {
+      clearInterval(beatInterval);
+      beatInterval = null;
+    }
+    setPlaying(false);
+    stopNotes();
+  }
+
+  if (toggleBtn) {
+    toggleBtn.addEventListener('click', function () {
+      if (isPlaying) {
+        stopBeat();
+      } else {
+        createBeat();
+      }
+    });
+
+    // Auto-start on first user interaction (click/touch/key anywhere)
+    function autoStart() {
+      if (!isPlaying) createBeat();
+      document.removeEventListener('click', autoStart);
+      document.removeEventListener('touchstart', autoStart);
+      document.removeEventListener('keydown', autoStart);
+    }
+    document.addEventListener('click', autoStart, { once: true });
+    document.addEventListener('touchstart', autoStart, { once: true });
+    document.addEventListener('keydown', autoStart, { once: true });
+  }
+
+  // Randomise bar heights periodically for organic feel
+  if (bars.length) {
+    setInterval(function () {
+      bars.forEach(function (bar) {
+        var h = 14 + Math.floor(Math.random() * 28);
+        bar.style.height = h + 'px';
+      });
+    }, 2400);
+  }
+
+  /* ==========================================================
+     MOBILE MENU TOGGLE
+     ========================================================== */
+  var hamburger = document.querySelector('.nav-hamburger');
+  var navLinks = document.querySelector('.nav-links');
+  if (hamburger && navLinks) {
+    hamburger.addEventListener('click', function () {
+      hamburger.classList.toggle('active');
+      navBar.classList.toggle('menu-open');
+      navLinks.classList.toggle('open');
+    });
+    navLinks.querySelectorAll('a').forEach(function (link) {
+      link.addEventListener('click', function () {
+        hamburger.classList.remove('active');
+        navBar.classList.remove('menu-open');
+        navLinks.classList.remove('open');
+      });
+    });
+  }
+
+})();
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "PicYourBooth",
+  "description": "Premium photobooth en DJ entertainment in de Randstad",
+  "url": "https://picyourbooth.nl",
+  "email": "info@picyourbooth.nl",
+  "areaServed": {
+    "@type": "GeoCircle",
+    "geoMidpoint": {"@type": "GeoCoordinates", "latitude": 52.0, "longitude": 4.5},
+    "geoRadius": "50000"
+  },
+  "priceRange": "€149 - €2000",
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "4.9",
+    "reviewCount": "237",
+    "bestRating": "5"
+  }
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Product",
+  "name": "DJ Huren - DJ Gianni & DJ Milø",
+  "description": "DJ met Spotify playlist-optimalisatie, speakers, licht en rookmachine inbegrepen",
+  "brand": {"@type": "Brand", "name": "PicYourBooth"},
+  "offers": {
+    "@type": "Offer",
+    "price": "149",
+    "priceCurrency": "EUR",
+    "availability": "https://schema.org/InStock",
+    "priceValidUntil": "2026-12-31",
+    "url": "https://picyourbooth.nl/djs"
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "4.9",
+    "reviewCount": "237",
+    "bestRating": "5"
+  }
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {"@type": "Question", "name": "Wat kost een DJ huren?", "acceptedAnswer": {"@type": "Answer", "text": "Vanaf €149 per avond inclusief speakers, licht en rookmachine."}},
+    {"@type": "Question", "name": "Wat is Spotify playlist-optimalisatie?", "acceptedAnswer": {"@type": "Answer", "text": "Stuur je playlist, onze DJ analyseert energie en tempo en bouwt er een professionele set van."}},
+    {"@type": "Question", "name": "Welke DJ-stijlen zijn er?", "acceptedAnswer": {"@type": "Answer", "text": "DJ Gianni (Afro Beats, Caribbean, Nederlands Hits) of DJ Milø (House, Techno, Deep)."}},
+    {"@type": "Question", "name": "Kan ik de DJ combineren met een photobooth?", "acceptedAnswer": {"@type": "Answer", "text": "Ja, boek de Magic Mirror XL of Party Booth en voeg een Live DJ Set toe als upgrade."}}
+  ]
+}
+</script>
+
+</body>
+</html>

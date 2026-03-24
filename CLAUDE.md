@@ -42,12 +42,29 @@ pic-your-booth/
 ├── CLAUDE.md                              ← You are here
 ├── docs/
 │   ├── plans/                            - PRD, brainstorm sessions, design documents
-│   └── templates/                        - Visual assets only (HTML, images, JSON)
-│       ├── design-system/               - HTML design systems, tokens JSON
-│       ├── website/                    - 5 page templates (homepage, magic-mirror, party-booth, djs, offerte)
-│       ├── djs/dj-gianni/              - Brand guide, social/, photos/
-│       ├── djs/milo/                   - Brand guide, profile
-│       └── ads/meta/                   - Meta Ads design system
+│   ├── website/                          - Website & design assets
+│   │   ├── deployment/                  - Live website HTML pages (DO NOT MOVE)
+│   │   │   └── assets/images/          - Optimized images served by website
+│   │   ├── design-system/              - HTML design systems, tokens JSON
+│   │   └── djs/                        - DJ brand guides & assets
+│   │       ├── dj-gianni/             - Brand guide, social/, photos/
+│   │       └── milo/                  - Brand guide, profile
+│   ├── images/                          - All image assets
+│   │   ├── photos-source/             - Original photos + INDEX.md (catalogue with Gemini picks)
+│   │   │   ├── magicmirror/           - Magic Mirror XL photos (photobooth, USPs, upgrades)
+│   │   │   ├── partybooth/            - Party Booth photos (product, USPs, upgrades)
+│   │   │   └── dj/                    - DJ photos
+│   │   ├── generated/                 - AI-generated & processed images
+│   │   ├── web/                       - Optimized WebP for website
+│   │   └── screenshots/              - Dev screenshots
+│   ├── ads/                             - Ad design & assets
+│   │   └── meta/                      - Meta Ads design system HTML
+│   ├── kpi/                             - Historical KPI Excel reports (Vizibooth 2025, 2026)
+│   └── funnel/                          - Funnel strategy & campaign management
+│       ├── campaigns/                 - Campaign specs, audiences, ad copy per month
+│       ├── creatives/                 - Creative briefs, HTML mockups
+│       ├── tracking/                  - Pixel setup, KPIs, conversion tracking
+│       └── results/                   - Test results, optimization logs, winner data
 ├── .claude/
 │   ├── agents/
 │   │   ├── _registry.md                  - Master routing table (all agents)

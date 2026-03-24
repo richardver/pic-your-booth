@@ -32,4 +32,11 @@ Meta Ads strategy, audiences, specs, and benchmarks. Full reference in `.claude/
 | Conv Rate | 1-3% | 4-10% |
 | Frequency (healthy) | < 3.0 | < 6.0 |
 
+## PYB Budget & Targets
+
+- **€500/month** split test: €250 Magic Mirror XL + €250 Party Booth
+- **ROAS target: >4.0x** (Vizibooth 2025 avg was 4.5x)
+- All Meta Ads in Phase 1 — Google Ads in Phase 2
+- Full funnel: `docs/funnel/funnel-design.md`
+
 For full Meta Ads reference: `.claude/agents/ad-specialist/knowledge-meta-ads-full.md`

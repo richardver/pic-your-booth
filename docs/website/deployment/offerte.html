@@ -1,0 +1,980 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Photobooth Offerte Aanvragen | PicYourBooth</title>
+<meta name="description" content="Ontvang binnen 24 uur een vrijblijvend voorstel. Party Booth vanaf €199, Magic Mirror XL vanaf €599, DJ vanaf €149. Geen verplichtingen.">
+<link rel="canonical" href="https://picyourbooth.nl/offerte">
+<meta property="og:title" content="Photobooth Offerte Aanvragen | PicYourBooth">
+<meta property="og:description" content="Ontvang binnen 24 uur een vrijblijvend voorstel. Party Booth, Magic Mirror XL of DJ. Geen verplichtingen.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://picyourbooth.nl/offerte">
+<meta property="og:locale" content="nl_NL">
+<meta property="og:image" content="https://picyourbooth.nl/assets/images/homepage-hero-1280x720.webp">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* ============================================================
+   PICYOURBOOTH — OFFERTE
+   One job: get the form submitted. Nothing else.
+   ============================================================ */
+
+/* -- Design Tokens ------------------------------------- */
+:root {
+  --void:        #050508;
+  --bg:          #08080b;
+  --surface:     #111116;
+  --surface-up:  #18181e;
+  --text:        #ededf0;
+  --text-muted:  rgba(237, 237, 240, 0.75);
+  --border:      rgba(255, 255, 255, 0.06);
+  --border-hover: rgba(255, 255, 255, 0.12);
+
+  --gold:        #f59e42;
+  --gold-light:  #ffb86b;
+  --gold-dim:    rgba(245, 158, 66, 0.10);
+  --gold-glow:   rgba(245, 158, 66, 0.20);
+  --violet:      #8b5cf6;
+  --violet-dim:  rgba(139, 92, 246, 0.12);
+
+  --font-display: 'Bebas Neue', Impact, sans-serif;
+  --font-body:    'Space Grotesk', -apple-system, sans-serif;
+
+  --r-sm:   8px;
+  --r-md:  12px;
+  --r-lg:  16px;
+  --r-pill: 999px;
+
+  --ease: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* -- Reset --------------------------------------------- */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html {
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-body);
+  font-size: 15px;
+  line-height: 1.7;
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+body.loaded {
+  opacity: 1;
+}
+
+img { display: block; max-width: 100%; }
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  line-height: 1.1;
+  font-weight: 400;
+}
+
+a { color: inherit; text-decoration: none; }
+
+::selection {
+  background: var(--gold);
+  color: #000;
+}
+
+:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  html { scroll-behavior: auto; }
+}
+
+/* -- Gold Gradient Text -------------------------------- */
+.text-gold-gradient {
+  background: linear-gradient(
+    135deg,
+    #a85a10 0%,
+    #f59e42 25%,
+    #ffe0a0 50%,
+    #f59e42 75%,
+    #a85a10 100%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* -- Navigation (simplified: logo + terug only) -------- */
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px 32px;
+}
+
+.nav-logo {
+  font-family: var(--font-display);
+  font-size: 1.75rem;
+  letter-spacing: 0.10em;
+  text-transform: uppercase;
+  color: var(--text);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0;
+  transition: filter 0.3s var(--ease);
+}
+
+.nav-logo:hover {
+  filter: drop-shadow(0 0 8px rgba(245, 158, 66, 0.35));
+}
+
+.nav-logo .logo-accent {
+  background: linear-gradient(135deg, var(--gold) 0%, var(--gold-light) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.nav-logo .logo-dot {
+  display: inline-block;
+  width: 5px;
+  height: 5px;
+  background: var(--gold);
+  border-radius: 50%;
+  margin-left: 3px;
+  margin-bottom: 2px;
+  box-shadow: 0 0 6px rgba(245, 158, 66, 0.4);
+}
+
+.nav-back {
+  font-family: var(--font-body);
+  font-size: 13px;
+  font-weight: 400;
+  color: var(--text-muted);
+  text-decoration: none;
+  transition: color 0.2s var(--ease);
+}
+
+.nav-back:hover {
+  color: var(--text);
+}
+
+/* -- Sticky Glassmorphism Nav --------------------------- */
+.nav-wrapper {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  border-top: 2px solid var(--gold);
+  border-bottom: 1px solid var(--border);
+  background: rgba(8, 8, 11, 0.75);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  transition: background 0.3s var(--ease), box-shadow 0.3s var(--ease);
+}
+
+.nav-wrapper.scrolled {
+  background: rgba(8, 8, 11, 0.92);
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.4);
+}
+
+/* -- Form Header --------------------------------------- */
+.form-header {
+  text-align: center;
+  padding: 80px 24px 0;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.form-headline {
+  font-size: clamp(2rem, 5vw, 3rem);
+  letter-spacing: 0.06em;
+  margin-bottom: 16px;
+}
+
+.form-subtitle {
+  font-family: var(--font-body);
+  font-size: 15px;
+  font-weight: 300;
+  color: var(--text-muted);
+  line-height: 1.7;
+  max-width: 480px;
+  margin: 0 auto;
+}
+
+/* -- Form Card ----------------------------------------- */
+.form-section {
+  padding: 48px 24px 80px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1;
+}
+
+.form-card {
+  width: 100%;
+  max-width: 520px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--r-lg);
+  padding: 40px;
+}
+
+@media (max-width: 560px) {
+  .form-card {
+    padding: 32px 24px;
+  }
+}
+
+/* -- Form Fields --------------------------------------- */
+.form-group {
+  margin-bottom: 24px;
+}
+
+.form-group:last-of-type {
+  margin-bottom: 32px;
+}
+
+.form-label {
+  display: block;
+  font-family: var(--font-body);
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 6px;
+}
+
+.form-label-hint {
+  font-weight: 400;
+  font-size: 12px;
+  color: var(--text-muted);
+}
+
+.form-input,
+.form-select,
+.form-textarea {
+  display: block;
+  width: 100%;
+  height: 48px;
+  padding: 0 16px;
+  background: var(--surface-up);
+  color: var(--text);
+  border: 1px solid var(--border);
+  border-radius: var(--r-sm);
+  font-family: var(--font-body);
+  font-size: 15px;
+  font-weight: 400;
+  transition: border-color 0.2s var(--ease), box-shadow 0.2s var(--ease);
+  outline: none;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+.form-input::placeholder,
+.form-textarea::placeholder {
+  color: rgba(237, 237, 240, 0.25);
+}
+
+.form-input:focus,
+.form-select:focus,
+.form-textarea:focus {
+  border-color: var(--gold);
+  box-shadow: 0 0 0 3px rgba(245, 158, 66, 0.15);
+}
+
+.form-textarea {
+  height: auto;
+  padding: 12px 16px;
+  resize: vertical;
+  line-height: 1.6;
+}
+
+/* Select dropdown custom arrow */
+.form-select {
+  cursor: pointer;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='rgba(237,237,240,0.4)' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 14px center;
+  background-size: 16px;
+  padding-right: 40px;
+}
+
+.form-select option {
+  background: var(--surface-up);
+  color: var(--text);
+}
+
+/* Date input styling */
+.form-input[type="date"] {
+  color-scheme: dark;
+}
+
+/* -- CTA Button ---------------------------------------- */
+.btn-submit {
+  display: block;
+  width: 100%;
+  height: 56px;
+  padding: 0 24px;
+  background: var(--gold);
+  color: #000;
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  border-radius: var(--r-pill);
+  border: none;
+  cursor: pointer;
+  font-weight: 400;
+  transition: background 0.25s var(--ease), box-shadow 0.25s var(--ease);
+  text-align: center;
+  line-height: 1;
+}
+
+.btn-submit:hover {
+  background: var(--gold-light);
+  box-shadow: 0 0 32px var(--gold-glow);
+}
+
+.btn-submit:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 3px;
+}
+
+.btn-submit:active {
+  transform: translateY(0);
+}
+
+/* -- Trust Line ---------------------------------------- */
+.trust-line {
+  text-align: center;
+  margin-top: 8px;
+  font-family: var(--font-body);
+  font-size: 12px;
+  color: rgba(237, 237, 240, 0.35);
+  font-weight: 400;
+  line-height: 1.5;
+}
+
+/* -- Footer -------------------------------------------- */
+.footer {
+  background: var(--void);
+  padding: 48px 32px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.footer-brand {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.footer-email {
+  font-size: 12px;
+  color: rgba(237, 237, 240, 0.35);
+  text-decoration: none;
+  transition: color 0.2s var(--ease);
+}
+
+.footer-email:hover {
+  color: var(--gold);
+}
+
+.footer-copy {
+  font-size: 10px;
+  color: rgba(237, 237, 240, 0.25);
+  margin-top: 24px;
+}
+
+/* -- Form Card Entrance -------------------------------- */
+@keyframes formReveal {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.form-section {
+  animation: formReveal 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.2s both;
+}
+
+/* -- Cursor Glow (desktop only) ------------------------ */
+.cursor-glow {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 400px;
+  height: 400px;
+  pointer-events: none;
+  z-index: 1;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle at center,
+    rgba(245, 158, 66, 0.08) 0%,
+    rgba(245, 158, 66, 0.04) 20%,
+    rgba(245, 158, 66, 0.015) 40%,
+    transparent 65%
+  );
+  transform: translate(-200px, -200px);
+  will-change: transform;
+  filter: blur(1px);
+}
+
+@media (max-width: 768px) {
+  .cursor-glow { display: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .form-section { animation: none; }
+  .cursor-glow { display: none; }
+}
+
+/* -- Form Progress Indicator ---------------------------- */
+.form-progress {
+  width: 100%;
+  height: 3px;
+  background: var(--border);
+  border-radius: 2px;
+  margin-bottom: 32px;
+  overflow: hidden;
+}
+
+.form-progress-bar {
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, var(--gold), var(--gold-light));
+  border-radius: 2px;
+  transition: width 0.4s var(--ease);
+  box-shadow: 0 0 8px rgba(245, 158, 66, 0.3);
+}
+
+.form-progress-label {
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(237, 237, 240, 0.5);
+  margin-bottom: 8px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.form-progress-label span {
+  color: var(--gold);
+  font-variant-numeric: tabular-nums;
+}
+
+/* -- Form Success State --------------------------------- */
+.form-success {
+  text-align: center;
+  padding: 64px 32px;
+  animation: successFadeIn 0.6s var(--ease) both;
+}
+
+@keyframes successFadeIn {
+  from { opacity: 0; transform: scale(0.95) translateY(12px); }
+  to   { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+.success-checkmark {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--gold), var(--gold-light));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 24px;
+  animation: checkPop 0.5s var(--ease) 0.2s both;
+  box-shadow: 0 0 32px rgba(245, 158, 66, 0.3);
+}
+
+@keyframes checkPop {
+  0%   { transform: scale(0); }
+  60%  { transform: scale(1.15); }
+  100% { transform: scale(1); }
+}
+
+.success-checkmark svg {
+  width: 32px;
+  height: 32px;
+  stroke: #000;
+  stroke-width: 3;
+  fill: none;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.success-title {
+  font-family: var(--font-display);
+  font-size: 2rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+  color: var(--gold);
+}
+
+.success-text {
+  color: var(--text-muted);
+  font-size: 15px;
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+/* -- Confetti Particles --------------------------------- */
+.confetti-particle {
+  position: fixed;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 200;
+  animation: confettiBurst 0.8s ease-out forwards;
+}
+
+@keyframes confettiBurst {
+  0%   { opacity: 1; transform: translate(0, 0) scale(1); }
+  100% { opacity: 0; transform: translate(var(--cx), var(--cy)) scale(0); }
+}
+
+/* -- Tablet (max 768px) ----------------------------------- */
+@media (max-width: 768px) {
+  .nav-back {
+    padding: 10px;
+    min-width: 44px;
+    min-height: 44px;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .form-header {
+    padding: 60px 20px 0;
+  }
+  .form-section {
+    padding: 40px 20px 60px;
+  }
+}
+
+/* -- Mobile (max 560px) additions ------------------------- */
+@media (max-width: 560px) {
+  .form-headline {
+    font-size: clamp(1.6rem, 7vw, 2.2rem);
+  }
+  .form-success {
+    padding: 40px 20px;
+  }
+  .success-checkmark {
+    width: 56px;
+    height: 56px;
+  }
+  .success-checkmark svg {
+    width: 24px;
+    height: 24px;
+  }
+  .success-title {
+    font-size: 1.6rem;
+  }
+}
+
+/* -- Small mobile (max 480px) ----------------------------- */
+@media (max-width: 480px) {
+  .form-header {
+    padding: 48px 16px 0;
+  }
+  .form-headline {
+    font-size: clamp(1.4rem, 8vw, 1.8rem);
+  }
+  .form-card {
+    padding: 24px 16px;
+  }
+  .form-section {
+    padding: 32px 16px 48px;
+  }
+  .nav {
+    padding: 16px 16px;
+  }
+  .form-input,
+  .form-select,
+  .form-textarea {
+    font-size: 16px; /* prevents iOS Safari zoom on focus */
+  }
+}
+</style>
+</head>
+<body>
+
+<!-- ============================================================
+     NAVIGATION (simplified: logo + terug)
+     ============================================================ -->
+<div class="nav-wrapper" id="navWrapper"><nav class="nav">
+  <a href="index.html" class="nav-logo">PicYour<span class="logo-accent">Booth</span><span class="logo-dot"></span></a>
+  <a href="index.html" class="nav-back">Terug</a>
+</nav></div>
+
+<main>
+
+<!-- ============================================================
+     FORM HEADER
+     ============================================================ -->
+<header class="form-header">
+  <h1 class="form-headline text-gold-gradient">IS JOUW DATUM NOG VRIJ?</h1>
+  <p class="form-subtitle">Ontvang binnen 24 uur een vrijblijvend voorstel op maat. Geen verplichtingen, geen kleine lettertjes.</p>
+</header>
+
+<!-- ============================================================
+     FORM
+     ============================================================ -->
+<section class="form-section" aria-label="Offerte aanvragen">
+  <div class="form-card">
+    <form action="#" method="POST" novalidate>
+
+      <!-- Progress Indicator -->
+      <div class="form-progress-label">
+        <span>Voortgang</span>
+        <span id="progressPercent">0%</span>
+      </div>
+      <div class="form-progress">
+        <div class="form-progress-bar" id="progressBar"></div>
+      </div>
+
+      <!-- Naam -->
+      <div class="form-group">
+        <label class="form-label" for="naam">Naam</label>
+        <input
+          type="text"
+          id="naam"
+          name="naam"
+          class="form-input"
+          placeholder="Je volledige naam"
+          required
+          autocomplete="name"
+        >
+      </div>
+
+      <!-- E-mail -->
+      <div class="form-group">
+        <label class="form-label" for="email">E-mail</label>
+        <input
+          type="email"
+          id="email"
+          name="email"
+          class="form-input"
+          placeholder="naam@voorbeeld.nl"
+          required
+          autocomplete="email"
+        >
+      </div>
+
+      <!-- Telefoon -->
+      <div class="form-group">
+        <label class="form-label" for="telefoon">Telefoon</label>
+        <input
+          type="tel"
+          id="telefoon"
+          name="telefoon"
+          class="form-input"
+          placeholder="06 12345678"
+          required
+          autocomplete="tel"
+        >
+      </div>
+
+      <!-- Service -->
+      <div class="form-group">
+        <label class="form-label" for="service">Service</label>
+        <select
+          id="service"
+          name="service"
+          class="form-select"
+          required
+        >
+          <option value="" disabled selected>Waar heb je interesse in?</option>
+          <option value="party-booth">Party Booth (vanaf €199)</option>
+          <option value="magic-mirror">Magic Mirror XL (vanaf €599)</option>
+          <option value="dj">DJ Set (vanaf €149)</option>
+        </select>
+      </div>
+
+      <!-- Datum Event -->
+      <div class="form-group">
+        <label class="form-label" for="datum">
+          Datum Event
+          <span class="form-label-hint">(populaire data gaan snel)</span>
+        </label>
+        <input
+          type="date"
+          id="datum"
+          name="datum"
+          class="form-input"
+          required
+        >
+      </div>
+
+      <!-- Type Event -->
+      <div class="form-group">
+        <label class="form-label" for="type-event">Type Event</label>
+        <select
+          id="type-event"
+          name="type_event"
+          class="form-select"
+          required
+        >
+          <option value="" disabled selected>Selecteer type event</option>
+          <option value="bruiloft">Bruiloft</option>
+          <option value="bedrijfsfeest">Bedrijfsfeest</option>
+          <option value="verjaardag">Verjaardag</option>
+          <option value="festival-club">Festival of Club</option>
+          <option value="anders">Anders</option>
+        </select>
+      </div>
+
+      <!-- Bericht -->
+      <div class="form-group">
+        <label class="form-label" for="bericht">
+          Bericht
+          <span class="form-label-hint">Optioneel</span>
+        </label>
+        <textarea
+          id="bericht"
+          name="bericht"
+          class="form-textarea"
+          rows="4"
+          placeholder="Vertel ons meer over je event..."
+        ></textarea>
+      </div>
+
+      <!-- CTA -->
+      <button type="submit" class="btn-submit">
+        VRAAG VRIJBLIJVEND VOORSTEL AAN
+      </button>
+
+      <!-- Trust Line -->
+      <p class="trust-line">Reactie binnen 24 uur. 100% vrijblijvend. Geen spam, beloofd.</p>
+
+    </form>
+  </div>
+</section>
+
+</main>
+
+<!-- ============================================================
+     FOOTER
+     ============================================================ -->
+<footer class="footer">
+  <p class="footer-brand">PicYourBooth</p>
+  <a href="mailto:info@picyourbooth.nl" class="footer-email">info@picyourbooth.nl</a>
+  <p class="footer-copy">&copy; 2026 PicYourMoment B.V.</p>
+</footer>
+
+<div class="cursor-glow" id="cursorGlow"></div>
+<script>
+(function () {
+  'use strict';
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  if (window.innerWidth > 768) {
+    var glow = document.getElementById('cursorGlow');
+    var ticking = false;
+    document.addEventListener('mousemove', function (e) {
+      if (!ticking) {
+        requestAnimationFrame(function () {
+          glow.style.transform = 'translate(' + (e.clientX - 200) + 'px, ' + (e.clientY - 200) + 'px)';
+          ticking = false;
+        });
+        ticking = true;
+      }
+    }, { passive: true });
+  }
+})();
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "PicYourBooth",
+  "description": "Premium photobooth en DJ entertainment in de Randstad",
+  "url": "https://picyourbooth.nl",
+  "email": "info@picyourbooth.nl",
+  "areaServed": {
+    "@type": "GeoCircle",
+    "geoMidpoint": {"@type": "GeoCoordinates", "latitude": 52.0, "longitude": 4.5},
+    "geoRadius": "50000"
+  },
+  "priceRange": "€149 - €2000",
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "4.9",
+    "reviewCount": "237",
+    "bestRating": "5"
+  }
+}
+</script>
+
+<script>
+(function () {
+  'use strict';
+
+  /* -- Smooth page entrance ----------------------------- */
+  document.body.classList.add('loaded');
+
+  /* -- Sticky nav glassmorphism on scroll --------------- */
+  var navWrapper = document.getElementById('navWrapper');
+  if (navWrapper) {
+    var scrollTicking = false;
+    window.addEventListener('scroll', function () {
+      if (!scrollTicking) {
+        requestAnimationFrame(function () {
+          if (window.scrollY > 20) {
+            navWrapper.classList.add('scrolled');
+          } else {
+            navWrapper.classList.remove('scrolled');
+          }
+          scrollTicking = false;
+        });
+        scrollTicking = true;
+      }
+    }, { passive: true });
+  }
+
+  /* -- Form progress indicator -------------------------- */
+  var formFields = document.querySelectorAll('form input:not([type="hidden"]):not([type="submit"]), form select, form textarea');
+  var progressBar = document.getElementById('progressBar');
+  var progressPercent = document.getElementById('progressPercent');
+
+  function updateProgress() {
+    if (!formFields.length || !progressBar) return;
+    var filled = 0;
+    formFields.forEach(function (f) {
+      if (f.type === 'checkbox' || f.type === 'radio') {
+        if (f.checked) filled++;
+      } else if (f.value.trim() !== '') {
+        filled++;
+      }
+    });
+    var pct = Math.round((filled / formFields.length) * 100);
+    progressBar.style.width = pct + '%';
+    if (progressPercent) progressPercent.textContent = pct + '%';
+  }
+
+  formFields.forEach(function (f) {
+    f.addEventListener('input', updateProgress);
+    f.addEventListener('change', updateProgress);
+  });
+
+  /* -- Pre-fill from query params ----------------------- */
+  var params = new URLSearchParams(window.location.search);
+  var serviceParam = params.get('service');
+  if (serviceParam) {
+    var serviceSelect = document.getElementById('service');
+    var berichtField = document.getElementById('bericht');
+    if (serviceSelect) {
+      serviceSelect.value = serviceParam;
+      serviceSelect.dispatchEvent(new Event('change'));
+    }
+    var upgrades = {
+      'party-booth': [
+        'Premium Ontwerp (+\u20AC25)',
+        'Bezorging, Installatie & Ophalen (+\u20AC49)',
+        'AI Foto\'s + Filters (+\u20AC49)',
+        'Live DJ Set (+\u20AC149)'
+      ],
+      'magic-mirror': [
+        'VIP Upgrade — rode loper, backdrop & luxe props (+\u20AC149)',
+        'Wedding Keychain Station (+\u20AC499)',
+        'Photobooth Host (+\u20AC149)',
+        'AI Photo Experience (+\u20AC499)',
+        'Live DJ Set (+\u20AC149)'
+      ],
+      'dj': [
+        'Extra uren bijboeken (+\u20AC49/uur, max 6 uur)',
+        'Party Booth erbij (vanaf \u20AC199)',
+        'Magic Mirror XL erbij (vanaf \u20AC599)'
+      ]
+    };
+    if (berichtField && upgrades[serviceParam]) {
+      berichtField.value = 'Beschikbare upgrades:\n' + upgrades[serviceParam].map(function (u) { return '- ' + u; }).join('\n') + '\n\nMijn wensen: ';
+      berichtField.dispatchEvent(new Event('input'));
+    }
+    updateProgress();
+  }
+
+  /* -- Form success state with confetti ----------------- */
+  var form = document.querySelector('form');
+  if (form) {
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+
+      /* Confetti burst */
+      var colors = ['#f59e42', '#8b5cf6', '#ffb86b', '#34d399'];
+      for (var i = 0; i < 30; i++) {
+        var p = document.createElement('div');
+        p.className = 'confetti-particle';
+        var angle = Math.random() * Math.PI * 2;
+        var dist = 60 + Math.random() * 120;
+        p.style.setProperty('--cx', Math.cos(angle) * dist + 'px');
+        p.style.setProperty('--cy', Math.sin(angle) * dist - 40 + 'px');
+        p.style.left = '50%';
+        p.style.top = '40%';
+        p.style.background = colors[Math.floor(Math.random() * colors.length)];
+        p.style.animationDelay = Math.random() * 0.3 + 's';
+        document.body.appendChild(p);
+        p.addEventListener('animationend', function () { this.remove(); });
+      }
+
+      /* Replace form with success message using safe DOM methods */
+      var formContainer = form.parentElement;
+      form.style.display = 'none';
+
+      var success = document.createElement('div');
+      success.className = 'form-success';
+
+      var checkmark = document.createElement('div');
+      checkmark.className = 'success-checkmark';
+      var svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+      svg.setAttribute('viewBox', '0 0 24 24');
+      var polyline = document.createElementNS('http://www.w3.org/2000/svg', 'polyline');
+      polyline.setAttribute('points', '20 6 9 17 4 12');
+      svg.appendChild(polyline);
+      checkmark.appendChild(svg);
+
+      var title = document.createElement('h2');
+      title.className = 'success-title';
+      title.textContent = 'Verstuurd!';
+
+      var text = document.createElement('p');
+      text.className = 'success-text';
+      text.textContent = 'Bedankt voor je aanvraag. We nemen zo snel mogelijk contact met je op met een vrijblijvend voorstel.';
+
+      success.appendChild(checkmark);
+      success.appendChild(title);
+      success.appendChild(text);
+      formContainer.appendChild(success);
+    });
+  }
+})();
+</script>
+
+</body>
+</html>

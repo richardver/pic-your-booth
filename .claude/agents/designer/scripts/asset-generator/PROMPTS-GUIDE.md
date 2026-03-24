@@ -1,5 +1,42 @@
 # Gemini Image Prompt Guide — PicYourBooth
 
+## Photo Reference Library
+
+**Always check `docs/images/photos-source/INDEX.md` before generating images.** The index contains:
+- 98 catalogued source photos with quality ratings and descriptions
+- **Tier 1 picks** — the 8 best photos to embed as Gemini reference images
+- **Tier 2 picks** — 18 secondary references for specific use cases
+- Photos organized by product (Magic Mirror, Party Booth, DJ) and USP category
+
+### Top Reference Photos for Gemini Enhance Mode
+
+| Use Case | Reference Photo | Why |
+|----------|----------------|-----|
+| Magic Mirror DSLR quality | `magic-mirror-usp-geweldig-2.jpg` | #1 overall — fashion-shoot quality portrait |
+| Party Booth at event | `party-booth-party-atmosphere-hero.jpg` | Dream venue with bokeh string lights |
+| Luxury venue atmosphere | `magic-mirror-vip-venue-wide.png` | Golden chandeliers, wide comp for text |
+| Wedding setup | `magic-mirror-photobooth-5.jpg` | Real wedding — cyan LED, balloon column |
+| VIP red carpet setup | `magic-mirror-upgrade-vip-14.jpg` | Flower wall + red carpet + stanchions |
+| Themed event portraits | `...inlijsten-couple-dayofthedead.png` | Cinematic Day of the Dead costumes |
+| Friends at photobooth | `...inlijsten-friends-props-cheers.png` | Clean studio lighting, wedding energy |
+| Wedding keychains | `magic-mirror-upgrade-keychain-1.jpg` | Couple holding keychains, pure joy |
+
+## CRITICAL RULE: Always Use Enhance Mode
+
+**ALWAYS use enhance mode with a real source photo.** Never use generate mode for images where our product (Party Booth or Magic Mirror) is visible. Generate mode invents fake hardware that doesn't match our actual products.
+
+- **Enhance mode** = Gemini keeps our real product and transforms the environment. USE THIS.
+- **Generate mode** = Gemini invents everything from scratch including fake equipment. AVOID unless the image has zero PYB products in it (e.g. a mood/concept image with no booth visible).
+
+Best source photos for enhance mode per product:
+- **Party Booth**: `party-booth-venue-setup-stringlights.png` (PREFERRED — real venue, correct floor-standing scale) or `party-booth-party-atmosphere-hero.jpg` (product in context with bokeh)
+- **Magic Mirror**: `magic-mirror-photobooth-5.jpg` (real event, correct scale) or `magic-mirror-vip-venue-wide.png` (wide venue)
+- **VIP Setup**: `magic-mirror-upgrade-vip-15.jpg` (red carpet + stanchions, correct scale)
+
+**IMPORTANT: Always use source photos that show the product in a real environment** (not studio/isolated shots). Gemini needs environmental context to maintain correct product scale. Studio shots like `party-booth-product-clean-studio.png` give the right shape but Gemini loses the size — it puts a floor-standing 1.5m booth on a table because there's no room for scale reference.
+
+---
+
 ## Brand Style Building Blocks
 
 Every PYB image should combine these elements. Mix and match per product.

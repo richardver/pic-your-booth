@@ -61,3 +61,4 @@ Unieke verkoopargumenten gerangschikt op impact. Nederlands.
 - **DSLR-kwaliteit tonen** — voorbeeldfoto's van Magic Mirror XL laten zien (niet vergelijken met tablet, wij bieden zelf ook Party Booth)
 - **Familiebedrijf-verhaal** inzetten voor vertrouwen — mensen boeken bij mensen, niet bij bedrijven
 - **€149 DJ prijs** beter framen tegen de markt — "Een DJ-bureau rekent €600+, bij ons vanaf €149"
+- **'Meest Gekozen' badge verwijderd** van homepage (maart 2026). Anchor via charm pricing €599, social proof, en scarcity.
