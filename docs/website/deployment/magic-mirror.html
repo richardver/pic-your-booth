@@ -1042,7 +1042,8 @@ a { color: inherit; text-decoration: none; }
     line-height: 1.75;
   }
   .upgrade-row__name {
-    font-size: 15px;
+    font-size: 16px;
+    letter-spacing: 0.04em;
   }
   .upgrade-row__desc {
     font-size: 14px;
@@ -1904,7 +1905,11 @@ a { color: inherit; text-decoration: none; }
   }
 
   function closeModal() {
-    if (overlay) overlay.classList.remove('active');
+    if (overlay) {
+      overlay.classList.remove('active');
+      overlay.style.pointerEvents = 'none';
+      setTimeout(function() { overlay.style.pointerEvents = ''; }, 50);
+    }
   }
 
   /* -- Info button event delegation ----------------------- */
