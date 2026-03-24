@@ -59,4 +59,4 @@ default → hover (150ms) → active → focus (2px ring) → disabled
 - Performance: LCP under 2.5s, WebP images, deferred scripts
 
 For full token definitions: `.claude/agents/designer/knowledge-design-system-full.md`
-For HTML design system: `docs/templates/design-system/pyb-design-system-web.html`
+For HTML design system: `docs/website/design-system/pyb-design-system-web.html`

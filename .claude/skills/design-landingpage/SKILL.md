@@ -39,8 +39,8 @@ The user specifies:
 4. **Brand & design** — Read:
    - `.claude/agents/strategist/knowledge-brand.md` — brand guide, visual identity, tone
    - `.claude/agents/designer/knowledge-design-system-full.md` — tokens, colors, typography
-   - `docs/templates/design-system/pyb-design-system-photobooth.html` — page-specific design system (if photobooth)
-   - `docs/templates/design-system/pyb-design-system-dj.html` — page-specific design system (if DJ)
+   - `docs/website/design-system/pyb-design-system-photobooth.html` — page-specific design system (if photobooth)
+   - `docs/website/design-system/pyb-design-system-dj.html` — page-specific design system (if DJ)
 
 5. **Photo library** — Read `docs/images/photos-source/INDEX.md` for available source photos per product/USP, quality ratings, and Gemini AI reference picks. Use best-rated photos for image selection and `/generate-asset` input.
 
@@ -130,7 +130,7 @@ The user specifies:
 
 18. **Run `/impeccable:polish`** — Final design pass.
 
-19. **55-item CRO checklist** — Score every item from `website-design-cro.md`:
+19. **55-item CRO checklist** — Score every item from `knowledge-cro-checklist.md`:
     - Above-Fold Clarity (20%) — items 1-10
     - Trust & Credibility (15%) — items 11-18
     - Copy & Messaging (15%) — items 19-28

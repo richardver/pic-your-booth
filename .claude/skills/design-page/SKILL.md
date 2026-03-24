@@ -36,10 +36,10 @@ The user specifies which page to build:
 3. **Design system** — Read these files:
    - `.claude/agents/designer/knowledge-design-system-full.md` — tokens, colors, typography, components
    - `.claude/agents/designer/knowledge-ux-principles.md` — accessibility, responsive, visual hierarchy
-   - `docs/templates/design-system/pyb-design-system-web.html` — parent design system (visual reference)
+   - `docs/website/design-system/pyb-design-system-web.html` — parent design system (visual reference)
    - Page-specific design system if applicable:
-     - Photobooth pages → `docs/templates/design-system/pyb-design-system-photobooth.html`
-     - DJ page → `docs/templates/design-system/pyb-design-system-dj.html`
+     - Photobooth pages → `docs/website/design-system/pyb-design-system-photobooth.html`
+     - DJ page → `docs/website/design-system/pyb-design-system-dj.html`
 
 4. **Photo library** — Read `docs/images/photos-source/INDEX.md` for available source photos per product/USP, quality ratings, and Gemini AI reference picks. Use best-rated photos for image placeholders and `/generate-asset` input.
 
@@ -106,7 +106,7 @@ The user specifies which page to build:
 
 17. **Run `/impeccable:polish`** — Final design pass before shipping.
 
-18. **CRO checklist** — Score the page against the 55-item checklist from `website-design-cro.md`:
+18. **CRO checklist** — Score the page against the 55-item checklist from `knowledge-cro-checklist.md`:
     - Above-Fold Clarity (20%)
     - Trust & Credibility (15%)
     - Copy & Messaging (15%)

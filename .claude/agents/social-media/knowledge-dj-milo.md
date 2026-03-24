@@ -1,6 +1,6 @@
 # Milo
 
-Profile and brand for social content. Full profile in `docs/templates/djs/milo/profile.md`.
+Profile and brand for social content. Full profile in `docs/website/djs/milo/profile.md`.
 
 ---
 
@@ -20,7 +20,7 @@ Profile and brand for social content. Full profile in `docs/templates/djs/milo/p
 - Cyan #34d399 accent, diamond motif
 - Deep, underwater, immersive aesthetic
 - Bebas Neue + Space Grotesk typography
-- Brand guide: `docs/templates/djs/milo/brand-guide.html`
+- Brand guide: `docs/website/djs/milo/brand-guide.html`
 
 ## Social Bios
 

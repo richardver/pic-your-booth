@@ -1,6 +1,6 @@
 # DJ Gianni (Luca)
 
-Profile and brand for social content. Full profile in `docs/templates/djs/dj-gianni/profile.md`.
+Profile and brand for social content. Full profile in `docs/website/djs/dj-gianni/profile.md`.
 
 ---
 
@@ -21,8 +21,8 @@ Profile and brand for social content. Full profile in `docs/templates/djs/dj-gia
 - Coral #f0654a accent, hexagon motif
 - Warm energy, Afro Beats / Caribbean vibe
 - Bebas Neue + Space Grotesk typography
-- Templates: `docs/templates/djs/dj-gianni/social/social-templates.html`
-- Brand guide: `docs/templates/djs/dj-gianni/brand-guide.html`
+- Templates: `docs/website/djs/dj-gianni/social/social-templates.html`
+- Brand guide: `docs/website/djs/dj-gianni/brand-guide.html`
 
 ## Social Bios
 
@@ -34,7 +34,7 @@ Profile and brand for social content. Full profile in `docs/templates/djs/dj-gia
 
 ## Voice Tags
 
-For mixtapes and sets — see `docs/templates/djs/dj-gianni/voice-tags.md`.
+For mixtapes and sets — see `docs/website/djs/dj-gianni/voice-tags.md`.
 Primary: "DJ Gianni... Pure Vibes" / "Gianni in the mix"
 
 ## Exported Assets
