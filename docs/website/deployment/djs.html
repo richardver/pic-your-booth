@@ -161,15 +161,38 @@ a { color: inherit; text-decoration: none; }
   background-clip: text;
 }
 
-.nav-logo .logo-dot {
+@keyframes shutterFlash {
+  0% { opacity: 0.3; filter: drop-shadow(0 0 0px rgba(255,255,255,0)); }
+  15% { opacity: 1; filter: drop-shadow(0 0 12px rgba(255,255,255,0.8)); }
+  40% { opacity: 1; filter: drop-shadow(0 0 4px rgba(255,255,255,0.2)); }
+  100% { opacity: 1; filter: drop-shadow(0 0 0px rgba(255,255,255,0)); }
+}
+
+@keyframes headphoneBounce {
+  0% { transform: translateY(0); }
+  20% { transform: translateY(-3px); }
+  40% { transform: translateY(1px); }
+  55% { transform: translateY(-1px); }
+  70% { transform: translateY(0); }
+  100% { transform: translateY(0); }
+}
+
+.nav-logo .logo-camera {
   display: inline-block;
-  width: 5px;
-  height: 5px;
-  background: var(--gold);
-  border-radius: 50%;
-  margin-left: 3px;
-  margin-bottom: 2px;
-  box-shadow: 0 0 6px rgba(245, 158, 66, 0.4);
+  width: 0.7em;
+  height: 0.7em;
+  margin-right: 7px;
+  vertical-align: baseline;
+  animation: shutterFlash 0.8s ease-out 0.5s both;
+}
+
+.nav-logo .logo-icon {
+  display: inline-block;
+  width: 0.65em;
+  height: 0.65em;
+  margin-left: 1px;
+  vertical-align: baseline;
+  filter: drop-shadow(0 0 4px rgba(245, 158, 66, 0.4));
 }
 
 .nav-links {
@@ -1022,19 +1045,44 @@ a { color: inherit; text-decoration: none; }
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 4px;
+  gap: 6px;
 }
 
 .footer-brand {
   font-family: var(--font-display);
-  font-size: 1rem;
-  letter-spacing: 0.08em;
+  font-size: 1.75rem;
+  letter-spacing: 0.10em;
   text-transform: uppercase;
 }
 
+.footer-brand .logo-accent {
+  background: linear-gradient(135deg, var(--gold) 0%, var(--gold-light) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.footer-brand .logo-camera {
+  display: inline-block;
+  width: 0.7em;
+  height: 0.7em;
+  margin-right: 7px;
+  vertical-align: baseline;
+  filter: drop-shadow(0 0 4px rgba(245, 158, 66, 0.4));
+}
+
+.footer-brand .logo-icon {
+  display: inline-block;
+  width: 0.65em;
+  height: 0.65em;
+  margin-left: 1px;
+  vertical-align: baseline;
+  filter: drop-shadow(0 0 4px rgba(245, 158, 66, 0.4));
+}
+
 .footer-email {
-  font-size: 12px;
-  color: rgba(237, 237, 240, 0.35);
+  font-size: 13px;
+  color: rgba(237, 237, 240, 0.40);
   text-decoration: none;
   transition: color 0.2s var(--ease);
 }
@@ -1044,9 +1092,8 @@ a { color: inherit; text-decoration: none; }
 }
 
 .footer-copy {
-  font-size: 10px;
+  font-size: 13px;
   color: rgba(237, 237, 240, 0.25);
-  margin-top: 24px;
 }
 
 /* ============================================================
@@ -1568,7 +1615,7 @@ a { color: inherit; text-decoration: none; }
      NAVIGATION
      ============================================================ -->
 <div class="nav-bar"><nav class="nav">
-  <a href="index.html" class="nav-logo">PicYour<span class="logo-accent">Booth</span><span class="logo-dot"></span></a>
+  <a href="index.html" class="nav-logo"><svg class="logo-camera" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="2" y="6" width="20" height="14" rx="3" stroke="#ededf0" stroke-width="2"/><circle cx="12" cy="13" r="4" stroke="#ededf0" stroke-width="2"/><path d="M8 6V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v1" stroke="#ededf0" stroke-width="2"/></svg>PicYour<span class="logo-accent">Booth</span><svg class="logo-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3 18v-6a9 9 0 0 1 18 0v6" stroke="#f59e42" stroke-width="2.5" stroke-linecap="round"/><path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3v5zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3v5z" fill="#f59e42"/></svg></a>
   <ul class="nav-links">
     <li><a href="party-booth.html">Party Booth</a></li>
     <li><a href="magic-mirror.html">Magic Mirror XL</a></li>
@@ -1793,8 +1840,8 @@ a { color: inherit; text-decoration: none; }
      FOOTER
      ============================================================ -->
 <footer class="footer">
-  <p class="footer-brand">PicYourBooth</p>
-  <p class="footer-copy">&copy; 2026 PicYourMoment B.V. &middot; KVK 59400080 &middot; <a href="mailto:info@picyourbooth.nl" class="footer-email">info@picyourbooth.nl</a></p>
+  <p class="footer-brand"><svg class="logo-camera" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="2" y="6" width="20" height="14" rx="3" stroke="#ededf0" stroke-width="2"/><circle cx="12" cy="13" r="4" stroke="#ededf0" stroke-width="2"/><path d="M8 6V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v1" stroke="#ededf0" stroke-width="2"/></svg>PicYour<span class="logo-accent">Booth</span><svg class="logo-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3 18v-6a9 9 0 0 1 18 0v6" stroke="#f59e42" stroke-width="2.5" stroke-linecap="round"/><path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3v5zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3v5z" fill="#f59e42"/></svg></p>
+  <p class="footer-copy">&copy; 2026 PicYourBooth B.V. &middot; KVK 59400080 &middot; <a href="mailto:info@picyourbooth.nl" class="footer-email">info@picyourbooth.nl</a></p>
 </footer>
 
 <!-- Scroll Progress Bar -->
