@@ -540,6 +540,25 @@ a { color: inherit; text-decoration: none; }
   margin-bottom: 40px;
   position: relative;
   background-image: linear-gradient(135deg, rgba(245, 158, 66, 0.04) 0%, transparent 60%);
+  overflow: hidden;
+}
+.builder-base__product-img {
+  position: absolute;
+  right: -15px;
+  bottom: -40px;
+  height: 105%;
+  width: auto;
+  opacity: 0.4;
+  pointer-events: none;
+  filter: drop-shadow(0 0 24px rgba(245, 158, 66, 0.2));
+}
+@media (min-width: 600px) {
+  .builder-base__product-img {
+    opacity: 0.15;
+    right: 40px;
+    bottom: -50px;
+    height: 120%;
+  }
 }
 
 .builder-base__badge {
@@ -1724,6 +1743,7 @@ a { color: inherit; text-decoration: none; }
 
   <!-- Base Package -->
   <div class="builder-base">
+    <img src="assets/images/magic-mirror-cutout-400.webp" alt="Magic Mirror XL premium fotospiegel — PicYourBooth" class="builder-base__product-img" loading="lazy">
     <span class="builder-base__badge">Dit zit er altijd in</span>
     <h3 class="builder-base__name">Magic Mirror XL</h3>
     <div class="builder-base__price">&euro; 599 <span style="font-size:0.5em;font-weight:400;color:var(--text-muted);letter-spacing:0.02em">per event</span></div>
