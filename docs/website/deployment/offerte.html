@@ -321,7 +321,7 @@ a { color: inherit; text-decoration: none; }
 
 .form-input::placeholder,
 .form-textarea::placeholder {
-  color: rgba(237, 237, 240, 0.25);
+  color: rgba(237, 237, 240, 0.40);
 }
 
 .form-input:focus,
@@ -329,6 +329,25 @@ a { color: inherit; text-decoration: none; }
 .form-textarea:focus {
   border-color: var(--gold);
   box-shadow: 0 0 0 3px rgba(245, 158, 66, 0.15);
+}
+
+/* Validation error state */
+.form-input.error,
+.form-select.error,
+.form-textarea.error {
+  border-color: #ef4444;
+  box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.15);
+}
+
+.form-error {
+  font-size: 12px;
+  color: #ef4444;
+  margin-top: 4px;
+  display: none;
+}
+
+.form-error.visible {
+  display: block;
 }
 
 .form-textarea {
@@ -358,6 +377,32 @@ a { color: inherit; text-decoration: none; }
   color-scheme: dark;
 }
 
+/* Date placeholder wrapper — shows hint until value is picked */
+.date-wrapper {
+  position: relative;
+}
+
+.date-wrapper:not(.has-value) .form-input[type="date"] {
+  color: transparent;
+}
+
+.date-wrapper::before {
+  content: attr(data-placeholder);
+  position: absolute;
+  left: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: rgba(237, 237, 240, 0.40);
+  font-family: var(--font-body);
+  font-size: 15px;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.date-wrapper.has-value::before {
+  display: none;
+}
+
 /* -- CTA Button ---------------------------------------- */
 .btn-submit {
   display: block;
@@ -367,7 +412,7 @@ a { color: inherit; text-decoration: none; }
   background: var(--gold);
   color: #000;
   font-family: var(--font-display);
-  font-size: 1.1rem;
+  font-size: 1.3rem;
   letter-spacing: 0.06em;
   text-transform: uppercase;
   border-radius: var(--r-pill);
@@ -630,31 +675,38 @@ a { color: inherit; text-decoration: none; }
     align-items: center;
   }
   .form-header {
-    padding: 16px 16px 8px;
-    margin-bottom: 0;
-  }
-  .form-headline {
-    margin-bottom: 8px;
+    padding: 12px 16px 4px;
   }
   .form-section {
-    padding: 40px 20px 60px;
+    padding: 16px 16px 40px;
   }
   /* Hide progress bar on mobile */
   .form-progress-label,
-  .form-progress-bar {
+  .form-progress-bar,
+  .form-progress {
+    display: none;
+  }
+  /* Hide labels — placeholders are sufficient */
+  .form-label {
     display: none;
   }
   /* Compact form fields */
   .form-group {
-    margin-bottom: 12px;
+    margin-bottom: 10px;
   }
-  .form-group label,
-  .form-label {
-    font-size: 12px;
-    margin-bottom: 4px;
+  .form-group:last-of-type {
+    margin-bottom: 20px;
   }
+  /* Borderless card on mobile — feels native */
   .form-card {
-    padding: 16px;
+    padding: 12px 0 0;
+    background: transparent;
+    border: none;
+  }
+  /* Slightly shorter inputs */
+  .form-input,
+  .form-select {
+    height: 44px;
   }
   /* Shorter textarea */
   textarea,
@@ -662,19 +714,14 @@ a { color: inherit; text-decoration: none; }
     min-height: 60px;
     max-height: 80px;
   }
-  /* Sticky submit button */
+  /* Submit button in flow (not fixed/sticky) */
   .btn-submit {
-    position: sticky;
-    bottom: 0;
-    z-index: 10;
+    height: 52px;
   }
 }
 
 /* -- Mobile (max 560px) additions ------------------------- */
 @media (max-width: 560px) {
-  .form-headline {
-    font-size: clamp(2rem, 8vw, 2.8rem);
-  }
   .form-success {
     padding: 40px 20px;
   }
@@ -693,14 +740,11 @@ a { color: inherit; text-decoration: none; }
 
 /* -- Small mobile (max 480px) ----------------------------- */
 @media (max-width: 480px) {
-  .form-headline {
-    font-size: clamp(1.8rem, 9vw, 2.4rem);
-  }
   .form-section {
-    padding: 32px 16px 48px;
+    padding: 12px 12px 32px;
   }
   .nav {
-    padding: 16px 16px;
+    padding: 12px 12px;
   }
   .form-input,
   .form-select,
@@ -727,6 +771,7 @@ a { color: inherit; text-decoration: none; }
      ============================================================ -->
 <header class="form-header">
   <h1 class="form-headline text-gold-gradient">Offerte Aanvragen</h1>
+  <p class="form-subtitle">Vrijblijvend en binnen 24 uur reactie.</p>
 </header>
 
 <!-- ============================================================
@@ -753,10 +798,11 @@ a { color: inherit; text-decoration: none; }
           id="naam"
           name="naam"
           class="form-input"
-          placeholder="Je volledige naam"
+          placeholder="Naam *"
           required
           autocomplete="name"
         >
+        <p class="form-error" id="naam-error">Vul je naam in</p>
       </div>
 
       <!-- E-mail -->
@@ -767,10 +813,11 @@ a { color: inherit; text-decoration: none; }
           id="email"
           name="email"
           class="form-input"
-          placeholder="naam@voorbeeld.nl"
+          placeholder="E-mailadres *"
           required
           autocomplete="email"
         >
+        <p class="form-error" id="email-error">Vul een geldig e-mailadres in</p>
       </div>
 
       <!-- Telefoon -->
@@ -781,10 +828,11 @@ a { color: inherit; text-decoration: none; }
           id="telefoon"
           name="telefoon"
           class="form-input"
-          placeholder="06 12345678"
+          placeholder="Telefoonnummer *"
           required
           autocomplete="tel"
         >
+        <p class="form-error" id="tel-error">Vul een geldig telefoonnummer in</p>
       </div>
 
       <!-- Service -->
@@ -796,26 +844,12 @@ a { color: inherit; text-decoration: none; }
           class="form-select"
           required
         >
-          <option value="" disabled selected>Waar heb je interesse in?</option>
+          <option value="" disabled selected>Waar heb je interesse in? *</option>
           <option value="party-booth">Party Booth (vanaf € 199)</option>
           <option value="magic-mirror">Magic Mirror XL (vanaf € 599)</option>
           <option value="dj">DJ Set (vanaf € 149)</option>
         </select>
-      </div>
-
-      <!-- Datum Event -->
-      <div class="form-group">
-        <label class="form-label" for="datum">
-          Datum Event
-          <span class="form-label-hint">(populaire data gaan snel)</span>
-        </label>
-        <input
-          type="date"
-          id="datum"
-          name="datum"
-          class="form-input"
-          required
-        >
+        <p class="form-error" id="service-error">Selecteer een service</p>
       </div>
 
       <!-- Type Event -->
@@ -827,13 +861,32 @@ a { color: inherit; text-decoration: none; }
           class="form-select"
           required
         >
-          <option value="" disabled selected>Selecteer type event</option>
+          <option value="" disabled selected>Selecteer type event *</option>
           <option value="bruiloft">Bruiloft</option>
           <option value="bedrijfsfeest">Bedrijfsfeest</option>
           <option value="verjaardag">Verjaardag</option>
           <option value="festival-club">Festival of Club</option>
           <option value="anders">Anders</option>
         </select>
+        <p class="form-error" id="type-error">Selecteer een type event</p>
+      </div>
+
+      <!-- Datum Event -->
+      <div class="form-group">
+        <label class="form-label" for="datum">
+          Datum Event
+          <span class="form-label-hint">(populaire data gaan snel)</span>
+        </label>
+        <div class="date-wrapper" data-placeholder="Datum event *">
+          <input
+            type="date"
+            id="datum"
+            name="datum"
+            class="form-input"
+            required
+          >
+        </div>
+        <p class="form-error" id="datum-error">Vul de datum van je event in</p>
       </div>
 
       <!-- Bericht -->
@@ -847,13 +900,13 @@ a { color: inherit; text-decoration: none; }
           name="bericht"
           class="form-textarea"
           rows="4"
-          placeholder="Vertel ons meer over je event..."
+          placeholder="Bericht (optioneel)"
         ></textarea>
       </div>
 
       <!-- CTA -->
       <button type="submit" class="btn-submit">
-        VRAAG VRIJBLIJVEND VOORSTEL AAN
+        VERSTUUR AANVRAAG
       </button>
 
       <!-- Trust Line -->
@@ -943,6 +996,15 @@ a { color: inherit; text-decoration: none; }
     }, { passive: true });
   }
 
+  /* -- Date placeholder toggle -------------------------- */
+  var dateInput = document.getElementById('datum');
+  var dateWrapper = dateInput && dateInput.closest('.date-wrapper');
+  if (dateInput && dateWrapper) {
+    dateInput.addEventListener('change', function () {
+      dateWrapper.classList.toggle('has-value', dateInput.value !== '');
+    });
+  }
+
   /* -- Form progress indicator -------------------------- */
   var formFields = document.querySelectorAll('form input:not([type="hidden"]):not([type="submit"]), form select, form textarea');
   var progressBar = document.getElementById('progressBar');
@@ -1005,11 +1067,84 @@ a { color: inherit; text-decoration: none; }
     updateProgress();
   }
 
+  /* -- Basic validation --------------------------------- */
+  function validateEmail(val) {
+    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(val.trim());
+  }
+
+  function validatePhone(val) {
+    var digits = val.replace(/[\s\-\(\)\+]/g, '');
+    return digits.length >= 8 && digits.length <= 15 && /^\d+$/.test(digits);
+  }
+
+  function showError(input, errorEl) {
+    input.classList.add('error');
+    if (errorEl) errorEl.classList.add('visible');
+  }
+
+  function clearError(input, errorEl) {
+    input.classList.remove('error');
+    if (errorEl) errorEl.classList.remove('visible');
+  }
+
+  var naamInput = document.getElementById('naam');
+  var naamError = document.getElementById('naam-error');
+  var emailInput = document.getElementById('email');
+  var emailError = document.getElementById('email-error');
+  var telInput = document.getElementById('telefoon');
+  var telError = document.getElementById('tel-error');
+  var serviceInput = document.getElementById('service');
+  var serviceError = document.getElementById('service-error');
+  var typeInput = document.getElementById('type-event');
+  var typeError = document.getElementById('type-error');
+  var datumInput = document.getElementById('datum');
+  var datumError = document.getElementById('datum-error');
+
+  /* Clear errors on input/change */
+  if (naamInput) naamInput.addEventListener('input', function () { clearError(naamInput, naamError); });
+  if (emailInput) emailInput.addEventListener('input', function () { clearError(emailInput, emailError); });
+  if (telInput) telInput.addEventListener('input', function () { clearError(telInput, telError); });
+  if (serviceInput) serviceInput.addEventListener('change', function () { clearError(serviceInput, serviceError); });
+  if (typeInput) typeInput.addEventListener('change', function () { clearError(typeInput, typeError); });
+  if (datumInput) datumInput.addEventListener('change', function () { clearError(datumInput, datumError); });
+
   /* -- Form success state with confetti ----------------- */
   var form = document.querySelector('form');
   if (form) {
     form.addEventListener('submit', function (e) {
       e.preventDefault();
+
+      /* Validate required fields */
+      var valid = true;
+      if (naamInput && !naamInput.value.trim()) {
+        showError(naamInput, naamError);
+        valid = false;
+      }
+      if (emailInput && !validateEmail(emailInput.value)) {
+        showError(emailInput, emailError);
+        valid = false;
+      }
+      if (telInput && !validatePhone(telInput.value)) {
+        showError(telInput, telError);
+        valid = false;
+      }
+      if (serviceInput && !serviceInput.value) {
+        showError(serviceInput, serviceError);
+        valid = false;
+      }
+      if (typeInput && !typeInput.value) {
+        showError(typeInput, typeError);
+        valid = false;
+      }
+      if (datumInput && !datumInput.value) {
+        showError(datumInput, datumError);
+        valid = false;
+      }
+      if (!valid) {
+        var firstError = form.querySelector('.error');
+        if (firstError) firstError.focus();
+        return;
+      }
 
       /* Confetti burst */
       var colors = ['#f59e42', '#8b5cf6', '#ffb86b', '#34d399'];
