@@ -3,11 +3,11 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Photobooth Huren | Premium Entertainment | PicYourBooth</title>
-<meta name="description" content="Photobooth en DJ huren in de Randstad. Magic Mirror XL vanaf €599, Party Booth vanaf €199. Vraag vrijblijvend een voorstel aan.">
+<title>Photobooth &amp; DJ Huren in de Randstad | PicYourBooth</title>
+<meta name="description" content="Photobooth en DJ huren in de Randstad. Magic Mirror XL vanaf € 599, Party Booth vanaf € 199. Vraag vrijblijvend een voorstel aan. Check beschikbaarheid →">
 <link rel="canonical" href="https://picyourbooth.nl/">
 <meta property="og:title" content="Photobooth Huren | Premium Entertainment | PicYourBooth">
-<meta property="og:description" content="Photobooth en DJ huren in de Randstad. Magic Mirror XL vanaf €599, Party Booth vanaf €199.">
+<meta property="og:description" content="Photobooth en DJ huren in de Randstad. Magic Mirror XL vanaf € 599, Party Booth vanaf € 199.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://picyourbooth.nl/">
 <meta property="og:locale" content="nl_NL">
@@ -163,7 +163,7 @@ a { color: inherit; text-decoration: none; }
 
 .nav-logo {
   font-family: var(--font-display);
-  font-size: 1.75rem;
+  font-size: 1.2rem;
   letter-spacing: 0.10em;
   text-transform: uppercase;
   color: var(--text);
@@ -360,7 +360,7 @@ a { color: inherit; text-decoration: none; }
 }
 
 .hero-title {
-  font-size: clamp(2.5rem, 6vw, 3.5rem);
+  font-size: clamp(3.5rem, 8vw, 5.5rem);
   letter-spacing: 0.08em;
   margin-bottom: 16px;
 }
@@ -374,9 +374,32 @@ a { color: inherit; text-decoration: none; }
   line-height: 1.7;
 }
 
+.hero-cta {
+  display: inline-block;
+  margin-top: 24px;
+  padding: 16px 36px;
+  background: var(--gold);
+  color: #000;
+  font-family: var(--font-display);
+  font-size: 1rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-decoration: none;
+  border-radius: var(--r-pill);
+  font-weight: 700;
+  transition: background 0.25s var(--ease), transform 0.15s var(--ease), box-shadow 0.25s var(--ease);
+}
+.hero-cta:hover {
+  background: var(--gold-light);
+  transform: scale(1.02);
+  box-shadow: 0 0 24px var(--gold-glow);
+}
+
+.sticky-cta { display: none; }
+
 @media (max-width: 768px) {
   .hero {
-    padding: 60px 20px 48px;
+    padding: 80px 24px 64px;
     min-height: 50vh;
   }
   /* Global mobile text bump + USP/upgrade bump */
@@ -437,7 +460,7 @@ a { color: inherit; text-decoration: none; }
     line-height: 1.7;
   }
   .hero-title {
-    font-size: 2rem;
+    font-size: 2.8rem;
     letter-spacing: 0.05em;
     margin-bottom: 12px;
   }
@@ -448,6 +471,58 @@ a { color: inherit; text-decoration: none; }
   .hero-label {
     font-size: 11px;
     margin-bottom: 8px;
+  }
+  .sticky-cta {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    background: rgba(8, 8, 11, 0.95);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-top: 1px solid rgba(245, 158, 66, 0.2);
+    padding: 12px 16px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .sticky-cta a {
+    display: block;
+    width: 100%;
+    max-width: 400px;
+    padding: 16px 24px;
+    background: var(--gold);
+    color: #000;
+    font-family: var(--font-display);
+    font-size: 1.15rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    text-decoration: none;
+    text-align: center;
+    border-radius: var(--r-pill);
+    font-weight: 700;
+  }
+  .service-card {
+    padding: 28px 24px;
+  }
+  .service-card__title {
+    font-size: 1.6rem;
+    margin-bottom: 12px;
+  }
+  .service-card__desc {
+    font-size: 16px;
+    line-height: 1.6;
+  }
+  .service-card__link {
+    font-size: 15px;
+  }
+  .service-card__price {
+    font-size: 1.2rem;
+    padding: 12px 28px;
+  }
+  .section-title {
+    text-align: center;
   }
 }
 
@@ -586,9 +661,20 @@ a { color: inherit; text-decoration: none; }
 }
 
 .service-card__title {
-  font-size: 1.3rem;
+  font-size: 1.5rem;
   letter-spacing: 0.06em;
-  margin-bottom: 12px;
+  margin-bottom: 16px;
+  display: inline;
+  background: var(--gold);
+  color: #000;
+  padding: 2px 8px;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+}
+
+.service-card__title--violet {
+  background: var(--violet);
+  color: #fff;
 }
 
 .service-card__desc {
@@ -628,9 +714,9 @@ a { color: inherit; text-decoration: none; }
 
 .service-card__price {
   font-family: var(--font-body);
-  font-size: 0.9rem;
-  font-weight: 600;
-  letter-spacing: 0.02em;
+  font-size: 1.3rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
   padding: 8px 20px;
   border-radius: var(--r-pill);
   white-space: nowrap;
@@ -865,7 +951,7 @@ a { color: inherit; text-decoration: none; }
 
 .footer-copy {
   font-size: 13px;
-  color: rgba(237, 237, 240, 0.35);
+  color: rgba(237, 237, 240, 0.25);
 }
 
 /* -- Hero Slow Zoom (Ken Burns) ------------------------ */
@@ -1012,8 +1098,8 @@ a { color: inherit; text-decoration: none; }
 
 .nav-hamburger.active {
   position: fixed;
-  top: 20px;
-  right: 32px;
+  top: 16px;
+  right: 16px;
   z-index: 201;
 }
 
@@ -1044,10 +1130,10 @@ a { color: inherit; text-decoration: none; }
     padding: 80px 24px 64px;
   }
   .hero-title {
-    font-size: clamp(2rem, 5vw, 3rem);
+    font-size: clamp(2.6rem, 7vw, 3.2rem);
   }
   .hero-subtitle {
-    font-size: 14px;
+    font-size: 16px;
   }
   .nav-hamburger {
     padding: 10px;
@@ -1065,7 +1151,7 @@ a { color: inherit; text-decoration: none; }
     padding: 64px 20px 48px;
   }
   .hero-title {
-    font-size: clamp(1.8rem, 7vw, 2.5rem);
+    font-size: clamp(2.4rem, 9vw, 3rem);
   }
   .services {
     padding-top: 64px;
@@ -1096,10 +1182,10 @@ a { color: inherit; text-decoration: none; }
     padding: 56px 16px 40px;
   }
   .hero-title {
-    font-size: clamp(1.6rem, 8vw, 2.2rem);
+    font-size: clamp(2.2rem, 10vw, 2.8rem);
   }
   .hero-subtitle {
-    font-size: 13px;
+    font-size: 16px;
     max-width: 100%;
   }
   .nav {
@@ -1180,38 +1266,20 @@ a { color: inherit; text-decoration: none; }
 <section class="hero">
   <div class="hero-overlay"></div>
   <div class="hero-content">
-    <span class="hero-label">Premium Entertainment</span>
-    <h1 class="hero-title text-gold-gradient">Photobooth Huren<br>in de Randstad</h1>
-    <p class="hero-subtitle">Premium photobooths en DJ entertainment in de Randstad</p>
+    <h1 class="hero-title text-gold-gradient">Photobooth & DJ Huren<br>in de Randstad</h1>
+    <p class="hero-subtitle">Eén team, alles geregeld.<br>Party Booth, Magic Mirror XL of DJ.</p>
   </div>
 </section>
 
 <!-- ============================================================
      SOCIAL PROOF BAR
      ============================================================ -->
-<div class="proof-bar reveal">
-  <div class="proof-item">
-    <span class="proof-number">237+</span>
-    <span class="proof-label">Events Verzorgd</span>
-  </div>
-  <div class="proof-divider"></div>
-  <div class="proof-item">
-    <span class="proof-number">4.9&#9733;</span>
-    <span class="proof-label">Google Reviews</span>
-  </div>
-  <div class="proof-divider"></div>
-  <div class="proof-item">
-    <span class="proof-number">Randstad</span>
-    <span class="proof-label">& Omgeving</span>
-  </div>
-</div>
 
 <!-- ============================================================
      SERVICE CARDS
      ============================================================ -->
 <section class="services reveal">
   <div class="section-header">
-    <span class="section-label">Ons Aanbod</span>
     <h2 class="section-title">Kies Jouw Entertainment</h2>
   </div>
   <div class="services-grid">
@@ -1222,7 +1290,7 @@ a { color: inherit; text-decoration: none; }
       <p class="service-card__desc">Digitaal foto plezier voor elk feest. Delen via QR, zelf ophalen, 5 minuten opzetten.</p>
       <div class="service-card__footer">
         <a href="party-booth.html" class="service-card__link">Meer info &#8594;</a>
-        <a href="party-booth.html" class="service-card__price service-card__price--gold">Vanaf &euro;199</a>
+        <a href="party-booth.html" class="service-card__price service-card__price--gold">&euro; 199</a>
       </div>
     </div>
 
@@ -1232,17 +1300,17 @@ a { color: inherit; text-decoration: none; }
       <p class="service-card__desc">Professionele fotospiegel met DSLR-camera en studiobelichting. Tot 5 uur inclusief, bezorging en ophalen inbegrepen.</p>
       <div class="service-card__footer">
         <a href="magic-mirror.html" class="service-card__link">Meer info &#8594;</a>
-        <a href="magic-mirror.html" class="service-card__price service-card__price--gold">Vanaf &euro;599</a>
+        <a href="magic-mirror.html" class="service-card__price service-card__price--gold">&euro; 599</a>
       </div>
     </div>
 
     <!-- DJs -->
     <div class="service-card">
-      <h3 class="service-card__title">DJ's</h3>
+      <h3 class="service-card__title service-card__title--violet">DJ's</h3>
       <p class="service-card__desc">Spotify playlist-optimalisatie. Speakers, licht en rookmachine inbegrepen.</p>
       <div class="service-card__footer">
         <a href="djs.html" class="service-card__link service-card__link--violet">Meer info &#8594;</a>
-        <a href="djs.html" class="service-card__price service-card__price--violet">Vanaf &euro;149</a>
+        <a href="djs.html" class="service-card__price service-card__price--violet">&euro; 149</a>
       </div>
     </div>
 
@@ -1271,7 +1339,7 @@ a { color: inherit; text-decoration: none; }
      ============================================================ -->
 <section class="faq" id="faq">
   <h2 class="faq-title">Veelgestelde Vragen</h2>
-  <details class="faq-item"><summary>Wat is PicYourBooth?</summary><p class="faq-answer">PicYourBooth levert premium photobooth en DJ entertainment in de Randstad. Van compacte digitale photobooths (Party Booth, vanaf €199) tot professionele fotospiegels (Magic Mirror XL, vanaf €599) en DJ's (vanaf €149). Eén team voor je complete feest.</p></details>
+  <details class="faq-item"><summary>Wat is PicYourBooth?</summary><p class="faq-answer">PicYourBooth levert premium photobooth en DJ entertainment in de Randstad. Van compacte digitale photobooths (Party Booth, vanaf € 199) tot professionele fotospiegels (Magic Mirror XL, vanaf € 599) en DJ's (vanaf € 149). Eén team voor je complete feest.</p></details>
   <details class="faq-item"><summary>Welke diensten bieden jullie?</summary><p class="faq-answer">Drie diensten: Party Booth (digitale photobooth, zelf ophalen en opzetten), Magic Mirror XL (premium fotospiegel met DSLR-camera, bezorging inbegrepen) en Live DJ Sets met DJ Gianni of DJ Milø. Alles combineerbaar in één boeking.</p></details>
   <details class="faq-item"><summary>In welk gebied zijn jullie actief?</summary><p class="faq-answer">Wij bedienen de Randstad en omgeving — Amsterdam, Rotterdam, Den Haag, Utrecht, Leiden en alles daartussen. Bezorging binnen 50 kilometer is inbegrepen bij de Magic Mirror XL.</p></details>
   <details class="faq-item"><summary>Hoe boek ik?</summary><p class="faq-answer">Vraag een vrijblijvend voorstel aan via ons offerteformulier. Je ontvangt binnen 24 uur een persoonlijk voorstel. Geen verplichtingen, wel direct duidelijkheid over beschikbaarheid en prijs.</p></details>
@@ -1283,8 +1351,8 @@ a { color: inherit; text-decoration: none; }
      FOOTER
      ============================================================ -->
 <footer class="footer">
-  <p class="footer-brand"><svg class="logo-camera" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="2" y="6" width="20" height="14" rx="3" stroke="#ededf0" stroke-width="2"/><circle cx="12" cy="13" r="4" stroke="#ededf0" stroke-width="2"/><path d="M8 6V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v1" stroke="#ededf0" stroke-width="2"/></svg>PicYour<span class="logo-accent">Booth</span><svg class="logo-icon" viewBox="0 2 24 22" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3 18v-6a9 9 0 0 1 18 0v6" stroke="#f59e42" stroke-width="2.5" stroke-linecap="round"/><path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3v5zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3v5z" fill="#f59e42"/></svg></p>
-  <p class="footer-copy">&copy; 2026 PicYourBooth B.V. (onderdeel van <a href="https://www.pymapp.com" class="footer-email" target="_blank" rel="noopener">PYM</a>) &middot; <a href="mailto:info@picyourbooth.nl" class="footer-email">info@picyourbooth.nl</a></p>
+  <a href="index.html" class="footer-brand" style="text-decoration:none"><svg class="logo-camera" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="2" y="6" width="20" height="14" rx="3" stroke="#ededf0" stroke-width="2"/><circle cx="12" cy="13" r="4" stroke="#ededf0" stroke-width="2"/><path d="M8 6V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v1" stroke="#ededf0" stroke-width="2"/></svg>PicYour<span class="logo-accent">Booth</span><svg class="logo-icon" viewBox="0 2 24 22" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3 18v-6a9 9 0 0 1 18 0v6" stroke="#f59e42" stroke-width="2.5" stroke-linecap="round"/><path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3v5zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3v5z" fill="#f59e42"/></svg></a>
+  <p class="footer-copy">&copy; 2026 PicYourBooth (onderdeel van <a href="https://www.pymapp.com" class="footer-email" target="_blank" rel="noopener">PYM</a>) &middot; <a href="mailto:info@picyourbooth.nl" class="footer-email">info@picyourbooth.nl</a></p>
   <p class="footer-copy">KVK 59400080</p>
 </footer>
 
@@ -1496,7 +1564,7 @@ a { color: inherit; text-decoration: none; }
     "geoMidpoint": {"@type": "GeoCoordinates", "latitude": 52.0, "longitude": 4.5},
     "geoRadius": "50000"
   },
-  "priceRange": "€149 - €2000",
+  "priceRange": "€ 149 - € 2000",
   "aggregateRating": {
     "@type": "AggregateRating",
     "ratingValue": "4.9",
@@ -1511,13 +1579,17 @@ a { color: inherit; text-decoration: none; }
   "@context": "https://schema.org",
   "@type": "FAQPage",
   "mainEntity": [
-    {"@type": "Question", "name": "Wat is PicYourBooth?", "acceptedAnswer": {"@type": "Answer", "text": "PicYourBooth levert premium photobooth en DJ entertainment in de Randstad. Van compacte digitale photobooths (Party Booth, vanaf €199) tot professionele fotospiegels (Magic Mirror XL, vanaf €599) en DJ's (vanaf €149). Eén team voor je complete feest."}},
+    {"@type": "Question", "name": "Wat is PicYourBooth?", "acceptedAnswer": {"@type": "Answer", "text": "PicYourBooth levert premium photobooth en DJ entertainment in de Randstad. Van compacte digitale photobooths (Party Booth, vanaf € 199) tot professionele fotospiegels (Magic Mirror XL, vanaf € 599) en DJ's (vanaf € 149). Eén team voor je complete feest."}},
     {"@type": "Question", "name": "Welke diensten bieden jullie?", "acceptedAnswer": {"@type": "Answer", "text": "Drie diensten: Party Booth (digitale photobooth, zelf ophalen en opzetten), Magic Mirror XL (premium fotospiegel met DSLR-camera, bezorging inbegrepen) en Live DJ Sets met DJ Gianni of DJ Milø. Alles combineerbaar in één boeking."}},
     {"@type": "Question", "name": "In welk gebied zijn jullie actief?", "acceptedAnswer": {"@type": "Answer", "text": "Wij bedienen de Randstad en omgeving — Amsterdam, Rotterdam, Den Haag, Utrecht, Leiden en alles daartussen. Bezorging binnen 50 kilometer is inbegrepen bij de Magic Mirror XL."}},
     {"@type": "Question", "name": "Hoe boek ik?", "acceptedAnswer": {"@type": "Answer", "text": "Vraag een vrijblijvend voorstel aan via ons offerteformulier. Je ontvangt binnen 24 uur een persoonlijk voorstel. Geen verplichtingen, wel direct duidelijkheid over beschikbaarheid en prijs."}}
   ]
 }
 </script>
+
+<div class="sticky-cta">
+  <a href="offerte.html">Vraag Vrijblijvend Voorstel Aan</a>
+</div>
 
 </body>
 </html>

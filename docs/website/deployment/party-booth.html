@@ -3,11 +3,11 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Photobooth Huren Goedkoop | Party Booth vanaf €199 - PicYourBooth</title>
-<meta name="description" content="Digitale photobooth voor elk feest. Zelf ophalen, 5 minuten opzetten. AI achtergrond beschikbaar. Vanaf €199 per dag.">
+<title>Photobooth Huren Goedkoop | Party Booth € 199 | PYB</title>
+<meta name="description" content="Digitale photobooth voor elk feest. Zelf ophalen, 5 minuten opzetten. AI achtergrond beschikbaar. Vanaf € 199 per dag.">
 <link rel="canonical" href="https://picyourbooth.nl/party-booth">
-<meta property="og:title" content="Photobooth Huren Goedkoop | Party Booth vanaf €199">
-<meta property="og:description" content="Digitale photobooth voor elk feest. Zelf ophalen, 5 minuten opzetten. Vanaf €199 per dag.">
+<meta property="og:title" content="Photobooth Huren Goedkoop | Party Booth vanaf € 199">
+<meta property="og:description" content="Digitale photobooth voor elk feest. Zelf ophalen, 5 minuten opzetten. Vanaf € 199 per dag.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://picyourbooth.nl/party-booth">
 <meta property="og:locale" content="nl_NL">
@@ -163,7 +163,7 @@ a { color: inherit; text-decoration: none; }
 
 .nav-logo {
   font-family: var(--font-display);
-  font-size: 1.75rem;
+  font-size: 1.2rem;
   letter-spacing: 0.10em;
   text-transform: uppercase;
   color: var(--text);
@@ -217,7 +217,6 @@ a { color: inherit; text-decoration: none; }
   height: 1em;
   margin-left: 1px;
   vertical-align: middle;
-  transform: translateY(-4px);
   filter: drop-shadow(0 0 4px rgba(245, 158, 66, 0.4));
 }
 
@@ -278,6 +277,10 @@ a { color: inherit; text-decoration: none; }
 }
 
 /* Hamburger (mobile) */
+.nav-home {
+  display: none;
+}
+
 .nav-hamburger {
   display: none;
   flex-direction: column;
@@ -363,7 +366,7 @@ a { color: inherit; text-decoration: none; }
 }
 
 .hero-title {
-  font-size: clamp(2.5rem, 6vw, 3.5rem);
+  font-size: clamp(3.5rem, 8vw, 5.5rem);
   letter-spacing: 0.08em;
   margin-bottom: 16px;
 }
@@ -386,6 +389,74 @@ a { color: inherit; text-decoration: none; }
   color: var(--gold);
   font-variant-numeric: tabular-nums;
 }
+
+.hero-cta {
+  display: inline-block;
+  margin-top: 24px;
+  padding: 16px 36px;
+  background: var(--gold);
+  color: #000;
+  font-family: var(--font-display);
+  font-size: 1rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-decoration: none;
+  border-radius: var(--r-pill);
+  font-weight: 700;
+  transition: background 0.25s var(--ease), transform 0.15s var(--ease), box-shadow 0.25s var(--ease);
+}
+.hero-cta:hover {
+  background: var(--gold-light);
+  transform: scale(1.02);
+  box-shadow: 0 0 24px var(--gold-glow);
+}
+
+/* -- Proof Bar ----------------------------------------- */
+.proof-bar {
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  gap: 20px;
+  padding: 32px 24px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+.proof-item {
+  flex: 1;
+  text-align: center;
+  padding: 24px 16px;
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  font-weight: 400;
+  letter-spacing: 0.02em;
+  background: linear-gradient(165deg, var(--surface) 0%, var(--surface-up) 100%);
+  border: 1px solid var(--border);
+  border-radius: var(--r-md);
+  transition: border-color 0.25s var(--ease), transform 0.25s var(--ease);
+}
+.proof-item:hover {
+  border-color: rgba(245, 158, 66, 0.18);
+  transform: translateY(-2px);
+}
+.proof-number {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+  background: linear-gradient(135deg, var(--gold) 0%, var(--gold-light) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  letter-spacing: 0.06em;
+  margin-bottom: 4px;
+}
+@media (max-width: 600px) {
+  .proof-bar { gap: 12px; padding: 24px 16px; }
+  .proof-item { padding: 16px 12px; font-size: 0.8rem; }
+  .proof-number { font-size: 1.3rem; }
+}
+
+/* -- Sticky Mobile CTA --------------------------------- */
+.sticky-cta { display: none; }
 
 /* -- USP Section (2x2 Grid) ---------------------------- */
 .usp-section {
@@ -489,13 +560,13 @@ a { color: inherit; text-decoration: none; }
 }
 
 .ai-callout__title {
-  font-size: 1.75rem;
+  font-size: 2.2rem;
   letter-spacing: 0.06em;
   margin-bottom: 12px;
 }
 
 .ai-callout__desc {
-  font-size: 0.9rem;
+  font-size: 1.05rem;
   color: var(--text-muted);
   font-weight: 300;
   line-height: 1.7;
@@ -527,7 +598,7 @@ a { color: inherit; text-decoration: none; }
 
 .ai-compare__label {
   font-family: var(--font-display);
-  font-size: 1rem;
+  font-size: 1.15rem;
   letter-spacing: 0.06em;
   text-transform: uppercase;
   margin-bottom: 8px;
@@ -568,7 +639,7 @@ a { color: inherit; text-decoration: none; }
 }
 
 .ai-compare__text {
-  font-size: 0.8rem;
+  font-size: 0.95rem;
   color: var(--text-muted);
   font-weight: 300;
   line-height: 1.5;
@@ -617,7 +688,7 @@ a { color: inherit; text-decoration: none; }
   font-size: 2rem;
   letter-spacing: 0.06em;
   text-align: center;
-  margin-bottom: 8px;
+  margin-bottom: 32px;
   color: var(--text);
 }
 
@@ -649,8 +720,9 @@ a { color: inherit; text-decoration: none; }
   text-transform: uppercase;
   padding: 4px 10px;
   border-radius: var(--r-pill);
-  background: rgba(255, 255, 255, 0.06);
-  color: var(--text-muted);
+  background: rgba(245, 158, 66, 0.15);
+  color: var(--gold);
+  border: 1px solid rgba(245, 158, 66, 0.3);
 }
 
 .builder-base__name {
@@ -693,9 +765,10 @@ a { color: inherit; text-decoration: none; }
 
 /* -- Upgrade Title ------------------------------------- */
 .builder-upgrades-title {
-  font-size: 1.25rem;
+  font-size: 1.75rem;
   letter-spacing: 0.06em;
-  margin-bottom: 20px;
+  text-align: center;
+  margin-bottom: 28px;
 }
 
 /* -- Upgrade Row --------------------------------------- */
@@ -751,21 +824,21 @@ a { color: inherit; text-decoration: none; }
 
 .upgrade-row__name {
   font-family: var(--font-display);
-  font-size: 0.95rem;
+  font-size: 1.15rem;
   letter-spacing: 0.04em;
   text-transform: uppercase;
   margin-bottom: 2px;
 }
 
 .upgrade-row__desc {
-  font-size: 13px;
+  font-size: 15px;
   color: var(--text-muted);
-  line-height: 1.4;
+  line-height: 1.5;
 }
 
 .upgrade-row__price {
   font-family: var(--font-body);
-  font-size: 1rem;
+  font-size: 1.15rem;
   font-weight: 600;
   letter-spacing: 0.04em;
   white-space: nowrap;
@@ -859,7 +932,7 @@ a { color: inherit; text-decoration: none; }
 
 .builder-total__label {
   font-family: var(--font-display);
-  font-size: 0.75rem;
+  font-size: 1rem;
   font-weight: 400;
   color: var(--text-muted);
   text-transform: uppercase;
@@ -868,9 +941,9 @@ a { color: inherit; text-decoration: none; }
 }
 
 .builder-total__amount {
-  font-family: var(--font-display);
+  font-family: var(--font-body);
   font-size: 3rem;
-  font-weight: 400;
+  font-weight: 700;
   letter-spacing: 0.04em;
   background: linear-gradient(135deg, var(--gold) 0%, var(--gold-light) 100%);
   -webkit-background-clip: text;
@@ -881,7 +954,7 @@ a { color: inherit; text-decoration: none; }
 }
 
 .builder-total__btw {
-  font-size: 11px;
+  font-size: 14px;
   color: var(--text-muted);
   font-weight: 300;
   margin-top: 6px;
@@ -1128,11 +1201,11 @@ a { color: inherit; text-decoration: none; }
 /* -- Responsive ---------------------------------------- */
 @media (max-width: 768px) {
   .hero {
-    padding: 60px 20px 48px;
+    padding: 80px 24px 64px;
     min-height: 50vh;
   }
   .hero-title {
-    font-size: 2rem;
+    font-size: 2.8rem;
     letter-spacing: 0.05em;
     margin-bottom: 12px;
   }
@@ -1153,16 +1226,19 @@ a { color: inherit; text-decoration: none; }
     font-size: 16px;
     line-height: 1.75;
   }
+  .builder-upgrades-title {
+    font-size: 1.75rem;
+  }
   .upgrade-row__name {
-    font-size: 16px;
+    font-size: 18px;
     letter-spacing: 0.04em;
   }
   .upgrade-row__desc {
-    font-size: 14px;
+    font-size: 16px;
     line-height: 1.6;
   }
   .upgrade-row__price {
-    font-size: 1.1rem;
+    font-size: 1.2rem;
   }
   .faq-item summary {
     font-size: 16px;
@@ -1176,10 +1252,10 @@ a { color: inherit; text-decoration: none; }
   }
   /* USP card text bump */
   .usp-item__title, .usp-card__title {
-    font-size: 1.3rem;
+    font-size: 1.5rem;
   }
   .usp-item__desc, .usp-card__desc {
-    font-size: 15px;
+    font-size: 16px;
     line-height: 1.6;
   }
   .usp-section-title {
@@ -1211,6 +1287,26 @@ a { color: inherit; text-decoration: none; }
   }
   .ai-callout {
     padding: 0 20px 48px;
+  }
+  .ai-callout__title {
+    font-size: 2rem;
+  }
+  .ai-callout__desc {
+    font-size: 1rem;
+  }
+  .ai-compare__label {
+    font-size: 1.2rem;
+  }
+  .ai-compare__text {
+    font-size: 1rem;
+    line-height: 1.6;
+  }
+  .ai-compare__icon svg {
+    width: 32px;
+    height: 32px;
+  }
+  .ai-price {
+    font-size: 1rem;
   }
   .builder {
     padding: 64px 20px;
@@ -1390,6 +1486,10 @@ a { color: inherit; text-decoration: none; }
   to   { opacity: 1; }
 }
 
+.nav-links.open .nav-home {
+  display: list-item;
+}
+
 .nav-links.open li {
   list-style: none;
   opacity: 1 !important;
@@ -1411,8 +1511,8 @@ a { color: inherit; text-decoration: none; }
 }
 .nav-hamburger.active {
   position: fixed;
-  top: 20px;
-  right: 32px;
+  top: 16px;
+  right: 16px;
   z-index: 201;
 }
 
@@ -1453,7 +1553,7 @@ a { color: inherit; text-decoration: none; }
     padding: 64px 20px 48px;
   }
   .hero-title {
-    font-size: clamp(1.8rem, 7vw, 2.5rem);
+    font-size: clamp(2.4rem, 9vw, 3rem);
   }
   .usp-section,
   .ai-callout,
@@ -1478,10 +1578,10 @@ a { color: inherit; text-decoration: none; }
     padding: 56px 16px 40px;
   }
   .hero-title {
-    font-size: clamp(1.6rem, 8vw, 2.2rem);
+    font-size: clamp(2.2rem, 10vw, 2.8rem);
   }
   .hero-subtitle {
-    font-size: 13px;
+    font-size: 16px;
   }
   .nav {
     padding: 16px 16px;
@@ -1498,7 +1598,7 @@ a { color: inherit; text-decoration: none; }
     padding: 14px 16px;
   }
   .upgrade-row__name {
-    font-size: 13px;
+    font-size: 18px;
   }
 }
 
@@ -1621,6 +1721,36 @@ a { color: inherit; text-decoration: none; }
   .hero::before {
     background-image: url('assets/images/party-booth-hero-768x432.webp');
   }
+  .sticky-cta {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    background: rgba(8, 8, 11, 0.95);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-top: 1px solid rgba(245, 158, 66, 0.2);
+    padding: 12px 16px;
+    display: flex;
+    justify-content: center;
+  }
+  .sticky-cta a {
+    display: block;
+    width: 100%;
+    max-width: 400px;
+    padding: 16px 24px;
+    background: var(--gold);
+    color: #000;
+    font-family: var(--font-display);
+    font-size: 1.15rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    text-decoration: none;
+    text-align: center;
+    border-radius: var(--r-pill);
+    font-weight: 700;
+  }
 }
 </style>
 </head>
@@ -1632,6 +1762,7 @@ a { color: inherit; text-decoration: none; }
 <div class="nav-bar"><nav class="nav">
   <a href="index.html" class="nav-logo"><svg class="logo-camera" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="2" y="6" width="20" height="14" rx="3" stroke="#ededf0" stroke-width="2"/><circle cx="12" cy="13" r="4" stroke="#ededf0" stroke-width="2"/><path d="M8 6V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v1" stroke="#ededf0" stroke-width="2"/></svg>PicYour<span class="logo-accent">Booth</span><svg class="logo-icon" viewBox="0 2 24 22" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3 18v-6a9 9 0 0 1 18 0v6" stroke="#f59e42" stroke-width="2.5" stroke-linecap="round"/><path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3v5zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3v5z" fill="#f59e42"/></svg></a>
   <ul class="nav-links">
+    <li class="nav-home"><a href="index.html">Home</a></li>
     <li><a href="party-booth.html" class="active">Party Booth</a></li>
     <li><a href="magic-mirror.html">Magic Mirror XL</a></li>
     <li><a href="djs.html">DJ's</a></li>
@@ -1652,17 +1783,22 @@ a { color: inherit; text-decoration: none; }
 <section class="hero">
   <div class="hero-overlay"></div>
   <div class="hero-content">
-    <span class="hero-label">Digitale Photobooth</span>
     <h1 class="hero-title text-gold-gradient">Photobooth Huren.<br>Party Booth</h1>
-    <p class="hero-subtitle">Digitale photobooth voor elk feest.<br>Ophalen, opzetten, feesten.</p>
-    <span class="hero-price">Vanaf &euro;199 per dag</span>
+    <p class="hero-subtitle">Ophalen, opzetten, feesten.</p>
+    <span class="hero-price">Vanaf &euro; 199 per dag</span>
   </div>
 </section>
+
+<div class="proof-bar">
+  <div class="proof-item"><span class="proof-number">237+</span> Events</div>
+  <div class="proof-item"><span class="proof-number">4.9★</span> Reviews</div>
+  <div class="proof-item"><span class="proof-number">Randstad</span> &amp; Omgeving</div>
+</div>
 
 <!-- ============================================================
      USPs - 2x2 Card Grid
      ============================================================ -->
-<section class="usp-section reveal">
+<section class="usp-section reveal visible">
   <div class="usp-section-header">
     <h2 class="usp-section-title">Geen Gedoe, Wel Een Feestje</h2>
   </div>
@@ -1693,7 +1829,7 @@ a { color: inherit; text-decoration: none; }
     </div>
 
     <div class="usp-card">
-      <div class="usp-card__img" role="img" aria-label="Vrienden lachen bij de Party Booth photobooth op een huisfeest — photobooth huren vanaf €199 bij PicYourBooth" style="background-image:url('assets/images/party-booth-usp-geen-gedoe-400x400.webp');"></div>
+      <div class="usp-card__img" role="img" aria-label="Vrienden lachen bij de Party Booth photobooth op een huisfeest — photobooth huren vanaf € 199 bij PicYourBooth" style="background-image:url('assets/images/party-booth-usp-geen-gedoe-400x400.webp');"></div>
       <div class="usp-card__body">
         <h3 class="usp-card__title">Geen Gedoe</h3>
         <p class="usp-card__desc">Jij feest, de booth draait. Gasten snappen het meteen. Na afloop krijg je een galerij met alle foto's.</p>
@@ -1709,8 +1845,8 @@ a { color: inherit; text-decoration: none; }
      AI FOTO'S + FILTERS CALLOUT
      ============================================================ -->
 <section class="ai-callout reveal" style="padding-top: 80px;">
-  <h2 class="ai-callout__title">Lelijke Achtergrond? Wij Fixen Het</h2>
-  <p class="ai-callout__desc">Rommelige kamer? Lelijke muur? Kies je droomachtergrond en AI vervangt het automatisch. Inclusief beautify filter en Instagram-achtige filters voor strakke, creatieve foto's.</p>
+  <h2 class="ai-callout__title">Lelijke Achtergrond? Gefixt.</h2>
+  <p class="ai-callout__desc">AI vervangt je achtergrond automatisch. Inclusief beautify filter en Instagram-filters.</p>
 
   <div class="ai-compare">
     <div class="ai-compare__box ai-compare__box--before">
@@ -1725,7 +1861,6 @@ a { color: inherit; text-decoration: none; }
     </div>
   </div>
 
-  <span class="ai-price">+&euro;49</span>
 </section>
 
 <div class="gold-divider"></div>
@@ -1735,19 +1870,18 @@ a { color: inherit; text-decoration: none; }
      ============================================================ -->
 <div class="builder reveal">
   <h2 class="builder-heading">Bouw Jouw Feestpakket</h2>
-  <p class="builder-subheading">Alles wat je nodig hebt. Voeg toe wat past bij jouw feest.</p>
 
   <!-- Base Package -->
   <div class="builder-base">
     <span class="builder-base__badge">Dit zit er altijd in</span>
     <h3 class="builder-base__name">Party Booth</h3>
-    <div class="builder-base__price">&euro;199 <span style="font-size:0.5em;font-weight:400;color:var(--text-muted);letter-spacing:0.02em">per dag</span></div>
+    <div class="builder-base__price">&euro; 199 <span style="font-size:0.5em;font-weight:400;color:var(--text-muted);letter-spacing:0.02em">per dag</span></div>
     <ul class="builder-base__features">
-      <li>Digitale photobooth. Geen printer, wel direct delen</li>
-      <li>Foto's delen via QR code op je telefoon</li>
-      <li>Digitale galerij achteraf. Alle foto's deelbaar met iedereen</li>
+      <li>Digitale photobooth</li>
+      <li>Foto's delen via QR code</li>
+      <li>Digitale galerij achteraf</li>
       <li>Basis fotostrip design inbegrepen</li>
-      <li>Ophalen bij ons. Klaar om te gebruiken</li>
+      <li>Ophalen bij ons, klaar om te gebruiken</li>
     </ul>
   </div>
 
@@ -1758,9 +1892,9 @@ a { color: inherit; text-decoration: none; }
     <button class="info-btn" data-modal="design" title="Meer info">?</button>
     <div class="upgrade-row__info">
       <div class="upgrade-row__name">Premium Ontwerp</div>
-      <div class="upgrade-row__desc">Fotostrip, touchscreen en animaties op maat. Keuze uit duizenden gepersonaliseerde thema's.</div>
+      <div class="upgrade-row__desc">Fotostrip, touchscreen en animaties op maat.</div>
     </div>
-    <div class="upgrade-row__price">+&euro;25</div>
+    <div class="upgrade-row__price">+&euro; 25</div>
     <label class="toggle">
       <input type="checkbox" aria-label="Premium Ontwerp">
       <span class="toggle-track"></span>
@@ -1770,10 +1904,10 @@ a { color: inherit; text-decoration: none; }
   <div class="upgrade-row" data-price="49" data-builder="party">
     <button class="info-btn" data-modal="delivery" title="Meer info">?</button>
     <div class="upgrade-row__info">
-      <div class="upgrade-row__name">Bezorging, Installatie &amp; Ophalen</div>
-      <div class="upgrade-row__desc">Wij brengen, installeren en halen op bij je locatie.</div>
+      <div class="upgrade-row__name">Levering &amp; Ophalen</div>
+      <div class="upgrade-row__desc">Wij bezorgen, installeren en halen op.</div>
     </div>
-    <div class="upgrade-row__price">+&euro;49</div>
+    <div class="upgrade-row__price">+&euro; 49</div>
     <label class="toggle">
       <input type="checkbox" aria-label="Bezorging Installatie">
       <span class="toggle-track"></span>
@@ -1784,9 +1918,9 @@ a { color: inherit; text-decoration: none; }
     <button class="info-btn" data-modal="aibg" title="Meer info">?</button>
     <div class="upgrade-row__info">
       <div class="upgrade-row__name">AI Foto's + Filters</div>
-      <div class="upgrade-row__desc">AI achtergrond, beautify filter en Instagram-achtige filters.</div>
+      <div class="upgrade-row__desc">AI achtergrond en beautify filter.</div>
     </div>
-    <div class="upgrade-row__price">+&euro;49</div>
+    <div class="upgrade-row__price">+&euro; 49</div>
     <label class="toggle">
       <input type="checkbox" aria-label="AI Foto's + Filters">
       <span class="toggle-track"></span>
@@ -1799,7 +1933,7 @@ a { color: inherit; text-decoration: none; }
       <div class="upgrade-row__name">Live DJ Set</div>
       <div class="upgrade-row__desc">DJ met speakers, licht en rookmachine.</div>
     </div>
-    <div class="upgrade-row__price">+&euro;149</div>
+    <div class="upgrade-row__price">+&euro; 149</div>
     <label class="toggle">
       <input type="checkbox" aria-label="Live DJ Set">
       <span class="toggle-track"></span>
@@ -1809,7 +1943,7 @@ a { color: inherit; text-decoration: none; }
   <!-- Total -->
   <div class="builder-total">
     <div class="builder-total__label">Totaal</div>
-    <div class="builder-total__amount" id="party-total">&euro;199</div>
+    <div class="builder-total__amount" id="party-total">&euro; 199</div>
     <div class="builder-total__btw">Inclusief 21% BTW</div>
   </div>
 
@@ -1823,11 +1957,11 @@ a { color: inherit; text-decoration: none; }
 <section class="faq" id="faq">
   <h2 class="faq-title">Veelgestelde Vragen</h2>
   <details class="faq-item"><summary>Hoe ver van tevoren moet ik boeken?</summary><p class="faq-answer">Zo snel mogelijk. Populaire data gaan snel — vooral weekenden zitten al vroeg vol. Check je datum vrijblijvend via het offerteformulier. Dan weet je direct of jouw datum nog beschikbaar is.</p></details>
-  <details class="faq-item"><summary>Wat kost een photobooth huren?</summary><p class="faq-answer">De Party Booth huur je vanaf €199 per dag. Dat is een digitale photobooth die je zelf ophaalt en in 5 minuten klaar zet. Wil je het nog leuker maken? Voeg AI Foto's + Filters toe voor €49 of laat ons bezorgen voor €49.</p></details>
-  <details class="faq-item"><summary>Moet ik het zelf opzetten?</summary><p class="faq-answer">Ja, en dat is juist het mooie. Zelf ophalen bij ons, neerzetten en aanzetten. Klaar in 5 minuten, geen technische kennis nodig. Omdat alles digitaal is en je zelf ophaalt, kunnen wij scherpe tarieven hanteren. Heb je liever dat wij het regelen? Voor €49 bezorgen, installeren en halen wij de booth op bij je locatie.</p></details>
-  <details class="faq-item"><summary>Wat is AI Foto's + Filters?</summary><p class="faq-answer">Rommelige kamer of lelijke muur achter de booth? Met AI Foto's + Filters (+€49) kies je zelf de achtergrond. Strand, skyline, jungle of je eigen ontwerp. AI vervangt de echte achtergrond automatisch. Inclusief beautify filter die ervoor zorgt dat iedereen er strak op staat, plus Instagram-achtige filters (zwart-wit, warm, vintage, etc.) zodat gasten hun favoriete look kiezen. Het verschil in fotokwaliteit is enorm.</p></details>
-  <details class="faq-item"><summary>Kan ik er een DJ bij boeken?</summary><p class="faq-answer">Ja. Voeg een Live DJ Set toe als upgrade voor €149. Dat is inclusief professionele speakers, lichtshow en rookmachine. Stuur je Spotify playlist en onze DJ bouwt er een professionele set van. Alles van hetzelfde team, dat scheelt een hoop coordinatie. <a href="djs.html" style="color:var(--gold);">Bekijk onze DJs →</a></p></details>
-  <details class="faq-item"><summary>Wat krijg ik allemaal geleverd?</summary><p class="faq-answer">Na afloop ontvang je een digitale galerij met alle foto's van je feest. Gasten delen foto's direct tijdens het feest via QR-code op hun telefoon. Geen prints, alles digitaal — makkelijk opslaan, delen en posten op socials. Wil je de foto's nog mooier? Voeg AI Foto's + Filters toe voor €49.</p></details>
+  <details class="faq-item"><summary>Wat kost een photobooth huren?</summary><p class="faq-answer">Een digitale photobooth die je zelf ophaalt en in 5 minuten klaar zet. Wil je het nog leuker maken? Voeg AI Foto's + Filters toe of laat ons bezorgen. Bekijk de prijzen op deze pagina.</p></details>
+  <details class="faq-item"><summary>Moet ik het zelf opzetten?</summary><p class="faq-answer">Ja, en dat is juist het mooie. Zelf ophalen bij ons, neerzetten en aanzetten. Klaar in 5 minuten, geen technische kennis nodig. Heb je liever dat wij het regelen? Voeg bezorging, installatie en ophalen toe als upgrade.</p></details>
+  <details class="faq-item"><summary>Wat is AI Foto's + Filters?</summary><p class="faq-answer">Rommelige kamer of lelijke muur achter de booth? Met AI Foto's + Filters (+€ 49) kies je zelf de achtergrond. Strand, skyline, jungle of je eigen ontwerp. AI vervangt de echte achtergrond automatisch. Inclusief beautify filter die ervoor zorgt dat iedereen er strak op staat, plus Instagram-achtige filters (zwart-wit, warm, vintage, etc.) zodat gasten hun favoriete look kiezen. Het verschil in fotokwaliteit is enorm.</p></details>
+  <details class="faq-item"><summary>Kan ik er een DJ bij boeken?</summary><p class="faq-answer">Ja. Voeg een Live DJ Set toe als upgrade. Inclusief professionele speakers, lichtshow en rookmachine. Stuur je Spotify playlist en onze DJ bouwt er een professionele set van. Alles van hetzelfde team. <a href="djs.html" style="color:var(--gold);">Bekijk onze DJs →</a></p></details>
+  <details class="faq-item"><summary>Wat krijg ik allemaal geleverd?</summary><p class="faq-answer">Na afloop ontvang je een digitale galerij met alle foto's van je feest. Gasten delen foto's direct tijdens het feest via QR-code op hun telefoon. Geen prints, alles digitaal — makkelijk opslaan, delen en posten op socials.</p></details>
 </section>
 
 </main>
@@ -1836,8 +1970,8 @@ a { color: inherit; text-decoration: none; }
      FOOTER
      ============================================================ -->
 <footer class="footer">
-  <p class="footer-brand"><svg class="logo-camera" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="2" y="6" width="20" height="14" rx="3" stroke="#ededf0" stroke-width="2"/><circle cx="12" cy="13" r="4" stroke="#ededf0" stroke-width="2"/><path d="M8 6V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v1" stroke="#ededf0" stroke-width="2"/></svg>PicYour<span class="logo-accent">Booth</span><svg class="logo-icon" viewBox="0 2 24 22" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3 18v-6a9 9 0 0 1 18 0v6" stroke="#f59e42" stroke-width="2.5" stroke-linecap="round"/><path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3v5zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3v5z" fill="#f59e42"/></svg></p>
-  <p class="footer-copy">&copy; 2026 PicYourBooth B.V. (onderdeel van <a href="https://www.pymapp.com" class="footer-email" target="_blank" rel="noopener">PYM</a>) &middot; <a href="mailto:info@picyourbooth.nl" class="footer-email">info@picyourbooth.nl</a></p>
+  <a href="index.html" class="footer-brand" style="text-decoration:none"><svg class="logo-camera" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="2" y="6" width="20" height="14" rx="3" stroke="#ededf0" stroke-width="2"/><circle cx="12" cy="13" r="4" stroke="#ededf0" stroke-width="2"/><path d="M8 6V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v1" stroke="#ededf0" stroke-width="2"/></svg>PicYour<span class="logo-accent">Booth</span><svg class="logo-icon" viewBox="0 2 24 22" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3 18v-6a9 9 0 0 1 18 0v6" stroke="#f59e42" stroke-width="2.5" stroke-linecap="round"/><path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3v5zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3v5z" fill="#f59e42"/></svg></a>
+  <p class="footer-copy">&copy; 2026 PicYourBooth (onderdeel van <a href="https://www.pymapp.com" class="footer-email" target="_blank" rel="noopener">PYM</a>) &middot; <a href="mailto:info@picyourbooth.nl" class="footer-email">info@picyourbooth.nl</a></p>
   <p class="footer-copy">KVK 59400080</p>
 </footer>
 
@@ -1904,13 +2038,19 @@ a { color: inherit; text-decoration: none; }
   /* -- Upgrade row event delegation ----------------------- */
   document.querySelectorAll('.upgrade-row[data-builder="party"]').forEach(function(row) {
     row.addEventListener('click', function(e) {
-      if (e.target.closest('.info-btn') || e.target.closest('.toggle')) return;
+      if (e.target.closest('.info-btn') || e.target.closest('.toggle') || e.target.closest('.modal')) return;
       toggleUpgrade(row);
     });
     var checkbox = row.querySelector('input[type="checkbox"]');
     if (checkbox) {
       checkbox.addEventListener('change', function() {
-        toggleUpgrade(row);
+        if (checkbox.checked) {
+          row.classList.add('active');
+          spawnConfetti(row.querySelector('.toggle'));
+        } else {
+          row.classList.remove('active');
+        }
+        recalculate();
       });
     }
   });
@@ -1956,7 +2096,7 @@ a { color: inherit; text-decoration: none; }
     }
     var el = document.getElementById('party-total');
     if (el) {
-      el.textContent = '\u20AC' + total;
+      el.textContent = '\u20AC ' + total;
     }
   }
 })();
@@ -2043,6 +2183,7 @@ a { color: inherit; text-decoration: none; }
   /* -- Info button event delegation ----------------------- */
   document.querySelectorAll('.info-btn[data-modal]').forEach(function(btn) {
     btn.addEventListener('click', function(e) {
+      e.preventDefault();
       e.stopPropagation();
       openModal(this.dataset.modal);
     });
@@ -2235,7 +2376,7 @@ a { color: inherit; text-decoration: none; }
     "geoMidpoint": {"@type": "GeoCoordinates", "latitude": 52.0, "longitude": 4.5},
     "geoRadius": "50000"
   },
-  "priceRange": "€149 - €2000",
+  "priceRange": "€ 149 - € 2000",
   "aggregateRating": {
     "@type": "AggregateRating",
     "ratingValue": "4.9",
@@ -2259,12 +2400,6 @@ a { color: inherit; text-decoration: none; }
     "availability": "https://schema.org/InStock",
     "priceValidUntil": "2026-12-31",
     "url": "https://picyourbooth.nl/party-booth"
-  },
-  "aggregateRating": {
-    "@type": "AggregateRating",
-    "ratingValue": "4.9",
-    "reviewCount": "237",
-    "bestRating": "5"
   }
 }
 </script>
@@ -2274,13 +2409,14 @@ a { color: inherit; text-decoration: none; }
   "@context": "https://schema.org",
   "@type": "FAQPage",
   "mainEntity": [
-    {"@type": "Question", "name": "Wat kost een photobooth huren?", "acceptedAnswer": {"@type": "Answer", "text": "Party Booth vanaf €199 per dag. Digitale photobooth, foto's delen via QR code."}},
-    {"@type": "Question", "name": "Moet ik het zelf opzetten?", "acceptedAnswer": {"@type": "Answer", "text": "Ja, zelf ophalen en in 5 minuten klaar. Digitaal en zelf ophalen = scherpe tarieven. Of bezorging, installatie en ophalen voor €49."}},
-    {"@type": "Question", "name": "Wat is AI Foto's + Filters?", "acceptedAnswer": {"@type": "Answer", "text": "AI vervangt de achtergrond automatisch. Kies strand, skyline of jungle. Inclusief beautify filter en Instagram-achtige filters. +€49."}},
-    {"@type": "Question", "name": "Kan ik er een DJ bij boeken?", "acceptedAnswer": {"@type": "Answer", "text": "Ja, Live DJ Set als upgrade voor €149 inclusief speakers, licht en rookmachine."}}
+    {"@type": "Question", "name": "Wat kost een photobooth huren?", "acceptedAnswer": {"@type": "Answer", "text": "Een digitale photobooth die je zelf ophaalt en in 5 minuten klaar zet. Wil je het nog leuker maken? Voeg AI Foto's + Filters toe of laat ons bezorgen. Bekijk de prijzen op de pagina."}},
+    {"@type": "Question", "name": "Moet ik het zelf opzetten?", "acceptedAnswer": {"@type": "Answer", "text": "Ja, en dat is juist het mooie. Zelf ophalen bij ons, neerzetten en aanzetten. Klaar in 5 minuten, geen technische kennis nodig. Heb je liever dat wij het regelen? Voeg bezorging, installatie en ophalen toe als upgrade."}},
+    {"@type": "Question", "name": "Wat is AI Foto's + Filters?", "acceptedAnswer": {"@type": "Answer", "text": "AI vervangt de achtergrond automatisch. Kies strand, skyline, jungle of je eigen ontwerp. Inclusief beautify filter en Instagram-achtige filters zodat gasten hun favoriete look kiezen."}},
+    {"@type": "Question", "name": "Kan ik er een DJ bij boeken?", "acceptedAnswer": {"@type": "Answer", "text": "Ja. Voeg een Live DJ Set toe als upgrade. Inclusief professionele speakers, lichtshow en rookmachine. Stuur je Spotify playlist en onze DJ bouwt er een professionele set van. Alles van hetzelfde team."}}
   ]
 }
 </script>
+
 
 </body>
 </html>

@@ -3,11 +3,11 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Fotospiegel Huren | AI Photobooth | Magic Mirror XL - PicYourBooth</title>
-<meta name="description" content="Premium fotospiegel met professionele camera. Tot 5 uur, bezorging inbegrepen. AI Photo Experience beschikbaar. Vanaf €599 per event.">
+<title>Fotospiegel Huren | Magic Mirror XL € 599 | PYB</title>
+<meta name="description" content="Premium fotospiegel met professionele camera. Tot 5 uur, bezorging inbegrepen. AI Photo Experience beschikbaar. Vanaf € 599 per event.">
 <link rel="canonical" href="https://picyourbooth.nl/magic-mirror">
 <meta property="og:title" content="Fotospiegel Huren | AI Photobooth | Magic Mirror XL">
-<meta property="og:description" content="Premium fotospiegel met professionele camera. Tot 5 uur, bezorging inbegrepen. Vanaf €599 per event.">
+<meta property="og:description" content="Premium fotospiegel met professionele camera. Tot 5 uur, bezorging inbegrepen. Vanaf € 599 per event.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://picyourbooth.nl/magic-mirror">
 <meta property="og:locale" content="nl_NL">
@@ -163,7 +163,7 @@ a { color: inherit; text-decoration: none; }
 
 .nav-logo {
   font-family: var(--font-display);
-  font-size: 1.75rem;
+  font-size: 1.2rem;
   letter-spacing: 0.10em;
   text-transform: uppercase;
   color: var(--text);
@@ -217,7 +217,6 @@ a { color: inherit; text-decoration: none; }
   height: 1em;
   margin-left: 1px;
   vertical-align: middle;
-  transform: translateY(-4px);
   filter: drop-shadow(0 0 4px rgba(245, 158, 66, 0.4));
 }
 
@@ -278,6 +277,10 @@ a { color: inherit; text-decoration: none; }
 }
 
 /* Hamburger (mobile) */
+.nav-home {
+  display: none;
+}
+
 .nav-hamburger {
   display: none;
   flex-direction: column;
@@ -362,7 +365,7 @@ a { color: inherit; text-decoration: none; }
 }
 
 .hero-title {
-  font-size: clamp(2.5rem, 6vw, 3.5rem);
+  font-size: clamp(3.5rem, 8vw, 5.5rem);
   letter-spacing: 0.08em;
   margin-bottom: 16px;
 }
@@ -378,10 +381,31 @@ a { color: inherit; text-decoration: none; }
 
 .hero-price {
   font-family: var(--font-body);
-  font-size: 1.1rem;
+  font-size: 1rem;
   font-weight: 600;
   color: var(--gold);
   font-variant-numeric: tabular-nums;
+}
+
+.hero-cta {
+  display: inline-block;
+  margin-top: 24px;
+  padding: 16px 36px;
+  background: var(--gold);
+  color: #000;
+  font-family: var(--font-display);
+  font-size: 1rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-decoration: none;
+  border-radius: var(--r-pill);
+  font-weight: 700;
+  transition: background 0.25s var(--ease), transform 0.15s var(--ease), box-shadow 0.25s var(--ease);
+}
+.hero-cta:hover {
+  background: var(--gold-light);
+  transform: scale(1.02);
+  box-shadow: 0 0 24px var(--gold-glow);
 }
 
 /* -- USP Section --------------------------------------- */
@@ -497,7 +521,7 @@ a { color: inherit; text-decoration: none; }
   font-size: 2rem;
   letter-spacing: 0.06em;
   text-align: center;
-  margin-bottom: 8px;
+  margin-bottom: 32px;
   color: var(--text);
 }
 
@@ -529,8 +553,9 @@ a { color: inherit; text-decoration: none; }
   text-transform: uppercase;
   padding: 4px 10px;
   border-radius: var(--r-pill);
-  background: rgba(255, 255, 255, 0.06);
-  color: var(--text-muted);
+  background: rgba(245, 158, 66, 0.15);
+  color: var(--gold);
+  border: 1px solid rgba(245, 158, 66, 0.3);
 }
 
 .builder-base__name {
@@ -573,9 +598,10 @@ a { color: inherit; text-decoration: none; }
 
 /* -- Upgrade Title ------------------------------------- */
 .builder-upgrades-title {
-  font-size: 1.25rem;
+  font-size: 1.75rem;
   letter-spacing: 0.06em;
-  margin-bottom: 20px;
+  text-align: center;
+  margin-bottom: 28px;
 }
 
 /* -- Upgrade Row --------------------------------------- */
@@ -630,21 +656,21 @@ a { color: inherit; text-decoration: none; }
 
 .upgrade-row__name {
   font-family: var(--font-display);
-  font-size: 0.95rem;
+  font-size: 1.15rem;
   letter-spacing: 0.04em;
   text-transform: uppercase;
   margin-bottom: 2px;
 }
 
 .upgrade-row__desc {
-  font-size: 13px;
+  font-size: 15px;
   color: var(--text-muted);
-  line-height: 1.4;
+  line-height: 1.5;
 }
 
 .upgrade-row__price {
   font-family: var(--font-body);
-  font-size: 1rem;
+  font-size: 1.15rem;
   font-weight: 600;
   letter-spacing: 0.04em;
   white-space: nowrap;
@@ -738,7 +764,7 @@ a { color: inherit; text-decoration: none; }
 
 .builder-total__label {
   font-family: var(--font-display);
-  font-size: 0.75rem;
+  font-size: 1rem;
   font-weight: 400;
   color: var(--text-muted);
   text-transform: uppercase;
@@ -747,9 +773,9 @@ a { color: inherit; text-decoration: none; }
 }
 
 .builder-total__amount {
-  font-family: var(--font-display);
+  font-family: var(--font-body);
   font-size: 3rem;
-  font-weight: 400;
+  font-weight: 700;
   letter-spacing: 0.04em;
   background: linear-gradient(135deg, var(--gold) 0%, var(--gold-light) 100%);
   -webkit-background-clip: text;
@@ -760,7 +786,7 @@ a { color: inherit; text-decoration: none; }
 }
 
 .builder-total__btw {
-  font-size: 11px;
+  font-size: 14px;
   color: var(--text-muted);
   font-weight: 300;
   margin-top: 6px;
@@ -1016,11 +1042,11 @@ a { color: inherit; text-decoration: none; }
 /* -- Responsive ---------------------------------------- */
 @media (max-width: 768px) {
   .hero {
-    padding: 60px 20px 48px;
+    padding: 80px 24px 64px;
     min-height: 50vh;
   }
   .hero-title {
-    font-size: 2rem;
+    font-size: 2.8rem;
     letter-spacing: 0.05em;
     margin-bottom: 12px;
   }
@@ -1041,16 +1067,19 @@ a { color: inherit; text-decoration: none; }
     font-size: 16px;
     line-height: 1.75;
   }
+  .builder-upgrades-title {
+    font-size: 1.75rem;
+  }
   .upgrade-row__name {
-    font-size: 16px;
+    font-size: 18px;
     letter-spacing: 0.04em;
   }
   .upgrade-row__desc {
-    font-size: 14px;
+    font-size: 16px;
     line-height: 1.6;
   }
   .upgrade-row__price {
-    font-size: 1.1rem;
+    font-size: 1.2rem;
   }
   .faq-item summary {
     font-size: 16px;
@@ -1064,10 +1093,10 @@ a { color: inherit; text-decoration: none; }
   }
   /* USP card text bump */
   .usp-item__title, .usp-card__title {
-    font-size: 1.3rem;
+    font-size: 1.5rem;
   }
   .usp-item__desc, .usp-card__desc {
-    font-size: 15px;
+    font-size: 16px;
     line-height: 1.6;
   }
   .usp-section-title {
@@ -1123,11 +1152,11 @@ a { color: inherit; text-decoration: none; }
     padding: 24px;
   }
   .usp-item__title {
-    font-size: 1rem;
+    font-size: 1.5rem;
     margin-bottom: 8px;
   }
   .usp-item__desc {
-    font-size: 0.82rem;
+    font-size: 16px;
   }
 }
 
@@ -1288,6 +1317,10 @@ a { color: inherit; text-decoration: none; }
   to   { opacity: 1; }
 }
 
+.nav-links.open .nav-home {
+  display: list-item;
+}
+
 .nav-links.open li {
   list-style: none;
   opacity: 1 !important;
@@ -1309,8 +1342,8 @@ a { color: inherit; text-decoration: none; }
 }
 .nav-hamburger.active {
   position: fixed;
-  top: 20px;
-  right: 32px;
+  top: 16px;
+  right: 16px;
   z-index: 201;
 }
 
@@ -1456,7 +1489,7 @@ a { color: inherit; text-decoration: none; }
     padding: 64px 20px 48px;
   }
   .hero-title {
-    font-size: clamp(1.8rem, 7vw, 2.5rem);
+    font-size: clamp(2.4rem, 9vw, 3rem);
   }
   .usp-section,
   .builder,
@@ -1478,10 +1511,10 @@ a { color: inherit; text-decoration: none; }
     padding: 56px 16px 40px;
   }
   .hero-title {
-    font-size: clamp(1.6rem, 8vw, 2.2rem);
+    font-size: clamp(2.2rem, 10vw, 2.8rem);
   }
   .hero-subtitle {
-    font-size: 13px;
+    font-size: 16px;
   }
   .nav {
     padding: 16px 16px;
@@ -1515,6 +1548,85 @@ a { color: inherit; text-decoration: none; }
     background-image: url('assets/images/magic-mirror-hero-768x432.webp');
   }
 }
+
+/* -- Proof Bar -------------------------------------------- */
+.proof-bar {
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  gap: 20px;
+  padding: 32px 24px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+.proof-item {
+  flex: 1;
+  text-align: center;
+  padding: 24px 16px;
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  font-weight: 400;
+  letter-spacing: 0.02em;
+  background: linear-gradient(165deg, var(--surface) 0%, var(--surface-up) 100%);
+  border: 1px solid var(--border);
+  border-radius: var(--r-md);
+  transition: border-color 0.25s var(--ease), transform 0.25s var(--ease);
+}
+.proof-item:hover {
+  border-color: rgba(245, 158, 66, 0.18);
+  transform: translateY(-2px);
+}
+.proof-number {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+  background: linear-gradient(135deg, var(--gold) 0%, var(--gold-light) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  letter-spacing: 0.06em;
+  margin-bottom: 4px;
+}
+@media (max-width: 600px) {
+  .proof-bar { gap: 12px; padding: 24px 16px; }
+  .proof-item { padding: 16px 12px; font-size: 0.8rem; }
+  .proof-number { font-size: 1.3rem; }
+}
+
+/* -- Sticky Mobile CTA ------------------------------------ */
+.sticky-cta { display: none; }
+@media (max-width: 768px) {
+  .sticky-cta {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    background: rgba(8, 8, 11, 0.95);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-top: 1px solid rgba(245, 158, 66, 0.2);
+    padding: 12px 16px;
+    display: flex;
+    justify-content: center;
+  }
+  .sticky-cta a {
+    display: block;
+    width: 100%;
+    max-width: 400px;
+    padding: 16px 24px;
+    background: var(--gold);
+    color: #000;
+    font-family: var(--font-display);
+    font-size: 1.15rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    text-decoration: none;
+    text-align: center;
+    border-radius: var(--r-pill);
+    font-weight: 700;
+  }
+}
 </style>
 </head>
 <body>
@@ -1525,6 +1637,7 @@ a { color: inherit; text-decoration: none; }
 <div class="nav-bar"><nav class="nav">
   <a href="index.html" class="nav-logo"><svg class="logo-camera" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="2" y="6" width="20" height="14" rx="3" stroke="#ededf0" stroke-width="2"/><circle cx="12" cy="13" r="4" stroke="#ededf0" stroke-width="2"/><path d="M8 6V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v1" stroke="#ededf0" stroke-width="2"/></svg>PicYour<span class="logo-accent">Booth</span><svg class="logo-icon" viewBox="0 2 24 22" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3 18v-6a9 9 0 0 1 18 0v6" stroke="#f59e42" stroke-width="2.5" stroke-linecap="round"/><path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3v5zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3v5z" fill="#f59e42"/></svg></a>
   <ul class="nav-links">
+    <li class="nav-home"><a href="index.html">Home</a></li>
     <li><a href="party-booth.html">Party Booth</a></li>
     <li><a href="magic-mirror.html" class="active">Magic Mirror XL</a></li>
     <li><a href="djs.html">DJ's</a></li>
@@ -1545,19 +1658,23 @@ a { color: inherit; text-decoration: none; }
 <section class="hero">
   <div class="hero-overlay"></div>
   <div class="hero-content">
-    <span class="hero-label">Meest Gekozen</span>
     <h1 class="hero-title text-gold-gradient">Fotospiegel Huren.<br>Magic Mirror XL</h1>
     <p class="hero-subtitle">Foto's die je wilt inlijsten. Tot 5 uur.<br>Wij bezorgen, installeren en halen op.</p>
-    <span class="hero-price">Vanaf &euro;599 per event</span>
+    <span class="hero-price">Vanaf &euro; 599 per event</span>
   </div>
 </section>
+
+<div class="proof-bar">
+  <div class="proof-item"><span class="proof-number">237+</span> Events</div>
+  <div class="proof-item"><span class="proof-number">4.9★</span> Reviews</div>
+  <div class="proof-item"><span class="proof-number">Randstad</span> &amp; Omgeving</div>
+</div>
 
 <!-- ============================================================
      USPs
      ============================================================ -->
-<section class="usp-section reveal">
+<section class="usp-section reveal visible">
   <div class="usp-section-header">
-    <span class="usp-section-label">Waarom Magic Mirror XL</span>
     <h2 class="usp-section-title">Het Verschil Zit In Elk Detail</h2>
   </div>
   <div class="usp-list">
@@ -1604,19 +1721,17 @@ a { color: inherit; text-decoration: none; }
      ============================================================ -->
 <div class="builder reveal">
   <h2 class="builder-heading">Bouw Jouw Perfecte Avond</h2>
-  <p class="builder-subheading">Start met alles wat je nodig hebt. Voeg toe wat jouw event onvergetelijk maakt.</p>
 
   <!-- Base Package -->
   <div class="builder-base">
     <span class="builder-base__badge">Dit zit er altijd in</span>
     <h3 class="builder-base__name">Magic Mirror XL</h3>
-    <div class="builder-base__price">&euro;599 <span style="font-size:0.5em;font-weight:400;color:var(--text-muted);letter-spacing:0.02em">per event</span></div>
+    <div class="builder-base__price">&euro; 599 <span style="font-size:0.5em;font-weight:400;color:var(--text-muted);letter-spacing:0.02em">per event</span></div>
     <ul class="builder-base__features">
-      <li>Tot 5 uur inclusief. Langer? We stemmen het af</li>
-      <li>DSLR-camera met professionele studiobelichting</li>
-      <li>Direct printen op locatie — elke gast loopt weg met een foto</li>
-      <li>Digitale galerij met alle foto's én Giphy-filmpjes</li>
-      <li>Bezorging, installatie en ophalen inbegrepen (50 km)</li>
+      <li>Tot 5 uur inclusief</li>
+      <li>Onbeperkt printen op locatie</li>
+      <li>Digitale galerij met alle foto's</li>
+      <li>Bezorging en ophalen inbegrepen</li>
     </ul>
   </div>
 
@@ -1629,7 +1744,7 @@ a { color: inherit; text-decoration: none; }
       <div class="upgrade-row__name">VIP Upgrade</div>
       <div class="upgrade-row__desc">Rode loper, backdrop en luxe props. Jouw gasten voelen zich celebrity.</div>
     </div>
-    <div class="upgrade-row__price">+&euro;149</div>
+    <div class="upgrade-row__price">+&euro; 149</div>
     <label class="toggle">
       <input type="checkbox" aria-label="VIP Upgrade">
       <span class="toggle-track"></span>
@@ -1642,7 +1757,7 @@ a { color: inherit; text-decoration: none; }
       <div class="upgrade-row__name">Wedding Keychain Station</div>
       <div class="upgrade-row__desc">Onbeperkt gepersonaliseerde sleutelhangers. Geen apart bedankje meer nodig.</div>
     </div>
-    <div class="upgrade-row__price">+&euro;499</div>
+    <div class="upgrade-row__price">+&euro; 499</div>
     <label class="toggle">
       <input type="checkbox" aria-label="Wedding Keychain Station">
       <span class="toggle-track"></span>
@@ -1655,7 +1770,7 @@ a { color: inherit; text-decoration: none; }
       <div class="upgrade-row__name">Photobooth Host</div>
       <div class="upgrade-row__desc">Ons teamlid begeleidt gasten, regelt de poses en houdt de energie hoog.</div>
     </div>
-    <div class="upgrade-row__price">+&euro;149</div>
+    <div class="upgrade-row__price">+&euro; 149</div>
     <label class="toggle">
       <input type="checkbox" aria-label="Photobooth Host">
       <span class="toggle-track"></span>
@@ -1668,7 +1783,7 @@ a { color: inherit; text-decoration: none; }
       <div class="upgrade-row__name">AI Photo Experience</div>
       <div class="upgrade-row__desc">AI transformeert elke foto naar jouw stijl of thema. Ideaal voor productlanceringen en bedrijfsevents.</div>
     </div>
-    <div class="upgrade-row__price">+&euro;499</div>
+    <div class="upgrade-row__price">+&euro; 499</div>
     <label class="toggle">
       <input type="checkbox" aria-label="AI Photo Experience">
       <span class="toggle-track"></span>
@@ -1681,7 +1796,7 @@ a { color: inherit; text-decoration: none; }
       <div class="upgrade-row__name">Live DJ Set</div>
       <div class="upgrade-row__desc">DJ met speakers, licht en rookmachine.</div>
     </div>
-    <div class="upgrade-row__price">+&euro;149</div>
+    <div class="upgrade-row__price">+&euro; 149</div>
     <label class="toggle">
       <input type="checkbox" aria-label="Live DJ Set">
       <span class="toggle-track"></span>
@@ -1691,7 +1806,7 @@ a { color: inherit; text-decoration: none; }
   <!-- Total -->
   <div class="builder-total">
     <div class="builder-total__label">Totaal</div>
-    <div class="builder-total__amount" id="mirror-total">&euro;599</div>
+    <div class="builder-total__amount" id="mirror-total">&euro; 599</div>
     <div class="builder-total__btw">Inclusief 21% BTW</div>
   </div>
 
@@ -1705,10 +1820,10 @@ a { color: inherit; text-decoration: none; }
 <section class="faq" id="faq">
   <h2 class="faq-title">Veelgestelde Vragen</h2>
   <details class="faq-item"><summary>Hoe ver van tevoren moet ik boeken?</summary><p class="faq-answer">Zo snel mogelijk. We nemen bewust een beperkt aantal boekingen aan zodat elk event de aandacht krijgt die het verdient. De meeste weekenden zitten daardoor al vol. Check je datum vrijblijvend via het offerteformulier. Dan weet je direct of jouw datum nog beschikbaar is.</p></details>
-  <details class="faq-item"><summary>Wat kost een fotospiegel huren?</summary><p class="faq-answer">De Magic Mirror XL huur je vanaf €599 per event. Tot 5 uur inclusief. Langer nodig? Geen probleem, we stemmen het af. Bezorging, installatie en ophalen binnen 50 kilometer zijn inbegrepen. Wil je er meer van maken? Voeg upgrades toe zoals de VIP setup met rode loper (+€149) of de AI Photo Experience (+€499).</p></details>
+  <details class="faq-item"><summary>Wat kost een fotospiegel huren?</summary><p class="faq-answer">Tot 5 uur inclusief. Langer nodig? Geen probleem, we stemmen het af. Bezorging en ophalen inbegrepen. Bekijk de prijzen en upgrades op deze pagina.</p></details>
   <details class="faq-item"><summary>Is bezorging inbegrepen?</summary><p class="faq-answer">Ja. Wij bezorgen de Magic Mirror XL op je locatie, installeren alles en halen het na afloop weer op. Dit geldt voor locaties binnen 50 kilometer. Je hoeft zelf niks te regelen. We zijn er ruim voor aanvang om alles klaar te zetten zodat jij je op je gasten kunt focussen.</p></details>
-  <details class="faq-item"><summary>Hoe haal ik het meeste uit de Magic Mirror?</summary><p class="faq-answer">De spiegel werkt volledig zelf. Gasten stappen ervoor, volgen de instructies en lopen weg met een print. Wil je het maximale eruit halen? Boek onze Photobooth Host erbij voor €149. Die zorgt dat elke gast langs komt en de sfeer hoog blijft. Combineer met een DJ voor de ultieme feestervaring. <a href="djs.html" style="color:var(--gold);">Bekijk onze DJs →</a></p></details>
-  <details class="faq-item"><summary>Wat is AI Photo Experience?</summary><p class="faq-answer">Met de AI Photo Experience (+€499) transformeert AI elke foto naar jouw gewenste stijl of thema. Definieer het eindbeeld en de stijl, de gast maakt een foto, en AI doet de rest. Ideaal voor productlanceringen, beurzen en bedrijfsevents waar elke foto on-brand moet zijn. Gasten delen de resultaten op hun socials, wat zorgt voor extra zichtbaarheid voor jouw merk.</p></details>
+  <details class="faq-item"><summary>Hoe haal ik het meeste uit de Magic Mirror?</summary><p class="faq-answer">De spiegel werkt volledig zelf. Gasten stappen ervoor, volgen de instructies en lopen weg met een print. Wil je het maximale eruit halen? Boek onze Photobooth Host erbij. Die zorgt dat elke gast langs komt en de sfeer hoog blijft. Combineer met een DJ voor de ultieme feestervaring. <a href="djs.html" style="color:var(--gold);">Bekijk onze DJs →</a></p></details>
+  <details class="faq-item"><summary>Wat is AI Photo Experience?</summary><p class="faq-answer">Met de AI Photo Experience transformeert AI elke foto naar jouw gewenste stijl of thema. Definieer het eindbeeld en de stijl, de gast maakt een foto, en AI doet de rest. Ideaal voor productlanceringen, beurzen en bedrijfsevents waar elke foto on-brand moet zijn. Gasten delen de resultaten op hun socials, wat zorgt voor extra zichtbaarheid voor jouw merk.</p></details>
   <details class="faq-item"><summary>Wat krijg ik allemaal geleverd?</summary><p class="faq-answer">Alles in studiokwaliteit. Elke gast loopt weg met een geprinte fotostrip. Daarnaast leveren wij alle losse foto's in hoge resolutie én een Giphy-filmpje per sessie. De DSLR-camera zorgt voor scherpe, professioneel belichte foto's — alsof er een studiofotograaf op je feest staat. Alle foto's en video's worden digitaal gedeeld via QR-code zodat gasten ze direct kunnen posten.</p></details>
 </section>
 
@@ -1718,8 +1833,8 @@ a { color: inherit; text-decoration: none; }
      FOOTER
      ============================================================ -->
 <footer class="footer">
-  <p class="footer-brand"><svg class="logo-camera" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="2" y="6" width="20" height="14" rx="3" stroke="#ededf0" stroke-width="2"/><circle cx="12" cy="13" r="4" stroke="#ededf0" stroke-width="2"/><path d="M8 6V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v1" stroke="#ededf0" stroke-width="2"/></svg>PicYour<span class="logo-accent">Booth</span><svg class="logo-icon" viewBox="0 2 24 22" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3 18v-6a9 9 0 0 1 18 0v6" stroke="#f59e42" stroke-width="2.5" stroke-linecap="round"/><path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3v5zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3v5z" fill="#f59e42"/></svg></p>
-  <p class="footer-copy">&copy; 2026 PicYourBooth B.V. (onderdeel van <a href="https://www.pymapp.com" class="footer-email" target="_blank" rel="noopener">PYM</a>) &middot; <a href="mailto:info@picyourbooth.nl" class="footer-email">info@picyourbooth.nl</a></p>
+  <a href="index.html" class="footer-brand" style="text-decoration:none"><svg class="logo-camera" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="2" y="6" width="20" height="14" rx="3" stroke="#ededf0" stroke-width="2"/><circle cx="12" cy="13" r="4" stroke="#ededf0" stroke-width="2"/><path d="M8 6V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v1" stroke="#ededf0" stroke-width="2"/></svg>PicYour<span class="logo-accent">Booth</span><svg class="logo-icon" viewBox="0 2 24 22" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3 18v-6a9 9 0 0 1 18 0v6" stroke="#f59e42" stroke-width="2.5" stroke-linecap="round"/><path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3v5zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3v5z" fill="#f59e42"/></svg></a>
+  <p class="footer-copy">&copy; 2026 PicYourBooth (onderdeel van <a href="https://www.pymapp.com" class="footer-email" target="_blank" rel="noopener">PYM</a>) &middot; <a href="mailto:info@picyourbooth.nl" class="footer-email">info@picyourbooth.nl</a></p>
   <p class="footer-copy">KVK 59400080</p>
 </footer>
 
@@ -1792,13 +1907,19 @@ a { color: inherit; text-decoration: none; }
   /* -- Upgrade row event delegation ----------------------- */
   document.querySelectorAll('.upgrade-row[data-builder="mirror"]').forEach(function(row) {
     row.addEventListener('click', function(e) {
-      if (e.target.closest('.info-btn') || e.target.closest('.toggle')) return;
+      if (e.target.closest('.info-btn') || e.target.closest('.toggle') || e.target.closest('.modal')) return;
       toggleUpgrade(row);
     });
     var checkbox = row.querySelector('input[type="checkbox"]');
     if (checkbox) {
       checkbox.addEventListener('change', function() {
-        toggleUpgrade(row);
+        if (checkbox.checked) {
+          row.classList.add('active');
+          spawnConfetti(row.querySelector('.toggle'));
+        } else {
+          row.classList.remove('active');
+        }
+        recalculate();
       });
     }
   });
@@ -1814,7 +1935,7 @@ a { color: inherit; text-decoration: none; }
     }
     var el = document.getElementById('mirror-total');
     if (el) {
-      el.textContent = '\u20AC' + total;
+      el.textContent = '\u20AC ' + total;
       el.classList.remove('price-pulse');
       void el.offsetWidth;
       el.classList.add('price-pulse');
@@ -1915,6 +2036,7 @@ a { color: inherit; text-decoration: none; }
   /* -- Info button event delegation ----------------------- */
   document.querySelectorAll('.info-btn[data-modal]').forEach(function(btn) {
     btn.addEventListener('click', function(e) {
+      e.preventDefault();
       e.stopPropagation();
       openModal(this.dataset.modal);
     });
@@ -2119,7 +2241,7 @@ a { color: inherit; text-decoration: none; }
     "geoMidpoint": {"@type": "GeoCoordinates", "latitude": 52.0, "longitude": 4.5},
     "geoRadius": "50000"
   },
-  "priceRange": "€149 - €2000",
+  "priceRange": "€ 149 - € 2000",
   "aggregateRating": {
     "@type": "AggregateRating",
     "ratingValue": "4.9",
@@ -2143,12 +2265,6 @@ a { color: inherit; text-decoration: none; }
     "availability": "https://schema.org/InStock",
     "priceValidUntil": "2026-12-31",
     "url": "https://picyourbooth.nl/magic-mirror"
-  },
-  "aggregateRating": {
-    "@type": "AggregateRating",
-    "ratingValue": "4.9",
-    "reviewCount": "237",
-    "bestRating": "5"
   }
 }
 </script>
@@ -2158,11 +2274,11 @@ a { color: inherit; text-decoration: none; }
   "@context": "https://schema.org",
   "@type": "FAQPage",
   "mainEntity": [
-    {"@type": "Question", "name": "Wat kost een fotospiegel huren?", "acceptedAnswer": {"@type": "Answer", "text": "Bij PicYourBooth huur je de Magic Mirror XL vanaf €599 per event. Tot 5 uur inclusief. Langer nodig? Geen probleem. Bezorging, installatie en ophalen binnen 50km inbegrepen."}},
-    {"@type": "Question", "name": "Is bezorging inbegrepen?", "acceptedAnswer": {"@type": "Answer", "text": "Ja. Wij bezorgen, installeren en halen op binnen 50 kilometer. Je hoeft zelf niks te regelen."}},
-    {"@type": "Question", "name": "Wat is AI Photo Experience?", "acceptedAnswer": {"@type": "Answer", "text": "AI genereert unieke foto's in jouw stijl of thema. Ideaal voor productlanceringen en bedrijfsevents. De upgrade kost €499."}},
-    {"@type": "Question", "name": "Hoe haal ik het meeste uit de Magic Mirror?", "acceptedAnswer": {"@type": "Answer", "text": "De spiegel werkt volledig zelf. Wil je het maximale eruit halen? Zet iemand van je team bij de booth of boek onze Photobooth Host voor €149."}},
-    {"@type": "Question", "name": "Hoe ver van tevoren moet ik boeken?", "acceptedAnswer": {"@type": "Answer", "text": "Zo snel mogelijk. We nemen bewust een beperkt aantal boekingen aan om kwaliteit te garanderen. De meeste weekenden zitten daardoor al vol. Check je datum vrijblijvend via het offerteformulier."}}
+    {"@type": "Question", "name": "Wat kost een fotospiegel huren?", "acceptedAnswer": {"@type": "Answer", "text": "Tot 5 uur inclusief. Langer nodig? Geen probleem, we stemmen het af. Bezorging en ophalen inbegrepen. Bekijk de prijzen en upgrades op de pagina."}},
+    {"@type": "Question", "name": "Is bezorging inbegrepen?", "acceptedAnswer": {"@type": "Answer", "text": "Ja. Wij bezorgen de Magic Mirror XL op je locatie, installeren alles en halen het na afloop weer op. Dit geldt voor locaties binnen 50 kilometer. Je hoeft zelf niks te regelen."}},
+    {"@type": "Question", "name": "Wat is AI Photo Experience?", "acceptedAnswer": {"@type": "Answer", "text": "Met de AI Photo Experience transformeert AI elke foto naar jouw gewenste stijl of thema. Definieer het eindbeeld en de stijl, de gast maakt een foto, en AI doet de rest. Ideaal voor productlanceringen, beurzen en bedrijfsevents waar elke foto on-brand moet zijn."}},
+    {"@type": "Question", "name": "Hoe haal ik het meeste uit de Magic Mirror?", "acceptedAnswer": {"@type": "Answer", "text": "De spiegel werkt volledig zelf. Gasten stappen ervoor, volgen de instructies en lopen weg met een print. Wil je het maximale eruit halen? Boek onze Photobooth Host erbij. Die zorgt dat elke gast langs komt en de sfeer hoog blijft."}},
+    {"@type": "Question", "name": "Hoe ver van tevoren moet ik boeken?", "acceptedAnswer": {"@type": "Answer", "text": "Zo snel mogelijk. We nemen bewust een beperkt aantal boekingen aan zodat elk event de aandacht krijgt die het verdient. De meeste weekenden zitten daardoor al vol. Check je datum vrijblijvend via het offerteformulier."}}
   ]
 }
 </script>
@@ -2182,6 +2298,7 @@ a { color: inherit; text-decoration: none; }
   /* Modal particles are handled in the modal IIFE above */
 })();
 </script>
+
 
 </body>
 </html>

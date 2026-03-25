@@ -1,35 +1,32 @@
 # PicYourBooth
 
-> Premium photobooth en DJ entertainment in de Randstad, Nederland.
+> Photobooth & DJ huren in de Randstad. Een team, alles geregeld.
 
 PicYourBooth verhuurt photobooths en DJs voor feesten, bruiloften en bedrijfsevenementen in de Randstad (Amsterdam, Rotterdam, Den Haag, Utrecht en omgeving). Alle prijzen zijn inclusief 21% BTW.
 
 ## Diensten
 
-### Magic Mirror XL - Premium Fotospiegel (vanaf €599)
-- Professionele DSLR camera (Canon EOS 650D)
-- Studiobelichting
-- Direct printen (onbeperkt)
-- Digitale galerij voor alle gasten
-- Tot 5 uur inclusief (per event, niet per uur)
-- Bezorging, installatie en ophalen inbegrepen (binnen 50km)
-- Upgrades: VIP Upgrade (+€149), Wedding Keychain Station (+€499), Photobooth Host (+€149), AI Photo Experience (+€499), Live DJ Set (+€149)
+### Party Booth - Digitale Photobooth (vanaf € 199)
+Ophalen, opzetten, feesten. Digitale photobooth, zelf ophalen en in 5 minuten opzetten. Gasten delen foto's direct via QR code op hun telefoon.
+- Upgrades: Premium Fotostrip Design, Bezorging & Installatie, AI Foto's + Filters, Live DJ Set
 
-### Party Booth - Digitale Photobooth (vanaf €199)
-- Digitale photobooth, zelf ophalen en opzetten in 5 minuten
-- Digitale fotostrips naar telefoon van gasten (QR code)
-- Upgrades: Premium Fotostrip Design (+€25), Bezorging & Installatie (+€49), AI Foto's + Filters (+€49), Live DJ Set (+€149)
+### Magic Mirror XL - Premium Fotospiegel (vanaf € 599)
+Foto's die je wilt inlijsten. Tot 5 uur. Wij bezorgen, installeren en halen op. Professionele DSLR-camera met studiobelichting. Direct printen op locatie, onbeperkt.
+- Upgrades: VIP Upgrade, Wedding Keychain Station, Photobooth Host, AI Photo Experience, Live DJ Set
 
-### DJs (vanaf €149 per 3 uur)
+### DJ Huren - Gianni & Milo (vanaf € 149 per 3 uur)
+Spotify playlist-optimalisatie. Speakers, licht en rookmachine inbegrepen. Twee DJs, twee stijlen:
 - DJ Gianni: Afro Beats, Caribbean, Nederlands Hits
-- DJ Milø: House, Techno, Deep
-- Inclusief speakers, licht en rookmachine
-- Spotify playlist-optimalisatie: stuur je playlist, de DJ bouwt er een professionele set van
-- Extra uur: +€49 per uur
+- DJ Milo: House, Techno, Deep
+- Extra uur: + € 49 per uur
+
+## Photobooth + DJ Combo
+
+Boek photobooth en DJ bij hetzelfde team. Een aanspreekpunt, een vibe, een boeking. Party Booth of Magic Mirror XL combineerbaar met DJ Gianni of DJ Milo.
 
 ## Servicegebied
 
-Randstad, Nederland: Amsterdam, Rotterdam, Den Haag, Utrecht, Leiden en omgeving (tot 50km).
+Randstad, Nederland: Amsterdam, Rotterdam, Den Haag, Utrecht, Leiden en omgeving (tot 50 km).
 
 ## Contact
 
@@ -39,8 +36,8 @@ Randstad, Nederland: Amsterdam, Rotterdam, Den Haag, Utrecht, Leiden en omgeving
 
 ## Pagina's
 
-- [Homepage](https://picyourbooth.nl/): Overzicht van alle diensten
-- [Magic Mirror XL](https://picyourbooth.nl/magic-mirror.html): Premium fotospiegel met DSLR camera
-- [Party Booth](https://picyourbooth.nl/party-booth.html): Betaalbare digitale photobooth
-- [DJs](https://picyourbooth.nl/djs.html): DJ Gianni en DJ Milø
+- [Homepage](https://picyourbooth.nl/index.html): Overzicht van alle diensten
+- [Party Booth](https://picyourbooth.nl/party-booth.html): Digitale photobooth, zelf ophalen en opzetten
+- [Magic Mirror XL](https://picyourbooth.nl/magic-mirror.html): Premium fotospiegel met DSLR-camera
+- [DJs](https://picyourbooth.nl/djs.html): DJ Gianni en DJ Milo
 - [Offerte](https://picyourbooth.nl/offerte.html): Vrijblijvend voorstel aanvragen

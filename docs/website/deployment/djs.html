@@ -3,11 +3,11 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>DJ Huren | DJ Gianni & DJ Milø vanaf €149 - PicYourBooth</title>
-<meta name="description" content="DJ huren met Spotify playlist-optimalisatie. Speakers, licht en rookmachine inbegrepen. Vanaf €149 per avond. Randstad.">
+<title>DJ Huren | DJ Gianni & DJ Milø vanaf € 149 - PicYourBooth</title>
+<meta name="description" content="DJ huren met Spotify playlist-optimalisatie. Speakers, licht en rookmachine inbegrepen. Vanaf € 149 per avond. Randstad.">
 <link rel="canonical" href="https://picyourbooth.nl/djs">
-<meta property="og:title" content="DJ Huren | DJ Gianni & DJ Milø vanaf €149">
-<meta property="og:description" content="DJ huren met Spotify playlist-optimalisatie. Speakers, licht en rookmachine inbegrepen. Vanaf €149 per avond.">
+<meta property="og:title" content="DJ Huren | DJ Gianni & DJ Milø vanaf € 149">
+<meta property="og:description" content="DJ huren met Spotify playlist-optimalisatie. Speakers, licht en rookmachine inbegrepen. Vanaf € 149 per avond.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://picyourbooth.nl/djs">
 <meta property="og:locale" content="nl_NL">
@@ -143,7 +143,7 @@ a { color: inherit; text-decoration: none; }
 
 .nav-logo {
   font-family: var(--font-display);
-  font-size: 1.75rem;
+  font-size: 1.2rem;
   letter-spacing: 0.10em;
   text-transform: uppercase;
   color: var(--text);
@@ -197,7 +197,6 @@ a { color: inherit; text-decoration: none; }
   height: 1em;
   margin-left: 1px;
   vertical-align: middle;
-  transform: translateY(-4px);
   filter: drop-shadow(0 0 4px rgba(245, 158, 66, 0.4));
 }
 
@@ -258,6 +257,10 @@ a { color: inherit; text-decoration: none; }
 }
 
 /* Hamburger (mobile) */
+.nav-home {
+  display: none;
+}
+
 .nav-hamburger {
   display: none;
   flex-direction: column;
@@ -285,7 +288,7 @@ a { color: inherit; text-decoration: none; }
 .hero {
   text-align: center;
   min-height: 70vh;
-  padding: 120px 32px 48px;
+  padding: 120px 32px 120px;
   position: relative;
   overflow: hidden;
   display: flex;
@@ -339,10 +342,9 @@ a { color: inherit; text-decoration: none; }
 }
 
 .hero-title {
-  font-size: clamp(2.5rem, 6vw, 3.5rem);
+  font-size: clamp(3.5rem, 8vw, 5.5rem);
   letter-spacing: 0.08em;
   margin-bottom: 16px;
-  line-height: 1;
   background: linear-gradient(135deg, var(--coral) 0%, var(--violet) 50%, var(--cyan) 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -353,7 +355,7 @@ a { color: inherit; text-decoration: none; }
   font-size: 15px;
   color: var(--text-muted);
   max-width: 520px;
-  margin: 0 auto;
+  margin: 0 auto 24px;
   font-weight: 300;
   line-height: 1.7;
 }
@@ -364,9 +366,72 @@ a { color: inherit; text-decoration: none; }
   font-family: var(--font-body);
   font-size: 1rem;
   font-weight: 600;
-  color: var(--violet);
+  color: var(--gold);
   font-variant-numeric: tabular-nums;
 }
+
+.hero-cta {
+  display: inline-block;
+  margin-top: 24px;
+  padding: 16px 36px;
+  background: var(--violet);
+  color: #fff;
+  font-family: var(--font-display);
+  font-size: 1rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-decoration: none;
+  border-radius: var(--r-pill);
+  font-weight: 700;
+  transition: background 0.25s var(--ease), transform 0.15s var(--ease), box-shadow 0.25s var(--ease);
+}
+.hero-cta:hover {
+  background: var(--violet-bright, #9b7af5);
+  transform: scale(1.02);
+  box-shadow: 0 0 24px var(--violet-glow);
+}
+
+/* -- Proof Bar ----------------------------------------- */
+.proof-bar {
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  gap: 20px;
+  padding: 32px 24px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+.proof-item {
+  flex: 1;
+  text-align: center;
+  padding: 24px 16px;
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  font-weight: 400;
+  letter-spacing: 0.02em;
+  background: linear-gradient(165deg, var(--surface) 0%, var(--surface-up) 100%);
+  border: 1px solid var(--border);
+  border-radius: var(--r-md);
+  transition: border-color 0.25s var(--ease), transform 0.25s var(--ease);
+}
+.proof-item:hover {
+  border-color: rgba(139, 92, 246, 0.18);
+  transform: translateY(-2px);
+}
+.proof-number {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+  background: linear-gradient(135deg, var(--gold) 0%, var(--gold-light) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  letter-spacing: 0.06em;
+  margin-bottom: 4px;
+}
+
+/* -- Sticky Mobile CTA --------------------------------- */
+.sticky-cta { display: none; }
 
 /* Waveform + Play/Pause container — below hero content */
 .waveform-wrap {
@@ -476,16 +541,28 @@ a { color: inherit; text-decoration: none; }
 .waveform-bars span:nth-child(14) { height: 36px; animation-delay: 0.30s;  animation-duration: 1.15s; }
 .waveform-bars span:nth-child(15) { height: 58px; animation-delay: 0.18s;  animation-duration: 1.45s; }
 
-/* Paused state — bars freeze */
+/* Paused / hidden state — equalizer hidden until playing */
+.waveform-bars.paused {
+  opacity: 0;
+  height: 0;
+  overflow: hidden;
+  transition: opacity 0.4s var(--ease), height 0.4s var(--ease);
+}
 .waveform-bars.paused span {
   animation-play-state: paused;
-  opacity: 0.5;
+}
+
+/* Playing state — equalizer visible */
+.waveform-bars:not(.paused) {
+  opacity: 1;
+  height: 80px;
+  transition: opacity 0.4s var(--ease), height 0.4s var(--ease);
 }
 
 /* -- DJ Profile Section -------------------------------- */
 .dj-section {
   padding: 64px 32px;
-  max-width: 960px;
+  max-width: 800px;
   margin: 0 auto;
 }
 
@@ -725,6 +802,7 @@ a { color: inherit; text-decoration: none; }
 .spotify-title {
   font-size: clamp(1.8rem, 4vw, 2.5rem);
   letter-spacing: 0.06em;
+  text-align: center;
   margin-bottom: 16px;
   color: var(--text);
 }
@@ -814,14 +892,14 @@ a { color: inherit; text-decoration: none; }
 }
 
 .hiw-step h3 {
-  font-size: 1.2rem;
+  font-size: 1.4rem;
   letter-spacing: 0.04em;
   margin-bottom: 8px;
   color: var(--text);
 }
 
 .hiw-step p {
-  font-size: 13px;
+  font-size: 15px;
   color: var(--text-muted);
   line-height: 1.7;
 }
@@ -991,7 +1069,7 @@ a { color: inherit; text-decoration: none; }
 
 .booking-total-label {
   font-family: var(--font-display);
-  font-size: 0.75rem;
+  font-size: 1rem;
   font-weight: 400;
   text-transform: uppercase;
   letter-spacing: 0.14em;
@@ -1000,9 +1078,9 @@ a { color: inherit; text-decoration: none; }
 }
 
 .booking-total-price {
-  font-family: var(--font-display);
+  font-family: var(--font-body);
   font-size: 3rem;
-  font-weight: 400;
+  font-weight: 700;
   font-variant-numeric: tabular-nums;
   letter-spacing: 0.04em;
   background: linear-gradient(135deg, var(--violet) 0%, #a78bfa 100%);
@@ -1013,7 +1091,7 @@ a { color: inherit; text-decoration: none; }
 }
 
 .booking-total-btw {
-  font-size: 11px;
+  font-size: 14px;
   color: var(--text-muted);
   font-weight: 300;
   margin-top: 2px;
@@ -1234,6 +1312,10 @@ a { color: inherit; text-decoration: none; }
   to   { opacity: 1; }
 }
 
+.nav-links.open .nav-home {
+  display: list-item;
+}
+
 .nav-links.open li {
   list-style: none;
   opacity: 1 !important;
@@ -1255,8 +1337,8 @@ a { color: inherit; text-decoration: none; }
 }
 .nav-hamburger.active {
   position: fixed;
-  top: 20px;
-  right: 32px;
+  top: 16px;
+  right: 16px;
   z-index: 201;
 }
 
@@ -1500,7 +1582,7 @@ a { color: inherit; text-decoration: none; }
     padding: 80px 24px 64px;
   }
   .hero-title {
-    font-size: clamp(2rem, 5vw, 3rem);
+    font-size: clamp(2.6rem, 7vw, 3.2rem);
   }
   .nav-hamburger {
     padding: 10px;
@@ -1538,7 +1620,7 @@ a { color: inherit; text-decoration: none; }
     padding: 64px 20px 48px;
   }
   .hero-title {
-    font-size: 2rem;
+    font-size: clamp(2.4rem, 9vw, 3rem);
     letter-spacing: 0.05em;
     margin-bottom: 12px;
   }
@@ -1554,6 +1636,9 @@ a { color: inherit; text-decoration: none; }
   .hero-price {
     font-size: 1.15rem;
   }
+  .proof-bar { gap: 12px; padding: 24px 16px; }
+  .proof-item { padding: 16px 12px; font-size: 0.8rem; }
+  .proof-number { font-size: 1.3rem; }
   /* Global mobile text bump + USP/upgrade bump */
   body {
     font-size: 16px;
@@ -1637,10 +1722,10 @@ a { color: inherit; text-decoration: none; }
 /* -- Small mobile (max 480px) ----------------------------- */
 @media (max-width: 480px) {
   .hero {
-    padding: 48px 16px 36px;
+    padding: 56px 16px 40px;
   }
   .hero-title {
-    font-size: clamp(1.5rem, 9vw, 2rem);
+    font-size: clamp(2.2rem, 10vw, 2.8rem);
   }
   .nav {
     padding: 16px 16px;
@@ -1681,6 +1766,36 @@ a { color: inherit; text-decoration: none; }
   .hero::before {
     background-image: url('assets/images/djs-hero-768x432.webp');
   }
+  .sticky-cta {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    background: rgba(8, 8, 11, 0.95);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-top: 1px solid rgba(139, 92, 246, 0.3);
+    padding: 12px 16px;
+    display: flex;
+    justify-content: center;
+  }
+  .sticky-cta a {
+    display: block;
+    width: 100%;
+    max-width: 400px;
+    padding: 16px 24px;
+    background: var(--violet);
+    color: #fff;
+    font-family: var(--font-display);
+    font-size: 1.15rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    text-decoration: none;
+    text-align: center;
+    border-radius: var(--r-pill);
+    font-weight: 700;
+  }
 }
 </style>
 </head>
@@ -1693,6 +1808,7 @@ a { color: inherit; text-decoration: none; }
 <div class="nav-bar"><nav class="nav">
   <a href="index.html" class="nav-logo"><svg class="logo-camera" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="2" y="6" width="20" height="14" rx="3" stroke="#ededf0" stroke-width="2"/><circle cx="12" cy="13" r="4" stroke="#ededf0" stroke-width="2"/><path d="M8 6V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v1" stroke="#ededf0" stroke-width="2"/></svg>PicYour<span class="logo-accent">Booth</span><svg class="logo-icon" viewBox="0 2 24 22" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3 18v-6a9 9 0 0 1 18 0v6" stroke="#f59e42" stroke-width="2.5" stroke-linecap="round"/><path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3v5zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3v5z" fill="#f59e42"/></svg></a>
   <ul class="nav-links">
+    <li class="nav-home"><a href="index.html">Home</a></li>
     <li><a href="party-booth.html">Party Booth</a></li>
     <li><a href="magic-mirror.html">Magic Mirror XL</a></li>
     <li><a href="djs.html" class="active">DJ's</a></li>
@@ -1713,41 +1829,23 @@ a { color: inherit; text-decoration: none; }
 <section class="hero">
   <div class="hero-overlay"></div>
   <div class="hero-content">
-    <span class="hero-label">DJ Entertainment</span>
-    <h1 class="hero-title">DJ Huren.<br>DJ Gianni & DJ Milø</h1>
+    <h1 class="hero-title">DJ Huren.<br>Gianni & Milø</h1>
     <p class="hero-subtitle">Spotify playlist-optimalisatie.<br>Speakers, licht en rookmachine inbegrepen.</p>
-    <span class="hero-price">Vanaf &euro;149 per avond</span>
+    <span class="hero-price">Vanaf &euro; 149 per avond</span>
   </div>
-  <div class="waveform-wrap">
-    <button class="audio-toggle" id="audioToggle" aria-label="Speel muziek af">
-      <svg class="icon-play" viewBox="0 0 24 24"><polygon points="6,3 20,12 6,21"/></svg>
-      <svg class="icon-pause" viewBox="0 0 24 24"><rect x="5" y="3" width="4" height="18"/><rect x="15" y="3" width="4" height="18"/></svg>
-    </button>
-    <div class="waveform-bars paused" id="waveformBars">
-      <span></span>
-      <span></span>
-      <span></span>
-      <span></span>
-      <span></span>
-      <span></span>
-      <span></span>
-      <span></span>
-      <span></span>
-      <span></span>
-      <span></span>
-      <span></span>
-      <span></span>
-      <span></span>
-      <span></span>
-    </div>
-  </div>
-  <!-- Audio generated via Web Audio API — no external file needed -->
+  <!-- Audio player removed from hero for cleaner layout -->
 </section>
+
+<div class="proof-bar">
+  <div class="proof-item"><span class="proof-number">237+</span> Events</div>
+  <div class="proof-item"><span class="proof-number">4.9&#9733;</span> Reviews</div>
+  <div class="proof-item"><span class="proof-number">Randstad</span> &amp; Omgeving</div>
+</div>
 
 <!-- ============================================================
      DJ GIANNI - CORAL
      ============================================================ -->
-<section class="dj-section reveal reveal-left">
+<section class="dj-section reveal reveal-left visible">
   <div class="dj-profile dj-profile--coral">
     <div class="dj-avatar-wrap">
       <div class="dj-avatar-glow dj-avatar-glow--coral">
@@ -1851,7 +1949,7 @@ a { color: inherit; text-decoration: none; }
   <div class="booking-card">
     <div class="booking-base">
       <div class="booking-base-label">DJ Set 3 uur</div>
-      <div class="booking-base-price">&euro;149</div>
+      <div class="booking-base-price">&euro; 149</div>
     </div>
 
     <ul class="booking-includes">
@@ -1865,25 +1963,25 @@ a { color: inherit; text-decoration: none; }
       <div class="hour-option selected" data-hours="3" data-price="149">
         <div class="hour-radio"><div class="hour-radio-dot"></div></div>
         <span class="hour-label">3 uur</span>
-        <span class="hour-price">&euro;149</span>
+        <span class="hour-price">&euro; 149</span>
       </div>
       <div class="hour-option" data-hours="4" data-price="198">
         <div class="hour-radio"><div class="hour-radio-dot"></div></div>
         <span class="hour-label">4 uur</span>
-        <span class="hour-extra">+&euro;49</span>
-        <span class="hour-price">&euro;198</span>
+        <span class="hour-extra">+&euro; 49</span>
+        <span class="hour-price">&euro; 198</span>
       </div>
       <div class="hour-option" data-hours="5" data-price="247">
         <div class="hour-radio"><div class="hour-radio-dot"></div></div>
         <span class="hour-label">5 uur</span>
-        <span class="hour-extra">+&euro;98</span>
-        <span class="hour-price">&euro;247</span>
+        <span class="hour-extra">+&euro; 98</span>
+        <span class="hour-price">&euro; 247</span>
       </div>
       <div class="hour-option" data-hours="6" data-price="296">
         <div class="hour-radio"><div class="hour-radio-dot"></div></div>
         <span class="hour-label">6 uur</span>
-        <span class="hour-extra">+&euro;147</span>
-        <span class="hour-price">&euro;296</span>
+        <span class="hour-extra">+&euro; 147</span>
+        <span class="hour-price">&euro; 296</span>
       </div>
     </div>
 
@@ -1891,7 +1989,7 @@ a { color: inherit; text-decoration: none; }
 
     <div class="booking-total">
       <div class="booking-total-label">Totaal</div>
-      <div class="booking-total-price" id="totalPrice">&euro;149</div>
+      <div class="booking-total-price" id="totalPrice">&euro; 149</div>
       <div class="booking-total-btw">Inclusief 21% BTW</div>
     </div>
 
@@ -1904,10 +2002,10 @@ a { color: inherit; text-decoration: none; }
      ============================================================ -->
 <section class="faq" id="faq">
   <h2 class="faq-title">Veelgestelde Vragen</h2>
-  <details class="faq-item"><summary>Wat kost een DJ huren?</summary><p class="faq-answer">Vanaf €149 per avond voor een complete DJ set van 3 uur. Dat is inclusief professionele speakers, lichtshow en rookmachine. Extra uren bijboeken kan voor €49 per uur, tot maximaal 6 uur. Een DJ-bureau rekent al snel €600 of meer. Bij ons krijg je hetzelfde, voor een fractie van de prijs.</p></details>
+  <details class="faq-item"><summary>Wat kost een DJ huren?</summary><p class="faq-answer">Een complete DJ set inclusief professionele speakers, lichtshow en rookmachine. Extra uren bijboeken kan tot maximaal 6 uur. Bekijk de prijzen op deze pagina.</p></details>
   <details class="faq-item"><summary>Wat is Spotify playlist-optimalisatie?</summary><p class="faq-answer">Stuur ons je Spotify playlist voor het event. Onze DJ analyseert de energie, het tempo en de sfeer van je muziek en bouwt daar een professionele set omheen. Jouw nummers, aangevuld met tracks die perfect passen bij de vibe. Het resultaat klinkt als jouw muziek, maar dan beter gemixt en met betere flow. Geen enkele andere DJ in de regio biedt dit.</p></details>
   <details class="faq-item"><summary>Welke DJ-stijlen zijn er?</summary><p class="faq-answer">Twee stijlen, twee vibes. DJ Gianni brengt warme energie met Afro Beats, Caribbean vibes en Nederlandse hits. Perfect voor bruiloften en feesten waar iedereen moet dansen. DJ Milø bouwt sets van deep house naar hypnotiserende techno. Strak, naadloos, strategisch. Ideaal voor late-night events en club-achtige sferen. Jij kiest de vibe die past bij jouw event.</p></details>
-  <details class="faq-item"><summary>Kan ik de DJ combineren met een photobooth?</summary><p class="faq-answer">Ja, en dat is waar PicYourBooth uniek is. Boek de <a href="magic-mirror.html" style="color:var(--gold);">Magic Mirror XL</a> (vanaf €599) of <a href="party-booth.html" style="color:var(--gold);">Party Booth</a> (vanaf €199) en voeg een Live DJ Set toe als upgrade voor €149. Alles van hetzelfde team betekent betere afstemming, een contactpersoon en geen gedoe met meerdere leveranciers.</p></details>
+  <details class="faq-item"><summary>Kan ik de DJ combineren met een photobooth?</summary><p class="faq-answer">Ja, en dat is waar PicYourBooth uniek is. Boek de <a href="magic-mirror.html" style="color:var(--gold);">Magic Mirror XL</a> (vanaf € 599) of <a href="party-booth.html" style="color:var(--gold);">Party Booth</a> (vanaf € 199) en voeg een Live DJ Set toe als upgrade voor € 149. Alles van hetzelfde team betekent betere afstemming, een contactpersoon en geen gedoe met meerdere leveranciers.</p></details>
 </section>
 
 </main>
@@ -1916,8 +2014,8 @@ a { color: inherit; text-decoration: none; }
      FOOTER
      ============================================================ -->
 <footer class="footer">
-  <p class="footer-brand"><svg class="logo-camera" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="2" y="6" width="20" height="14" rx="3" stroke="#ededf0" stroke-width="2"/><circle cx="12" cy="13" r="4" stroke="#ededf0" stroke-width="2"/><path d="M8 6V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v1" stroke="#ededf0" stroke-width="2"/></svg>PicYour<span class="logo-accent">Booth</span><svg class="logo-icon" viewBox="0 2 24 22" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3 18v-6a9 9 0 0 1 18 0v6" stroke="#f59e42" stroke-width="2.5" stroke-linecap="round"/><path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3v5zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3v5z" fill="#f59e42"/></svg></p>
-  <p class="footer-copy">&copy; 2026 PicYourBooth B.V. (onderdeel van <a href="https://www.pymapp.com" class="footer-email" target="_blank" rel="noopener">PYM</a>) &middot; <a href="mailto:info@picyourbooth.nl" class="footer-email">info@picyourbooth.nl</a></p>
+  <a href="index.html" class="footer-brand" style="text-decoration:none"><svg class="logo-camera" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="2" y="6" width="20" height="14" rx="3" stroke="#ededf0" stroke-width="2"/><circle cx="12" cy="13" r="4" stroke="#ededf0" stroke-width="2"/><path d="M8 6V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v1" stroke="#ededf0" stroke-width="2"/></svg>PicYour<span class="logo-accent">Booth</span><svg class="logo-icon" viewBox="0 2 24 22" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3 18v-6a9 9 0 0 1 18 0v6" stroke="#f59e42" stroke-width="2.5" stroke-linecap="round"/><path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3v5zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3v5z" fill="#f59e42"/></svg></a>
+  <p class="footer-copy">&copy; 2026 PicYourBooth (onderdeel van <a href="https://www.pymapp.com" class="footer-email" target="_blank" rel="noopener">PYM</a>) &middot; <a href="mailto:info@picyourbooth.nl" class="footer-email">info@picyourbooth.nl</a></p>
   <p class="footer-copy">KVK 59400080</p>
 </footer>
 
@@ -1972,7 +2070,7 @@ a { color: inherit; text-decoration: none; }
     var hours = el.getAttribute('data-hours');
 
     var totalEl = document.getElementById('totalPrice');
-    totalEl.textContent = '\u20AC' + price;
+    totalEl.textContent = '\u20AC ' + price;
 
     /* Price pulse on change */
     totalEl.classList.remove('price-pulse');
@@ -1986,7 +2084,7 @@ a { color: inherit; text-decoration: none; }
     baseLabel.textContent = 'DJ Set ' + hours + ' uur';
 
     var basePrice = document.querySelector('.booking-base-price');
-    basePrice.textContent = '\u20AC' + price;
+    basePrice.textContent = '\u20AC ' + price;
   }
 
   /* -- Hour selector event delegation ---------------------- */
@@ -2288,16 +2386,7 @@ a { color: inherit; text-decoration: none; }
       }
     });
 
-    // Auto-start on first user interaction (click/touch/key anywhere)
-    function autoStart() {
-      if (!isPlaying) createBeat();
-      document.removeEventListener('click', autoStart);
-      document.removeEventListener('touchstart', autoStart);
-      document.removeEventListener('keydown', autoStart);
-    }
-    document.addEventListener('click', autoStart, { once: true });
-    document.addEventListener('touchstart', autoStart, { once: true });
-    document.addEventListener('keydown', autoStart, { once: true });
+    // No auto-start — user clicks play button to start
   }
 
   // Randomise bar heights periodically for organic feel
@@ -2346,7 +2435,7 @@ a { color: inherit; text-decoration: none; }
     "geoMidpoint": {"@type": "GeoCoordinates", "latitude": 52.0, "longitude": 4.5},
     "geoRadius": "50000"
   },
-  "priceRange": "€149 - €2000",
+  "priceRange": "€ 149 - € 2000",
   "aggregateRating": {
     "@type": "AggregateRating",
     "ratingValue": "4.9",
@@ -2370,12 +2459,6 @@ a { color: inherit; text-decoration: none; }
     "availability": "https://schema.org/InStock",
     "priceValidUntil": "2026-12-31",
     "url": "https://picyourbooth.nl/djs"
-  },
-  "aggregateRating": {
-    "@type": "AggregateRating",
-    "ratingValue": "4.9",
-    "reviewCount": "237",
-    "bestRating": "5"
   }
 }
 </script>
@@ -2385,13 +2468,14 @@ a { color: inherit; text-decoration: none; }
   "@context": "https://schema.org",
   "@type": "FAQPage",
   "mainEntity": [
-    {"@type": "Question", "name": "Wat kost een DJ huren?", "acceptedAnswer": {"@type": "Answer", "text": "Vanaf €149 per avond inclusief speakers, licht en rookmachine."}},
-    {"@type": "Question", "name": "Wat is Spotify playlist-optimalisatie?", "acceptedAnswer": {"@type": "Answer", "text": "Stuur je playlist, onze DJ analyseert energie en tempo en bouwt er een professionele set van."}},
-    {"@type": "Question", "name": "Welke DJ-stijlen zijn er?", "acceptedAnswer": {"@type": "Answer", "text": "DJ Gianni (Afro Beats, Caribbean, Nederlands Hits) of DJ Milø (House, Techno, Deep)."}},
-    {"@type": "Question", "name": "Kan ik de DJ combineren met een photobooth?", "acceptedAnswer": {"@type": "Answer", "text": "Ja, boek de Magic Mirror XL of Party Booth en voeg een Live DJ Set toe als upgrade."}}
+    {"@type": "Question", "name": "Wat kost een DJ huren?", "acceptedAnswer": {"@type": "Answer", "text": "Een complete DJ set inclusief professionele speakers, lichtshow en rookmachine. Extra uren bijboeken kan tot maximaal 6 uur. Bekijk de prijzen op de pagina."}},
+    {"@type": "Question", "name": "Wat is Spotify playlist-optimalisatie?", "acceptedAnswer": {"@type": "Answer", "text": "Stuur ons je Spotify playlist voor het event. Onze DJ analyseert de energie, het tempo en de sfeer van je muziek en bouwt daar een professionele set omheen. Jouw nummers, aangevuld met tracks die perfect passen bij de vibe."}},
+    {"@type": "Question", "name": "Welke DJ-stijlen zijn er?", "acceptedAnswer": {"@type": "Answer", "text": "Twee stijlen, twee vibes. DJ Gianni brengt warme energie met Afro Beats, Caribbean vibes en Nederlandse hits. DJ Milø bouwt sets van deep house naar hypnotiserende techno. Jij kiest de vibe die past bij jouw event."}},
+    {"@type": "Question", "name": "Kan ik de DJ combineren met een photobooth?", "acceptedAnswer": {"@type": "Answer", "text": "Ja, en dat is waar PicYourBooth uniek is. Boek de Magic Mirror XL of Party Booth en voeg een Live DJ Set toe als upgrade. Alles van hetzelfde team betekent betere afstemming en geen gedoe met meerdere leveranciers."}}
   ]
 }
 </script>
+
 
 </body>
 </html>
