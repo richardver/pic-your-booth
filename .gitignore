@@ -20,6 +20,9 @@ Thumbs.db
 docs/assets/generated/
 docs/assets/web/
 
+# Playwright MCP
+.playwright-mcp/
+
 # IDE
 .vscode/
 .idea/
