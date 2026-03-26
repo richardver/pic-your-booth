@@ -202,8 +202,12 @@ Complete catalogue of all 102 source photos for PicYourBooth marketing.
 |---|------|--------|-------------|------------|-------|
 | 1 | `usp - past overal/party-booth-usp-past-overal-group-compact-venue.jpg` | 2.5/5 | 4 young women at booth in compact OSB/plywood venue, police hat prop | |Shows compact-space use |
 
-### USP — Geen Gedoe (0 photos)
-_Empty — no source photos yet_
+### USP — Geen Gedoe (2 photos)
+
+| # | File | Rating | Description | Gemini Ref | Notes |
+|---|------|--------|-------------|------------|-------|
+| 1 | `usp - geen gedoe/party-booth-usp-geen-gedoe-gallery-portal.jpg` | 3/5 | Photo gallery portal view — 9 photos of young women with heart backdrop, shows gallery output | | Demonstrates the "na afloop krijg je een galerij" promise |
+| 2 | `usp - geen gedoe/party-booth-usp-geen-gedoe-tropical-printstrip-dannyanouk.jpg` | **4/5** | ⭐ **Danny & Anouk tropical party — 4 fun photos with props (leis, oversized sunglasses, wigs), vibrant tropical backdrop** | ⭐ | Real event print strip. Shows guests having fun without effort. Currently used on website USP card |
 
 ### USP — Zelf Opzetten (0 photos)
 _Empty — no source photos yet_
@@ -274,7 +278,7 @@ Priority photos needed (consider AI generation with Gemini):
 3. **DJ Milo performance shots** — at a real venue, not home
 4. **Party Booth in action** — guests using it at a real party, candid moments
 5. **Photobooth Host upgrade** — a host person guiding guests at the mirror
-6. **Party Booth "Geen Gedoe" USP** — showing easy setup process
+6. ~~**Party Booth "Geen Gedoe" USP**~~ — ✅ Have 2 photos (tropical print strip + gallery portal)
 7. **Party Booth "Zelf Opzetten" USP** — showing self-service capability
 8. **Solo stunning portraits** — for the "iedereen ziet er geweldig uit" USP
 9. **PYB-branded keychain station** — replace the competitor reference image
