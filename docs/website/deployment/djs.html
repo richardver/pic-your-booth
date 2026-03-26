@@ -12,6 +12,7 @@
 <meta property="og:url" content="https://picyourbooth.nl/djs">
 <meta property="og:locale" content="nl_NL">
 <meta property="og:image" content="https://picyourbooth.nl/assets/images/djs-hero-1280x720.webp">
+<link rel="icon" type="image/png" href="/favicon-32.png" sizes="32x32">
 <link rel="icon" href="/favicon.ico" sizes="any">
 <link rel="icon" type="image/png" href="/favicon-192.png" sizes="192x192">
 <link rel="icon" type="image/png" href="/favicon-512.png" sizes="512x512">
@@ -42,6 +43,7 @@
   --gold-glow:   rgba(245, 158, 66, 0.20);
 
   --violet:      #8b5cf6;
+  --violet-bright: #9b7af5;
   --violet-dim:  rgba(139, 92, 246, 0.12);
   --violet-glow: rgba(139, 92, 246, 0.20);
 
@@ -431,133 +433,9 @@ a { color: inherit; text-decoration: none; }
 }
 
 /* -- Sticky Mobile CTA --------------------------------- */
-.sticky-cta { display: none; }
+.sticky-price-bar { display: none; }
 
-/* Waveform + Play/Pause container — below hero content */
-.waveform-wrap {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 20px;
-  position: relative;
-  z-index: 2;
-  margin-top: auto;
-  padding-top: 32px;
-}
-
-/* Play/Pause button */
-.audio-toggle {
-  width: 56px;
-  height: 56px;
-  border-radius: 50%;
-  border: 2px solid var(--violet);
-  background: rgba(139, 92, 246, 0.12);
-  color: var(--violet);
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: background 0.25s var(--ease), box-shadow 0.25s var(--ease), transform 0.15s var(--ease), border-color 0.25s var(--ease);
-  flex-shrink: 0;
-  box-shadow: 0 0 16px var(--violet-glow);
-}
-
-.audio-toggle:hover {
-  background: rgba(139, 92, 246, 0.25);
-  box-shadow: 0 0 28px var(--violet-glow);
-  transform: scale(1.1);
-  border-color: var(--coral);
-}
-
-.audio-toggle svg {
-  width: 22px;
-  height: 22px;
-  fill: currentColor;
-}
-
-.audio-toggle .icon-pause { display: none; }
-.audio-toggle.playing .icon-play  { display: none; }
-.audio-toggle.playing .icon-pause { display: block; }
-
-/* Waveform bars — large, colourful equalizer */
-.waveform-bars {
-  display: flex;
-  justify-content: center;
-  align-items: flex-end;
-  gap: 5px;
-  height: 80px;
-}
-
-.waveform-bars span {
-  display: block;
-  width: 5px;
-  border-radius: 3px;
-  animation: waveBob 1.6s ease-in-out infinite;
-  /* Gradient from coral → violet → cyan across bars */
-  background: var(--violet);
-}
-
-/* Coral bars (left) */
-.waveform-bars span:nth-child(1)  { background: var(--coral); }
-.waveform-bars span:nth-child(2)  { background: var(--coral); }
-.waveform-bars span:nth-child(3)  { background: var(--coral-light); }
-/* Coral → violet transition */
-.waveform-bars span:nth-child(4)  { background: #d06090; }
-.waveform-bars span:nth-child(5)  { background: #b560b8; }
-/* Violet bars (center) */
-.waveform-bars span:nth-child(6)  { background: var(--violet); }
-.waveform-bars span:nth-child(7)  { background: var(--violet); }
-.waveform-bars span:nth-child(8)  { background: var(--violet); }
-.waveform-bars span:nth-child(9)  { background: var(--violet); }
-/* Violet → cyan transition */
-.waveform-bars span:nth-child(10) { background: #6b8be6; }
-.waveform-bars span:nth-child(11) { background: #50a8d8; }
-/* Cyan bars (right) */
-.waveform-bars span:nth-child(12) { background: var(--cyan); }
-.waveform-bars span:nth-child(13) { background: var(--cyan); }
-.waveform-bars span:nth-child(14) { background: var(--cyan-light); }
-.waveform-bars span:nth-child(15) { background: var(--cyan); }
-
-/* Glow effect per bar */
-.waveform-bars span:nth-child(-n+3)  { box-shadow: 0 0 8px rgba(240, 101, 74, 0.4); }
-.waveform-bars span:nth-child(n+6):nth-child(-n+9)  { box-shadow: 0 0 8px var(--violet-glow); }
-.waveform-bars span:nth-child(n+12) { box-shadow: 0 0 8px rgba(34, 211, 153, 0.4); }
-
-/* Heights & stagger */
-.waveform-bars span:nth-child(1)  { height: 28px; animation-delay: 0s;     animation-duration: 1.4s; }
-.waveform-bars span:nth-child(2)  { height: 48px; animation-delay: 0.12s;  animation-duration: 1.1s; }
-.waveform-bars span:nth-child(3)  { height: 64px; animation-delay: 0.24s;  animation-duration: 1.5s; }
-.waveform-bars span:nth-child(4)  { height: 40px; animation-delay: 0.08s;  animation-duration: 1.3s; }
-.waveform-bars span:nth-child(5)  { height: 56px; animation-delay: 0.32s;  animation-duration: 0.9s; }
-.waveform-bars span:nth-child(6)  { height: 72px; animation-delay: 0.16s;  animation-duration: 1.6s; }
-.waveform-bars span:nth-child(7)  { height: 50px; animation-delay: 0.04s;  animation-duration: 1.2s; }
-.waveform-bars span:nth-child(8)  { height: 80px; animation-delay: 0.28s;  animation-duration: 1.0s; }
-.waveform-bars span:nth-child(9)  { height: 60px; animation-delay: 0.20s;  animation-duration: 1.4s; }
-.waveform-bars span:nth-child(10) { height: 44px; animation-delay: 0.36s;  animation-duration: 1.1s; }
-.waveform-bars span:nth-child(11) { height: 68px; animation-delay: 0.10s;  animation-duration: 1.5s; }
-.waveform-bars span:nth-child(12) { height: 52px; animation-delay: 0.22s;  animation-duration: 0.95s; }
-.waveform-bars span:nth-child(13) { height: 76px; animation-delay: 0.06s;  animation-duration: 1.3s; }
-.waveform-bars span:nth-child(14) { height: 36px; animation-delay: 0.30s;  animation-duration: 1.15s; }
-.waveform-bars span:nth-child(15) { height: 58px; animation-delay: 0.18s;  animation-duration: 1.45s; }
-
-/* Paused / hidden state — equalizer hidden until playing */
-.waveform-bars.paused {
-  opacity: 0;
-  height: 0;
-  overflow: hidden;
-  transition: opacity 0.4s var(--ease), height 0.4s var(--ease);
-}
-.waveform-bars.paused span {
-  animation-play-state: paused;
-}
-
-/* Playing state — equalizer visible */
-.waveform-bars:not(.paused) {
-  opacity: 1;
-  height: 80px;
-  transition: opacity 0.4s var(--ease), height 0.4s var(--ease);
-}
+/* Audio player / waveform CSS removed — HTML elements no longer present */
 
 /* -- DJ Profile Section -------------------------------- */
 .dj-section {
@@ -994,42 +872,49 @@ a { color: inherit; text-decoration: none; }
   border: 1px solid var(--border);
   border-radius: var(--r-md);
   cursor: pointer;
-  transition: border-color 0.2s var(--ease), background 0.2s var(--ease);
+  transition: border-color 0.25s var(--ease), background 0.25s var(--ease), box-shadow 0.25s var(--ease);
 }
 
 .hour-option:hover {
   border-color: var(--border-hover);
+  background: rgba(139, 92, 246, 0.04);
 }
 
 .hour-option.selected {
   border-color: var(--violet);
   background: var(--violet-dim);
+  box-shadow: 0 0 20px rgba(139, 92, 246, 0.08);
 }
 
 .hour-radio {
-  width: 18px;
-  height: 18px;
+  width: 20px;
+  height: 20px;
   border-radius: 50%;
-  border: 2px solid rgba(255, 255, 255, 0.15);
+  border: 2px solid rgba(255, 255, 255, 0.18);
   flex-shrink: 0;
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: border-color 0.2s var(--ease);
+  transition: border-color 0.3s var(--ease), box-shadow 0.3s var(--ease);
+}
+
+.hour-option:hover .hour-radio {
+  border-color: rgba(139, 92, 246, 0.5);
 }
 
 .hour-option.selected .hour-radio {
   border-color: var(--violet);
+  box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.2), 0 0 12px rgba(139, 92, 246, 0.25);
 }
 
 .hour-radio-dot {
-  width: 8px;
-  height: 8px;
+  width: 10px;
+  height: 10px;
   border-radius: 50%;
-  background: var(--violet);
+  background: linear-gradient(135deg, var(--violet) 0%, #a78bfa 100%);
   opacity: 0;
   transform: scale(0);
-  transition: opacity 0.2s var(--ease), transform 0.2s var(--ease);
+  transition: opacity 0.25s var(--ease), transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
 .hour-option.selected .hour-radio-dot {
@@ -1259,21 +1144,6 @@ a { color: inherit; text-decoration: none; }
   animation: pricePulse 0.4s ease-out;
 }
 
-/* -- Enhanced Waveform --------------------------------- */
-@keyframes waveBobEnergetic {
-  0%   { transform: scaleY(0.2); }
-  15%  { transform: scaleY(0.9); }
-  30%  { transform: scaleY(0.35); }
-  50%  { transform: scaleY(1); }
-  65%  { transform: scaleY(0.4); }
-  80%  { transform: scaleY(0.75); }
-  100% { transform: scaleY(0.2); }
-}
-
-.waveform-bars span {
-  animation-name: waveBobEnergetic;
-}
-
 /* -- Confetti Burst ------------------------------------ */
 @keyframes confettiBurst {
   0%   { opacity: 1; transform: translate(0, 0) scale(1); }
@@ -1380,10 +1250,6 @@ a { color: inherit; text-decoration: none; }
   .cursor-glow {
     display: none;
   }
-  .waveform-bars span {
-    animation: none;
-    transform: scaleY(0.6);
-  }
 }
 
 /* -- FAQ Section --------------------------------------- */
@@ -1450,6 +1316,10 @@ a { color: inherit; text-decoration: none; }
   color: var(--text-muted);
   line-height: 1.7;
   padding-bottom: 20px;
+}
+
+.faq-link {
+  color: var(--gold);
 }
 
 /* ============================================================
@@ -1537,22 +1407,6 @@ a { color: inherit; text-decoration: none; }
   100% { opacity: 0.2; }
 }
 
-/* -- 10. Floating Music Notes ----------------------------- */
-.floating-note {
-  position: absolute;
-  font-size: 16px;
-  pointer-events: none;
-  z-index: 3;
-  opacity: 0;
-  animation: noteFloat 2.5s ease-out forwards;
-}
-
-@keyframes noteFloat {
-  0%   { opacity: 0.7; transform: translateY(0) rotate(0deg); }
-  50%  { opacity: 0.5; }
-  100% { opacity: 0; transform: translateY(-80px) rotate(15deg) translateX(20px); }
-}
-
 /* -- Reduced Motion: disable new enhancements ------------- */
 @media (prefers-reduced-motion: reduce) {
   body {
@@ -1566,9 +1420,6 @@ a { color: inherit; text-decoration: none; }
   }
   .hero.beat-pulse::before {
     animation: none;
-  }
-  .floating-note {
-    display: none;
   }
 }
 /* ============================================================
@@ -1597,16 +1448,6 @@ a { color: inherit; text-decoration: none; }
   }
   .dj-section {
     padding: 64px 24px;
-  }
-  .waveform-wrap {
-    margin-top: 40px;
-    gap: 16px;
-  }
-  .waveform-bars {
-    height: 60px;
-  }
-  .waveform-bars span {
-    width: 4px;
   }
   .faq {
     padding: 64px 24px;
@@ -1706,14 +1547,6 @@ a { color: inherit; text-decoration: none; }
   .dj-section {
     padding: 48px 20px;
   }
-  .audio-toggle {
-    width: 48px;
-    height: 48px;
-  }
-  .audio-toggle svg {
-    width: 18px;
-    height: 18px;
-  }
   .faq {
     padding: 48px 20px;
   }
@@ -1740,17 +1573,6 @@ a { color: inherit; text-decoration: none; }
   .dj-tagline {
     font-size: 14px;
   }
-  .waveform-bars {
-    height: 48px;
-    gap: 3px;
-  }
-  .waveform-bars span {
-    width: 3px;
-  }
-  .waveform-wrap {
-    margin-top: 32px;
-    gap: 12px;
-  }
   .dj-section {
     padding: 40px 16px;
   }
@@ -1766,35 +1588,94 @@ a { color: inherit; text-decoration: none; }
   .hero::before {
     background-image: url('assets/images/djs-hero-768x432.webp');
   }
-  .sticky-cta {
+  /* Sticky price bar */
+  .sticky-price-bar {
+    display: flex;
     position: fixed;
     bottom: 0;
     left: 0;
     right: 0;
-    z-index: 100;
+    z-index: 9999;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 20px;
     background: rgba(8, 8, 11, 0.95);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    border-top: 1px solid rgba(139, 92, 246, 0.3);
-    padding: 12px 16px;
-    display: flex;
-    justify-content: center;
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-top: 1px solid rgba(139, 92, 246, 0.15);
+    box-shadow: 0 -4px 24px rgba(0, 0, 0, 0.4);
+    transform: translateY(100%);
+    transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
   }
-  .sticky-cta a {
-    display: block;
-    width: 100%;
-    max-width: 400px;
-    padding: 16px 24px;
-    background: var(--violet);
-    color: #fff;
+  .sticky-price-bar.visible {
+    transform: translateY(0);
+  }
+  .sticky-price-bar__price {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+  .sticky-price-bar__label {
     font-family: var(--font-display);
-    font-size: 1.15rem;
-    letter-spacing: 0.08em;
+    font-size: 0.65rem;
+    font-weight: 400;
+    color: var(--text-muted);
     text-transform: uppercase;
-    text-decoration: none;
-    text-align: center;
-    border-radius: var(--r-pill);
+    letter-spacing: 0.14em;
+  }
+  .sticky-price-bar__amount {
+    font-family: var(--font-body);
+    font-size: 1.8rem;
     font-weight: 700;
+    background: linear-gradient(135deg, var(--violet) 0%, #a78bfa 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-variant-numeric: tabular-nums;
+    line-height: 1.2;
+  }
+  .sticky-price-bar__action {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+  }
+  .sticky-price-bar__cta {
+    display: inline-block;
+    padding: 12px 24px;
+    border: none;
+    border-radius: var(--r-pill);
+    font-family: var(--font-display);
+    font-size: 1rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    background: var(--violet);
+    color: #ffffff;
+    font-weight: 700;
+    white-space: nowrap;
+    transition: opacity 0.25s, box-shadow 0.25s;
+  }
+  .sticky-price-bar__cta:hover {
+    opacity: 0.92;
+    box-shadow: 0 4px 20px var(--violet-glow);
+  }
+  .sticky-price-bar__sub {
+    font-size: 0.6rem;
+    color: var(--text-muted);
+    letter-spacing: 0.02em;
+  }
+  /* Hide original total + CTA in booking on mobile */
+  .booking-total {
+    display: none;
+  }
+  .booking-cta {
+    display: none;
+  }
+  body {
+    padding-bottom: 72px;
   }
 }
 </style>
@@ -1806,7 +1687,7 @@ a { color: inherit; text-decoration: none; }
      NAVIGATION
      ============================================================ -->
 <div class="nav-bar"><nav class="nav">
-  <a href="index.html" class="nav-logo"><svg class="logo-camera" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="2" y="6" width="20" height="14" rx="3" stroke="#ededf0" stroke-width="2"/><circle cx="12" cy="13" r="4" stroke="#ededf0" stroke-width="2"/><path d="M8 6V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v1" stroke="#ededf0" stroke-width="2"/></svg>PicYour<span class="logo-accent">Booth</span><svg class="logo-icon" viewBox="0 2 24 22" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3 18v-6a9 9 0 0 1 18 0v6" stroke="#f59e42" stroke-width="2.5" stroke-linecap="round"/><path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3v5zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3v5z" fill="#f59e42"/></svg></a>
+  <a href="index.html" class="nav-logo"><svg class="logo-camera" aria-hidden="true" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="2" y="6" width="20" height="14" rx="3" stroke="#ededf0" stroke-width="2"/><circle cx="12" cy="13" r="4" stroke="#ededf0" stroke-width="2"/><path d="M8 6V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v1" stroke="#ededf0" stroke-width="2"/></svg>PicYour<span class="logo-accent">Booth</span><svg class="logo-icon" aria-hidden="true" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3 18v-6a9 9 0 0 1 18 0v6" stroke="#f59e42" stroke-width="2.5" stroke-linecap="round"/><path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3v5zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3v5z" fill="#f59e42"/></svg></a>
   <ul class="nav-links">
     <li class="nav-home"><a href="index.html">Home</a></li>
     <li><a href="party-booth.html">Party Booth</a></li>
@@ -1833,7 +1714,6 @@ a { color: inherit; text-decoration: none; }
     <p class="hero-subtitle">Spotify playlist-optimalisatie.<br>Speakers, licht en rookmachine inbegrepen.</p>
     <span class="hero-price">Vanaf &euro; 149 per avond</span>
   </div>
-  <!-- Audio player removed from hero for cleaner layout -->
 </section>
 
 <div class="proof-bar">
@@ -1985,8 +1865,6 @@ a { color: inherit; text-decoration: none; }
       </div>
     </div>
 
-    <!-- price comparison removed -->
-
     <div class="booking-total">
       <div class="booking-total-label">Totaal</div>
       <div class="booking-total-price" id="totalPrice">&euro; 149</div>
@@ -2005,7 +1883,7 @@ a { color: inherit; text-decoration: none; }
   <details class="faq-item"><summary>Wat kost een DJ huren?</summary><p class="faq-answer">Een complete DJ set inclusief professionele speakers, lichtshow en rookmachine. Extra uren bijboeken kan tot maximaal 6 uur. Bekijk de prijzen op deze pagina.</p></details>
   <details class="faq-item"><summary>Wat is Spotify playlist-optimalisatie?</summary><p class="faq-answer">Stuur ons je Spotify playlist voor het event. Onze DJ analyseert de energie, het tempo en de sfeer van je muziek en bouwt daar een professionele set omheen. Jouw nummers, aangevuld met tracks die perfect passen bij de vibe. Het resultaat klinkt als jouw muziek, maar dan beter gemixt en met betere flow. Geen enkele andere DJ in de regio biedt dit.</p></details>
   <details class="faq-item"><summary>Welke DJ-stijlen zijn er?</summary><p class="faq-answer">Twee stijlen, twee vibes. DJ Gianni brengt warme energie met Afro Beats, Caribbean vibes en Nederlandse hits. Perfect voor bruiloften en feesten waar iedereen moet dansen. DJ Milø bouwt sets van deep house naar hypnotiserende techno. Strak, naadloos, strategisch. Ideaal voor late-night events en club-achtige sferen. Jij kiest de vibe die past bij jouw event.</p></details>
-  <details class="faq-item"><summary>Kan ik de DJ combineren met een photobooth?</summary><p class="faq-answer">Ja, en dat is waar PicYourBooth uniek is. Boek de <a href="magic-mirror.html" style="color:var(--gold);">Magic Mirror XL</a> (vanaf € 599) of <a href="party-booth.html" style="color:var(--gold);">Party Booth</a> (vanaf € 199) en voeg een Live DJ Set toe als upgrade voor € 149. Alles van hetzelfde team betekent betere afstemming, een contactpersoon en geen gedoe met meerdere leveranciers.</p></details>
+  <details class="faq-item"><summary>Kan ik de DJ combineren met een photobooth?</summary><p class="faq-answer">Ja, en dat is waar PicYourBooth uniek is. Boek de <a href="magic-mirror.html" class="faq-link">Magic Mirror XL</a> (vanaf € 599) of <a href="party-booth.html" class="faq-link">Party Booth</a> (vanaf € 199) en voeg een Live DJ Set toe als upgrade voor € 149. Alles van hetzelfde team betekent betere afstemming, een contactpersoon en geen gedoe met meerdere leveranciers.</p></details>
 </section>
 
 </main>
@@ -2014,7 +1892,7 @@ a { color: inherit; text-decoration: none; }
      FOOTER
      ============================================================ -->
 <footer class="footer">
-  <a href="index.html" class="footer-brand" style="text-decoration:none"><svg class="logo-camera" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="2" y="6" width="20" height="14" rx="3" stroke="#ededf0" stroke-width="2"/><circle cx="12" cy="13" r="4" stroke="#ededf0" stroke-width="2"/><path d="M8 6V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v1" stroke="#ededf0" stroke-width="2"/></svg>PicYour<span class="logo-accent">Booth</span><svg class="logo-icon" viewBox="0 2 24 22" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3 18v-6a9 9 0 0 1 18 0v6" stroke="#f59e42" stroke-width="2.5" stroke-linecap="round"/><path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3v5zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3v5z" fill="#f59e42"/></svg></a>
+  <a href="index.html" class="footer-brand"><svg class="logo-camera" aria-hidden="true" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="2" y="6" width="20" height="14" rx="3" stroke="#ededf0" stroke-width="2"/><circle cx="12" cy="13" r="4" stroke="#ededf0" stroke-width="2"/><path d="M8 6V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v1" stroke="#ededf0" stroke-width="2"/></svg>PicYour<span class="logo-accent">Booth</span><svg class="logo-icon" aria-hidden="true" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3 18v-6a9 9 0 0 1 18 0v6" stroke="#f59e42" stroke-width="2.5" stroke-linecap="round"/><path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3v5zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3v5z" fill="#f59e42"/></svg></a>
   <p class="footer-copy">&copy; 2026 PicYourBooth (onderdeel van <a href="https://www.pymapp.com" class="footer-email" target="_blank" rel="noopener">PYM</a>) &middot; <a href="mailto:info@picyourbooth.nl" class="footer-email">info@picyourbooth.nl</a></p>
   <p class="footer-copy">KVK 59400080</p>
 </footer>
@@ -2024,6 +1902,18 @@ a { color: inherit; text-decoration: none; }
 
 <!-- Cursor Glow -->
 <div class="cursor-glow" id="cursorGlow"></div>
+
+<!-- Mobile Sticky Price Bar -->
+<div class="sticky-price-bar" id="stickyPriceBar">
+  <div class="sticky-price-bar__price">
+    <span class="sticky-price-bar__amount" id="stickyTotal">&euro; 149</span>
+    <span class="sticky-price-bar__label">Totaal (incl. 21% BTW)</span>
+  </div>
+  <div class="sticky-price-bar__action">
+    <a href="offerte.html?service=dj" class="sticky-price-bar__cta">Check Beschikbaarheid</a>
+    <span class="sticky-price-bar__sub">Vrijblijvend voorstel binnen 24 uur</span>
+  </div>
+</div>
 
 <!-- ============================================================
      JS - Booking Wizard + Entertainment Animations
@@ -2211,192 +2101,41 @@ a { color: inherit; text-decoration: none; }
   }
 
   /* ==========================================================
-     5. AUDIO PLAY/PAUSE + WAVEFORM (Web Audio API beat)
+     STICKY PRICE BAR (mobile)
      ========================================================== */
-  var toggleBtn = document.getElementById('audioToggle');
-  var waveform  = document.getElementById('waveformBars');
-  var bars      = waveform ? waveform.querySelectorAll('span') : [];
-  var audioCtx  = null;
-  var isPlaying = false;
-  var beatInterval = null;
+  var stickyBar = document.getElementById('stickyPriceBar');
+  var stickyTotal = document.getElementById('stickyTotal');
+  var bookingSection = document.querySelector('.booking');
+  var hourSelectorEl = document.getElementById('hourSelector');
 
-  function setPlaying(playing) {
-    isPlaying = playing;
-    if (playing) {
-      toggleBtn.classList.add('playing');
-      toggleBtn.setAttribute('aria-label', 'Pauzeer muziek');
-      waveform.classList.remove('paused');
-    } else {
-      toggleBtn.classList.remove('playing');
-      toggleBtn.setAttribute('aria-label', 'Speel muziek af');
-      waveform.classList.add('paused');
-    }
-  }
-
-  /* ==========================================================
-     FLOATING MUSIC NOTES
-     ========================================================== */
-  var noteSymbols = ['\u266A', '\u266B', '\u266C'];
-  var noteColors = ['var(--coral)', 'var(--violet)', 'var(--cyan)'];
-  var noteInterval = null;
-
-  function startNotes() {
-    if (noteInterval) return;
-    noteInterval = setInterval(function() {
-      var wrap = document.querySelector('.waveform-wrap');
-      if (!wrap) return;
-      var note = document.createElement('span');
-      note.className = 'floating-note';
-      note.textContent = noteSymbols[Math.floor(Math.random() * noteSymbols.length)];
-      note.style.color = noteColors[Math.floor(Math.random() * noteColors.length)];
-      note.style.left = (20 + Math.random() * 60) + '%';
-      note.style.bottom = '80px';
-      wrap.appendChild(note);
-      note.addEventListener('animationend', function() { note.remove(); });
-    }, 1800);
-  }
-
-  function stopNotes() {
-    if (noteInterval) { clearInterval(noteInterval); noteInterval = null; }
-  }
-
-  // Synthesised deep-house loop using Web Audio API
-  function createBeat() {
-    if (!audioCtx) {
-      audioCtx = new (window.AudioContext || window.webkitAudioContext)();
-    }
-    if (audioCtx.state === 'suspended') {
-      audioCtx.resume();
-    }
-
-    var bpm = 124;
-    var stepTime = 60 / bpm / 4; // 16th notes
-    var step = 0;
-
-    // Master volume
-    var master = audioCtx.createGain();
-    master.gain.value = 0.35;
-    master.connect(audioCtx.destination);
-
-    // Kick pattern: steps 0, 4, 8, 12 (four-on-the-floor)
-    function playKick(time) {
-      var osc = audioCtx.createOscillator();
-      var gain = audioCtx.createGain();
-      osc.type = 'sine';
-      osc.frequency.setValueAtTime(150, time);
-      osc.frequency.exponentialRampToValueAtTime(30, time + 0.12);
-      gain.gain.setValueAtTime(0.9, time);
-      gain.gain.exponentialRampToValueAtTime(0.001, time + 0.3);
-      osc.connect(gain);
-      gain.connect(master);
-      osc.start(time);
-      osc.stop(time + 0.3);
-    }
-
-    // Hi-hat using noise
-    function playHat(time, open) {
-      var bufferSize = audioCtx.sampleRate * 0.05;
-      var buffer = audioCtx.createBuffer(1, bufferSize, audioCtx.sampleRate);
-      var data = buffer.getChannelData(0);
-      for (var i = 0; i < bufferSize; i++) {
-        data[i] = (Math.random() * 2 - 1) * 0.3;
-      }
-      var src = audioCtx.createBufferSource();
-      src.buffer = buffer;
-      var hp = audioCtx.createBiquadFilter();
-      hp.type = 'highpass';
-      hp.frequency.value = 8000;
-      var gain = audioCtx.createGain();
-      var dur = open ? 0.12 : 0.04;
-      gain.gain.setValueAtTime(open ? 0.25 : 0.18, time);
-      gain.gain.exponentialRampToValueAtTime(0.001, time + dur);
-      src.connect(hp);
-      hp.connect(gain);
-      gain.connect(master);
-      src.start(time);
-      src.stop(time + dur);
-    }
-
-    // Bass synth
-    function playBass(time, freq) {
-      var osc = audioCtx.createOscillator();
-      var gain = audioCtx.createGain();
-      osc.type = 'sawtooth';
-      osc.frequency.value = freq;
-      var lp = audioCtx.createBiquadFilter();
-      lp.type = 'lowpass';
-      lp.frequency.setValueAtTime(600, time);
-      lp.frequency.exponentialRampToValueAtTime(150, time + 0.2);
-      gain.gain.setValueAtTime(0.2, time);
-      gain.gain.exponentialRampToValueAtTime(0.001, time + 0.25);
-      osc.connect(lp);
-      lp.connect(gain);
-      gain.connect(master);
-      osc.start(time);
-      osc.stop(time + 0.25);
-    }
-
-    // Pattern: 16 steps per bar, 4 bars loop
-    var bassNotes = [55, 55, 0, 55, 0, 0, 65.41, 0, 55, 0, 55, 0, 0, 73.42, 0, 0];
-
-    function scheduleStep() {
-      var time = audioCtx.currentTime + 0.05;
-      var s = step % 16;
-
-      // Kick: four-on-the-floor
-      if (s % 4 === 0) {
-        playKick(time);
-        // Beat pulse on hero background
-        var hero = document.querySelector('.hero');
-        if (hero) {
-          hero.classList.add('beat-pulse');
-          setTimeout(function() { hero.classList.remove('beat-pulse'); }, 480);
-        }
-      }
-
-      // Hi-hat: every 2 steps, open on offbeats
-      if (s % 2 === 0) playHat(time, s % 4 === 2);
-
-      // Bass
-      if (bassNotes[s] > 0) playBass(time, bassNotes[s]);
-
-      step++;
-    }
-
-    beatInterval = setInterval(scheduleStep, stepTime * 1000);
-    setPlaying(true);
-    startNotes();
-  }
-
-  function stopBeat() {
-    if (beatInterval) {
-      clearInterval(beatInterval);
-      beatInterval = null;
-    }
-    setPlaying(false);
-    stopNotes();
-  }
-
-  if (toggleBtn) {
-    toggleBtn.addEventListener('click', function () {
-      if (isPlaying) {
-        stopBeat();
-      } else {
-        createBeat();
-      }
+  if (stickyBar && bookingSection && totalEl) {
+    // Sync price from booking total to sticky bar
+    var priceObserver = new MutationObserver(function() {
+      if (stickyTotal) stickyTotal.textContent = totalEl.textContent;
     });
+    priceObserver.observe(totalEl, { childList: true, characterData: true, subtree: true });
 
-    // No auto-start — user clicks play button to start
-  }
+    // Show sticky bar after hour selector scrolls into view, hide after booking ends
+    function checkStickyVisibility() {
+      if (window.innerWidth > 768) {
+        stickyBar.classList.remove('visible');
+        return;
+      }
+      var trigger = hourSelectorEl || bookingSection;
+      var triggerRect = trigger.getBoundingClientRect();
+      var bookingRect = bookingSection.getBoundingClientRect();
+      var pastTrigger = triggerRect.top < window.innerHeight;
+      var bookingEnded = bookingRect.bottom < 0;
+      if (pastTrigger && !bookingEnded) {
+        stickyBar.classList.add('visible');
+      } else {
+        stickyBar.classList.remove('visible');
+      }
+    }
 
-  // Randomise bar heights periodically for organic feel
-  if (bars.length) {
-    setInterval(function () {
-      bars.forEach(function (bar) {
-        var h = 14 + Math.floor(Math.random() * 28);
-        bar.style.height = h + 'px';
-      });
-    }, 2400);
+    window.addEventListener('scroll', checkStickyVisibility, { passive: true });
+    window.addEventListener('resize', checkStickyVisibility, { passive: true });
+    checkStickyVisibility();
   }
 
   /* ==========================================================

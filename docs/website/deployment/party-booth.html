@@ -761,6 +761,13 @@ a { color: inherit; text-decoration: none; }
   font-variant-numeric: tabular-nums;
 }
 
+.builder-base__price-sub {
+  font-size: 0.5em;
+  font-weight: 400;
+  color: var(--text-muted);
+  letter-spacing: 0.02em;
+}
+
 .builder-base__features {
   list-style: none;
   display: flex;
@@ -844,22 +851,22 @@ a { color: inherit; text-decoration: none; }
 
 .upgrade-row__name {
   font-family: var(--font-display);
-  font-size: 1.15rem;
+  font-size: 1.3rem;
   letter-spacing: 0.04em;
   text-transform: uppercase;
   margin-bottom: 2px;
 }
 
 .upgrade-row__desc {
-  font-size: 15px;
+  font-size: 16px;
   color: var(--text-muted);
   line-height: 1.5;
 }
 
 .upgrade-row__price {
   font-family: var(--font-body);
-  font-size: 1.15rem;
-  font-weight: 600;
+  font-size: 1.5rem;
+  font-weight: 700;
   letter-spacing: 0.04em;
   white-space: nowrap;
   color: var(--gold);
@@ -1119,12 +1126,13 @@ a { color: inherit; text-decoration: none; }
   top: 16px;
   left: 16px;
   font-family: var(--font-display);
-  font-size: 0.7rem;
+  font-size: 0.95rem;
   letter-spacing: 0.08em;
   background: var(--gold);
   color: #000;
-  padding: 4px 14px;
+  padding: 6px 18px;
   border-radius: var(--r-pill);
+  font-weight: 700;
 }
 
 .modal__body {
@@ -1140,17 +1148,17 @@ a { color: inherit; text-decoration: none; }
 
 .modal__price {
   font-family: var(--font-body);
-  font-size: 1rem;
-  font-weight: 600;
-  color: var(--text-muted);
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--gold);
   margin-bottom: 16px;
   font-variant-numeric: tabular-nums;
 }
 
 .modal__desc {
-  font-size: 0.9rem;
-  color: var(--text-muted);
-  font-weight: 300;
+  font-size: 1rem;
+  color: var(--text);
+  font-weight: 400;
   line-height: 1.7;
   margin-bottom: 24px;
 }
@@ -1167,7 +1175,7 @@ a { color: inherit; text-decoration: none; }
   background: var(--gold);
   color: #000;
   font-family: var(--font-display);
-  font-size: 0.95rem;
+  font-size: 1.05rem;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   border: none;
@@ -1216,6 +1224,11 @@ a { color: inherit; text-decoration: none; }
 @keyframes floatUp {
   0% { opacity: 0.4; transform: translateY(0) scale(1); }
   100% { opacity: 0; transform: translateY(-120px) scale(0.3); }
+}
+
+/* -- Mobile Sticky Price Bar ------------------------------ */
+.sticky-price-bar {
+  display: none;
 }
 
 /* -- Responsive ---------------------------------------- */
@@ -1338,6 +1351,96 @@ a { color: inherit; text-decoration: none; }
   }
   .upgrade-row__price {
     margin-left: auto;
+  }
+  /* Sticky price bar */
+  .sticky-price-bar {
+    display: flex;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 9999;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 20px;
+    background: rgba(8, 8, 11, 0.95);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-top: 1px solid rgba(245, 158, 66, 0.15);
+    box-shadow: 0 -4px 24px rgba(0, 0, 0, 0.4);
+    transform: translateY(100%);
+    transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .sticky-price-bar.visible {
+    transform: translateY(0);
+  }
+  .sticky-price-bar__price {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+  .sticky-price-bar__label {
+    font-family: var(--font-display);
+    font-size: 0.65rem;
+    font-weight: 400;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+  }
+  .sticky-price-bar__amount {
+    font-family: var(--font-body);
+    font-size: 1.8rem;
+    font-weight: 700;
+    background: linear-gradient(135deg, var(--gold) 0%, var(--gold-light) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-variant-numeric: tabular-nums;
+    line-height: 1.2;
+  }
+  .sticky-price-bar__cta {
+    display: inline-block;
+    padding: 12px 24px;
+    border: none;
+    border-radius: var(--r-pill);
+    font-family: var(--font-display);
+    font-size: 1rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    background: var(--gold);
+    color: #000000;
+    font-weight: 700;
+    white-space: nowrap;
+    transition: opacity 0.25s, box-shadow 0.25s;
+  }
+  .sticky-price-bar__cta:hover {
+    opacity: 0.92;
+    box-shadow: 0 4px 20px var(--gold-glow);
+  }
+  .sticky-price-bar__action {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+  }
+  .sticky-price-bar__sub {
+    font-size: 0.6rem;
+    color: var(--text-muted);
+    letter-spacing: 0.02em;
+  }
+  /* Hide original total + CTA in builder on mobile - they're in the sticky bar now */
+  .builder-total {
+    display: none;
+  }
+  .builder > .cta-btn {
+    display: none;
+  }
+  /* Add bottom padding to body so content isn't hidden behind sticky bar */
+  body {
+    padding-bottom: 72px;
   }
 }
 
@@ -1731,6 +1834,10 @@ a { color: inherit; text-decoration: none; }
   padding-bottom: 20px;
 }
 
+.faq-link {
+  color: var(--gold);
+}
+
 /* -- Responsive Hero Images ------------------------------- */
 @media (max-width: 1280px) {
   .hero::before {
@@ -1780,7 +1887,7 @@ a { color: inherit; text-decoration: none; }
      NAVIGATION
      ============================================================ -->
 <div class="nav-bar"><nav class="nav">
-  <a href="index.html" class="nav-logo"><svg class="logo-camera" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="2" y="6" width="20" height="14" rx="3" stroke="#ededf0" stroke-width="2"/><circle cx="12" cy="13" r="4" stroke="#ededf0" stroke-width="2"/><path d="M8 6V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v1" stroke="#ededf0" stroke-width="2"/></svg>PicYour<span class="logo-accent">Booth</span><svg class="logo-icon" viewBox="0 2 24 22" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3 18v-6a9 9 0 0 1 18 0v6" stroke="#f59e42" stroke-width="2.5" stroke-linecap="round"/><path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3v5zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3v5z" fill="#f59e42"/></svg></a>
+  <a href="index.html" class="nav-logo"><svg class="logo-camera" aria-hidden="true" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="2" y="6" width="20" height="14" rx="3" stroke="#ededf0" stroke-width="2"/><circle cx="12" cy="13" r="4" stroke="#ededf0" stroke-width="2"/><path d="M8 6V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v1" stroke="#ededf0" stroke-width="2"/></svg>PicYour<span class="logo-accent">Booth</span><svg class="logo-icon" aria-hidden="true" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3 18v-6a9 9 0 0 1 18 0v6" stroke="#f59e42" stroke-width="2.5" stroke-linecap="round"/><path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3v5zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3v5z" fill="#f59e42"/></svg></a>
   <ul class="nav-links">
     <li class="nav-home"><a href="index.html">Home</a></li>
     <li><a href="party-booth.html" class="active">Party Booth</a></li>
@@ -1896,7 +2003,7 @@ a { color: inherit; text-decoration: none; }
     <img src="assets/images/party-booth-cutout-400.webp" alt="Party Booth digitale photobooth met ring light — PicYourBooth" class="builder-base__product-img" loading="lazy">
     <span class="builder-base__badge">Dit zit er altijd in</span>
     <h3 class="builder-base__name">Party Booth</h3>
-    <div class="builder-base__price">&euro; 199 <span style="font-size:0.5em;font-weight:400;color:var(--text-muted);letter-spacing:0.02em">per dag</span></div>
+    <div class="builder-base__price">&euro; 199 <span class="builder-base__price-sub">per dag</span></div>
     <ul class="builder-base__features">
       <li>Digitale photobooth</li>
       <li>Foto's delen via QR code</li>
@@ -1915,7 +2022,7 @@ a { color: inherit; text-decoration: none; }
       <div class="upgrade-row__name">Premium Ontwerp</div>
       <div class="upgrade-row__desc">Fotostrip, touchscreen en animaties op maat.</div>
     </div>
-    <div class="upgrade-row__price">+&euro; 25</div>
+    <div class="upgrade-row__price">+&euro;25</div>
     <label class="toggle">
       <input type="checkbox" aria-label="Premium Ontwerp">
       <span class="toggle-track"></span>
@@ -1928,7 +2035,7 @@ a { color: inherit; text-decoration: none; }
       <div class="upgrade-row__name">Levering &amp; Ophalen</div>
       <div class="upgrade-row__desc">Wij bezorgen, installeren en halen op.</div>
     </div>
-    <div class="upgrade-row__price">+&euro; 49</div>
+    <div class="upgrade-row__price">+&euro;49</div>
     <label class="toggle">
       <input type="checkbox" aria-label="Bezorging Installatie">
       <span class="toggle-track"></span>
@@ -1941,7 +2048,7 @@ a { color: inherit; text-decoration: none; }
       <div class="upgrade-row__name">AI Foto's + Filters</div>
       <div class="upgrade-row__desc">AI achtergrond en beautify filter.</div>
     </div>
-    <div class="upgrade-row__price">+&euro; 49</div>
+    <div class="upgrade-row__price">+&euro;49</div>
     <label class="toggle">
       <input type="checkbox" aria-label="AI Foto's + Filters">
       <span class="toggle-track"></span>
@@ -1954,7 +2061,7 @@ a { color: inherit; text-decoration: none; }
       <div class="upgrade-row__name">Live DJ Set</div>
       <div class="upgrade-row__desc">DJ met speakers, licht en rookmachine.</div>
     </div>
-    <div class="upgrade-row__price">+&euro; 149</div>
+    <div class="upgrade-row__price">+&euro;149</div>
     <label class="toggle">
       <input type="checkbox" aria-label="Live DJ Set">
       <span class="toggle-track"></span>
@@ -1981,7 +2088,7 @@ a { color: inherit; text-decoration: none; }
   <details class="faq-item"><summary>Wat kost een photobooth huren?</summary><p class="faq-answer">Een digitale photobooth die je zelf ophaalt en in 5 minuten klaar zet. Wil je het nog leuker maken? Voeg AI Foto's + Filters toe of laat ons bezorgen. Bekijk de prijzen op deze pagina.</p></details>
   <details class="faq-item"><summary>Moet ik het zelf opzetten?</summary><p class="faq-answer">Ja, en dat is juist het mooie. Zelf ophalen bij ons, neerzetten en aanzetten. Klaar in 5 minuten, geen technische kennis nodig. Heb je liever dat wij het regelen? Voeg bezorging, installatie en ophalen toe als upgrade.</p></details>
   <details class="faq-item"><summary>Wat is AI Foto's + Filters?</summary><p class="faq-answer">Rommelige kamer of lelijke muur achter de booth? Met AI Foto's + Filters (+€ 49) kies je zelf de achtergrond. Strand, skyline, jungle of je eigen ontwerp. AI vervangt de echte achtergrond automatisch. Inclusief beautify filter die ervoor zorgt dat iedereen er strak op staat, plus Instagram-achtige filters (zwart-wit, warm, vintage, etc.) zodat gasten hun favoriete look kiezen. Het verschil in fotokwaliteit is enorm.</p></details>
-  <details class="faq-item"><summary>Kan ik er een DJ bij boeken?</summary><p class="faq-answer">Ja. Voeg een Live DJ Set toe als upgrade. Inclusief professionele speakers, lichtshow en rookmachine. Stuur je Spotify playlist en onze DJ bouwt er een professionele set van. Alles van hetzelfde team. <a href="djs.html" style="color:var(--gold);">Bekijk onze DJs →</a></p></details>
+  <details class="faq-item"><summary>Kan ik er een DJ bij boeken?</summary><p class="faq-answer">Ja. Voeg een Live DJ Set toe als upgrade. Inclusief professionele speakers, lichtshow en rookmachine. Stuur je Spotify playlist en onze DJ bouwt er een professionele set van. Alles van hetzelfde team. <a href="djs.html" class="faq-link">Bekijk onze DJs →</a></p></details>
   <details class="faq-item"><summary>Wat krijg ik allemaal geleverd?</summary><p class="faq-answer">Na afloop ontvang je een digitale galerij met alle foto's van je feest. Gasten delen foto's direct tijdens het feest via QR-code op hun telefoon. Geen prints, alles digitaal — makkelijk opslaan, delen en posten op socials.</p></details>
 </section>
 
@@ -1991,7 +2098,7 @@ a { color: inherit; text-decoration: none; }
      FOOTER
      ============================================================ -->
 <footer class="footer">
-  <a href="index.html" class="footer-brand" style="text-decoration:none"><svg class="logo-camera" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="2" y="6" width="20" height="14" rx="3" stroke="#ededf0" stroke-width="2"/><circle cx="12" cy="13" r="4" stroke="#ededf0" stroke-width="2"/><path d="M8 6V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v1" stroke="#ededf0" stroke-width="2"/></svg>PicYour<span class="logo-accent">Booth</span><svg class="logo-icon" viewBox="0 2 24 22" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3 18v-6a9 9 0 0 1 18 0v6" stroke="#f59e42" stroke-width="2.5" stroke-linecap="round"/><path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3v5zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3v5z" fill="#f59e42"/></svg></a>
+  <a href="index.html" class="footer-brand"><svg class="logo-camera" aria-hidden="true" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="2" y="6" width="20" height="14" rx="3" stroke="#ededf0" stroke-width="2"/><circle cx="12" cy="13" r="4" stroke="#ededf0" stroke-width="2"/><path d="M8 6V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v1" stroke="#ededf0" stroke-width="2"/></svg>PicYour<span class="logo-accent">Booth</span><svg class="logo-icon" aria-hidden="true" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3 18v-6a9 9 0 0 1 18 0v6" stroke="#f59e42" stroke-width="2.5" stroke-linecap="round"/><path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3v5zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3v5z" fill="#f59e42"/></svg></a>
   <p class="footer-copy">&copy; 2026 PicYourBooth (onderdeel van <a href="https://www.pymapp.com" class="footer-email" target="_blank" rel="noopener">PYM</a>) &middot; <a href="mailto:info@picyourbooth.nl" class="footer-email">info@picyourbooth.nl</a></p>
   <p class="footer-copy">KVK 59400080</p>
 </footer>
@@ -2019,6 +2126,18 @@ a { color: inherit; text-decoration: none; }
         <button class="modal__close" id="modalClose">Niet nu</button>
       </div>
     </div>
+  </div>
+</div>
+
+<!-- Mobile Sticky Price Bar -->
+<div class="sticky-price-bar" id="stickyPriceBar">
+  <div class="sticky-price-bar__price">
+    <span class="sticky-price-bar__amount" id="stickyTotal">&euro; 199</span>
+    <span class="sticky-price-bar__label">Totaal (incl. 21% BTW)</span>
+  </div>
+  <div class="sticky-price-bar__action">
+    <a href="offerte.html?service=party-booth" class="sticky-price-bar__cta">Check Beschikbaarheid</a>
+    <span class="sticky-price-bar__sub">Vrijblijvend voorstel binnen 24 uur</span>
   </div>
 </div>
 
@@ -2120,6 +2239,45 @@ a { color: inherit; text-decoration: none; }
       el.textContent = '\u20AC ' + total;
     }
   }
+})();
+
+/* -- Sticky Price Bar ------------------------------------ */
+(function() {
+  var stickyBar = document.getElementById('stickyPriceBar');
+  var stickyTotal = document.getElementById('stickyTotal');
+  var upgradesTitle = document.querySelector('.builder-upgrades-title');
+  var builderSection = document.querySelector('.builder');
+  if (!stickyBar || !upgradesTitle || !builderSection) return;
+
+  // Sync price from builder total to sticky bar
+  var mirrorTotal = document.getElementById('party-total');
+  if (mirrorTotal) {
+    var observer = new MutationObserver(function() {
+      if (stickyTotal) stickyTotal.textContent = mirrorTotal.textContent;
+    });
+    observer.observe(mirrorTotal, { childList: true, characterData: true, subtree: true });
+  }
+
+  // Show sticky bar after upgrades title scrolls into view, hide after builder ends
+  function checkVisibility() {
+    if (window.innerWidth > 768) {
+      stickyBar.classList.remove('visible');
+      return;
+    }
+    var titleRect = upgradesTitle.getBoundingClientRect();
+    var builderRect = builderSection.getBoundingClientRect();
+    var pastTitle = titleRect.top < window.innerHeight;
+    var builderEnded = builderRect.bottom < 0;
+    if (pastTitle && !builderEnded) {
+      stickyBar.classList.add('visible');
+    } else {
+      stickyBar.classList.remove('visible');
+    }
+  }
+
+  window.addEventListener('scroll', checkVisibility, { passive: true });
+  window.addEventListener('resize', checkVisibility, { passive: true });
+  checkVisibility();
 })();
 </script>
 
@@ -2437,7 +2595,6 @@ a { color: inherit; text-decoration: none; }
   ]
 }
 </script>
-
 
 </body>
 </html>

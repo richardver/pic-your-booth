@@ -12,6 +12,7 @@
 <meta property="og:url" content="https://picyourbooth.nl/offerte">
 <meta property="og:locale" content="nl_NL">
 <meta property="og:image" content="https://picyourbooth.nl/assets/images/homepage-hero-1280x720.webp">
+<link rel="icon" type="image/png" href="/favicon-32.png" sizes="32x32">
 <link rel="icon" href="/favicon.ico" sizes="any">
 <link rel="icon" type="image/png" href="/favicon-192.png" sizes="192x192">
 <link rel="icon" type="image/png" href="/favicon-512.png" sizes="512x512">
@@ -686,9 +687,17 @@ a { color: inherit; text-decoration: none; }
   .form-progress {
     display: none;
   }
-  /* Hide labels — placeholders are sufficient */
+  /* Hide labels visually — sr-only for accessibility */
   .form-label {
-    display: none;
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
   }
   /* Compact form fields */
   .form-group {
@@ -760,7 +769,7 @@ a { color: inherit; text-decoration: none; }
      NAVIGATION (simplified: logo + terug)
      ============================================================ -->
 <div class="nav-wrapper" id="navWrapper"><nav class="nav">
-  <a href="index.html" class="nav-logo"><svg class="logo-camera" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="2" y="6" width="20" height="14" rx="3" stroke="#ededf0" stroke-width="2"/><circle cx="12" cy="13" r="4" stroke="#ededf0" stroke-width="2"/><path d="M8 6V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v1" stroke="#ededf0" stroke-width="2"/></svg>PicYour<span class="logo-accent">Booth</span><svg class="logo-icon" viewBox="0 2 24 22" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3 18v-6a9 9 0 0 1 18 0v6" stroke="#f59e42" stroke-width="2.5" stroke-linecap="round"/><path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3v5zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3v5z" fill="#f59e42"/></svg></a>
+  <a href="index.html" class="nav-logo"><svg class="logo-camera" aria-hidden="true" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="2" y="6" width="20" height="14" rx="3" stroke="#ededf0" stroke-width="2"/><circle cx="12" cy="13" r="4" stroke="#ededf0" stroke-width="2"/><path d="M8 6V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v1" stroke="#ededf0" stroke-width="2"/></svg>PicYour<span class="logo-accent">Booth</span><svg class="logo-icon" aria-hidden="true" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3 18v-6a9 9 0 0 1 18 0v6" stroke="#f59e42" stroke-width="2.5" stroke-linecap="round"/><path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3v5zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3v5z" fill="#f59e42"/></svg></a>
   <a href="index.html" class="nav-back">Terug</a>
 </nav></div>
 
@@ -922,7 +931,7 @@ a { color: inherit; text-decoration: none; }
      FOOTER
      ============================================================ -->
 <footer class="footer">
-  <a href="index.html" class="footer-brand" style="text-decoration:none"><svg class="logo-camera" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="2" y="6" width="20" height="14" rx="3" stroke="#ededf0" stroke-width="2"/><circle cx="12" cy="13" r="4" stroke="#ededf0" stroke-width="2"/><path d="M8 6V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v1" stroke="#ededf0" stroke-width="2"/></svg>PicYour<span class="logo-accent">Booth</span><svg class="logo-icon" viewBox="0 2 24 22" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3 18v-6a9 9 0 0 1 18 0v6" stroke="#f59e42" stroke-width="2.5" stroke-linecap="round"/><path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3v5zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3v5z" fill="#f59e42"/></svg></a>
+  <a href="index.html" class="footer-brand"><svg class="logo-camera" aria-hidden="true" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="2" y="6" width="20" height="14" rx="3" stroke="#ededf0" stroke-width="2"/><circle cx="12" cy="13" r="4" stroke="#ededf0" stroke-width="2"/><path d="M8 6V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v1" stroke="#ededf0" stroke-width="2"/></svg>PicYour<span class="logo-accent">Booth</span><svg class="logo-icon" aria-hidden="true" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3 18v-6a9 9 0 0 1 18 0v6" stroke="#f59e42" stroke-width="2.5" stroke-linecap="round"/><path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3v5zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3v5z" fill="#f59e42"/></svg></a>
   <p class="footer-copy">&copy; 2026 PicYourBooth (onderdeel van <a href="https://www.pymapp.com" class="footer-email" target="_blank" rel="noopener">PYM</a>) &middot; <a href="mailto:info@picyourbooth.nl" class="footer-email">info@picyourbooth.nl</a></p>
   <p class="footer-copy">KVK 59400080</p>
 </footer>
@@ -1083,6 +1092,24 @@ a { color: inherit; text-decoration: none; }
   if (typeInput) typeInput.addEventListener('change', function () { clearError(typeInput, typeError); });
   if (datumInput) datumInput.addEventListener('change', function () { clearError(datumInput, datumError); });
 
+  /* -- HubSpot error feedback helper -------------------- */
+  function showSubmitError() {
+    var submitBtn = form.querySelector('.btn-submit');
+    if (submitBtn) {
+      submitBtn.disabled = false;
+      submitBtn.textContent = 'Opnieuw Versturen';
+      submitBtn.style.background = '#ef4444';
+    }
+    var errorMsg = document.createElement('p');
+    errorMsg.style.cssText = 'color:#ef4444;text-align:center;margin-top:12px;font-size:14px;';
+    errorMsg.textContent = 'Er ging iets mis. Probeer het opnieuw of neem contact op via info@picyourbooth.nl';
+    var actions = form.querySelector('.form-actions');
+    if (actions && !actions.querySelector('.submit-error')) {
+      errorMsg.className = 'submit-error';
+      actions.appendChild(errorMsg);
+    }
+  }
+
   /* -- Form success state with confetti ----------------- */
   var form = document.querySelector('form');
   if (form) {
@@ -1148,10 +1175,14 @@ a { color: inherit; text-decoration: none; }
         })
       })
       .then(function (res) {
-        if (!res.ok) console.error('HubSpot submission failed:', res.status);
+        if (!res.ok) {
+          console.error('HubSpot submission failed:', res.status);
+          showSubmitError();
+        }
       })
       .catch(function (err) {
         console.error('HubSpot submission error:', err);
+        showSubmitError();
       });
       /* -- End HubSpot ---------------------------------------- */
 
