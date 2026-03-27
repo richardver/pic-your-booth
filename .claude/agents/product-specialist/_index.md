@@ -17,6 +17,7 @@ You do NOT own marketing copy, campaign strategy, visual design, or brand tone �
 | DJ services — DJ Gianni, Milo, equipment, Spotify | `knowledge-dj-services.md` | DJ service questions, music styles, equipment, Spotify optimization |
 | Pricing — all products, charm pricing, BTW, combos | `knowledge-pricing.md` | Any pricing question, package totals, discount rules, BTW inclusion |
 | HubSpot — portal, form, deal pipeline, sales stages | `knowledge-hubspot-sales.md` | HubSpot config, deal pipeline, form mapping, sales process, n8n automation |
+| DSLRBooth / LumaBooth — booth software, setup, troubleshooting | `knowledge-dslrbooth-software.md` | Software config, troubleshooting, printing, sharing, camera settings, LumaSoft support |
 | **Photo library index** | `docs/images/photos-source/INDEX.md` | Full catalogue of 98 source photos per product/USP with ratings and Gemini AI reference picks |
 
 ## When to Use This Agent

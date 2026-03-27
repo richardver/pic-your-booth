@@ -1867,7 +1867,7 @@ a { color: inherit; text-decoration: none; }
   <!-- Upgrades -->
   <h3 class="builder-upgrades-title">Maak Het Compleet</h3>
 
-  <div class="upgrade-row" data-price="149" data-builder="mirror">
+  <div class="upgrade-row" data-price="149" data-builder="mirror" data-upgrade="vip">
     <button class="info-btn" data-modal="vip" title="Meer info">?</button>
     <div class="upgrade-row__info">
       <div class="upgrade-row__name">VIP Upgrade</div>
@@ -1880,7 +1880,7 @@ a { color: inherit; text-decoration: none; }
     </label>
   </div>
 
-  <div class="upgrade-row" data-price="499" data-builder="mirror">
+  <div class="upgrade-row" data-price="499" data-builder="mirror" data-upgrade="keychain">
     <button class="info-btn" data-modal="wedding" title="Meer info">?</button>
     <div class="upgrade-row__info">
       <div class="upgrade-row__name">Wedding Keychain Station</div>
@@ -1893,7 +1893,7 @@ a { color: inherit; text-decoration: none; }
     </label>
   </div>
 
-  <div class="upgrade-row" data-price="149" data-builder="mirror">
+  <div class="upgrade-row" data-price="149" data-builder="mirror" data-upgrade="host">
     <button class="info-btn" data-modal="host" title="Meer info">?</button>
     <div class="upgrade-row__info">
       <div class="upgrade-row__name">Photobooth Host</div>
@@ -1906,7 +1906,7 @@ a { color: inherit; text-decoration: none; }
     </label>
   </div>
 
-  <div class="upgrade-row" data-price="499" data-builder="mirror">
+  <div class="upgrade-row" data-price="499" data-builder="mirror" data-upgrade="ai_photobooth">
     <button class="info-btn" data-modal="ai" title="Meer info">?</button>
     <div class="upgrade-row__info">
       <div class="upgrade-row__name">AI Photo Experience</div>
@@ -1919,7 +1919,7 @@ a { color: inherit; text-decoration: none; }
     </label>
   </div>
 
-  <div class="upgrade-row" data-price="149" data-builder="mirror">
+  <div class="upgrade-row" data-price="149" data-builder="mirror" data-upgrade="live_dj">
     <button class="info-btn" data-modal="dj" title="Meer info">?</button>
     <div class="upgrade-row__info">
       <div class="upgrade-row__name">Live DJ Set</div>
@@ -2066,6 +2066,27 @@ a { color: inherit; text-decoration: none; }
     }
   });
 
+  function getSelectedUpgrades() {
+    var selected = [];
+    var rows = document.querySelectorAll('.upgrade-row[data-builder="mirror"]');
+    for (var i = 0; i < rows.length; i++) {
+      var cb = rows[i].querySelector('input[type="checkbox"]');
+      if (cb && cb.checked && rows[i].dataset.upgrade) {
+        selected.push(rows[i].dataset.upgrade);
+      }
+    }
+    return selected;
+  }
+
+  function updateCTALinks() {
+    var upgrades = getSelectedUpgrades();
+    var url = 'offerte.html?service=magic-mirror';
+    if (upgrades.length) url += '&upgrades=' + encodeURIComponent(upgrades.join(';'));
+    document.querySelectorAll('a[href^="offerte.html?service=magic-mirror"]').forEach(function(a) {
+      a.href = url;
+    });
+  }
+
   function recalculate() {
     var total = BASE_PRICE;
     var rows = document.querySelectorAll('.upgrade-row[data-builder="mirror"]');
@@ -2086,6 +2107,7 @@ a { color: inherit; text-decoration: none; }
         el.removeEventListener('animationend', handler);
       });
     }
+    updateCTALinks();
   }
 })();
 </script>

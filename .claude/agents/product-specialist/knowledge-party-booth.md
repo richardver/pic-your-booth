@@ -7,6 +7,7 @@ Compact, digital-only photobooth. Customer picks it up, sets it up themselves, a
 ## What It Is
 
 - Digital photobooth (tablet-based)
+- **Software:** LumaBooth (iOS) by LumaSoft — [support.lumasoft.co](https://support.lumasoft.co)
 - Customer self-service: ophalen bij ons, zelf opzetten, 5 minuten klaar
 - Digital photo strips sent to guests' phones
 - No on-site operator required (unless booked as upgrade)

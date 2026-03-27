@@ -7,6 +7,7 @@ Premium DSLR photobooth with professional lighting and direct printing. The flag
 ## What It Is
 
 - Full-size photobooth with DSLR camera (Canon EOS 650D)
+- **Software:** dslrBooth (LumaBooth for Windows) by LumaSoft — [support.lumasoft.co](https://support.lumasoft.co)
 - Professional studio lighting
 - Direct on-site printing of photos
 - Digital gallery for all guests

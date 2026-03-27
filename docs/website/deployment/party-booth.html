@@ -2049,7 +2049,7 @@ a { color: inherit; text-decoration: none; }
   <!-- Upgrades -->
   <h3 class="builder-upgrades-title">Maak Het Extra Bijzonder</h3>
 
-  <div class="upgrade-row" data-price="25" data-builder="party">
+  <div class="upgrade-row" data-price="25" data-builder="party" data-upgrade="premium_design">
     <button class="info-btn" data-modal="design" title="Meer info">?</button>
     <div class="upgrade-row__info">
       <div class="upgrade-row__name">Premium Ontwerp</div>
@@ -2062,7 +2062,7 @@ a { color: inherit; text-decoration: none; }
     </label>
   </div>
 
-  <div class="upgrade-row" data-price="49" data-builder="party">
+  <div class="upgrade-row" data-price="49" data-builder="party" data-upgrade="levering">
     <button class="info-btn" data-modal="delivery" title="Meer info">?</button>
     <div class="upgrade-row__info">
       <div class="upgrade-row__name">Levering &amp; Ophalen</div>
@@ -2075,7 +2075,7 @@ a { color: inherit; text-decoration: none; }
     </label>
   </div>
 
-  <div class="upgrade-row" data-price="49" data-builder="party">
+  <div class="upgrade-row" data-price="49" data-builder="party" data-upgrade="ai_background+filters">
     <button class="info-btn" data-modal="aibg" title="Meer info">?</button>
     <div class="upgrade-row__info">
       <div class="upgrade-row__name">AI Foto's + Filters</div>
@@ -2088,7 +2088,7 @@ a { color: inherit; text-decoration: none; }
     </label>
   </div>
 
-  <div class="upgrade-row" data-price="149" data-builder="party">
+  <div class="upgrade-row" data-price="149" data-builder="party" data-upgrade="live_dj">
     <button class="info-btn" data-modal="dj" title="Meer info">?</button>
     <div class="upgrade-row__info">
       <div class="upgrade-row__name">Live DJ Set</div>
@@ -2258,6 +2258,27 @@ a { color: inherit; text-decoration: none; }
     }
   }
 
+  function getSelectedUpgrades() {
+    var selected = [];
+    var rows = document.querySelectorAll('.upgrade-row[data-builder="party"]');
+    for (var i = 0; i < rows.length; i++) {
+      var cb = rows[i].querySelector('input[type="checkbox"]');
+      if (cb && cb.checked && rows[i].dataset.upgrade) {
+        selected.push(rows[i].dataset.upgrade);
+      }
+    }
+    return selected;
+  }
+
+  function updateCTALinks() {
+    var upgrades = getSelectedUpgrades();
+    var url = 'offerte.html?service=party-booth';
+    if (upgrades.length) url += '&upgrades=' + encodeURIComponent(upgrades.join(';'));
+    document.querySelectorAll('a[href^="offerte.html?service=party-booth"]').forEach(function(a) {
+      a.href = url;
+    });
+  }
+
   function recalculate() {
     var total = BASE_PRICE;
     var rows = document.querySelectorAll('.upgrade-row[data-builder="party"]');
@@ -2271,6 +2292,7 @@ a { color: inherit; text-decoration: none; }
     if (el) {
       el.textContent = '\u20AC ' + total;
     }
+    updateCTALinks();
   }
 })();
 

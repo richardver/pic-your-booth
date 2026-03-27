@@ -1108,7 +1108,7 @@ a { color: inherit; text-decoration: none; }
     f.addEventListener('change', updateProgress);
   });
 
-  /* -- Pre-fill service from query params ---------------- */
+  /* -- Pre-fill from query params ------------------------ */
   var params = new URLSearchParams(window.location.search);
   var serviceParam = params.get('service');
   if (serviceParam) {
@@ -1119,6 +1119,8 @@ a { color: inherit; text-decoration: none; }
     }
     updateProgress();
   }
+  /* Store upgrades from URL for HubSpot submission */
+  var upgradesParam = params.get('upgrades') || '';
 
   /* -- Basic validation --------------------------------- */
   function validateEmail(val) {
@@ -1223,23 +1225,32 @@ a { color: inherit; text-decoration: none; }
 
       /* -- Submit to HubSpot Forms API ---------------------- */
       var HS_PORTAL_ID  = '148115666';
-      var HS_FORM_GUID  = 'db651e47-c976-c50d-3a00-befbb16823ba';
+      var HS_FORM_GUID  = 'd94791f2-5db1-434e-802f-beec5a08ee94';
 
       var submitBtn = form.querySelector('.btn-submit');
       if (submitBtn) { submitBtn.disabled = true; submitBtn.textContent = 'Versturen...'; }
+
+      /* Format date from yyyy-mm-dd (input) to dd-mm-yyyy (HubSpot) */
+      var rawDate = datumInput.value;
+      var formattedDate = rawDate;
+      if (rawDate && rawDate.match(/^\d{4}-\d{2}-\d{2}$/)) {
+        var parts = rawDate.split('-');
+        formattedDate = parts[2] + '-' + parts[1] + '-' + parts[0];
+      }
 
       fetch('https://api.hsforms.com/submissions/v3/integration/submit/' + HS_PORTAL_ID + '/' + HS_FORM_GUID, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           fields: [
-            { name: 'firstname',    value: naamInput.value.trim() },
-            { name: 'email',        value: emailInput.value.trim() },
-            { name: 'phone',        value: telInput.value.trim() },
-            { name: 'service_type', value: serviceInput.value },
-            { name: 'event_type',   value: typeInput.value },
-            { name: 'event_date',   value: datumInput.value },
-            { name: 'message',      value: (document.getElementById('bericht') || {}).value || '' }
+            { name: 'lastname',            value: naamInput.value.trim() },
+            { name: 'email',               value: emailInput.value.trim() },
+            { name: 'phone',               value: telInput.value.trim() },
+            { name: 'service_type',        value: serviceInput.value },
+            { name: 'evenement_type',      value: typeInput.value },
+            { name: 'evenement_date',      value: formattedDate },
+            { name: 'evenement_upgrades',  value: upgradesParam },
+            { name: 'message',             value: (document.getElementById('bericht') || {}).value || '' }
           ],
           context: {
             pageUri:  window.location.href,

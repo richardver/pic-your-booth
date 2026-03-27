@@ -1988,6 +1988,18 @@ a { color: inherit; text-decoration: none; }
 
     var basePrice = document.querySelector('.booking-base-price');
     basePrice.textContent = '\u20AC ' + price;
+
+    /* Update CTA links with selected hours as upgrades */
+    var extraHours = parseInt(hours, 10) - 3;
+    var upgrades = [];
+    for (var i = 1; i <= extraHours; i++) {
+      upgrades.push('dj_extra_uur_' + i);
+    }
+    var url = 'offerte.html?service=dj';
+    if (upgrades.length) url += '&upgrades=' + encodeURIComponent(upgrades.join(';'));
+    document.querySelectorAll('a[href^="offerte.html?service=dj"]').forEach(function(a) {
+      a.href = url;
+    });
   }
 
   /* -- Hour selector event delegation ---------------------- */
