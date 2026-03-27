@@ -521,6 +521,56 @@ a { color: inherit; text-decoration: none; }
   color: rgba(237, 237, 240, 0.25);
 }
 
+/* -- Desktop & Tablet 2-Column Layout ------------------- */
+@media (min-width: 769px) {
+  .form-card {
+    max-width: 640px;
+    padding: 32px 36px;
+  }
+  /* 2-column grid for form fields */
+  form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0 24px;
+  }
+  .form-group {
+    margin-bottom: 16px;
+  }
+  .form-group:last-of-type {
+    margin-bottom: 20px;
+  }
+  /* Progress bar, bericht (textarea), honeypot, button, trust all span full width */
+  .form-progress-label,
+  .form-progress,
+  .btn-submit,
+  .trust-line {
+    grid-column: 1 / -1;
+  }
+  /* Bericht field spans full width */
+  .form-group:has(.form-textarea) {
+    grid-column: 1 / -1;
+  }
+  /* Honeypot spans full width */
+  form > div[aria-hidden="true"] {
+    grid-column: 1 / -1;
+  }
+  .btn-submit {
+    height: 50px;
+  }
+  .form-input,
+  .form-select {
+    height: 44px;
+  }
+  .form-textarea {
+    min-height: 48px;
+    max-height: 80px;
+  }
+  /* Compact footer */
+  .footer {
+    padding: 20px 32px;
+  }
+}
+
 /* -- Form Card Entrance -------------------------------- */
 @keyframes formReveal {
   from { opacity: 0; transform: translateY(24px); }

@@ -770,17 +770,13 @@ a { color: inherit; text-decoration: none; }
   transform: translateX(20px);
 }
 
-/* -- Running Total ------------------------------------- */
+/* -- Running Total (hidden — sticky bar replaces it) ----- */
 .builder-total {
-  text-align: center;
-  padding: 28px 32px;
-  background: linear-gradient(165deg, var(--surface) 0%, rgba(245, 158, 66, 0.03) 100%);
-  border-radius: var(--r-lg);
-  border: 1px solid rgba(245, 158, 66, 0.15);
-  margin-top: 28px;
-  margin-bottom: 24px;
-  position: relative;
-  box-shadow: 0 0 24px rgba(245, 158, 66, 0.04);
+  display: none;
+}
+
+.builder > .cta-btn {
+  display: none;
 }
 
 .builder-total__label {
@@ -1063,8 +1059,83 @@ a { color: inherit; text-decoration: none; }
   100% { opacity: 0; transform: translateY(-120px) scale(0.3); }
 }
 
-/* -- Mobile Sticky Price Bar ------------------------------ */
+/* -- Sticky Price Bar (all screens) ----------------------- */
 .sticky-price-bar {
+  display: flex;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 9999;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px max(32px, calc((100% - 640px) / 2));
+  background: rgba(8, 8, 11, 0.95);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-top: 2px solid rgba(245, 158, 66, 0.25);
+  box-shadow: 0 -4px 24px rgba(0, 0, 0, 0.4);
+  transform: translateY(100%);
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.sticky-price-bar.visible {
+  transform: translateY(0);
+}
+
+.sticky-price-bar__price {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+}
+
+.sticky-price-bar__label {
+  font-size: 12px;
+  color: var(--text-muted);
+  letter-spacing: 0.04em;
+}
+
+.sticky-price-bar__amount {
+  font-family: var(--font-body);
+  font-size: 1.6rem;
+  font-weight: 700;
+  background: linear-gradient(135deg, var(--gold) 0%, var(--gold-light) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-variant-numeric: tabular-nums;
+}
+
+.sticky-price-bar__action {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.sticky-price-bar__cta {
+  display: inline-block;
+  padding: 10px 28px;
+  background: var(--gold);
+  color: #000;
+  font-family: var(--font-display);
+  font-size: 0.95rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  text-decoration: none;
+  border-radius: var(--r-pill);
+  white-space: nowrap;
+  transition: background 0.25s var(--ease), box-shadow 0.25s var(--ease);
+}
+
+.sticky-price-bar__cta:hover {
+  background: var(--gold-light);
+  box-shadow: 0 0 24px var(--gold-glow);
+}
+
+.sticky-price-bar__sub {
+  font-size: 11px;
+  color: rgba(237, 237, 240, 0.35);
   display: none;
 }
 
@@ -1162,93 +1233,31 @@ a { color: inherit; text-decoration: none; }
   .upgrade-row__price {
     margin-left: auto;
   }
-  /* Sticky price bar */
+  /* Sticky price bar mobile overrides */
   .sticky-price-bar {
-    display: flex;
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    z-index: 9999;
-    align-items: center;
-    justify-content: space-between;
     padding: 12px 20px;
-    background: rgba(8, 8, 11, 0.95);
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
-    border-top: 1px solid rgba(245, 158, 66, 0.15);
-    box-shadow: 0 -4px 24px rgba(0, 0, 0, 0.4);
-    transform: translateY(100%);
-    transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
-  }
-  .sticky-price-bar.visible {
-    transform: translateY(0);
   }
   .sticky-price-bar__price {
-    display: flex;
     flex-direction: column;
     gap: 0;
   }
   .sticky-price-bar__label {
-    font-family: var(--font-display);
     font-size: 0.65rem;
-    font-weight: 400;
-    color: var(--text-muted);
-    text-transform: uppercase;
-    letter-spacing: 0.14em;
   }
   .sticky-price-bar__amount {
-    font-family: var(--font-body);
     font-size: 1.8rem;
-    font-weight: 700;
-    background: linear-gradient(135deg, var(--gold) 0%, var(--gold-light) 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    font-variant-numeric: tabular-nums;
     line-height: 1.2;
   }
-  .sticky-price-bar__cta {
-    display: inline-block;
-    padding: 12px 24px;
-    border: none;
-    border-radius: var(--r-pill);
-    font-family: var(--font-display);
-    font-size: 1rem;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-    cursor: pointer;
-    text-align: center;
-    text-decoration: none;
-    background: var(--gold);
-    color: #000000;
-    font-weight: 700;
-    white-space: nowrap;
-    transition: opacity 0.25s, box-shadow 0.25s;
-  }
-  .sticky-price-bar__cta:hover {
-    opacity: 0.92;
-    box-shadow: 0 4px 20px var(--gold-glow);
-  }
   .sticky-price-bar__action {
-    display: flex;
     flex-direction: column;
-    align-items: center;
     gap: 4px;
   }
   .sticky-price-bar__sub {
+    display: block;
     font-size: 0.6rem;
     color: var(--text-muted);
     letter-spacing: 0.02em;
   }
-  /* Hide original total + CTA in builder on mobile - they're in the sticky bar now */
-  .builder-total {
-    display: none;
-  }
-  .builder > .cta-btn {
-    display: none;
-  }
-  /* Add bottom padding to body so content isn't hidden behind sticky bar */
   body {
     padding-bottom: 72px;
   }
@@ -2441,10 +2450,6 @@ a { color: inherit; text-decoration: none; }
 
   // Show sticky bar after upgrades title scrolls into view, hide after builder ends
   function checkVisibility() {
-    if (window.innerWidth > 768) {
-      stickyBar.classList.remove('visible');
-      return;
-    }
     var titleRect = upgradesTitle.getBoundingClientRect();
     var builderRect = builderSection.getBoundingClientRect();
     var pastTitle = titleRect.top < window.innerHeight;
