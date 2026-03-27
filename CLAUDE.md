@@ -22,6 +22,10 @@ Meta Ads → Website → Proposal Form → Send Proposal → Event Booked
 
 Next.js + Tailwind CSS + Vercel + HubSpot + Meta Ads + Google Analytics
 
+## Python Tooling (`.venv`)
+
+Python 3.14 venv at project root for image processing (Pillow), Gemini AI (google-generativeai/google-genai), and automation. See `knowledge-organization.md` for full package list.
+
 ## Knowledge Architecture
 
 Three layers in `.claude/`:
@@ -40,6 +44,7 @@ Agent registry: `.claude/agents/_registry.md`
 ```
 pic-your-booth/
 ├── CLAUDE.md                              ← You are here
+├── .venv/                                 ← Python 3.14 tooling (Pillow, Gemini, etc.)
 ├── docs/
 │   ├── plans/                            - PRD, brainstorm sessions, design documents
 │   ├── website/                          - Website & design assets

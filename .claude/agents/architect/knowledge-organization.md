@@ -78,6 +78,28 @@ docs/
 
 ---
 
+## Python Virtual Environment (`.venv`)
+
+Project-root `.venv/` provides tooling for image processing and AI automation. No application code -- this is a knowledge-base repo, but the venv supports scripts.
+
+- **Python:** 3.14
+- **Activate:** `source /Users/richardversluis/code/pic-your-booth/.venv/bin/activate` or run directly via `.venv/bin/python3`
+
+| Package | Version | Purpose |
+|---|---|---|
+| Pillow | 12.1.1 | Image processing (resize, convert, WebP export) |
+| google-generativeai | 0.8.6 | Gemini AI API (image enhance, generate) |
+| google-genai | 1.68.0 | Gemini AI client |
+| google-api-python-client | 2.193.0 | Google APIs |
+| python-dotenv | 1.2.2 | Environment variable management (`.env`) |
+| httpx | 0.28.1 | HTTP client |
+| requests | 2.32.5 | HTTP requests |
+| pydantic | 2.12.5 | Data validation |
+| cryptography | 46.0.5 | Crypto utilities |
+| websockets | 16.0 | WebSocket support |
+
+---
+
 ## Rules
 
 1. **Everything in `docs/`** — no separate `knowledge/` folder
