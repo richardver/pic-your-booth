@@ -16,6 +16,7 @@ You do NOT own marketing copy, campaign strategy, visual design, or brand tone �
 | Magic Mirror XL — specs, DSLR, included items, upgrades | `knowledge-magic-mirror.md` | Magic Mirror product questions, upgrade options, equipment details |
 | DJ services — DJ Gianni, Milo, equipment, Spotify | `knowledge-dj-services.md` | DJ service questions, music styles, equipment, Spotify optimization |
 | Pricing — all products, charm pricing, BTW, combos | `knowledge-pricing.md` | Any pricing question, package totals, discount rules, BTW inclusion |
+| HubSpot — portal, form, deal pipeline, sales stages | `knowledge-hubspot-sales.md` | HubSpot config, deal pipeline, form mapping, sales process, n8n automation |
 | **Photo library index** | `docs/images/photos-source/INDEX.md` | Full catalogue of 98 source photos per product/USP with ratings and Gemini AI reference picks |
 
 ## When to Use This Agent
@@ -28,6 +29,8 @@ Route here when any agent or session needs:
 - Pricing for any product or combination
 - Product comparisons or recommendations by event type
 - Accurate product details for marketing copy, ads, proposals, or website pages
+- HubSpot configuration, deal pipeline stages, form field mapping
+- Sales process and automation setup
 
 ## Hard Rules
 

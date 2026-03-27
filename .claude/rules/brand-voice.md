@@ -41,3 +41,4 @@ When creating ANY marketing content for PicYourBooth:
 - Compare prices to competitors or agencies — focus on own quality, never position as "cheap"
 - Mention specific prices in FAQ answers — direct visitors to the pricing on the page
 - Write euro amounts without space — always use `€ 199` (with space), never `€199`
+- Use em dashes (—) in external platform copy (Google Business, social bios, directory listings). Use periods, commas, or line breaks instead.

@@ -38,3 +38,4 @@ When creating ANY marketing content for PicYourBooth:
 - Use red (#ff494a) or pink (#e839a0) - removed from brand
 - Use translated-from-English Dutch - write native NL
 - Mix segment tones (premium copy for Party Booth or vice versa)
+- Use em dashes (—) in external platform copy (Google Business, social bios, directory listings). Use periods, commas, or line breaks instead.
