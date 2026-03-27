@@ -69,3 +69,16 @@ All prices include 21% BTW. Charm pricing applied (€199 not €200).
 - No permanent discount codes — maintain premium positioning
 - Seasonal promotions allowed (limited time only)
 - Bundle savings are implicit (DJ add-on at €149 vs standalone DJ booking)
+
+## Bedrijfsgegevens (Invoices & Legal)
+
+| Field | Value |
+|---|---|
+| Entiteit | PicYourBooth B.V. |
+| BTW nummer | NL853461776B01 |
+| KVK | 59400080 |
+| Bank | Rabobank (RABO) |
+| IBAN | NL22RABO0142146757 |
+| Tenaamstelling | PicYourBooth B.V. |
+
+> PicYourBooth B.V. is the legal entity and can be used in all customer-facing contexts.
