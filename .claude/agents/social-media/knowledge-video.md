@@ -20,11 +20,12 @@ Video scripting, hooks, production, and distribution. Full reference in `.claude
 
 ## Production Tier for PYB
 
-Tier 1 — Phone Production (best for TikTok, Reels, Stories):
+Tier 1 — Phone + Remotion (best for TikTok, Reels, Stories):
 - Smartphone camera (iPhone 13+)
 - Lavalier or wireless mic
 - Natural light or ring light
-- Edit in CapCut (free)
+- Edit & overlay in Remotion (`npx create-video@latest --tiktok`)
+- Brand-consistent templates as React components with DJ design tokens
 
 ## PYB Clip Selection Criteria
 

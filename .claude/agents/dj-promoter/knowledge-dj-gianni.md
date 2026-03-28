@@ -1,0 +1,184 @@
+# DJ Gianni (Luca)
+
+Complete brand identity for DJ Gianni. Source files in `docs/djs/dj-gianni/`.
+
+---
+
+## Profile
+
+| Attribute | Detail |
+|---|---|
+| Real name | Luca |
+| DJ name | DJ Gianni |
+| Role | Photobooth operator & DJ at PicYourBooth. Richard's son. |
+| Music style | Afro Beats, Caribbean, Nederlands Hits |
+| Tagline | "Elke set een feest, elk feest een herinnering" |
+| Sub-tagline | Pure Vibes |
+| Contact | info@picyourbooth.nl |
+
+---
+
+## Visual Identity
+
+| Attribute | Value |
+|---|---|
+| Primary color | Coral #f0654a |
+| Background | #050508 (void) |
+| Text primary | #ededf0 |
+| Text secondary | rgba(237,237,240,0.40) |
+| Tag background | rgba(240,101,74,0.10) |
+| Logo mark | Hexagon (G) |
+| Clip-path | polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%) |
+| Display font | Bebas Neue (heavy, condensed, uppercase, letter-spacing 0.04em) |
+| Body font | Space Grotesk (geometric sans-serif) |
+| Genre tags | Afro Beats, Caribbean, Nederlands, Hits — pill-shaped, genre-accented |
+| Motif | Hexagon, EQ-bar (5 thin vertical bars, varying heights) |
+| Mood | Dark, minimal, premium, confident — "less is more" nightlife aesthetic |
+
+### Genre Accent Colors
+
+DJ Gianni uses warm-palette accents per genre. All accents are in the warm spectrum — never use cool tones (those belong to DJ Milo).
+
+| Genre | Accent | Hex | Dim (10%) | Usage |
+|---|---|---|---|---|
+| **Afro Beats** | Coral | `#f0654a` | `rgba(240,101,74,0.10)` | Primary brand color, default for all DJ Gianni materials |
+| **Caribbean** | Golden Amber | `#f5b731` | `rgba(245,183,49,0.10)` | Tropical sunset warmth, used on Caribbean mixtape series |
+| **Nederlands Urban** | Warm Purple | `#c084fc` | `rgba(192,132,252,0.10)` | Urban nightlife, used on NL Urban mixtape series |
+
+**Rules:**
+- Coral remains the default/primary — used when genre is not specified
+- Genre accents only appear on genre-specific content (mixtape covers, SoundCloud tags, TikTok clips)
+- Never use `#34d399` (Milo's cyan), `#00b4d8`, or any cool blue/green for DJ Gianni
+- EQ-bar and hexagon logo use the genre accent color on genre-specific content
+
+---
+
+## Photo Direction
+
+- Black & white, studio-style close-up portrait
+- Hard single light source, pure black background
+- Film grain (Ilford HP5 style), sharp focus on eyes
+- Cinematic, not commercial
+- Headphones around neck, black hoodie, clean minimal styling
+- Square-safe composition — works at avatar and banner sizes
+- Source: `docs/output/images/dj-gianni/profile/profiel.jpeg`
+- Preview: `docs/output/images/dj-gianni/profile/preview.jpg`
+
+---
+
+## Social Bios
+
+**Instagram:**
+```
+DJ Gianni
+Afro Beats | Caribbean | Nederlands Hits
+Pure Vibes
+Boekingen via link in bio
+```
+
+**TikTok:**
+```
+DJ Gianni
+Afro Beats | Caribbean | Nederlands Hits
+Elke set een feest, elk feest een herinnering
+info@picyourbooth.nl
+```
+
+**SoundCloud:**
+```
+DJ Gianni - Afro Beats, Caribbean vibes en populaire hits. Elke set een feest, elk feest een herinnering. Stuur je Spotify playlist, ik bouw er een set van. Boekingen: info@picyourbooth.nl
+```
+
+---
+
+## Voice Tags
+
+Voice tags for mixtapes, sets, and videos. Short, punchy, recognizable.
+
+### Primary Tags (use in every set)
+
+**Opener:**
+- "DJ Gianni... Pure Vibes"
+- "Dit is DJ Gianni"
+- "Gianni in the mix"
+
+**Drop tag (before the drop):**
+- "Gianni!"
+- "Pure Vibes, baby"
+- "DJ Gianni, let's go"
+
+### Set-Specific Tags
+
+**Afro Beats set:**
+- "DJ Gianni... Afro Beats edition"
+- "Caribbean vibes... DJ Gianni"
+
+**Nederlands Hits set:**
+- "DJ Gianni... Nederlandse Hits"
+- "Gianni draait Nederlands"
+
+**Party/Festival:**
+- "DJ Gianni... elke set een feest"
+- "PicYourBooth presents... DJ Gianni"
+
+### Transition Tags
+- "Gianni" / "Pure Vibes" / "Let's go" / "One more time"
+
+### Outro Tags
+- "DJ Gianni... elke set een feest, elk feest een herinnering"
+- "Dit was DJ Gianni... Pure Vibes"
+- "Boekingen via PicYourBooth punt nl"
+
+### Production Guidelines
+- **Voice:** Confident, low, calm — no shouting
+- **Effect:** Light reverb/delay, clean. No autotune.
+- **Length:** Max 2-3 seconds per tag
+- **Timing:** Just before the drop or during transitions
+- **Frequency:** Max 1 tag per 3-4 minutes in a set. Do not overdo it.
+- **Recording:** Quiet space, phone mic or USB mic, mono
+
+---
+
+## Mixtape Cover Art
+
+Gemini prompt template in `docs/djs/dj-gianni/mixtape-gemini-prompt.md`.
+
+Key specs:
+- Square 1:1 (3000x3000px) for covers, 2480x520 for SoundCloud banners
+- "DJ GIANNI" as dominant title in Bebas Neue style
+- Genre tags as pill-shaped elements in coral
+- "Pure Vibes" in italic Space Grotesk below name
+- Minimal design: no patterns, no textures, no noise — pure typography and whitespace
+- Coral gradient glow on dark background
+- Optional: B&W portrait (200x200px, rounded corners 24px)
+- Hexagon logo mark with "G" in corner
+
+---
+
+## Strategy Playbooks
+
+| Playbook | Path | Content |
+|---|---|---|
+| SoundCloud Strategie | `docs/djs/dj-gianni/soundcloud-strategie.html` | Mixtape series (Afro/Caribbean/Urban NL), SoundCloud optimalisatie, cover art, voice tags, upload specs, release kalender |
+| TikTok Promotie | `docs/djs/dj-gianni/tiktok-promotie.html` | 7-daagse promotiecyclus per mixtape, seconde-voor-seconde scripts, caption templates, hashtag strategie, filming guide |
+
+---
+
+## Brand Assets Index
+
+| Asset | Path |
+|---|---|
+| Brand guide (HTML) | `docs/djs/dj-gianni/brand-guide.html` |
+| CSS reference | `docs/djs/dj-gianni/css-reference.html` |
+| Component library | `docs/djs/dj-gianni/component-library.html` |
+| Social templates | `docs/output/images/dj-gianni/social/social-templates.html` |
+| SoundCloud banner | `docs/output/images/dj-gianni/social/soundcloud-banner.png` (2480x520) |
+| Mixtape cover | `docs/output/images/dj-gianni/mixtape/afro-mixtape-cover-v2.png` (1400x1400) |
+| Profile photo | `docs/output/images/dj-gianni/profile/profiel.jpeg` |
+| Preview photo | `docs/output/images/dj-gianni/profile/preview.jpg` |
+| Voice tags | `docs/djs/dj-gianni/voice-tags.md` |
+| Social bios | `docs/djs/dj-gianni/social-bios.md` |
+| Photo direction | `docs/djs/dj-gianni/photo-direction.md` |
+| Mixtape Gemini prompt | `docs/djs/dj-gianni/mixtape-gemini-prompt.md` |
+| SoundCloud strategie | `docs/djs/dj-gianni/soundcloud-strategie.html` |
+| TikTok promotie playbook | `docs/djs/dj-gianni/tiktok-promotie.html` |

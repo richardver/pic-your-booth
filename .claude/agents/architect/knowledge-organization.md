@@ -15,19 +15,19 @@ Both files must be updated when agents, skills, or repo structure changes.
 
 ## Folder Structure
 
-> **Note:** `docs/templates/` is deprecated — content moved to `docs/website/`, `docs/ads/`, `docs/images/`.
+> **Note:** `docs/templates/` has been removed — content moved to `docs/djs/`, `docs/website/`, `docs/ads/`, `docs/images/`.
 > **Note:** Website not yet deployed to picyourbooth.nl — HTML pages exist in `docs/website/deployment/`.
 
 ```
 docs/
   plans/                         Brainstorm sessions, design documents, implementation plans
+  djs/                           DJ brand guides & assets
+    dj-gianni/                   Brand guide, social/, photos/, mixtape strategy
+    milo/                        Brand guide, profile
   website/                       Website & design assets
     deployment/                  Live website HTML pages (index, magic-mirror, party-booth, djs, offerte)
       assets/images/             Optimized images for website
     design-system/               HTML design systems, tokens JSON
-    djs/                         DJ brand guides & assets
-      dj-gianni/                 Brand guide, social/, photos/
-      milo/                      Brand guide, profile
   images/                        All image assets
     photos-source/               Original photos (by product/category) — INDEX.md has full catalogue + Gemini picks
     generated/                   AI-generated & processed images
@@ -50,8 +50,8 @@ docs/
 - Folders: lowercase, hyphenated (`dj-gianni/`, not `DJ_Gianni/`)
 - Files: lowercase, hyphenated, descriptive (`marketing-psychology-pricing.md`)
 - HTML design systems: `pyb-design-system-<scope>.html` (web, photobooth, dj, meta-ads)
-- DJ templates: `docs/website/djs/<dj-name>/` with `brand-guide.html`, `social/`, `photos/`
-- Exported assets: `docs/images/` (PNGs) or `docs/website/djs/<dj-name>/social/<asset>.png`
+- DJ templates: `docs/djs/<dj-name>/` with `brand-guide.html`, `social/`, `photos/`
+- Exported assets: `docs/images/` (PNGs) or `docs/djs/<dj-name>/social/<asset>.png`
 
 ---
 
@@ -65,11 +65,12 @@ docs/
 | HTML design systems | `docs/website/design-system/` | `pyb-design-system-web.html` |
 | Website HTML pages | `docs/website/deployment/` | `index.html`, `magic-mirror.html`, `party-booth.html`, `djs.html`, `offerte.html` |
 | Website images | `docs/website/deployment/assets/images/` | `homepage-hero-1920x1080.webp` |
-| DJ templates & assets | `docs/website/djs/dj-gianni/` | `brand-guide.html`, `social/` |
+| DJ templates & assets | `docs/djs/dj-gianni/` | `brand-guide.html` |
 | Ad creative templates | `docs/ads/meta/` | `pyb-design-system-meta-ads.html` |
 | Source photos | `docs/images/photos-source/` | `magicmirror/`, `partybooth/`, `dj/` — see `INDEX.md` for catalogue + Gemini picks |
-| Generated images | `docs/images/generated/` | AI-generated & processed images |
-| Dev screenshots | `docs/images/screenshots/` | `hero-homepage.png` |
+| Output images (PYB) | `docs/output/images/pyb/` | Generated heroes, USPs, modals, logos, screenshots |
+| Output images (DJ Gianni) | `docs/output/images/dj-gianni/` | Profile, social, mixtape covers + PROMPTS.md |
+| Output images (DJ Milo) | `docs/output/images/dj-milo/` | Profile photos |
 | KPI reports | `docs/kpi/` | Vizibooth 2025/2026 Excel reports |
 | Funnel campaigns | `docs/funnel/campaigns/` | Campaign specs per month |
 | Creative briefs | `docs/funnel/creatives/` | HTML mockups, creative briefs |
@@ -107,7 +108,8 @@ Project-root `.venv/` provides tooling for image processing and AI automation. N
 3. **Docs are reference material** — not workflows (those go in `.claude/skills/`)
 4. **HTML design systems are visual references** — exportable via Playwright
 5. **Markdown for text, HTML for visual design systems**
-6. **Photos and exports live alongside their profile** — in `docs/website/djs/<dj-name>/`
+6. **Photos and exports live alongside their profile** — in `docs/djs/<dj-name>/`
+7. **DJ brand assets moved from `docs/website/djs/` to `docs/djs/`** — they are not website pages
 7. **`pyb-design-tokens.json` is PYM mobile, not PYB web** — see knowledge-design-systems.md
 8. **`docs/templates/` is deprecated** — all content moved to `docs/website/`, `docs/ads/`, `docs/images/`
 9. **Website not yet deployed** — HTML pages in `docs/website/deployment/`, not live on picyourbooth.nl

@@ -1,0 +1,1786 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DJ Gianni - SoundCloud Strategie & Mixtape Playbook</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* ============================================================
+   DJ GIANNI - SOUNDCLOUD STRATEGIE & MIXTAPE PLAYBOOK
+   Intern strategiedocument. Zelfde design system als brand guide.
+   ============================================================ */
+
+/* -- Design Tokens ----------------------------------------- */
+:root {
+  --void: #050508;
+  --surface: #111116;
+  --card: #111116;
+  --border: rgba(255,255,255,0.06);
+
+  --white: #ededf0;
+  --muted: rgba(237,237,240,0.40);
+  --subtle: rgba(237,237,240,0.10);
+
+  --gi: #f0654a;
+  --gi-light: #f4826c;
+  --gi-dim: rgba(240,101,74,0.10);
+
+  --caribbean: #f5b731;
+  --caribbean-dim: rgba(245,183,49,0.10);
+
+  --urban: #c084fc;
+  --urban-dim: rgba(192,132,252,0.10);
+
+  --gold: #f59e42;
+  --gold-dim: rgba(245,158,66,0.10);
+
+  --green: #34d399;
+  --green-dim: rgba(52,211,153,0.10);
+
+  --font-display: 'Bebas Neue', Impact, sans-serif;
+  --font-body: 'Space Grotesk', system-ui, sans-serif;
+
+  --ease: cubic-bezier(0.16, 1, 0.3, 1);
+
+  --r-sm: 6px;
+  --r-md: 10px;
+  --r-lg: 16px;
+  --r-xl: 24px;
+  --r-pill: 999px;
+}
+
+/* -- Reset ------------------------------------------------- */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html {
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-body);
+  background: var(--void);
+  color: var(--white);
+  font-size: 15px;
+  line-height: 1.7;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+  html { scroll-behavior: auto; }
+}
+
+/* -- Layout ------------------------------------------------ */
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* -- Navigation -------------------------------------------- */
+.nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(5,5,8,0.92);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--border);
+  padding: 14px 24px;
+}
+
+.nav-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.nav-brand {
+  font-family: var(--font-display);
+  font-size: 20px;
+  letter-spacing: 0.04em;
+  color: var(--gi);
+}
+
+.nav-links {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  list-style: none;
+}
+
+.nav-links a {
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--muted);
+  text-decoration: none;
+  padding: 6px 12px;
+  border-radius: var(--r-pill);
+  transition: all 0.2s var(--ease);
+}
+
+.nav-links a:hover {
+  color: var(--white);
+  background: var(--subtle);
+}
+
+/* -- Hero -------------------------------------------------- */
+.hero {
+  text-align: center;
+  padding: 96px 24px 72px;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 50% 80%, rgba(240,101,74,0.08) 0%, transparent 60%);
+  pointer-events: none;
+}
+
+.hero-label {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--gi);
+  margin-bottom: 16px;
+  position: relative;
+}
+
+.hero-title {
+  font-family: var(--font-display);
+  font-size: clamp(48px, 8vw, 96px);
+  letter-spacing: 0.04em;
+  line-height: 0.95;
+  color: var(--white);
+  position: relative;
+}
+
+.hero-title span {
+  color: var(--gi);
+}
+
+.hero-sub {
+  font-size: 18px;
+  color: var(--muted);
+  margin-top: 20px;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+  font-style: italic;
+}
+
+/* -- EQ Bar (decorative) ----------------------------------- */
+.eq-bar {
+  display: inline-flex;
+  gap: 3px;
+  align-items: flex-end;
+  height: 24px;
+  margin: 24px auto 0;
+  position: relative;
+}
+
+.eq-bar span {
+  width: 3px;
+  border-radius: 2px;
+  background: var(--gi);
+  animation: eq-pulse 1.2s ease-in-out infinite alternate;
+}
+
+.eq-bar span:nth-child(1) { height: 40%; animation-delay: 0s; }
+.eq-bar span:nth-child(2) { height: 70%; animation-delay: 0.15s; }
+.eq-bar span:nth-child(3) { height: 100%; animation-delay: 0.3s; }
+.eq-bar span:nth-child(4) { height: 55%; animation-delay: 0.45s; }
+.eq-bar span:nth-child(5) { height: 85%; animation-delay: 0.6s; }
+
+@keyframes eq-pulse {
+  0% { transform: scaleY(1); }
+  100% { transform: scaleY(0.4); }
+}
+
+/* -- Sections ---------------------------------------------- */
+.section {
+  padding: 80px 0;
+  border-top: 1px solid var(--border);
+}
+
+.section-label {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--gi);
+  margin-bottom: 12px;
+}
+
+.section-title {
+  font-family: var(--font-display);
+  font-size: clamp(32px, 5vw, 52px);
+  letter-spacing: 0.04em;
+  line-height: 1;
+  margin-bottom: 16px;
+}
+
+.section-intro {
+  font-size: 16px;
+  color: var(--muted);
+  max-width: 700px;
+  margin-bottom: 48px;
+  line-height: 1.7;
+}
+
+/* -- Serie Cards ------------------------------------------- */
+.series-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 24px;
+  margin-bottom: 48px;
+}
+
+.serie-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--r-lg);
+  padding: 32px;
+  position: relative;
+  overflow: hidden;
+  transition: border-color 0.3s var(--ease);
+}
+
+.serie-card:hover {
+  border-color: rgba(255,255,255,0.12);
+}
+
+.serie-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+}
+
+.serie-card.afro::before { background: var(--gi); }
+.serie-card.caribbean::before { background: var(--caribbean); }
+.serie-card.urban::before { background: var(--urban); }
+
+.serie-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: var(--r-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  margin-bottom: 20px;
+}
+
+.serie-card.afro .serie-icon { background: var(--gi-dim); }
+.serie-card.caribbean .serie-icon { background: var(--caribbean-dim); }
+.serie-card.urban .serie-icon { background: var(--urban-dim); }
+
+.serie-name {
+  font-family: var(--font-display);
+  font-size: 28px;
+  letter-spacing: 0.04em;
+  margin-bottom: 8px;
+}
+
+.serie-card.afro .serie-name { color: var(--gi); }
+.serie-card.caribbean .serie-name { color: var(--caribbean); }
+.serie-card.urban .serie-name { color: var(--urban); }
+
+.serie-meta {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 16px;
+  flex-wrap: wrap;
+}
+
+.serie-tag {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 4px 12px;
+  border-radius: var(--r-pill);
+  color: var(--white);
+}
+
+.serie-card.afro .serie-tag { background: var(--gi-dim); color: var(--gi); }
+.serie-card.caribbean .serie-tag { background: var(--caribbean-dim); color: var(--caribbean); }
+.serie-card.urban .serie-tag { background: var(--urban-dim); color: var(--urban); }
+
+.serie-desc {
+  font-size: 14px;
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+.serie-specs {
+  margin-top: 20px;
+  padding-top: 20px;
+  border-top: 1px solid var(--border);
+}
+
+.serie-spec {
+  display: flex;
+  justify-content: space-between;
+  padding: 6px 0;
+  font-size: 13px;
+}
+
+.serie-spec-label { color: var(--muted); }
+.serie-spec-value { color: var(--white); font-weight: 500; }
+
+/* -- Info Cards -------------------------------------------- */
+.info-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+  margin: 32px 0;
+}
+
+.info-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--r-lg);
+  padding: 28px;
+}
+
+.info-card-title {
+  font-family: var(--font-display);
+  font-size: 22px;
+  letter-spacing: 0.04em;
+  color: var(--gi);
+  margin-bottom: 12px;
+}
+
+.info-card p {
+  font-size: 14px;
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+/* -- Checklist --------------------------------------------- */
+.checklist {
+  list-style: none;
+  counter-reset: check;
+}
+
+.checklist li {
+  counter-increment: check;
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  padding: 20px 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.checklist li:last-child {
+  border-bottom: none;
+}
+
+.check-num {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: var(--gi-dim);
+  color: var(--gi);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-display);
+  font-size: 18px;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.check-content h4 {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--white);
+  margin-bottom: 4px;
+}
+
+.check-content p {
+  font-size: 13px;
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+.check-content .time-est {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--gi);
+  margin-top: 6px;
+  display: inline-block;
+}
+
+/* -- SoundCloud Optimization ------------------------------- */
+.sc-example {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--r-lg);
+  padding: 28px;
+  margin: 24px 0;
+  font-family: var(--font-body);
+}
+
+.sc-example-label {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--gi);
+  margin-bottom: 12px;
+}
+
+.sc-field {
+  margin-bottom: 16px;
+}
+
+.sc-field-name {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-bottom: 4px;
+}
+
+.sc-field-value {
+  font-size: 14px;
+  color: var(--white);
+  background: rgba(255,255,255,0.03);
+  border: 1px solid var(--border);
+  border-radius: var(--r-sm);
+  padding: 10px 14px;
+  line-height: 1.6;
+}
+
+.sc-field-value code {
+  color: var(--gi);
+  font-size: 13px;
+}
+
+/* -- TikTok Clips Grid ------------------------------------ */
+.tiktok-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 16px;
+  margin: 32px 0;
+}
+
+.tiktok-clip {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--r-lg);
+  padding: 24px;
+  text-align: center;
+  transition: border-color 0.3s var(--ease), transform 0.3s var(--ease);
+}
+
+.tiktok-clip:hover {
+  border-color: rgba(255,255,255,0.12);
+  transform: translateY(-2px);
+}
+
+.clip-day {
+  font-family: var(--font-display);
+  font-size: 36px;
+  color: var(--gi);
+  letter-spacing: 0.04em;
+}
+
+.clip-type {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--white);
+  margin: 8px 0 4px;
+}
+
+.clip-desc {
+  font-size: 12px;
+  color: var(--muted);
+  line-height: 1.5;
+}
+
+.clip-duration {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--gi);
+  margin-top: 10px;
+  display: inline-block;
+  background: var(--gi-dim);
+  padding: 3px 10px;
+  border-radius: var(--r-pill);
+}
+
+/* -- Cover Art Preview ------------------------------------- */
+.cover-preview {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 24px;
+  margin: 32px 0;
+}
+
+.cover-mock {
+  aspect-ratio: 1;
+  border-radius: var(--r-lg);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  border: 1px solid var(--border);
+}
+
+.cover-mock.afro {
+  background: linear-gradient(180deg, #050508 0%, rgba(240,101,74,0.12) 100%);
+}
+
+.cover-mock.caribbean {
+  background: linear-gradient(180deg, #050508 0%, rgba(245,183,49,0.12) 100%);
+}
+
+.cover-mock.urban {
+  background: linear-gradient(180deg, #050508 0%, rgba(192,132,252,0.12) 100%);
+}
+
+.cover-dj-name {
+  font-family: var(--font-display);
+  font-size: 42px;
+  letter-spacing: 0.04em;
+  color: var(--white);
+}
+
+.cover-series-name {
+  font-family: var(--font-display);
+  font-size: 20px;
+  letter-spacing: 0.08em;
+  margin-top: 4px;
+}
+
+.cover-mock.afro .cover-series-name { color: var(--gi); }
+.cover-mock.caribbean .cover-series-name { color: var(--caribbean); }
+.cover-mock.urban .cover-series-name { color: var(--urban); }
+
+.cover-pure-vibes {
+  font-size: 13px;
+  font-style: italic;
+  color: var(--muted);
+  margin-top: 8px;
+}
+
+.cover-tags {
+  display: flex;
+  gap: 6px;
+  margin-top: 16px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.cover-tag {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 3px 10px;
+  border-radius: var(--r-pill);
+}
+
+.cover-mock.afro .cover-tag { background: var(--gi-dim); color: var(--gi); }
+.cover-mock.caribbean .cover-tag { background: var(--caribbean-dim); color: var(--caribbean); }
+.cover-mock.urban .cover-tag { background: var(--urban-dim); color: var(--urban); }
+
+.cover-eq {
+  display: flex;
+  gap: 3px;
+  align-items: flex-end;
+  height: 20px;
+  margin-top: 20px;
+}
+
+.cover-eq span {
+  width: 3px;
+  border-radius: 2px;
+}
+
+.cover-mock.afro .cover-eq span { background: var(--gi); }
+.cover-mock.caribbean .cover-eq span { background: var(--caribbean); }
+.cover-mock.urban .cover-eq span { background: var(--urban); }
+
+.cover-eq span:nth-child(1) { height: 40%; }
+.cover-eq span:nth-child(2) { height: 70%; }
+.cover-eq span:nth-child(3) { height: 100%; }
+.cover-eq span:nth-child(4) { height: 55%; }
+.cover-eq span:nth-child(5) { height: 85%; }
+
+.cover-hex {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  width: 28px;
+  height: 28px;
+  clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-display);
+  font-size: 14px;
+  color: var(--void);
+}
+
+.cover-mock.afro .cover-hex { background: var(--gi); }
+.cover-mock.caribbean .cover-hex { background: var(--caribbean); }
+.cover-mock.urban .cover-hex { background: var(--urban); }
+
+.cover-label {
+  text-align: center;
+  margin-top: 12px;
+  font-size: 13px;
+  color: var(--muted);
+}
+
+/* -- Voice Tag Timeline ------------------------------------ */
+.timeline {
+  position: relative;
+  margin: 32px 0;
+  padding-left: 32px;
+}
+
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 12px;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: linear-gradient(to bottom, var(--gi), transparent);
+}
+
+.timeline-item {
+  position: relative;
+  padding: 16px 0 24px;
+}
+
+.timeline-dot {
+  position: absolute;
+  left: -26px;
+  top: 20px;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--gi);
+  border: 3px solid var(--void);
+}
+
+.timeline-time {
+  font-family: var(--font-display);
+  font-size: 18px;
+  color: var(--gi);
+  letter-spacing: 0.04em;
+}
+
+.timeline-tag {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--white);
+  margin: 4px 0;
+}
+
+.timeline-detail {
+  font-size: 13px;
+  color: var(--muted);
+}
+
+/* -- Calendar ---------------------------------------------- */
+.calendar {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 12px;
+  margin: 32px 0;
+}
+
+.cal-week {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--r-md);
+  padding: 20px;
+  text-align: center;
+  transition: border-color 0.3s var(--ease);
+}
+
+.cal-week:hover {
+  border-color: rgba(255,255,255,0.12);
+}
+
+.cal-week-num {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 8px;
+}
+
+.cal-week-title {
+  font-family: var(--font-display);
+  font-size: 20px;
+  letter-spacing: 0.04em;
+}
+
+.cal-week.afro .cal-week-title { color: var(--gi); }
+.cal-week.caribbean .cal-week-title { color: var(--caribbean); }
+.cal-week.urban .cal-week-title { color: var(--urban); }
+.cal-week.promo .cal-week-title { color: var(--gold); }
+
+.cal-week-desc {
+  font-size: 12px;
+  color: var(--muted);
+  margin-top: 4px;
+}
+
+/* -- Flywheel Diagram -------------------------------------- */
+.flywheel {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0;
+  margin: 40px 0;
+}
+
+.flywheel-step {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.flywheel-node {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--r-lg);
+  padding: 16px 24px;
+  text-align: center;
+  min-width: 140px;
+}
+
+.flywheel-node-icon {
+  font-size: 24px;
+  margin-bottom: 6px;
+}
+
+.flywheel-node-label {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--white);
+}
+
+.flywheel-node-sub {
+  font-size: 11px;
+  color: var(--muted);
+}
+
+.flywheel-arrow {
+  color: var(--gi);
+  font-size: 20px;
+  flex-shrink: 0;
+}
+
+/* -- Tables ------------------------------------------------ */
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 24px 0;
+  font-size: 14px;
+}
+
+.data-table th {
+  text-align: left;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--border);
+}
+
+.data-table td {
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--border);
+  color: var(--white);
+}
+
+.data-table tr:last-child td {
+  border-bottom: none;
+}
+
+.data-table .highlight {
+  color: var(--gi);
+  font-weight: 600;
+}
+
+/* -- Callout ----------------------------------------------- */
+.callout {
+  background: var(--gi-dim);
+  border-left: 3px solid var(--gi);
+  border-radius: 0 var(--r-md) var(--r-md) 0;
+  padding: 20px 24px;
+  margin: 24px 0;
+}
+
+.callout-title {
+  font-weight: 600;
+  color: var(--gi);
+  font-size: 14px;
+  margin-bottom: 6px;
+}
+
+.callout p {
+  font-size: 14px;
+  color: var(--white);
+  line-height: 1.7;
+}
+
+.callout.caribbean {
+  background: var(--caribbean-dim);
+  border-left-color: var(--caribbean);
+}
+
+.callout.caribbean .callout-title { color: var(--caribbean); }
+
+.callout.urban {
+  background: var(--urban-dim);
+  border-left-color: var(--urban);
+}
+
+.callout.urban .callout-title { color: var(--urban); }
+
+.callout.gold {
+  background: var(--gold-dim);
+  border-left-color: var(--gold);
+}
+
+.callout.gold .callout-title { color: var(--gold); }
+
+/* -- Pill Tags --------------------------------------------- */
+.tag-row {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin: 12px 0;
+}
+
+.tag {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 4px 12px;
+  border-radius: var(--r-pill);
+}
+
+.tag.afro { background: var(--gi-dim); color: var(--gi); }
+.tag.caribbean { background: var(--caribbean-dim); color: var(--caribbean); }
+.tag.urban { background: var(--urban-dim); color: var(--urban); }
+.tag.soundcloud { background: rgba(255,85,0,0.10); color: #ff5500; }
+.tag.tiktok { background: rgba(255,255,255,0.06); color: var(--white); }
+
+/* -- Code/Template Blocks ---------------------------------- */
+.template-block {
+  background: rgba(255,255,255,0.02);
+  border: 1px solid var(--border);
+  border-radius: var(--r-md);
+  padding: 20px;
+  margin: 16px 0;
+  font-family: 'SF Mono', 'Fira Code', monospace;
+  font-size: 13px;
+  line-height: 1.7;
+  color: var(--muted);
+  overflow-x: auto;
+  white-space: pre-wrap;
+}
+
+.template-block em {
+  color: var(--gi);
+  font-style: normal;
+}
+
+/* -- Divider ----------------------------------------------- */
+.divider {
+  height: 1px;
+  background: var(--border);
+  margin: 48px 0;
+}
+
+/* -- Footer ------------------------------------------------ */
+.footer {
+  text-align: center;
+  padding: 60px 24px;
+  border-top: 1px solid var(--border);
+}
+
+.footer p {
+  font-size: 13px;
+  color: var(--muted);
+}
+
+.footer .brand {
+  font-family: var(--font-display);
+  font-size: 16px;
+  letter-spacing: 0.04em;
+  color: var(--gi);
+}
+
+/* -- Responsive -------------------------------------------- */
+@media (max-width: 768px) {
+  .hero { padding: 64px 16px 48px; }
+  .section { padding: 48px 0; }
+  .series-grid { grid-template-columns: 1fr; }
+  .cover-preview { grid-template-columns: 1fr; }
+  .tiktok-grid { grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); }
+  .flywheel { flex-direction: column; align-items: center; }
+  .flywheel-arrow { transform: rotate(90deg); }
+  .nav-links { display: none; }
+}
+</style>
+</head>
+<body>
+
+<!-- Navigation -->
+<nav class="nav">
+  <div class="nav-inner">
+    <div class="nav-brand">DJ GIANNI</div>
+    <ul class="nav-links">
+      <li><a href="#strategie">Strategie</a></li>
+      <li><a href="#series">Series</a></li>
+      <li><a href="#soundcloud">SoundCloud</a></li>
+      <li><a href="#covers">Covers</a></li>
+      <li><a href="#voicetags">Voice Tags</a></li>
+      <li><a href="#playbook">Playbook</a></li>
+      <li><a href="#kalender">Kalender</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- Hero -->
+<header class="hero">
+  <div class="hero-label">Intern Strategiedocument</div>
+  <h1 class="hero-title">SOUNDCLOUD <span>STRATEGIE</span></h1>
+  <p class="hero-sub">SoundCloud mixtape playbook voor DJ Gianni. Caribbean, Nederlands Urban en Afro Beats - drie series, een systeem.</p>
+  <div class="eq-bar">
+    <span></span><span></span><span></span><span></span><span></span>
+  </div>
+</header>
+
+<div class="container">
+
+  <!-- ============================================================ -->
+  <!-- STRATEGIE OVERZICHT -->
+  <!-- ============================================================ -->
+  <section class="section" id="strategie">
+    <div class="section-label">Waarom Mixtapes</div>
+    <h2 class="section-title">SOUNDCLOUD ALS GROEIMOTOR</h2>
+    <div class="section-intro">
+      Mixtapes zijn het bewijs dat DJ Gianni levert. Geen praatjes, geen beloftes - gewoon 40 minuten pure vibes.
+      SoundCloud is waar boekingen beginnen: een gastheer hoort een set, stuurt de link naar de opdrachtgever, en de boeking is rond.
+    </div>
+
+    <div class="info-grid">
+      <div class="info-card">
+        <div class="info-card-title">BEREIK OPBOUWEN</div>
+        <p>SoundCloud heeft 175M+ maandelijkse luisteraars. Genres als Afro Beats en Caribbean groeien het hardst. DJ Gianni zit exact in dat segment.</p>
+      </div>
+      <div class="info-card">
+        <div class="info-card-title">PORTFOLIO EFFECT</div>
+        <p>Elke mixtape is een visitekaartje. Opdrachtgevers willen weten hoe je klinkt voordat ze boeken. Drie series tonen veelzijdigheid zonder identiteit te verliezen.</p>
+      </div>
+      <div class="info-card">
+        <div class="info-card-title">CONTENT MACHINE</div>
+        <p>Een mixtape van 40 minuten levert 5-7 TikTok clips op. Elke clip kan viraal gaan en verwijst terug naar de volledige set. Meer views = meer streams = meer boekingen.</p>
+      </div>
+    </div>
+
+    <!-- Growth flywheel -->
+    <div class="flywheel">
+      <div class="flywheel-step">
+        <div class="flywheel-node">
+          <div class="flywheel-node-icon">🎧</div>
+          <div class="flywheel-node-label">Mixtape</div>
+          <div class="flywheel-node-sub">Opnemen & uploaden</div>
+        </div>
+        <div class="flywheel-arrow">&#10132;</div>
+      </div>
+      <div class="flywheel-step">
+        <div class="flywheel-node">
+          <div class="flywheel-node-icon">🎬</div>
+          <div class="flywheel-node-label">TikTok Clips</div>
+          <div class="flywheel-node-sub">5-7 clips per set</div>
+        </div>
+        <div class="flywheel-arrow">&#10132;</div>
+      </div>
+      <div class="flywheel-step">
+        <div class="flywheel-node">
+          <div class="flywheel-node-icon">👀</div>
+          <div class="flywheel-node-label">Views & Volgers</div>
+          <div class="flywheel-node-sub">Bereik groeit</div>
+        </div>
+        <div class="flywheel-arrow">&#10132;</div>
+      </div>
+      <div class="flywheel-step">
+        <div class="flywheel-node">
+          <div class="flywheel-node-icon">📱</div>
+          <div class="flywheel-node-label">SoundCloud Streams</div>
+          <div class="flywheel-node-sub">Volledige set beluisterd</div>
+        </div>
+        <div class="flywheel-arrow">&#10132;</div>
+      </div>
+      <div class="flywheel-step">
+        <div class="flywheel-node">
+          <div class="flywheel-node-icon">📩</div>
+          <div class="flywheel-node-label">Boekingen</div>
+          <div class="flywheel-node-sub">Via PicYourBooth</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="callout gold">
+      <div class="callout-title">Connectie met PYB Groeistrategie</div>
+      <p>DJ-boekingen komen in Fase 1 organisch via de combo-aanbieding op de website en social media. Mixtapes op SoundCloud versterken dit: ze geven bewijs van kwaliteit en creeren content voor Instagram en TikTok. Elke mixtape is ook een indirect verkoopargument voor de "Photobooth + DJ" combo (vanaf +&euro; 149).</p>
+    </div>
+  </section>
+
+  <!-- ============================================================ -->
+  <!-- DRIE SERIES -->
+  <!-- ============================================================ -->
+  <section class="section" id="series">
+    <div class="section-label">Het Aanbod</div>
+    <h2 class="section-title">DRIE MIXTAPE SERIES</h2>
+    <div class="section-intro">
+      Drie genres, drie vibes, een herkenbare stijl. Elke serie heeft zijn eigen kleur, cover art en doelgroep. Samen vormen ze het complete geluid van DJ Gianni.
+    </div>
+
+    <div class="series-grid">
+      <!-- Afro Beats -->
+      <div class="serie-card afro">
+        <div class="serie-icon">🌍</div>
+        <h3 class="serie-name">AFRO BEATS</h3>
+        <div class="serie-meta">
+          <span class="serie-tag">Afro Beats</span>
+          <span class="serie-tag">Amapiano</span>
+          <span class="serie-tag">Afro House</span>
+        </div>
+        <p class="serie-desc">De signature sound. Burna Boy, Wizkid, Ayra Starr, CKay, Tyla. Warme energie, zwoele beats, zomer het hele jaar door. Dit is waar DJ Gianni het meest bekend om is.</p>
+        <div class="serie-specs">
+          <div class="serie-spec">
+            <span class="serie-spec-label">Lengte</span>
+            <span class="serie-spec-value">45 minuten</span>
+          </div>
+          <div class="serie-spec">
+            <span class="serie-spec-label">Tracks</span>
+            <span class="serie-spec-value">14-18 tracks</span>
+          </div>
+          <div class="serie-spec">
+            <span class="serie-spec-label">BPM range</span>
+            <span class="serie-spec-value">100-115 BPM</span>
+          </div>
+          <div class="serie-spec">
+            <span class="serie-spec-label">Status</span>
+            <span class="serie-spec-value" style="color: var(--green);">Live op SoundCloud</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Caribbean -->
+      <div class="serie-card caribbean">
+        <div class="serie-icon">🏝️</div>
+        <h3 class="serie-name">CARIBBEAN VIBES</h3>
+        <div class="serie-meta">
+          <span class="serie-tag">Dancehall</span>
+          <span class="serie-tag">Soca</span>
+          <span class="serie-tag">Reggaeton</span>
+        </div>
+        <p class="serie-desc">Zomerse party energy. Shaggy, Sean Paul, Daddy Yankee, J Balvin, Machel Montano. Van beach party tot carnival. Hoge energie, brede doelgroep, altijd feest.</p>
+        <div class="serie-specs">
+          <div class="serie-spec">
+            <span class="serie-spec-label">Lengte</span>
+            <span class="serie-spec-value">40 minuten</span>
+          </div>
+          <div class="serie-spec">
+            <span class="serie-spec-label">Tracks</span>
+            <span class="serie-spec-value">12-16 tracks</span>
+          </div>
+          <div class="serie-spec">
+            <span class="serie-spec-label">BPM range</span>
+            <span class="serie-spec-value">90-110 BPM</span>
+          </div>
+          <div class="serie-spec">
+            <span class="serie-spec-label">Status</span>
+            <span class="serie-spec-value" style="color: var(--gold);">Nieuw - te produceren</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Nederlands Urban -->
+      <div class="serie-card urban">
+        <div class="serie-icon">🇳🇱</div>
+        <h3 class="serie-name">NEDERLANDS URBAN</h3>
+        <div class="serie-meta">
+          <span class="serie-tag">Dutch Hip-Hop</span>
+          <span class="serie-tag">R&B NL</span>
+          <span class="serie-tag">Urban Hits</span>
+        </div>
+        <p class="serie-desc">Nederlandse straat meets party. Frenna, Josylvio, Ronnie Flex, Sevn Alias, Jayh, Bizzey, Broederliefde. Herkenbaar voor het NL publiek, perfect voor verjaardagen en feesten.</p>
+        <div class="serie-specs">
+          <div class="serie-spec">
+            <span class="serie-spec-label">Lengte</span>
+            <span class="serie-spec-value">30-35 minuten</span>
+          </div>
+          <div class="serie-spec">
+            <span class="serie-spec-label">Tracks</span>
+            <span class="serie-spec-value">10-14 tracks</span>
+          </div>
+          <div class="serie-spec">
+            <span class="serie-spec-label">BPM range</span>
+            <span class="serie-spec-value">85-105 BPM</span>
+          </div>
+          <div class="serie-spec">
+            <span class="serie-spec-label">Status</span>
+            <span class="serie-spec-value" style="color: var(--gold);">Nieuw - te produceren</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="callout">
+      <div class="callout-title">Waarom deze lengtes?</div>
+      <p><strong>45 min (Afro Beats):</strong> Signature serie, mag langer. Luisteraars kennen het formaat al.<br>
+      <strong>40 min (Caribbean):</strong> Feestgenre met tijdloze tracks. Lang genoeg om sfeer op te bouwen, kort genoeg voor volledige luisterbeurten.<br>
+      <strong>30-35 min (Urban NL):</strong> Trendy tracks roteren snel. Korter = meer replay waarde, sneller een nieuwe editie nodig. SoundCloud's algoritme beloont voltooide luisterbeurten - korter is beter voor discovery.</p>
+    </div>
+  </section>
+
+  <!-- ============================================================ -->
+  <!-- SOUNDCLOUD OPTIMALISATIE -->
+  <!-- ============================================================ -->
+  <section class="section" id="soundcloud">
+    <div class="section-label">Platform</div>
+    <h2 class="section-title">SOUNDCLOUD OPTIMALISATIE</h2>
+    <div class="section-intro">
+      SoundCloud ontdekking draait om drie dingen: titels die gevonden worden, tags die matchen, en beschrijvingen die converteren naar plays. Hier is het exacte format voor elke upload.
+    </div>
+
+    <!-- Naming Convention -->
+    <h3 style="font-family: var(--font-display); font-size: 24px; letter-spacing: 0.04em; margin-bottom: 16px; color: var(--gi);">TITEL FORMAT</h3>
+
+    <div class="template-block">DJ Gianni - <em>[Serie Naam]</em> Mix Vol. <em>[#]</em> | <em>[Genre Tags]</em></div>
+
+    <div class="sc-example">
+      <div class="sc-example-label">Voorbeeld: Caribbean</div>
+      <div class="sc-field">
+        <div class="sc-field-name">Titel</div>
+        <div class="sc-field-value">DJ Gianni - Caribbean Vibes Mix Vol. 1 | Dancehall, Soca & Reggaeton</div>
+      </div>
+    </div>
+
+    <div class="sc-example">
+      <div class="sc-example-label">Voorbeeld: Nederlands Urban</div>
+      <div class="sc-field">
+        <div class="sc-field-name">Titel</div>
+        <div class="sc-field-value">DJ Gianni - Nederlands Urban Mix Vol. 1 | Dutch Hip-Hop & R&B</div>
+      </div>
+    </div>
+
+    <div class="sc-example">
+      <div class="sc-example-label">Voorbeeld: Afro Beats (bestaand)</div>
+      <div class="sc-field">
+        <div class="sc-field-name">Titel</div>
+        <div class="sc-field-value">DJ Gianni - Afro Beats Mix Vol. 2 | Afrobeats, Amapiano & Afro House</div>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- Description Template -->
+    <h3 style="font-family: var(--font-display); font-size: 24px; letter-spacing: 0.04em; margin-bottom: 16px; color: var(--gi);">BESCHRIJVING TEMPLATE</h3>
+    <p style="color: var(--muted); margin-bottom: 16px; font-size: 14px;">Kopieer dit template en vul de variabelen in per upload. Gebruik altijd een tracklist - SoundCloud indexeert deze voor zoekresultaten.</p>
+
+    <div class="sc-example">
+      <div class="sc-example-label">Template</div>
+      <div class="sc-field">
+        <div class="sc-field-name">Beschrijving</div>
+        <div class="sc-field-value"><em>[Genre]</em> Mix Vol. <em>[#]</em> door DJ Gianni - Pure Vibes
+
+<em>[1-2 zinnen over de vibe van deze specifieke mix]</em>
+
+Tracklist:
+01. <em>[Artiest]</em> - <em>[Track]</em>
+02. <em>[Artiest]</em> - <em>[Track]</em>
+...
+
+---
+
+DJ Gianni draait Afro Beats, Caribbean en Nederlandse Hits.
+Stuur je Spotify playlist, ik bouw er een professionele set van.
+
+Boekingen: info@picyourbooth.nl
+Instagram: @djgianni
+TikTok: @djgianni
+
+Onderdeel van PicYourBooth - Premium event entertainment
+picyourbooth.nl</div>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- Tags -->
+    <h3 style="font-family: var(--font-display); font-size: 24px; letter-spacing: 0.04em; margin-bottom: 16px; color: var(--gi);">TAGS PER SERIE</h3>
+    <p style="color: var(--muted); margin-bottom: 16px; font-size: 14px;">SoundCloud staat maximaal 30 tags toe. Gebruik altijd de basis-tags plus de serie-specifieke tags.</p>
+
+    <div class="callout">
+      <div class="callout-title">Basis-tags (altijd gebruiken)</div>
+      <p><code>DJ Gianni</code> <code>DJ mix</code> <code>DJ set</code> <code>party mix</code> <code>Pure Vibes</code> <code>PicYourBooth</code> <code>Nederland</code> <code>Dutch DJ</code> <code>feest</code> <code>party</code></p>
+    </div>
+
+    <div class="callout" style="background: var(--gi-dim); border-left-color: var(--gi);">
+      <div class="callout-title" style="color: var(--gi);">+ Afro Beats tags</div>
+      <p><code>Afro Beats</code> <code>Afrobeats</code> <code>Afro Beats mix</code> <code>Amapiano</code> <code>Afro House</code> <code>Burna Boy</code> <code>Wizkid</code> <code>Tyla</code> <code>CKay</code> <code>Ayra Starr</code> <code>afro party</code> <code>afro vibes</code> <code>summer vibes</code> <code>tropical</code></p>
+    </div>
+
+    <div class="callout caribbean">
+      <div class="callout-title">+ Caribbean tags</div>
+      <p><code>Caribbean</code> <code>Caribbean mix</code> <code>Dancehall</code> <code>Dancehall mix</code> <code>Soca</code> <code>Soca mix</code> <code>Reggaeton</code> <code>tropical house</code> <code>Sean Paul</code> <code>Shaggy</code> <code>summer party</code> <code>beach vibes</code> <code>carnival</code> <code>island vibes</code></p>
+    </div>
+
+    <div class="callout urban">
+      <div class="callout-title">+ Nederlands Urban tags</div>
+      <p><code>Nederlands</code> <code>Nederlandse hip-hop</code> <code>Dutch hip-hop</code> <code>Dutch urban</code> <code>NL rap</code> <code>Frenna</code> <code>Josylvio</code> <code>Ronnie Flex</code> <code>Sevn Alias</code> <code>Broederliefde</code> <code>Bizzey</code> <code>Dutch R&B</code> <code>Nederlandse hits</code> <code>urban NL</code></p>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- Upload Settings -->
+    <h3 style="font-family: var(--font-display); font-size: 24px; letter-spacing: 0.04em; margin-bottom: 16px; color: var(--gi);">UPLOAD INSTELLINGEN</h3>
+
+    <table class="data-table">
+      <thead>
+        <tr>
+          <th>Instelling</th>
+          <th>Waarde</th>
+          <th>Waarom</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="highlight">Audio formaat</td>
+          <td>WAV of FLAC (lossless)</td>
+          <td>SoundCloud comprimeert zelf - start met de beste kwaliteit</td>
+        </tr>
+        <tr>
+          <td class="highlight">Cover art</td>
+          <td>1400x1400px minimum (3000x3000 ideaal)</td>
+          <td>Wordt geschaald naar alle formaten, hoge resolutie ziet er scherp uit</td>
+        </tr>
+        <tr>
+          <td class="highlight">Privacy</td>
+          <td>Public</td>
+          <td>Maximale ontdekbaarheid. Geen reden voor private uploads</td>
+        </tr>
+        <tr>
+          <td class="highlight">Download</td>
+          <td>Uit</td>
+          <td>Houd streams op SoundCloud, niet downloaden voor offline</td>
+        </tr>
+        <tr>
+          <td class="highlight">Genre (SoundCloud veld)</td>
+          <td>Per serie: Afrobeats / Dancehall / Hip-hop & Rap</td>
+          <td>SoundCloud categoriseert op genre - kies de juiste hoofdcategorie</td>
+        </tr>
+        <tr>
+          <td class="highlight">Publicatietijd</td>
+          <td>Vrijdag 18:00 of zaterdag 12:00</td>
+          <td>Weekend = luisterpiek voor party-content op SoundCloud</td>
+        </tr>
+        <tr>
+          <td class="highlight">Playlist/Set</td>
+          <td>Voeg toe aan serie-playlist</td>
+          <td>Maak per serie een playlist: "Caribbean Vibes", "Afro Beats", "NL Urban"</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- ============================================================ -->
+  <!-- COVER ART -->
+  <!-- ============================================================ -->
+  <section class="section" id="covers">
+    <div class="section-label">Visual Identity</div>
+    <h2 class="section-title">COVER ART PER SERIE</h2>
+    <div class="section-intro">
+      Elke serie heeft zijn eigen kleuraccent maar deelt hetzelfde minimale systeem: Bebas Neue titel, genre tags als pills, EQ-bar motief, hexagon logo. Herkenbaar als DJ Gianni, uniek per genre.
+    </div>
+
+    <!-- Cover Art (Gemini generated) -->
+    <div class="cover-preview">
+      <div>
+        <img src="../../output/images/dj-gianni/mixtape/afro-mixtape-cover.png" alt="Afro Beats Vol. 2 Cover" style="width: 100%; border-radius: var(--r-lg); border: 1px solid var(--border);">
+        <div class="cover-label">Coral (#f0654a) - Afro Beats Vol. 2</div>
+      </div>
+      <div>
+        <img src="../../output/images/dj-gianni/mixtape/caribbean-mixtape-cover.png" alt="Caribbean Vibes Vol. 1 Cover" style="width: 100%; border-radius: var(--r-lg); border: 1px solid var(--border);">
+        <div class="cover-label">Golden Amber (#f5b731) - Caribbean Vibes Vol. 1</div>
+      </div>
+      <div>
+        <img src="../../output/images/dj-gianni/mixtape/nl-urban-mixtape-cover.png" alt="NL Urban Vol. 1 Cover" style="width: 100%; border-radius: var(--r-lg); border: 1px solid var(--border);">
+        <div class="cover-label">Warm Purple (#c084fc) - NL Urban Vol. 1</div>
+      </div>
+    </div>
+
+    <div class="callout">
+      <div class="callout-title">Gemini AI Cover Art Generatie</div>
+      <p>Gebruik het bestaande Gemini prompt template (<code>mixtape-gemini-prompt.md</code>) en pas de kleur en genre tags aan per serie. De basisstructuur blijft identiek: donkere achtergrond, Bebas Neue titel, pill-shaped tags, EQ-bar motief. Verander alleen het kleuraccent en de genre namen.</p>
+    </div>
+
+    <!-- Gemini Prompt Variations -->
+    <h3 style="font-family: var(--font-display); font-size: 24px; letter-spacing: 0.04em; margin: 32px 0 16px; color: var(--caribbean);">GEMINI PROMPT - CARIBBEAN VIBES</h3>
+    <div class="template-block">Gebruik het standaard DJ Gianni cover prompt met deze aanpassingen:
+
+- Primary accent: <em>#f5b731</em> (golden amber) in plaats van coral
+- Genre tags: <em>"DANCEHALL"</em> <em>"SOCA"</em> <em>"REGGAETON"</em>
+- Serie naam: <em>"CARIBBEAN VIBES VOL. [#]"</em>
+- Subtle gradient glow: <em>rgba(245,183,49,0.12)</em> onderaan
+- Mood toevoeging: <em>"tropical sunset, golden warmth, island-inspired atmosphere"</em></div>
+
+    <h3 style="font-family: var(--font-display); font-size: 24px; letter-spacing: 0.04em; margin: 32px 0 16px; color: var(--urban);">GEMINI PROMPT - NEDERLANDS URBAN</h3>
+    <div class="template-block">Gebruik het standaard DJ Gianni cover prompt met deze aanpassingen:
+
+- Primary accent: <em>#c084fc</em> (warm purple) in plaats van coral
+- Genre tags: <em>"HIP-HOP"</em> <em>"R&B NL"</em> <em>"URBAN"</em>
+- Serie naam: <em>"NL URBAN VOL. [#]"</em>
+- Subtle gradient glow: <em>rgba(192,132,252,0.12)</em> onderaan
+- Mood toevoeging: <em>"street-inspired, Dutch urban nightlife, warm purple glow"</em>
+- Optioneel: Nederlandse vlag element (subtiel, klein)</div>
+
+    <div class="divider"></div>
+
+    <!-- Banner specs -->
+    <h3 style="font-family: var(--font-display); font-size: 24px; letter-spacing: 0.04em; margin-bottom: 16px; color: var(--gi);">SOUNDCLOUD BANNER</h3>
+    <table class="data-table">
+      <thead>
+        <tr>
+          <th>Asset</th>
+          <th>Afmeting</th>
+          <th>Gebruik</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="highlight">Track cover</td>
+          <td>3000x3000px (min 1400x1400)</td>
+          <td>Getoond bij elke track in feed en player</td>
+        </tr>
+        <tr>
+          <td class="highlight">Profiel banner</td>
+          <td>2480x520px</td>
+          <td>Header van je SoundCloud profiel</td>
+        </tr>
+        <tr>
+          <td class="highlight">Profiel foto</td>
+          <td>1000x1000px</td>
+          <td>Ronde avatar - gebruik de B&W portretfoto</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- ============================================================ -->
+  <!-- VOICE TAGS -->
+  <!-- ============================================================ -->
+  <section class="section" id="voicetags">
+    <div class="section-label">Branding in Audio</div>
+    <h2 class="section-title">VOICE TAG PLAATSING</h2>
+    <div class="section-intro">
+      Voice tags maken een set herkenbaar. De kunst is subtiliteit: genoeg om je merk te bouwen, niet zoveel dat het de luisterervaring verstoort.
+      Maximaal 1 tag per 3-4 minuten. Minder is meer.
+    </div>
+
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-time">0:00</div>
+        <div class="timeline-tag">Opener Tag</div>
+        <div class="timeline-detail">"DJ Gianni... Pure Vibes" of "Dit is DJ Gianni"<br>Direct na de eerste paar seconden intro. Zet de toon.</div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-time">~8:00</div>
+        <div class="timeline-tag">Serie-specifieke Tag</div>
+        <div class="timeline-detail">
+          Afro: "DJ Gianni... Afro Beats edition"<br>
+          Caribbean: "Caribbean vibes... DJ Gianni"<br>
+          Urban NL: "DJ Gianni... Nederlandse Hits"
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-time">~15:00</div>
+        <div class="timeline-tag">Drop Tag</div>
+        <div class="timeline-detail">"Gianni!" of "Pure Vibes, baby"<br>Net voor een grote drop of transition. Kort en punchy.</div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-time">~22:00</div>
+        <div class="timeline-tag">Transition Tag</div>
+        <div class="timeline-detail">"Let's go" of "One more time"<br>Tijdens een genre-shift of energie-boost in de set.</div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-time">~30:00</div>
+        <div class="timeline-tag">Drop Tag (herhaling)</div>
+        <div class="timeline-detail">"DJ Gianni, let's go"<br>Optioneel bij 40+ min sets. Sla over bij korte Urban mixen.</div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-time">Einde</div>
+        <div class="timeline-tag">Outro Tag</div>
+        <div class="timeline-detail">"Dit was DJ Gianni... Pure Vibes"<br>of "DJ Gianni... elke set een feest, elk feest een herinnering"<br>Sluit af met de tagline. Laat het hangen.</div>
+      </div>
+    </div>
+
+    <div class="callout">
+      <div class="callout-title">Voice Tag Productie</div>
+      <p><strong>Stem:</strong> Zelfverzekerd, laag, rustig. Niet schreeuwen.<br>
+      <strong>Effect:</strong> Lichte reverb/delay, clean. Geen autotune.<br>
+      <strong>Lengte:</strong> Max 2-3 seconden per tag.<br>
+      <strong>Opname:</strong> Stille ruimte, telefoonmicrofoon of USB-mic, mono.<br>
+      <strong>Frequentie:</strong> Max 1 tag per 3-4 minuten. Bij een 30 min mix = maximaal 8 tags inclusief opener en outro.</p>
+    </div>
+
+    <table class="data-table">
+      <thead>
+        <tr>
+          <th>Set lengte</th>
+          <th>Aantal tags</th>
+          <th>Opbouw</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="highlight">30 min (Urban NL)</td>
+          <td>5-6</td>
+          <td>Opener + 3 mid-tags + outro</td>
+        </tr>
+        <tr>
+          <td class="highlight">40 min (Caribbean)</td>
+          <td>6-7</td>
+          <td>Opener + 4 mid-tags + outro</td>
+        </tr>
+        <tr>
+          <td class="highlight">45 min (Afro Beats)</td>
+          <td>7-8</td>
+          <td>Opener + 5 mid-tags + outro</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- ============================================================ -->
+  <!-- PLAYBOOK -->
+  <!-- ============================================================ -->
+  <section class="section" id="playbook">
+    <div class="section-label">Herhaalbaar Proces</div>
+    <h2 class="section-title">MIXTAPE PLAYBOOK</h2>
+    <div class="section-intro">
+      Dit is het stap-voor-stap proces voor elke mixtape release. Herhaalbaar, consistent, professioneel. Print dit uit en hang het bij je setup.
+    </div>
+
+    <ol class="checklist">
+      <li>
+        <div class="check-num">1</div>
+        <div class="check-content">
+          <h4>Track Selectie & Playlist Bouwen</h4>
+          <p>Kies 12-18 tracks afhankelijk van de serie. Check BPM ranges. Maak een Spotify playlist om de volgorde te testen. Luister de flow minimaal 2x door voordat je gaat opnemen.</p>
+          <span class="time-est">1-2 dagen</span>
+        </div>
+      </li>
+      <li>
+        <div class="check-num">2</div>
+        <div class="check-content">
+          <h4>Set Opnemen</h4>
+          <p>Neem op in een rustige ruimte. Gebruik je controller + laptop. Neem op in WAV/FLAC (lossless). Film tegelijkertijd behind-the-decks footage met je telefoon op statief (voor TikTok content).</p>
+          <span class="time-est">2-3 uur</span>
+        </div>
+      </li>
+      <li>
+        <div class="check-num">3</div>
+        <div class="check-content">
+          <h4>Voice Tags Toevoegen</h4>
+          <p>Voeg voice tags toe op de juiste momenten (zie Voice Tag Plaatsing hierboven). Opener, 3-5 mid-tags, outro. Mixdown naar WAV.</p>
+          <span class="time-est">30-45 min</span>
+        </div>
+      </li>
+      <li>
+        <div class="check-num">4</div>
+        <div class="check-content">
+          <h4>Cover Art Genereren</h4>
+          <p>Gebruik het Gemini prompt template met de juiste serie-kleuren. Genereer op 3000x3000px. Check dat de titel, genre tags en "Pure Vibes" correct zijn. Exporteer als PNG.</p>
+          <span class="time-est">15-30 min</span>
+        </div>
+      </li>
+      <li>
+        <div class="check-num">5</div>
+        <div class="check-content">
+          <h4>SoundCloud Upload</h4>
+          <p>Upload WAV/FLAC. Voeg cover art toe. Schrijf titel in het juiste format. Kopieer beschrijving template en vul tracklist in. Voeg alle tags toe. Stel publicatietijd in (vrijdag 18:00 of zaterdag 12:00). Voeg toe aan serie-playlist.</p>
+          <span class="time-est">20 min</span>
+        </div>
+      </li>
+      <li>
+        <div class="check-num">6</div>
+        <div class="check-content">
+          <h4>TikTok Clips Knippen & Promoten</h4>
+          <p>Volg het TikTok Promotie Playbook (<code>tiktok-promotie.html</code>) voor de volledige 7-daagse promotiecyclus met clip-voor-clip scripts, captions en storyboards.</p>
+          <span class="time-est">Zie TikTok playbook</span>
+        </div>
+      </li>
+      <li>
+        <div class="check-num">7</div>
+        <div class="check-content">
+          <h4>SoundCloud Publiceren</h4>
+          <p>Release de mix op SoundCloud (vrijdag 18:00 of zaterdag 12:00). Deel in Instagram Stories. Update je SoundCloud bio als dit een nieuwe serie is.</p>
+          <span class="time-est">20 min</span>
+        </div>
+      </li>
+      <li>
+        <div class="check-num">8</div>
+        <div class="check-content">
+          <h4>Analyseren & Leren</h4>
+          <p>Na 2 weken: check SoundCloud plays, completion rate, likes, reposts. Check TikTok views en engagement. Welke clip deed het best? Welke track kreeg de meeste reacties? Pas de volgende mix aan op basis van data.</p>
+          <span class="time-est">30 min (na 2 weken)</span>
+        </div>
+      </li>
+    </ol>
+
+    <div class="callout">
+      <div class="callout-title">Totale tijdsinvestering per mixtape</div>
+      <p><strong>Eenmalig produceren:</strong> ~4-6 uur (stap 1-4)<br>
+      <strong>Upload & clips:</strong> ~1,5-2,5 uur (stap 5-6)<br>
+      <strong>Promotie:</strong> ~35 min verspreid over 7 dagen (stap 7)<br>
+      <strong>Totaal: 6-9 uur per mixtape, verspreid over ~10 dagen</strong></p>
+    </div>
+  </section>
+
+  <!-- ============================================================ -->
+  <!-- RELEASE KALENDER -->
+  <!-- ============================================================ -->
+  <section class="section" id="kalender">
+    <div class="section-label">Planning</div>
+    <h2 class="section-title">RELEASE KALENDER</h2>
+    <div class="section-intro">
+      Eens per 4-6 weken een nieuwe mixtape, roterend over de drie series. Zo blijft elke serie fris zonder dat het overweldigend wordt. Hier is een voorbeeld van de eerste 6 maanden.
+    </div>
+
+    <!-- Q2 2026 -->
+    <h3 style="font-family: var(--font-display); font-size: 24px; letter-spacing: 0.04em; margin: 32px 0 16px; color: var(--gi);">Q2 2026 - LANCERING</h3>
+    <div class="calendar">
+      <div class="cal-week caribbean">
+        <div class="cal-week-num">April W2</div>
+        <div class="cal-week-title">CARIBBEAN VOL. 1</div>
+        <div class="cal-week-desc">Eerste Caribbean release</div>
+      </div>
+      <div class="cal-week" style="opacity: 0.5;">
+        <div class="cal-week-num">April W3-4</div>
+        <div class="cal-week-title">PROMO</div>
+        <div class="cal-week-desc">TikTok cyclus</div>
+      </div>
+      <div class="cal-week urban">
+        <div class="cal-week-num">Mei W2</div>
+        <div class="cal-week-title">NL URBAN VOL. 1</div>
+        <div class="cal-week-desc">Eerste Urban release</div>
+      </div>
+      <div class="cal-week" style="opacity: 0.5;">
+        <div class="cal-week-num">Mei W3-4</div>
+        <div class="cal-week-title">PROMO</div>
+        <div class="cal-week-desc">TikTok cyclus</div>
+      </div>
+      <div class="cal-week afro">
+        <div class="cal-week-num">Juni W2</div>
+        <div class="cal-week-title">AFRO VOL. 2</div>
+        <div class="cal-week-desc">Zomer editie</div>
+      </div>
+      <div class="cal-week" style="opacity: 0.5;">
+        <div class="cal-week-num">Juni W3-4</div>
+        <div class="cal-week-title">PROMO</div>
+        <div class="cal-week-desc">TikTok cyclus</div>
+      </div>
+    </div>
+
+    <!-- Q3 2026 -->
+    <h3 style="font-family: var(--font-display); font-size: 24px; letter-spacing: 0.04em; margin: 32px 0 16px; color: var(--gi);">Q3 2026 - GROEI</h3>
+    <div class="calendar">
+      <div class="cal-week caribbean">
+        <div class="cal-week-num">Juli W2</div>
+        <div class="cal-week-title">CARIBBEAN VOL. 2</div>
+        <div class="cal-week-desc">Zomer special</div>
+      </div>
+      <div class="cal-week urban">
+        <div class="cal-week-num">Aug W2</div>
+        <div class="cal-week-title">NL URBAN VOL. 2</div>
+        <div class="cal-week-desc">Nieuwe NL releases</div>
+      </div>
+      <div class="cal-week afro">
+        <div class="cal-week-num">Sep W2</div>
+        <div class="cal-week-title">AFRO VOL. 3</div>
+        <div class="cal-week-desc">Najaar editie</div>
+      </div>
+    </div>
+
+    <div class="callout gold">
+      <div class="callout-title">Seizoenstrategie</div>
+      <p><strong>Zomer (juni-aug):</strong> Caribbean en Afro domineren. Extra focus op zomerse tracks, festival-vibe covers.<br>
+      <strong>Najaar/Winter (sep-dec):</strong> Urban NL pakt de overhand. Sinterklaas-feesten, verjaardagen, kerst. Nederlandse hits doen het hier het best.<br>
+      <strong>Lente (mrt-mei):</strong> Mix van alles. Start van het feestseizoen, eerste bruiloften.</p>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- KPIs -->
+    <h3 style="font-family: var(--font-display); font-size: 24px; letter-spacing: 0.04em; margin-bottom: 16px; color: var(--gi);">DOELEN & KPI'S</h3>
+    <table class="data-table">
+      <thead>
+        <tr>
+          <th>Metric</th>
+          <th>Na 3 maanden</th>
+          <th>Na 6 maanden</th>
+          <th>Na 12 maanden</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="highlight">SoundCloud plays (per mix)</td>
+          <td>100-300</td>
+          <td>500-1.000</td>
+          <td>1.000-3.000</td>
+        </tr>
+        <tr>
+          <td class="highlight">SoundCloud volgers</td>
+          <td>50</td>
+          <td>150</td>
+          <td>500</td>
+        </tr>
+        <tr>
+          <td class="highlight">TikTok views (per clip)</td>
+          <td>500-2.000</td>
+          <td>2.000-10.000</td>
+          <td>10.000+</td>
+        </tr>
+        <tr>
+          <td class="highlight">TikTok volgers</td>
+          <td>200</td>
+          <td>500</td>
+          <td>1.500</td>
+        </tr>
+        <tr>
+          <td class="highlight">Mixtapes live</td>
+          <td>3 (1 per serie)</td>
+          <td>6 (2 per serie)</td>
+          <td>10-12</td>
+        </tr>
+        <tr>
+          <td class="highlight">DJ boekingen via SoundCloud</td>
+          <td>1</td>
+          <td>2-3</td>
+          <td>5+</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- ============================================================ -->
+  <!-- SPOTIFY CONNECTIE -->
+  <!-- ============================================================ -->
+  <section class="section" id="spotify">
+    <div class="section-label">Unieke Differentiator</div>
+    <h2 class="section-title">SPOTIFY PLAYLIST LINK</h2>
+    <div class="section-intro">
+      De sterkste USP van DJ Gianni is Spotify playlist-optimalisatie. Elke mixtape moet dit versterken.
+    </div>
+
+    <div class="info-grid">
+      <div class="info-card">
+        <div class="info-card-title">IN DE BESCHRIJVING</div>
+        <p>Elke SoundCloud beschrijving eindigt met: "Stuur je Spotify playlist, ik bouw er een professionele set van." Dit is de brug van gratis content naar betaalde boeking.</p>
+      </div>
+      <div class="info-card">
+        <div class="info-card-title">IN TIKTOK CONTENT</div>
+        <p>Maak 1 keer per maand een TikTok over het Spotify-concept: "Stuur me je playlist en ik maak er dit van" met een before/after clip. Dit is de meest boekbare content.</p>
+      </div>
+      <div class="info-card">
+        <div class="info-card-title">IN DE MIX</div>
+        <p>De outro voice tag kan varianten krijgen: "Wil je dit op je eigen feest? Stuur je playlist naar info@picyourbooth.nl" - subtiel, effectief.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================ -->
+  <!-- SAMENVATTING -->
+  <!-- ============================================================ -->
+  <section class="section">
+    <div class="section-label">TL;DR</div>
+    <h2 class="section-title">SAMENVATTING</h2>
+
+    <div class="info-grid">
+      <div class="info-card" style="border-left: 3px solid var(--gi);">
+        <div class="info-card-title">3 SERIES</div>
+        <p>Afro Beats (45 min, coral), Caribbean Vibes (40 min, cyan), Nederlands Urban (30 min, violet). Elk met eigen kleur, cover art en tags.</p>
+      </div>
+      <div class="info-card" style="border-left: 3px solid var(--caribbean);">
+        <div class="info-card-title">ELKE 4-6 WEKEN</div>
+        <p>1 nieuwe mixtape, roterend over series. Weekend release (vrijdag 18:00 of zaterdag 12:00). Seizoensgebonden genre-focus.</p>
+      </div>
+      <div class="info-card" style="border-left: 3px solid var(--urban);">
+        <div class="info-card-title">7-DAAGSE TIKTOK CYCLUS</div>
+        <p>5-7 clips per mixtape. Teaser, release, transition, raad-het-nummer, tracklist, BTS, favoriete moment. Cross-post naar Instagram Reels.</p>
+      </div>
+      <div class="info-card" style="border-left: 3px solid var(--gold);">
+        <div class="info-card-title">6-9 UUR PER RELEASE</div>
+        <p>Track selectie, opname, voice tags, cover art, upload, clips knippen, promoten. Alles in een herhaalbaar 8-stappen playbook.</p>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<!-- Footer -->
+<footer class="footer">
+  <p class="brand">DJ GIANNI</p>
+  <p style="margin-top: 8px;">Intern strategiedocument - Niet delen buiten het team</p>
+  <p style="margin-top: 4px;">PicYourBooth &middot; Laatst bijgewerkt: maart 2026</p>
+</footer>
+
+</body>
+</html>

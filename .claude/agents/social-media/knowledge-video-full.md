@@ -36,7 +36,7 @@
 | Camera | Smartphone (iPhone 13+ or equivalent) |
 | Audio | Lavalier mic (€15-30) or wireless (€50-100) |
 | Lighting | Natural light or ring light (€20-50) |
-| Editing | CapCut (free), InShot |
+| Editing | Remotion (React video framework), CapCut (fallback) |
 | Best for | TikTok, Reels, Stories, Shorts |
 
 ### Tier 2 - Semi-Professional (€500-5,000)

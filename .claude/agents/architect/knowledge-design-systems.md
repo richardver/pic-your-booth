@@ -13,8 +13,8 @@ docs/website/design-system/pyb-design-system-web.html          <- Layer 1: Paren
   +-- docs/website/design-system/pyb-design-system-dj.html           <- Layer 2: DJ Hub page
   +-- docs/ads/meta/pyb-design-system-meta-ads.html                  <- Layer 2: Meta Ads
       |
-      +-- docs/website/djs/dj-gianni/brand-guide.html               <- Layer 3: DJ Gianni
-      +-- docs/website/djs/milo/brand-guide.html                     <- Layer 3: Milo
+      +-- docs/djs/dj-gianni/brand-guide.html               <- Layer 3: DJ Gianni
+      +-- docs/djs/milo/brand-guide.html                     <- Layer 3: Milo
 ```
 
 ---
@@ -33,7 +33,7 @@ docs/website/design-system/pyb-design-system-web.html          <- Layer 1: Paren
 
 ### Layer 3: Individual Brand Guides
 - **DJ Gianni** — Coral accent (#FF6B35), Bebas Neue + Space Grotesk, hexagon motif, split-energy system
-- **Milo** — Cyan accent, diamond motif, house/techno aesthetic
+- **DJ Milø** — Cyan accent, diamond motif, house/techno aesthetic
 
 ---
 
@@ -60,5 +60,5 @@ docs/website/design-system/pyb-design-system-web.html          <- Layer 1: Paren
 1. **Changes cascade down** — updating Layer 1 affects all children
 2. **Individual brand guides override parent tokens** — DJ Gianni's coral overrides the default accent
 3. **Each DJ gets their own brand guide** — never mix DJ identities in one file
-4. **Social templates live with their DJ profile** — `docs/website/djs/dj-gianni/social/`
+4. **Social templates live with their DJ profile** — `docs/output/images/dj-gianni/social/`
 5. **Do not treat `pyb-design-tokens.json` as PYB web source** — it's PYM mobile tokens, kept for reference only

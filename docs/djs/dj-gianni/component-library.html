@@ -1,0 +1,851 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DJ Gianni - Component Library</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* ============================================================
+   DJ GIANNI - COMPONENT LIBRARY
+   Extracted components from the DJ Gianni Visual Brand Guide.
+   Same design tokens, same visual quality.
+   ============================================================ */
+
+/* -- Design Tokens ----------------------------------------- */
+:root {
+  --void: #050508;
+  --surface: #111116;
+  --card: #111116;
+  --border: rgba(255,255,255,0.06);
+
+  --white: #ededf0;
+  --muted: rgba(237,237,240,0.40);
+  --subtle: rgba(237,237,240,0.10);
+
+  --gi: #f0654a;
+  --gi-light: #f4826c;
+  --gi-dim: rgba(240,101,74,0.10);
+
+  --mi: #34d399;
+  --mi-light: #5ae0f0;
+  --mi-dim: rgba(34,211,238,0.10);
+
+  --violet: #8b5cf6;
+  --violet-dim: rgba(139,92,246,0.12);
+
+  --gold: #f59e42;
+
+  --font-display: 'Bebas Neue', Impact, sans-serif;
+  --font-body: 'Space Grotesk', system-ui, sans-serif;
+
+  --ease: cubic-bezier(0.16, 1, 0.3, 1);
+
+  --r-sm: 6px;
+  --r-md: 10px;
+  --r-lg: 16px;
+  --r-xl: 24px;
+  --r-pill: 999px;
+}
+
+/* -- Reset ------------------------------------------------- */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html {
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-body);
+  background: var(--void);
+  color: var(--white);
+  font-size: 15px;
+  line-height: 1.7;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+  html { scroll-behavior: auto; }
+}
+
+/* -- Layout ------------------------------------------------ */
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* -- Hero -------------------------------------------------- */
+.hero {
+  text-align: center;
+  padding: 96px 24px 72px;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 50% 80%, rgba(240,101,74,0.08) 0%, transparent 60%);
+  pointer-events: none;
+}
+
+.hero-title {
+  font-family: var(--font-display);
+  font-size: clamp(48px, 8vw, 96px);
+  letter-spacing: 0.04em;
+  line-height: 1;
+  background: linear-gradient(135deg, var(--gi) 0%, var(--violet) 50%, var(--mi) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 12px;
+  position: relative;
+}
+
+.hero-subtitle {
+  font-family: var(--font-body);
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: var(--muted);
+  font-weight: 400;
+}
+
+/* -- Waveform Decoration ----------------------------------- */
+.waveform-deco {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  gap: 3px;
+  margin-top: 48px;
+  height: 32px;
+  opacity: 0.06;
+}
+
+.waveform-deco span {
+  display: block;
+  width: 3px;
+  border-radius: 2px;
+  background: linear-gradient(to top, var(--gi), var(--violet));
+  animation: wave 1.8s ease-in-out infinite;
+}
+
+@keyframes wave {
+  0%, 100% { transform: scaleY(0.3); }
+  50% { transform: scaleY(1); }
+}
+
+/* -- Section Dividers -------------------------------------- */
+section {
+  padding: 72px 0;
+  border-top: 1px solid var(--border);
+}
+
+section:first-of-type { border-top: none; }
+
+.section-num {
+  font-family: var(--font-display);
+  font-size: 14px;
+  letter-spacing: 0.15em;
+  color: var(--gi);
+  margin-bottom: 8px;
+  display: block;
+}
+
+h2 {
+  font-family: var(--font-display);
+  font-size: 42px;
+  letter-spacing: 0.06em;
+  color: var(--white);
+  margin-bottom: 8px;
+}
+
+.section-desc {
+  font-size: 14px;
+  color: var(--muted);
+  margin-bottom: 40px;
+  max-width: 640px;
+  line-height: 1.7;
+}
+
+h3 {
+  font-family: var(--font-display);
+  font-size: 22px;
+  letter-spacing: 0.04em;
+  color: var(--white);
+  margin-bottom: 16px;
+}
+
+p, li {
+  font-size: 15px;
+  color: rgba(237,237,240,0.55);
+  line-height: 1.7;
+}
+
+/* -- Component Row ----------------------------------------- */
+.component-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  align-items: center;
+  margin-bottom: 28px;
+}
+
+.component-label {
+  width: 100%;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--muted);
+  margin-bottom: 4px;
+}
+
+/* -- DJ Card ----------------------------------------------- */
+.dj-card-demo {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--r-lg);
+  overflow: hidden;
+  width: 320px;
+  transition: border-color 0.3s;
+}
+
+.dj-card-demo:hover {
+  border-color: rgba(255,255,255,0.12);
+}
+
+.dj-card-photo {
+  height: 120px;
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(135deg, rgba(240,101,74,0.12) 0%, transparent 60%);
+}
+
+.dj-card-body {
+  padding: 24px;
+}
+
+.dj-card-accent {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--gi);
+  margin-bottom: 14px;
+}
+
+.dj-card-name {
+  font-family: var(--font-display);
+  font-size: 48px;
+  letter-spacing: 0.04em;
+  line-height: 1;
+  color: var(--gi);
+  margin-bottom: 4px;
+}
+
+.dj-card-tagline {
+  font-size: 14px;
+  color: var(--muted);
+  font-style: italic;
+  margin-bottom: 16px;
+}
+
+.dj-card-desc {
+  font-size: 14px;
+  color: rgba(237,237,240,0.55);
+  line-height: 1.7;
+  margin-bottom: 20px;
+}
+
+.dj-card-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* -- Genre Tags -------------------------------------------- */
+.genre-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.genre-tag {
+  padding: 4px 12px;
+  border-radius: var(--r-pill);
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  background: var(--gi-dim);
+  color: var(--gi-light);
+  border: 1px solid rgba(240,101,74,0.15);
+}
+
+.genre-tag.cyan {
+  background: var(--mi-dim);
+  color: var(--mi-light);
+  border-color: rgba(34,211,238,0.15);
+}
+
+.genre-tag.violet {
+  background: var(--violet-dim);
+  color: #34d399;
+  border-color: rgba(139,92,246,0.15);
+}
+
+/* -- EQ Bars ----------------------------------------------- */
+.eq-bars {
+  position: absolute;
+  bottom: 12px;
+  right: 12px;
+  display: flex;
+  align-items: flex-end;
+  gap: 3px;
+  height: 28px;
+}
+
+.eq-bars span {
+  display: block;
+  width: 4px;
+  border-radius: 2px;
+  background: var(--gi);
+  animation: eq 1.2s ease-in-out infinite;
+}
+
+@keyframes eq {
+  0%, 100% { height: 6px; }
+  50% { height: 24px; }
+}
+
+/* EQ Bars standalone demo (not position:absolute) */
+.eq-bars-standalone {
+  display: flex;
+  align-items: flex-end;
+  gap: 3px;
+  height: 28px;
+}
+
+.eq-bars-standalone span {
+  display: block;
+  width: 4px;
+  border-radius: 2px;
+  background: var(--gi);
+  animation: eq 1.2s ease-in-out infinite;
+}
+
+/* -- Socials ----------------------------------------------- */
+.dj-socials {
+  display: flex;
+  gap: 8px;
+}
+
+.dj-social-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: 600;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid var(--border);
+  color: var(--muted);
+  cursor: pointer;
+  transition: all 0.25s;
+  text-decoration: none;
+}
+
+.dj-social-icon:hover {
+  background: var(--gi-dim);
+  border-color: rgba(240,101,74,0.3);
+  color: var(--gi);
+}
+
+/* -- Play Button ------------------------------------------- */
+.dj-play-btn {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: none;
+  background: var(--gi);
+  color: var(--void);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: transform 0.25s var(--ease);
+}
+
+.dj-play-btn:hover {
+  transform: scale(1.06);
+}
+
+.play-icon {
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 8px 0 8px 14px;
+  border-color: transparent transparent transparent var(--void);
+  margin-left: 3px;
+}
+
+/* -- Profile Demo ------------------------------------------ */
+.profile-demo {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--r-lg);
+  padding: 40px;
+  margin-bottom: 32px;
+}
+
+.profile-header {
+  display: flex;
+  gap: 32px;
+  align-items: flex-start;
+}
+
+.profile-avatar {
+  width: 140px;
+  height: 140px;
+  border-radius: var(--r-xl);
+  flex-shrink: 0;
+  background: linear-gradient(135deg, rgba(240,101,74,0.15) 0%, transparent 60%);
+  border: 1px solid rgba(240,101,74,0.15);
+  position: relative;
+  overflow: hidden;
+}
+
+.profile-avatar-initials {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-display);
+  font-size: 48px;
+  letter-spacing: 0.04em;
+  opacity: 0.15;
+}
+
+.profile-info { flex: 1; }
+
+.profile-name {
+  font-family: var(--font-display);
+  font-size: clamp(48px, 6vw, 72px);
+  letter-spacing: 0.04em;
+  line-height: 1;
+  color: var(--gi);
+  margin-bottom: 6px;
+}
+
+.profile-tagline {
+  font-size: 16px;
+  color: var(--muted);
+  font-style: italic;
+  margin-bottom: 12px;
+}
+
+.profile-bio {
+  font-size: 14px;
+  color: rgba(237,237,240,0.55);
+  line-height: 1.8;
+  max-width: 480px;
+  margin-bottom: 16px;
+}
+
+/* -- Set List ---------------------------------------------- */
+.set-item {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 14px 0;
+  border-bottom: 1px solid var(--border);
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.set-item:last-child { border-bottom: none; }
+
+.set-item:hover { background: rgba(255,255,255,0.02); border-radius: var(--r-sm); padding-left: 8px; padding-right: 8px; }
+
+.set-play {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: none;
+  background: var(--gi-dim);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: background 0.25s;
+}
+
+.set-play:hover { background: var(--gi); }
+
+.set-play-icon {
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 5px 0 5px 9px;
+  border-color: transparent transparent transparent var(--gi);
+  margin-left: 2px;
+}
+
+.set-play:hover .set-play-icon { border-color: transparent transparent transparent var(--void); }
+
+.set-info { flex: 1; }
+.set-info strong { display: block; font-size: 14px; color: var(--white); margin-bottom: 2px; }
+.set-info span { font-size: 12px; color: var(--muted); }
+
+.set-duration {
+  font-size: 12px;
+  color: var(--muted);
+  min-width: 48px;
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+/* -- Buttons ----------------------------------------------- */
+.btn-demo {
+  padding: 10px 28px;
+  font-family: var(--font-display);
+  font-size: 15px;
+  letter-spacing: 0.06em;
+  border: none;
+  border-radius: var(--r-pill);
+  cursor: pointer;
+  transition: transform 0.25s, background 0.25s;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.btn-demo:hover { transform: translateY(-1px); }
+
+.btn-coral { background: var(--gi); color: var(--void); }
+.btn-violet { background: var(--violet); color: #fff; }
+.btn-gold { background: var(--gold); color: #000; }
+.btn-ghost {
+  background: transparent;
+  color: var(--white);
+  border: 1px solid var(--border);
+}
+.btn-ghost:hover {
+  border-color: rgba(255,255,255,0.15);
+  background: rgba(255,255,255,0.03);
+}
+
+/* -- Footer ------------------------------------------------ */
+footer {
+  text-align: center;
+  padding: 48px 24px;
+  border-top: 1px solid var(--border);
+}
+
+.footer-logo {
+  font-family: var(--font-display);
+  font-size: 16px;
+  letter-spacing: 0.1em;
+  color: rgba(237,237,240,0.15);
+  margin-bottom: 8px;
+}
+
+footer p {
+  font-size: 12px;
+  color: var(--muted);
+}
+
+/* -- Responsive -------------------------------------------- */
+@media (max-width: 768px) {
+  .hero-title { font-size: 48px; }
+  .profile-header { flex-direction: column; align-items: center; text-align: center; }
+  .profile-bio { margin-left: auto; margin-right: auto; }
+  .dj-card-demo { width: 100%; }
+}
+</style>
+</head>
+<body>
+
+<!-- ================================================================
+     HERO
+     ================================================================ -->
+<header class="hero">
+  <div class="container">
+    <h1 class="hero-title">DJ GIANNI</h1>
+    <div class="hero-subtitle">Component Library - PicYourBooth DJ System</div>
+    <div class="waveform-deco" id="heroWave"></div>
+  </div>
+</header>
+
+<div class="container">
+
+<!-- ================================================================
+     04.1 - DJ CARD
+     ================================================================ -->
+<section>
+  <span class="section-num">04.1</span>
+  <h2>DJ CARD</h2>
+  <p class="section-desc">The DJ Card is the primary component for presenting a DJ on the PYB website. It includes a photo area with EQ bars, name, tagline, genre tags, description, social icons, and a play button.</p>
+
+  <div class="component-row">
+    <div class="component-label">DJ Card - Full</div>
+  </div>
+
+  <div class="dj-card-demo">
+    <div class="dj-card-photo">
+      <div class="eq-bars" id="eqCard"></div>
+    </div>
+    <div class="dj-card-body">
+      <div class="dj-card-accent"></div>
+      <div class="dj-card-name">DJ GIANNI</div>
+      <div class="dj-card-tagline">Pure Vibes</div>
+      <div class="genre-tags">
+        <span class="genre-tag">Afro Beats</span>
+        <span class="genre-tag">Caribbean</span>
+        <span class="genre-tag">Nederlands</span>
+        <span class="genre-tag">Hits</span>
+      </div>
+      <div class="dj-card-desc">Elke set een feest, elk feest een herinnering. DJ Gianni brengt de energy die je gasten weken later nog voelen.</div>
+      <div class="dj-card-footer">
+        <div class="dj-socials">
+          <a class="dj-social-icon" title="Instagram">IG</a>
+          <a class="dj-social-icon" title="TikTok">TT</a>
+          <a class="dj-social-icon" title="SoundCloud">SC</a>
+        </div>
+        <button class="dj-play-btn" aria-label="Play mix">
+          <span class="play-icon"></span>
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================
+     04.2 - GENRE TAGS
+     ================================================================ -->
+<section>
+  <span class="section-num">04.2</span>
+  <h2>GENRE TAGS</h2>
+  <p class="section-desc">Pill-shaped genre tags in the DJ's accent color. Coral for Gianni, cyan for DJ Milø. Used inside DJ cards, profile sections, and set lists.</p>
+
+  <div class="component-row">
+    <div class="component-label">Gianni Tags (Coral)</div>
+  </div>
+  <div class="genre-tags" style="margin-bottom:32px;">
+    <span class="genre-tag">Afro Beats</span>
+    <span class="genre-tag">Caribbean</span>
+    <span class="genre-tag">Nederlands</span>
+    <span class="genre-tag">Hits</span>
+  </div>
+
+  <div class="component-row">
+    <div class="component-label">DJ Milø Tags (Cyan) - for reference</div>
+  </div>
+  <div class="genre-tags" style="margin-bottom:32px;">
+    <span class="genre-tag cyan">House</span>
+    <span class="genre-tag cyan">Techno</span>
+    <span class="genre-tag cyan">Deep</span>
+  </div>
+
+  <div class="component-row">
+    <div class="component-label">Shared Tags (Violet)</div>
+  </div>
+  <div class="genre-tags">
+    <span class="genre-tag violet">Spotify Playlist</span>
+    <span class="genre-tag violet">Booking Open</span>
+  </div>
+</section>
+
+<!-- ================================================================
+     04.3 - EQ BARS
+     ================================================================ -->
+<section>
+  <span class="section-num">04.3</span>
+  <h2>EQ BARS</h2>
+  <p class="section-desc">Animated equalizer bars that pulse in the DJ's accent color. Used in DJ Card photo overlays and as standalone decorative elements. Each bar has a randomized animation delay for an organic feel.</p>
+
+  <div class="component-row">
+    <div class="component-label">EQ Bars - 5 bars</div>
+  </div>
+  <div class="eq-bars-standalone" id="eqDemo5" style="margin-bottom:32px;"></div>
+
+  <div class="component-row">
+    <div class="component-label">EQ Bars - 8 bars</div>
+  </div>
+  <div class="eq-bars-standalone" id="eqDemo8" style="margin-bottom:32px;"></div>
+
+  <div class="component-row">
+    <div class="component-label">EQ Bars - 12 bars (wide)</div>
+  </div>
+  <div class="eq-bars-standalone" id="eqDemo12"></div>
+</section>
+
+<!-- ================================================================
+     04.4 - BUTTONS
+     ================================================================ -->
+<section>
+  <span class="section-num">04.4</span>
+  <h2>BUTTONS</h2>
+  <p class="section-desc">Four button variants. Coral is Gianni's primary action. Violet for Spotify/shared actions. Gold is reserved for the nav CTA "BOEK JE ERVARING" only. Ghost for secondary actions.</p>
+
+  <div class="component-row">
+    <div class="component-label">Primary Buttons</div>
+  </div>
+  <div class="component-row" style="margin-bottom:32px;">
+    <button class="btn-demo btn-coral">BEKIJK MIJN MIXEN</button>
+    <button class="btn-demo btn-violet">LUISTER OP SPOTIFY</button>
+    <button class="btn-demo btn-gold">BOEK JE ERVARING</button>
+    <button class="btn-demo btn-ghost">MEER INFO</button>
+  </div>
+
+  <div class="component-row">
+    <div class="component-label">Play Button (Circle)</div>
+  </div>
+  <div class="component-row" style="gap:24px;">
+    <button class="dj-play-btn" aria-label="Play">
+      <span class="play-icon"></span>
+    </button>
+    <div class="dj-socials">
+      <a class="dj-social-icon" title="Instagram">IG</a>
+      <a class="dj-social-icon" title="TikTok">TT</a>
+      <a class="dj-social-icon" title="SoundCloud">SC</a>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================
+     04.5 - DJ PROFILE WITH SET LIST
+     ================================================================ -->
+<section>
+  <span class="section-num">04.5</span>
+  <h2>DJ PROFILE</h2>
+  <p class="section-desc">Full profile component with avatar, name, tagline, bio, genre tags, social links, and a set list. This is the expanded view used on the DJ detail page.</p>
+
+  <div class="profile-demo">
+    <div class="profile-header">
+      <div class="profile-avatar">
+        <div class="profile-avatar-initials">G</div>
+      </div>
+      <div class="profile-info">
+        <div class="profile-name">DJ GIANNI</div>
+        <div class="profile-tagline">Pure Vibes</div>
+        <div class="profile-bio">DJ Gianni brengt de Afro Beats, Caribbean vibes en populaire hits naar jouw event. Hij leest de zaal, voelt de energie en weet precies wanneer de bas moet knallen. Stuur je Spotify playlist  - hij bouwt er een set van waar je gasten weken over praten.</div>
+        <div class="genre-tags">
+          <span class="genre-tag">Afro Beats</span>
+          <span class="genre-tag">Caribbean</span>
+          <span class="genre-tag">Nederlands</span>
+          <span class="genre-tag">Hits</span>
+        </div>
+        <div class="dj-socials" style="margin-top:8px;">
+          <a class="dj-social-icon" title="Instagram">IG</a>
+          <a class="dj-social-icon" title="TikTok">TT</a>
+          <a class="dj-social-icon" title="SoundCloud">SC</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <h3>RECENTE SETS</h3>
+  <div class="set-item">
+    <button class="set-play" aria-label="Play set"><span class="set-play-icon"></span></button>
+    <div class="set-info">
+      <strong>Tropical Vibes Mix Vol. 3</strong>
+      <span>Afro Beats, Caribbean, Hits</span>
+    </div>
+    <div class="set-duration">58:24</div>
+  </div>
+  <div class="set-item">
+    <button class="set-play" aria-label="Play set"><span class="set-play-icon"></span></button>
+    <div class="set-info">
+      <strong>Wedding Party Essentials</strong>
+      <span>Nederlands, Hits, Feel-good</span>
+    </div>
+    <div class="set-duration">1:12:06</div>
+  </div>
+  <div class="set-item">
+    <button class="set-play" aria-label="Play set"><span class="set-play-icon"></span></button>
+    <div class="set-info">
+      <strong>Summer Nights - Live @ Rotterdam</strong>
+      <span>Caribbean, Afro Beats</span>
+    </div>
+    <div class="set-duration">45:33</div>
+  </div>
+  <div class="set-item">
+    <button class="set-play" aria-label="Play set"><span class="set-play-icon"></span></button>
+    <div class="set-info">
+      <strong>Gianni's Favorites 2026</strong>
+      <span>Mixed genres, Party selection</span>
+    </div>
+    <div class="set-duration">1:03:41</div>
+  </div>
+</section>
+
+</div>
+
+<!-- ================================================================
+     FOOTER
+     ================================================================ -->
+<footer>
+  <div class="footer-logo">PICYOURBOOTH</div>
+  <p>DJ Gianni - Component Library - 2026</p>
+</footer>
+
+<!-- ================================================================
+     JAVASCRIPT
+     ================================================================ -->
+<script>
+(function() {
+  'use strict';
+
+  /* -- Waveform generator (hero decoration) ------------------ */
+  function createWaveform(container, count) {
+    if (!container) return;
+    for (var i = 0; i < count; i++) {
+      var bar = document.createElement('span');
+      var h = 6 + Math.random() * 26;
+      bar.style.height = h + 'px';
+      bar.style.animationDelay = (i * 0.06) + 's';
+      bar.style.animationDuration = (1.2 + Math.random() * 1.0) + 's';
+      container.appendChild(bar);
+    }
+  }
+
+  /* -- EQ bars generator ------------------------------------- */
+  function createEqBars(container, count) {
+    if (!container) return;
+    for (var i = 0; i < count; i++) {
+      var bar = document.createElement('span');
+      bar.style.height = (4 + Math.random() * 20) + 'px';
+      bar.style.animationDelay = (i * 0.15 + Math.random() * 0.3) + 's';
+      bar.style.animationDuration = (0.8 + Math.random() * 0.8) + 's';
+      container.appendChild(bar);
+    }
+  }
+
+  /* -- Initialize hero waveform ------------------------------ */
+  createWaveform(document.getElementById('heroWave'), 50);
+
+  /* -- Initialize EQ bars in DJ Card ------------------------- */
+  createEqBars(document.getElementById('eqCard'), 5);
+
+  /* -- Initialize standalone EQ bar demos -------------------- */
+  createEqBars(document.getElementById('eqDemo5'), 5);
+  createEqBars(document.getElementById('eqDemo8'), 8);
+  createEqBars(document.getElementById('eqDemo12'), 12);
+
+})();
+</script>
+
+</body>
+</html>

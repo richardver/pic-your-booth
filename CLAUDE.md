@@ -6,13 +6,13 @@ Premium photobooth & DJ entertainment brand. Standalone brand under Pic Your Mom
 
 - **Party Booth** - Digital photobooth, vanaf €199
 - **Magic Mirror XL** - Premium DSLR photobooth, vanaf €599
-- **DJs** - DJ Gianni (Afro Beats, Caribbean, Nederlands Hits) & Milo (House, Techno), vanaf €149
+- **DJs** - DJ Gianni (Afro Beats, Caribbean, Nederlands Hits) & DJ Milø (House, Techno), vanaf €149
 
 ## Team
 
 - **Richard** - Owner (business, tech, marketing)
 - **Luca** - Photobooth operator & DJ (DJ Gianni)
-- **Milo** - Photobooth operator & DJ
+- **Milo** - Photobooth operator & DJ (DJ Milø)
 
 ## Funnel
 
@@ -47,21 +47,23 @@ pic-your-booth/
 ├── .venv/                                 ← Python 3.14 tooling (Pillow, Gemini, etc.)
 ├── docs/
 │   ├── plans/                            - PRD, brainstorm sessions, design documents
+│   ├── djs/                              - DJ brand guides & strategy docs
+│   │   ├── dj-gianni/                   - Brand guide, playbooks (SoundCloud, TikTok)
+│   │   └── milo/                        - Brand guide, profile
+│   ├── output/images/                    - All generated & processed images
+│   │   ├── pyb/                         - PYB brand (logo, heroes, USPs, modals, screenshots)
+│   │   ├── dj-gianni/                   - DJ Gianni (profile, social, mixtape covers + PROMPTS.md)
+│   │   └── dj-milo/                     - DJ Milo (profile)
 │   ├── website/                          - Website & design assets
 │   │   ├── deployment/                  - Live website HTML pages (DO NOT MOVE)
 │   │   │   └── assets/images/          - Optimized images served by website
-│   │   ├── design-system/              - HTML design systems, tokens JSON
-│   │   └── djs/                        - DJ brand guides & assets
-│   │       ├── dj-gianni/             - Brand guide, social/, photos/
-│   │       └── milo/                  - Brand guide, profile
-│   ├── images/                          - All image assets
+│   │   └── design-system/              - HTML design systems, tokens JSON
+│   ├── images/                          - Source photos & pipeline
 │   │   ├── photos-source/             - Original photos + INDEX.md (catalogue with Gemini picks)
 │   │   │   ├── magicmirror/           - Magic Mirror XL photos (photobooth, USPs, upgrades)
 │   │   │   ├── partybooth/            - Party Booth photos (product, USPs, upgrades)
 │   │   │   └── dj/                    - DJ photos
-│   │   ├── generated/                 - AI-generated & processed images
-│   │   ├── web/                       - Optimized WebP for website
-│   │   └── screenshots/              - Dev screenshots
+│   │   └── web/                       - Optimized WebP pipeline output
 │   ├── ads/                             - Ad design & assets
 │   │   └── meta/                      - Meta Ads design system HTML
 │   ├── kpi/                             - Historical KPI Excel reports (Vizibooth 2025, 2026)
@@ -86,7 +88,7 @@ pic-your-booth/
 │   │   │   ├── _index.md                - Sub-topic router
 │   │   │   ├── knowledge-party-booth.md - Party Booth specs, upgrades
 │   │   │   ├── knowledge-magic-mirror.md - Magic Mirror XL specs, upgrades
-│   │   │   ├── knowledge-dj-services.md - DJ Gianni, Milo, Spotify, equipment
+│   │   │   ├── knowledge-dj-services.md - DJ Gianni, DJ Milø, Spotify, equipment
 │   │   │   └── knowledge-pricing.md     - All pricing, combos, rules
 │   │   ├── designer.md                    - Website + visual design, CRO, frontend
 │   │   ├── designer/                      - Designer knowledge directory
@@ -94,13 +96,18 @@ pic-your-booth/
 │   │   │   ├── knowledge-design-system.md - Colors, tokens, typography, visual modes
 │   │   │   ├── knowledge-website.md     - Page templates, forms, CRO checklist
 │   │   │   └── knowledge-ux.md          - Accessibility, responsive, visual hierarchy
-│   │   ├── social-media.md                - Social content, DJ profiles, social graphics
+│   │   ├── dj-promoter.md                 - DJ talent brand management
+│   │   ├── dj-promoter/                   - DJ Promoter knowledge directory
+│   │   │   ├── _index.md                - Sub-topic router
+│   │   │   ├── knowledge-dj-gianni.md   - DJ Gianni full brand identity, assets
+│   │   │   └── knowledge-dj-milo.md     - DJ Milø full brand identity, assets
+│   │   ├── social-media.md                - Social content, posting, video scripts
 │   │   ├── social-media/                  - Social media knowledge directory
 │   │   │   ├── _index.md                - Sub-topic router
 │   │   │   ├── knowledge-platforms.md   - Platform strategy, specs, content pillars
 │   │   │   ├── knowledge-video.md       - Video scripting, hooks, production
-│   │   │   ├── knowledge-dj-gianni.md   - DJ Gianni profile, brand, assets
-│   │   │   ├── knowledge-dj-milo.md     - Milo profile, brand, assets
+│   │   │   ├── knowledge-dj-gianni.md   - DJ Gianni content angles (brand -> promoter)
+│   │   │   ├── knowledge-dj-milo.md     - DJ Milø content angles (brand -> promoter)
 │   │   │   └── knowledge-viral-retention.md - Viral loops, referrals, post-event
 │   │   ├── strategist.md                  - Strategy, brand, orchestration
 │   │   ├── strategist/                    - Strategist knowledge (10 files)

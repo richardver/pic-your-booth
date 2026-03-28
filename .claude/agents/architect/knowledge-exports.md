@@ -24,8 +24,8 @@ Full workflow documented in `.claude/agents/architect/knowledge-exports-guide.md
 
 | Asset | Source | Output | Dimensions |
 |---|---|---|---|
-| SoundCloud banner | `docs/website/djs/dj-gianni/social/dj-gianni-social-templates.html` | `docs/images/generated/dj-gianni-soundcloud-banner.png` | 2480x520 |
-| Mixtape cover | `docs/website/djs/dj-gianni/social/dj-gianni-social-templates.html` | `docs/images/generated/dj-gianni-afro-mixtape-cover.png` | 1400x1400 |
+| SoundCloud banner | `/tmp/gianni-banner-export.html` | `docs/output/images/dj-gianni/social/soundcloud-banner.png` | 2480x520 |
+| Mixtape covers | Gemini AI (`docs/output/images/dj-gianni/PROMPTS.md`) | `docs/output/images/dj-gianni/mixtape/*.png` | 1400x1400 |
 
 ---
 

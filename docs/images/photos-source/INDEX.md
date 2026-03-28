@@ -223,7 +223,7 @@ _Empty — no source photos yet_
 | 1 | `dj/milo/dj-milo-1.jpg` | 2/5 | Full setup shot — Milo behind Pioneer DDJ + laptop, home setting, flat lighting | | Equipment layout reference. Needs venue shots |
 
 ### DJ Gianni / Luca (0 photos)
-_No dedicated DJ photos in this directory. Check `docs/website/djs/dj-gianni/` for brand assets._
+_No dedicated DJ photos in this directory. Check `docs/djs/dj-gianni/` for brand assets._
 
 ---
 
@@ -275,7 +275,7 @@ Priority photos needed (consider AI generation with Gemini):
 
 1. **Guests actively using the Magic Mirror** — people posing, laughing, interacting with the touchscreen
 2. **DJ Gianni (Luca) performance shots** — at a real venue with atmosphere
-3. **DJ Milo performance shots** — at a real venue, not home
+3. **DJ Milø performance shots** — at a real venue, not home
 4. **Party Booth in action** — guests using it at a real party, candid moments
 5. **Photobooth Host upgrade** — a host person guiding guests at the mirror
 6. ~~**Party Booth "Geen Gedoe" USP**~~ — ✅ Have 2 photos (tropical print strip + gallery portal)

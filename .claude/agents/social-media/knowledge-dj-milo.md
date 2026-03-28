@@ -1,10 +1,10 @@
-# Milo
+# DJ Milø - Social Content Reference
 
-Profile and brand for social content. Full profile in `docs/website/djs/milo/profile.md`.
+Social content angles and platform strategy for DJ Milø. For full brand identity, visual mode, photo direction, and asset inventory, see the **dj-promoter agent** (`knowledge-dj-milo.md`).
 
 ---
 
-## Brand
+## Quick Reference
 
 | Attribute | Detail |
 |---|---|
@@ -12,27 +12,19 @@ Profile and brand for social content. Full profile in `docs/website/djs/milo/pro
 | Style | House, Techno, Deep |
 | Tagline | "Je voelt de bass, je vergeet de tijd" |
 | Color | Cyan #34d399 |
-| Logo mark | Diamond (M) — rotated square |
 | Platforms | Instagram, SoundCloud, TikTok |
 
-## Visual Mode
+## Content Angles
 
-- Cyan #34d399 accent, diamond motif
-- Deep, underwater, immersive aesthetic
-- Bebas Neue + Space Grotesk typography
-- Brand guide: `docs/website/djs/milo/brand-guide.html`
+- **Event energy** — BTS footage, crowd moments, dark/moody atmosphere shots
+- **Set clips** — Hypnotic transitions, bass drops, building energy (15-30s for Reels/TikTok)
+- **Studio sessions** — Mixing, track selection, set preparation
+- **Lifestyle** — Behind the scenes, moody aesthetic content
+- **Atmosphere** — Focus on the immersive experience, lighting, crowd in the zone
+- **Collaborations** — With PYB brand (photobooth + DJ combo content)
 
-## Social Bios
+## Platform Notes
 
-**TikTok:** DJ Milø | House · Techno · Deep | Je voelt de bass, je vergeet de tijd | info@picyourbooth.nl
-
-**SoundCloud:** DJ Milø - DJ uit Nederland. Bouwt sets van deep house naar hypnotiserende techno. Elke transitie naadloos, elk nummer strategisch. Boekingen: info@picyourbooth.nl
-
-**Instagram:** DJ Milø | House · Techno | Deep beats, strakke sets | Boekingen via link in bio
-
-## Profile Photo Direction
-
-- Moody, blue-tinted studio portrait
-- Headphones, dark clothing
-- Cool single light source with subtle cyan/blue glow
-- Dark background with depth, underwater/immersive feel
+- **Instagram:** Moody, cinematic Reels and posts. Use cyan visual mode.
+- **TikTok:** Raw energy, behind-the-decks clips, trending sounds.
+- **SoundCloud:** Audio mixes only. Cover art and banner managed by dj-promoter agent.

@@ -1,0 +1,2225 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DJ Gianni - TikTok Promotie Playbook</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* ============================================================
+   DJ GIANNI - TIKTOK PROMOTIE PLAYBOOK
+   Intern strategiedocument. DJ Gianni design system + TikTok energy.
+   Vertical phone-frame mockups, storyboard layouts, script cards.
+   ============================================================ */
+
+/* -- Design Tokens ----------------------------------------- */
+:root {
+  --void: #050508;
+  --surface: #0d0d12;
+  --card: #111116;
+  --card-elevated: #16161d;
+  --border: rgba(255,255,255,0.06);
+  --border-active: rgba(255,255,255,0.14);
+
+  --white: #ededf0;
+  --muted: rgba(237,237,240,0.45);
+  --subtle: rgba(237,237,240,0.08);
+
+  --gi: #f0654a;
+  --gi-light: #f4826c;
+  --gi-dim: rgba(240,101,74,0.10);
+  --gi-glow: rgba(240,101,74,0.20);
+
+  --tiktok: #fe2c55;
+  --tiktok-dim: rgba(254,44,85,0.10);
+  --tiktok-glow: rgba(254,44,85,0.15);
+
+  --cyan-tt: #25f4ee;
+  --cyan-tt-dim: rgba(37,244,238,0.10);
+
+  --caribbean: #f5b731;
+  --caribbean-dim: rgba(245,183,49,0.10);
+
+  --urban: #c084fc;
+  --urban-dim: rgba(192,132,252,0.10);
+
+  --green: #34d399;
+  --green-dim: rgba(52,211,153,0.10);
+
+  --gold: #f59e42;
+  --gold-dim: rgba(245,158,66,0.10);
+
+  --font-display: 'Bebas Neue', Impact, sans-serif;
+  --font-body: 'Space Grotesk', system-ui, sans-serif;
+
+  --ease: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-bounce: cubic-bezier(0.34, 1.56, 0.64, 1);
+
+  --r-sm: 6px;
+  --r-md: 10px;
+  --r-lg: 16px;
+  --r-xl: 24px;
+  --r-pill: 999px;
+  --r-phone: 32px;
+}
+
+/* -- Reset ------------------------------------------------- */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html {
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-body);
+  background: var(--void);
+  color: var(--white);
+  font-size: 15px;
+  line-height: 1.7;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* -- Layout ------------------------------------------------ */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* -- Navigation -------------------------------------------- */
+.nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(5,5,8,0.92);
+  backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--border);
+  padding: 14px 24px;
+}
+
+.nav-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.nav-brand {
+  font-family: var(--font-display);
+  font-size: 20px;
+  letter-spacing: 0.04em;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.nav-brand .gi { color: var(--gi); }
+.nav-brand .sep { color: var(--muted); font-size: 14px; }
+.nav-brand .tt { color: var(--tiktok); }
+
+.nav-links {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+  list-style: none;
+}
+
+.nav-links a {
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--muted);
+  text-decoration: none;
+  padding: 6px 12px;
+  border-radius: var(--r-pill);
+  transition: all 0.2s var(--ease);
+}
+
+.nav-links a:hover {
+  color: var(--white);
+  background: var(--subtle);
+}
+
+/* -- Hero -------------------------------------------------- */
+.hero {
+  text-align: center;
+  padding: 80px 24px 60px;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse at 30% 80%, var(--tiktok-glow) 0%, transparent 50%),
+    radial-gradient(ellipse at 70% 80%, rgba(37,244,238,0.08) 0%, transparent 50%);
+  pointer-events: none;
+}
+
+.hero-label {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--tiktok);
+  margin-bottom: 16px;
+  position: relative;
+}
+
+.hero-title {
+  font-family: var(--font-display);
+  font-size: clamp(48px, 8vw, 96px);
+  letter-spacing: 0.04em;
+  line-height: 0.95;
+  color: var(--white);
+  position: relative;
+}
+
+.hero-title .tiktok { color: var(--tiktok); }
+.hero-title .cyan { color: var(--cyan-tt); }
+
+.hero-sub {
+  font-size: 17px;
+  color: var(--muted);
+  margin-top: 20px;
+  max-width: 640px;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+  font-style: italic;
+}
+
+/* -- Section ------------------------------------------------ */
+.section {
+  padding: 72px 0;
+  border-top: 1px solid var(--border);
+}
+
+.section-label {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--tiktok);
+  margin-bottom: 12px;
+}
+
+.section-title {
+  font-family: var(--font-display);
+  font-size: clamp(32px, 5vw, 52px);
+  letter-spacing: 0.04em;
+  line-height: 1;
+  margin-bottom: 16px;
+}
+
+.section-intro {
+  font-size: 15px;
+  color: var(--muted);
+  max-width: 700px;
+  margin-bottom: 48px;
+  line-height: 1.7;
+}
+
+/* -- Phone Frame (9:16 TikTok mockup) ---------------------- */
+.phone-frame {
+  width: 240px;
+  aspect-ratio: 9/16;
+  border-radius: var(--r-phone);
+  border: 2px solid var(--border-active);
+  background: var(--surface);
+  position: relative;
+  overflow: hidden;
+  flex-shrink: 0;
+  box-shadow:
+    0 0 0 1px rgba(0,0,0,0.5),
+    0 20px 60px rgba(0,0,0,0.4),
+    inset 0 1px 0 rgba(255,255,255,0.05);
+}
+
+.phone-notch {
+  position: absolute;
+  top: 8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 24px;
+  background: var(--void);
+  border-radius: 0 0 14px 14px;
+  z-index: 10;
+}
+
+.phone-screen {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  padding: 40px 16px 16px;
+}
+
+.phone-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.phone-bg.mixing {
+  background:
+    linear-gradient(180deg, rgba(5,5,8,0.3) 0%, rgba(5,5,8,0.7) 60%, rgba(5,5,8,0.95) 100%),
+    linear-gradient(135deg, var(--gi-glow) 0%, transparent 50%);
+}
+
+.phone-bg.teaser {
+  background:
+    linear-gradient(180deg, var(--void) 0%, rgba(254,44,85,0.08) 50%, var(--void) 100%);
+}
+
+.phone-bg.quiz {
+  background:
+    linear-gradient(180deg, rgba(5,5,8,0.2) 0%, rgba(5,5,8,0.85) 100%),
+    linear-gradient(135deg, rgba(37,244,238,0.12) 0%, transparent 50%);
+}
+
+.phone-bg.bts {
+  background:
+    linear-gradient(180deg, rgba(5,5,8,0.2) 0%, rgba(5,5,8,0.85) 100%),
+    linear-gradient(135deg, var(--urban-dim) 0%, transparent 50%);
+}
+
+.phone-bg.tracklist {
+  background:
+    linear-gradient(180deg, var(--void) 20%, rgba(240,101,74,0.06) 100%);
+}
+
+.phone-content {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: space-between;
+}
+
+/* Phone screen text elements */
+.phone-hook {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--white);
+  text-shadow: 0 2px 8px rgba(0,0,0,0.8);
+  line-height: 1.3;
+  padding: 4px 0;
+}
+
+.phone-center {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.phone-title-big {
+  font-family: var(--font-display);
+  font-size: 28px;
+  letter-spacing: 0.04em;
+  color: var(--white);
+  text-shadow: 0 2px 12px rgba(0,0,0,0.8);
+  text-align: center;
+}
+
+.phone-subtitle {
+  font-size: 11px;
+  color: var(--muted);
+  text-align: center;
+  text-shadow: 0 1px 4px rgba(0,0,0,0.8);
+}
+
+.phone-bottom {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.phone-username {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--white);
+  text-shadow: 0 1px 4px rgba(0,0,0,0.6);
+}
+
+.phone-caption {
+  font-size: 10px;
+  color: rgba(255,255,255,0.8);
+  line-height: 1.4;
+  text-shadow: 0 1px 4px rgba(0,0,0,0.6);
+}
+
+.phone-music {
+  font-size: 9px;
+  color: rgba(255,255,255,0.5);
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.phone-sidebar {
+  position: absolute;
+  right: 10px;
+  bottom: 80px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  align-items: center;
+  z-index: 5;
+}
+
+.phone-sidebar-icon {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.12);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  color: var(--white);
+}
+
+.phone-sidebar-count {
+  font-size: 8px;
+  color: var(--white);
+  text-align: center;
+  margin-top: -8px;
+}
+
+/* EQ visualizer in phone */
+.phone-eq {
+  display: flex;
+  gap: 2px;
+  align-items: flex-end;
+  height: 24px;
+  justify-content: center;
+}
+
+.phone-eq span {
+  width: 3px;
+  border-radius: 2px;
+  background: var(--gi);
+  animation: phone-eq-pulse 0.8s ease-in-out infinite alternate;
+}
+
+.phone-eq span:nth-child(1) { height: 30%; animation-delay: 0s; }
+.phone-eq span:nth-child(2) { height: 60%; animation-delay: 0.1s; }
+.phone-eq span:nth-child(3) { height: 100%; animation-delay: 0.2s; }
+.phone-eq span:nth-child(4) { height: 45%; animation-delay: 0.3s; }
+.phone-eq span:nth-child(5) { height: 80%; animation-delay: 0.4s; }
+.phone-eq span:nth-child(6) { height: 35%; animation-delay: 0.5s; }
+.phone-eq span:nth-child(7) { height: 70%; animation-delay: 0.6s; }
+
+@keyframes phone-eq-pulse {
+  0% { transform: scaleY(1); }
+  100% { transform: scaleY(0.3); }
+}
+
+/* -- Storyboard Card --------------------------------------- */
+.storyboard {
+  display: grid;
+  grid-template-columns: 240px 1fr;
+  gap: 40px;
+  margin: 48px 0;
+  padding: 40px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--r-xl);
+  align-items: start;
+  position: relative;
+  overflow: hidden;
+}
+
+.storyboard::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+}
+
+.storyboard.day-teaser::before { background: linear-gradient(90deg, var(--tiktok), var(--cyan-tt)); }
+.storyboard.day-release::before { background: var(--gi); }
+.storyboard.day-transition::before { background: var(--cyan-tt); }
+.storyboard.day-quiz::before { background: var(--gold); }
+.storyboard.day-tracklist::before { background: var(--gi); }
+.storyboard.day-bts::before { background: var(--urban); }
+.storyboard.day-fav::before { background: var(--caribbean); }
+
+.story-details {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.story-header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.story-day-badge {
+  width: 56px;
+  height: 56px;
+  border-radius: var(--r-lg);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.story-day-badge .day-label {
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  opacity: 0.7;
+}
+
+.story-day-badge .day-num {
+  font-family: var(--font-display);
+  font-size: 24px;
+  letter-spacing: 0.04em;
+  line-height: 1;
+}
+
+.storyboard.day-teaser .story-day-badge { background: var(--tiktok-dim); color: var(--tiktok); }
+.storyboard.day-release .story-day-badge { background: var(--gi-dim); color: var(--gi); }
+.storyboard.day-transition .story-day-badge { background: var(--cyan-tt-dim); color: var(--cyan-tt); }
+.storyboard.day-quiz .story-day-badge { background: var(--gold-dim); color: var(--gold); }
+.storyboard.day-tracklist .story-day-badge { background: var(--gi-dim); color: var(--gi); }
+.storyboard.day-bts .story-day-badge { background: var(--urban-dim); color: var(--urban); }
+.storyboard.day-fav .story-day-badge { background: var(--caribbean-dim); color: var(--caribbean); }
+
+.story-title-group h3 {
+  font-family: var(--font-display);
+  font-size: 28px;
+  letter-spacing: 0.04em;
+  color: var(--white);
+}
+
+.story-title-group .story-type {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-top: 2px;
+}
+
+/* Script block */
+.script-block {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--r-lg);
+  overflow: hidden;
+}
+
+.script-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 16px;
+  background: var(--subtle);
+  border-bottom: 1px solid var(--border);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.script-body {
+  padding: 16px;
+}
+
+.script-line {
+  display: grid;
+  grid-template-columns: 56px 1fr;
+  gap: 12px;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--border);
+  align-items: start;
+}
+
+.script-line:last-child {
+  border-bottom: none;
+}
+
+.script-time {
+  font-family: var(--font-display);
+  font-size: 16px;
+  color: var(--gi);
+  letter-spacing: 0.04em;
+  padding-top: 2px;
+}
+
+.script-action {
+  font-size: 13px;
+  color: var(--white);
+  line-height: 1.6;
+}
+
+.script-action .visual {
+  color: var(--cyan-tt);
+  font-weight: 500;
+}
+
+.script-action .audio {
+  color: var(--gi);
+  font-weight: 500;
+}
+
+.script-action .text-overlay {
+  color: var(--gold);
+  font-weight: 500;
+}
+
+.script-action .tip {
+  display: block;
+  font-size: 12px;
+  color: var(--muted);
+  margin-top: 4px;
+  font-style: italic;
+}
+
+/* Caption template */
+.caption-block {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--r-lg);
+  overflow: hidden;
+}
+
+.caption-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 16px;
+  background: var(--subtle);
+  border-bottom: 1px solid var(--border);
+}
+
+.caption-header-title {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.caption-header-platform {
+  font-size: 10px;
+  font-weight: 600;
+  padding: 3px 10px;
+  border-radius: var(--r-pill);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.caption-header-platform.tiktok {
+  background: var(--tiktok-dim);
+  color: var(--tiktok);
+}
+
+.caption-header-platform.instagram {
+  background: linear-gradient(135deg, rgba(131,58,180,0.15), rgba(253,29,29,0.15));
+  color: #e1306c;
+}
+
+.caption-body {
+  padding: 16px;
+  font-size: 13px;
+  color: var(--white);
+  line-height: 1.7;
+  white-space: pre-wrap;
+}
+
+.caption-body em {
+  color: var(--gi);
+  font-style: normal;
+  font-weight: 500;
+}
+
+.caption-body .hashtags {
+  color: var(--cyan-tt);
+  font-size: 12px;
+}
+
+/* -- Specs & Meta ------------------------------------------ */
+.spec-row {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin: 16px 0;
+}
+
+.spec-pill {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 5px 14px;
+  border-radius: var(--r-pill);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.spec-pill.duration { background: var(--gi-dim); color: var(--gi); }
+.spec-pill.format { background: var(--cyan-tt-dim); color: var(--cyan-tt); }
+.spec-pill.goal { background: var(--gold-dim); color: var(--gold); }
+.spec-pill.camera { background: var(--urban-dim); color: var(--urban); }
+
+/* -- Info Cards -------------------------------------------- */
+.info-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 20px;
+  margin: 32px 0;
+}
+
+.info-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--r-lg);
+  padding: 28px;
+  transition: border-color 0.3s var(--ease);
+}
+
+.info-card:hover {
+  border-color: var(--border-active);
+}
+
+.info-card-title {
+  font-family: var(--font-display);
+  font-size: 20px;
+  letter-spacing: 0.04em;
+  color: var(--tiktok);
+  margin-bottom: 10px;
+}
+
+.info-card p {
+  font-size: 13px;
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+/* -- Callout ----------------------------------------------- */
+.callout {
+  background: var(--gi-dim);
+  border-left: 3px solid var(--gi);
+  border-radius: 0 var(--r-md) var(--r-md) 0;
+  padding: 20px 24px;
+  margin: 24px 0;
+}
+
+.callout-title {
+  font-weight: 600;
+  color: var(--gi);
+  font-size: 14px;
+  margin-bottom: 6px;
+}
+
+.callout p {
+  font-size: 14px;
+  color: var(--white);
+  line-height: 1.7;
+}
+
+.callout.tiktok {
+  background: var(--tiktok-dim);
+  border-left-color: var(--tiktok);
+}
+
+.callout.tiktok .callout-title { color: var(--tiktok); }
+
+.callout.gold {
+  background: var(--gold-dim);
+  border-left-color: var(--gold);
+}
+
+.callout.gold .callout-title { color: var(--gold); }
+
+.callout.green {
+  background: var(--green-dim);
+  border-left-color: var(--green);
+}
+
+.callout.green .callout-title { color: var(--green); }
+
+/* -- Tables ------------------------------------------------ */
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 24px 0;
+  font-size: 14px;
+}
+
+.data-table th {
+  text-align: left;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--border);
+}
+
+.data-table td {
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--border);
+  color: var(--white);
+}
+
+.data-table tr:last-child td { border-bottom: none; }
+.data-table .highlight { color: var(--gi); font-weight: 600; }
+
+/* -- Genre Example Tabs ------------------------------------ */
+.genre-tabs {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+
+.genre-tab {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 6px 16px;
+  border-radius: var(--r-pill);
+  border: 1px solid var(--border);
+  cursor: default;
+}
+
+.genre-tab.afro { background: var(--gi-dim); color: var(--gi); border-color: var(--gi); }
+.genre-tab.caribbean { background: var(--caribbean-dim); color: var(--caribbean); border-color: transparent; }
+.genre-tab.urban { background: var(--urban-dim); color: var(--urban); border-color: transparent; }
+
+/* -- Divider ----------------------------------------------- */
+.divider {
+  height: 1px;
+  background: var(--border);
+  margin: 48px 0;
+}
+
+/* -- Hashtag Cloud ----------------------------------------- */
+.hashtag-cloud {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 16px 0;
+}
+
+.hashtag {
+  font-size: 12px;
+  font-weight: 500;
+  padding: 4px 12px;
+  border-radius: var(--r-pill);
+  background: var(--subtle);
+  color: var(--cyan-tt);
+}
+
+.hashtag.primary {
+  background: var(--tiktok-dim);
+  color: var(--tiktok);
+  font-weight: 600;
+}
+
+/* -- Checklist --------------------------------------------- */
+.quick-checklist {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 12px;
+  margin: 24px 0;
+}
+
+.quick-checklist li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 16px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--r-md);
+  font-size: 13px;
+}
+
+.quick-checklist .check-icon {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: 2px solid var(--border-active);
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 10px;
+  color: transparent;
+}
+
+/* -- Footer ------------------------------------------------ */
+.footer {
+  text-align: center;
+  padding: 60px 24px;
+  border-top: 1px solid var(--border);
+}
+
+.footer p {
+  font-size: 13px;
+  color: var(--muted);
+}
+
+.footer .brand {
+  font-family: var(--font-display);
+  font-size: 16px;
+  letter-spacing: 0.04em;
+  color: var(--gi);
+}
+
+/* -- Responsive -------------------------------------------- */
+@media (max-width: 768px) {
+  .hero { padding: 56px 16px 40px; }
+  .section { padding: 48px 0; }
+  .storyboard {
+    grid-template-columns: 1fr;
+    padding: 24px;
+  }
+  .storyboard .phone-frame {
+    margin: 0 auto;
+  }
+  .nav-links { display: none; }
+  .script-line { grid-template-columns: 48px 1fr; }
+}
+</style>
+</head>
+<body>
+
+<!-- Navigation -->
+<nav class="nav">
+  <div class="nav-inner">
+    <div class="nav-brand">
+      <span class="gi">DJ GIANNI</span>
+      <span class="sep">/</span>
+      <span class="tt">TIKTOK</span>
+    </div>
+    <ul class="nav-links">
+      <li><a href="#strategie">Strategie</a></li>
+      <li><a href="#cyclus">7-Daagse Cyclus</a></li>
+      <li><a href="#scripts">Scripts</a></li>
+      <li><a href="#hashtags">Hashtags</a></li>
+      <li><a href="#reels">Instagram</a></li>
+      <li><a href="#remotion">Remotion</a></li>
+      <li><a href="#filming">Filmen</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- Hero -->
+<header class="hero">
+  <div class="hero-label">Promotie Playbook</div>
+  <h1 class="hero-title"><span class="tiktok">TIKTOK</span> PROMOTIE</h1>
+  <p class="hero-sub">Van SoundCloud mixtape naar TikTok views naar boekingen. Clip-voor-clip scripts, storyboards en caption templates. Herhaalbaar systeem voor elke release.</p>
+</header>
+
+<div class="container">
+
+  <!-- ============================================================ -->
+  <!-- STRATEGIE -->
+  <!-- ============================================================ -->
+  <section class="section" id="strategie">
+    <div class="section-label">Het Systeem</div>
+    <h2 class="section-title">ELKE MIXTAPE = 7 CLIPS</h2>
+    <div class="section-intro">
+      Elke SoundCloud mixtape release krijgt een promotiecyclus van 7 dagen op TikTok. 7 clips die elk een ander aspect van de set belichten. Film alles tijdens het opnemen van de set - dat is de meest authentieke content.
+    </div>
+
+    <div class="info-grid">
+      <div class="info-card">
+        <div class="info-card-title">WAAROM 7 DAGEN?</div>
+        <p>TikTok's algoritme beloont consistente posting. 7 clips in 7 dagen geeft het algoritme genoeg data om je te pushen. Na dag 3-4 weet TikTok wie je content wil zien.</p>
+      </div>
+      <div class="info-card">
+        <div class="info-card-title">FILM TIJDENS OPNAME</div>
+        <p>Zet je telefoon op statief achter of naast je controller. Film de hele sessie. Knip later de beste momenten eruit. 2 uur opname = 7+ clips materiaal.</p>
+      </div>
+      <div class="info-card">
+        <div class="info-card-title">ALTIJD LINK NAAR SET</div>
+        <p>Elke clip is een advertentie voor de volledige set op SoundCloud. "Link in bio" of "Volledige set op SoundCloud" in elke caption. Nooit een clip zonder doorverwijzing.</p>
+      </div>
+      <div class="info-card">
+        <div class="info-card-title">EDIT MET REMOTION</div>
+        <p>React-based video templates. Definieer elke clip als een herbruikbare component met DJ Gianni's exacte design tokens (coral, Bebas Neue, EQ-bar). Zelfde data, nieuw genre = nieuwe clip. Exporteer op 1080x1920 (9:16). <code>npx create-video@latest --tiktok</code></p>
+      </div>
+    </div>
+
+    <div class="callout tiktok">
+      <div class="callout-title">Gouden Regel: Hook in 1 Seconde</div>
+      <p>TikTok gebruikers scrollen in 0,3 seconden langs je video. Je eerste frame moet actie zijn: handen op de controller, een beat drop, tekst op het scherm. <strong>Nooit</strong> beginnen met "Hey guys" of een stil beeld. De muziek IS de hook.</p>
+    </div>
+  </section>
+
+  <!-- ============================================================ -->
+  <!-- 7-DAAGSE CYCLUS MET STORYBOARDS -->
+  <!-- ============================================================ -->
+  <section class="section" id="cyclus">
+    <div class="section-label">De Clips</div>
+    <h2 class="section-title">7-DAAGSE PROMOTIECYCLUS</h2>
+    <div class="section-intro">
+      Hieronder elk clip type met een visueel storyboard, seconde-voor-seconde script, caption template en technische specs. Gebruik dit als exact draaiboek.
+    </div>
+
+    <!-- ===================== DAG -1: TEASER ===================== -->
+    <div class="storyboard day-teaser">
+      <div class="phone-frame">
+        <div class="phone-notch"></div>
+        <div class="phone-screen">
+          <div class="phone-bg teaser"></div>
+          <div class="phone-content">
+            <div class="phone-hook" style="color: var(--tiktok);">Morgen...</div>
+            <div class="phone-center">
+              <div class="phone-title-big" style="font-size: 22px;">DJ GIANNI</div>
+              <div style="font-family: var(--font-display); font-size: 14px; color: var(--gi); letter-spacing: 0.08em; text-shadow: 0 2px 8px rgba(0,0,0,0.8);">CARIBBEAN VIBES VOL. 1</div>
+              <div class="phone-eq">
+                <span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+              </div>
+              <div style="font-size: 10px; color: var(--muted); font-style: italic; text-shadow: 0 1px 4px rgba(0,0,0,0.8);">Pure Vibes</div>
+            </div>
+            <div class="phone-bottom">
+              <div class="phone-username">@djgianni</div>
+              <div class="phone-caption">Morgen dropt er iets... 🌴</div>
+            </div>
+          </div>
+          <div class="phone-sidebar">
+            <div class="phone-sidebar-icon">+</div>
+            <div class="phone-sidebar-icon">&#9825;</div>
+            <div class="phone-sidebar-count">--</div>
+            <div class="phone-sidebar-icon">&#128172;</div>
+            <div class="phone-sidebar-icon">&#10148;</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="story-details">
+        <div class="story-header">
+          <div class="story-day-badge">
+            <span class="day-label">Dag</span>
+            <span class="day-num">-1</span>
+          </div>
+          <div class="story-title-group">
+            <h3>TEASER</h3>
+            <div class="story-type">Hype opbouwen voor morgen</div>
+          </div>
+        </div>
+
+        <div class="spec-row">
+          <span class="spec-pill duration">10-15 sec</span>
+          <span class="spec-pill format">9:16 verticaal</span>
+          <span class="spec-pill goal">Curiosity</span>
+          <span class="spec-pill camera">Statisch / cover art</span>
+        </div>
+
+        <div class="script-block">
+          <div class="script-header">Seconde-voor-seconde script</div>
+          <div class="script-body">
+            <div class="script-line">
+              <div class="script-time">0:00</div>
+              <div class="script-action">
+                <span class="text-overlay">Tekst op scherm:</span> "Morgen..."
+                <span class="tip">Groot, wit, midden in beeld. Fade-in of glitch effect.</span>
+              </div>
+            </div>
+            <div class="script-line">
+              <div class="script-time">0:02</div>
+              <div class="script-action">
+                <span class="visual">Cover art</span> van de nieuwe mix verschijnt met een subtle zoom-in.
+                <span class="audio">Audio:</span> 3-sec snippet van de sterkste drop uit de set, laag volume, opbouwend.
+              </div>
+            </div>
+            <div class="script-line">
+              <div class="script-time">0:06</div>
+              <div class="script-action">
+                <span class="text-overlay">Tekst:</span> "Nieuwe [genre] mix" + datum
+                <span class="tip">Genre tags als pill-shapes, net als op de cover art.</span>
+              </div>
+            </div>
+            <div class="script-line">
+              <div class="script-time">0:10</div>
+              <div class="script-action">
+                <span class="visual">Cut to black.</span> EQ-bar animatie met "DJ GIANNI" tekst.
+                <span class="text-overlay">Tekst:</span> "Morgen op SoundCloud"
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="caption-block">
+          <div class="caption-header">
+            <span class="caption-header-title">Caption</span>
+            <span class="caption-header-platform tiktok">TikTok</span>
+          </div>
+          <div class="caption-body">Morgen dropt er iets... 🌴
+
+Nieuwe Caribbean mix. Pure Vibes.
+Klaar voor de zomer?
+
+<span class="hashtags">#djgianni #purevibes #caribbean #newmix #comingsoon #dancehall #soca</span></div>
+        </div>
+
+        <div class="caption-block" style="margin-top: 12px;">
+          <div class="caption-header">
+            <span class="caption-header-title">Caption (alternatief voor Nederlands Urban)</span>
+            <span class="caption-header-platform tiktok">TikTok</span>
+          </div>
+          <div class="caption-body">Morgen drop ik mijn nieuwe NL Urban mix 🇳🇱
+
+Frenna, Josylvio, Ronnie Flex en meer.
+Are you ready?
+
+<span class="hashtags">#djgianni #purevibes #nlurban #dutchhiphop #nederlandsemuziek #newmix</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===================== DAG 0: RELEASE ===================== -->
+    <div class="storyboard day-release">
+      <div class="phone-frame">
+        <div class="phone-notch"></div>
+        <div class="phone-screen">
+          <div class="phone-bg mixing"></div>
+          <div class="phone-content">
+            <div class="phone-hook">Nieuwe mix is LIVE 🔥</div>
+            <div class="phone-center">
+              <div style="font-size: 10px; color: var(--muted); text-shadow: 0 1px 4px rgba(0,0,0,0.8); letter-spacing: 0.1em; text-transform: uppercase;">Behind the decks</div>
+              <div style="width: 100%; height: 1px; background: rgba(255,255,255,0.1); margin: 8px 0;"></div>
+              <div style="font-size: 11px; color: rgba(255,255,255,0.6); text-align: center; text-shadow: 0 1px 4px rgba(0,0,0,0.8);">Controller + handen<br>in actie op de drop</div>
+              <div style="width: 100%; height: 1px; background: rgba(255,255,255,0.1); margin: 8px 0;"></div>
+              <div class="phone-eq">
+                <span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+              </div>
+            </div>
+            <div class="phone-bottom">
+              <div class="phone-username">@djgianni</div>
+              <div class="phone-caption">Caribbean Vibes Vol. 1 is live! Link in bio</div>
+            </div>
+          </div>
+          <div class="phone-sidebar">
+            <div class="phone-sidebar-icon">+</div>
+            <div class="phone-sidebar-icon">&#9825;</div>
+            <div class="phone-sidebar-count">1.2K</div>
+            <div class="phone-sidebar-icon">&#128172;</div>
+            <div class="phone-sidebar-icon">&#10148;</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="story-details">
+        <div class="story-header">
+          <div class="story-day-badge">
+            <span class="day-label">Dag</span>
+            <span class="day-num">0</span>
+          </div>
+          <div class="story-title-group">
+            <h3>RELEASE CLIP</h3>
+            <div class="story-type">De beste drop uit de set - dit is de hoofdclip</div>
+          </div>
+        </div>
+
+        <div class="spec-row">
+          <span class="spec-pill duration">15-30 sec</span>
+          <span class="spec-pill format">9:16 verticaal</span>
+          <span class="spec-pill goal">Streams driven</span>
+          <span class="spec-pill camera">Behind the decks</span>
+        </div>
+
+        <div class="script-block">
+          <div class="script-header">Seconde-voor-seconde script</div>
+          <div class="script-body">
+            <div class="script-line">
+              <div class="script-time">0:00</div>
+              <div class="script-action">
+                <span class="visual">Behind the decks shot:</span> Handen op de controller/mixer, midden in een track.
+                <span class="text-overlay">Tekst bovenaan:</span> "Nieuwe [genre] mix is LIVE"
+                <span class="tip">Begin IN de actie. Geen opstart, geen wachten. Direct energie.</span>
+              </div>
+            </div>
+            <div class="script-line">
+              <div class="script-time">0:03</div>
+              <div class="script-action">
+                <span class="audio">Build-up</span> van de track is hoorbaar. Spanning bouwt op.
+                <span class="visual">Close-up</span> van de handen die aan de EQ draaien of een effect triggeren.
+              </div>
+            </div>
+            <div class="script-line">
+              <div class="script-time">0:08</div>
+              <div class="script-action">
+                <span class="audio">DE DROP.</span> Hardste moment van de set.
+                <span class="visual">Cut naar wider shot</span> of speed ramp (0.5x slow-mo op het drop-moment, dan 1.5x speed).
+                <span class="tip">Dit is HET moment. De drop moet voelbaar zijn. Bass boost in de edit als nodig.</span>
+              </div>
+            </div>
+            <div class="script-line">
+              <div class="script-time">0:15</div>
+              <div class="script-action">
+                <span class="visual">Laat de vibe 5-10 sec doorlopen.</span> Geniet van het moment. Head nodding, vibing.
+                <span class="text-overlay">Tekst onderaan:</span> "Volledige set op SoundCloud - link in bio"
+              </div>
+            </div>
+            <div class="script-line">
+              <div class="script-time">0:25</div>
+              <div class="script-action">
+                <span class="visual">Fade out of hard cut</span> naar cover art (2 sec).
+                <span class="text-overlay">Tekst:</span> Titel van de mix + "Link in bio &#10148;"
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="caption-block">
+          <div class="caption-header">
+            <span class="caption-header-title">Caption — Afro Beats voorbeeld</span>
+            <span class="caption-header-platform tiktok">TikTok</span>
+          </div>
+          <div class="caption-body">Afro Beats Vol. 2 is LIVE 🔥
+
+Burna Boy, Tyla, Ayra Starr en meer.
+40 minuten pure Afro vibes.
+
+Volledige set? Link in bio ➡️
+
+<span class="hashtags">#djgianni #purevibes #afrobeats #afrobeatsmix #djmix #djset #burnaboy #tyla #newmix</span></div>
+        </div>
+
+        <div class="caption-block" style="margin-top: 12px;">
+          <div class="caption-header">
+            <span class="caption-header-title">Caption — Caribbean voorbeeld</span>
+            <span class="caption-header-platform tiktok">TikTok</span>
+          </div>
+          <div class="caption-body">Caribbean Vibes Vol. 1 is LIVE 🌴
+
+Van Dancehall naar Soca naar Reggaeton.
+40 minuten zomer in je oren.
+
+Link in bio voor de volledige set 🎧
+
+<span class="hashtags">#djgianni #purevibes #caribbean #dancehall #soca #reggaeton #summermix #djmix</span></div>
+        </div>
+
+        <div class="caption-block" style="margin-top: 12px;">
+          <div class="caption-header">
+            <span class="caption-header-title">Caption — Nederlands Urban voorbeeld</span>
+            <span class="caption-header-platform tiktok">TikTok</span>
+          </div>
+          <div class="caption-body">NL Urban Vol. 1 is LIVE 🇳🇱🔥
+
+Frenna, Josylvio, Ronnie Flex, Sevn Alias.
+30 minuten Nederlandse vibes.
+
+Luister de hele set - link in bio
+
+<span class="hashtags">#djgianni #purevibes #nlurban #dutchhiphop #frenna #josylvio #ronnieflex #nederlandsemuziek</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===================== DAG 1: TRANSITION ===================== -->
+    <div class="storyboard day-transition">
+      <div class="phone-frame">
+        <div class="phone-notch"></div>
+        <div class="phone-screen">
+          <div class="phone-bg mixing"></div>
+          <div class="phone-content">
+            <div class="phone-hook" style="color: var(--cyan-tt);">Deze transition tho... 👀</div>
+            <div class="phone-center">
+              <div style="font-size: 10px; color: var(--muted); text-shadow: 0 1px 4px rgba(0,0,0,0.8); letter-spacing: 0.1em; text-transform: uppercase;">Close-up handen op mixer</div>
+              <div style="width: 80px; height: 80px; border-radius: 50%; border: 2px solid var(--cyan-tt); display: flex; align-items: center; justify-content: center; margin: 12px 0;">
+                <div style="font-size: 24px;">🎛️</div>
+              </div>
+              <div style="font-size: 11px; color: rgba(255,255,255,0.5); text-align: center; text-shadow: 0 1px 4px rgba(0,0,0,0.8);">Track A &#8594; Track B<br>naadloze overgang</div>
+            </div>
+            <div class="phone-bottom">
+              <div class="phone-username">@djgianni</div>
+              <div class="phone-caption">Smooth of niet? 🎧 #djtransition</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="story-details">
+        <div class="story-header">
+          <div class="story-day-badge">
+            <span class="day-label">Dag</span>
+            <span class="day-num">1</span>
+          </div>
+          <div class="story-title-group">
+            <h3>TRANSITION SHOWCASE</h3>
+            <div class="story-type">Laat je DJ-skill zien - mooiste overgang uit de set</div>
+          </div>
+        </div>
+
+        <div class="spec-row">
+          <span class="spec-pill duration">15-20 sec</span>
+          <span class="spec-pill format">9:16 verticaal</span>
+          <span class="spec-pill goal">Skill showcase</span>
+          <span class="spec-pill camera">Close-up handen</span>
+        </div>
+
+        <div class="script-block">
+          <div class="script-header">Seconde-voor-seconde script</div>
+          <div class="script-body">
+            <div class="script-line">
+              <div class="script-time">0:00</div>
+              <div class="script-action">
+                <span class="text-overlay">Tekst:</span> "Deze transition ging fout... of toch niet? 👀"
+                <span class="visual">Close-up:</span> Handen op de mixer, einde van track A speelt.
+                <span class="tip">De text hook creert spanning. Kijker wil weten: ging het fout?</span>
+              </div>
+            </div>
+            <div class="script-line">
+              <div class="script-time">0:04</div>
+              <div class="script-action">
+                <span class="audio">Track A faded uit,</span> track B begint in te komen. De transition begint.
+                <span class="visual">Extreme close-up</span> van de crossfader of EQ-knoppen.
+              </div>
+            </div>
+            <div class="script-line">
+              <div class="script-time">0:08</div>
+              <div class="script-action">
+                <span class="audio">Naadloze overgang</span> - tracks blenden perfect.
+                <span class="visual">Langzame pull-back</span> naar wider shot. Luca kijkt op, lacht subtiel.
+                <span class="tip">De "reveal" dat het perfect ging. Satisfying moment.</span>
+              </div>
+            </div>
+            <div class="script-line">
+              <div class="script-time">0:14</div>
+              <div class="script-action">
+                <span class="text-overlay">Tekst:</span> "Volledige set op SoundCloud"
+                <span class="visual">Cut naar cover art</span> of gewoon laten doorspelen met tekst overlay.
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="caption-block">
+          <div class="caption-header">
+            <span class="caption-header-title">Caption</span>
+            <span class="caption-header-platform tiktok">TikTok</span>
+          </div>
+          <div class="caption-body">Smooth transition of lucky timing? 🎛️
+
+Uit mijn nieuwe <em>[genre]</em> mix - volledige set op SoundCloud (link in bio)
+
+<span class="hashtags">#djgianni #djtransition #djskills #purevibes #<em>[genre]</em> #mixing #smoothtransition</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===================== DAG 2: RAAD HET NUMMER ===================== -->
+    <div class="storyboard day-quiz">
+      <div class="phone-frame">
+        <div class="phone-notch"></div>
+        <div class="phone-screen">
+          <div class="phone-bg quiz"></div>
+          <div class="phone-content">
+            <div class="phone-hook" style="color: var(--gold);">Welk nummer komt hierna? 🤔</div>
+            <div class="phone-center">
+              <div style="font-size: 32px; margin-bottom: 8px;">❓</div>
+              <div style="font-family: var(--font-display); font-size: 16px; color: var(--gold); letter-spacing: 0.08em; text-shadow: 0 2px 8px rgba(0,0,0,0.8);">RAAD HET NUMMER</div>
+              <div style="font-size: 10px; color: rgba(255,255,255,0.5); text-align: center; text-shadow: 0 1px 4px rgba(0,0,0,0.8); margin-top: 8px;">Audio stopt net voor de drop...<br>Comment je antwoord!</div>
+            </div>
+            <div class="phone-bottom">
+              <div class="phone-username">@djgianni</div>
+              <div class="phone-caption">Comment je antwoord! 👇</div>
+            </div>
+          </div>
+          <div class="phone-sidebar">
+            <div class="phone-sidebar-icon">+</div>
+            <div class="phone-sidebar-icon">&#9825;</div>
+            <div class="phone-sidebar-count">847</div>
+            <div class="phone-sidebar-icon">&#128172;</div>
+            <div class="phone-sidebar-count" style="margin-top: -8px; color: var(--gold);">312</div>
+            <div class="phone-sidebar-icon">&#10148;</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="story-details">
+        <div class="story-header">
+          <div class="story-day-badge">
+            <span class="day-label">Dag</span>
+            <span class="day-num">2</span>
+          </div>
+          <div class="story-title-group">
+            <h3>RAAD HET NUMMER</h3>
+            <div class="story-type">Engagement bom - de clip die het meeste comments krijgt</div>
+          </div>
+        </div>
+
+        <div class="spec-row">
+          <span class="spec-pill duration">10-15 sec</span>
+          <span class="spec-pill format">9:16 verticaal</span>
+          <span class="spec-pill goal">Comments driven</span>
+          <span class="spec-pill camera">Behind the decks</span>
+        </div>
+
+        <div class="script-block">
+          <div class="script-header">Seconde-voor-seconde script</div>
+          <div class="script-body">
+            <div class="script-line">
+              <div class="script-time">0:00</div>
+              <div class="script-action">
+                <span class="text-overlay">Tekst:</span> "Welk nummer komt hierna? 🤔"
+                <span class="visual">Behind the decks.</span> Track speelt, energy bouwt op.
+                <span class="tip">Kies een herkenbaar nummer als de VOLGENDE track - iets dat mensen kennen en willen raden.</span>
+              </div>
+            </div>
+            <div class="script-line">
+              <div class="script-time">0:05</div>
+              <div class="script-action">
+                <span class="audio">Track A bouwt op naar een transition moment.</span>
+                Je hand beweegt naar de crossfader of een effect.
+                <span class="visual">Spanning is voelbaar.</span>
+              </div>
+            </div>
+            <div class="script-line">
+              <div class="script-time">0:08</div>
+              <div class="script-action">
+                <span class="audio">AUDIO STOPT.</span> Precies voor de drop of de volgende track inkomt.
+                <span class="visual">Freeze frame of smash cut to black.</span>
+                <span class="text-overlay">Tekst:</span> "Comment je antwoord! 👇"
+                <span class="tip">Het "stoppen" is cruciaal. Het moet voelen als een cliffhanger.</span>
+              </div>
+            </div>
+            <div class="script-line">
+              <div class="script-time">0:12</div>
+              <div class="script-action">
+                <span class="text-overlay">Tekst:</span> "Het antwoord staat in mijn nieuwe mix - link in bio"
+                <span class="visual">Cover art</span> met serienaam.
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="caption-block">
+          <div class="caption-header">
+            <span class="caption-header-title">Caption</span>
+            <span class="caption-header-platform tiktok">TikTok</span>
+          </div>
+          <div class="caption-body">Welk nummer komt hierna? 🤔
+
+Comment je antwoord 👇
+Het antwoord staat in mijn nieuwe <em>[genre]</em> mix
+
+Luister de volledige set - link in bio 🎧
+
+<span class="hashtags">#djgianni #raaddenummer #<em>[genre]</em> #muziekquiz #djtransition #purevibes</span></div>
+        </div>
+
+        <div class="callout gold">
+          <div class="callout-title">Engagement Tip</div>
+          <p>Reageer op ELKE comment in het eerste uur. TikTok's algoritme telt replies als engagement. Geef hints ("bijna!", "denk warmer 🔥") in plaats van het antwoord. Hoe meer comments, hoe breder TikTok de clip pusht.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===================== DAG 3: TRACKLIST ===================== -->
+    <div class="storyboard day-tracklist">
+      <div class="phone-frame">
+        <div class="phone-notch"></div>
+        <div class="phone-screen">
+          <div class="phone-bg tracklist"></div>
+          <div class="phone-content">
+            <div class="phone-hook">Tracklist Reveal 📋</div>
+            <div class="phone-center" style="gap: 4px; align-items: flex-start; padding: 0 8px;">
+              <div style="font-size: 9px; color: var(--gi); text-transform: uppercase; letter-spacing: 0.1em; text-shadow: 0 1px 4px rgba(0,0,0,0.8); margin-bottom: 4px;">Caribbean Vibes Vol. 1</div>
+              <div style="font-size: 9px; color: rgba(255,255,255,0.7); text-shadow: 0 1px 4px rgba(0,0,0,0.8); line-height: 1.6;">
+                01. Sean Paul - Temperature<br>
+                02. Shaggy - Boombastic<br>
+                03. J Balvin - Mi Gente<br>
+                04. Daddy Yankee - Gasolina<br>
+                05. Machel Montano - ...<br>
+                <span style="color: var(--muted);">... scrollt verder ...</span>
+              </div>
+            </div>
+            <div class="phone-bottom">
+              <div class="phone-username">@djgianni</div>
+              <div class="phone-caption">Alle tracks in deze mix 🔥</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="story-details">
+        <div class="story-header">
+          <div class="story-day-badge">
+            <span class="day-label">Dag</span>
+            <span class="day-num">3</span>
+          </div>
+          <div class="story-title-group">
+            <h3>TRACKLIST REVEAL</h3>
+            <div class="story-type">Scroll door alle tracks - tag de artiesten</div>
+          </div>
+        </div>
+
+        <div class="spec-row">
+          <span class="spec-pill duration">20-30 sec</span>
+          <span class="spec-pill format">9:16 verticaal</span>
+          <span class="spec-pill goal">Saves & shares</span>
+          <span class="spec-pill camera">Screen recording / overlay</span>
+        </div>
+
+        <div class="script-block">
+          <div class="script-header">Seconde-voor-seconde script</div>
+          <div class="script-body">
+            <div class="script-line">
+              <div class="script-time">0:00</div>
+              <div class="script-action">
+                <span class="text-overlay">Tekst bovenaan:</span> "Alle tracks in mijn nieuwe [genre] mix"
+                <span class="audio">Trending sound of instrumentale versie van een track uit de set</span>
+                <span class="visual">Donkere achtergrond.</span> Cover art van de mix bovenaan.
+              </div>
+            </div>
+            <div class="script-line">
+              <div class="script-time">0:03</div>
+              <div class="script-action">
+                <span class="visual">Tracklist scrollt langzaam omhoog.</span> Elke track verschijnt als een regel:
+                <span class="tip">01. [Artiest] - [Track]. Gebruik de DJ Gianni stijl: coral nummering, witte tekst. Remotion scroll-animatie component of handmatig keyframe.</span>
+              </div>
+            </div>
+            <div class="script-line">
+              <div class="script-time">0:15</div>
+              <div class="script-action">
+                <span class="visual">Halverwege de lijst:</span> korte <span class="audio">audio switch</span> naar een ander fragment uit de set. Houdt de aandacht vast.
+              </div>
+            </div>
+            <div class="script-line">
+              <div class="script-time">0:25</div>
+              <div class="script-action">
+                <span class="visual">Laatste track verschijnt.</span>
+                <span class="text-overlay">Tekst:</span> "Save deze voor je volgende feest 🔖"
+                <span class="tip">De CTA "save" triggert het TikTok algoritme - saves wegen zwaarder dan likes.</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="caption-block">
+          <div class="caption-header">
+            <span class="caption-header-title">Caption</span>
+            <span class="caption-header-platform tiktok">TikTok</span>
+          </div>
+          <div class="caption-body">Alle tracks in mijn nieuwe <em>[genre]</em> mix 📋🔥
+
+Save deze voor je volgende feest 🔖
+Volledige mix op SoundCloud - link in bio
+
+Tag iemand die deze tracks nodig heeft 👇
+
+<span class="hashtags">#djgianni #tracklist #<em>[genre]</em> #partymix #purevibes #<em>[artiest1]</em> #<em>[artiest2]</em> #<em>[artiest3]</em></span></div>
+        </div>
+
+        <div class="callout green">
+          <div class="callout-title">Pro Tip: Tag de artiesten</div>
+          <p>Tag 3-5 artiesten uit je tracklist in de caption (@fraboreal, @josylvio etc). Als een van hen reageert of de clip liket, explodeert je bereik. Zelfs als ze niet reageren - hun fans zoeken op die tags.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===================== DAG 4: STUDIO BTS ===================== -->
+    <div class="storyboard day-bts">
+      <div class="phone-frame">
+        <div class="phone-notch"></div>
+        <div class="phone-screen">
+          <div class="phone-bg bts"></div>
+          <div class="phone-content">
+            <div class="phone-hook" style="color: var(--urban);">Hoe ik mijn mixes maak 🎧</div>
+            <div class="phone-center">
+              <div style="font-size: 10px; color: var(--muted); text-shadow: 0 1px 4px rgba(0,0,0,0.8); letter-spacing: 0.1em; text-transform: uppercase;">Behind the scenes</div>
+              <div style="display: flex; gap: 8px; margin: 12px 0;">
+                <div style="width: 40px; height: 40px; border-radius: var(--r-sm); background: rgba(255,255,255,0.06); display: flex; align-items: center; justify-content: center; font-size: 16px;">🎵</div>
+                <div style="width: 40px; height: 40px; border-radius: var(--r-sm); background: rgba(255,255,255,0.06); display: flex; align-items: center; justify-content: center; font-size: 16px;">➡️</div>
+                <div style="width: 40px; height: 40px; border-radius: var(--r-sm); background: rgba(255,255,255,0.06); display: flex; align-items: center; justify-content: center; font-size: 16px;">🎛️</div>
+                <div style="width: 40px; height: 40px; border-radius: var(--r-sm); background: rgba(255,255,255,0.06); display: flex; align-items: center; justify-content: center; font-size: 16px;">🔥</div>
+              </div>
+              <div style="font-size: 10px; color: rgba(255,255,255,0.5); text-align: center; text-shadow: 0 1px 4px rgba(0,0,0,0.8);">Tracks zoeken ➡️ Volgorde bepalen<br>➡️ Oefenen ➡️ Opnemen</div>
+            </div>
+            <div class="phone-bottom">
+              <div class="phone-username">@djgianni</div>
+              <div class="phone-caption">Het proces achter de mix 🎧</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="story-details">
+        <div class="story-header">
+          <div class="story-day-badge">
+            <span class="day-label">Dag</span>
+            <span class="day-num">4</span>
+          </div>
+          <div class="story-title-group">
+            <h3>STUDIO / BTS</h3>
+            <div class="story-type">Hoe de mix tot stand kwam - persoonlijk en authentiek</div>
+          </div>
+        </div>
+
+        <div class="spec-row">
+          <span class="spec-pill duration">30-60 sec</span>
+          <span class="spec-pill format">9:16 verticaal</span>
+          <span class="spec-pill goal">Connectie</span>
+          <span class="spec-pill camera">POV / selfie cam</span>
+        </div>
+
+        <div class="script-block">
+          <div class="script-header">Seconde-voor-seconde script</div>
+          <div class="script-body">
+            <div class="script-line">
+              <div class="script-time">0:00</div>
+              <div class="script-action">
+                <span class="text-overlay">Tekst:</span> "Hoe ik mijn [genre] mixes maak 🎧"
+                <span class="visual">Shot van je setup:</span> laptop, controller, koptelefoon op tafel.
+                <span class="audio">Rustige instrumentale of lo-fi beat eronder.</span>
+              </div>
+            </div>
+            <div class="script-line">
+              <div class="script-time">0:05</div>
+              <div class="script-action">
+                <span class="visual">Stap 1:</span> Tracks zoeken.
+                <span class="text-overlay">Tekst:</span> "Stap 1: Nieuwe tracks zoeken op Spotify en SoundCloud"
+                <span class="visual">Screen recording</span> van Spotify browsen, of filmend op je laptop scherm.
+              </div>
+            </div>
+            <div class="script-line">
+              <div class="script-time">0:12</div>
+              <div class="script-action">
+                <span class="visual">Stap 2:</span> Volgorde bepalen.
+                <span class="text-overlay">Tekst:</span> "Stap 2: De perfecte volgorde vinden"
+                <span class="visual">Shot van notities of playlist</span> op je telefoon/laptop.
+              </div>
+            </div>
+            <div class="script-line">
+              <div class="script-time">0:20</div>
+              <div class="script-action">
+                <span class="visual">Stap 3:</span> Oefenen en transitions finetunen.
+                <span class="text-overlay">Tekst:</span> "Stap 3: Oefenen tot elke transition klopt"
+                <span class="visual">Behind the decks</span> footage van het oefenen.
+              </div>
+            </div>
+            <div class="script-line">
+              <div class="script-time">0:30</div>
+              <div class="script-action">
+                <span class="visual">Stap 4:</span> Opnemen.
+                <span class="text-overlay">Tekst:</span> "Stap 4: Record en hopen dat je niet fuckt 😅"
+                <span class="tip">Humor maakt het menselijk. Laat zien dat je ook fouten maakt.</span>
+              </div>
+            </div>
+            <div class="script-line">
+              <div class="script-time">0:40</div>
+              <div class="script-action">
+                <span class="audio">Audio switch:</span> Fragment uit de uiteindelijke mix.
+                <span class="text-overlay">Tekst:</span> "Het resultaat? Link in bio 🔥"
+                <span class="visual">Cover art of clip uit de set.</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="caption-block">
+          <div class="caption-header">
+            <span class="caption-header-title">Caption</span>
+            <span class="caption-header-platform tiktok">TikTok</span>
+          </div>
+          <div class="caption-body">Het proces achter mijn <em>[genre]</em> mixes 🎧
+
+Van tracks zoeken tot de perfecte set opnemen.
+Elke mix kost ~4 uur werk.
+
+Het resultaat? Link in bio ➡️
+
+<span class="hashtags">#djgianni #purevibes #djlife #behindthescenes #<em>[genre]</em> #howimix #process #musicproduction</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===================== DAG 5: FAVORIETE MOMENT ===================== -->
+    <div class="storyboard day-fav">
+      <div class="phone-frame">
+        <div class="phone-notch"></div>
+        <div class="phone-screen">
+          <div class="phone-bg mixing"></div>
+          <div class="phone-content">
+            <div class="phone-hook" style="color: var(--caribbean);">Mijn favoriete moment ✨</div>
+            <div class="phone-center">
+              <div style="font-size: 10px; color: var(--muted); text-shadow: 0 1px 4px rgba(0,0,0,0.8); letter-spacing: 0.1em; text-transform: uppercase;">Best moment from the set</div>
+              <div style="width: 100%; height: 1px; background: rgba(255,255,255,0.1); margin: 12px 0;"></div>
+              <div class="phone-eq">
+                <span style="background: var(--caribbean);"></span>
+                <span style="background: var(--caribbean);"></span>
+                <span style="background: var(--caribbean);"></span>
+                <span style="background: var(--caribbean);"></span>
+                <span style="background: var(--caribbean);"></span>
+                <span style="background: var(--caribbean);"></span>
+                <span style="background: var(--caribbean);"></span>
+              </div>
+              <div style="font-size: 10px; color: rgba(255,255,255,0.5); text-align: center; text-shadow: 0 1px 4px rgba(0,0,0,0.8); margin-top: 8px;">"Deze track koos ik speciaal<br>omdat..."</div>
+            </div>
+            <div class="phone-bottom">
+              <div class="phone-username">@djgianni</div>
+              <div class="phone-caption">Dit moment uit de set... 🔥</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="story-details">
+        <div class="story-header">
+          <div class="story-day-badge">
+            <span class="day-label">Dag</span>
+            <span class="day-num">5</span>
+          </div>
+          <div class="story-title-group">
+            <h3>FAVORIETE MOMENT</h3>
+            <div class="story-type">Persoonlijk - waarom dit moment speciaal is</div>
+          </div>
+        </div>
+
+        <div class="spec-row">
+          <span class="spec-pill duration">15-25 sec</span>
+          <span class="spec-pill format">9:16 verticaal</span>
+          <span class="spec-pill goal">Persoonlijke connectie</span>
+          <span class="spec-pill camera">Behind the decks / selfie</span>
+        </div>
+
+        <div class="script-block">
+          <div class="script-header">Seconde-voor-seconde script</div>
+          <div class="script-body">
+            <div class="script-line">
+              <div class="script-time">0:00</div>
+              <div class="script-action">
+                <span class="text-overlay">Tekst:</span> "Mijn favoriete moment uit de nieuwe mix"
+                <span class="visual">Behind the decks</span> - speel het exacte moment af.
+                <span class="tip">Kies een emotioneel moment: een mooie melodie, een onverwachte transition, een track die je echt graag draait.</span>
+              </div>
+            </div>
+            <div class="script-line">
+              <div class="script-time">0:03</div>
+              <div class="script-action">
+                <span class="audio">Het moment speelt.</span> Laat het 8-10 seconden doorgaan.
+                <span class="visual">Vibe mee.</span> Ogen dicht, head nodding, genieten.
+                <span class="tip">Dit is NIET over skill - dit is over passie. Laat zien dat je van de muziek houdt.</span>
+              </div>
+            </div>
+            <div class="script-line">
+              <div class="script-time">0:13</div>
+              <div class="script-action">
+                <span class="text-overlay">Tekst overlay:</span> Waarom dit moment speciaal is. Bijv:
+                "Deze track herinnert me aan de eerste keer dat ik op een festival was"
+                of "Dit is de track waar iedereen op losging bij het laatste event"
+                <span class="tip">Persoonlijk verhaal maakt het deelbaar. Mensen relateren aan emotie, niet aan techniek.</span>
+              </div>
+            </div>
+            <div class="script-line">
+              <div class="script-time">0:20</div>
+              <div class="script-action">
+                <span class="text-overlay">Tekst:</span> "Volledige set op SoundCloud 🎧"
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="caption-block">
+          <div class="caption-header">
+            <span class="caption-header-title">Caption</span>
+            <span class="caption-header-platform tiktok">TikTok</span>
+          </div>
+          <div class="caption-body">Dit moment uit mijn nieuwe <em>[genre]</em> mix... ✨
+
+<em>[Persoonlijke zin over waarom dit moment speciaal is]</em>
+
+Luister de hele set - link in bio 🎧
+
+<span class="hashtags">#djgianni #purevibes #<em>[genre]</em> #favoritemoment #djlife #musiclover</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================ -->
+  <!-- HASHTAG STRATEGIE -->
+  <!-- ============================================================ -->
+  <section class="section" id="hashtags">
+    <div class="section-label">Vindbaarheid</div>
+    <h2 class="section-title">HASHTAG STRATEGIE</h2>
+    <div class="section-intro">
+      TikTok hashtags werken anders dan Instagram. Gebruik 5-10 gerichte tags, niet 30 brede. Mix van niche (klein bereik, hoge relevantie) en breed (groot bereik, meer competitie).
+    </div>
+
+    <h3 style="font-family: var(--font-display); font-size: 22px; letter-spacing: 0.04em; margin-bottom: 12px; color: var(--tiktok);">ALTIJD GEBRUIKEN (ELKE CLIP)</h3>
+    <div class="hashtag-cloud">
+      <span class="hashtag primary">#djgianni</span>
+      <span class="hashtag primary">#purevibes</span>
+      <span class="hashtag">#djmix</span>
+      <span class="hashtag">#djset</span>
+      <span class="hashtag">#djlife</span>
+    </div>
+
+    <div class="divider" style="margin: 24px 0;"></div>
+
+    <h3 style="font-family: var(--font-display); font-size: 22px; letter-spacing: 0.04em; margin-bottom: 12px; color: var(--gi);">AFRO BEATS CLIPS</h3>
+    <div class="hashtag-cloud">
+      <span class="hashtag primary">#afrobeats</span>
+      <span class="hashtag primary">#afrobeatsmix</span>
+      <span class="hashtag">#amapiano</span>
+      <span class="hashtag">#afrohouse</span>
+      <span class="hashtag">#burnaboy</span>
+      <span class="hashtag">#tyla</span>
+      <span class="hashtag">#ayrastarr</span>
+      <span class="hashtag">#afrovibes</span>
+    </div>
+
+    <h3 style="font-family: var(--font-display); font-size: 22px; letter-spacing: 0.04em; margin: 24px 0 12px; color: var(--caribbean);">CARIBBEAN CLIPS</h3>
+    <div class="hashtag-cloud">
+      <span class="hashtag primary">#caribbean</span>
+      <span class="hashtag primary">#dancehall</span>
+      <span class="hashtag">#soca</span>
+      <span class="hashtag">#reggaeton</span>
+      <span class="hashtag">#caribbeanvibes</span>
+      <span class="hashtag">#summermix</span>
+      <span class="hashtag">#seanpaul</span>
+      <span class="hashtag">#islandvibes</span>
+    </div>
+
+    <h3 style="font-family: var(--font-display); font-size: 22px; letter-spacing: 0.04em; margin: 24px 0 12px; color: var(--urban);">NEDERLANDS URBAN CLIPS</h3>
+    <div class="hashtag-cloud">
+      <span class="hashtag primary">#nlurban</span>
+      <span class="hashtag primary">#dutchhiphop</span>
+      <span class="hashtag">#nederlandsemuziek</span>
+      <span class="hashtag">#frenna</span>
+      <span class="hashtag">#josylvio</span>
+      <span class="hashtag">#ronnieflex</span>
+      <span class="hashtag">#broederliefde</span>
+      <span class="hashtag">#dutchrap</span>
+    </div>
+
+    <div class="divider" style="margin: 24px 0;"></div>
+
+    <h3 style="font-family: var(--font-display); font-size: 22px; letter-spacing: 0.04em; margin-bottom: 12px; color: var(--gold);">ENGAGEMENT TRIGGERS (WISSELEN PER CLIP)</h3>
+    <div class="hashtag-cloud">
+      <span class="hashtag">#raaddenummer</span>
+      <span class="hashtag">#djtransition</span>
+      <span class="hashtag">#smoothtransition</span>
+      <span class="hashtag">#djskills</span>
+      <span class="hashtag">#behindthescenes</span>
+      <span class="hashtag">#newmix</span>
+      <span class="hashtag">#muziekquiz</span>
+      <span class="hashtag">#partymix</span>
+    </div>
+
+    <div class="callout tiktok">
+      <div class="callout-title">TikTok vs Instagram Hashtag Regels</div>
+      <p><strong>TikTok:</strong> 5-10 hashtags. Minder is meer. TikTok leest je video content (audio, tekst, visuals) om te categoriseren - hashtags zijn een hulpmiddel, niet de enige manier.<br><br>
+      <strong>Instagram:</strong> 20-30 hashtags. Meer is meer. Instagram leunt zwaarder op hashtags voor discovery. Voeg bredere tags toe (#feest, #party, #nederland, #dj) naast de niche tags.</p>
+    </div>
+  </section>
+
+  <!-- ============================================================ -->
+  <!-- INSTAGRAM REELS CROSS-POSTING -->
+  <!-- ============================================================ -->
+  <section class="section" id="reels">
+    <div class="section-label">Cross-Platform</div>
+    <h2 class="section-title">INSTAGRAM REELS</h2>
+    <div class="section-intro">
+      Elke TikTok clip kan 1-op-1 naar Instagram Reels. Maar de caption moet aangepast worden. Hier zijn de regels en een voorbeeld.
+    </div>
+
+    <table class="data-table">
+      <thead>
+        <tr>
+          <th>Aspect</th>
+          <th>TikTok</th>
+          <th>Instagram Reels</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="highlight">Hashtags</td>
+          <td>5-10</td>
+          <td>20-30</td>
+        </tr>
+        <tr>
+          <td class="highlight">Caption lengte</td>
+          <td>Kort (2-3 zinnen)</td>
+          <td>Langer (4-6 zinnen + context)</td>
+        </tr>
+        <tr>
+          <td class="highlight">Watermark</td>
+          <td>N/A</td>
+          <td>Verwijder TikTok watermark (SnapTik) of post eerst op IG</td>
+        </tr>
+        <tr>
+          <td class="highlight">Optimale lengte</td>
+          <td>15-60 sec</td>
+          <td>15-30 sec (korter presteert beter)</td>
+        </tr>
+        <tr>
+          <td class="highlight">Posttijd</td>
+          <td>18:00-22:00</td>
+          <td>12:00-14:00 of 18:00-20:00</td>
+        </tr>
+        <tr>
+          <td class="highlight">CTA</td>
+          <td>"Link in bio"</td>
+          <td>"Link in bio" + "Save voor later 🔖"</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="caption-block" style="margin-top: 24px;">
+      <div class="caption-header">
+        <span class="caption-header-title">Instagram Reels Caption Voorbeeld (Release Clip)</span>
+        <span class="caption-header-platform instagram">Instagram</span>
+      </div>
+      <div class="caption-body">Nieuwe <em>[genre]</em> mix is LIVE 🔥
+
+<em>[1-2 zinnen over de vibe en welke artiesten erin zitten]</em>
+
+40 minuten <em>[genre]</em> vibes, gemixed door DJ Gianni. Van <em>[track A]</em> naar <em>[track B]</em> en alles ertussenin.
+
+Luister de volledige set via de link in bio ➡️
+Save dit voor je volgende feest 🔖
+
+<span class="hashtags">#djgianni #purevibes #<em>[genre]</em> #djmix #djset #<em>[genre-specifiek]</em> #feest #party #nederland #dj #muziek #newmix #soundcloud #mixing #djlife #partyvibes #weekendvibes #dancefloor #livedjset #eventdj #nederlanddj #randstad #picyourbooth</span></div>
+    </div>
+  </section>
+
+  <!-- ============================================================ -->
+  <!-- REMOTION SETUP -->
+  <!-- ============================================================ -->
+  <section class="section" id="remotion">
+    <div class="section-label">Video Tooling</div>
+    <h2 class="section-title">REMOTION WORKFLOW</h2>
+    <div class="section-intro">
+      We gebruiken Remotion in plaats van CapCut. Remotion is een React-framework voor programmatische video's. Dat betekent: maak een template een keer, gebruik het voor elke release met andere data. Consistent, schaalbaar, on-brand.
+    </div>
+
+    <div class="info-grid">
+      <div class="info-card">
+        <div class="info-card-title">WAAROM REMOTION?</div>
+        <p><strong>Herbruikbare templates:</strong> Maak een "Release Clip" component een keer met DJ Gianni's design tokens (coral, Bebas Neue, EQ-bar, hexagon). Volgende keer: zelfde template, ander genre en andere tracks. Geen handmatig knippen meer.</p>
+      </div>
+      <div class="info-card">
+        <div class="info-card-title">BRAND CONSISTENTIE</div>
+        <p>Elke clip gebruikt exact dezelfde kleuren, fonts en animaties als de cover art en website. Geen "bijna goed" meer - het is pixel-perfect DJ Gianni, elke keer.</p>
+      </div>
+      <div class="info-card">
+        <div class="info-card-title">TIKTOK TEMPLATE</div>
+        <p>Remotion heeft een dedicated TikTok starter: <code>npx create-video@latest --tiktok</code>. 9:16 formaat, word-by-word captions via Whisper.cpp, en Tailwind CSS support uit de doos.</p>
+      </div>
+      <div class="info-card">
+        <div class="info-card-title">RENDER & EXPORT</div>
+        <p>Render via CLI (<code>npx remotion render</code>), in de browser (Remotion Studio), of server-side. Exporteert direct naar MP4. Geen watermarks, volledige controle over kwaliteit.</p>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <h3 style="font-family: var(--font-display); font-size: 22px; letter-spacing: 0.04em; margin-bottom: 16px; color: var(--tiktok);">PROJECT SETUP</h3>
+
+    <div class="script-block">
+      <div class="script-header">Remotion TikTok Project Opzetten</div>
+      <div class="script-body">
+        <div class="script-line">
+          <div class="script-time">1</div>
+          <div class="script-action">
+            <span class="visual">Maak een nieuw Remotion project:</span>
+            <code>npx create-video@latest --tiktok</code>
+            <span class="tip">Dit installeert Remotion met TikTok template, Whisper.cpp voor captions, en Tailwind CSS.</span>
+          </div>
+        </div>
+        <div class="script-line">
+          <div class="script-time">2</div>
+          <div class="script-action">
+            <span class="visual">Open Remotion Studio:</span>
+            <code>npx remotion studio</code>
+            <span class="tip">Preview je video in de browser. Live reload bij code changes.</span>
+          </div>
+        </div>
+        <div class="script-line">
+          <div class="script-time">3</div>
+          <div class="script-action">
+            <span class="visual">Pas de Composition aan voor TikTok:</span>
+            <code>width={1080} height={1920} fps={30}</code>
+            <span class="tip">9:16 verticaal formaat, 30fps is standaard voor TikTok.</span>
+          </div>
+        </div>
+        <div class="script-line">
+          <div class="script-time">4</div>
+          <div class="script-action">
+            <span class="visual">Render naar MP4:</span>
+            <code>npx remotion render src/index.ts clip-name out/clip.mp4</code>
+            <span class="tip">Of gebruik de render-knop in Remotion Studio.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <h3 style="font-family: var(--font-display); font-size: 22px; letter-spacing: 0.04em; margin-bottom: 16px; color: var(--gi);">CLIP TEMPLATES ALS REACT COMPONENTS</h3>
+    <div class="section-intro" style="margin-bottom: 24px;">
+      Elk clip type wordt een herbruikbare React component. Verander de props (genre, tracklist, kleuren) en je hebt een nieuwe clip. Hier zijn de 7 templates die je nodig hebt:
+    </div>
+
+    <table class="data-table">
+      <thead>
+        <tr>
+          <th>Component</th>
+          <th>Props</th>
+          <th>Animaties</th>
+          <th>Duur</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="highlight">&lt;TeaserClip /&gt;</td>
+          <td>genre, serieNaam, coverArt, audioSnippet</td>
+          <td>Fade-in tekst, cover art zoom, EQ-bar pulse</td>
+          <td>10-15s (300-450 frames)</td>
+        </tr>
+        <tr>
+          <td class="highlight">&lt;ReleaseClip /&gt;</td>
+          <td>genre, serieNaam, videoFile, dropTimestamp</td>
+          <td>Text overlay, speed ramp op drop, fade-to-cover</td>
+          <td>15-30s (450-900 frames)</td>
+        </tr>
+        <tr>
+          <td class="highlight">&lt;TransitionClip /&gt;</td>
+          <td>genre, videoFile, hookText</td>
+          <td>Text hook animatie, pull-back reveal</td>
+          <td>15-20s (450-600 frames)</td>
+        </tr>
+        <tr>
+          <td class="highlight">&lt;GuessTrackClip /&gt;</td>
+          <td>genre, videoFile, cutTimestamp</td>
+          <td>Audio cut, freeze frame, vraagteken animatie</td>
+          <td>10-15s (300-450 frames)</td>
+        </tr>
+        <tr>
+          <td class="highlight">&lt;TracklistClip /&gt;</td>
+          <td>genre, serieNaam, tracks[], accentColor</td>
+          <td>Scroll-up tracklist, coral nummering, staggered appear</td>
+          <td>20-30s (600-900 frames)</td>
+        </tr>
+        <tr>
+          <td class="highlight">&lt;BTSClip /&gt;</td>
+          <td>genre, videoFile, steps[]</td>
+          <td>Step-by-step text overlays, audio switches</td>
+          <td>30-60s (900-1800 frames)</td>
+        </tr>
+        <tr>
+          <td class="highlight">&lt;FavoriteClip /&gt;</td>
+          <td>genre, videoFile, persoonlijkeTekst</td>
+          <td>Tekst overlay fade, vibing footage loop</td>
+          <td>15-25s (450-750 frames)</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="callout">
+      <div class="callout-title">Design Tokens in Remotion</div>
+      <p>Gebruik DJ Gianni's design tokens als CSS variabelen of een shared config in je Remotion project:<br><br>
+      <code>--gi: #f0654a</code> (coral/Afro Beats), <code>--caribbean: #f5b731</code> (golden amber), <code>--urban: #c084fc</code> (warm purple)<br>
+      <code>font-family: 'Bebas Neue'</code> (titels), <code>'Space Grotesk'</code> (body)<br><br>
+      De accentkleur wordt bepaald door de <code>genre</code> prop. Eenzelfde component werkt voor alle drie de series.</p>
+    </div>
+
+    <div class="callout gold">
+      <div class="callout-title">Behind-the-Decks Footage + Remotion Overlay</div>
+      <p>De workflow is hybride: film de behind-the-decks footage met je telefoon (raw video), importeer in Remotion als <code>&lt;OffthreadVideo /&gt;</code>, en voeg de branded text overlays, EQ-bars en cover art er programmatisch overheen. Zo combineer je authentieke footage met pixel-perfect branding.</p>
+    </div>
+  </section>
+
+  <!-- ============================================================ -->
+  <!-- FILMING GUIDE -->
+  <!-- ============================================================ -->
+  <section class="section" id="filming">
+    <div class="section-label">Productie</div>
+    <h2 class="section-title">FILM SETUP</h2>
+    <div class="section-intro">
+      Je hebt niet meer nodig dan een telefoon en een statief. Hier is precies hoe je filmt tijdens het opnemen van je set zodat je genoeg materiaal hebt voor alle 7 clips.
+    </div>
+
+    <div class="info-grid">
+      <div class="info-card">
+        <div class="info-card-title">CAMERA SETUP</div>
+        <p><strong>Positie 1 (hoofd):</strong> Telefoon op statief, achter je of schuin naast je. Gericht op je handen + controller. Dit is je "behind the decks" angle - 80% van je clips komt hieruit.</p>
+      </div>
+      <div class="info-card">
+        <div class="info-card-title">TWEEDE HOEK (OPTIONEEL)</div>
+        <p><strong>Positie 2:</strong> Tweede telefoon of GoPro op de tafel, low angle omhoog gericht. Geeft variatie in je edits. Niet verplicht voor de eerste mixes, maar maakt de content sterker.</p>
+      </div>
+      <div class="info-card">
+        <div class="info-card-title">BELICHTING</div>
+        <p>Donkere kamer + 1 lichtbron (bureaulamp, ringlight, of LED strip achter je scherm). Het moet voelen als een nachtclub, niet als een kantoor. De controller mag oplichten, jij zit in de schaduw.</p>
+      </div>
+      <div class="info-card">
+        <div class="info-card-title">AUDIO</div>
+        <p>Film met telefoon audio (de controller/speakers geven genoeg geluid). In de edit: vervang audio met de WAV/FLAC van de set voor optimale kwaliteit. Sync op de drop.</p>
+      </div>
+    </div>
+
+    <div class="callout">
+      <div class="callout-title">Minimale Setup Checklist</div>
+      <p>
+        &#9744; Telefoon (iPhone 13+ of vergelijkbaar)<br>
+        &#9744; Telefoonstatief of gorillapod<br>
+        &#9744; Donkere kamer<br>
+        &#9744; 1 lichtbron (warm of coral-tint)<br>
+        &#9744; Controller + laptop + speakers<br>
+        &#9744; Remotion project opgezet (<code>npx create-video@latest --tiktok</code>)<br>
+        &#9744; SoundCloud + TikTok apps ingelogd
+      </p>
+    </div>
+
+    <div class="divider"></div>
+
+    <h3 style="font-family: var(--font-display); font-size: 22px; letter-spacing: 0.04em; margin-bottom: 16px; color: var(--gi);">POST TIMING</h3>
+
+    <table class="data-table">
+      <thead>
+        <tr>
+          <th>Dag</th>
+          <th>Clip</th>
+          <th>Posttijd</th>
+          <th>Waarom</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="highlight">D-1 (do)</td>
+          <td>Teaser</td>
+          <td>18:00-20:00</td>
+          <td>Avond, mensen scrollen na werk</td>
+        </tr>
+        <tr>
+          <td class="highlight">D0 (vr)</td>
+          <td>Release Clip</td>
+          <td>18:00</td>
+          <td>Samen met SoundCloud release</td>
+        </tr>
+        <tr>
+          <td class="highlight">D1 (za)</td>
+          <td>Transition</td>
+          <td>12:00-14:00</td>
+          <td>Weekend middag, relaxed scrollen</td>
+        </tr>
+        <tr>
+          <td class="highlight">D2 (zo)</td>
+          <td>Raad Het Nummer</td>
+          <td>14:00-16:00</td>
+          <td>Zondag, tijd voor engagement</td>
+        </tr>
+        <tr>
+          <td class="highlight">D3 (ma)</td>
+          <td>Tracklist</td>
+          <td>18:00-20:00</td>
+          <td>Maandagavond, saves voor weekend</td>
+        </tr>
+        <tr>
+          <td class="highlight">D4 (di)</td>
+          <td>Studio BTS</td>
+          <td>18:00-20:00</td>
+          <td>Rustige avond, langere content werkt</td>
+        </tr>
+        <tr>
+          <td class="highlight">D5 (wo)</td>
+          <td>Favoriete Moment</td>
+          <td>18:00-20:00</td>
+          <td>Laatste push voor de week</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="callout gold">
+      <div class="callout-title">Spotify Playlist Promo (Bonus Clip)</div>
+      <p>Maak 1x per maand een extra TikTok over het Spotify-concept: <strong>"Stuur me je playlist en ik maak er dit van"</strong>. Laat een before/after horen - de originele playlist vs. jouw gemixte set. Dit is de meest boekbare content die je kunt maken, en het is uniek voor DJ Gianni. Geen andere DJ biedt dit aan.</p>
+    </div>
+  </section>
+
+  <!-- ============================================================ -->
+  <!-- SAMENVATTING -->
+  <!-- ============================================================ -->
+  <section class="section">
+    <div class="section-label">TL;DR</div>
+    <h2 class="section-title">QUICK REFERENCE</h2>
+
+    <div class="info-grid" style="grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));">
+      <div class="info-card" style="border-top: 3px solid var(--tiktok);">
+        <div class="info-card-title" style="color: var(--tiktok);">D-1</div>
+        <p><strong>Teaser</strong><br>10-15s. Cover art + audio snippet. "Morgen..."</p>
+      </div>
+      <div class="info-card" style="border-top: 3px solid var(--gi);">
+        <div class="info-card-title" style="color: var(--gi);">D0</div>
+        <p><strong>Release Clip</strong><br>15-30s. Beste drop, behind decks. Hoofdclip.</p>
+      </div>
+      <div class="info-card" style="border-top: 3px solid var(--cyan-tt);">
+        <div class="info-card-title" style="color: var(--cyan-tt);">D1</div>
+        <p><strong>Transition</strong><br>15-20s. DJ skill showcase. "Ging dit fout?"</p>
+      </div>
+      <div class="info-card" style="border-top: 3px solid var(--gold);">
+        <div class="info-card-title" style="color: var(--gold);">D2</div>
+        <p><strong>Raad Het Nummer</strong><br>10-15s. Audio stopt. Comment trigger.</p>
+      </div>
+      <div class="info-card" style="border-top: 3px solid var(--gi);">
+        <div class="info-card-title" style="color: var(--gi);">D3</div>
+        <p><strong>Tracklist</strong><br>20-30s. Scroll door tracks. Save trigger.</p>
+      </div>
+      <div class="info-card" style="border-top: 3px solid var(--urban);">
+        <div class="info-card-title" style="color: var(--urban);">D4</div>
+        <p><strong>Studio BTS</strong><br>30-60s. Het proces. Persoonlijk verhaal.</p>
+      </div>
+      <div class="info-card" style="border-top: 3px solid var(--caribbean);">
+        <div class="info-card-title" style="color: var(--caribbean);">D5</div>
+        <p><strong>Favoriete Moment</strong><br>15-25s. Emotie en passie. Authentiek.</p>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<!-- Footer -->
+<footer class="footer">
+  <p class="brand">DJ GIANNI / TIKTOK</p>
+  <p style="margin-top: 8px;">Intern promotie playbook - Niet delen buiten het team</p>
+  <p style="margin-top: 4px;">PicYourBooth &middot; Laatst bijgewerkt: maart 2026</p>
+  <p style="margin-top: 8px; font-size: 12px; color: var(--muted);">Zie ook: <code>soundcloud-strategie.html</code> voor SoundCloud optimalisatie, cover art en upload specs</p>
+</footer>
+
+</body>
+</html>

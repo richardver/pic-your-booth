@@ -63,7 +63,7 @@ Every PYB image should combine these elements. Mix and match per product.
 - **People:** Dancing crowd silhouettes, DJ focused on equipment
 - **Mood:** Energetic, immersive, party vibes
 - **DJ Gianni:** Coral accent, Afro Beats/Caribbean, tropical energy
-- **DJ Milo:** Mint accent, House/Techno, minimal underground
+- **DJ Milø:** Mint accent, House/Techno, minimal underground
 
 ## Prompt Patterns
 

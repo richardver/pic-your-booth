@@ -79,7 +79,7 @@ python .claude/agents/designer/scripts/asset-generator/asset-generator.py resize
 1. User specifies: mode + page + usage type + source photo (if enhance)
 2. Script builds PYB-branded prompt from `prompts.py`
 3. Gemini generates/enhances the image
-4. Raw output saved to `docs/images/photos-generated/`
+4. Raw output saved to `docs/output/images/pyb/`
 5. Python resizes to all needed dimensions
 6. WebP files saved to `docs/images/web/`
 7. Report file paths for use in HTML
@@ -116,8 +116,8 @@ docs/images/
 
 ## Post-Generation Workflow
 
-1. **Save** raw output to the correct subfolder in `docs/images/photos-generated/`
-2. **Update** `docs/images/photos-generated/INDEX.md` — add a row with status `pending`
+1. **Save** raw output to the correct subfolder in `docs/output/images/pyb/`
+2. **Update** `docs/output/images/pyb/INDEX.md` — add a row with status `pending`
 3. **Review** with Richard — show the generated image for approval
 4. **Approve/Reject** — update status in INDEX.md to `approved` or `rejected`
 5. **If approved** — resize to web dimensions and save to `docs/images/web/`

@@ -364,7 +364,7 @@ body {
   background:
     linear-gradient(180deg, transparent 50%, var(--card) 100%),
     linear-gradient(135deg, rgba(240,101,74,0.15) 0%, transparent 60%),
-    url('/Users/richardversluis/code/pic-your-booth/docs/templates/djs/dj-luca-profiel.jpeg');
+    url('/Users/richardversluis/code/pic-your-booth/docs/output/images/dj-gianni/profile/profiel.jpeg');
   background-size: cover, cover, cover;
   background-position: center, center, center 20%;
 }
@@ -610,7 +610,7 @@ body {
 .dj-avatar.gianni {
   background:
     linear-gradient(135deg, rgba(240,101,74,0.15) 0%, transparent 60%),
-    url('/Users/richardversluis/code/pic-your-booth/docs/templates/djs/dj-luca-profiel.jpeg');
+    url('/Users/richardversluis/code/pic-your-booth/docs/output/images/dj-gianni/profile/profiel.jpeg');
   background-size: cover, cover;
   background-position: center, center 20%;
   border: 1px solid rgba(240,101,74,0.15);
@@ -1405,9 +1405,9 @@ body {
             <div class="eq-bars" id="eqMilo" style="position:absolute; bottom:12px; right:12px;"></div>
           </div>
           <div class="dj-profile-info">
-            <h2 class="dj-profile-name milo">MILO</h2>
+            <h2 class="dj-profile-name milo">MILØ</h2>
             <p class="dj-profile-tagline">"Je voelt de bass, je vergeet de tijd"</p>
-            <p class="dj-profile-bio">Milo bouwt sets waar je gasten niet meer van de vloer komen. Elke transitie naadloos, elk nummer strategisch gekozen. Van deep house naar hypnotiserende techno  - gebaseerd op jouw playlist, verfijnd met zijn expertise.</p>
+            <p class="dj-profile-bio">DJ Milø bouwt sets waar je gasten niet meer van de vloer komen. Elke transitie naadloos, elk nummer strategisch gekozen. Van deep house naar hypnotiserende techno  - gebaseerd op jouw playlist, verfijnd met zijn expertise.</p>
             <div class="dj-profile-genres">
               <span class="genre-tag">House</span>
               <span class="genre-tag">Techno</span>
@@ -1471,7 +1471,7 @@ body {
           <div class="hiw-step">
             <div class="hiw-num">01</div>
             <h3>KIES JE VIBE</h3>
-            <p>Gianni voor afro beats en Caribbean vibes, of Milo voor deep house en techno. Binnen 24 uur een vrijblijvend voorstel.</p>
+            <p>Gianni voor afro beats en Caribbean vibes, of DJ Milø voor deep house en techno. Binnen 24 uur een vrijblijvend voorstel.</p>
           </div>
           <div class="hiw-step">
             <div class="hiw-num">02</div>
@@ -1569,150 +1569,35 @@ body {
 
 
   <!-- ============================================================
-       FOUNDATION: COLOR PALETTE
+       FOUNDATION REFERENCE
+       Colors, typography, and UI components are defined in individual
+       brand guides — this design system focuses on page layout only.
        ============================================================ -->
   <div class="section-divider">
-    <h2>COLOR PALETTE</h2>
-    <p>Design Tokens  - DJ Nightlife Premium</p>
+    <h2>FOUNDATION REFERENCE</h2>
+    <p>Colors, Typography &amp; Components — see individual brand guides</p>
   </div>
 
-  <div class="palette-grid">
-    <div class="swatch">
-      <div class="swatch-color" style="background:#050508;"></div>
-      <div class="swatch-info"><div class="swatch-name">Void</div><div class="swatch-hex">#050508</div></div>
+  <div style="background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:32px;max-width:640px;">
+    <p style="font-size:14px;color:var(--muted);line-height:1.8;margin-bottom:24px;">
+      Shared tokens (backgrounds, text, radius scale) are defined in <strong style="color:var(--white);">pyb-design-system-web.html</strong>. DJ-specific tokens, typography specimens, and UI components live in each DJ's brand guide:
+    </p>
+    <div style="display:flex;flex-direction:column;gap:16px;">
+      <div style="display:flex;align-items:center;gap:12px;padding:16px;background:rgba(240,101,74,0.06);border:1px solid rgba(240,101,74,0.12);border-radius:8px;">
+        <div style="width:8px;height:8px;border-radius:50%;background:#f0654a;flex-shrink:0;"></div>
+        <div>
+          <strong style="color:#f0654a;font-size:14px;">DJ Gianni</strong>
+          <span style="color:var(--muted);font-size:13px;margin-left:8px;">djs/dj-gianni/brand-guide.html · component-library.html · css-reference.html</span>
+        </div>
+      </div>
+      <div style="display:flex;align-items:center;gap:12px;padding:16px;background:rgba(52,211,153,0.06);border:1px solid rgba(52,211,153,0.12);border-radius:8px;">
+        <div style="width:8px;height:8px;border-radius:50%;background:#34d399;flex-shrink:0;"></div>
+        <div>
+          <strong style="color:#34d399;font-size:14px;">DJ Milø</strong>
+          <span style="color:var(--muted);font-size:13px;margin-left:8px;">djs/milo/brand-guide.html</span>
+        </div>
+      </div>
     </div>
-    <div class="swatch">
-      <div class="swatch-color" style="background:#111116;"></div>
-      <div class="swatch-info"><div class="swatch-name">Surface / Card</div><div class="swatch-hex">#111116</div></div>
-    </div>
-    <div class="swatch">
-      <div class="swatch-color" style="background:#ededf0;"></div>
-      <div class="swatch-info"><div class="swatch-name">White</div><div class="swatch-hex">#ededf0</div></div>
-    </div>
-    <div class="swatch">
-      <div class="swatch-color" style="background:#f0654a;"></div>
-      <div class="swatch-info"><div class="swatch-name">Gianni Coral</div><div class="swatch-hex">#f0654a</div></div>
-    </div>
-    <div class="swatch">
-      <div class="swatch-color" style="background:#34d399;"></div>
-      <div class="swatch-info"><div class="swatch-name">Milo Cyan</div><div class="swatch-hex">#34d399</div></div>
-    </div>
-    <div class="swatch">
-      <div class="swatch-color" style="background:#8b5cf6;"></div>
-      <div class="swatch-info"><div class="swatch-name">Violet</div><div class="swatch-hex">#8b5cf6</div></div>
-    </div>
-    <div class="swatch">
-      <div class="swatch-color" style="background:#f59e42;"></div>
-      <div class="swatch-info"><div class="swatch-name">Gold</div><div class="swatch-hex">#f59e42</div></div>
-    </div>
-    <div class="swatch">
-      <div class="swatch-color" style="background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.1);"></div>
-      <div class="swatch-info"><div class="swatch-name">Border</div><div class="swatch-hex">rgba(255,255,255,0.06)</div></div>
-    </div>
-  </div>
-
-
-  <!-- ============================================================
-       FOUNDATION: TYPOGRAPHY
-       ============================================================ -->
-  <div class="section-divider">
-    <h2>TYPOGRAPHY</h2>
-    <p>Bebas Neue Display + Space Grotesk Body</p>
-  </div>
-
-  <div class="type-specimen">
-    <div class="type-row">
-      <div class="type-label">Display XL<br>Bebas Neue, 80px</div>
-      <div class="type-sample" style="font-family:var(--font-display);font-size:80px;line-height:1;letter-spacing:0.04em;">OUR DJS</div>
-    </div>
-    <div class="type-row">
-      <div class="type-label">Display LG<br>Bebas Neue, 48px</div>
-      <div class="type-sample" style="font-family:var(--font-display);font-size:48px;line-height:1;letter-spacing:0.04em;">DJ GIANNI</div>
-    </div>
-    <div class="type-row">
-      <div class="type-label">Display MD<br>Bebas Neue, 28px</div>
-      <div class="type-sample" style="font-family:var(--font-display);font-size:28px;line-height:1;letter-spacing:0.06em;">RECENTE SETS</div>
-    </div>
-    <div class="type-row">
-      <div class="type-label">Body<br>Space Grotesk, 15px</div>
-      <div class="type-sample" style="font-size:15px;font-weight:300;line-height:1.7;">Deel je Spotify playlist met ons. Wij optimaliseren de volgorde en bouwen een professionele set die jouw smaak combineert met onze ervaring.</div>
-    </div>
-    <div class="type-row">
-      <div class="type-label">Body SM<br>Space Grotesk, 14px</div>
-      <div class="type-sample" style="font-size:14px;color:rgba(237,237,240,0.55);line-height:1.7;">Van deep house grooves naar pulserende techno  - elk nummer bouwt verder op het vorige.</div>
-    </div>
-    <div class="type-row">
-      <div class="type-label">Label<br>Space Grotesk, 11px</div>
-      <div class="type-sample" style="font-size:11px;text-transform:uppercase;letter-spacing:0.1em;color:var(--muted);">Genre &bull; Festival &bull; Duration</div>
-    </div>
-    <div class="type-row">
-      <div class="type-label">Gradient Text</div>
-      <div class="type-sample" style="font-family:var(--font-display);font-size:48px;line-height:1;letter-spacing:0.04em;background:linear-gradient(135deg,var(--gi),var(--violet),var(--mi));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">NIGHTLIFE PREMIUM</div>
-    </div>
-  </div>
-
-
-  <!-- ============================================================
-       FOUNDATION: UI COMPONENTS
-       ============================================================ -->
-  <div class="section-divider">
-    <h2>UI COMPONENTS</h2>
-    <p>Buttons, Tags &amp; Interactive Elements</p>
-  </div>
-
-  <!-- Buttons -->
-  <div class="component-row">
-    <div class="component-label">Buttons</div>
-    <button class="btn-demo btn-coral">BOEK GIANNI</button>
-    <button class="btn-demo btn-cyan">BOEK MILO</button>
-    <button class="btn-demo btn-violet">BOEK EEN DJ</button>
-    <button class="btn-demo btn-gold" style="color:#000 !important;">BOEK JE ERVARING</button>
-    <button class="btn-demo btn-ghost">MEER INFO</button>
-  </div>
-
-  <!-- Genre Tags -->
-  <div class="component-row">
-    <div class="component-label">Genre Tags</div>
-    <span class="tag-demo tag-coral">Afro Beats</span>
-    <span class="tag-demo tag-coral">Caribbean</span>
-    <span class="tag-demo tag-coral">Nederlands Hits</span>
-    <span class="tag-demo tag-cyan">House</span>
-    <span class="tag-demo tag-cyan">Techno</span>
-    <span class="tag-demo tag-cyan">Deep</span>
-    <span class="tag-demo tag-violet">DJ Set</span>
-  </div>
-
-  <!-- Social Icons -->
-  <div class="component-row">
-    <div class="component-label">Social Icons (hover for DJ color)</div>
-    <div style="display:flex;gap:8px;" class="gianni-profile">
-      <a class="dj-social-icon" style="width:40px;height:40px;">IG</a>
-      <a class="dj-social-icon" style="width:40px;height:40px;">TT</a>
-      <a class="dj-social-icon" style="width:40px;height:40px;">SC</a>
-    </div>
-    <div style="display:flex;gap:8px;margin-left:16px;" class="milo-profile">
-      <a class="dj-social-icon" style="width:40px;height:40px;">IG</a>
-      <a class="dj-social-icon" style="width:40px;height:40px;">TT</a>
-      <a class="dj-social-icon" style="width:40px;height:40px;">SC</a>
-    </div>
-  </div>
-
-  <!-- Play Buttons -->
-  <div class="component-row">
-    <div class="component-label">Play Buttons</div>
-    <div class="dj-card gianni" style="background:none;border:none;display:inline-block;">
-      <button class="dj-play-btn"><div class="play-icon"></div></button>
-    </div>
-    <div class="dj-card milo" style="background:none;border:none;display:inline-block;">
-      <button class="dj-play-btn"><div class="play-icon"></div></button>
-    </div>
-    <div class="dj-card gianni" style="background:none;border:none;display:inline-block;">
-      <button class="dj-play-btn playing"><div class="play-icon"></div></button>
-    </div>
-    <div class="dj-card milo" style="background:none;border:none;display:inline-block;">
-      <button class="dj-play-btn playing"><div class="play-icon"></div></button>
-    </div>
-    <span style="font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:0.1em;">Static / Pulsing</span>
   </div>
 
 </div>

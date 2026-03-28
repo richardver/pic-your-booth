@@ -1,44 +1,36 @@
-# DJ Gianni (Luca)
+# DJ Gianni - Social Content Reference
 
-Profile and brand for social content. Full profile in `docs/website/djs/dj-gianni/profile.md`.
+Social content angles and platform strategy for DJ Gianni. For full brand identity, visual mode, photo direction, voice tags, and asset inventory, see the **dj-promoter agent** (`knowledge-dj-gianni.md`).
 
 ---
 
-## Brand
+## Quick Reference
 
 | Attribute | Detail |
 |---|---|
 | DJ name | DJ Gianni |
 | Style | Afro Beats, Caribbean, Nederlands Hits |
 | Tagline | "Elke set een feest, elk feest een herinnering" |
-| Sub-tagline | Pure Vibes |
 | Color | Coral #f0654a |
-| Logo mark | Hexagon (G) |
 | Platforms | Instagram, SoundCloud, TikTok |
 
-## Visual Mode
+## Content Angles
 
-- Coral #f0654a accent, hexagon motif
-- Warm energy, Afro Beats / Caribbean vibe
-- Bebas Neue + Space Grotesk typography
-- Templates: `docs/website/djs/dj-gianni/social/social-templates.html`
-- Brand guide: `docs/website/djs/dj-gianni/brand-guide.html`
+- **Event energy** — BTS footage from events, crowd reactions, setup moments
+- **Set clips** — Short clips from live sets, drops, transitions (15-30s for Reels/TikTok)
+- **Studio sessions** — Recording voice tags, building playlists, prepping sets
+- **Lifestyle** — Behind the scenes, travel to events, personal moments
+- **Spotify playlist** — Promoting the "stuur je playlist" angle, showing how he builds custom sets
+- **Collaborations** — With PYB brand (photobooth + DJ combo content)
 
-## Social Bios
+## Platform Notes
 
-**TikTok:** DJ Gianni | Afro Beats | Caribbean | Nederlands Hits | Elke set een feest, elk feest een herinnering | info@picyourbooth.nl
+- **Instagram:** Visual-first, polished Reels and carousel posts. Use coral visual mode.
+- **TikTok:** Raw, authentic, trending sounds. Behind-the-decks clips perform best.
+- **SoundCloud:** Audio mixes only. Cover art and banner managed by dj-promoter agent.
 
-**SoundCloud:** DJ Gianni - Afro Beats, Caribbean vibes en populaire hits. Elke set een feest, elk feest een herinnering. Stuur je Spotify playlist, ik bouw er een set van. Boekingen: info@picyourbooth.nl
+## Exported Assets (for social use)
 
-**Instagram:** DJ Gianni | Afro Beats | Caribbean | Nederlands Hits | Pure Vibes | Boekingen via link in bio
-
-## Voice Tags
-
-For mixtapes and sets — see `docs/website/djs/dj-gianni/voice-tags.md`.
-Primary: "DJ Gianni... Pure Vibes" / "Gianni in the mix"
-
-## Exported Assets
-
-- SoundCloud banner: `dj-gianni-soundcloud-banner.png` (2480x520)
-- Mixtape cover: `dj-gianni-afro-mixtape-cover.png` (1400x1400)
-- Profile photo: `dj-luca-profiel.jpeg`
+- SoundCloud banner: `docs/output/images/dj-gianni/social/soundcloud-banner.png`
+- Mixtape cover: `docs/output/images/dj-gianni/mixtape/afro-mixtape-cover-v2.png`
+- Social templates: `docs/output/images/dj-gianni/social/social-templates.html`

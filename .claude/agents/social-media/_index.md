@@ -30,8 +30,8 @@ You do NOT own paid ads (ad-specialist), website pages (designer), brand complia
 | Platform strategy — full reference | `knowledge-platforms-full.md` | All platform guides, hashtags, captions, repurposing matrix |
 | Video — summary | `knowledge-video.md` | Quick-reference: hooks, production, clip selection |
 | Video — full reference | `knowledge-video-full.md` | All specs, distribution workflow, thumbnail design, SEO |
-| DJ Gianni — profile, brand, templates | `knowledge-dj-gianni.md` | DJ Gianni content, social bios, visual assets, voice tags |
-| DJ Milø — profile, brand, templates | `knowledge-dj-milo.md` | DJ Milø content, social bios, visual assets |
+| DJ Gianni — content angles | `knowledge-dj-gianni.md` | DJ Gianni content strategy, platform notes. For brand identity, bios, photo direction, voice tags: call dj-promoter agent |
+| DJ Milø — content angles | `knowledge-dj-milo.md` | DJ Milø content strategy, platform notes. For brand identity, bios, photo direction: call dj-promoter agent |
 | Viral loops — summary | `knowledge-viral-retention.md` | Quick-reference: viral loop, referral, post-event |
 | Viral loops — full reference | `knowledge-viral-retention-full.md` | K-factor, referral program, Hook Model, WOM amplification |
 | **Photo library index** | `docs/images/photos-source/INDEX.md` | Full catalogue of 98 source photos with ratings, descriptions, and Gemini AI reference picks — use for social content |
