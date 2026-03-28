@@ -52,12 +52,10 @@ Contact (person) → has many Deals (bookings)
 | `email` | Built-in | From form |
 | `phone` | Built-in | From form |
 | `service_type` | Custom dropdown | party-booth, magic-mirror, dj |
-| `evenement_type` | Custom dropdown | bruiloft, bedrijfsfeest, verjaardag, festival-club, anders |
+| `event_type` | Built-in | wedding, corporate_event, birthday, festival-club, other |
 | `evenement_date` | Custom date | Event date (dd-mm-yyyy format) |
 | `evenement_upgrades` | Custom multiple checkboxes | vip, keychain, host, ai_photobooth, live_dj, premium_design, levering, ai_background+filters |
-| `message` | Custom text | Optional message from visitor |
-
-| `evenement_starttime` | Custom text | Start time of event — not collected on offerte form, filled in later during sales process |
+| `message` | Built-in | Optional message from visitor (Contact activity group) |
 
 ### Upgrade Values (for `evenement_upgrades` checkboxes)
 
@@ -105,6 +103,7 @@ Contact (person) → has many Deals (bookings)
 | `evenement_delivery_time` | Text | Time equipment arrives at venue (e.g. "18:00") |
 | `evenement_pickup_time` | Text | Time equipment gets picked up (e.g. "01:00") |
 | `assigned_operator` | Dropdown | luca, milo, richard — DJ bookings only |
+| `travel_expenses` | Number (EUR) | Travel costs for the event |
 
 **Form data (stays on Contact + form submission, not duplicated on Deal):**
 - `service_type`, `event_type`, `event_date`, `evenement_upgrades`, `message` — available via Contact association and form submission record
@@ -128,7 +127,7 @@ Free-tier workaround for HubSpot's paid workflow feature.
 | email | `email` | Built-in |
 | telefoon | `phone` | Built-in |
 | service | `service_type` | Custom dropdown |
-| type-event | `evenement_type` | Custom dropdown |
+| type-event | `event_type` | Custom dropdown (wedding, corporate_event, birthday, festival-club, other) |
 | datum | `evenement_date` | Custom date |
 | upgrades (from URL) | `evenement_upgrades` | Semicolon-separated checkbox values |
 | bericht | `message` | Custom text |

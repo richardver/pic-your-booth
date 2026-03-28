@@ -36,6 +36,7 @@ Custom properties (5 of 10 free-tier limit, filled during sales/planning):
 - [ ] `evenement_delivery_time` — Single-line text (e.g. "18:00")
 - [ ] `evenement_pickup_time` — Single-line text (e.g. "01:00")
 - [ ] `assigned_operator` — Dropdown: luca, milo, richard (DJ bookings only)
+- [ ] `travel_expenses` — Number (EUR): travel costs for the event
 
 Built-in deal properties used:
 - Deal name: `[Service] - [Contact Name] - [Event Date]`
@@ -46,14 +47,14 @@ Form data (service_type, event_type, event_date, upgrades, message) stays on Con
 
 ## Step 4: n8n Workflow
 Build workflow:
-- [ ] Trigger: HubSpot webhook on contact creation/update (when last_service_type is not empty)
-- [ ] Action 1: Create Deal in HubSpot linked to Contact
-  - Deal name: "[service_type] - [contact name] - [event_date]"
-  - Pipeline stage: "Nieuw voorstel"
-  - Copy service_type, event_type, event_date from contact
-  - Add message to deal notes
-- [ ] Action 2: Clear temp contact fields (last_service_type, last_event_type, last_event_date, last_message)
+- [ ] Trigger: HubSpot webhook on new contact creation (form submission)
+- [ ] Action: Create Deal in HubSpot linked to Contact
+  - Deal name: "[Service] - [Contact Name] - [Event Date]"
+  - Pipeline stage: "Nieuw"
+  - Close date: event date from form
 - [ ] Test full flow end to end
+
+**Flow:** Form submit → Contact created → n8n auto-creates Deal in "Nieuw" → Richard manually validates and fills in deal details (venue, times, travel expenses, operator)
 
 ## Step 5: Deal Pipeline Setup (already configured in HubSpot)
 
