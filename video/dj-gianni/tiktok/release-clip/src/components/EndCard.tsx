@@ -1,5 +1,5 @@
 import React from 'react';
-import { AbsoluteFill, Img, spring, useCurrentFrame, useVideoConfig, staticFile } from 'remotion';
+import { AbsoluteFill, Img, spring, useCurrentFrame, useVideoConfig, staticFile, interpolate } from 'remotion';
 import { TOKENS, GENRE_TOKENS, SAFE } from '../lib/tokens';
 import { Genre } from '../lib/types';
 
@@ -12,6 +12,9 @@ export const EndCard: React.FC<{
   const { fps } = useVideoConfig();
   const { accent } = GENRE_TOKENS[genre];
   const enter = spring({ fps, frame, config: { damping: 15, stiffness: 120 } });
+  const kenBurns = interpolate(frame, [0, 150], [0.95, 1.05], {
+    extrapolateRight: 'clamp',
+  });
 
   return (
     <AbsoluteFill style={{
@@ -29,7 +32,7 @@ export const EndCard: React.FC<{
             borderRadius: 48,
             border: `3px solid ${accent}55`,
             boxShadow: `0 24px 80px rgba(0,0,0,0.6), 0 0 60px ${accent}33`,
-            transform: `scale(${enter})`,
+            transform: `scale(${enter * kenBurns})`,
           }}
         />
       ) : (
@@ -39,7 +42,7 @@ export const EndCard: React.FC<{
           border: `3px solid ${accent}55`,
           display: 'flex', alignItems: 'center', justifyContent: 'center',
           fontFamily: TOKENS.fontDisplay, fontSize: 96, color: TOKENS.white,
-          transform: `scale(${enter})`,
+          transform: `scale(${enter * kenBurns})`,
         }}>
           DJ GIANNI
         </div>

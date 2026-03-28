@@ -7,7 +7,7 @@ export const GenrePills: React.FC<{ tags: string[]; genre: Genre }> = ({ tags, g
   const { accent, dim } = GENRE_TOKENS[genre];
 
   return (
-    <div style={{ display: 'flex', gap: 16, marginTop: 24 }}>
+    <div style={{ display: 'flex', gap: 16, marginTop: 24, justifyContent: 'center' }}>
       {tags.map((tag, i) => (
         <WipeReveal key={tag} delay={10 + i * 5}>
           <div style={{

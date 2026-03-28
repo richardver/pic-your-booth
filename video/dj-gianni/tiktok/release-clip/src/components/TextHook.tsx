@@ -19,6 +19,7 @@ export const TextHook: React.FC<{ text: string; genre: Genre }> = ({ text, genre
             color: TOKENS.white,
             textShadow: '0 4px 20px rgba(0,0,0,0.9)',
             lineHeight: 1.0,
+            textAlign: 'center',
           }}>
             {line}
           </div>

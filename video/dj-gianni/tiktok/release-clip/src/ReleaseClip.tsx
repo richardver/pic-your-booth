@@ -1,5 +1,5 @@
 import React from 'react';
-import { AbsoluteFill, Audio, Sequence, staticFile } from 'remotion';
+import { AbsoluteFill, Audio, Freeze, Sequence, staticFile } from 'remotion';
 import { ReleaseClipProps } from './lib/types';
 import { TOKENS, SAFE } from './lib/tokens';
 import { VideoBackground } from './components/VideoBackground';
@@ -12,6 +12,9 @@ import { BassFlash } from './components/effects/BassFlash';
 import { ZoomPunch } from './components/effects/ZoomPunch';
 import { ParticleBurst } from './components/effects/ParticleBurst';
 import { CoralVignette } from './components/effects/CoralVignette';
+import { FilmGrain } from './components/effects/FilmGrain';
+import { ScreenShake } from './components/effects/ScreenShake';
+import { LightLeak } from './components/effects/LightLeak';
 
 export const ReleaseClip: React.FC<ReleaseClipProps> = ({
   genre, serieName, hookText, genreTags, videoSrc, videoStartSec, dropTimestamp, coverArtSrc, durationSec,
@@ -46,7 +49,14 @@ export const ReleaseClip: React.FC<ReleaseClipProps> = ({
 
       {/* === LAYER 3: Hook text + genre pills (0:00-0:03) === */}
       <Sequence durationInFrames={90}>
-        <AbsoluteFill style={{ padding: safePad, zIndex: 10 }}>
+        <AbsoluteFill style={{
+          padding: safePad,
+          zIndex: 10,
+          display: 'flex',
+          flexDirection: 'column',
+          justifyContent: 'center',
+          alignItems: 'center',
+        }}>
           <TextHook text={hookText} genre={genre} />
           <GenrePills tags={genreTags} genre={genre} />
           <div style={{
@@ -55,6 +65,7 @@ export const ReleaseClip: React.FC<ReleaseClipProps> = ({
             color: 'rgba(255,255,255,0.7)',
             marginTop: 16,
             textShadow: '0 2px 8px rgba(0,0,0,0.9)',
+            textAlign: 'center',
           }}>
             {serieName} is live op SoundCloud
           </div>
@@ -63,15 +74,30 @@ export const ReleaseClip: React.FC<ReleaseClipProps> = ({
 
       {/* === LAYER 4: Build-up — clean footage, no overlays === */}
 
+      {/* === LAYER 4.5: Light leak at hook → build-up transition === */}
+      <Sequence from={85} durationInFrames={30}>
+        <LightLeak genre={genre} />
+      </Sequence>
+
       {/* === LAYER 5: THE DROP effects (0:08) === */}
+      {/* Freeze frame on drop for "time stops" effect */}
+      <Sequence from={dropFrame} durationInFrames={6}>
+        <Freeze frame={0}>
+          <VideoBackground src={videoSrc} startFromSec={videoStartSec + dropFrame / fps} />
+        </Freeze>
+      </Sequence>
+
       <Sequence from={dropFrame} durationInFrames={8}>
         <BassFlash genre={genre} />
       </Sequence>
 
-      <Sequence from={dropFrame} durationInFrames={20}>
-        <ZoomPunch>
-          <VideoBackground src={videoSrc} startFromSec={videoStartSec + dropFrame / fps} />
-        </ZoomPunch>
+      {/* Screen shake + zoom punch on bass hit */}
+      <Sequence from={dropFrame} durationInFrames={15}>
+        <ScreenShake intensity={8}>
+          <ZoomPunch>
+            <VideoBackground src={videoSrc} startFromSec={videoStartSec + dropFrame / fps} />
+          </ZoomPunch>
+        </ScreenShake>
       </Sequence>
 
       <Sequence from={dropFrame} durationInFrames={20}>
@@ -90,10 +116,18 @@ export const ReleaseClip: React.FC<ReleaseClipProps> = ({
         </AbsoluteFill>
       </Sequence>
 
+      {/* === LAYER 7.5: Light leak at drop → vibe transition === */}
+      <Sequence from={295} durationInFrames={30}>
+        <LightLeak genre={genre} />
+      </Sequence>
+
       {/* === LAYER 8: End card (last 5 sec) — audio continues === */}
       <Sequence from={endCardStart}>
         <EndCard serieName={serieName} genre={genre} coverArtSrc={coverArtSrc} />
       </Sequence>
+
+      {/* === LAYER 9: Film grain overlay (always visible) === */}
+      <FilmGrain opacity={0.04} />
     </AbsoluteFill>
   );
 };
