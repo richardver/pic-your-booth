@@ -1,19 +1,16 @@
 import React from 'react';
-import { spring, useCurrentFrame, useVideoConfig } from 'remotion';
 import { GENRE_TOKENS } from '../lib/tokens';
 import { Genre } from '../lib/types';
+import { WipeReveal } from './effects/WipeReveal';
 
 export const GenrePills: React.FC<{ tags: string[]; genre: Genre }> = ({ tags, genre }) => {
-  const frame = useCurrentFrame();
-  const { fps } = useVideoConfig();
   const { accent, dim } = GENRE_TOKENS[genre];
 
   return (
     <div style={{ display: 'flex', gap: 16, marginTop: 24 }}>
-      {tags.map((tag, i) => {
-        const enter = spring({ fps, frame: frame - i * 4, config: { damping: 200 } });
-        return (
-          <div key={tag} style={{
+      {tags.map((tag, i) => (
+        <WipeReveal key={tag} delay={10 + i * 5}>
+          <div style={{
             fontSize: 28,
             fontWeight: 700,
             letterSpacing: '0.08em',
@@ -22,13 +19,11 @@ export const GenrePills: React.FC<{ tags: string[]; genre: Genre }> = ({ tags, g
             borderRadius: 999,
             background: dim,
             color: accent,
-            opacity: Math.max(0, enter),
-            transform: `translateY(${(1 - Math.max(0, enter)) * 10}px)`,
           }}>
             {tag}
           </div>
-        );
-      })}
+        </WipeReveal>
+      ))}
     </div>
   );
 };

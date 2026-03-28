@@ -2,8 +2,6 @@ import React from 'react';
 import { AbsoluteFill, Img, spring, useCurrentFrame, useVideoConfig, staticFile } from 'remotion';
 import { TOKENS, GENRE_TOKENS } from '../lib/tokens';
 import { Genre } from '../lib/types';
-import { EQBar } from './EQBar';
-import { HexBadge } from './HexBadge';
 
 export const EndCard: React.FC<{
   serieName: string;
@@ -19,17 +17,15 @@ export const EndCard: React.FC<{
     <AbsoluteFill style={{
       justifyContent: 'center',
       alignItems: 'center',
-      background: `radial-gradient(ellipse at 50% 55%, ${accent}33 0%, transparent 55%), ${TOKENS.void}`,
+      background: `radial-gradient(ellipse at 50% 45%, ${accent}33 0%, transparent 55%), ${TOKENS.void}`,
+      padding: '160px 110px 280px 40px',
     }}>
-      <div style={{ position: 'absolute', top: 120, right: 48 }}>
-        <HexBadge genre={genre} />
-      </div>
       {coverArtSrc ? (
         <Img
           src={staticFile(coverArtSrc)}
           style={{
-            width: 540,
-            height: 540,
+            width: 480,
+            height: 480,
             borderRadius: 48,
             border: `3px solid ${accent}55`,
             boxShadow: `0 20px 60px rgba(0,0,0,0.6), 0 0 40px ${accent}33`,
@@ -38,11 +34,11 @@ export const EndCard: React.FC<{
         />
       ) : (
         <div style={{
-          width: 540, height: 540, borderRadius: 48,
+          width: 480, height: 480, borderRadius: 48,
           background: `linear-gradient(180deg, ${TOKENS.void} 0%, ${accent}22 100%)`,
           border: `3px solid ${accent}55`,
           display: 'flex', alignItems: 'center', justifyContent: 'center',
-          fontFamily: TOKENS.fontDisplay, fontSize: 80, color: TOKENS.white,
+          fontFamily: TOKENS.fontDisplay, fontSize: 72, color: TOKENS.white,
           transform: `scale(${enter})`,
         }}>
           DJ GIANNI
@@ -50,27 +46,24 @@ export const EndCard: React.FC<{
       )}
       <div style={{
         fontFamily: TOKENS.fontDisplay,
-        fontSize: 80,
+        fontSize: 72,
         letterSpacing: '0.06em',
         color: TOKENS.white,
         textAlign: 'center',
-        marginTop: 48,
+        marginTop: 40,
         opacity: enter,
       }}>
         {serieName}
       </div>
-      <div style={{ fontSize: 40, color: TOKENS.muted, marginTop: 12, opacity: enter }}>
+      <div style={{ fontSize: 36, color: TOKENS.muted, marginTop: 8, opacity: enter }}>
         Volledige set op SoundCloud
       </div>
       <div style={{
-        fontSize: 40, fontWeight: 700, color: accent,
+        fontSize: 36, fontWeight: 700, color: accent,
         letterSpacing: '0.1em', textTransform: 'uppercase' as const,
-        marginTop: 32, display: 'flex', alignItems: 'center', gap: 16, opacity: enter,
+        marginTop: 28, opacity: enter,
       }}>
         LINK IN BIO &#10148;
-      </div>
-      <div style={{ marginTop: 48 }}>
-        <EQBar genre={genre} height={60} />
       </div>
     </AbsoluteFill>
   );

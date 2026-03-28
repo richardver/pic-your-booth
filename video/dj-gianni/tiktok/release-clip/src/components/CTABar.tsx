@@ -8,14 +8,10 @@ export const CTABar: React.FC<{ genre: Genre }> = ({ genre }) => {
   const { fps } = useVideoConfig();
   const { accent } = GENRE_TOKENS[genre];
   const enter = spring({ fps, frame, config: { damping: 200 } });
-  const y = interpolate(enter, [0, 1], [100, 0]);
+  const y = interpolate(enter, [0, 1], [80, 0]);
 
   return (
     <div style={{
-      position: 'absolute',
-      bottom: 160,
-      left: 40,
-      right: 180,
       background: `${accent}26`,
       backdropFilter: 'blur(12px)',
       border: `2px solid ${accent}44`,

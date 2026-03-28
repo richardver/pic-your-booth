@@ -15,7 +15,7 @@ export const RemotionRoot: React.FC = () => {
       defaultProps={{
         genre: 'afro',
         serieName: 'AFRO BEATS VOL. 2',
-        hookText: 'Nieuwe Afro Beats mix is LIVE',
+        hookText: 'STUUR JE PLAYLIST\nIK MAAK ER DIT VAN',
         genreTags: ['Afro Beats', 'Amapiano', 'Afro House'],
         videoSrc: 'footage/dj-gianni-set-recording.mov',
         videoStartSec: 10.0,
