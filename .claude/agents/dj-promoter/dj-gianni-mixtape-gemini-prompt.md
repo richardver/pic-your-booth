@@ -59,11 +59,9 @@ Each mixtape series uses a different accent color from DJ Gianni's warm palette.
 | Event/set name | "Afro Beats Set at Festival Haarlem" |
 | Genre tags | Pick from: Afro Beats, Caribbean, Nederlands, Hits |
 | Accent color | Pick from: `#f0654a` (Afro), `#f5b731` (Caribbean), `#c084fc` (Urban NL) |
-| Format | 1:1 for covers, 2480x520 for SoundCloud banner |
 
 ## Exported Covers
 
-- SoundCloud banner: `docs/images/dj-gianni/social/soundcloud-banner.png` (2480x520)
 - Afro mixtape cover: `docs/images/dj-gianni/mixtape/afro-mixtape-cover-v2.png` (1400x1400)
 - Caribbean mixtape cover: `docs/images/dj-gianni/mixtape/caribbean-mixtape-cover.png` (1400x1400)
 - NL Urban mixtape cover: `docs/images/dj-gianni/mixtape/nl-urban-mixtape-cover.png` (1400x1400)

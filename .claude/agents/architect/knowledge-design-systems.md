@@ -39,7 +39,6 @@ How PYB's design systems are layered and which inherits from which.
 
 ## Asset Templates (Separate from Hierarchy)
 
-- `dj-gianni-social-templates.html` — SoundCloud banner, mixtape cover, TikTok overlay templates for DJ Gianni
 - These are export-ready HTML files, not design systems — they consume tokens from their DJ's brand guide
 
 ---

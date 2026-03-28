@@ -118,7 +118,6 @@ DO NOT: realistic faces, photographs, watermarks, cool blue/cyan tones.
 
 ---
 
-## SoundCloud Banner (`social/soundcloud-banner.png`)
 
 **Methode:** Playwright export vanuit HTML template
 **Afmetingen:** 2480x520px

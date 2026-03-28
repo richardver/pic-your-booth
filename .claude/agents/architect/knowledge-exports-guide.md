@@ -50,14 +50,12 @@ cd /tmp && node export.mjs
 
 | Asset | Dimensions | Source HTML | Output |
 |-------|-----------|------------|--------|
-| SoundCloud Banner | 2480 x 520 | `/tmp/gianni-banner-export.html` | `docs/images/dj-gianni/social/soundcloud-banner.png` |
 | Afro Mixtape Cover | 1400 x 1400 | `/tmp/gianni-cover-export.html` | `docs/images/dj-gianni/mixtape/afro-mixtape-cover.png` |
 
 ### Standard Sizes
 
 | Platform | Asset | Dimensions |
 |----------|-------|-----------|
-| SoundCloud | Profile banner | 2480 x 520 |
 | SoundCloud | Track/set cover | 1400 x 1400 |
 | Instagram | Post (square) | 1080 x 1080 |
 | Instagram | Post (portrait) | 1080 x 1350 |

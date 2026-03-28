@@ -42,6 +42,5 @@ Boekingen via link in bio
 - Social media templates: `docs/images/dj-gianni/social/social-templates.html`
 - Voice tags: `.claude/agents/dj-promoter/dj-gianni-voice-tags.md`
 - Profile photo: `docs/images/dj-gianni/profile/profiel.jpeg`
-- SoundCloud banner: `docs/images/dj-gianni/social/soundcloud-banner.png`
 - Signature shape: Hexagon (clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%))
 - Genre tags: Afro Beats, Caribbean, Nederlands Hits - coral colored

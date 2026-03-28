@@ -104,7 +104,6 @@ DJ Gianni - Afro Beats, Caribbean vibes en populaire hits. Elke set een feest, e
 
 - **Instagram:** Visual-first, polished Reels and carousel posts. Use coral visual mode.
 - **TikTok:** Raw, authentic, trending sounds. Behind-the-decks clips perform best.
-- **SoundCloud:** Audio mixes only. Cover art and banner specs in Mixtape Cover Art section below.
 
 ---
 
@@ -161,7 +160,6 @@ Voice tags for mixtapes, sets, and videos. Short, punchy, recognizable.
 Gemini prompt template in `.claude/agents/dj-promoter/dj-gianni-mixtape-gemini-prompt.md`.
 
 Key specs:
-- Square 1:1 (3000x3000px) for covers, 2480x520 for SoundCloud banners
 - "DJ GIANNI" as dominant title in Bebas Neue style
 - Genre tags as pill-shaped elements in coral
 - "Pure Vibes" in italic Space Grotesk below name
@@ -189,7 +187,6 @@ Key specs:
 | CSS reference | `.claude/agents/designer/dj-gianni-component-css-reference.html` |
 | Component library | `.claude/agents/designer/dj-gianni-component-css-reference.html` |
 | Social templates | `docs/images/dj-gianni/social/social-templates.html` |
-| SoundCloud banner | `docs/images/dj-gianni/social/soundcloud-banner.png` (2480x520) |
 | Mixtape cover | `docs/images/dj-gianni/mixtape/afro-mixtape-cover-v2.png` (1400x1400) |
 | Profile photo | `docs/images/dj-gianni/profile/profiel.jpeg` |
 | Preview photo | `docs/images/dj-gianni/profile/preview.jpg` |

@@ -103,4 +103,3 @@ Voice tag library for DJ Milø has not yet been created. When developing:
 | Brand guide (HTML) | `.claude/agents/designer/dj-milo-brand-guide.html` |
 | Profile | `.claude/agents/dj-promoter/dj-milo-profile.md` |
 
-**Assets to develop:** Social templates, SoundCloud banner, mixtape cover art, profile photo, voice tags, Gemini prompt template. Follow DJ Gianni's asset structure as reference.
