@@ -1,36 +1,27 @@
-import React from "react";
-import { Composition } from "remotion";
-
-const Placeholder: React.FC = () => (
-  <div style={{
-    background: '#050508',
-    width: '100%',
-    height: '100%',
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-    color: '#f0654a',
-    fontFamily: 'Impact',
-    fontSize: 80,
-    letterSpacing: '0.06em',
-    flexDirection: 'column',
-    gap: 8,
-  }}>
-    <div>DJ GIANNI</div>
-    <div style={{ fontSize: 28, color: '#ededf0', opacity: 0.5 }}>RELEASE CLIP POC</div>
-  </div>
-);
+import React from 'react';
+import { Composition } from 'remotion';
+import { ReleaseClip } from './ReleaseClip';
+import { ReleaseClipProps } from './lib/types';
 
 export const RemotionRoot: React.FC = () => {
   return (
-    <Composition
+    <Composition<ReleaseClipProps>
       id="ReleaseClip"
-      component={Placeholder}
+      component={ReleaseClip}
       durationInFrames={750}
       fps={30}
       width={1080}
       height={1920}
-      defaultProps={{}}
+      defaultProps={{
+        genre: 'afro',
+        serieName: 'AFRO BEATS VOL. 2',
+        hookText: 'Nieuwe Afro Beats mix is LIVE',
+        genreTags: ['Afro Beats', 'Amapiano', 'Afro House'],
+        videoSrc: '',
+        dropTimestamp: 240,
+        coverArtSrc: 'covers/afro-mixtape-cover.png',
+        durationSec: 25,
+      }}
     />
   );
 };
