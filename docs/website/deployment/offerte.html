@@ -1231,12 +1231,11 @@ a { color: inherit; text-decoration: none; }
       var submitBtn = form.querySelector('.btn-submit');
       if (submitBtn) { submitBtn.disabled = true; submitBtn.textContent = 'Versturen...'; }
 
-      /* Format date from yyyy-mm-dd (input) to dd-mm-yyyy (HubSpot) */
+      /* Format date from yyyy-mm-dd (input) to Unix ms midnight UTC (HubSpot) */
       var rawDate = datumInput.value;
       var formattedDate = rawDate;
       if (rawDate && rawDate.match(/^\d{4}-\d{2}-\d{2}$/)) {
-        var parts = rawDate.split('-');
-        formattedDate = parts[2] + '-' + parts[1] + '-' + parts[0];
+        formattedDate = new Date(rawDate + 'T00:00:00Z').getTime().toString();
       }
 
       fetch('https://api.hsforms.com/submissions/v3/integration/submit/' + HS_PORTAL_ID + '/' + HS_FORM_GUID, {
