@@ -29,10 +29,20 @@ Prefixed with "last_" to signal these are temporary and get moved to Deal.
 - [ ] Test form submission creates contact with all fields populated
 
 ## Step 3: HubSpot Deal Properties (Deal level, permanent)
-Create these deal properties in HubSpot:
-- [ ] `service_type` — Dropdown: party-booth, magic-mirror, dj
-- [ ] `event_type` — Dropdown: bruiloft, bedrijfsfeest, verjaardag, festival-club, anders
-- [ ] `event_date` — Date picker
+
+Custom properties (5 of 10 free-tier limit, filled during sales/planning):
+- [ ] `venue_location` — Single-line text (venue name + address)
+- [ ] `evenement_starttime` — Single-line text (e.g. "20:00")
+- [ ] `evenement_delivery_time` — Single-line text (e.g. "18:00")
+- [ ] `evenement_pickup_time` — Single-line text (e.g. "01:00")
+- [ ] `assigned_operator` — Dropdown: luca, milo, richard (DJ bookings only)
+
+Built-in deal properties used:
+- Deal name: `[Service] - [Contact Name] - [Event Date]`
+- Close date: maps to event date
+- Amount: deal value
+
+Form data (service_type, event_type, event_date, upgrades, message) stays on Contact + form submission — not duplicated on Deal level due to free-tier property limit.
 
 ## Step 4: n8n Workflow
 Build workflow:

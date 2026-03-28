@@ -87,11 +87,27 @@ Contact (person) → has many Deals (bookings)
 
 ### Deal Properties
 
-| Property | Type | Values |
+**Built-in:**
+
+| Property | Type | Notes |
 |---|---|---|
-| service_type | Dropdown | party-booth, magic-mirror, dj |
-| event_type | Dropdown | bruiloft, bedrijfsfeest, verjaardag, festival-club, anders |
-| event_date | Date | Event date |
+| Deal name | Text | `[Service] - [Contact Name] - [Event Date]` |
+| Amount | Number | Deal value |
+| Close date | Date | Maps to `event_date` |
+| Deal owner | User | HubSpot user |
+
+**Custom (5 properties, filled during sales/planning):**
+
+| Property | Type | Notes |
+|---|---|---|
+| `venue_location` | Text | Venue name + address |
+| `evenement_starttime` | Text | Start time of event (e.g. "20:00") |
+| `evenement_delivery_time` | Text | Time equipment arrives at venue (e.g. "18:00") |
+| `evenement_pickup_time` | Text | Time equipment gets picked up (e.g. "01:00") |
+| `assigned_operator` | Dropdown | luca, milo, richard — DJ bookings only |
+
+**Form data (stays on Contact + form submission, not duplicated on Deal):**
+- `service_type`, `event_type`, `event_date`, `evenement_upgrades`, `message` — available via Contact association and form submission record
 
 ### Deal Naming Convention
 
