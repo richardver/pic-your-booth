@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YR6DH9HZJM"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-YR6DH9HZJM');
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jouw Foto's | PicYourBooth</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" type="image/png" href="/favicon-32.png" sizes="32x32">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" href="/favicon-192.png" sizes="192x192">
+<link rel="icon" type="image/png" href="/favicon-512.png" sizes="512x512">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* ============================================================
+   PICYOURBOOTH — PHOTO PORTAL
+   Branded reveal → iframe photo viewer
+   ============================================================ */
+
+:root {
+  --void:        #050508;
+  --bg:          #08080b;
+  --surface:     #111116;
+  --surface-up:  #18181e;
+  --text:        #ededf0;
+  --text-muted:  rgba(237, 237, 240, 0.75);
+  --border:      rgba(255, 255, 255, 0.06);
+  --gold:        #f59e42;
+  --gold-light:  #ffb86b;
+  --gold-dim:    rgba(245, 158, 66, 0.10);
+  --gold-glow:   rgba(245, 158, 66, 0.20);
+  --font-display: 'Bebas Neue', Impact, sans-serif;
+  --font-body:    'Space Grotesk', -apple-system, sans-serif;
+  --ease: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html {
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: var(--font-body);
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100dvh;
+  overflow: hidden;
+}
+
+/* -- Confetti Canvas ----------------------------------- */
+#confetti {
+  position: fixed;
+  inset: 0;
+  z-index: 10;
+  pointer-events: none;
+}
+
+/* -- Splash Screen ------------------------------------- */
+.splash {
+  position: fixed;
+  inset: 0;
+  z-index: 5;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 2rem;
+  background: var(--bg);
+  transition: opacity 0.6s var(--ease), transform 0.6s var(--ease);
+}
+
+.splash.hidden {
+  opacity: 0;
+  transform: scale(1.05);
+  pointer-events: none;
+}
+
+.splash-logo {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-family: var(--font-display);
+  font-size: clamp(1.8rem, 5vw, 2.4rem);
+  letter-spacing: 2px;
+  text-decoration: none;
+  color: var(--text);
+  margin-bottom: 2.5rem;
+  opacity: 0;
+  animation: fadeUp 0.8s var(--ease) 0.2s forwards;
+}
+
+.splash-logo .logo-camera {
+  width: 1.1em;
+  height: 1.1em;
+  margin-right: 6px;
+  flex-shrink: 0;
+}
+
+.splash-logo .logo-accent {
+  color: var(--gold);
+}
+
+.splash-logo .logo-icon {
+  width: 0.85em;
+  height: 0.85em;
+  margin-left: 4px;
+  flex-shrink: 0;
+}
+
+.splash-event {
+  font-family: var(--font-body);
+  font-size: clamp(0.95rem, 2.5vw, 1.1rem);
+  color: var(--text-muted);
+  font-weight: 400;
+  letter-spacing: 0.5px;
+  margin-bottom: 0.5rem;
+  opacity: 0;
+  animation: fadeUp 0.8s var(--ease) 0.4s forwards;
+}
+
+.splash-event:empty {
+  display: none;
+}
+
+.splash-headline {
+  font-family: var(--font-display);
+  font-size: clamp(2.8rem, 10vw, 5rem);
+  line-height: 1;
+  letter-spacing: 3px;
+  margin-bottom: 0.5rem;
+  opacity: 0;
+  animation: fadeUp 0.8s var(--ease) 0.6s forwards;
+}
+
+.splash-headline .gold {
+  color: var(--gold);
+}
+
+.splash-sub {
+  font-size: clamp(1rem, 3vw, 1.2rem);
+  color: var(--text-muted);
+  margin-bottom: 2.5rem;
+  opacity: 0;
+  animation: fadeUp 0.8s var(--ease) 0.8s forwards;
+}
+
+.splash-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 1rem 2.5rem;
+  font-family: var(--font-display);
+  font-size: clamp(1.2rem, 3vw, 1.5rem);
+  letter-spacing: 2px;
+  color: var(--bg);
+  background: var(--gold);
+  border: none;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: transform 0.3s var(--ease), box-shadow 0.3s var(--ease);
+  opacity: 0;
+  animation: fadeUp 0.8s var(--ease) 1s forwards;
+}
+
+.splash-cta:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 40px var(--gold-glow);
+}
+
+.splash-cta:active {
+  transform: scale(0.97);
+}
+
+.splash-cta svg {
+  width: 1.2em;
+  height: 1.2em;
+}
+
+.splash-review {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 1.5rem;
+  color: var(--text-muted);
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: color 0.2s;
+  opacity: 0;
+  animation: fadeUp 0.8s var(--ease) 1.2s forwards;
+}
+
+.splash-review:hover {
+  color: var(--gold);
+}
+
+.splash-review svg {
+  width: 1em;
+  height: 1em;
+}
+
+/* -- Error state --------------------------------------- */
+.error {
+  position: fixed;
+  inset: 0;
+  z-index: 20;
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 2rem;
+  background: var(--bg);
+}
+
+.error.active {
+  display: flex;
+}
+
+.error h2 {
+  font-family: var(--font-display);
+  font-size: 2rem;
+  letter-spacing: 2px;
+  margin-bottom: 1rem;
+}
+
+.error p {
+  color: var(--text-muted);
+  margin-bottom: 2rem;
+  max-width: 400px;
+}
+
+.error a {
+  color: var(--gold);
+}
+
+/* -- Animations ---------------------------------------- */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+</style>
+</head>
+<body>
+
+<!-- Confetti Canvas -->
+<canvas id="confetti"></canvas>
+
+<!-- Phase 1: Splash -->
+<div class="splash" id="splash">
+  <a href="/" class="splash-logo">
+    <svg class="logo-camera" aria-hidden="true" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="2" y="6" width="20" height="14" rx="3" stroke="#ededf0" stroke-width="2"/><circle cx="12" cy="13" r="4" stroke="#ededf0" stroke-width="2"/><path d="M8 6V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v1" stroke="#ededf0" stroke-width="2"/></svg>PicYour<span class="logo-accent">Booth</span><svg class="logo-icon" aria-hidden="true" viewBox="0 2 24 22" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3 18v-6a9 9 0 0 1 18 0v6" stroke="#ededf0" stroke-width="2.5" stroke-linecap="round"/><path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3v5zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3v5z" fill="#ededf0"/></svg>
+  </a>
+  <div class="splash-event" id="eventName"></div>
+  <h1 class="splash-headline">Jouw Foto's<br>Staan <span class="gold">Klaar!</span></h1>
+  <p class="splash-sub">Wat een feest was het!</p>
+  <button class="splash-cta" id="viewPhotos">
+    Bekijk Je Foto's
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+  </button>
+  <a href="https://g.page/r/CTQz7DQBMBoHEAE/review" target="_blank" rel="noopener" class="splash-review">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+    Laat een review achter
+  </a>
+</div>
+
+<!-- Error state -->
+<div class="error" id="error">
+  <h2>Oeps!</h2>
+  <p id="errorMsg">Er is geen foto link meegegeven. Heb je de juiste link ontvangen?</p>
+  <p><a href="/">Terug naar PicYourBooth.nl</a></p>
+</div>
+
+<script>
+(function() {
+  var ALLOWED_HOSTS = ['fotoshare.co'];
+
+  var params = new URLSearchParams(window.location.search);
+  var photoLink = params.get('link');
+  var eventName = params.get('event');
+
+  // Validate link is a safe HTTPS URL from an allowed host
+  function isAllowedLink(url) {
+    try {
+      var parsed = new URL(url);
+      if (parsed.protocol !== 'https:') return false;
+      return ALLOWED_HOSTS.some(function(host) {
+        return parsed.hostname === host || parsed.hostname.endsWith('.' + host);
+      });
+    } catch(e) {
+      return false;
+    }
+  }
+
+  if (!photoLink || !isAllowedLink(photoLink)) {
+    document.getElementById('error').classList.add('active');
+    document.getElementById('splash').style.display = 'none';
+    return;
+  }
+
+  // Show event name if provided (safe: textContent only)
+  if (eventName) {
+    document.getElementById('eventName').textContent = eventName;
+  }
+
+  // -- Confetti
+  var canvas = document.getElementById('confetti');
+  var ctx = canvas.getContext('2d');
+  var pieces = [];
+  var colors = ['#f59e42', '#ffb86b', '#ededf0', '#8b5cf6', '#f59e42', '#ffb86b'];
+  var running = true;
+
+  function resize() {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+  }
+  resize();
+  window.addEventListener('resize', resize);
+
+  function randomRange(min, max) { return Math.random() * (max - min) + min; }
+
+  function createPiece() {
+    return {
+      x: randomRange(0, canvas.width),
+      y: randomRange(-canvas.height, -10),
+      w: randomRange(6, 12),
+      h: randomRange(4, 8),
+      color: colors[Math.floor(Math.random() * colors.length)],
+      rotation: randomRange(0, Math.PI * 2),
+      rotSpeed: randomRange(-0.05, 0.05),
+      vy: randomRange(2, 5),
+      vx: randomRange(-1.5, 1.5),
+      wobble: randomRange(0, Math.PI * 2),
+      wobbleSpeed: randomRange(0.03, 0.08),
+      opacity: 1
+    };
+  }
+
+  for (var i = 0; i < 120; i++) {
+    pieces.push(createPiece());
+  }
+
+  function drawConfetti() {
+    if (!running) return;
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+    for (var i = pieces.length - 1; i >= 0; i--) {
+      var p = pieces[i];
+      p.y += p.vy;
+      p.x += p.vx + Math.sin(p.wobble) * 0.5;
+      p.wobble += p.wobbleSpeed;
+      p.rotation += p.rotSpeed;
+
+      if (p.y > canvas.height * 0.7) {
+        p.opacity = Math.max(0, 1 - (p.y - canvas.height * 0.7) / (canvas.height * 0.3));
+      }
+
+      if (p.y > canvas.height || p.opacity <= 0) {
+        pieces.splice(i, 1);
+        continue;
+      }
+
+      ctx.save();
+      ctx.translate(p.x, p.y);
+      ctx.rotate(p.rotation);
+      ctx.globalAlpha = p.opacity;
+      ctx.fillStyle = p.color;
+      ctx.fillRect(-p.w / 2, -p.h / 2, p.w, p.h);
+      ctx.restore();
+    }
+
+    if (pieces.length > 0) {
+      requestAnimationFrame(drawConfetti);
+    }
+  }
+
+  requestAnimationFrame(drawConfetti);
+
+  // -- Navigate to photos
+  var viewBtn = document.getElementById('viewPhotos');
+  viewBtn.addEventListener('click', function() {
+    var splash = document.getElementById('splash');
+    running = false;
+    canvas.style.display = 'none';
+
+    splash.classList.add('hidden');
+    setTimeout(function() {
+      window.location.href = photoLink;
+    }, 500);
+  });
+
+  // -- GA events
+  if (typeof gtag === 'function') {
+    gtag('event', 'portal_view', {
+      event_category: 'photo_portal',
+      event_label: eventName || 'unknown'
+    });
+
+    viewBtn.addEventListener('click', function() {
+      gtag('event', 'portal_photos_opened', {
+        event_category: 'photo_portal',
+        event_label: eventName || 'unknown'
+      });
+    });
+  }
+})();
+</script>
+
+</body>
+</html>
