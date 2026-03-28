@@ -33,13 +33,13 @@ Example: `https://fotoshare.co/e/YhU4oBy5I4nMcbXAwyowM`
 
 Instead of sending raw fotoshare.co links, PYB wraps them in a branded experience.
 
-**Portal page:** `picyourbooth.nl/portal.html`
-**File location:** `docs/website/deployment/portal.html`
+**Portal page:** `picyourbooth.nl/yourphotos.html`
+**File location:** `docs/website/deployment/yourphotos.html`
 
 ### URL Format
 
 ```
-https://picyourbooth.nl/portal.html?link=https://fotoshare.co/e/{EVENT_ID}&event={Event+Naam}
+https://picyourbooth.nl/yourphotos.html?link=https://fotoshare.co/e/{EVENT_ID}&event={Event+Naam}
 ```
 
 | Parameter | Required | Description |
@@ -50,9 +50,9 @@ https://picyourbooth.nl/portal.html?link=https://fotoshare.co/e/{EVENT_ID}&event
 ### Examples
 
 ```
-picyourbooth.nl/portal.html?link=https://fotoshare.co/e/YhU4oBy5I4nMcbXAwyowM&event=Bruiloft+Hennevelt
-picyourbooth.nl/portal.html?link=https://fotoshare.co/e/ABC123&event=Verjaardag+Sophie
-picyourbooth.nl/portal.html?link=https://fotoshare.co/e/XYZ789
+picyourbooth.nl/yourphotos.html?link=https://fotoshare.co/e/YhU4oBy5I4nMcbXAwyowM&event=Bruiloft+Hennevelt
+picyourbooth.nl/yourphotos.html?link=https://fotoshare.co/e/ABC123&event=Verjaardag+Sophie
+picyourbooth.nl/yourphotos.html?link=https://fotoshare.co/e/XYZ789
 ```
 
 ### Customer Experience

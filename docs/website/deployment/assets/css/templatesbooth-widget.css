@@ -1,0 +1,319 @@
+/* ============================================================
+   PICYOURBOOTH — TemplatesBooth Widget Custom CSS
+   Paste this into TemplatesBooth > Widget Settings > Custom CSS
+   Background color setting: #08080b
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Space+Grotesk:wght@400;500;600&display=swap');
+
+/* -- Base ---------------------------------------------- */
+body,
+body.page-template-widget-embed,
+body.page-template-widget-embed-new,
+body.page-template-widget-embed-form {
+    background-color: #08080b !important;
+    font-family: 'Space Grotesk', -apple-system, sans-serif !important;
+    color: #ededf0 !important;
+}
+
+.site-content {
+    background-color: #08080b !important;
+}
+
+.container {
+    background-color: transparent !important;
+}
+
+/* -- Filter bar background ----------------------------- */
+.user_bg_color {
+    background-color: #111116 !important;
+}
+
+/* -- Filter dropdown ----------------------------------- */
+#widget_filters_form {
+    background: #111116 !important;
+    border: 1px solid rgba(255,255,255,0.06) !important;
+    border-radius: 12px !important;
+    padding: 12px 16px !important;
+    margin-bottom: 24px !important;
+}
+
+.postform, select {
+    background: #18181e !important;
+    color: #ededf0 !important;
+    border: 1px solid rgba(255,255,255,0.06) !important;
+    border-radius: 8px !important;
+    font-family: 'Space Grotesk', sans-serif !important;
+    padding: 8px 12px !important;
+}
+
+/* -- Template cards ------------------------------------ */
+.template-item {
+    background: #111116 !important;
+    border: 1px solid rgba(255,255,255,0.06) !important;
+    border-radius: 12px !important;
+    overflow: hidden !important;
+    transition: border-color 0.3s ease, transform 0.3s ease !important;
+}
+
+.template-item:hover {
+    border-color: rgba(245,158,66,0.3) !important;
+    transform: translateY(-2px) !important;
+}
+
+.img-wrapper, .img-wrapper.video-wrapper {
+    border-radius: 12px 12px 0 0 !important;
+}
+
+/* -- Template titles ----------------------------------- */
+.slide-title, .slide-title.static-title {
+    font-family: 'Space Grotesk', sans-serif !important;
+    color: #ededf0 !important;
+    font-weight: 500 !important;
+    background: #111116 !important;
+}
+
+/* -- Hover buttons ------------------------------------- */
+.hover-btns {
+    background: rgba(8,8,11,0.85) !important;
+}
+
+.choose-btn, .view-btn {
+    background: #f59e42 !important;
+    color: #08080b !important;
+    border: none !important;
+    border-radius: 999px !important;
+    font-family: 'Bebas Neue', sans-serif !important;
+    letter-spacing: 1.5px !important;
+    font-size: 14px !important;
+    padding: 8px 20px !important;
+    transition: transform 0.2s ease, box-shadow 0.2s ease !important;
+}
+
+.choose-btn:hover, .view-btn:hover {
+    transform: scale(1.05) !important;
+    box-shadow: 0 0 20px rgba(245,158,66,0.2) !important;
+}
+
+.enlarge-btn {
+    background: rgba(255,255,255,0.1) !important;
+    color: #ededf0 !important;
+    border: 1px solid rgba(255,255,255,0.12) !important;
+    border-radius: 999px !important;
+    padding: 8px 20px !important;
+}
+
+.enlarge-btn:hover {
+    background: rgba(255,255,255,0.15) !important;
+}
+
+/* -- Submit button ------------------------------------- */
+#submit_button {
+    background: #f59e42 !important;
+    color: #08080b !important;
+    border: none !important;
+    border-radius: 999px !important;
+    padding: 14px 32px !important;
+    font-family: 'Bebas Neue', sans-serif !important;
+    font-size: 18px !important;
+    letter-spacing: 2px !important;
+    cursor: pointer !important;
+    transition: transform 0.2s ease, box-shadow 0.2s ease !important;
+}
+
+#submit_button:hover {
+    transform: scale(1.05) !important;
+    box-shadow: 0 0 30px rgba(245,158,66,0.2) !important;
+}
+
+/* -- Pagination ---------------------------------------- */
+.page-numbers {
+    background: #18181e !important;
+    color: #ededf0 !important;
+    border: 1px solid rgba(255,255,255,0.06) !important;
+    border-radius: 8px !important;
+    font-family: 'Space Grotesk', sans-serif !important;
+}
+
+.page-numbers.current {
+    background: #f59e42 !important;
+    color: #08080b !important;
+    border-color: #f59e42 !important;
+}
+
+/* -- Search -------------------------------------------- */
+#search {
+    background: #18181e !important;
+    color: #ededf0 !important;
+    border: 1px solid rgba(255,255,255,0.06) !important;
+    border-radius: 8px !important;
+    font-family: 'Space Grotesk', sans-serif !important;
+}
+
+/* -- Clear button -------------------------------------- */
+.clear-button {
+    color: rgba(237,237,240,0.75) !important;
+}
+
+.clear-button:hover {
+    color: #f59e42 !important;
+}
+
+/* -- Form inputs (submission form) --------------------- */
+input[type="text"], input[type="email"], input[type="tel"], input[type="date"], textarea {
+    background: #18181e !important;
+    color: #ededf0 !important;
+    border: 1px solid rgba(255,255,255,0.06) !important;
+    border-radius: 8px !important;
+    font-family: 'Space Grotesk', sans-serif !important;
+    padding: 10px 14px !important;
+}
+
+input[type="text"]:focus, input[type="email"]:focus, input[type="tel"]:focus, textarea:focus {
+    border-color: rgba(245,158,66,0.4) !important;
+    outline: none !important;
+}
+
+label {
+    color: rgba(237,237,240,0.75) !important;
+    font-family: 'Space Grotesk', sans-serif !important;
+}
+
+/* -- Detail / Form page -------------------------------- */
+.widget-embed-form {
+    background: #08080b !important;
+}
+
+.form-container {
+    background: #08080b !important;
+}
+
+.form-main {
+    background: #111116 !important;
+    border: 1px solid rgba(255,255,255,0.06) !important;
+    border-radius: 12px !important;
+    padding: 24px !important;
+}
+
+/* Back button */
+.back-main-page, .back-main-page a, .back a {
+    color: #f59e42 !important;
+    font-family: 'Space Grotesk', sans-serif !important;
+    text-decoration: none !important;
+}
+
+.back-main-page:hover, .back-main-page a:hover, .back a:hover {
+    color: #ffb86b !important;
+}
+
+.back .fas, .back-main-page .fas {
+    color: #f59e42 !important;
+}
+
+/* Template name on detail page */
+.widget-name, .widget-name h4 {
+    color: #ededf0 !important;
+    font-family: 'Bebas Neue', sans-serif !important;
+    letter-spacing: 2px !important;
+    font-size: 1.5rem !important;
+}
+
+/* Preview image */
+.widget-form-img {
+    background: transparent !important;
+}
+
+.preview-image {
+    border-radius: 8px !important;
+}
+
+/* Color pickers */
+.custom-colors, .color-main, .secondary-color, .text-color, .other-color {
+    color: rgba(237,237,240,0.75) !important;
+    font-family: 'Space Grotesk', sans-serif !important;
+}
+
+.color-picker, .main-picker, .secondary-picker, .text-picker, .other-picker {
+    background: #18181e !important;
+    border: 1px solid rgba(255,255,255,0.06) !important;
+    border-radius: 8px !important;
+}
+
+/* Text area */
+.text-area textarea, .text-message textarea {
+    background: #18181e !important;
+    color: #ededf0 !important;
+    border: 1px solid rgba(255,255,255,0.06) !important;
+    border-radius: 8px !important;
+    font-family: 'Space Grotesk', sans-serif !important;
+}
+
+/* Date picker */
+.datepicker {
+    background: #18181e !important;
+    color: #ededf0 !important;
+    border: 1px solid rgba(255,255,255,0.06) !important;
+    border-radius: 8px !important;
+    font-family: 'Space Grotesk', sans-serif !important;
+}
+
+/* Form submit section */
+.form-submit {
+    background: transparent !important;
+}
+
+/* jQuery UI datepicker popup */
+.ui-datepicker {
+    background: #18181e !important;
+    border: 1px solid rgba(255,255,255,0.12) !important;
+    border-radius: 8px !important;
+    font-family: 'Space Grotesk', sans-serif !important;
+}
+
+.ui-datepicker-header {
+    background: #111116 !important;
+    color: #ededf0 !important;
+    border: none !important;
+}
+
+.ui-datepicker td a, .ui-datepicker td span {
+    color: #ededf0 !important;
+    background: transparent !important;
+}
+
+.ui-datepicker td a:hover {
+    background: rgba(245,158,66,0.2) !important;
+    color: #f59e42 !important;
+}
+
+.ui-datepicker .ui-state-active {
+    background: #f59e42 !important;
+    color: #08080b !important;
+}
+
+.ui-datepicker .ui-datepicker-prev, .ui-datepicker .ui-datepicker-next {
+    color: #ededf0 !important;
+}
+
+/* -- Loader -------------------------------------------- */
+.siteloader {
+    background: #08080b !important;
+}
+
+/* -- Scrollbar ----------------------------------------- */
+::-webkit-scrollbar {
+    width: 6px;
+}
+
+::-webkit-scrollbar-track {
+    background: #08080b;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #18181e;
+    border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: rgba(245,158,66,0.3);
+}
