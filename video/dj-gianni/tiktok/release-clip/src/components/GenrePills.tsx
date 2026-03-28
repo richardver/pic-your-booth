@@ -1,5 +1,5 @@
 import React from 'react';
-import { GENRE_TOKENS } from '../lib/tokens';
+import { GENRE_TOKENS, TOKENS } from '../lib/tokens';
 import { Genre } from '../lib/types';
 import { WipeReveal } from './effects/WipeReveal';
 
@@ -11,6 +11,7 @@ export const GenrePills: React.FC<{ tags: string[]; genre: Genre }> = ({ tags, g
       {tags.map((tag, i) => (
         <WipeReveal key={tag} delay={10 + i * 5}>
           <div style={{
+            fontFamily: TOKENS.fontBody,
             fontSize: 28,
             fontWeight: 700,
             letterSpacing: '0.08em',

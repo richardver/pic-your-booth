@@ -1,6 +1,7 @@
 import React from 'react';
-import { AbsoluteFill, Sequence } from 'remotion';
+import { AbsoluteFill, Audio, Sequence, staticFile } from 'remotion';
 import { ReleaseClipProps } from './lib/types';
+import { TOKENS, SAFE } from './lib/tokens';
 import { VideoBackground } from './components/VideoBackground';
 import { TextHook } from './components/TextHook';
 import { GenrePills } from './components/GenrePills';
@@ -11,10 +12,6 @@ import { BassFlash } from './components/effects/BassFlash';
 import { ZoomPunch } from './components/effects/ZoomPunch';
 import { ParticleBurst } from './components/effects/ParticleBurst';
 import { CoralVignette } from './components/effects/CoralVignette';
-import { TOKENS } from './lib/tokens';
-
-// Safe zone padding
-const SAFE = { top: 160, right: 110, bottom: 280, left: 40 };
 
 export const ReleaseClip: React.FC<ReleaseClipProps> = ({
   genre, serieName, hookText, genreTags, videoSrc, videoStartSec, dropTimestamp, coverArtSrc, durationSec,
@@ -24,10 +21,20 @@ export const ReleaseClip: React.FC<ReleaseClipProps> = ({
   const endCardStart = totalFrames - 150; // 5 sec end card
   const dropFrame = 240; // 8 seconds in
 
+  const safePad = `${SAFE.top}px ${SAFE.right}px ${SAFE.bottom}px ${SAFE.left}px`;
+
   return (
     <AbsoluteFill style={{ backgroundColor: TOKENS.void }}>
 
-      {/* === LAYER 1: Video background (until end card) === */}
+      {/* === AUDIO: plays the ENTIRE duration (including end card) === */}
+      {videoSrc && (
+        <Audio
+          src={staticFile(videoSrc)}
+          startFrom={Math.round(videoStartSec * 24)}
+        />
+      )}
+
+      {/* === LAYER 1: Video background (visual only, until end card) === */}
       <Sequence durationInFrames={endCardStart}>
         <VideoBackground src={videoSrc} startFromSec={videoStartSec} />
       </Sequence>
@@ -39,10 +46,7 @@ export const ReleaseClip: React.FC<ReleaseClipProps> = ({
 
       {/* === LAYER 3: Hook text + genre pills (0:00-0:03) === */}
       <Sequence durationInFrames={90}>
-        <AbsoluteFill style={{
-          padding: `${SAFE.top}px ${SAFE.right}px ${SAFE.bottom}px ${SAFE.left}px`,
-          zIndex: 10,
-        }}>
+        <AbsoluteFill style={{ padding: safePad, zIndex: 10 }}>
           <TextHook text={hookText} genre={genre} />
           <GenrePills tags={genreTags} genre={genre} />
           <div style={{
@@ -57,8 +61,7 @@ export const ReleaseClip: React.FC<ReleaseClipProps> = ({
         </AbsoluteFill>
       </Sequence>
 
-      {/* === LAYER 4: Build-up (0:03-0:08) — clean, no overlays === */}
-      {/* Footage + coral vignette only. Let the music build tension. */}
+      {/* === LAYER 4: Build-up — clean footage, no overlays === */}
 
       {/* === LAYER 5: THE DROP effects (0:08) === */}
       <Sequence from={dropFrame} durationInFrames={8}>
@@ -80,18 +83,14 @@ export const ReleaseClip: React.FC<ReleaseClipProps> = ({
         <DropMoment serieName={serieName} genre={genre} />
       </Sequence>
 
-      {/* === LAYER 7: CTA bar slides up during vibe === */}
+      {/* === LAYER 7: CTA bar during vibe === */}
       <Sequence from={360} durationInFrames={endCardStart - 360}>
-        <AbsoluteFill style={{
-          padding: `${SAFE.top}px ${SAFE.right}px ${SAFE.bottom}px ${SAFE.left}px`,
-          justifyContent: 'flex-end',
-          zIndex: 10,
-        }}>
+        <AbsoluteFill style={{ padding: safePad, justifyContent: 'flex-end', zIndex: 10 }}>
           <CTABar genre={genre} />
         </AbsoluteFill>
       </Sequence>
 
-      {/* === LAYER 8: End card (last 5 sec) === */}
+      {/* === LAYER 8: End card (last 5 sec) — audio continues === */}
       <Sequence from={endCardStart}>
         <EndCard serieName={serieName} genre={genre} coverArtSrc={coverArtSrc} />
       </Sequence>

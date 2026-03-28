@@ -9,6 +9,7 @@ export const VideoBackground: React.FC<{ src: string; startFromSec?: number }> =
         <OffthreadVideo
           src={staticFile(src)}
           startFrom={Math.round(startFromSec * 24)}
+          volume={0}
           style={{ width: '100%', height: '100%', objectFit: 'cover' }}
         />
       ) : (

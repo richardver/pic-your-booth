@@ -1,6 +1,6 @@
 import React from 'react';
 import { AbsoluteFill } from 'remotion';
-import { TOKENS, GENRE_TOKENS } from '../lib/tokens';
+import { TOKENS, GENRE_TOKENS, SAFE } from '../lib/tokens';
 import { Genre } from '../lib/types';
 import { GlitchText } from './effects/GlitchText';
 import { SlamIn } from './effects/SlamIn';
@@ -12,7 +12,7 @@ export const DropMoment: React.FC<{ serieName: string; genre: Genre }> = ({ seri
     <AbsoluteFill style={{
       justifyContent: 'center',
       alignItems: 'center',
-      padding: '160px 40px 280px 40px',
+      padding: `${SAFE.top}px ${SAFE.right}px ${SAFE.bottom}px ${SAFE.left}px`,
     }}>
       <GlitchText intensity={5}>
         <SlamIn>

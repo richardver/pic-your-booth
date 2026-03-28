@@ -24,10 +24,10 @@ export const CTABar: React.FC<{ genre: Genre }> = ({ genre }) => {
       opacity: enter,
     }}>
       <div>
-        <div style={{ fontSize: 32, fontWeight: 700, color: TOKENS.white }}>
+        <div style={{ fontFamily: TOKENS.fontBody, fontSize: 32, fontWeight: 700, color: TOKENS.white }}>
           Volledige set op SoundCloud
         </div>
-        <div style={{ fontSize: 24, color: TOKENS.muted, marginTop: 4 }}>
+        <div style={{ fontFamily: TOKENS.fontBody, fontSize: 24, color: TOKENS.muted, marginTop: 4 }}>
           Link in bio
         </div>
       </div>
