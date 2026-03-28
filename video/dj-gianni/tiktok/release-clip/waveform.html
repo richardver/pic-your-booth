@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Audio Analysis - DJ Gianni - POC.mov</title>
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: 'SF Mono', 'Fira Code', monospace; background: #050508; color: #ededf0; padding: 32px; }
+h1 { font-size: 20px; font-weight: 700; color: #f0654a; margin-bottom: 4px; }
+.sub { font-size: 12px; color: rgba(237,237,240,0.45); margin-bottom: 32px; }
+.chart-container { overflow-x: auto; padding: 16px 0; }
+.chart { display: flex; align-items: flex-end; gap: 1px; height: 220px; position: relative; padding-bottom: 24px; min-width: 630px; }
+.bar { border-radius: 2px 2px 0 0; transition: opacity 0.1s; cursor: pointer; flex-shrink: 0; }
+.bar:hover { opacity: 0.7; }
+.clip-window { position: absolute; bottom: 0; height: 100%; background: rgba(52,211,153,0.06); border-left: 2px solid #34d399; border-right: 2px solid #34d399; pointer-events: none; z-index: 0; }
+.clip-label { position: absolute; bottom: -20px; left: 50%; transform: translateX(-50%); font-size: 10px; color: #34d399; white-space: nowrap; }
+.marker { position: absolute; bottom: 0; height: 100%; border-left: 2px dashed; z-index: 5; }
+.marker span { position: absolute; top: -4px; left: 6px; font-size: 9px; line-height: 1.3; white-space: nowrap; padding: 2px 6px; border-radius: 4px; background: rgba(5,5,8,0.9); }
+.info { margin-top: 32px; display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; }
+.info-card { background: #111116; border: 1px solid rgba(255,255,255,0.06); border-radius: 10px; padding: 16px; }
+.info-card .label { font-size: 10px; color: rgba(237,237,240,0.45); text-transform: uppercase; letter-spacing: 0.1em; }
+.info-card .value { font-size: 18px; font-weight: 700; color: #f0654a; margin-top: 4px; }
+.info-card .detail { font-size: 11px; color: rgba(237,237,240,0.45); margin-top: 4px; }
+.legend { display: flex; gap: 24px; margin-top: 24px; font-size: 11px; color: rgba(237,237,240,0.45); }
+.legend-dot { width: 10px; height: 10px; border-radius: 2px; display: inline-block; margin-right: 6px; vertical-align: middle; }
+</style>
+</head>
+<body>
+<h1>AUDIO ANALYSIS</h1>
+<div class="sub">DJ Gianni - POC.mov | 35.0s | 70 windows @ 0.5s</div>
+
+<div class="chart-container">
+<div class="chart">
+  <div class="clip-window" style="left:180px;width:450px">
+    <div class="clip-label">Recommended clip: 10.0s - 35.0s (25.0s)</div>
+  </div>
+  <div class="bar" style="width:8px;height:140px;background:rgba(237,237,240,0.25)" title="0.0s | energy: 0.70"></div>
+<div class="bar" style="width:8px;height:182px;background:rgba(237,237,240,0.25)" title="0.5s | energy: 0.91"></div>
+<div class="bar" style="width:8px;height:157px;background:rgba(237,237,240,0.25)" title="1.0s | energy: 0.79"></div>
+<div class="bar" style="width:8px;height:173px;background:rgba(237,237,240,0.25)" title="1.5s | energy: 0.87"></div>
+<div class="bar" style="width:8px;height:159px;background:rgba(237,237,240,0.25)" title="2.0s | energy: 0.80"></div>
+<div class="bar" style="width:8px;height:144px;background:rgba(237,237,240,0.25)" title="2.5s | energy: 0.72"></div>
+<div class="bar" style="width:8px;height:179px;background:rgba(237,237,240,0.25)" title="3.0s | energy: 0.90"></div>
+<div class="bar" style="width:8px;height:162px;background:rgba(237,237,240,0.25)" title="3.5s | energy: 0.81"></div>
+<div class="bar" style="width:8px;height:168px;background:rgba(237,237,240,0.25)" title="4.0s | energy: 0.84"></div>
+<div class="bar" style="width:8px;height:159px;background:rgba(237,237,240,0.25)" title="4.5s | energy: 0.80"></div>
+<div class="bar" style="width:8px;height:158px;background:rgba(237,237,240,0.25)" title="5.0s | energy: 0.79"></div>
+<div class="bar" style="width:8px;height:178px;background:rgba(237,237,240,0.25)" title="5.5s | energy: 0.89"></div>
+<div class="bar" style="width:8px;height:136px;background:rgba(237,237,240,0.25)" title="6.0s | energy: 0.68"></div>
+<div class="bar" style="width:8px;height:174px;background:rgba(237,237,240,0.25)" title="6.5s | energy: 0.87"></div>
+<div class="bar" style="width:8px;height:164px;background:rgba(237,237,240,0.25)" title="7.0s | energy: 0.82"></div>
+<div class="bar" style="width:8px;height:158px;background:rgba(237,237,240,0.25)" title="7.5s | energy: 0.79"></div>
+<div class="bar" style="width:8px;height:155px;background:rgba(237,237,240,0.25)" title="8.0s | energy: 0.78"></div>
+<div class="bar" style="width:8px;height:53px;background:rgba(237,237,240,0.25)" title="8.5s | energy: 0.27"></div>
+<div class="bar" style="width:8px;height:65px;background:rgba(237,237,240,0.25)" title="9.0s | energy: 0.33"></div>
+<div class="bar" style="width:8px;height:72px;background:rgba(237,237,240,0.25)" title="9.5s | energy: 0.36"></div>
+<div class="bar" style="width:8px;height:83px;background:#34d399" title="10.0s | energy: 0.42"></div>
+<div class="bar" style="width:8px;height:91px;background:#34d399" title="10.5s | energy: 0.46"></div>
+<div class="bar" style="width:8px;height:70px;background:#34d399" title="11.0s | energy: 0.35"></div>
+<div class="bar" style="width:8px;height:88px;background:#34d399" title="11.5s | energy: 0.44"></div>
+<div class="bar" style="width:8px;height:76px;background:#34d399" title="12.0s | energy: 0.38"></div>
+<div class="bar" style="width:8px;height:89px;background:#34d399" title="12.5s | energy: 0.45"></div>
+<div class="bar" style="width:8px;height:97px;background:#34d399" title="13.0s | energy: 0.49"></div>
+<div class="bar" style="width:8px;height:86px;background:#34d399" title="13.5s | energy: 0.43"></div>
+<div class="bar" style="width:8px;height:88px;background:#f0654a" title="14.0s | energy: 0.44"></div>
+<div class="bar" style="width:8px;height:187px;background:#f0654a" title="14.5s | energy: 0.94"></div>
+<div class="bar" style="width:8px;height:147px;background:#f0654a" title="15.0s | energy: 0.74"></div>
+<div class="bar" style="width:8px;height:167px;background:#34d399" title="15.5s | energy: 0.84"></div>
+<div class="bar" style="width:8px;height:163px;background:#34d399" title="16.0s | energy: 0.82"></div>
+<div class="bar" style="width:8px;height:165px;background:#34d399" title="16.5s | energy: 0.83"></div>
+<div class="bar" style="width:8px;height:179px;background:#34d399" title="17.0s | energy: 0.90"></div>
+<div class="bar" style="width:8px;height:144px;background:#34d399" title="17.5s | energy: 0.72"></div>
+<div class="bar" style="width:8px;height:168px;background:#34d399" title="18.0s | energy: 0.84"></div>
+<div class="bar" style="width:8px;height:159px;background:#34d399" title="18.5s | energy: 0.80"></div>
+<div class="bar" style="width:8px;height:180px;background:#34d399" title="19.0s | energy: 0.90"></div>
+<div class="bar" style="width:8px;height:166px;background:#34d399" title="19.5s | energy: 0.83"></div>
+<div class="bar" style="width:8px;height:153px;background:#34d399" title="20.0s | energy: 0.77"></div>
+<div class="bar" style="width:8px;height:177px;background:#34d399" title="20.5s | energy: 0.89"></div>
+<div class="bar" style="width:8px;height:156px;background:#f0654a" title="21.0s | energy: 0.78"></div>
+<div class="bar" style="width:8px;height:196px;background:#f0654a" title="21.5s | energy: 0.98"></div>
+<div class="bar" style="width:8px;height:171px;background:#f0654a" title="22.0s | energy: 0.86"></div>
+<div class="bar" style="width:8px;height:139px;background:#34d399" title="22.5s | energy: 0.70"></div>
+<div class="bar" style="width:8px;height:184px;background:#34d399" title="23.0s | energy: 0.92"></div>
+<div class="bar" style="width:8px;height:195px;background:#34d399" title="23.5s | energy: 0.98"></div>
+<div class="bar" style="width:8px;height:192px;background:#34d399" title="24.0s | energy: 0.96"></div>
+<div class="bar" style="width:8px;height:162px;background:#34d399" title="24.5s | energy: 0.81"></div>
+<div class="bar" style="width:8px;height:88px;background:#34d399" title="25.0s | energy: 0.44"></div>
+<div class="bar" style="width:8px;height:193px;background:#34d399" title="25.5s | energy: 0.97"></div>
+<div class="bar" style="width:8px;height:162px;background:#34d399" title="26.0s | energy: 0.81"></div>
+<div class="bar" style="width:8px;height:195px;background:#34d399" title="26.5s | energy: 0.98"></div>
+<div class="bar" style="width:8px;height:162px;background:#34d399" title="27.0s | energy: 0.81"></div>
+<div class="bar" style="width:8px;height:95px;background:#f0654a" title="27.5s | energy: 0.48"></div>
+<div class="bar" style="width:8px;height:200px;background:#f0654a" title="28.0s | energy: 1.00"></div>
+<div class="bar" style="width:8px;height:153px;background:#f0654a" title="28.5s | energy: 0.77"></div>
+<div class="bar" style="width:8px;height:188px;background:#34d399" title="29.0s | energy: 0.94"></div>
+<div class="bar" style="width:8px;height:151px;background:#34d399" title="29.5s | energy: 0.76"></div>
+<div class="bar" style="width:8px;height:126px;background:#34d399" title="30.0s | energy: 0.63"></div>
+<div class="bar" style="width:8px;height:177px;background:#34d399" title="30.5s | energy: 0.89"></div>
+<div class="bar" style="width:8px;height:170px;background:#34d399" title="31.0s | energy: 0.85"></div>
+<div class="bar" style="width:8px;height:182px;background:#34d399" title="31.5s | energy: 0.91"></div>
+<div class="bar" style="width:8px;height:144px;background:#34d399" title="32.0s | energy: 0.72"></div>
+<div class="bar" style="width:8px;height:134px;background:#34d399" title="32.5s | energy: 0.67"></div>
+<div class="bar" style="width:8px;height:118px;background:#34d399" title="33.0s | energy: 0.59"></div>
+<div class="bar" style="width:8px;height:162px;background:#34d399" title="33.5s | energy: 0.81"></div>
+<div class="bar" style="width:8px;height:179px;background:#34d399" title="34.0s | energy: 0.90"></div>
+<div class="bar" style="width:8px;height:88px;background:#34d399" title="34.5s | energy: 0.44"></div>
+
+  <div class="marker" style="left:504px;border-color:#f0654a"><span>28.0s<br>drop</span></div>
+<div class="marker" style="left:387px;border-color:#f5b731"><span>21.5s<br>build-up</span></div>
+<div class="marker" style="left:261px;border-color:#f5b731"><span>14.5s<br>build-up</span></div>
+<div class="marker" style="left:567px;border-color:#f5b731"><span>31.5s<br>outro</span></div>
+<div class="marker" style="left:9px;border-color:#f5b731"><span>0.5s<br>build-up</span></div>
+
+</div>
+</div>
+
+<div class="legend">
+  <div><span class="legend-dot" style="background:#34d399"></span> Recommended clip window</div>
+  <div><span class="legend-dot" style="background:#f0654a"></span> Drop / peak</div>
+  <div><span class="legend-dot" style="background:rgba(237,237,240,0.25)"></span> Outside clip</div>
+</div>
+
+<div class="info">
+  <div class="info-card">
+    <div class="label">Best Drop</div>
+    <div class="value">28.0s</div>
+    <div class="detail">Energy: 1.0</div>
+  </div>
+  <div class="info-card">
+    <div class="label">Clip Window</div>
+    <div class="value">10.0s - 35.0s</div>
+    <div class="detail">25.0s duration</div>
+  </div>
+  <div class="info-card">
+    <div class="label">Drop in Clip</div>
+    <div class="value">18.0s</div>
+    <div class="detail">Frame 540 @30fps</div>
+  </div>
+  <div class="info-card">
+    <div class="label">Remotion startFrom</div>
+    <div class="value">Frame 240</div>
+    <div class="detail">@24fps source | 10.0s offset</div>
+  </div>
+</div>
+
+<div style="margin-top:32px;font-size:11px;color:rgba(237,237,240,0.25)">
+  PicYourBooth Audio Analyzer | 6 peaks detected | Generated for video-editor agent
+</div>
+</body>
+</html>

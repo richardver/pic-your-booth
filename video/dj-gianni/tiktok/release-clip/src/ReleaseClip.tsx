@@ -11,7 +11,7 @@ import { EndCard } from './components/EndCard';
 import { HexBadge } from './components/HexBadge';
 
 export const ReleaseClip: React.FC<ReleaseClipProps> = ({
-  genre, serieName, hookText, genreTags, videoSrc, dropTimestamp, coverArtSrc, durationSec,
+  genre, serieName, hookText, genreTags, videoSrc, videoStartSec, dropTimestamp, coverArtSrc, durationSec,
 }) => {
   const fps = 30;
   const totalFrames = durationSec * fps;
@@ -21,7 +21,7 @@ export const ReleaseClip: React.FC<ReleaseClipProps> = ({
     <AbsoluteFill style={{ backgroundColor: '#050508' }}>
       {/* Video background — plays throughout until end card */}
       <Sequence durationInFrames={endCardStart}>
-        <VideoBackground src={videoSrc} />
+        <VideoBackground src={videoSrc} startFromSec={videoStartSec} />
       </Sequence>
 
       {/* Hex badge — always visible */}

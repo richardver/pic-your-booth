@@ -6,6 +6,7 @@ export interface ReleaseClipProps {
   hookText: string;
   genreTags: string[];
   videoSrc: string;
+  videoStartSec: number;
   dropTimestamp: number;
   coverArtSrc: string;
   durationSec: number;

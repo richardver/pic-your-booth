@@ -17,8 +17,9 @@ export const RemotionRoot: React.FC = () => {
         serieName: 'AFRO BEATS VOL. 2',
         hookText: 'Nieuwe Afro Beats mix is LIVE',
         genreTags: ['Afro Beats', 'Amapiano', 'Afro House'],
-        videoSrc: '',
-        dropTimestamp: 240,
+        videoSrc: 'footage/dj-gianni-set-recording.mov',
+        videoStartSec: 10.0,
+        dropTimestamp: 540,
         coverArtSrc: 'covers/afro-mixtape-cover.png',
         durationSec: 25,
       }}
