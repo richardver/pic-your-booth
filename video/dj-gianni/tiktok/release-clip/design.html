@@ -1,0 +1,1005 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DJ Gianni - Release Clip Design Storyboard</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Space+Grotesk:wght@300;400;500;600;700&family=Instrument+Serif:ital@1&display=swap" rel="stylesheet">
+<style>
+/* ============================================================
+   RELEASE CLIP — VISUAL STORYBOARD
+   9:16 TikTok / Reels format. Frame-by-frame design reference.
+   Each phone frame = one key moment in the 15-30s clip.
+   ============================================================ */
+
+:root {
+  --void: #050508;
+  --surface: #0c0c11;
+  --card: #111118;
+  --border: rgba(255,255,255,0.06);
+
+  --white: #ededf0;
+  --muted: rgba(237,237,240,0.45);
+
+  --gi: #f0654a;
+  --gi-dim: rgba(240,101,74,0.10);
+  --gi-glow: rgba(240,101,74,0.25);
+
+  --caribbean: #f5b731;
+  --caribbean-dim: rgba(245,183,49,0.10);
+
+  --urban: #c084fc;
+  --urban-dim: rgba(192,132,252,0.10);
+
+  --font-display: 'Bebas Neue', Impact, sans-serif;
+  --font-body: 'Space Grotesk', system-ui, sans-serif;
+  --font-accent: 'Instrument Serif', Georgia, serif;
+
+  --ease: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { font-size: 16px; -webkit-font-smoothing: antialiased; scroll-behavior: smooth; }
+
+body {
+  font-family: var(--font-body);
+  background: #020204;
+  color: var(--white);
+  line-height: 1.6;
+  min-height: 100vh;
+}
+
+/* -- Page Layout ------------------------------------------- */
+.page-header {
+  text-align: center;
+  padding: 64px 24px 48px;
+  position: relative;
+}
+
+.page-header::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 10%;
+  right: 10%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gi), transparent);
+}
+
+.page-label {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gi);
+  margin-bottom: 12px;
+}
+
+.page-title {
+  font-family: var(--font-display);
+  font-size: clamp(36px, 6vw, 64px);
+  letter-spacing: 0.06em;
+  line-height: 0.95;
+}
+
+.page-title em {
+  font-family: var(--font-accent);
+  font-style: italic;
+  color: var(--gi);
+  letter-spacing: -0.01em;
+}
+
+.page-sub {
+  font-size: 14px;
+  color: var(--muted);
+  margin-top: 12px;
+  max-width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* -- Storyboard Strip -------------------------------------- */
+.strip-section {
+  padding: 48px 24px;
+}
+
+.strip-label {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gi);
+  margin-bottom: 24px;
+  text-align: center;
+}
+
+.strip {
+  display: flex;
+  gap: 32px;
+  overflow-x: auto;
+  padding: 0 24px 24px;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+}
+
+.strip::-webkit-scrollbar { height: 4px; }
+.strip::-webkit-scrollbar-track { background: transparent; }
+.strip::-webkit-scrollbar-thumb { background: var(--gi); border-radius: 2px; }
+
+/* -- Phone Frame ------------------------------------------- */
+.frame-wrap {
+  flex-shrink: 0;
+  scroll-snap-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+.frame-meta {
+  text-align: center;
+  width: 280px;
+}
+
+.frame-time {
+  font-family: var(--font-display);
+  font-size: 32px;
+  color: var(--gi);
+  letter-spacing: 0.04em;
+}
+
+.frame-name {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--white);
+  margin-top: 2px;
+}
+
+.frame-desc {
+  font-size: 11px;
+  color: var(--muted);
+  margin-top: 6px;
+  line-height: 1.5;
+}
+
+.phone {
+  width: 280px;
+  height: 497px; /* 9:16 */
+  border-radius: 28px;
+  border: 2px solid rgba(255,255,255,0.12);
+  background: var(--void);
+  position: relative;
+  overflow: hidden;
+  box-shadow:
+    0 0 0 1px rgba(0,0,0,0.6),
+    0 24px 80px rgba(0,0,0,0.5),
+    0 0 40px var(--gi-glow);
+  flex-shrink: 0;
+}
+
+.phone-notch {
+  position: absolute;
+  top: 6px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 72px;
+  height: 20px;
+  background: #000;
+  border-radius: 0 0 12px 12px;
+  z-index: 20;
+}
+
+.phone-screen {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+/* -- Video Background Layer -------------------------------- */
+.video-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.video-placeholder {
+  width: 100%;
+  height: 100%;
+  background:
+    linear-gradient(180deg, rgba(5,5,8,0.15) 0%, rgba(5,5,8,0.5) 50%, rgba(5,5,8,0.85) 100%),
+    linear-gradient(135deg, rgba(240,101,74,0.06) 0%, transparent 50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.video-placeholder::before {
+  content: 'BEHIND THE DECKS FOOTAGE';
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  color: rgba(255,255,255,0.2);
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%) rotate(-90deg);
+  white-space: nowrap;
+}
+
+/* Simulated controller glow */
+.controller-sim {
+  width: 200px;
+  height: 60px;
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 8px;
+  background: rgba(255,255,255,0.03);
+  position: relative;
+  margin-top: 40px;
+}
+
+.controller-sim::after {
+  content: '';
+  position: absolute;
+  inset: -20px;
+  background: radial-gradient(ellipse at center, var(--gi-glow) 0%, transparent 70%);
+  opacity: 0.3;
+  filter: blur(10px);
+}
+
+/* -- Overlay Elements -------------------------------------- */
+.overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  padding: 36px 16px 16px;
+  pointer-events: none;
+}
+
+/* Text Hook (top) */
+.text-hook {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--white);
+  text-shadow: 0 2px 12px rgba(0,0,0,0.9), 0 0 40px rgba(0,0,0,0.5);
+  line-height: 1.25;
+  max-width: 220px;
+}
+
+.text-hook .accent { color: var(--gi); }
+
+/* Genre pills */
+.genre-pills {
+  display: flex;
+  gap: 6px;
+  margin-top: 8px;
+}
+
+.genre-pill {
+  font-size: 8px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 3px 8px;
+  border-radius: 99px;
+  background: var(--gi-dim);
+  color: var(--gi);
+  text-shadow: none;
+  backdrop-filter: blur(8px);
+}
+
+/* Center area */
+.overlay-center {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* EQ Bar */
+.eq-overlay {
+  display: flex;
+  gap: 3px;
+  align-items: flex-end;
+  height: 28px;
+}
+
+.eq-overlay span {
+  width: 3px;
+  border-radius: 2px;
+  background: var(--gi);
+  opacity: 0.8;
+  animation: eq-go 0.9s ease-in-out infinite alternate;
+}
+
+.eq-overlay span:nth-child(1) { height: 35%; animation-delay: 0s; }
+.eq-overlay span:nth-child(2) { height: 65%; animation-delay: 0.12s; }
+.eq-overlay span:nth-child(3) { height: 100%; animation-delay: 0.24s; }
+.eq-overlay span:nth-child(4) { height: 50%; animation-delay: 0.36s; }
+.eq-overlay span:nth-child(5) { height: 80%; animation-delay: 0.48s; }
+.eq-overlay span:nth-child(6) { height: 40%; animation-delay: 0.6s; }
+.eq-overlay span:nth-child(7) { height: 70%; animation-delay: 0.72s; }
+
+@keyframes eq-go {
+  0% { transform: scaleY(1); }
+  100% { transform: scaleY(0.3); }
+}
+
+/* DJ Name overlay (big) */
+.dj-name-overlay {
+  font-family: var(--font-display);
+  font-size: 38px;
+  letter-spacing: 0.06em;
+  color: var(--white);
+  text-shadow: 0 4px 20px rgba(0,0,0,0.9), 0 0 60px var(--gi-glow);
+  text-align: center;
+  line-height: 1;
+}
+
+.dj-name-overlay .sub {
+  font-size: 14px;
+  letter-spacing: 0.1em;
+  color: var(--gi);
+  display: block;
+  margin-top: 4px;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.9);
+}
+
+/* Bottom info (TikTok style) */
+.overlay-bottom {
+  margin-top: auto;
+}
+
+.tt-username {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--white);
+  text-shadow: 0 1px 6px rgba(0,0,0,0.8);
+}
+
+.tt-caption {
+  font-size: 10px;
+  color: rgba(255,255,255,0.85);
+  text-shadow: 0 1px 4px rgba(0,0,0,0.8);
+  margin-top: 3px;
+  line-height: 1.4;
+  max-width: 200px;
+}
+
+.tt-music {
+  font-size: 8px;
+  color: rgba(255,255,255,0.5);
+  margin-top: 4px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+/* TikTok sidebar */
+.tt-sidebar {
+  position: absolute;
+  right: 10px;
+  bottom: 70px;
+  z-index: 15;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  align-items: center;
+}
+
+.tt-icon {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.12);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+  color: var(--white);
+  backdrop-filter: blur(4px);
+}
+
+.tt-count {
+  font-size: 8px;
+  color: var(--white);
+  text-align: center;
+  margin-top: -6px;
+  text-shadow: 0 1px 4px rgba(0,0,0,0.8);
+}
+
+/* -- CTA overlay ------------------------------------------- */
+.cta-bar {
+  position: absolute;
+  bottom: 44px;
+  left: 16px;
+  right: 50px;
+  z-index: 12;
+  background: rgba(240,101,74,0.15);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(240,101,74,0.25);
+  border-radius: 10px;
+  padding: 10px 14px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.cta-text {
+  font-size: 10px;
+  font-weight: 600;
+  color: var(--white);
+  line-height: 1.3;
+}
+
+.cta-text .small {
+  font-size: 8px;
+  color: var(--muted);
+  display: block;
+}
+
+.cta-arrow {
+  margin-left: auto;
+  font-size: 14px;
+  color: var(--gi);
+}
+
+/* -- Cover Art End Card ------------------------------------ */
+.end-card {
+  position: absolute;
+  inset: 0;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  padding: 36px 24px;
+  background:
+    radial-gradient(ellipse at 50% 60%, var(--gi-glow) 0%, transparent 60%),
+    var(--void);
+}
+
+.cover-art-frame {
+  width: 180px;
+  height: 180px;
+  border-radius: 16px;
+  overflow: hidden;
+  border: 2px solid rgba(240,101,74,0.3);
+  box-shadow: 0 12px 40px rgba(0,0,0,0.6), 0 0 30px var(--gi-glow);
+  position: relative;
+}
+
+.cover-art-inner {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(180deg, var(--void) 0%, rgba(240,101,74,0.12) 100%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+}
+
+.cover-art-inner .name {
+  font-family: var(--font-display);
+  font-size: 22px;
+  letter-spacing: 0.04em;
+  color: var(--white);
+}
+
+.cover-art-inner .series {
+  font-family: var(--font-display);
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  color: var(--gi);
+}
+
+.cover-art-inner .vibes {
+  font-size: 9px;
+  font-style: italic;
+  color: var(--muted);
+}
+
+.end-card-title {
+  font-family: var(--font-display);
+  font-size: 24px;
+  letter-spacing: 0.06em;
+  color: var(--white);
+  text-align: center;
+}
+
+.end-card-sub {
+  font-size: 11px;
+  color: var(--muted);
+  text-align: center;
+}
+
+.end-card-cta {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--gi);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-top: 8px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* -- Hexagon Badge ----------------------------------------- */
+.hex-badge {
+  width: 24px;
+  height: 24px;
+  clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+  background: var(--gi);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-display);
+  font-size: 11px;
+  color: var(--void);
+  position: absolute;
+  top: 40px;
+  right: 44px;
+  z-index: 15;
+}
+
+/* -- Speed Ramp Indicator ---------------------------------- */
+.speed-indicator {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 12;
+}
+
+.speed-ring {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  border: 2px solid var(--gi);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(240,101,74,0.08);
+  backdrop-filter: blur(8px);
+  animation: pulse-ring 1.5s ease-in-out infinite;
+}
+
+.speed-ring span {
+  font-family: var(--font-display);
+  font-size: 18px;
+  color: var(--gi);
+  letter-spacing: 0.04em;
+}
+
+@keyframes pulse-ring {
+  0%, 100% { transform: scale(1); opacity: 0.8; }
+  50% { transform: scale(1.08); opacity: 1; }
+}
+
+/* -- Annotation Arrows ------------------------------------- */
+.annotation {
+  position: absolute;
+  z-index: 25;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.annotation-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--gi);
+  flex-shrink: 0;
+}
+
+.annotation-line {
+  width: 40px;
+  height: 1px;
+  background: var(--gi);
+}
+
+.annotation-text {
+  font-size: 9px;
+  font-weight: 600;
+  color: var(--gi);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+/* -- Section Headers --------------------------------------- */
+.section-header {
+  text-align: center;
+  padding: 56px 24px 32px;
+  position: relative;
+}
+
+.section-header::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 10%;
+  right: 10%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--border), transparent);
+}
+
+.section-header h2 {
+  font-family: var(--font-display);
+  font-size: 28px;
+  letter-spacing: 0.06em;
+  color: var(--white);
+}
+
+.section-header p {
+  font-size: 12px;
+  color: var(--muted);
+  margin-top: 6px;
+}
+
+/* -- Specs Table ------------------------------------------- */
+.specs {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 0 24px 48px;
+}
+
+.spec-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--border);
+  font-size: 12px;
+}
+
+.spec-row:last-child { border-bottom: none; }
+
+.spec-label { color: var(--muted); }
+.spec-value { color: var(--white); font-weight: 600; }
+.spec-value.coral { color: var(--gi); }
+
+/* -- Footer ------------------------------------------------ */
+.footer {
+  text-align: center;
+  padding: 40px 24px;
+  font-size: 11px;
+  color: var(--muted);
+  border-top: 1px solid var(--border);
+}
+
+/* -- Responsive -------------------------------------------- */
+@media (max-width: 768px) {
+  .strip { gap: 20px; padding: 0 12px 20px; }
+  .phone { width: 240px; height: 426px; border-radius: 24px; }
+  .frame-meta { width: 240px; }
+  .dj-name-overlay { font-size: 30px; }
+  .text-hook { font-size: 13px; }
+  .cover-art-frame { width: 140px; height: 140px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+</style>
+</head>
+<body>
+
+<!-- Header -->
+<header class="page-header">
+  <div class="page-label">Video Editor POC / DJ Gianni</div>
+  <h1 class="page-title">RELEASE CLIP <em>Design</em></h1>
+  <p class="page-sub">Frame-by-frame storyboard voor de TikTok Release Clip. 9:16 verticaal, 15-30 seconden. Remotion compositie referentie.</p>
+</header>
+
+<!-- Specs -->
+<div class="specs">
+  <div class="spec-row">
+    <span class="spec-label">Format</span>
+    <span class="spec-value">9:16 verticaal (1080x1920)</span>
+  </div>
+  <div class="spec-row">
+    <span class="spec-label">Duur</span>
+    <span class="spec-value">15-30 sec (450-900 frames @30fps)</span>
+  </div>
+  <div class="spec-row">
+    <span class="spec-label">Audio</span>
+    <span class="spec-value coral">Beste drop uit de set (WAV/FLAC)</span>
+  </div>
+  <div class="spec-row">
+    <span class="spec-label">Video</span>
+    <span class="spec-value">Behind-the-decks footage (OffthreadVideo)</span>
+  </div>
+  <div class="spec-row">
+    <span class="spec-label">Overlays</span>
+    <span class="spec-value">Text hook, genre pills, EQ bar, CTA, end card</span>
+  </div>
+  <div class="spec-row">
+    <span class="spec-label">Render</span>
+    <span class="spec-value coral">npx remotion render ReleaseClip</span>
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<!-- STORYBOARD STRIP -->
+<!-- ============================================================ -->
+
+<div class="section-header">
+  <h2>FRAME-VOOR-FRAME STORYBOARD</h2>
+  <p>Scroll horizontaal door de key frames van de clip</p>
+</div>
+
+<div class="strip-section">
+  <div class="strip">
+
+    <!-- ===== FRAME 1: 0:00 - HOOK ===== -->
+    <div class="frame-wrap">
+      <div class="frame-meta">
+        <div class="frame-time">0:00</div>
+        <div class="frame-name">Hook - Text Overlay</div>
+        <div class="frame-desc">Direct actie. Text hook verschijnt over de footage. Handen op controller. Muziek bouwt op.</div>
+      </div>
+      <div class="phone">
+        <div class="phone-notch"></div>
+        <div class="phone-screen">
+          <div class="video-bg">
+            <div class="video-placeholder">
+              <div class="controller-sim"></div>
+            </div>
+          </div>
+          <div class="overlay">
+            <div class="text-hook">
+              Nieuwe <span class="accent">Afro Beats</span> mix is LIVE
+            </div>
+            <div class="genre-pills">
+              <span class="genre-pill">Afro Beats</span>
+              <span class="genre-pill">Amapiano</span>
+              <span class="genre-pill">Afro House</span>
+            </div>
+            <div class="overlay-center">
+              <div class="eq-overlay">
+                <span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+              </div>
+            </div>
+            <div class="overlay-bottom">
+              <div class="tt-username">@djgianni</div>
+              <div class="tt-caption">Afro Beats Vol. 2 is LIVE! Link in bio</div>
+              <div class="tt-music">&#9835; origineel geluid - djgianni</div>
+            </div>
+          </div>
+          <div class="hex-badge">G</div>
+          <div class="tt-sidebar">
+            <div class="tt-icon">+</div>
+            <div class="tt-icon">&#9825;</div>
+            <div class="tt-count">1.2K</div>
+            <div class="tt-icon">&#128172;</div>
+            <div class="tt-icon">&#10148;</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===== FRAME 2: 0:03 - BUILD UP ===== -->
+    <div class="frame-wrap">
+      <div class="frame-meta">
+        <div class="frame-time">0:03</div>
+        <div class="frame-name">Build-Up</div>
+        <div class="frame-desc">Audio spanning bouwt op. Close-up handen op EQ. Text hook faded uit. EQ bars pulsen mee met de beat.</div>
+      </div>
+      <div class="phone">
+        <div class="phone-notch"></div>
+        <div class="phone-screen">
+          <div class="video-bg">
+            <div class="video-placeholder" style="background: linear-gradient(180deg, rgba(5,5,8,0.1) 0%, rgba(5,5,8,0.4) 50%, rgba(5,5,8,0.75) 100%), linear-gradient(135deg, rgba(240,101,74,0.1) 0%, transparent 50%);">
+              <div class="controller-sim" style="width: 240px; height: 80px; margin-top: 20px;"></div>
+            </div>
+          </div>
+          <div class="overlay" style="justify-content: flex-end; padding-bottom: 60px;">
+            <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 16px;">
+              <div class="eq-overlay" style="height: 36px;">
+                <span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+              </div>
+            </div>
+            <div style="font-family: var(--font-display); font-size: 11px; letter-spacing: 0.15em; color: var(--gi); text-shadow: 0 2px 8px rgba(0,0,0,0.9); text-transform: uppercase;">Build-up...</div>
+          </div>
+          <div class="hex-badge">G</div>
+          <div class="tt-sidebar">
+            <div class="tt-icon">+</div>
+            <div class="tt-icon">&#9825;</div>
+            <div class="tt-count">1.2K</div>
+            <div class="tt-icon">&#128172;</div>
+            <div class="tt-icon">&#10148;</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===== FRAME 3: 0:08 - THE DROP ===== -->
+    <div class="frame-wrap">
+      <div class="frame-meta">
+        <div class="frame-time">0:08</div>
+        <div class="frame-name">DE DROP</div>
+        <div class="frame-desc">Hardste moment. Speed ramp (0.5x slow-mo op drop, dan 1.5x). DJ GIANNI naam flitst groot in beeld. Coral glow burst.</div>
+      </div>
+      <div class="phone">
+        <div class="phone-notch"></div>
+        <div class="phone-screen">
+          <div class="video-bg">
+            <div class="video-placeholder" style="background: linear-gradient(180deg, rgba(240,101,74,0.08) 0%, rgba(5,5,8,0.3) 40%, rgba(5,5,8,0.7) 100%), radial-gradient(ellipse at 50% 50%, var(--gi-glow) 0%, transparent 60%);">
+              <div class="controller-sim" style="box-shadow: 0 0 40px var(--gi-glow);"></div>
+            </div>
+          </div>
+          <div class="overlay" style="justify-content: center; align-items: center;">
+            <div class="dj-name-overlay">
+              DJ GIANNI
+              <span class="sub">AFRO BEATS VOL. 2</span>
+            </div>
+          </div>
+          <div class="speed-indicator">
+            <div class="speed-ring" style="position: absolute; top: 120px; right: -80px;">
+              <span>0.5x</span>
+            </div>
+          </div>
+          <div class="hex-badge">G</div>
+          <div class="tt-sidebar">
+            <div class="tt-icon">+</div>
+            <div class="tt-icon" style="background: rgba(240,101,74,0.3);">&#9829;</div>
+            <div class="tt-count">1.2K</div>
+            <div class="tt-icon">&#128172;</div>
+            <div class="tt-icon">&#10148;</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===== FRAME 4: 0:12 - VIBE ===== -->
+    <div class="frame-wrap">
+      <div class="frame-meta">
+        <div class="frame-time">0:12</div>
+        <div class="frame-name">Vibe Moment</div>
+        <div class="frame-desc">Laat de vibe 8-10 sec doorlopen. Head nodding, vibing. CTA bar verschijnt onderaan. Naam verdwijnt, muziek domineert.</div>
+      </div>
+      <div class="phone">
+        <div class="phone-notch"></div>
+        <div class="phone-screen">
+          <div class="video-bg">
+            <div class="video-placeholder" style="background: linear-gradient(180deg, rgba(5,5,8,0.1) 0%, rgba(5,5,8,0.3) 50%, rgba(5,5,8,0.7) 100%), linear-gradient(135deg, rgba(240,101,74,0.04) 0%, transparent 50%);">
+              <div class="controller-sim"></div>
+            </div>
+          </div>
+          <div class="overlay" style="justify-content: flex-end;">
+            <div class="eq-overlay" style="margin-bottom: 12px; align-self: center;">
+              <span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+            </div>
+            <div class="overlay-bottom">
+              <div class="tt-username">@djgianni</div>
+              <div class="tt-caption">Volledige set op SoundCloud &#10148;</div>
+            </div>
+          </div>
+          <div class="cta-bar">
+            <div class="cta-text">
+              Volledige set op SoundCloud
+              <span class="small">Link in bio</span>
+            </div>
+            <div class="cta-arrow">&#10148;</div>
+          </div>
+          <div class="hex-badge">G</div>
+          <div class="tt-sidebar">
+            <div class="tt-icon">+</div>
+            <div class="tt-icon">&#9825;</div>
+            <div class="tt-count">1.2K</div>
+            <div class="tt-icon">&#128172;</div>
+            <div class="tt-icon">&#10148;</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===== FRAME 5: 0:22 - END CARD ===== -->
+    <div class="frame-wrap">
+      <div class="frame-meta">
+        <div class="frame-time">0:22</div>
+        <div class="frame-name">End Card</div>
+        <div class="frame-desc">Footage verdwijnt. Cover art verschijnt met glow. Mix titel + "Link in bio" CTA. Pure Vibes. Hexagon badge.</div>
+      </div>
+      <div class="phone">
+        <div class="phone-notch"></div>
+        <div class="phone-screen">
+          <div class="end-card">
+            <div class="cover-art-frame">
+              <div class="cover-art-inner">
+                <div class="name">DJ GIANNI</div>
+                <div class="series">AFRO BEATS VOL. 2</div>
+                <div class="vibes">Pure Vibes</div>
+                <div class="eq-overlay" style="margin-top: 12px; height: 16px;">
+                  <span style="width: 2px;"></span><span style="width: 2px;"></span><span style="width: 2px;"></span><span style="width: 2px;"></span><span style="width: 2px;"></span>
+                </div>
+              </div>
+            </div>
+            <div class="end-card-title">AFRO BEATS VOL. 2</div>
+            <div class="end-card-sub">40 minuten pure Afro vibes</div>
+            <div class="end-card-cta">Link in bio &#10148;</div>
+            <div style="position: absolute; top: 40px; right: 16px;">
+              <div class="hex-badge" style="position: static;">G</div>
+            </div>
+          </div>
+          <div class="tt-sidebar" style="bottom: 50px;">
+            <div class="tt-icon">+</div>
+            <div class="tt-icon">&#9825;</div>
+            <div class="tt-count">1.2K</div>
+            <div class="tt-icon">&#128172;</div>
+            <div class="tt-icon">&#10148;</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<!-- REMOTION COMPONENT MAP -->
+<!-- ============================================================ -->
+
+<div class="section-header">
+  <h2>REMOTION COMPONENT MAP</h2>
+  <p>Hoe de Remotion compositie is opgebouwd</p>
+</div>
+
+<div class="specs">
+  <div class="spec-row">
+    <span class="spec-label">Compositie</span>
+    <span class="spec-value coral">&lt;ReleaseClip /&gt;</span>
+  </div>
+  <div class="spec-row">
+    <span class="spec-label">Achtergrond</span>
+    <span class="spec-value">&lt;OffthreadVideo /&gt; + gradient overlay</span>
+  </div>
+  <div class="spec-row">
+    <span class="spec-label">0:00-0:03</span>
+    <span class="spec-value">&lt;TextHook /&gt; fade-in + &lt;GenrePills /&gt;</span>
+  </div>
+  <div class="spec-row">
+    <span class="spec-label">0:03-0:08</span>
+    <span class="spec-value">&lt;EQBar /&gt; pulsing + text fade-out</span>
+  </div>
+  <div class="spec-row">
+    <span class="spec-label">0:08</span>
+    <span class="spec-value coral">&lt;DropMoment /&gt; speed ramp + DJ name flash</span>
+  </div>
+  <div class="spec-row">
+    <span class="spec-label">0:12-0:22</span>
+    <span class="spec-value">&lt;VibeMoment /&gt; + &lt;CTABar /&gt; slide-up</span>
+  </div>
+  <div class="spec-row">
+    <span class="spec-label">0:22-0:25</span>
+    <span class="spec-value">&lt;EndCard /&gt; cover art + CTA</span>
+  </div>
+  <div class="spec-row">
+    <span class="spec-label">Altijd zichtbaar</span>
+    <span class="spec-value">&lt;HexBadge /&gt; + &lt;TikTokSidebar /&gt;</span>
+  </div>
+  <div class="spec-row">
+    <span class="spec-label">Props</span>
+    <span class="spec-value">genre, serieNaam, videoSrc, audioDrop, coverArt, hookText</span>
+  </div>
+</div>
+
+<!-- Footer -->
+<footer class="footer">
+  DJ Gianni / Video Editor POC / Release Clip Design<br>
+  PicYourBooth &middot; maart 2026
+</footer>
+
+</body>
+</html>
