@@ -10,6 +10,14 @@
       "env": {
         "HUBSPOT_ACCESS_TOKEN": "${HUBSPOT_ACCESS_TOKEN}"
       }
+    },
+    "remotion": {
+      "type": "stdio",
+      "command": "npx",
+      "args": [
+        "@remotion/mcp@latest"
+      ],
+      "env": {}
     }
   }
 }
