@@ -12,7 +12,7 @@ This is not an application — it's a **knowledge-driven marketing workspace** p
 |---------|---------------|-------------|
 | **Party Booth** | €199 | Digital photobooth, self-service, fun for every budget |
 | **Magic Mirror XL** | €599 | Premium DSLR photobooth with pro lighting and printing |
-| **DJs** | €149 | DJ Gianni (Afro/Caribbean/Hits) & Milo (House/Techno) |
+| **DJs** | €149 | DJ Gianni (Afro/Caribbean/Hits) & DJ Milø (House/Techno) |
 
 All prices include 21% BTW. Combo packages available.
 
@@ -55,7 +55,7 @@ pic-your-booth/
 │   ├── templates/         → Visual templates & assets
 │   │   ├── design-system/ → HTML design systems, tokens JSON
 │   │   ├── website/       → 5 page templates (homepage, magic-mirror, party-booth, djs, offerte)
-│   │   ├── djs/           → DJ Gianni (brand, social, photos) + Milo
+│   │   ├── djs/           → DJ Gianni (brand, social, photos) + DJ Milø
 │   │   └── ads/meta/      → Meta Ads design system
 │   ├── marketing/         → Shared psychology frameworks
 │   ├── website/           → PRD, CRO checklist, landing page frameworks
@@ -79,7 +79,7 @@ Dark cinematic aesthetic. Three-layer hierarchy:
 
 1. **Web parent** (`pyb-design-system-web.html`) — shared tokens, components
 2. **Page-specific** — photobooth pages, DJ hub, Meta Ads
-3. **Individual DJ brands** — DJ Gianni (coral), Milo (cyan)
+3. **Individual DJ brands** — DJ Gianni (coral), DJ Milø (cyan)
 
 Fonts: Bebas Neue (headings) + Space Grotesk (body). Colors: gold (#f59e42) for photobooth, violet (#8b5cf6) for DJ, dark bg (#08080b).
 
@@ -132,7 +132,7 @@ After setup, these should all be available:
 |------|------|
 | **Richard** | Owner — business, tech, marketing |
 | **Luca** | Photobooth operator & DJ (DJ Gianni) |
-| **Milo** | Photobooth operator & DJ |
+| **Milo** | Photobooth operator & DJ (DJ Milø) |
 
 ## Legal
 

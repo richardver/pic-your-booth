@@ -94,7 +94,7 @@ Birthday, Wedding, Corporate, Christmas, Halloween, New Year's Eve, Nightlife, G
 ## Branded Design Portal
 
 **Page:** `picyourbooth.nl/yourdesign.html`
-**File:** `docs/website/deployment/yourdesign.html`
+**File:** `docs/pyb/website/deployment/yourdesign.html`
 
 ### URL Format
 
@@ -143,7 +143,7 @@ Uses enhanced embed code with `postMessage` listener for parent-page redirect.
 - **Embed type:** Enhanced (parent redirect)
 
 ### Custom CSS
-Full PYB dark luxury theme stored at: `docs/website/deployment/assets/css/templatesbooth-widget.css`
+Full PYB dark luxury theme stored at: `docs/pyb/website/deployment/assets/css/templatesbooth-widget.css`
 
 Applies: dark background `#08080b`, surface `#111116`, gold accents `#f59e42`, Bebas Neue + Space Grotesk fonts, pill-shaped buttons, rounded cards.
 

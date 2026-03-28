@@ -1,6 +1,6 @@
 # Website — PYB Specifics
 
-PYB-specific page templates, form spec, personalization rules, and conversion tactics. For generic CRO frameworks see `docs/website/`.
+PYB-specific page templates, form spec, personalization rules, and conversion tactics. For generic CRO frameworks see `docs/pyb/website/`.
 
 ---
 

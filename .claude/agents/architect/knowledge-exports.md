@@ -16,7 +16,7 @@ Full workflow documented in `.claude/agents/architect/knowledge-exports-guide.md
 
 1. **Serve the HTML file** — `npx serve` or Python HTTP server
 2. **Run Playwright script** — captures specific elements at defined dimensions
-3. **Output to `docs/images/`** (for PNGs) or **`docs/website/`** (for design systems)
+3. **Output to `docs/images/`** (for PNGs) or **`docs/pyb/website/`** (for design systems)
 
 ---
 
@@ -24,14 +24,14 @@ Full workflow documented in `.claude/agents/architect/knowledge-exports-guide.md
 
 | Asset | Source | Output | Dimensions |
 |---|---|---|---|
-| SoundCloud banner | `/tmp/gianni-banner-export.html` | `docs/output/images/dj-gianni/social/soundcloud-banner.png` | 2480x520 |
-| Mixtape covers | Gemini AI (`docs/output/images/dj-gianni/PROMPTS.md`) | `docs/output/images/dj-gianni/mixtape/*.png` | 1400x1400 |
+| SoundCloud banner | `/tmp/gianni-banner-export.html` | `docs/images/dj-gianni/social/soundcloud-banner.png` | 2480x520 |
+| Mixtape covers | Gemini AI (`docs/images/dj-gianni/PROMPTS.md`) | `docs/images/dj-gianni/mixtape/*.png` | 1400x1400 |
 
 ---
 
 ## Rules
 
 1. **Always Playwright** — the canonical export method
-2. **Exported PNGs go to `docs/images/`** — design system HTML stays in `docs/website/`
+2. **Exported PNGs go to `docs/images/`** — design system HTML stays in `docs/pyb/website/`
 3. **Reference `.claude/agents/architect/knowledge-exports-guide.md`** — for the detailed step-by-step workflow
 4. **Re-export after any HTML change** — keep PNGs in sync with source

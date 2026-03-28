@@ -50,8 +50,8 @@ cd /tmp && node export.mjs
 
 | Asset | Dimensions | Source HTML | Output |
 |-------|-----------|------------|--------|
-| SoundCloud Banner | 2480 x 520 | `/tmp/gianni-banner-export.html` | `docs/output/images/dj-gianni/social/soundcloud-banner.png` |
-| Afro Mixtape Cover | 1400 x 1400 | `/tmp/gianni-cover-export.html` | `docs/output/images/dj-gianni/mixtape/afro-mixtape-cover.png` |
+| SoundCloud Banner | 2480 x 520 | `/tmp/gianni-banner-export.html` | `docs/images/dj-gianni/social/soundcloud-banner.png` |
+| Afro Mixtape Cover | 1400 x 1400 | `/tmp/gianni-cover-export.html` | `docs/images/dj-gianni/mixtape/afro-mixtape-cover.png` |
 
 ### Standard Sizes
 
@@ -72,5 +72,5 @@ cd /tmp && node export.mjs
 - Always use `clip` with exact dimensions - never `fullPage: true`
 - Export as PNG (no compression artifacts)
 - Source HTML files stay in `/tmp/` (not committed)
-- Exported PNGs go in the relevant `docs/` subfolder (e.g. `docs/djs/`)
+- Exported PNGs go in the relevant `docs/` subfolder (e.g. `docs/` (DJ docs moved to `.claude/agents/dj-promoter/`))
 - Each export HTML is a standalone file with inline CSS, no external deps except Google Fonts

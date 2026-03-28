@@ -50,22 +50,23 @@ pic-your-booth/
 │   ├── djs/                              - DJ brand guides & strategy docs
 │   │   ├── dj-gianni/                   - Brand guide, playbooks (SoundCloud, TikTok)
 │   │   └── milo/                        - Brand guide, profile
-│   ├── output/images/                    - All generated & processed images
-│   │   ├── pyb/                         - PYB brand (logo, heroes, USPs, modals, screenshots)
+│   ├── images/                           - All images (source, generated, output)
+│   │   ├── pyb/                         - PYB brand (logo, heroes, USPs, modals, meta-ads, screenshots)
 │   │   ├── dj-gianni/                   - DJ Gianni (profile, social, mixtape covers + PROMPTS.md)
-│   │   └── dj-milo/                     - DJ Milo (profile)
-│   ├── website/                          - Website & design assets
-│   │   ├── deployment/                  - Live website HTML pages (DO NOT MOVE)
+│   │   ├── dj-milo/                     - DJ Milo (profile)
+│   │   ├── photos-source/              - Original photos + INDEX.md (catalogue with Gemini picks)
+│   │   └── web/                        - Optimized WebP pipeline output
+│   ├── pyb/website/                      - Website pages & design systems
+│   │   ├── deployment/                  - Live HTML pages served by TransIP (DO NOT MOVE)
 │   │   │   └── assets/images/          - Optimized images served by website
-│   │   └── design-system/              - HTML design systems, tokens JSON
-│   ├── images/                          - Source photos & pipeline
-│   │   ├── photos-source/             - Original photos + INDEX.md (catalogue with Gemini picks)
-│   │   │   ├── magicmirror/           - Magic Mirror XL photos (photobooth, USPs, upgrades)
-│   │   │   ├── partybooth/            - Party Booth photos (product, USPs, upgrades)
-│   │   │   └── dj/                    - DJ photos
-│   │   └── web/                       - Optimized WebP pipeline output
-│   ├── ads/                             - Ad design & assets
-│   │   └── meta/                      - Meta Ads design system HTML
+│   │   ├── homepage/                    - Homepage design system (pyb-design-system-web.html)
+│   │   ├── magic-mirror/               - Magic Mirror page design system
+│   │   ├── party-booth/                - Party Booth page design system
+│   │   ├── djs/                        - DJs page design system
+│   │   └── offerte/                    - Offerte page design system
+│   │   │   ├── magicmirror/           - Magic Mirror XL source photos
+│   │   │   ├── partybooth/            - Party Booth source photos
+│   │   │   └── dj/                    - DJ source photos
 │   ├── kpi/                             - Historical KPI Excel reports (Vizibooth 2025, 2026)
 │   └── funnel/                          - Funnel strategy & campaign management
 │       ├── campaigns/                 - Campaign specs, audiences, ad copy per month
@@ -103,11 +104,9 @@ pic-your-booth/
 │   │   │   └── knowledge-dj-milo.md     - DJ Milø full brand identity, assets
 │   │   ├── social-media.md                - Social content, posting, video scripts
 │   │   ├── social-media/                  - Social media knowledge directory
-│   │   │   ├── _index.md                - Sub-topic router
-│   │   │   ├── knowledge-platforms.md   - Platform strategy, specs, content pillars
+│   │   │   ├── _index.md                - Sub-topic router (DJ knowledge -> dj-promoter)
+│   │   │   ├── knowledge-platforms.md   - Platform strategy, specs, content pillars, Google Business
 │   │   │   ├── knowledge-video.md       - Video scripting, hooks, production
-│   │   │   ├── knowledge-dj-gianni.md   - DJ Gianni content angles (brand -> promoter)
-│   │   │   ├── knowledge-dj-milo.md     - DJ Milø content angles (brand -> promoter)
 │   │   │   └── knowledge-viral-retention.md - Viral loops, referrals, post-event
 │   │   ├── strategist.md                  - Strategy, brand, orchestration
 │   │   ├── strategist/                    - Strategist knowledge (10 files)

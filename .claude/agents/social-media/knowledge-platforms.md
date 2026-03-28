@@ -61,4 +61,34 @@ DJ posts own perspective → Tags PYB → New audience
 → More bookings → More events → More content
 ```
 
+## Google Business Profile
+
+| Attribute | Detail |
+|---|---|
+| Platform | Google Business Profile (Maps + Search) |
+| Primary purpose | Local SEO, reviews, trust signal |
+| Update cadence | Monthly (photos, posts, Q&A) |
+| Tone | Professional, direct, no em dashes |
+
+### Current Description
+
+```
+PicYourBooth is het familiebedrijf voor photobooth's en DJ's in de Randstad. Verjaardag, bruiloft of bedrijfsfeest, wij hebben de perfecte match.
+
+Party Booth. Compacte digitale photobooth, zelf ophalen en in 5 minuten neerzetten. Direct delen via QR code. Leuk voor elk feest.
+
+Magic Mirror XL. Premium fotospiegel met DSLR-camera en studiobelichting. Wij bezorgen, installeren en halen op. Tot 5 uur inclusief met direct printen en digitale galerij.
+
+DJ's. Speakers, licht en rookmachine inbegrepen. Stuur je Spotify playlist, wij bouwen er een set van.
+
+Meer dan 200 events gedraaid. Eén team, alles geregeld. Persoonlijk, geen gedoe. Bekijk de mogelijkheden op onze website.
+```
+
+### Google Business Rules
+- **No em dashes (—)** in description or posts. Use periods, commas, or line breaks instead.
+- **No prices** in the description — direct to website
+- Keep description under 750 characters
+- Use Google Posts for seasonal updates, event highlights, offers
+- Upload event photos monthly for freshness signals
+
 For full platform details, load `.claude/agents/social-media/knowledge-platforms-full.md`.

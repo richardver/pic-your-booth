@@ -1,6 +1,6 @@
 # DJ Gianni (Luca)
 
-Complete brand identity for DJ Gianni. Source files in `docs/djs/dj-gianni/`.
+Complete brand identity for DJ Gianni. Source files in `.claude/agents/dj-promoter/dj-gianni-`.
 
 ---
 
@@ -61,8 +61,8 @@ DJ Gianni uses warm-palette accents per genre. All accents are in the warm spect
 - Cinematic, not commercial
 - Headphones around neck, black hoodie, clean minimal styling
 - Square-safe composition — works at avatar and banner sizes
-- Source: `docs/output/images/dj-gianni/profile/profiel.jpeg`
-- Preview: `docs/output/images/dj-gianni/profile/preview.jpg`
+- Source: `docs/images/dj-gianni/profile/profiel.jpeg`
+- Preview: `docs/images/dj-gianni/profile/preview.jpg`
 
 ---
 
@@ -88,6 +88,23 @@ info@picyourbooth.nl
 ```
 DJ Gianni - Afro Beats, Caribbean vibes en populaire hits. Elke set een feest, elk feest een herinnering. Stuur je Spotify playlist, ik bouw er een set van. Boekingen: info@picyourbooth.nl
 ```
+
+---
+
+## Content Angles (Social Media)
+
+- **Event energy** — BTS footage from events, crowd reactions, setup moments
+- **Set clips** — Short clips from live sets, drops, transitions (15-30s for Reels/TikTok)
+- **Studio sessions** — Recording voice tags, building playlists, prepping sets
+- **Lifestyle** — Behind the scenes, travel to events, personal moments
+- **Spotify playlist** — Promoting the "stuur je playlist" angle, showing how he builds custom sets
+- **Collaborations** — With PYB brand (photobooth + DJ combo content)
+
+## Platform Notes
+
+- **Instagram:** Visual-first, polished Reels and carousel posts. Use coral visual mode.
+- **TikTok:** Raw, authentic, trending sounds. Behind-the-decks clips perform best.
+- **SoundCloud:** Audio mixes only. Cover art and banner specs in Mixtape Cover Art section below.
 
 ---
 
@@ -141,7 +158,7 @@ Voice tags for mixtapes, sets, and videos. Short, punchy, recognizable.
 
 ## Mixtape Cover Art
 
-Gemini prompt template in `docs/djs/dj-gianni/mixtape-gemini-prompt.md`.
+Gemini prompt template in `.claude/agents/dj-promoter/dj-gianni-mixtape-gemini-prompt.md`.
 
 Key specs:
 - Square 1:1 (3000x3000px) for covers, 2480x520 for SoundCloud banners
@@ -159,8 +176,8 @@ Key specs:
 
 | Playbook | Path | Content |
 |---|---|---|
-| SoundCloud Strategie | `docs/djs/dj-gianni/soundcloud-strategie.html` | Mixtape series (Afro/Caribbean/Urban NL), SoundCloud optimalisatie, cover art, voice tags, upload specs, release kalender |
-| TikTok Promotie | `docs/djs/dj-gianni/tiktok-promotie.html` | 7-daagse promotiecyclus per mixtape, seconde-voor-seconde scripts, caption templates, hashtag strategie, filming guide |
+| SoundCloud Strategie | `.claude/agents/dj-promoter/dj-gianni-soundcloud-strategie.html` | Mixtape series (Afro/Caribbean/Urban NL), SoundCloud optimalisatie, cover art, voice tags, upload specs, release kalender |
+| TikTok Promotie | `.claude/agents/dj-promoter/dj-gianni-tiktok-promotie.html` | 7-daagse promotiecyclus per mixtape, seconde-voor-seconde scripts, caption templates, hashtag strategie, filming guide |
 
 ---
 
@@ -168,17 +185,17 @@ Key specs:
 
 | Asset | Path |
 |---|---|
-| Brand guide (HTML) | `docs/djs/dj-gianni/brand-guide.html` |
-| CSS reference | `docs/djs/dj-gianni/css-reference.html` |
-| Component library | `docs/djs/dj-gianni/component-library.html` |
-| Social templates | `docs/output/images/dj-gianni/social/social-templates.html` |
-| SoundCloud banner | `docs/output/images/dj-gianni/social/soundcloud-banner.png` (2480x520) |
-| Mixtape cover | `docs/output/images/dj-gianni/mixtape/afro-mixtape-cover-v2.png` (1400x1400) |
-| Profile photo | `docs/output/images/dj-gianni/profile/profiel.jpeg` |
-| Preview photo | `docs/output/images/dj-gianni/profile/preview.jpg` |
-| Voice tags | `docs/djs/dj-gianni/voice-tags.md` |
-| Social bios | `docs/djs/dj-gianni/social-bios.md` |
-| Photo direction | `docs/djs/dj-gianni/photo-direction.md` |
-| Mixtape Gemini prompt | `docs/djs/dj-gianni/mixtape-gemini-prompt.md` |
-| SoundCloud strategie | `docs/djs/dj-gianni/soundcloud-strategie.html` |
-| TikTok promotie playbook | `docs/djs/dj-gianni/tiktok-promotie.html` |
+| Brand guide (HTML) | `.claude/agents/designer/dj-gianni-brand-guide.html` |
+| CSS reference | `.claude/agents/designer/dj-gianni-component-css-reference.html` |
+| Component library | `.claude/agents/designer/dj-gianni-component-css-reference.html` |
+| Social templates | `docs/images/dj-gianni/social/social-templates.html` |
+| SoundCloud banner | `docs/images/dj-gianni/social/soundcloud-banner.png` (2480x520) |
+| Mixtape cover | `docs/images/dj-gianni/mixtape/afro-mixtape-cover-v2.png` (1400x1400) |
+| Profile photo | `docs/images/dj-gianni/profile/profiel.jpeg` |
+| Preview photo | `docs/images/dj-gianni/profile/preview.jpg` |
+| Voice tags | `.claude/agents/dj-promoter/dj-gianni-voice-tags.md` |
+| Social bios | `.claude/agents/dj-promoter/dj-gianni-social-bios.md` |
+| Photo direction | `.claude/agents/dj-promoter/dj-gianni-photo-direction.md` |
+| Mixtape Gemini prompt | `.claude/agents/dj-promoter/dj-gianni-mixtape-gemini-prompt.md` |
+| SoundCloud strategie | `.claude/agents/dj-promoter/dj-gianni-soundcloud-strategie.html` |
+| TikTok promotie playbook | `.claude/agents/dj-promoter/dj-gianni-tiktok-promotie.html` |

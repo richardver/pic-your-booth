@@ -223,7 +223,7 @@ _Empty — no source photos yet_
 | 1 | `dj/milo/dj-milo-1.jpg` | 2/5 | Full setup shot — Milo behind Pioneer DDJ + laptop, home setting, flat lighting | | Equipment layout reference. Needs venue shots |
 
 ### DJ Gianni / Luca (0 photos)
-_No dedicated DJ photos in this directory. Check `docs/djs/dj-gianni/` for brand assets._
+_No dedicated DJ photos in this directory. Check `docs/images/dj-gianni/` for output assets and `.claude/agents/dj-promoter/` for brand docs._
 
 ---
 

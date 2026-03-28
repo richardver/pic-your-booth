@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Magic Mirror XL - Wedding Meta Ads Creative Preview</title>
+    <style>
+        :root {
+            --bg: #0a0a0a;
+            --surface: #141414;
+            --border: #2a2a2a;
+            --gold: #f59e42;
+            --cyan: #00d4aa;
+            --text: #e8e8e8;
+            --text-muted: #888;
+            --radius: 12px;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            padding: 40px 20px;
+            min-height: 100vh;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 48px;
+        }
+
+        .header h1 {
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 8px;
+            background: linear-gradient(135deg, var(--gold), #ffd700);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .header p {
+            color: var(--text-muted);
+            font-size: 16px;
+        }
+
+        .header .badge {
+            display: inline-block;
+            margin-top: 12px;
+            padding: 6px 16px;
+            border-radius: 20px;
+            background: rgba(245, 158, 66, 0.15);
+            border: 1px solid rgba(245, 158, 66, 0.3);
+            color: var(--gold);
+            font-size: 13px;
+            font-weight: 500;
+        }
+
+        .formats-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .format-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            overflow: hidden;
+            transition: border-color 0.3s;
+        }
+
+        .format-card:hover {
+            border-color: rgba(245, 158, 66, 0.4);
+        }
+
+        .format-card.full-width {
+            grid-column: 1 / -1;
+            max-width: 800px;
+            justify-self: center;
+        }
+
+        .card-header {
+            padding: 20px 24px;
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .card-header h2 {
+            font-size: 18px;
+            font-weight: 600;
+        }
+
+        .card-header .specs {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+        }
+
+        .spec-badge {
+            padding: 4px 10px;
+            border-radius: 6px;
+            font-size: 12px;
+            font-weight: 500;
+        }
+
+        .spec-size {
+            background: rgba(0, 212, 170, 0.12);
+            color: var(--cyan);
+            border: 1px solid rgba(0, 212, 170, 0.25);
+        }
+
+        .spec-ratio {
+            background: rgba(245, 158, 66, 0.12);
+            color: var(--gold);
+            border: 1px solid rgba(245, 158, 66, 0.25);
+        }
+
+        .card-body {
+            padding: 24px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .phone-frame {
+            background: #1a1a1a;
+            border-radius: 36px;
+            padding: 12px;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.5);
+            border: 2px solid #333;
+        }
+
+        .phone-screen {
+            border-radius: 24px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .phone-screen img {
+            display: block;
+            width: 100%;
+            height: auto;
+        }
+
+        .desktop-frame {
+            background: #1a1a1a;
+            border-radius: 8px;
+            padding: 4px;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.5);
+            border: 2px solid #333;
+            position: relative;
+        }
+
+        .desktop-frame::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 4px;
+            background: #333;
+            border-radius: 0 0 4px 4px;
+        }
+
+        .desktop-screen {
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .desktop-screen img {
+            display: block;
+            width: 100%;
+            height: auto;
+        }
+
+        /* Feed Square - show in phone */
+        .feed-square .phone-frame {
+            width: 340px;
+        }
+
+        /* Story - show in phone */
+        .story .phone-frame {
+            width: 280px;
+        }
+
+        /* Landscape - desktop style */
+        .landscape .desktop-frame {
+            width: 100%;
+            max-width: 600px;
+        }
+
+        /* Hero - full width desktop */
+        .hero .desktop-frame {
+            width: 100%;
+            max-width: 700px;
+        }
+
+        /* Ad copy overlay */
+        .ad-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(0,0,0,0.85));
+            padding: 40px 20px 20px;
+            color: white;
+        }
+
+        .ad-overlay h3 {
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 4px;
+            text-shadow: 0 1px 4px rgba(0,0,0,0.5);
+        }
+
+        .ad-overlay p {
+            font-size: 13px;
+            opacity: 0.9;
+            margin-bottom: 10px;
+        }
+
+        .ad-cta {
+            display: inline-block;
+            padding: 8px 20px;
+            background: var(--gold);
+            color: #000;
+            font-size: 13px;
+            font-weight: 700;
+            border-radius: 6px;
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .story-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 20px 16px 24px;
+            background: linear-gradient(transparent, rgba(0,0,0,0.9));
+            color: white;
+        }
+
+        .story-overlay h3 {
+            font-size: 16px;
+            font-weight: 700;
+            margin-bottom: 6px;
+        }
+
+        .story-overlay .swipe-up {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            font-size: 12px;
+            opacity: 0.8;
+            margin-top: 8px;
+        }
+
+        .story-overlay .swipe-up svg {
+            animation: bounce 1.5s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-4px); }
+        }
+
+        .card-footer {
+            padding: 16px 24px;
+            border-top: 1px solid var(--border);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .placement-tags {
+            display: flex;
+            gap: 6px;
+            flex-wrap: wrap;
+        }
+
+        .placement-tag {
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-size: 11px;
+            background: rgba(255,255,255,0.06);
+            color: var(--text-muted);
+            border: 1px solid rgba(255,255,255,0.08);
+        }
+
+        .file-link {
+            color: var(--cyan);
+            font-size: 12px;
+            text-decoration: none;
+            opacity: 0.7;
+            transition: opacity 0.2s;
+        }
+
+        .file-link:hover { opacity: 1; }
+
+        .source-info {
+            text-align: center;
+            margin-top: 48px;
+            padding: 24px;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .source-info h3 {
+            color: var(--gold);
+            margin-bottom: 12px;
+            font-size: 16px;
+        }
+
+        .source-info table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 13px;
+        }
+
+        .source-info td {
+            padding: 8px 12px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .source-info td:first-child {
+            color: var(--text-muted);
+            width: 160px;
+        }
+
+        .source-info code {
+            font-size: 12px;
+            background: rgba(0, 212, 170, 0.1);
+            padding: 2px 6px;
+            border-radius: 4px;
+            color: var(--cyan);
+        }
+
+        @media (max-width: 900px) {
+            .formats-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="header">
+    <h1>Magic Mirror XL - Wedding</h1>
+    <p>Meta Ads Creative Preview - All Placements</p>
+    <span class="badge">Enhance Mode - Source: magic-mirror-photobooth-5.jpg</span>
+</div>
+
+<div class="formats-grid">
+
+    <!-- Feed Square 1:1 -->
+    <div class="format-card feed-square">
+        <div class="card-header">
+            <h2>Feed Square</h2>
+            <div class="specs">
+                <span class="spec-badge spec-ratio">1:1</span>
+                <span class="spec-badge spec-size">1080x1080</span>
+            </div>
+        </div>
+        <div class="card-body">
+            <div class="phone-frame">
+                <div class="phone-screen">
+                    <img src="magic-mirror-meta-wedding-feed-1x1-1080x1080.webp"
+                         alt="Magic Mirror XL Wedding - Feed Square">
+                    <div class="ad-overlay">
+                        <h3>Trouwfoto's die je wilt inlijsten</h3>
+                        <p>DSLR kwaliteit. Directe prints. Onvergetelijk.</p>
+                        <span class="ad-cta">Check beschikbaarheid</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card-footer">
+            <div class="placement-tags">
+                <span class="placement-tag">Facebook Feed</span>
+                <span class="placement-tag">Instagram Feed</span>
+                <span class="placement-tag">Carousel</span>
+            </div>
+            <a href="magic-mirror-meta-wedding-feed-1x1-1080x1080.png" class="file-link" download>Download PNG</a>
+        </div>
+    </div>
+
+    <!-- Story / Reels 9:16 -->
+    <div class="format-card story">
+        <div class="card-header">
+            <h2>Story / Reels</h2>
+            <div class="specs">
+                <span class="spec-badge spec-ratio">9:16</span>
+                <span class="spec-badge spec-size">1080x1920</span>
+            </div>
+        </div>
+        <div class="card-body">
+            <div class="phone-frame">
+                <div class="phone-screen">
+                    <img src="magic-mirror-meta-wedding-story-9x16-1080x1920.webp"
+                         alt="Magic Mirror XL Wedding - Story/Reels">
+                    <div class="story-overlay">
+                        <h3>Magic Mirror XL op jullie bruiloft</h3>
+                        <p>DSLR fotokwaliteit + direct printen</p>
+                        <div class="swipe-up">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+                                <path d="M12 19V5M5 12l7-7 7 7"/>
+                            </svg>
+                            Meer info
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card-footer">
+            <div class="placement-tags">
+                <span class="placement-tag">Instagram Stories</span>
+                <span class="placement-tag">Reels</span>
+                <span class="placement-tag">Facebook Stories</span>
+            </div>
+            <a href="magic-mirror-meta-wedding-story-9x16-1080x1920.png" class="file-link" download>Download PNG</a>
+        </div>
+    </div>
+
+    <!-- Landscape 1.91:1 -->
+    <div class="format-card landscape full-width">
+        <div class="card-header">
+            <h2>Feed Landscape / Right Column</h2>
+            <div class="specs">
+                <span class="spec-badge spec-ratio">1.91:1</span>
+                <span class="spec-badge spec-size">1200x628</span>
+            </div>
+        </div>
+        <div class="card-body">
+            <div class="desktop-frame">
+                <div class="desktop-screen">
+                    <img src="magic-mirror-meta-wedding-landscape-191x1-1200x628.webp"
+                         alt="Magic Mirror XL Wedding - Landscape">
+                    <div class="ad-overlay">
+                        <h3>Magic Mirror XL - De ultieme wedding photobooth</h3>
+                        <p>DSLR kwaliteit | Direct printen | 5 uur inclusief | Vanaf € 599</p>
+                        <span class="ad-cta">Vraag vrijblijvend voorstel aan</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card-footer">
+            <div class="placement-tags">
+                <span class="placement-tag">Facebook Feed Landscape</span>
+                <span class="placement-tag">Right Column</span>
+                <span class="placement-tag">Audience Network</span>
+                <span class="placement-tag">Messenger</span>
+            </div>
+            <a href="magic-mirror-meta-wedding-landscape-191x1-1200x628.png" class="file-link" download>Download PNG</a>
+        </div>
+    </div>
+
+    <!-- Hero 16:9 (bonus) -->
+    <div class="format-card hero full-width">
+        <div class="card-header">
+            <h2>Hero / Video Cover</h2>
+            <div class="specs">
+                <span class="spec-badge spec-ratio">16:9</span>
+                <span class="spec-badge spec-size">1920x1080</span>
+            </div>
+        </div>
+        <div class="card-body">
+            <div class="desktop-frame">
+                <div class="desktop-screen">
+                    <img src="magic-mirror-hero-meta-wedding-1920x1080.webp"
+                         alt="Magic Mirror XL Wedding - Hero 16:9">
+                </div>
+            </div>
+        </div>
+        <div class="card-footer">
+            <div class="placement-tags">
+                <span class="placement-tag">Video Cover</span>
+                <span class="placement-tag">Website Hero</span>
+                <span class="placement-tag">Facebook In-Stream</span>
+            </div>
+            <a href="magic-mirror-hero-meta-wedding-1920x1080.webp" class="file-link" download>Download WebP</a>
+        </div>
+    </div>
+
+</div>
+
+<div class="source-info">
+    <h3>Asset Details</h3>
+    <table>
+        <tr>
+            <td>Mode</td>
+            <td>Enhance (Gemini AI)</td>
+        </tr>
+        <tr>
+            <td>Source Photo</td>
+            <td><code>magicmirror/photobooth/magic-mirror-photobooth-5.jpg</code></td>
+        </tr>
+        <tr>
+            <td>Source Rating</td>
+            <td>5/5 - TOP PICK (Wedding venue, cyan LED, Edison bulbs)</td>
+        </tr>
+        <tr>
+            <td>Scene</td>
+            <td>Luxury wedding reception - bride & groom at mirror, golden chandeliers, floral arrangements, VIP stanchions</td>
+        </tr>
+        <tr>
+            <td>Visual Identity</td>
+            <td>Black & Gold Editorial / Canon R5 + 85mm f/1.2</td>
+        </tr>
+        <tr>
+            <td>Color Grade</td>
+            <td>Magic Mirror XL preset (warm gold, deep blacks, high contrast)</td>
+        </tr>
+        <tr>
+            <td>Generated Files</td>
+            <td>
+                <code>feed-1x1-1080x1080</code> (PNG + WebP)<br>
+                <code>story-9x16-1080x1920</code> (PNG + WebP)<br>
+                <code>landscape-191x1-1200x628</code> (PNG + WebP)<br>
+                <code>hero-1920x1080</code> + <code>1280x720</code> + <code>768x432</code> (WebP)
+            </td>
+        </tr>
+        <tr>
+            <td>Raw Output</td>
+            <td><code>docs/images/pyb/magic-mirror/magic-mirror-hero-meta-wedding.png</code></td>
+        </tr>
+    </table>
+</div>
+
+</body>
+</html>

@@ -1,6 +1,6 @@
 # DJ Milø
 
-Complete brand identity for DJ Milø. Source files in `docs/djs/milo/`.
+Complete brand identity for DJ Milø. Source files in `.claude/agents/dj-promoter/dj-milo-`.
 
 ---
 
@@ -69,6 +69,23 @@ DJ Milø - DJ uit Nederland. Bouwt sets van deep house naar hypnotiserende techn
 
 ---
 
+## Content Angles (Social Media)
+
+- **Event energy** — BTS footage, crowd moments, dark/moody atmosphere shots
+- **Set clips** — Hypnotic transitions, bass drops, building energy (15-30s for Reels/TikTok)
+- **Studio sessions** — Mixing, track selection, set preparation
+- **Lifestyle** — Behind the scenes, moody aesthetic content
+- **Atmosphere** — Focus on the immersive experience, lighting, crowd in the zone
+- **Collaborations** — With PYB brand (photobooth + DJ combo content)
+
+## Platform Notes
+
+- **Instagram:** Moody, cinematic Reels and posts. Use cyan visual mode.
+- **TikTok:** Raw energy, behind-the-decks clips, trending sounds.
+- **SoundCloud:** Audio mixes only. Cover art and banner to be developed.
+
+---
+
 ## Voice Tags (to be developed)
 
 Voice tag library for DJ Milø has not yet been created. When developing:
@@ -83,7 +100,7 @@ Voice tag library for DJ Milø has not yet been created. When developing:
 
 | Asset | Path |
 |---|---|
-| Brand guide (HTML) | `docs/djs/milo/brand-guide.html` |
-| Profile | `docs/djs/milo/profile.md` |
+| Brand guide (HTML) | `.claude/agents/designer/dj-milo-brand-guide.html` |
+| Profile | `.claude/agents/dj-promoter/dj-milo-profile.md` |
 
 **Assets to develop:** Social templates, SoundCloud banner, mixtape cover art, profile photo, voice tags, Gemini prompt template. Follow DJ Gianni's asset structure as reference.

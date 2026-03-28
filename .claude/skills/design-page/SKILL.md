@@ -36,10 +36,10 @@ The user specifies which page to build:
 3. **Design system** — Read these files:
    - `.claude/agents/designer/knowledge-design-system-full.md` — tokens, colors, typography, components
    - `.claude/agents/designer/knowledge-ux-principles.md` — accessibility, responsive, visual hierarchy
-   - `docs/website/design-system/pyb-design-system-web.html` — parent design system (visual reference)
+   - `.claude/agents/designer/pyb-design-system-web.html` — parent design system (visual reference)
    - Page-specific design system if applicable:
-     - Photobooth pages → `docs/website/design-system/pyb-design-system-photobooth.html`
-     - DJ page → `docs/website/design-system/pyb-design-system-dj.html`
+     - Photobooth pages → `.claude/agents/designer/pyb-design-system-photobooth.html`
+     - DJ page → `.claude/agents/designer/pyb-design-system-dj.html`
 
 4. **Photo library** — Read `docs/images/photos-source/INDEX.md` for available source photos per product/USP, quality ratings, and Gemini AI reference picks. Use best-rated photos for image placeholders and `/generate-asset` input.
 

@@ -160,4 +160,4 @@ default → hover (150ms) → active → focus (2px ring) → disabled
 - Mobile-first mindset: 70%+ traffic from Meta Ads is mobile
 
 For full token definitions: `.claude/agents/designer/knowledge-design-system-full.md`
-For HTML design system: `docs/website/design-system/pyb-design-system-web.html`
+For HTML design system: `.claude/agents/designer/pyb-design-system-web.html`

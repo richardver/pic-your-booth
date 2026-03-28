@@ -34,7 +34,7 @@ Example: `https://fotoshare.co/e/YhU4oBy5I4nMcbXAwyowM`
 Instead of sending raw fotoshare.co links, PYB wraps them in a branded experience.
 
 **Portal page:** `picyourbooth.nl/yourphotos.html`
-**File location:** `docs/website/deployment/yourphotos.html`
+**File location:** `docs/pyb/website/deployment/yourphotos.html`
 
 ### URL Format
 

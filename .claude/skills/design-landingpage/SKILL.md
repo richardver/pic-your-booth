@@ -39,8 +39,8 @@ The user specifies:
 4. **Brand & design** — Read:
    - `.claude/agents/strategist/knowledge-brand.md` — brand guide, visual identity, tone
    - `.claude/agents/designer/knowledge-design-system-full.md` — tokens, colors, typography
-   - `docs/website/design-system/pyb-design-system-photobooth.html` — page-specific design system (if photobooth)
-   - `docs/website/design-system/pyb-design-system-dj.html` — page-specific design system (if DJ)
+   - `.claude/agents/designer/pyb-design-system-photobooth.html` — page-specific design system (if photobooth)
+   - `.claude/agents/designer/pyb-design-system-dj.html` — page-specific design system (if DJ)
 
 5. **Photo library** — Read `docs/images/photos-source/INDEX.md` for available source photos per product/USP, quality ratings, and Gemini AI reference picks. Use best-rated photos for image selection and `/generate-asset` input.
 

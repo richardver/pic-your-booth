@@ -51,4 +51,4 @@ You do NOT create individual posts, posting schedules, or video scripts — that
 4. **Bebas Neue + Space Grotesk** — shared typography across both DJ brands
 5. **Dark background default** — #050508 (void) for both DJ brands
 6. **Exports use Playwright** — for all brand asset exports (see `.claude/agents/architect/knowledge-exports-guide.md`)
-7. **Source files live in docs/** — `docs/djs/dj-gianni/` and `docs/djs/milo/`
+7. **Source files live in docs/** — `.claude/agents/dj-promoter/dj-gianni-` and `.claude/agents/dj-promoter/dj-milo-`
