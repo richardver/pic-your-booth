@@ -67,6 +67,8 @@ pic-your-booth/
 │   │   │   ├── magicmirror/           - Magic Mirror XL source photos
 │   │   │   ├── partybooth/            - Party Booth source photos
 │   │   │   └── dj/                    - DJ source photos
+│   ├── video/                            - Remotion video projects
+│   │   └── dj-gianni/tiktok/release-clip/ - Release Clip POC (Remotion)
 │   ├── kpi/                             - Historical KPI Excel reports (Vizibooth 2025, 2026)
 │   └── funnel/                          - Funnel strategy & campaign management
 │       ├── campaigns/                 - Campaign specs, audiences, ad copy per month
@@ -129,6 +131,10 @@ pic-your-booth/
 │   │       ├── knowledge-google-ads.md  - Google Ads search, PMax, keywords
 │   │       ├── knowledge-ad-copy.md     - Hooks, frameworks, testing
 │   │       └── knowledge-creative-testing.md - Fatigue, lifecycle, refresh
+│   │   ├── video-editor.md                - Programmatic video (Remotion)
+│   │   ├── video-editor/                  - Video editor knowledge
+│   │   │   ├── _index.md                - Sub-topic router
+│   │   │   └── knowledge-remotion.md    - Remotion API, patterns, tokens
 │   │   ├── seo.md                         - SEO & LLM optimization
 │   │   └── seo/                           - SEO knowledge (6 files)
 │   │       ├── _index.md                - Keyword map, audit rules
