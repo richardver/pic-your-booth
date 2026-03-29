@@ -444,10 +444,12 @@ a { color: inherit; text-decoration: none; }
     width: 100%;
     padding: 12px 16px;
     background: var(--surface-up);
+    color: var(--text);
     border: 1px solid var(--border);
     border-radius: var(--r-sm);
     cursor: pointer;
     margin-bottom: 8px;
+    font-family: var(--font-body);
   }
 
   .upgrades-toggle .form-label {
@@ -1047,7 +1049,7 @@ a { color: inherit; text-decoration: none; }
       <!-- Upgrades (dynamic based on service) -->
       <div class="form-group" id="upgrades-group" style="display:none;">
         <button type="button" class="upgrades-toggle" id="upgrades-toggle" aria-expanded="false">
-          <span class="form-label">Upgrades <span class="form-label-hint">Optioneel</span></span>
+          <span class="form-label">Extra opties <span class="form-label-hint">Optioneel</span></span>
           <svg class="upgrades-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
         </button>
         <div id="upgrades-list" class="upgrades-list"></div>
