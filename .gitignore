@@ -20,6 +20,11 @@ Thumbs.db
 docs/assets/generated/
 docs/assets/web/
 
+# Video footage & output (large files, keep local)
+video/**/public/footage/
+video/**/out/
+video/output/
+
 # Playwright MCP
 .playwright-mcp/
 
