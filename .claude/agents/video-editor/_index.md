@@ -20,6 +20,7 @@ You do NOT own social media posting (social-media agent), ad creative design (ad
 | Topic | Knowledge File | When to Use |
 |---|---|---|
 | Remotion API & patterns | `knowledge-remotion.md` | Building components, rendering, Remotion API reference |
+| Remotion feature overview | `knowledge-remotion-features.html` | Visual reference of all Remotion capabilities (used + available) |
 
 ## Scope
 

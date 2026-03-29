@@ -1,0 +1,1161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Remotion Feature Reference - PYB Video Editor</title>
+  <style>
+    :root {
+      --void: #050508;
+      --surface: #0e0e14;
+      --card: #16161f;
+      --border: #2a2a3a;
+      --text: #ededf0;
+      --muted: rgba(237,237,240,0.5);
+      --accent: #f0654a;
+      --accent-dim: rgba(240,101,74,0.15);
+      --blue: #4290f5;
+      --green: #34d399;
+      --purple: #c084fc;
+      --amber: #f5b731;
+      --code-bg: #1a1a28;
+      --tag-bg: rgba(66, 144, 245, 0.12);
+      --tag-border: rgba(66, 144, 245, 0.3);
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--void);
+      color: var(--text);
+      line-height: 1.6;
+      padding: 40px 24px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    h1 {
+      font-size: 32px;
+      font-weight: 700;
+      margin-bottom: 8px;
+      letter-spacing: -0.5px;
+    }
+
+    h1 span { color: var(--accent); }
+
+    .subtitle {
+      color: var(--muted);
+      font-size: 15px;
+      margin-bottom: 48px;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 24px;
+    }
+
+    .subtitle a {
+      color: var(--blue);
+      text-decoration: none;
+    }
+
+    /* Category sections */
+    .category {
+      margin-bottom: 56px;
+    }
+
+    .category-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 24px;
+    }
+
+    .category-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      flex-shrink: 0;
+    }
+
+    .category h2 {
+      font-size: 22px;
+      font-weight: 600;
+      letter-spacing: -0.3px;
+    }
+
+    .category-desc {
+      color: var(--muted);
+      font-size: 14px;
+      margin-top: 2px;
+    }
+
+    /* Feature cards */
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+      gap: 16px;
+    }
+
+    .feature-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 20px;
+      transition: border-color 0.2s;
+    }
+
+    .feature-card:hover {
+      border-color: var(--accent);
+    }
+
+    .feature-name {
+      font-family: 'JetBrains Mono', 'Fira Code', monospace;
+      font-size: 16px;
+      font-weight: 600;
+      margin-bottom: 4px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .feature-name .tag {
+      font-family: 'Inter', sans-serif;
+      font-size: 10px;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      padding: 2px 8px;
+      border-radius: 4px;
+      background: var(--tag-bg);
+      color: var(--blue);
+      border: 1px solid var(--tag-border);
+    }
+
+    .feature-name .tag.used {
+      background: rgba(52,211,153,0.12);
+      color: var(--green);
+      border-color: rgba(52,211,153,0.3);
+    }
+
+    .feature-name .tag.new {
+      background: rgba(192,132,252,0.12);
+      color: var(--purple);
+      border-color: rgba(192,132,252,0.3);
+    }
+
+    .feature-desc {
+      color: var(--muted);
+      font-size: 13px;
+      margin-bottom: 12px;
+      line-height: 1.5;
+    }
+
+    .feature-visual {
+      background: var(--code-bg);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 14px;
+      font-family: 'JetBrains Mono', 'Fira Code', monospace;
+      font-size: 12px;
+      line-height: 1.7;
+      overflow-x: auto;
+      color: var(--text);
+    }
+
+    .feature-visual .kw { color: var(--purple); }
+    .feature-visual .fn { color: var(--blue); }
+    .feature-visual .str { color: var(--green); }
+    .feature-visual .num { color: var(--amber); }
+    .feature-visual .cmt { color: rgba(237,237,240,0.3); font-style: italic; }
+    .feature-visual .tag-el { color: var(--accent); }
+
+    /* Visual diagrams */
+    .diagram {
+      background: var(--code-bg);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 20px;
+      margin-top: 12px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 12px;
+      line-height: 1.6;
+      overflow-x: auto;
+    }
+
+    .diagram .label { color: var(--muted); }
+    .diagram .bar { color: var(--accent); }
+    .diagram .bar2 { color: var(--blue); }
+    .diagram .bar3 { color: var(--green); }
+    .diagram .bar4 { color: var(--purple); }
+    .diagram .arrow { color: var(--amber); }
+
+    /* Section divider */
+    .divider {
+      border: none;
+      border-top: 1px solid var(--border);
+      margin: 48px 0;
+    }
+
+    /* Full-width feature */
+    .feature-full {
+      grid-column: 1 / -1;
+    }
+
+    /* Tips */
+    .tip {
+      background: rgba(240,101,74,0.08);
+      border: 1px solid rgba(240,101,74,0.2);
+      border-radius: 8px;
+      padding: 14px 16px;
+      margin-top: 12px;
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    .tip strong { color: var(--accent); }
+
+    /* Package badges */
+    .packages {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 32px;
+    }
+
+    .pkg {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 12px;
+      padding: 6px 12px;
+      border-radius: 6px;
+      background: var(--card);
+      border: 1px solid var(--border);
+      color: var(--muted);
+    }
+
+    .pkg.installed {
+      border-color: rgba(52,211,153,0.3);
+      color: var(--green);
+    }
+
+    .pkg.available {
+      border-color: rgba(192,132,252,0.2);
+      color: var(--purple);
+      opacity: 0.7;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .features-grid { grid-template-columns: 1fr; }
+      body { padding: 24px 16px; }
+      h1 { font-size: 24px; }
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Remotion <span>Feature Reference</span></h1>
+  <p class="subtitle">
+    High-level overview of Remotion capabilities for PYB video production.
+    <span class="tag used" style="margin-left:8px;font-size:10px;padding:2px 6px;border-radius:3px">USED</span> = in our templates &nbsp;
+    <span class="tag new" style="font-size:10px;padding:2px 6px;border-radius:3px">AVAILABLE</span> = not yet used, can adopt.
+    Docs: <a href="https://remotion.dev/docs">remotion.dev/docs</a>
+  </p>
+
+  <!-- Packages -->
+  <h3 style="font-size:14px;color:var(--muted);margin-bottom:12px;text-transform:uppercase;letter-spacing:1px;">Packages</h3>
+  <div class="packages">
+    <span class="pkg installed">remotion (core)</span>
+    <span class="pkg installed">@remotion/cli</span>
+    <span class="pkg installed">@remotion/google-fonts</span>
+    <span class="pkg installed">@remotion/player</span>
+    <span class="pkg installed">@remotion/bundler</span>
+    <span class="pkg available">@remotion/transitions</span>
+    <span class="pkg available">@remotion/captions</span>
+    <span class="pkg available">@remotion/three</span>
+    <span class="pkg available">@remotion/media-utils</span>
+    <span class="pkg available">@remotion/renderer</span>
+    <span class="pkg available">@remotion/lambda</span>
+  </div>
+
+  <hr class="divider">
+
+  <!-- =========================================== -->
+  <!-- 1. COMPOSITION & STRUCTURE -->
+  <!-- =========================================== -->
+  <section class="category">
+    <div class="category-header">
+      <div class="category-icon" style="background:rgba(66,144,245,0.12);">&#x1F3AC;</div>
+      <div>
+        <h2>Composition & Structure</h2>
+        <div class="category-desc">Define videos, layer elements, and control timing</div>
+      </div>
+    </div>
+
+    <div class="features-grid">
+
+      <!-- Composition -->
+      <div class="feature-card">
+        <div class="feature-name">&lt;Composition&gt; <span class="tag used">Used</span></div>
+        <div class="feature-desc">
+          Defines a video's metadata: dimensions, FPS, duration, and default props.
+          The entry point for every Remotion video. Registered in <code>Root.tsx</code>.
+        </div>
+        <div class="feature-visual">
+<span class="tag-el">&lt;Composition</span>
+  <span class="fn">id</span>=<span class="str">"ReleaseClip"</span>
+  <span class="fn">width</span>={<span class="num">1080</span>}
+  <span class="fn">height</span>={<span class="num">1920</span>}
+  <span class="fn">fps</span>={<span class="num">30</span>}
+  <span class="fn">durationInFrames</span>={<span class="num">750</span>}  <span class="cmt">// 25 sec</span>
+  <span class="fn">component</span>={ReleaseClip}
+  <span class="fn">defaultProps</span>={defaultProps}
+<span class="tag-el">/&gt;</span>
+        </div>
+      </div>
+
+      <!-- AbsoluteFill -->
+      <div class="feature-card">
+        <div class="feature-name">&lt;AbsoluteFill&gt; <span class="tag used">Used</span></div>
+        <div class="feature-desc">
+          A full-size, absolutely positioned <code>div</code>. The fundamental building block
+          for layering elements like in a video editor timeline. Lower in the tree = higher in the stack.
+        </div>
+        <div class="diagram">
+<span class="label">Layer stack (bottom to top):</span>
+
+<span class="bar">  +-------------------------------+</span>
+<span class="bar">  | AbsoluteFill: VideoBackground |</span>  <span class="cmt">z=0</span>
+<span class="bar">  +-------------------------------+</span>
+<span class="bar2">  | AbsoluteFill: FilmGrain       |</span>  <span class="cmt">z=1</span>
+<span class="bar2">  +-------------------------------+</span>
+<span class="bar3">  | AbsoluteFill: TextOverlay     |</span>  <span class="cmt">z=2</span>
+<span class="bar3">  +-------------------------------+</span>
+<span class="bar4">  | AbsoluteFill: CTABar          |</span>  <span class="cmt">z=3 (on top)</span>
+<span class="bar4">  +-------------------------------+</span>
+        </div>
+      </div>
+
+      <!-- Sequence -->
+      <div class="feature-card">
+        <div class="feature-name">&lt;Sequence&gt; <span class="tag used">Used</span></div>
+        <div class="feature-desc">
+          Time-shifts its children. Use <code>from</code> to delay appearance and
+          <code>durationInFrames</code> to limit visibility. Inside a Sequence,
+          <code>useCurrentFrame()</code> resets to 0 at the start.
+        </div>
+        <div class="diagram">
+<span class="label">Timeline (frames 0-750):</span>
+
+<span class="bar">|===HOOK (0-90)=====|</span>
+<span class="bar2">                    |========BUILD (90-240)========|</span>
+<span class="bar3">                                                   |==DROP (240-360)==|</span>
+<span class="bar4">                                                                      |=====ENDCARD (600-750)====|</span>
+
+<span class="cmt">// Each is a &lt;Sequence from={X} durationInFrames={Y}&gt;</span>
+        </div>
+      </div>
+
+      <!-- Series -->
+      <div class="feature-card">
+        <div class="feature-name">&lt;Series&gt; <span class="tag new">Available</span></div>
+        <div class="feature-desc">
+          Displays scenes one after another automatically. Each <code>&lt;Series.Sequence&gt;</code>
+          starts where the previous one ends. No manual <code>from</code> math needed.
+        </div>
+        <div class="feature-visual">
+<span class="tag-el">&lt;Series&gt;</span>
+  <span class="tag-el">&lt;Series.Sequence</span> <span class="fn">durationInFrames</span>={<span class="num">90</span>}<span class="tag-el">&gt;</span>
+    <span class="cmt">{/* Hook scene: frames 0-90 */}</span>
+  <span class="tag-el">&lt;/Series.Sequence&gt;</span>
+  <span class="tag-el">&lt;Series.Sequence</span> <span class="fn">durationInFrames</span>={<span class="num">150</span>}<span class="tag-el">&gt;</span>
+    <span class="cmt">{/* Build scene: frames 90-240 */}</span>
+  <span class="tag-el">&lt;/Series.Sequence&gt;</span>
+<span class="tag-el">&lt;/Series&gt;</span>
+        </div>
+      </div>
+
+      <!-- Freeze -->
+      <div class="feature-card">
+        <div class="feature-name">&lt;Freeze&gt; <span class="tag new">Available</span></div>
+        <div class="feature-desc">
+          Freezes all children at a specific frame. Useful for holding a video
+          frame still (e.g., pause on a DJ reaction shot) while text animates on top.
+        </div>
+        <div class="feature-visual">
+<span class="tag-el">&lt;Freeze</span> <span class="fn">frame</span>={<span class="num">30</span>}<span class="tag-el">&gt;</span>
+  <span class="cmt">{/* Everything inside sees frame 30 forever */}</span>
+  <span class="tag-el">&lt;OffthreadVideo</span> <span class="fn">src</span>={src} <span class="tag-el">/&gt;</span>
+<span class="tag-el">&lt;/Freeze&gt;</span>
+        </div>
+      </div>
+
+      <!-- Loop -->
+      <div class="feature-card">
+        <div class="feature-name">&lt;Loop&gt; <span class="tag new">Available</span></div>
+        <div class="feature-desc">
+          Repeats its children. Great for looping background animations,
+          particle effects, or repeating beat-synced pulses without duplicating code.
+        </div>
+        <div class="feature-visual">
+<span class="tag-el">&lt;Loop</span> <span class="fn">durationInFrames</span>={<span class="num">15</span>}<span class="tag-el">&gt;</span>
+  <span class="cmt">{/* This 15-frame animation loops forever */}</span>
+  <span class="tag-el">&lt;PulseEffect /&gt;</span>
+<span class="tag-el">&lt;/Loop&gt;</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <hr class="divider">
+
+  <!-- =========================================== -->
+  <!-- 2. ANIMATION -->
+  <!-- =========================================== -->
+  <section class="category">
+    <div class="category-header">
+      <div class="category-icon" style="background:rgba(240,101,74,0.12);">&#x1F3AF;</div>
+      <div>
+        <h2>Animation Primitives</h2>
+        <div class="category-desc">Frame-driven hooks and functions that power every motion</div>
+      </div>
+    </div>
+
+    <div class="features-grid">
+
+      <!-- useCurrentFrame -->
+      <div class="feature-card">
+        <div class="feature-name">useCurrentFrame() <span class="tag used">Used</span></div>
+        <div class="feature-desc">
+          Returns the current frame number. THE animation driver in Remotion. Every animation
+          must derive from this hook (never CSS transitions or requestAnimationFrame).
+        </div>
+        <div class="feature-visual">
+<span class="kw">const</span> frame = <span class="fn">useCurrentFrame</span>();
+<span class="cmt">// frame = 0, 1, 2, ... up to durationInFrames</span>
+
+<span class="cmt">// Inside a &lt;Sequence from={90}&gt;:</span>
+<span class="cmt">// frame resets to 0 at the sequence start</span>
+        </div>
+      </div>
+
+      <!-- useVideoConfig -->
+      <div class="feature-card">
+        <div class="feature-name">useVideoConfig() <span class="tag used">Used</span></div>
+        <div class="feature-desc">
+          Returns <code>{ fps, width, height, durationInFrames, id }</code> from the
+          current Composition. Essential for fps-aware spring() animations.
+        </div>
+        <div class="feature-visual">
+<span class="kw">const</span> { fps, width, height, durationInFrames }
+  = <span class="fn">useVideoConfig</span>();
+
+<span class="cmt">// fps = 30, width = 1080, height = 1920</span>
+        </div>
+      </div>
+
+      <!-- interpolate -->
+      <div class="feature-card feature-full">
+        <div class="feature-name">interpolate() <span class="tag used">Used</span></div>
+        <div class="feature-desc">
+          Maps a value from one range to another. The workhorse of Remotion animation.
+          Supports clamping via <code>extrapolateLeft</code> / <code>extrapolateRight</code>
+          and custom <code>Easing</code> curves.
+        </div>
+        <div class="diagram">
+<span class="label">How interpolate() works:</span>
+
+  Input range:    [0 -------- 30 -------- 60]
+                   |                       |
+  Output range:   [0.0 ----- 0.5 ------- 1.0]
+
+<span class="cmt">Frame 0  -> opacity 0.0   (invisible)</span>
+<span class="cmt">Frame 30 -> opacity 0.5   (half visible)</span>
+<span class="cmt">Frame 60 -> opacity 1.0   (fully visible)</span>
+
+  <span class="fn">interpolate</span>(frame, [<span class="num">0</span>, <span class="num">60</span>], [<span class="num">0</span>, <span class="num">1</span>], { <span class="fn">extrapolateRight</span>: <span class="str">"clamp"</span> })
+
+<span class="label">With Easing:</span>
+  <span class="fn">interpolate</span>(frame, [<span class="num">0</span>, <span class="num">60</span>], [<span class="num">0</span>, <span class="num">1</span>], {
+    <span class="fn">easing</span>: Easing.<span class="fn">bezier</span>(<span class="num">0.8</span>, <span class="num">0.22</span>, <span class="num">0.96</span>, <span class="num">0.65</span>),
+    <span class="fn">extrapolateLeft</span>: <span class="str">"clamp"</span>,
+    <span class="fn">extrapolateRight</span>: <span class="str">"clamp"</span>,
+  })
+        </div>
+      </div>
+
+      <!-- spring -->
+      <div class="feature-card feature-full">
+        <div class="feature-name">spring() <span class="tag used">Used</span></div>
+        <div class="feature-desc">
+          Physics-based animation that goes from 0 to 1 with natural bounce/settle.
+          Configure <code>mass</code>, <code>damping</code>, <code>stiffness</code>,
+          and <code>overshootClamping</code>. Visual editor at
+          <a href="https://springs.remotion.dev" style="color:var(--blue)">springs.remotion.dev</a>.
+        </div>
+        <div class="diagram">
+<span class="label">spring() output over time:</span>
+
+  1.1 |         <span class="bar">***</span>
+  1.0 |       <span class="bar">**</span>   <span class="bar">*****************************</span>  <span class="arrow">&lt;-- settles at 1.0</span>
+  0.8 |      <span class="bar">*</span>
+  0.6 |     <span class="bar">*</span>
+  0.4 |    <span class="bar">*</span>
+  0.2 |   <span class="bar">*</span>         <span class="cmt">overshoot (bouncy!)</span>
+  0.0 |<span class="bar">***</span>
+      +-----|---------|---------|---
+       f=0   f=5       f=10     f=20
+
+  <span class="fn">spring</span>({ frame, fps, <span class="fn">config</span>: {
+    <span class="fn">damping</span>: <span class="num">10</span>,      <span class="cmt">// low = more bounce</span>
+    <span class="fn">stiffness</span>: <span class="num">100</span>,  <span class="cmt">// high = faster snap</span>
+    <span class="fn">mass</span>: <span class="num">1</span>,          <span class="cmt">// heavy = slower</span>
+  }})
+
+<span class="label">Our presets:</span>
+  CTABar:    damping=<span class="num">200</span>              <span class="cmt">(no bounce, smooth slide)</span>
+  EndCard:   damping=<span class="num">15</span>, stiff=<span class="num">120</span>  <span class="cmt">(subtle bounce)</span>
+  SlamIn:    damping=<span class="num">12</span>, stiff=<span class="num">200</span>  <span class="cmt">(snappy punch)</span>
+        </div>
+      </div>
+
+      <!-- interpolateColors -->
+      <div class="feature-card">
+        <div class="feature-name">interpolateColors() <span class="tag new">Available</span></div>
+        <div class="feature-desc">
+          Smoothly transition between colors over time. Accepts hex, rgb, rgba, hsl,
+          and CSS named colors. Perfect for genre-based color washes.
+        </div>
+        <div class="feature-visual">
+<span class="kw">const</span> color = <span class="fn">interpolateColors</span>(
+  frame,
+  [<span class="num">0</span>, <span class="num">60</span>],
+  [<span class="str">"#f0654a"</span>, <span class="str">"#f5b731"</span>]  <span class="cmt">// coral -> amber</span>
+);
+<span class="cmt">// Returns "rgba(242, 140, 60, 1)" at frame 30</span>
+        </div>
+      </div>
+
+      <!-- Easing -->
+      <div class="feature-card">
+        <div class="feature-name">Easing <span class="tag new">Available</span></div>
+        <div class="feature-desc">
+          Custom easing curves for <code>interpolate()</code>. Includes
+          <code>linear</code>, <code>ease</code>, <code>bezier()</code>,
+          <code>bounce</code>, <code>elastic()</code>, <code>back()</code>, and more.
+          Combinable with <code>Easing.in()</code> / <code>out()</code> / <code>inOut()</code>.
+        </div>
+        <div class="feature-visual">
+<span class="kw">import</span> { Easing } <span class="kw">from</span> <span class="str">"remotion"</span>;
+
+<span class="fn">interpolate</span>(frame, [<span class="num">0</span>, <span class="num">30</span>], [<span class="num">0</span>, <span class="num">1</span>], {
+  <span class="fn">easing</span>: Easing.<span class="fn">inOut</span>(Easing.ease),
+})
+
+<span class="cmt">// Pre-built: linear, quad, cubic, sin,</span>
+<span class="cmt">// circle, exp, bounce, elastic(), back()</span>
+        </div>
+      </div>
+
+      <!-- measureSpring -->
+      <div class="feature-card">
+        <div class="feature-name">measureSpring() <span class="tag new">Available</span></div>
+        <div class="feature-desc">
+          Calculate exactly how many frames a spring animation takes to settle.
+          Useful for sizing <code>&lt;Sequence&gt;</code> durations dynamically.
+        </div>
+        <div class="feature-visual">
+<span class="kw">import</span> { measureSpring } <span class="kw">from</span> <span class="str">"remotion"</span>;
+
+<span class="kw">const</span> duration = <span class="fn">measureSpring</span>({
+  fps: <span class="num">30</span>,
+  config: { damping: <span class="num">15</span>, stiffness: <span class="num">120</span> }
+});
+<span class="cmt">// Returns number of frames until settled</span>
+        </div>
+      </div>
+
+      <!-- Animation Math -->
+      <div class="feature-card">
+        <div class="feature-name">Animation Math <span class="tag new">Available</span></div>
+        <div class="feature-desc">
+          Combine springs by adding/subtracting. Classic pattern for enter+exit:
+          <code>scale = enterSpring - exitSpring</code>. The value goes 0 -> 1 -> 0.
+        </div>
+        <div class="feature-visual">
+<span class="kw">const</span> enter = <span class="fn">spring</span>({ frame, fps });
+<span class="kw">const</span> exit = <span class="fn">spring</span>({
+  frame, fps,
+  <span class="fn">delay</span>: durationInFrames - <span class="num">20</span>,
+  <span class="fn">durationInFrames</span>: <span class="num">20</span>,
+});
+<span class="kw">const</span> scale = enter - exit;
+<span class="cmt">// 0 -> 1 (enter) -> 0 (exit)</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <hr class="divider">
+
+  <!-- =========================================== -->
+  <!-- 3. MEDIA -->
+  <!-- =========================================== -->
+  <section class="category">
+    <div class="category-header">
+      <div class="category-icon" style="background:rgba(52,211,153,0.12);">&#x1F3A5;</div>
+      <div>
+        <h2>Media Components</h2>
+        <div class="category-desc">Video, audio, images, and asset loading</div>
+      </div>
+    </div>
+
+    <div class="features-grid">
+
+      <!-- OffthreadVideo -->
+      <div class="feature-card">
+        <div class="feature-name">&lt;OffthreadVideo&gt; <span class="tag used">Used</span></div>
+        <div class="feature-desc">
+          Renders video frame-by-frame during render (no browser video decoder needed).
+          More reliable than <code>&lt;Html5Video&gt;</code> for production renders.
+          Supports <code>startFrom</code>, <code>volume</code>, <code>playbackRate</code>.
+        </div>
+        <div class="feature-visual">
+<span class="tag-el">&lt;OffthreadVideo</span>
+  <span class="fn">src</span>={<span class="fn">staticFile</span>(<span class="str">"footage.mov"</span>)}
+  <span class="fn">startFrom</span>={<span class="num">300</span>}   <span class="cmt">// start at frame 300</span>
+  <span class="fn">volume</span>={<span class="num">0</span>}         <span class="cmt">// mute (audio separate)</span>
+<span class="tag-el">/&gt;</span>
+        </div>
+      </div>
+
+      <!-- Audio -->
+      <div class="feature-card">
+        <div class="feature-name">&lt;Audio&gt; <span class="tag used">Used</span></div>
+        <div class="feature-desc">
+          Audio playback synced to Remotion's timeline. Supports trimming via
+          <code>startFrom</code>, volume control (static or function), and
+          <code>playbackRate</code> for speed changes.
+        </div>
+        <div class="feature-visual">
+<span class="tag-el">&lt;Audio</span>
+  <span class="fn">src</span>={<span class="fn">staticFile</span>(<span class="str">"footage.mov"</span>)}
+  <span class="fn">startFrom</span>={videoStartFrame}
+  <span class="fn">volume</span>={<span class="num">1</span>}
+<span class="tag-el">/&gt;</span>
+
+<span class="cmt">// Dynamic volume (fade out):</span>
+<span class="fn">volume</span>={(f) =&gt;
+  <span class="fn">interpolate</span>(f, [<span class="num">700</span>,<span class="num">750</span>], [<span class="num">1</span>,<span class="num">0</span>], {<span class="fn">extrapolateLeft</span>:<span class="str">"clamp"</span>})
+}
+        </div>
+      </div>
+
+      <!-- Img -->
+      <div class="feature-card">
+        <div class="feature-name">&lt;Img&gt; <span class="tag used">Used</span></div>
+        <div class="feature-desc">
+          Renders an image and waits for it to load before rendering the frame.
+          Prevents blank frames during render. Always use instead of raw <code>&lt;img&gt;</code>.
+        </div>
+        <div class="feature-visual">
+<span class="tag-el">&lt;Img</span>
+  <span class="fn">src</span>={<span class="fn">staticFile</span>(<span class="str">"covers/mixtape.png"</span>)}
+  <span class="fn">style</span>={{ width: <span class="num">300</span>, borderRadius: <span class="num">16</span> }}
+<span class="tag-el">/&gt;</span>
+        </div>
+      </div>
+
+      <!-- staticFile -->
+      <div class="feature-card">
+        <div class="feature-name">staticFile() <span class="tag used">Used</span></div>
+        <div class="feature-desc">
+          References files in the <code>public/</code> folder. Returns a URL
+          that works in both preview and render. The only correct way to
+          reference local assets.
+        </div>
+        <div class="feature-visual">
+<span class="kw">import</span> { staticFile } <span class="kw">from</span> <span class="str">"remotion"</span>;
+
+<span class="fn">staticFile</span>(<span class="str">"footage/dj-set.mov"</span>)
+<span class="cmt">// -> /public/footage/dj-set.mov (preview)</span>
+<span class="cmt">// -> bundled URL (render)</span>
+        </div>
+      </div>
+
+      <!-- AnimatedImage -->
+      <div class="feature-card">
+        <div class="feature-name">&lt;AnimatedImage&gt; <span class="tag new">Available</span></div>
+        <div class="feature-desc">
+          Display GIFs, animated WebP, or animated AVIF synced to the timeline.
+          Useful for animated stickers or reaction GIFs in clips.
+        </div>
+        <div class="feature-visual">
+<span class="tag-el">&lt;AnimatedImage</span>
+  <span class="fn">src</span>={<span class="fn">staticFile</span>(<span class="str">"sticker.gif"</span>)}
+<span class="tag-el">/&gt;</span>
+        </div>
+      </div>
+
+      <!-- getAudioData -->
+      <div class="feature-card">
+        <div class="feature-name">@remotion/media-utils <span class="tag new">Available</span></div>
+        <div class="feature-desc">
+          Get audio metadata, duration, and waveform data in JavaScript.
+          <code>getAudioData()</code>, <code>getVideoMetadata()</code>,
+          <code>getWaveformPortion()</code>. Could replace our Python audio analyzer.
+        </div>
+        <div class="feature-visual">
+<span class="kw">import</span> { getAudioData } <span class="kw">from</span> <span class="str">"@remotion/media-utils"</span>;
+
+<span class="kw">const</span> data = <span class="kw">await</span> <span class="fn">getAudioData</span>(src);
+<span class="cmt">// { channelWaveforms, sampleRate, ... }</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <hr class="divider">
+
+  <!-- =========================================== -->
+  <!-- 4. TRANSITIONS -->
+  <!-- =========================================== -->
+  <section class="category">
+    <div class="category-header">
+      <div class="category-icon" style="background:rgba(192,132,252,0.12);">&#x2728;</div>
+      <div>
+        <h2>Transitions</h2>
+        <div class="category-desc">Built-in scene transitions via @remotion/transitions</div>
+      </div>
+    </div>
+
+    <div class="features-grid">
+
+      <!-- TransitionSeries -->
+      <div class="feature-card feature-full">
+        <div class="feature-name">&lt;TransitionSeries&gt; <span class="tag new">Available</span></div>
+        <div class="feature-desc">
+          Like <code>&lt;Series&gt;</code> but with transitions between scenes. Each transition
+          has a <code>presentation</code> (visual effect) and <code>timing</code> (duration/curve).
+          Built-in presentations: <code>fade()</code>, <code>slide()</code>, <code>wipe()</code>,
+          <code>flip()</code>, <code>clockWipe()</code>, <code>iris()</code>, <code>cube()</code>.
+        </div>
+        <div class="diagram">
+<span class="label">TransitionSeries visual flow:</span>
+
+<span class="bar"> |=====Scene A (40f)======|</span>
+<span class="bar4">                   |=<span class="cmt">FADE 30f</span>=|</span>
+<span class="bar2">                         |========Scene B (60f)=========|</span>
+<span class="bar4">                                              |=<span class="cmt">WIPE 20f</span>=|</span>
+<span class="bar3">                                                    |=====Scene C (50f)======|</span>
+
+<span class="label">Total duration = 40 + 60 + 50 - 30 - 20 = 100 frames</span>
+
+<span class="label">Built-in presentations:</span>
+  <span class="fn">fade()</span>       <span class="cmt">Crossfade opacity</span>
+  <span class="fn">slide()</span>      <span class="cmt">Push previous scene out</span>
+  <span class="fn">wipe()</span>       <span class="cmt">Slide over (8 directions)</span>
+  <span class="fn">flip()</span>       <span class="cmt">3D flip reveal</span>
+  <span class="fn">clockWipe()</span>  <span class="cmt">Circular clock reveal</span>
+  <span class="fn">iris()</span>       <span class="cmt">Center circle reveal</span>
+        </div>
+        <div class="feature-visual" style="margin-top:12px;">
+<span class="kw">import</span> { TransitionSeries, linearTiming } <span class="kw">from</span> <span class="str">"@remotion/transitions"</span>;
+<span class="kw">import</span> { fade } <span class="kw">from</span> <span class="str">"@remotion/transitions/fade"</span>;
+
+<span class="tag-el">&lt;TransitionSeries&gt;</span>
+  <span class="tag-el">&lt;TransitionSeries.Sequence</span> <span class="fn">durationInFrames</span>={<span class="num">90</span>}<span class="tag-el">&gt;</span>
+    &lt;HookScene /&gt;
+  <span class="tag-el">&lt;/TransitionSeries.Sequence&gt;</span>
+  <span class="tag-el">&lt;TransitionSeries.Transition</span>
+    <span class="fn">presentation</span>={<span class="fn">fade</span>()}
+    <span class="fn">timing</span>={<span class="fn">linearTiming</span>({ <span class="fn">durationInFrames</span>: <span class="num">30</span> })}
+  <span class="tag-el">/&gt;</span>
+  <span class="tag-el">&lt;TransitionSeries.Sequence</span> <span class="fn">durationInFrames</span>={<span class="num">150</span>}<span class="tag-el">&gt;</span>
+    &lt;DropScene /&gt;
+  <span class="tag-el">&lt;/TransitionSeries.Sequence&gt;</span>
+<span class="tag-el">&lt;/TransitionSeries&gt;</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <hr class="divider">
+
+  <!-- =========================================== -->
+  <!-- 5. CAPTIONS -->
+  <!-- =========================================== -->
+  <section class="category">
+    <div class="category-header">
+      <div class="category-icon" style="background:rgba(245,183,49,0.12);">&#x1F4AC;</div>
+      <div>
+        <h2>Captions & Subtitles</h2>
+        <div class="category-desc">TikTok-style word-by-word captions via @remotion/captions</div>
+      </div>
+    </div>
+
+    <div class="features-grid">
+
+      <div class="feature-card feature-full">
+        <div class="feature-name">@remotion/captions <span class="tag new">Available</span></div>
+        <div class="feature-desc">
+          Parse <code>.srt</code> subtitle files and create animated TikTok-style word-by-word captions.
+          Works with Whisper.cpp for auto-transcription. Could add lyric overlays to DJ clips.
+        </div>
+        <div class="feature-visual">
+<span class="kw">import</span> { createTikTokStyleCaptions } <span class="kw">from</span> <span class="str">"@remotion/captions"</span>;
+<span class="kw">import</span> { parseSrt } <span class="kw">from</span> <span class="str">"@remotion/captions"</span>;
+
+<span class="kw">const</span> captions = <span class="fn">parseSrt</span>(srtFileContent);
+<span class="kw">const</span> { pages } = <span class="fn">createTikTokStyleCaptions</span>({
+  captions,
+  <span class="fn">combineTokensWithinMilliseconds</span>: <span class="num">1200</span>,
+});
+
+<span class="cmt">// Each page has: text, startMs, durationMs, tokens[]</span>
+<span class="cmt">// Each token has: text, fromMs, toMs</span>
+<span class="cmt">// -> Animate word highlights based on timing</span>
+        </div>
+        <div class="tip">
+          <strong>PYB use case:</strong> Auto-caption DJ Gianni's TikTok clips with
+          track titles or lyric snippets. Combine with Whisper.cpp for voice-over captions.
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <hr class="divider">
+
+  <!-- =========================================== -->
+  <!-- 6. FONTS & STYLING -->
+  <!-- =========================================== -->
+  <section class="category">
+    <div class="category-header">
+      <div class="category-icon" style="background:rgba(240,101,74,0.12);">&#x1F3A8;</div>
+      <div>
+        <h2>Fonts & Styling</h2>
+        <div class="category-desc">Typography, Google Fonts, and design tokens</div>
+      </div>
+    </div>
+
+    <div class="features-grid">
+
+      <div class="feature-card">
+        <div class="feature-name">@remotion/google-fonts <span class="tag used">Used</span></div>
+        <div class="feature-desc">
+          Load Google Fonts reliably during render. Must call <code>loadFont()</code>
+          at module level (not inside components). Fonts are bundled into the output.
+        </div>
+        <div class="feature-visual">
+<span class="kw">import</span> { loadFont } <span class="kw">from</span> <span class="str">"@remotion/google-fonts/BebasNeue"</span>;
+<span class="kw">import</span> { loadFont <span class="kw">as</span> loadBody }
+  <span class="kw">from</span> <span class="str">"@remotion/google-fonts/SpaceGrotesk"</span>;
+
+<span class="cmt">// Call at module level (outside component)</span>
+<span class="kw">const</span> { fontFamily: display } = <span class="fn">loadFont</span>();
+<span class="kw">const</span> { fontFamily: body } = <span class="fn">loadBody</span>();
+        </div>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-name">CSS-in-JS Styling <span class="tag used">Used</span></div>
+        <div class="feature-desc">
+          Remotion uses standard React inline styles. All CSS properties work including
+          <code>filter</code>, <code>mixBlendMode</code>, <code>clipPath</code>,
+          <code>transform</code>, <code>textShadow</code>, and SVG filters.
+        </div>
+        <div class="feature-visual">
+<span class="cmt">// Effects we use in release clips:</span>
+<span class="fn">filter</span>: <span class="str">`brightness(${b}) contrast(1.1)`</span>
+<span class="fn">mixBlendMode</span>: <span class="str">"overlay"</span>  <span class="cmt">// grain</span>
+<span class="fn">mixBlendMode</span>: <span class="str">"screen"</span>   <span class="cmt">// light leaks</span>
+<span class="fn">clipPath</span>: <span class="str">`inset(0 ${100-pct}% 0 0)`</span>  <span class="cmt">// wipe</span>
+<span class="fn">transform</span>: <span class="str">`scale(${s}) translate(${x}px)`</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <hr class="divider">
+
+  <!-- =========================================== -->
+  <!-- 7. RENDERING & OUTPUT -->
+  <!-- =========================================== -->
+  <section class="category">
+    <div class="category-header">
+      <div class="category-icon" style="background:rgba(66,144,245,0.12);">&#x1F680;</div>
+      <div>
+        <h2>Rendering & Output</h2>
+        <div class="category-desc">CLI rendering, server-side rendering, and cloud deployment</div>
+      </div>
+    </div>
+
+    <div class="features-grid">
+
+      <div class="feature-card">
+        <div class="feature-name">Remotion Studio <span class="tag used">Used</span></div>
+        <div class="feature-desc">
+          Browser-based preview with timeline scrubbing, props editor,
+          and real-time preview. Launch with <code>npx remotion studio</code>.
+        </div>
+        <div class="feature-visual">
+<span class="cmt"># Preview in browser with live reload</span>
+$ <span class="fn">npx remotion studio</span>
+
+<span class="cmt"># Opens at http://localhost:3000</span>
+<span class="cmt"># Scrub timeline, edit props, preview effects</span>
+        </div>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-name">CLI Render <span class="tag used">Used</span></div>
+        <div class="feature-desc">
+          Render videos from the command line. Supports codec, quality (CRF),
+          pixel format, and custom props via JSON. Our config: H.264, CRF 18, yuv420p.
+        </div>
+        <div class="feature-visual">
+$ <span class="fn">npx remotion render</span> src/index.ts ReleaseClip \
+  output.mp4 \
+  --props=<span class="str">'{"genre":"afro",...}'</span>
+
+<span class="cmt"># Our remotion.config.ts:</span>
+  codec:       <span class="str">h264</span>
+  crf:         <span class="num">18</span>     <span class="cmt">(near-lossless)</span>
+  pixelFormat: <span class="str">yuv420p</span> <span class="cmt">(TikTok compatible)</span>
+        </div>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-name">@remotion/renderer (SSR) <span class="tag new">Available</span></div>
+        <div class="feature-desc">
+          Render videos programmatically from Node.js/Bun. Bundle once, render many
+          videos with different props. Could automate batch rendering for all mixtape volumes.
+        </div>
+        <div class="feature-visual">
+<span class="kw">import</span> { bundle } <span class="kw">from</span> <span class="str">"@remotion/bundler"</span>;
+<span class="kw">import</span> { renderMedia, selectComposition }
+  <span class="kw">from</span> <span class="str">"@remotion/renderer"</span>;
+
+<span class="kw">const</span> bundleUrl = <span class="kw">await</span> <span class="fn">bundle</span>({ entryPoint });
+<span class="kw">const</span> comp = <span class="kw">await</span> <span class="fn">selectComposition</span>({
+  serveUrl: bundleUrl, id: <span class="str">"ReleaseClip"</span>,
+  inputProps: { genre: <span class="str">"afro"</span>, ... }
+});
+<span class="kw">await</span> <span class="fn">renderMedia</span>({ composition: comp,
+  serveUrl: bundleUrl, codec: <span class="str">"h264"</span>,
+  outputLocation: <span class="str">"out/clip.mp4"</span>
+});
+        </div>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-name">@remotion/player <span class="tag used">Used</span></div>
+        <div class="feature-desc">
+          Embed a Remotion video in any React web app with play/pause controls.
+          Could be used on the PYB website to preview video templates.
+        </div>
+        <div class="feature-visual">
+<span class="kw">import</span> { Player } <span class="kw">from</span> <span class="str">"@remotion/player"</span>;
+
+<span class="tag-el">&lt;Player</span>
+  <span class="fn">component</span>={ReleaseClip}
+  <span class="fn">durationInFrames</span>={<span class="num">750</span>}
+  <span class="fn">fps</span>={<span class="num">30</span>}
+  <span class="fn">compositionWidth</span>={<span class="num">1080</span>}
+  <span class="fn">compositionHeight</span>={<span class="num">1920</span>}
+  <span class="fn">inputProps</span>={clipProps}
+  <span class="fn">controls</span>
+<span class="tag-el">/&gt;</span>
+        </div>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-name">@remotion/lambda <span class="tag new">Available</span></div>
+        <div class="feature-desc">
+          Render videos on AWS Lambda. Massively parallel rendering for fast output.
+          Pay-per-use. Could enable on-demand clip generation from a web form.
+        </div>
+        <div class="feature-visual">
+<span class="cmt">// Cloud rendering flow:</span>
+<span class="num">1.</span> <span class="fn">deploySite()</span>    <span class="cmt">// Upload bundle to S3</span>
+<span class="num">2.</span> <span class="fn">deployFunction()</span> <span class="cmt">// Create Lambda</span>
+<span class="num">3.</span> <span class="fn">renderMediaOnLambda()</span> <span class="cmt">// Trigger</span>
+<span class="num">4.</span> <span class="fn">getRenderProgress()</span>  <span class="cmt">// Poll</span>
+<span class="num">5.</span> <span class="fn">downloadMedia()</span>  <span class="cmt">// Get result</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <hr class="divider">
+
+  <!-- =========================================== -->
+  <!-- 8. 3D & ADVANCED -->
+  <!-- =========================================== -->
+  <section class="category">
+    <div class="category-header">
+      <div class="category-icon" style="background:rgba(245,183,49,0.12);">&#x1F30D;</div>
+      <div>
+        <h2>3D & Advanced</h2>
+        <div class="category-desc">React Three Fiber integration and advanced patterns</div>
+      </div>
+    </div>
+
+    <div class="features-grid">
+
+      <div class="feature-card">
+        <div class="feature-name">@remotion/three <span class="tag new">Available</span></div>
+        <div class="feature-desc">
+          Full React Three Fiber integration. Use <code>&lt;ThreeCanvas&gt;</code> for
+          3D scenes synced to the timeline. Supports video-as-texture for 3D phone mockups,
+          logo reveals, particle systems, and more.
+        </div>
+        <div class="feature-visual">
+<span class="kw">import</span> { ThreeCanvas } <span class="kw">from</span> <span class="str">"@remotion/three"</span>;
+
+<span class="tag-el">&lt;ThreeCanvas</span> <span class="fn">width</span>={<span class="num">1080</span>} <span class="fn">height</span>={<span class="num">1920</span>}<span class="tag-el">&gt;</span>
+  <span class="tag-el">&lt;ambientLight /&gt;</span>
+  <span class="tag-el">&lt;mesh</span>
+    <span class="fn">rotation</span>={[frame * <span class="num">0.02</span>, frame * <span class="num">0.03</span>, <span class="num">0</span>]}
+    <span class="fn">scale</span>={<span class="fn">spring</span>({ frame, fps })}
+  <span class="tag-el">&gt;</span>
+    <span class="tag-el">&lt;boxGeometry /&gt;</span>
+    <span class="tag-el">&lt;meshStandardMaterial /&gt;</span>
+  <span class="tag-el">&lt;/mesh&gt;</span>
+<span class="tag-el">&lt;/ThreeCanvas&gt;</span>
+        </div>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-name">delayRender() <span class="tag new">Available</span></div>
+        <div class="feature-desc">
+          Block rendering until async operations complete (API calls, image loading,
+          font loading). Call <code>continueRender()</code> when ready.
+          Prevents blank/incomplete frames.
+        </div>
+        <div class="feature-visual">
+<span class="kw">const</span> [handle] = <span class="fn">useState</span>(() =>
+  <span class="fn">delayRender</span>(<span class="str">"Loading data"</span>)
+);
+
+<span class="fn">useEffect</span>(() => {
+  <span class="fn">fetchData</span>().then(() => {
+    <span class="fn">continueRender</span>(handle);
+  });
+}, []);
+        </div>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-name">getInputProps() <span class="tag new">Available</span></div>
+        <div class="feature-desc">
+          Read props passed via CLI <code>--props</code> or Player <code>inputProps</code>.
+          Our template already uses defaultProps but this enables runtime overrides
+          for dynamic content.
+        </div>
+        <div class="feature-visual">
+<span class="kw">const</span> props = <span class="fn">getInputProps</span>();
+<span class="cmt">// From CLI: --props='{"genre":"afro"}'</span>
+<span class="cmt">// Returns: { genre: "afro" }</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <hr class="divider">
+
+  <!-- =========================================== -->
+  <!-- OUR EFFECTS LIBRARY -->
+  <!-- =========================================== -->
+  <section class="category">
+    <div class="category-header">
+      <div class="category-icon" style="background:rgba(240,101,74,0.15);">&#x26A1;</div>
+      <div>
+        <h2>Our Effects Library</h2>
+        <div class="category-desc">13 custom effects built with the primitives above</div>
+      </div>
+    </div>
+
+    <div class="features-grid">
+
+      <div class="feature-card feature-full">
+        <div class="feature-name">Release Clip Effects <span class="tag used">13 effects</span></div>
+        <div class="feature-desc">
+          All effects live in <code>src/components/effects/</code> and are built
+          from <code>interpolate()</code>, <code>spring()</code>, CSS transforms/filters,
+          and SVG noise. Each accepts a <code>genre</code> prop for color theming.
+        </div>
+        <div class="diagram">
+<span class="label">Effect              Technique                   Use Case</span>
+<span class="bar">SlamIn</span>              spring scale 1.6->1.0       Text entrance
+<span class="bar">WipeReveal</span>          clipPath left-to-right      Pill/tag reveal
+<span class="bar">BassFlash</span>           full-screen color overlay    Beat hit accent
+<span class="bar">ZoomPunch</span>           spring scale 1.6->1.0       Impact zoom
+<span class="bar">ParticleBurst</span>       10 accent particles         Drop explosion
+<span class="bar2">BeatPulse</span>           energy array -> scale+brightness  Continuous rhythm
+<span class="bar2">CoralVignette</span>       radial gradient builds      Mood intensifier
+<span class="bar2">FilmGrain</span>           SVG feTurbulence 4% opacity Cinematic texture
+<span class="bar3">ScreenShake</span>         sin/cos decay translation   Impact shake
+<span class="bar3">LightLeak</span>           gradient sweep (screen)     Cinematic flare
+<span class="bar3">PreDropBuild</span>        shake + dim + vignette      Tension builder
+<span class="bar3">PostDropDecay</span>       aftershock shake + settle   Energy release
+<span class="bar4">GlitchText</span>          RGB split + clipPath slices Digital distortion
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <hr class="divider">
+
+  <!-- Quick reference -->
+  <section class="category">
+    <div class="category-header">
+      <div class="category-icon" style="background:rgba(52,211,153,0.12);">&#x1F4CB;</div>
+      <div>
+        <h2>Quick Reference: What to Use When</h2>
+      </div>
+    </div>
+
+    <div class="features-grid">
+      <div class="feature-card feature-full">
+        <div class="diagram">
+<span class="label">TASK                                    SOLUTION</span>
+
+<span class="bar">Fade something in/out</span>                   interpolate(frame, [start,end], [0,1])
+<span class="bar">Bouncy entrance</span>                         spring({ frame, fps, config })
+<span class="bar">Show element at specific time</span>            &lt;Sequence from={frame}&gt;
+<span class="bar">Play scenes one after another</span>            &lt;Series&gt; or &lt;TransitionSeries&gt;
+<span class="bar">Smooth color transition</span>                  interpolateColors(frame, ranges, colors)
+<span class="bar">Pause video on a frame</span>                   &lt;Freeze frame={n}&gt;
+<span class="bar">Loop an animation</span>                        &lt;Loop durationInFrames={n}&gt;
+<span class="bar">Load a local file</span>                        staticFile("path/in/public")
+<span class="bar">Custom easing curve</span>                      Easing.bezier() with interpolate()
+<span class="bar">Enter + exit animation</span>                   spring() subtraction pattern
+<span class="bar">Scene transitions (fade/wipe/slide)</span>      @remotion/transitions package
+<span class="bar">TikTok captions</span>                          @remotion/captions + Whisper.cpp
+<span class="bar">3D elements</span>                              @remotion/three + React Three Fiber
+<span class="bar">Batch render many videos</span>                 @remotion/renderer (Node.js API)
+<span class="bar">Cloud rendering</span>                          @remotion/lambda (AWS)
+<span class="bar">Wait for async data</span>                      delayRender() + continueRender()
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div style="margin-top:48px;padding:20px;border-top:1px solid var(--border);color:var(--muted);font-size:12px;text-align:center;">
+    PYB Video Editor Knowledge | Remotion v4.x | Last updated March 2026
+  </div>
+
+</body>
+</html>
