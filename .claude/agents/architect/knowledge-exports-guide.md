@@ -1,8 +1,29 @@
 # Export Guide - Design Assets
 
-## Method: Playwright (always)
+## Two Methods
 
-We use Playwright for all design asset exports. Never use Chrome headless directly - Playwright gives pixel-perfect output with proper font rendering and timing.
+### Method 1: Playwright (HTML template exports)
+
+We use Playwright for all HTML-based design asset exports. Never use Chrome headless directly - Playwright gives pixel-perfect output with proper font rendering and timing. Best for: typography-heavy designs where pixel-perfect control matters (mixtape covers, banners, social templates).
+
+### Method 2: Gemini Imagen (AI-generated)
+
+Use `imagen-4.0-generate-001` via the Google GenAI SDK for AI-generated cover art. Best for: creative variations, exploring visual concepts, generating multiple options quickly. Prompt templates in each DJ's `*-mixtape-gemini-prompt.md` file.
+
+```python
+from google import genai
+from google.genai import types
+
+client = genai.Client(api_key=os.getenv('GOOGLE_AI_API_KEY'))
+response = client.models.generate_images(
+    model='imagen-4.0-generate-001',
+    prompt=prompt,
+    config=types.GenerateImagesConfig(number_of_images=1, aspect_ratio='1:1')
+)
+response.generated_images[0].image.save('output.png')
+```
+
+**Both methods produce valid covers.** Playwright gives exact brand-system compliance. Gemini gives creative AI interpretations. Use both and pick the best result.
 
 ## Setup
 
@@ -52,6 +73,19 @@ cd /tmp && node export.mjs
 |-------|-----------|------------|--------|
 | Afro Mixtape Cover | 1400 x 1400 | `/tmp/gianni-cover-export.html` | `docs/images/dj-gianni/mixtape/afro-mixtape-cover.png` |
 | SoundCloud Banner | 2480 x 520 | `/tmp/dj-gianni-soundcloud-banner.html` | `docs/images/dj-gianni/soundcloud/banner-2480x520.png` |
+
+### Milø
+
+| Asset | Dimensions | Method | Source | Output |
+|-------|-----------|--------|--------|--------|
+| Tech House Mixtape Cover | 1400 x 1400 | Playwright | `/tmp/milo-cover-export.html?series=...&accent=34d399` | `docs/images/dj-milo/mixtape/tech-house-mixtape-cover.png` |
+| House Mixtape Cover | 1400 x 1400 | Playwright | `/tmp/milo-cover-export.html?series=...&accent=38bdf8` | `docs/images/dj-milo/mixtape/house-mixtape-cover.png` |
+| Deep Mixtape Cover | 1400 x 1400 | Playwright | `/tmp/milo-cover-export.html?series=...&accent=8b5cf6` | `docs/images/dj-milo/mixtape/deep-mixtape-cover.png` |
+| Tech House (Gemini) | 1:1 | Imagen 4.0 | `.claude/agents/dj-promoter/dj-milo-mixtape-gemini-prompt.md` | `docs/images/dj-milo/mixtape/tech-house-mixtape-cover-gemini.png` |
+| House (Gemini) | 1:1 | Imagen 4.0 | same | `docs/images/dj-milo/mixtape/house-mixtape-cover-gemini.png` |
+| Deep (Gemini) | 1:1 | Imagen 4.0 | same | `docs/images/dj-milo/mixtape/deep-mixtape-cover-gemini.png` |
+
+Milø's Playwright template accepts query params: `?series=SERIES+NAME&genre=GENRE&accent=hexcolor`
 
 ### Standard Sizes
 
