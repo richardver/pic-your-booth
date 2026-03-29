@@ -356,6 +356,81 @@ a { color: inherit; text-decoration: none; }
   display: none;
 }
 
+/* Upgrade checkboxes */
+.upgrades-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.upgrade-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 16px;
+  background: var(--surface-up);
+  border: 1px solid var(--border);
+  border-radius: var(--r-sm);
+  cursor: pointer;
+  transition: border-color 0.2s var(--ease);
+}
+
+.upgrade-item:hover {
+  border-color: var(--border-hover);
+}
+
+.upgrade-item.checked {
+  border-color: var(--gold);
+  background: var(--gold-dim);
+}
+
+.upgrade-item input[type="checkbox"] {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  min-width: 20px;
+  border: 1px solid var(--border-hover);
+  border-radius: 4px;
+  background: transparent;
+  cursor: pointer;
+  position: relative;
+  transition: background 0.15s, border-color 0.15s;
+}
+
+.upgrade-item input[type="checkbox"]:checked {
+  background: var(--gold);
+  border-color: var(--gold);
+}
+
+.upgrade-item input[type="checkbox"]:checked::after {
+  content: '';
+  position: absolute;
+  left: 6px;
+  top: 2px;
+  width: 5px;
+  height: 10px;
+  border: solid #111116;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+
+.upgrade-label {
+  flex: 1;
+  font-family: var(--font-body);
+  font-size: 14px;
+  color: var(--text);
+  cursor: pointer;
+}
+
+.upgrade-price {
+  font-family: var(--font-body);
+  font-size: 13px;
+  color: var(--gold);
+  font-weight: 600;
+  white-space: nowrap;
+}
+
 .form-error.visible {
   display: block;
 }
@@ -925,6 +1000,12 @@ a { color: inherit; text-decoration: none; }
         <p class="form-error" id="service-error">Selecteer een service</p>
       </div>
 
+      <!-- Upgrades (dynamic based on service) -->
+      <div class="form-group" id="upgrades-group" style="display:none;">
+        <label class="form-label">Upgrades <span class="form-label-hint">Optioneel</span></label>
+        <div id="upgrades-list" class="upgrades-list"></div>
+      </div>
+
       <!-- Type Event -->
       <div class="form-group">
         <label class="form-label" for="type-event">Type Event</label>
@@ -1122,6 +1203,87 @@ a { color: inherit; text-decoration: none; }
   }
   /* Store upgrades from URL for HubSpot submission */
   var upgradesParam = params.get('upgrades') || '';
+
+  /* -- Dynamic upgrades based on service ------------------- */
+  var upgradeData = {
+    'party-booth': [
+      { value: 'premium_design', label: 'Premium Fotostrip Design', price: '+\u00a0\u20ac 25' },
+      { value: 'levering', label: 'Bezorging, Installatie & Ophalen', price: '+\u00a0\u20ac 49' },
+      { value: 'ai_background+filters', label: 'AI Foto\u2019s + Filters', price: '+\u00a0\u20ac 49' },
+      { value: 'live_dj', label: 'Live DJ Set', price: '+\u00a0\u20ac 149' }
+    ],
+    'magic-mirror': [
+      { value: 'vip', label: 'VIP Upgrade (backdrop, rode loper, props)', price: '+\u00a0\u20ac 149' },
+      { value: 'host', label: 'Photobooth Host', price: '+\u00a0\u20ac 149' },
+      { value: 'keychain', label: 'Wedding Keychain Station', price: '+\u00a0\u20ac 499' },
+      { value: 'ai_photobooth', label: 'AI Photo Experience', price: '+\u00a0\u20ac 499' },
+      { value: 'live_dj', label: 'Live DJ Set', price: '+\u00a0\u20ac 149' }
+    ],
+    'dj': [
+      { value: 'dj_extra_uur_1', label: 'Extra uur (4 uur totaal)', price: '+\u00a0\u20ac 49' },
+      { value: 'dj_extra_uur_2', label: 'Extra uur (5 uur totaal)', price: '+\u00a0\u20ac 98' },
+      { value: 'dj_extra_uur_3', label: 'Extra uur (6 uur totaal)', price: '+\u00a0\u20ac 147' }
+    ]
+  };
+
+  var upgradesGroup = document.getElementById('upgrades-group');
+  var upgradesList = document.getElementById('upgrades-list');
+
+  function updateUpgradesFromCheckboxes() {
+    var checked = upgradesList.querySelectorAll('input[type="checkbox"]:checked');
+    var values = [];
+    checked.forEach(function (cb) { values.push(cb.value); });
+    upgradesParam = values.join(';');
+  }
+
+  function renderUpgrades(service) {
+    while (upgradesList.firstChild) { upgradesList.removeChild(upgradesList.firstChild); }
+    var items = upgradeData[service];
+    if (!items || items.length === 0) {
+      upgradesGroup.style.display = 'none';
+      return;
+    }
+    var preSelected = upgradesParam ? upgradesParam.split(';') : [];
+    items.forEach(function (item) {
+      var label = document.createElement('label');
+      label.className = 'upgrade-item';
+      if (preSelected.indexOf(item.value) !== -1) label.className += ' checked';
+
+      var cb = document.createElement('input');
+      cb.type = 'checkbox';
+      cb.value = item.value;
+      cb.checked = preSelected.indexOf(item.value) !== -1;
+      cb.addEventListener('change', function () {
+        label.classList.toggle('checked', cb.checked);
+        updateUpgradesFromCheckboxes();
+      });
+
+      var text = document.createElement('span');
+      text.className = 'upgrade-label';
+      text.textContent = item.label;
+
+      var price = document.createElement('span');
+      price.className = 'upgrade-price';
+      price.textContent = item.price;
+
+      label.appendChild(cb);
+      label.appendChild(text);
+      label.appendChild(price);
+      upgradesList.appendChild(label);
+    });
+    upgradesGroup.style.display = '';
+  }
+
+  /* Show upgrades when service changes */
+  var serviceSelect = document.getElementById('service');
+  serviceSelect.addEventListener('change', function () {
+    renderUpgrades(serviceSelect.value);
+  });
+
+  /* If service was pre-filled from URL, render upgrades now */
+  if (serviceParam && serviceSelect.value) {
+    renderUpgrades(serviceSelect.value);
+  }
 
   /* -- Basic validation --------------------------------- */
   function validateEmail(val) {
