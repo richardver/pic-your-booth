@@ -157,7 +157,7 @@ const kenBurns = interpolate(frame, [0, 150], [0.95, 1.05], { extrapolateRight: 
 
 **Audio must play through the end card.** Use separate `<Audio>` component at the composition root, NOT the video's built-in audio:
 ```tsx
-<Audio src={staticFile(videoSrc)} startFrom={Math.round(videoStartSec * 24)} />
+<Audio src={staticFile(videoSrc1)} startFrom={Math.round(videoStartSec * 24)} />
 <OffthreadVideo ... volume={0} />  // Mute the video
 ```
 

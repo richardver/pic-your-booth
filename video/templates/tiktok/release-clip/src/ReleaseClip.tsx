@@ -1,6 +1,7 @@
 import React from 'react';
 import { AbsoluteFill, Audio, Freeze, Sequence, staticFile } from 'remotion';
 import { ReleaseClipProps } from './lib/types';
+import { DJ_PROFILES, EffectProfile } from './lib/dj-profiles';
 import { TOKENS, SAFE } from './lib/tokens';
 import { VideoBackground } from './components/VideoBackground';
 import { HookSection } from './components/HookSection';
@@ -20,13 +21,18 @@ import { SlowPan } from './components/effects/SlowPan';
 import { ScreenShake } from './components/effects/ScreenShake';
 import { DeckHits } from './components/effects/DeckHits';
 
-export const ReleaseClip: React.FC<ReleaseClipProps> = ({
-  genre, djName, serieName, hookText, genreTags, videoSrc, videoStartSec, dropTimestamp, coverArtSrc, durationSec,
-}) => {
+export const ReleaseClip: React.FC<ReleaseClipProps> = (props) => {
+  const {
+    genre, djProfile: djProfileKey, djName, serieName, hookText, genreTags,
+    videoSrc1, videoSrc2, videoStartSec, dropTimestamp, energyData,
+    coverArtSrc, durationSec,
+  } = props;
+
+  const profile = DJ_PROFILES[djProfileKey];
   const fps = 30;
   const totalFrames = durationSec * fps;
   const endCardStart = totalFrames - 150;
-  const dropFrame = 240;
+  const dropFrame = dropTimestamp;
   const preDropStart = dropFrame - 60;
   const vibeStart = dropFrame + 60;
 
@@ -35,11 +41,11 @@ export const ReleaseClip: React.FC<ReleaseClipProps> = ({
   return (
     <AbsoluteFill style={{ backgroundColor: TOKENS.void }}>
 
-      {/* === AUDIO: full duration === */}
-      {videoSrc && (
+      {/* === AUDIO: full duration (from primary angle) === */}
+      {videoSrc1 && (
         <Audio
-          src={staticFile(videoSrc)}
-          startFrom={Math.round(videoStartSec * 24)}
+          src={staticFile(videoSrc1)}
+          startFrom={Math.round(videoStartSec * 30)}
         />
       )}
 
@@ -49,73 +55,86 @@ export const ReleaseClip: React.FC<ReleaseClipProps> = ({
       {/* === Sections are back-to-back, no gaps    === */}
       {/* ========================================== */}
 
-      {/* HOOK (0-3s): SlowZoomDrift */}
+      {/* HOOK (0 to preDropStart-90): SlowZoomDrift — videoSrc1 */}
       <Sequence from={0} durationInFrames={90}>
-        <BeatPulse>
-          <SlowZoomDrift fromScale={1.0} toScale={1.04}>
-            <VideoBackground src={videoSrc} startFromSec={videoStartSec} />
+        <BeatPulse energyData={energyData} djProfile={djProfileKey}>
+          <SlowZoomDrift fromScale={profile.hookZoom[0]} toScale={profile.hookZoom[1]}>
+            <VideoBackground src={videoSrc1} startFromSec={videoStartSec} />
           </SlowZoomDrift>
         </BeatPulse>
       </Sequence>
 
-      {/* BUILD-UP (3-6s): SlowZoomDrift deeper */}
+      {/* BUILD-UP (90 to preDropStart): SlowZoomDrift deeper — videoSrc1 */}
       <Sequence from={90} durationInFrames={preDropStart - 90}>
-        <BeatPulse>
-          <SlowZoomDrift fromScale={1.0} toScale={1.06}>
-            <VideoBackground src={videoSrc} startFromSec={videoStartSec + 90 / fps} />
+        <BeatPulse energyData={energyData} djProfile={djProfileKey}>
+          <SlowZoomDrift fromScale={profile.buildUpZoom[0]} toScale={profile.buildUpZoom[1]}>
+            <VideoBackground src={videoSrc1} startFromSec={videoStartSec + 90 / fps} />
           </SlowZoomDrift>
         </BeatPulse>
       </Sequence>
 
-      {/* PRE-DROP (6-8s): tension video */}
+      {/* PRE-DROP (preDropStart to dropFrame): tension — videoSrc2 */}
       <Sequence from={preDropStart} durationInFrames={60}>
-        <BeatPulse>
-          <VideoBackground src={videoSrc} startFromSec={videoStartSec + preDropStart / fps} />
+        <BeatPulse energyData={energyData} djProfile={djProfileKey}>
+          <VideoBackground src={videoSrc2} startFromSec={videoStartSec + preDropStart / fps} />
         </BeatPulse>
       </Sequence>
 
-      {/* DROP (8s): Freeze + ScreenShake + zoom */}
+      {/* DROP (dropFrame): Freeze + ScreenShake + zoom — videoSrc2 */}
       <Sequence from={dropFrame} durationInFrames={6}>
         <Freeze frame={0}>
-          <VideoBackground src={videoSrc} startFromSec={videoStartSec + dropFrame / fps} />
+          <VideoBackground src={videoSrc2} startFromSec={videoStartSec + dropFrame / fps} />
         </Freeze>
       </Sequence>
 
       <Sequence from={dropFrame + 6} durationInFrames={24}>
-        <ScreenShake intensity={18} durationFrames={18}>
-          <BeatPulse>
-            <VideoBackground src={videoSrc} startFromSec={videoStartSec + (dropFrame + 6) / fps} />
+        <ScreenShake intensity={profile.screenShakeIntensity} durationFrames={profile.screenShakeDuration}>
+          <BeatPulse energyData={energyData} djProfile={djProfileKey}>
+            <VideoBackground src={videoSrc2} startFromSec={videoStartSec + (dropFrame + 6) / fps} />
           </BeatPulse>
         </ScreenShake>
       </Sequence>
 
-      {/* POST-DROP (9-10s): settling video */}
+      {/* POST-DROP settling — videoSrc2 */}
       <Sequence from={dropFrame + 30} durationInFrames={vibeStart - dropFrame - 30}>
-        <BeatPulse>
-          <VideoBackground src={videoSrc} startFromSec={videoStartSec + (dropFrame + 30) / fps} />
+        <BeatPulse energyData={energyData} djProfile={djProfileKey}>
+          <VideoBackground src={videoSrc2} startFromSec={videoStartSec + (dropFrame + 30) / fps} />
         </BeatPulse>
       </Sequence>
 
-      {/* VIBE (10-16s): SlowPan + warmer color */}
+      {/* VIBE (vibeStart to 480): SlowPan + warmer color — videoSrc1 */}
       <Sequence from={vibeStart} durationInFrames={480 - vibeStart}>
-        <BeatPulse>
-          <SlowPan fromX={0} toX={-25}>
-            <AbsoluteFill style={{ filter: 'saturate(1.15) brightness(1.02)' }}>
-              <VideoBackground src={videoSrc} startFromSec={videoStartSec + vibeStart / fps} />
-            </AbsoluteFill>
-          </SlowPan>
-        </BeatPulse>
-      </Sequence>
-
-      {/* DECK HITS (16-20s): zoom kicks + flashes */}
-      <Sequence from={480} durationInFrames={endCardStart - 480}>
-        <DeckHits genre={genre} hitInterval={28} hitCount={5}>
-          <BeatPulse>
-            <SlowPan fromX={-25} toX={-40}>
-              <AbsoluteFill style={{ filter: 'saturate(1.15) brightness(1.02)' }}>
-                <VideoBackground src={videoSrc} startFromSec={videoStartSec + 480 / fps} />
+        <BeatPulse energyData={energyData} djProfile={djProfileKey}>
+          {profile.useSlowPan ? (
+            <SlowPan fromX={0} toX={-25}>
+              <AbsoluteFill style={profile.warmVibeSection ? { filter: 'saturate(1.15) brightness(1.02)' } : undefined}>
+                <VideoBackground src={videoSrc1} startFromSec={videoStartSec + vibeStart / fps} />
               </AbsoluteFill>
             </SlowPan>
+          ) : (
+            <AbsoluteFill style={profile.warmVibeSection ? { filter: 'saturate(1.15) brightness(1.02)' } : undefined}>
+              <VideoBackground src={videoSrc1} startFromSec={videoStartSec + vibeStart / fps} />
+            </AbsoluteFill>
+          )}
+        </BeatPulse>
+      </Sequence>
+
+      {/* DECK HITS (480 to endCard): zoom kicks + flashes — videoSrc1 */}
+      {/* TODO: pass hitZoomScale to DeckHits when component supports it (profile.hitZoomScale) */}
+      <Sequence from={480} durationInFrames={endCardStart - 480}>
+        <DeckHits genre={genre} hitInterval={profile.hitInterval} hitCount={profile.hitCount}>
+          <BeatPulse energyData={energyData} djProfile={djProfileKey}>
+            {profile.useSlowPan ? (
+              <SlowPan fromX={-25} toX={-40}>
+                <AbsoluteFill style={profile.warmVibeSection ? { filter: 'saturate(1.15) brightness(1.02)' } : undefined}>
+                  <VideoBackground src={videoSrc1} startFromSec={videoStartSec + 480 / fps} />
+                </AbsoluteFill>
+              </SlowPan>
+            ) : (
+              <AbsoluteFill style={profile.warmVibeSection ? { filter: 'saturate(1.15) brightness(1.02)' } : undefined}>
+                <VideoBackground src={videoSrc1} startFromSec={videoStartSec + 480 / fps} />
+              </AbsoluteFill>
+            )}
           </BeatPulse>
         </DeckHits>
       </Sequence>
@@ -135,14 +154,17 @@ export const ReleaseClip: React.FC<ReleaseClipProps> = ({
       </Sequence>
 
       {/* Drop: bass flash */}
+      {/* TODO: pass bassFlashOpacity to BassFlash when component supports it (profile.bassFlashOpacity) */}
       <Sequence from={dropFrame} durationInFrames={10}>
         <BassFlash genre={genre} />
       </Sequence>
 
-      {/* Drop: particles */}
-      <Sequence from={dropFrame} durationInFrames={24}>
-        <ParticleBurst genre={genre} />
-      </Sequence>
+      {/* Drop: particles (only if profile enables them) */}
+      {profile.useParticles && (
+        <Sequence from={dropFrame} durationInFrames={24}>
+          <ParticleBurst genre={genre} />
+        </Sequence>
+      )}
 
       {/* Drop: second bass flash */}
       <Sequence from={dropFrame + 18} durationInFrames={8}>

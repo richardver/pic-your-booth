@@ -22,6 +22,18 @@ You do NOT own social media posting (social-media agent), ad creative design (ad
 | Remotion API & patterns | `knowledge-remotion.md` | Building components, rendering, Remotion API reference |
 | Remotion feature overview | `knowledge-remotion-features.html` | Visual reference of all Remotion capabilities (used + available) |
 
+## Skills
+
+| Skill | Path | When to Use |
+|---|---|---|
+| `/release-clip` | `.claude/skills/release-clip/SKILL.md` | End-to-end TikTok release clip production (analyze audio, generate props, render) |
+
+## Tools
+
+| Tool | Path | When to Use |
+|---|---|---|
+| `generate-props.py` | `video/tools/generate-props.py` | Generate Remotion props JSON from audio analysis + user inputs |
+
 ## Scope
 
 | In Scope | Out of Scope |
@@ -63,7 +75,7 @@ Render for DJ Gianni:
 cd video/templates/tiktok/release-clip
 npx remotion render src/index.ts ReleaseClip \
   ../../output/dj-gianni/tiktok/release-clip/afro-beats-vol-2/release-clip.mp4 \
-  --props='{"genre":"afro","djName":"DJ GIANNI","serieName":"AFRO BEATS VOL. 2","hookText":"STUUR JE PLAYLIST\nIK MAAK ER DIT VAN","genreTags":["Afro Beats","Amapiano","Afro House"],"videoSrc":"footage/dj-gianni-set-recording.mov","videoStartSec":10.0,"dropTimestamp":540,"coverArtSrc":"covers/afro-mixtape-cover.png","durationSec":25}'
+  --props='{"genre":"afro","djName":"DJ GIANNI","serieName":"AFRO BEATS VOL. 2","hookText":"STUUR JE PLAYLIST\nIK MAAK ER DIT VAN","genreTags":["Afro Beats","Amapiano","Afro House"],"videoSrc1":"footage/dj-gianni-set-recording.mov","videoSrc2":"footage/dj-gianni-set-recording.mov","videoStartSec":10.0,"dropTimestamp":540,"coverArtSrc":"covers/afro-mixtape-cover.png","durationSec":25}'
 ```
 
 Render for Milø:

@@ -1,23 +1,30 @@
 export type Genre = 'afro' | 'caribbean' | 'urban' | 'house' | 'techno' | 'deep';
 
+export type DJProfile = 'gianni' | 'milo';
+
 export interface ReleaseClipProps {
   // Brand
   genre: Genre;
-  djName: string;           // "DJ GIANNI" or "DJ MILO"
-  serieName: string;        // "AFRO BEATS VOL. 2"
-  genreTags: string[];      // ["Afro Beats", "Amapiano", "Afro House"]
+  djProfile: DJProfile;
+  djName: string;
+  serieName: string;
+  genreTags: string[];
 
-  // Hook (from strategist)
-  hookText: string;         // "STUUR JE PLAYLIST\nIK MAAK ER DIT VAN"
+  // Hook
+  hookText: string;
 
-  // Footage (from audio analyzer)
-  videoSrc: string;         // path in public/footage/
-  videoStartSec: number;    // audio-analyzed start offset
-  dropTimestamp: number;    // frame of the drop in the clip
+  // Footage — two angles
+  videoSrc1: string;       // angle 1: hook, build-up, vibe
+  videoSrc2: string;       // angle 2: pre-drop, drop
+  videoStartSec: number;   // audio-analyzed start offset
+  dropTimestamp: number;    // frame of the drop
+
+  // Energy data from analyzer
+  energyData: number[];    // RMS energy per 0.5s window
 
   // Assets
-  coverArtSrc: string;      // path in public/covers/
+  coverArtSrc: string;
 
   // Duration
-  durationSec: number;      // 15-30
+  durationSec: number;
 }

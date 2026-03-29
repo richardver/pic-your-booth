@@ -182,6 +182,7 @@ pic-your-booth/
 - `/design-page` - Design a complete website page using full knowledge stack
 - `/design-landingpage` - Design a conversion-optimized landing page for Meta Ads traffic
 - `/seo-audit` - SEO & LLM optimization audit with scoring
+- `/release-clip` - Interactive TikTok release clip production pipeline
 
 ## Design Asset Exports
 
