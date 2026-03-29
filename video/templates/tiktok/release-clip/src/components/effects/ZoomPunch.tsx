@@ -11,7 +11,7 @@ export const ZoomPunch: React.FC<{ children: React.ReactNode }> = ({ children })
     config: { damping: 18, stiffness: 200 },
   });
 
-  const scale = 1.3 - 0.3 * progress;
+  const scale = 1.6 - 0.6 * progress;
 
   return (
     <AbsoluteFill style={{ transform: `scale(${scale})` }}>

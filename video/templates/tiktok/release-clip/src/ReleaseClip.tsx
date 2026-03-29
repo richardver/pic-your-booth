@@ -3,8 +3,7 @@ import { AbsoluteFill, Audio, Freeze, Sequence, staticFile } from 'remotion';
 import { ReleaseClipProps } from './lib/types';
 import { TOKENS, SAFE } from './lib/tokens';
 import { VideoBackground } from './components/VideoBackground';
-import { TextHook } from './components/TextHook';
-import { GenrePills } from './components/GenrePills';
+import { HookSection } from './components/HookSection';
 import { DropMoment } from './components/DropMoment';
 import { CTABar } from './components/CTABar';
 import { EndCard } from './components/EndCard';
@@ -21,15 +20,15 @@ export const ReleaseClip: React.FC<ReleaseClipProps> = ({
 }) => {
   const fps = 30;
   const totalFrames = durationSec * fps;
-  const endCardStart = totalFrames - 150; // 5 sec end card
-  const dropFrame = 240; // 8 seconds in
+  const endCardStart = totalFrames - 150;
+  const dropFrame = 240;
 
   const safePad = `${SAFE.top}px ${SAFE.right}px ${SAFE.bottom}px ${SAFE.left}px`;
 
   return (
     <AbsoluteFill style={{ backgroundColor: TOKENS.void }}>
 
-      {/* === AUDIO: plays the ENTIRE duration (including end card) === */}
+      {/* === AUDIO: full duration including end card === */}
       {videoSrc && (
         <Audio
           src={staticFile(videoSrc)}
@@ -37,104 +36,67 @@ export const ReleaseClip: React.FC<ReleaseClipProps> = ({
         />
       )}
 
-      {/* === LAYER 1: Video background (visual only, until end card) === */}
+      {/* === LAYER 1: Video background === */}
       <Sequence durationInFrames={endCardStart}>
         <VideoBackground src={videoSrc} startFromSec={videoStartSec} />
       </Sequence>
 
-      {/* === LAYER 2: Coral vignette builds during build-up === */}
+      {/* === LAYER 2: Vignette builds tension during build-up === */}
       <Sequence from={90} durationInFrames={dropFrame - 90}>
         <CoralVignette genre={genre} />
       </Sequence>
 
-      {/* === LAYER 3: Hook sequence — staggered reveal === */}
-      {/* 3a: Hook text ONLY (0:00-0:03) — the scroll stopper */}
+      {/* === LAYER 3: Hook — text + pills only, no SoundCloud text === */}
       <Sequence durationInFrames={90}>
-        <AbsoluteFill style={{
-          padding: safePad,
-          zIndex: 10,
-          display: 'flex',
-          flexDirection: 'column',
-          justifyContent: 'center',
-          alignItems: 'center',
-        }}>
-          <TextHook text={hookText} genre={genre} />
-        </AbsoluteFill>
+        <HookSection hookText={hookText} genreTags={genreTags} genre={genre} />
       </Sequence>
 
-      {/* 3b: Genre pills appear AFTER hook lands (0:01-0:03) */}
-      <Sequence from={30} durationInFrames={60}>
-        <AbsoluteFill style={{
-          padding: safePad,
-          zIndex: 10,
-          display: 'flex',
-          flexDirection: 'column',
-          justifyContent: 'center',
-          alignItems: 'center',
-          paddingTop: SAFE.top + 240,
-        }}>
-          <GenrePills tags={genreTags} genre={genre} />
-        </AbsoluteFill>
-      </Sequence>
-
-      {/* 3c: Sub-hook last (0:02-0:03) */}
-      <Sequence from={55} durationInFrames={35}>
-        <AbsoluteFill style={{
-          padding: safePad,
-          zIndex: 10,
-          display: 'flex',
-          flexDirection: 'column',
-          justifyContent: 'center',
-          alignItems: 'center',
-          paddingTop: SAFE.top + 300,
-        }}>
-          <div style={{
-            fontFamily: TOKENS.fontBody,
-            fontSize: 32,
-            color: 'rgba(255,255,255,0.6)',
-            textShadow: '0 2px 8px rgba(0,0,0,0.9)',
-            textAlign: 'center',
-          }}>
-            {serieName} is live op SoundCloud
-          </div>
-        </AbsoluteFill>
-      </Sequence>
-
-      {/* === LAYER 4: Build-up — clean footage, no overlays === */}
-
-      {/* === LAYER 4.5: Light leak at hook → build-up transition === */}
-      <Sequence from={85} durationInFrames={30}>
+      {/* === LAYER 4: Light leak sweep at hook exit === */}
+      <Sequence from={82} durationInFrames={30}>
         <LightLeak genre={genre} />
       </Sequence>
 
-      {/* === LAYER 5: THE DROP effects (0:08) === */}
-      {/* Freeze frame on drop for "time stops" effect */}
+      {/* === LAYER 5: THE DROP — everything fires at once === */}
+
+      {/* 5a: Freeze frame — time stops for 6 frames */}
       <Sequence from={dropFrame} durationInFrames={6}>
         <Freeze frame={0}>
           <VideoBackground src={videoSrc} startFromSec={videoStartSec + dropFrame / fps} />
         </Freeze>
       </Sequence>
 
-      <Sequence from={dropFrame} durationInFrames={8}>
+      {/* 5b: Bass flash — full screen coral blast */}
+      <Sequence from={dropFrame} durationInFrames={10}>
         <BassFlash genre={genre} />
       </Sequence>
 
-      {/* Screen shake + zoom punch on bass hit */}
-      <Sequence from={dropFrame} durationInFrames={15}>
-        <ScreenShake intensity={8}>
+      {/* 5c: Screen shake + zoom punch — the physical impact */}
+      <Sequence from={dropFrame} durationInFrames={20}>
+        <ScreenShake intensity={18} durationFrames={18}>
           <ZoomPunch>
             <VideoBackground src={videoSrc} startFromSec={videoStartSec + dropFrame / fps} />
           </ZoomPunch>
         </ScreenShake>
       </Sequence>
 
-      <Sequence from={dropFrame} durationInFrames={20}>
+      {/* 5d: Particle explosion */}
+      <Sequence from={dropFrame} durationInFrames={24}>
         <ParticleBurst genre={genre} />
       </Sequence>
 
-      {/* === LAYER 6: DJ name flash on drop === */}
+      {/* 5e: DJ name slam */}
       <Sequence from={dropFrame} durationInFrames={60}>
         <DropMoment djName={djName} serieName={serieName} genre={genre} />
+      </Sequence>
+
+      {/* 5f: Second bass flash at drop + 0.5s for double-hit feel */}
+      <Sequence from={dropFrame + 15} durationInFrames={8}>
+        <BassFlash genre={genre} />
+      </Sequence>
+
+      {/* === LAYER 6: Light leak at drop exit === */}
+      <Sequence from={290} durationInFrames={30}>
+        <LightLeak genre={genre} />
       </Sequence>
 
       {/* === LAYER 7: CTA bar during vibe === */}
@@ -144,18 +106,18 @@ export const ReleaseClip: React.FC<ReleaseClipProps> = ({
         </AbsoluteFill>
       </Sequence>
 
-      {/* === LAYER 7.5: Light leak at drop → vibe transition === */}
-      <Sequence from={295} durationInFrames={30}>
+      {/* === LAYER 8: Light leak at vibe → end card transition === */}
+      <Sequence from={endCardStart - 10} durationInFrames={30}>
         <LightLeak genre={genre} />
       </Sequence>
 
-      {/* === LAYER 8: End card (last 5 sec) — audio continues === */}
+      {/* === LAYER 9: End card === */}
       <Sequence from={endCardStart}>
         <EndCard serieName={serieName} genre={genre} coverArtSrc={coverArtSrc} />
       </Sequence>
 
-      {/* === LAYER 9: Film grain overlay (always visible) === */}
-      <FilmGrain opacity={0.04} />
+      {/* === LAYER 10: Film grain (always) === */}
+      <FilmGrain opacity={0.05} />
     </AbsoluteFill>
   );
 };

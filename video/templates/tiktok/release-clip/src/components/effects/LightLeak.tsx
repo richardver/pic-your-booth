@@ -11,7 +11,7 @@ export const LightLeak: React.FC<{ genre: Genre }> = ({ genre }) => {
     extrapolateRight: 'clamp',
   });
 
-  const opacity = interpolate(frame, [0, 10, 20, 30], [0, 0.15, 0.15, 0], {
+  const opacity = interpolate(frame, [0, 8, 22, 30], [0, 0.3, 0.3, 0], {
     extrapolateRight: 'clamp',
   });
 
