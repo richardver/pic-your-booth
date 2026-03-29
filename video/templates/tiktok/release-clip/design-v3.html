@@ -40,20 +40,22 @@ code { color: var(--gi); font-size: 11px; background: rgba(240,101,74,0.08); pad
 <h2>TIMELINE — SCENE BY SCENE</h2>
 
 <h3>0:00-0:03 — HOOK (frames 0-90)</h3>
-<p>POV hook text slams in centered. First line alone, second line 0.2s later. Accent color on key word (*DIT*). Genre pills wipe in at 1s. No other text.</p>
+<p>POV hook text slams in centered. First line alone, second line 0.2s later. Accent color on key word (*DIT*). Genre pills wipe in at 1s. No other text. Camera: SlowZoomDrift 1.0→1.04 kills static feel.</p>
 <table>
 <tr><th>Element</th><th>Detail</th></tr>
-<tr><td class="accent">Hook text</td><td>"POV: *DIT* IS HOE / JOUW FEEST KLINKT" — Bebas Neue 96px, centered</td></tr>
+<tr><td class="accent">Hook text</td><td>"POV: *DIT* IS HOE / JOUW FEEST KLINKT" — Bebas Neue 96px, centered, *accent* syntax</td></tr>
 <tr><td class="accent">Genre pills</td><td>AFRO BEATS | AMAPIANO | AFRO HOUSE — Space Grotesk 28px, wipe reveal</td></tr>
-<tr><td class="accent">Effects</td><td><span class="tag effect">SlamIn</span> <span class="tag effect">BeatPulse</span> <span class="tag effect">FilmGrain</span></td></tr>
+<tr><td class="accent">Camera</td><td>SlowZoomDrift 1.0→1.04</td></tr>
+<tr><td class="accent">Effects</td><td><span class="tag effect">SlamIn 1.3x</span> <span class="tag effect">SlowZoomDrift</span> <span class="tag effect">BeatPulse</span> <span class="tag effect">FilmGrain</span></td></tr>
 </table>
 
 <h3>0:03-0:06 — BUILD-UP (frames 90-180)</h3>
-<p>Clean footage. No overlays. Coral vignette builds tension. Beat pulse makes the video breathe with the music. Light leak sweeps at the transition.</p>
+<p>Clean footage. No overlays. SlowZoomDrift 1.0→1.06 adds subtle movement. Coral vignette builds tension. Beat pulse makes the video breathe with the music. Light leak sweeps at the transition.</p>
 <table>
 <tr><th>Element</th><th>Detail</th></tr>
 <tr><td class="accent">Overlays</td><td>None — footage dominates</td></tr>
-<tr><td class="accent">Effects</td><td><span class="tag effect">CoralVignette</span> <span class="tag effect">BeatPulse</span> <span class="tag effect">LightLeak</span> <span class="tag effect">FilmGrain</span></td></tr>
+<tr><td class="accent">Camera</td><td>SlowZoomDrift 1.0→1.06</td></tr>
+<tr><td class="accent">Effects</td><td><span class="tag effect">SlowZoomDrift</span> <span class="tag effect">CoralVignette</span> <span class="tag effect">BeatPulse</span> <span class="tag effect">LightLeak</span> <span class="tag effect">FilmGrain</span></td></tr>
 </table>
 
 <h3>0:06-0:08 — PRE-DROP (frames 180-240)</h3>
@@ -64,39 +66,36 @@ code { color: var(--gi); font-size: 11px; background: rgba(240,101,74,0.08); pad
 <tr><td class="accent">Effects</td><td><span class="tag effect">PreDropBuild</span> (growing shake + brightness dip + vignette) <span class="tag effect">BeatPulse</span> <span class="tag effect">FilmGrain</span></td></tr>
 </table>
 
-<h3>0:08-0:11 — THE DROP (frames 240-330)</h3>
-<p>EVERYTHING fires. Freeze frame (6 frames), bass flash, zoom punch 1.6x, screen shake 18px, particle burst. DJ GIANNI slams in at 180px — stays 3 full seconds with fade out. Double bass flash at +0.5s.</p>
+<h3>0:08-0:12 — THE DROP (frames 240-360)</h3>
+<p>BassFlash 50% + ParticleBurst + double flash fire at frame 240. DJ GIANNI + SERIE NAME slam in as a single block at 180px with 2-frame delay (frame 244), stays 4 seconds on screen with pulsing glow, fades out over last 20 frames.</p>
 <table>
 <tr><th>Element</th><th>Detail</th></tr>
-<tr><td class="accent">DJ Name</td><td>Bebas Neue 180px, centered, pulsing glow, 3s on screen, fade out</td></tr>
-<tr><td class="accent">Serie name</td><td>Bebas Neue 60px in accent color below DJ name</td></tr>
-<tr><td class="accent">Effects</td><td><span class="tag effect">Freeze</span> <span class="tag effect">BassFlash</span> <span class="tag effect">ZoomPunch 1.6x</span> <span class="tag effect">ScreenShake 18px</span> <span class="tag effect">ParticleBurst</span> <span class="tag effect">SlamIn</span></td></tr>
+<tr><td class="accent">Drop flash</td><td>BassFlash 50%, ParticleBurst, double flash (frames 240-250)</td></tr>
+<tr><td class="accent">DJ Name block</td><td>Single block: DJ NAME + SERIE NAME together, Bebas Neue 180px, SlamIn 1.3x, 4s on screen, fade out last 20f</td></tr>
+<tr><td class="accent">Post-drop</td><td>PostDropDecay: aftershock shake, scale settle 1.03→1.0, LightLeak (frames 300-360)</td></tr>
+<tr><td class="accent">Effects</td><td><span class="tag effect">BassFlash 50%</span> <span class="tag effect">ParticleBurst</span> <span class="tag effect">SlamIn 1.3x</span> <span class="tag effect">PostDropDecay</span> <span class="tag effect">LightLeak</span></td></tr>
 </table>
 
-<h3>0:11-0:12.5 — POST-DROP DECAY (frames 330-375)</h3>
-<p>Aftershock. Shake decays from 6px to 0. Scale settles from 1.03 to 1.0. Brightness recovers. Light leak sweeps at transition.</p>
+<h3>0:10-0:20 — VIBE + CTA (frames 300-600)</h3>
+<p>Music dominates. Camera: SlowPan drifts right with slight scale for visual variety. Warmer color grade during this section. DeckHits at 16-20s: 5 repeating zoom punches (1.12x) with flash on each hit — syncs with deck action moments. Booking CTA slides up from 12s: "BOEK DJ GIANNI" + "Populaire data gaan snel" (scarcity) + coral "Check" button.</p>
 <table>
 <tr><th>Element</th><th>Detail</th></tr>
-<tr><td class="accent">Effects</td><td><span class="tag effect">PostDropDecay</span> <span class="tag effect">LightLeak</span> <span class="tag effect">BeatPulse</span> <span class="tag effect">FilmGrain</span></td></tr>
-</table>
-
-<h3>0:12-0:20 — VIBE + CTA (frames 360-600)</h3>
-<p>Music dominates. Booking CTA slides up: "BOEK DJ GIANNI" + "Populaire data gaan snel" (scarcity) + coral "Check" button.</p>
-<table>
-<tr><th>Element</th><th>Detail</th></tr>
+<tr><td class="accent">Camera</td><td>SlowPan (horizontal drift right + slight scale)</td></tr>
+<tr><td class="accent">Color</td><td>Warmer color grade during vibe section</td></tr>
+<tr><td class="accent">DeckHits</td><td>16-20s (frames 480-600): 5 repeating zoom punches 1.12x + flash per hit</td></tr>
 <tr><td class="accent">CTA</td><td>"BOEK DJ GIANNI" (Bebas Neue 36px) + "Populaire data gaan snel" (Space Grotesk 22px, accent) + "Check >" button</td></tr>
 <tr><td class="accent">Psychology</td><td>Scarcity ("populaire data gaan snel") + Direct ("Boek") + Personal (DJ name)</td></tr>
-<tr><td class="accent">Effects</td><td><span class="tag effect">BeatPulse</span> <span class="tag effect">FilmGrain</span></td></tr>
+<tr><td class="accent">Effects</td><td><span class="tag effect">SlowPan</span> <span class="tag effect">BeatPulse</span> <span class="tag effect">DeckHits</span> <span class="tag effect">FilmGrain</span></td></tr>
 </table>
 
 <h3>0:20-0:25 — END CARD (frames 600-750)</h3>
-<p>Fade to void. Cover art 680px with Ken Burns zoom (0.95x-1.05x). Serie name. "Volledige set op SoundCloud". "LINK IN BIO". Audio continues.</p>
+<p>Fade to void. Cover art 680px with Ken Burns zoom (0.95x→1.05x). Serie name. Booking CTA. Audio continues through end card.</p>
 <table>
 <tr><th>Element</th><th>Detail</th></tr>
 <tr><td class="accent">Cover art</td><td>680px, rounded 48px, accent border + glow shadow, Ken Burns zoom</td></tr>
 <tr><td class="accent">Title</td><td>Bebas Neue 80px</td></tr>
-<tr><td class="accent">CTA</td><td>Space Grotesk 36px bold, accent color, "LINK IN BIO >"</td></tr>
-<tr><td class="accent">Effects</td><td><span class="tag effect">LightLeak</span> <span class="tag effect">FilmGrain</span></td></tr>
+<tr><td class="accent">CTA</td><td>Space Grotesk 36px bold, accent color, "BOEK DJ GIANNI >"</td></tr>
+<tr><td class="accent">Effects</td><td><span class="tag effect">KenBurns</span> <span class="tag effect">LightLeak</span> <span class="tag effect">FilmGrain</span></td></tr>
 </table>
 
 <h2>EFFECTS LIBRARY</h2>
@@ -116,20 +115,26 @@ code { color: var(--gi); font-size: 11px; background: rgba(240,101,74,0.08); pad
 <tr><td class="accent">PostDropDecay</td><td>Aftershock shake (6px decay) + scale settle + brightness recovery</td><td>45 frames</td><td>After drop</td></tr>
 <tr><td class="accent">LightLeak</td><td>Accent gradient sweep left-to-right, screen blend</td><td>30% opacity</td><td>Scene transitions (3x)</td></tr>
 <tr><td class="accent">KenBurns</td><td>Slow zoom 0.95x > 1.05x on cover art</td><td>10% range over 5s</td><td>End card</td></tr>
+<tr><td class="accent">SlowZoomDrift</td><td>Subtle zoom 1.0x→1.06x over time</td><td>4-6% range</td><td>Hook + build-up (kills static camera)</td></tr>
+<tr><td class="accent">SlowPan</td><td>Horizontal drift right + slight scale</td><td>Subtle</td><td>Vibe section (visual variety)</td></tr>
+<tr><td class="accent">DeckHits</td><td>5 repeating zoom punches 1.12x + flash per hit</td><td>12% scale, 5 hits</td><td>Deck action moments (16-20s)</td></tr>
 </table>
 
 <h2>VIDEO LAYER STACK</h2>
 <table>
 <tr><th>Z</th><th>Layer</th><th>Frames</th></tr>
 <tr><td>1</td><td><span class="tag layer">Video + BeatPulse</span> footage with continuous pulse</td><td>0-600</td></tr>
-<tr><td>2</td><td><span class="tag layer">CoralVignette</span></td><td>90-180</td></tr>
-<tr><td>3</td><td><span class="tag layer">PreDropBuild</span> shake + darken</td><td>180-240</td></tr>
-<tr><td>4</td><td><span class="tag layer">Drop effects</span> freeze + flash + shake + zoom + particles</td><td>240-264</td></tr>
-<tr><td>5</td><td><span class="tag layer">PostDropDecay</span> aftershock</td><td>260-305</td></tr>
-<tr><td>6</td><td><span class="tag layer">EndCard</span></td><td>600-750</td></tr>
+<tr><td>2</td><td><span class="tag layer">SlowZoomDrift</span> subtle camera movement</td><td>0-180</td></tr>
+<tr><td>3</td><td><span class="tag layer">CoralVignette</span></td><td>90-180</td></tr>
+<tr><td>4</td><td><span class="tag layer">PreDropBuild</span> shake + darken</td><td>180-240</td></tr>
+<tr><td>5</td><td><span class="tag layer">Drop effects</span> flash + particles</td><td>240-250</td></tr>
+<tr><td>6</td><td><span class="tag layer">PostDropDecay</span> aftershock</td><td>300-360</td></tr>
+<tr><td>7</td><td><span class="tag layer">SlowPan</span> horizontal drift + warmer color</td><td>300-600</td></tr>
+<tr><td>8</td><td><span class="tag layer">DeckHits</span> 5 zoom punches + flash</td><td>480-600</td></tr>
+<tr><td>9</td><td><span class="tag layer">EndCard</span></td><td>600-750</td></tr>
 <tr><td>10</td><td><span class="tag layer">Hook text</span></td><td>0-90</td></tr>
-<tr><td>10</td><td><span class="tag layer">DJ name drop</span></td><td>240-330</td></tr>
-<tr><td>10</td><td><span class="tag layer">CTA bar</span></td><td>360-600</td></tr>
+<tr><td>10</td><td><span class="tag layer">DJ name block</span> (single block slam)</td><td>244-360</td></tr>
+<tr><td>10</td><td><span class="tag layer">Booking CTA</span></td><td>360-600</td></tr>
 <tr><td>30</td><td><span class="tag layer">LightLeaks</span> (3x)</td><td>82, 290, 590</td></tr>
 <tr><td>50</td><td><span class="tag layer">BassFlash</span></td><td>240, 255</td></tr>
 <tr><td>100</td><td><span class="tag layer">FilmGrain</span></td><td>0-750 (always)</td></tr>

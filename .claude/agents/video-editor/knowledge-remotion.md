@@ -111,8 +111,7 @@ const TOKENS = {
 
 | Effect | File | What | When to Use |
 |---|---|---|---|
-| **GlitchText** | `GlitchText.tsx` | RGB chromatic aberration (red + cyan offset layers) | Hook text, drop moment — scroll-stopping |
-| **SlamIn** | `SlamIn.tsx` | Scale 2.5x → 1x with spring bounce + rotation | Text entrances — punchy first impression |
+| **SlamIn** | `SlamIn.tsx` | Scale 1.3x → 1x with spring bounce | Text entrances — punchy first impression |
 | **BassFlash** | `BassFlash.tsx` | Full-screen accent color flash, overlay blend | Drop moment — physical impact |
 | **ZoomPunch** | `ZoomPunch.tsx` | Video zoom 1.3x → 1x with spring | Drop moment — combined with shake |
 | **ParticleBurst** | `ParticleBurst.tsx` | 10 accent-colored particles explode from center | Drop moment — visual explosion |
@@ -121,6 +120,9 @@ const TOKENS = {
 | **FilmGrain** | `FilmGrain.tsx` | Animated SVG noise at 4% opacity, overlay blend | Always on — premium texture |
 | **ScreenShake** | `ScreenShake.tsx` | Random xy offset with decay (8px intensity) | Drop moment — bass impact |
 | **LightLeak** | `LightLeak.tsx` | Accent gradient sweep left-to-right, screen blend | Scene transitions — cinematic |
+| **SlowZoomDrift** | `SlowZoomDrift.tsx` | Subtle zoom 1.0x→1.06x over time | Hook + build-up (kills static camera) |
+| **SlowPan** | `SlowPan.tsx` | Horizontal drift + slight scale | Vibe section (visual variety) |
+| **DeckHits** | `DeckHits.tsx` | 5 repeating zoom punches 1.12x + flash per hit | Deck action moments (16-20s) |
 
 ### Cinematic Color Grade
 
@@ -162,24 +164,27 @@ const kenBurns = interpolate(frame, [0, 150], [0.95, 1.05], { extrapolateRight: 
 | Component | Purpose | Key Props |
 |---|---|---|
 | `VideoBackground` | OffthreadVideo + gradient overlay + color grade | src, startFromSec |
-| `TextHook` | Centered hook text with GlitchText + SlamIn | text, genre |
+| `TextHook` | Centered, no GlitchText, supports *word* accent syntax | text, genre |
 | `GenrePills` | Centered, staggered genre pills with WipeReveal | tags, genre |
-| `DropMoment` | DJ GIANNI name slam with GlitchText, safe-zone padded | serieName, genre |
-| `CTABar` | SoundCloud CTA with slide-up animation | genre |
+| `HookSection` | Wrapper for hook + pills, staggered internal timing, no sub-hook text | text, tags, genre |
+| `DropMoment` | Single block slam (DJ name + serie together), 180px, 4s on screen, fade out | serieName, genre |
+| `CTABar` | Booking CTA: BOEK DJ [NAME] + scarcity hook + coral button | genre |
 | `EndCard` | Cover art (680px) with Ken Burns zoom + title + CTA | serieName, genre, coverArtSrc |
 
 ---
 
 ## Release Clip Timeline
 
-| Sec | Frames | Scene | Effects | Overlays |
-|---|---|---|---|---|
-| 0-3 | 0-90 | Hook | SlamIn, GlitchText, WipeReveal | Centered hook text + genre pills + sub-hook |
-| 3-8 | 90-240 | Build-up | CoralVignette (builds), LightLeak (at 85) | Clean footage only |
-| 8-10 | 240-300 | Drop | BassFlash, Freeze, ScreenShake, ZoomPunch, ParticleBurst | DJ GIANNI name slam |
-| 10-20 | 300-600 | Vibe | LightLeak (at 295) | CTA bar (from 360) |
-| 20-25 | 600-750 | End Card | Ken Burns zoom, FilmGrain | Cover art + title + CTA |
-| 0-25 | 0-750 | Always | FilmGrain (4%), Audio (full duration) | — |
+| Sec | Frames | Scene | Camera | Effects | Overlays |
+|---|---|---|---|---|---|
+| 0-3 | 0-90 | Hook | SlowZoomDrift 1.0→1.04 | SlamIn 1.3x, BeatPulse, FilmGrain | Hook text (centered, *accent*) + genre pills |
+| 3-6 | 90-180 | Build-up | SlowZoomDrift 1.0→1.06 | CoralVignette, BeatPulse, LightLeak, FilmGrain | Clean footage |
+| 6-8 | 180-240 | Pre-drop | Static | PreDropBuild (shake 0→4px, brightness dip, vignette), FilmGrain | None |
+| 8-8.3 | 240-250 | Drop | — | BassFlash 50%, ParticleBurst, double flash | — |
+| 8.1-12 | 244-360 | DJ Name | — | SlamIn 1.3x, pulsing glow, fade out last 20f | DJ NAME + SERIE NAME (single block) |
+| 10-12 | 300-360 | Post-drop | — | PostDropDecay (aftershock shake, scale settle), LightLeak | — |
+| 10-20 | 300-600 | Vibe | SlowPan (drift right), warmer color | BeatPulse, DeckHits (16-20s, 5 hits), FilmGrain | Booking CTA (from 12s) |
+| 20-25 | 600-750 | End card | — | Ken Burns 0.95→1.05, LightLeak, FilmGrain | Cover art 680px + title + CTA |
 
 ---
 
@@ -268,8 +273,7 @@ Clips are briefed by other agents, not created by the video-editor:
   "genre": "afro",
   "serie": "AFRO BEATS VOL. 2",
   "hook": {
-    "text": "STUUR JE PLAYLIST\nIK MAAK ER DIT VAN",
-    "sub": "Afro Beats Vol. 2 is live op SoundCloud",
+    "text": "STUUR JE PLAYLIST\nIK MAAK ER *DIT* VAN",
     "psychology": "curiosity + USP"
   },
   "brand": {
@@ -286,7 +290,7 @@ Clips are briefed by other agents, not created by the video-editor:
 ```
 
 **Who delivers what:**
-- **Strategist:** hook text, sub-hook, psychology type
+- **Strategist:** hook text, psychology type
 - **DJ-promoter:** accent color, genre tags, cover art
 - **Audio analyzer:** footage path, start offset, drop timestamp
 - **Video-editor:** renders everything, owns only animation timing and safe zone layout
