@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Release Clip v3 — Final Design + Effects Reference</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Space+Grotesk:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root { --void: #050508; --white: #ededf0; --muted: rgba(237,237,240,0.45); --gi: #f0654a; --green: #34d399; --border: rgba(255,255,255,0.06); }
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: 'Space Grotesk', sans-serif; background: #020204; color: var(--white); font-size: 14px; line-height: 1.6; padding: 32px 24px; max-width: 900px; margin: 0 auto; }
+h1 { font-family: 'Bebas Neue', sans-serif; font-size: 36px; letter-spacing: 0.06em; color: var(--gi); margin-bottom: 4px; }
+h2 { font-family: 'Bebas Neue', sans-serif; font-size: 24px; letter-spacing: 0.04em; color: var(--gi); margin: 40px 0 12px; border-bottom: 1px solid var(--border); padding-bottom: 8px; }
+h3 { font-size: 14px; font-weight: 700; color: var(--white); margin: 20px 0 8px; }
+p, li { color: var(--muted); font-size: 13px; line-height: 1.7; }
+table { width: 100%; border-collapse: collapse; margin: 12px 0; font-size: 12px; }
+th { text-align: left; font-size: 10px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); padding: 8px; border-bottom: 1px solid var(--border); }
+td { padding: 8px; border-bottom: 1px solid var(--border); color: var(--white); }
+.accent { color: var(--gi); font-weight: 700; }
+code { color: var(--gi); font-size: 11px; background: rgba(240,101,74,0.08); padding: 2px 6px; border-radius: 4px; }
+.tag { font-size: 10px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; padding: 3px 10px; border-radius: 99px; display: inline-block; margin: 2px; }
+.tag.effect { background: rgba(240,101,74,0.1); color: var(--gi); }
+.tag.layer { background: rgba(52,211,153,0.1); color: var(--green); }
+</style>
+</head>
+<body>
+
+<h1>RELEASE CLIP V3</h1>
+<p>Final design reference. Shared template at <code>video/templates/tiktok/release-clip/</code>. Output to <code>video/output/&lt;dj&gt;/tiktok/release-clip/&lt;serie&gt;/</code>.</p>
+
+<h2>SPECS</h2>
+<table>
+<tr><td class="accent">Format</td><td>9:16 (1080x1920) @ 30fps</td></tr>
+<tr><td class="accent">Duration</td><td>25 sec (750 frames)</td></tr>
+<tr><td class="accent">Quality</td><td>CRF 18, PNG frames, H.264</td></tr>
+<tr><td class="accent">Fonts</td><td>Bebas Neue (titles) + Space Grotesk (body) via @remotion/google-fonts</td></tr>
+<tr><td class="accent">Safe zones</td><td>Top 160px, Right 110px, Bottom 280px, Left 40px</td></tr>
+</table>
+
+<h2>TIMELINE — SCENE BY SCENE</h2>
+
+<h3>0:00-0:03 — HOOK (frames 0-90)</h3>
+<p>POV hook text slams in centered. First line alone, second line 0.2s later. Accent color on key word (*DIT*). Genre pills wipe in at 1s. No other text.</p>
+<table>
+<tr><th>Element</th><th>Detail</th></tr>
+<tr><td class="accent">Hook text</td><td>"POV: *DIT* IS HOE / JOUW FEEST KLINKT" — Bebas Neue 96px, centered</td></tr>
+<tr><td class="accent">Genre pills</td><td>AFRO BEATS | AMAPIANO | AFRO HOUSE — Space Grotesk 28px, wipe reveal</td></tr>
+<tr><td class="accent">Effects</td><td><span class="tag effect">SlamIn</span> <span class="tag effect">BeatPulse</span> <span class="tag effect">FilmGrain</span></td></tr>
+</table>
+
+<h3>0:03-0:06 — BUILD-UP (frames 90-180)</h3>
+<p>Clean footage. No overlays. Coral vignette builds tension. Beat pulse makes the video breathe with the music. Light leak sweeps at the transition.</p>
+<table>
+<tr><th>Element</th><th>Detail</th></tr>
+<tr><td class="accent">Overlays</td><td>None — footage dominates</td></tr>
+<tr><td class="accent">Effects</td><td><span class="tag effect">CoralVignette</span> <span class="tag effect">BeatPulse</span> <span class="tag effect">LightLeak</span> <span class="tag effect">FilmGrain</span></td></tr>
+</table>
+
+<h3>0:06-0:08 — PRE-DROP (frames 180-240)</h3>
+<p>Tension escalates. Subtle shake grows from 0 to 4px. Brightness dips (gets darker before the explosion). Vignette intensifies. Something is about to happen.</p>
+<table>
+<tr><th>Element</th><th>Detail</th></tr>
+<tr><td class="accent">Overlays</td><td>None — building tension through effects only</td></tr>
+<tr><td class="accent">Effects</td><td><span class="tag effect">PreDropBuild</span> (growing shake + brightness dip + vignette) <span class="tag effect">BeatPulse</span> <span class="tag effect">FilmGrain</span></td></tr>
+</table>
+
+<h3>0:08-0:11 — THE DROP (frames 240-330)</h3>
+<p>EVERYTHING fires. Freeze frame (6 frames), bass flash, zoom punch 1.6x, screen shake 18px, particle burst. DJ GIANNI slams in at 180px — stays 3 full seconds with fade out. Double bass flash at +0.5s.</p>
+<table>
+<tr><th>Element</th><th>Detail</th></tr>
+<tr><td class="accent">DJ Name</td><td>Bebas Neue 180px, centered, pulsing glow, 3s on screen, fade out</td></tr>
+<tr><td class="accent">Serie name</td><td>Bebas Neue 60px in accent color below DJ name</td></tr>
+<tr><td class="accent">Effects</td><td><span class="tag effect">Freeze</span> <span class="tag effect">BassFlash</span> <span class="tag effect">ZoomPunch 1.6x</span> <span class="tag effect">ScreenShake 18px</span> <span class="tag effect">ParticleBurst</span> <span class="tag effect">SlamIn</span></td></tr>
+</table>
+
+<h3>0:11-0:12.5 — POST-DROP DECAY (frames 330-375)</h3>
+<p>Aftershock. Shake decays from 6px to 0. Scale settles from 1.03 to 1.0. Brightness recovers. Light leak sweeps at transition.</p>
+<table>
+<tr><th>Element</th><th>Detail</th></tr>
+<tr><td class="accent">Effects</td><td><span class="tag effect">PostDropDecay</span> <span class="tag effect">LightLeak</span> <span class="tag effect">BeatPulse</span> <span class="tag effect">FilmGrain</span></td></tr>
+</table>
+
+<h3>0:12-0:20 — VIBE + CTA (frames 360-600)</h3>
+<p>Music dominates. Booking CTA slides up: "BOEK DJ GIANNI" + "Populaire data gaan snel" (scarcity) + coral "Check" button.</p>
+<table>
+<tr><th>Element</th><th>Detail</th></tr>
+<tr><td class="accent">CTA</td><td>"BOEK DJ GIANNI" (Bebas Neue 36px) + "Populaire data gaan snel" (Space Grotesk 22px, accent) + "Check >" button</td></tr>
+<tr><td class="accent">Psychology</td><td>Scarcity ("populaire data gaan snel") + Direct ("Boek") + Personal (DJ name)</td></tr>
+<tr><td class="accent">Effects</td><td><span class="tag effect">BeatPulse</span> <span class="tag effect">FilmGrain</span></td></tr>
+</table>
+
+<h3>0:20-0:25 — END CARD (frames 600-750)</h3>
+<p>Fade to void. Cover art 680px with Ken Burns zoom (0.95x-1.05x). Serie name. "Volledige set op SoundCloud". "LINK IN BIO". Audio continues.</p>
+<table>
+<tr><th>Element</th><th>Detail</th></tr>
+<tr><td class="accent">Cover art</td><td>680px, rounded 48px, accent border + glow shadow, Ken Burns zoom</td></tr>
+<tr><td class="accent">Title</td><td>Bebas Neue 80px</td></tr>
+<tr><td class="accent">CTA</td><td>Space Grotesk 36px bold, accent color, "LINK IN BIO >"</td></tr>
+<tr><td class="accent">Effects</td><td><span class="tag effect">LightLeak</span> <span class="tag effect">FilmGrain</span></td></tr>
+</table>
+
+<h2>EFFECTS LIBRARY</h2>
+
+<table>
+<tr><th>Effect</th><th>What</th><th>Intensity</th><th>When</th></tr>
+<tr><td class="accent">BeatPulse</td><td>Video scale (1.0-1.08) + brightness (0.85-1.05) synced to audio energy</td><td>8% scale, 20% brightness</td><td>Always (on video layer)</td></tr>
+<tr><td class="accent">FilmGrain</td><td>Animated SVG noise, overlay blend</td><td>5% opacity</td><td>Always (top layer)</td></tr>
+<tr><td class="accent">SlamIn</td><td>Scale 1.6x > 1x, center origin, spring bounce</td><td>0.6x range</td><td>Text entrances</td></tr>
+<tr><td class="accent">CoralVignette</td><td>Dark edges with accent color, builds over time</td><td>3% > 25% opacity</td><td>Build-up</td></tr>
+<tr><td class="accent">PreDropBuild</td><td>Growing shake (0-4px) + brightness dip + vignette</td><td>4px shake, 30% brightness dip</td><td>2s before drop</td></tr>
+<tr><td class="accent">BassFlash</td><td>Full-screen accent color, overlay blend</td><td>50% peak opacity</td><td>Drop + double hit</td></tr>
+<tr><td class="accent">ZoomPunch</td><td>Video zoom 1.6x > 1x, spring</td><td>0.6x range</td><td>Drop</td></tr>
+<tr><td class="accent">ScreenShake</td><td>Random xy offset with decay</td><td>18px, 18 frames</td><td>Drop</td></tr>
+<tr><td class="accent">ParticleBurst</td><td>10 accent particles explode from center</td><td>24 frames</td><td>Drop</td></tr>
+<tr><td class="accent">Freeze</td><td>Holds video frame in place</td><td>6 frames</td><td>Drop start</td></tr>
+<tr><td class="accent">PostDropDecay</td><td>Aftershock shake (6px decay) + scale settle + brightness recovery</td><td>45 frames</td><td>After drop</td></tr>
+<tr><td class="accent">LightLeak</td><td>Accent gradient sweep left-to-right, screen blend</td><td>30% opacity</td><td>Scene transitions (3x)</td></tr>
+<tr><td class="accent">KenBurns</td><td>Slow zoom 0.95x > 1.05x on cover art</td><td>10% range over 5s</td><td>End card</td></tr>
+</table>
+
+<h2>VIDEO LAYER STACK</h2>
+<table>
+<tr><th>Z</th><th>Layer</th><th>Frames</th></tr>
+<tr><td>1</td><td><span class="tag layer">Video + BeatPulse</span> footage with continuous pulse</td><td>0-600</td></tr>
+<tr><td>2</td><td><span class="tag layer">CoralVignette</span></td><td>90-180</td></tr>
+<tr><td>3</td><td><span class="tag layer">PreDropBuild</span> shake + darken</td><td>180-240</td></tr>
+<tr><td>4</td><td><span class="tag layer">Drop effects</span> freeze + flash + shake + zoom + particles</td><td>240-264</td></tr>
+<tr><td>5</td><td><span class="tag layer">PostDropDecay</span> aftershock</td><td>260-305</td></tr>
+<tr><td>6</td><td><span class="tag layer">EndCard</span></td><td>600-750</td></tr>
+<tr><td>10</td><td><span class="tag layer">Hook text</span></td><td>0-90</td></tr>
+<tr><td>10</td><td><span class="tag layer">DJ name drop</span></td><td>240-330</td></tr>
+<tr><td>10</td><td><span class="tag layer">CTA bar</span></td><td>360-600</td></tr>
+<tr><td>30</td><td><span class="tag layer">LightLeaks</span> (3x)</td><td>82, 290, 590</td></tr>
+<tr><td>50</td><td><span class="tag layer">BassFlash</span></td><td>240, 255</td></tr>
+<tr><td>100</td><td><span class="tag layer">FilmGrain</span></td><td>0-750 (always)</td></tr>
+<tr><td>-</td><td><span class="tag layer">Audio</span></td><td>0-750 (full duration)</td></tr>
+</table>
+
+<h2>CTA MARKETING PSYCHOLOGY</h2>
+<table>
+<tr><th>Technique</th><th>Implementation</th></tr>
+<tr><td class="accent">Scarcity</td><td>"Populaire data gaan snel" — creates urgency</td></tr>
+<tr><td class="accent">Personal</td><td>"BOEK DJ GIANNI" not generic "link in bio" — feels direct</td></tr>
+<tr><td class="accent">Action button</td><td>Coral "Check >" button — clear visual CTA</td></tr>
+<tr><td class="accent">POV hook</td><td>"POV: DIT IS HOE / JOUW FEEST KLINKT" — puts viewer in the experience</td></tr>
+<tr><td class="accent">Accent word</td><td>*DIT* in coral — curiosity trigger, draws the eye</td></tr>
+</table>
+
+<p style="margin-top: 40px; font-size: 11px; color: rgba(237,237,240,0.25);">PicYourBooth / Video Editor Agent / Release Clip v3 / maart 2026</p>
+
+</body>
+</html>

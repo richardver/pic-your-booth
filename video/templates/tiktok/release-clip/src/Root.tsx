@@ -30,7 +30,7 @@ export const RemotionRoot: React.FC = () => {
         genre: 'afro',
         djName: 'DJ GIANNI',
         serieName: 'AFRO BEATS VOL. 2',
-        hookText: 'STUUR JE PLAYLIST\nIK MAAK ER *DIT* VAN',
+        hookText: 'POV: *DIT* IS HOE\nJOUW FEEST KLINKT',
         genreTags: ['Afro Beats', 'Amapiano', 'Afro House'],
         videoSrc: 'footage/dj-gianni-set-recording.mov',
         videoStartSec: 10.0,

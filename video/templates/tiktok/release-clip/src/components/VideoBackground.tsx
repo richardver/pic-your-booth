@@ -14,22 +14,16 @@ export const VideoBackground: React.FC<{ src: string; startFromSec?: number }> =
             width: '100%',
             height: '100%',
             objectFit: 'cover',
-            filter: 'contrast(1.15) saturate(1.1) brightness(0.95)',
+            filter: 'contrast(1.12) saturate(1.08) brightness(1.0)',
           }}
         />
       ) : (
         <AbsoluteFill style={{ backgroundColor: TOKENS.void }} />
       )}
+      {/* Lighter gradient — just enough for text readability, not a dark wash */}
       <AbsoluteFill
         style={{
-          background: 'linear-gradient(180deg, rgba(5,5,8,0.15) 0%, rgba(5,5,8,0.5) 50%, rgba(5,5,8,0.85) 100%)',
-        }}
-      />
-      <AbsoluteFill
-        style={{
-          background: 'linear-gradient(180deg, rgba(0,20,30,0.15) 0%, transparent 40%, rgba(0,20,30,0.2) 100%)',
-          mixBlendMode: 'multiply' as const,
-          pointerEvents: 'none' as const,
+          background: 'linear-gradient(180deg, rgba(5,5,8,0.08) 0%, rgba(5,5,8,0.25) 50%, rgba(5,5,8,0.55) 100%)',
         }}
       />
     </AbsoluteFill>

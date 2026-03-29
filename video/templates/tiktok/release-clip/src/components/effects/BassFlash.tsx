@@ -7,7 +7,7 @@ export const BassFlash: React.FC<{ genre: Genre }> = ({ genre }) => {
   const frame = useCurrentFrame();
   const { accent } = GENRE_TOKENS[genre];
 
-  const opacity = interpolate(frame, [0, 1, 3, 10], [0.9, 0.7, 0.3, 0], {
+  const opacity = interpolate(frame, [0, 1, 3, 10], [0.5, 0.35, 0.15, 0], {
     extrapolateRight: 'clamp',
   });
 

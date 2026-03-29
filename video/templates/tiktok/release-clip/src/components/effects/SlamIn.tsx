@@ -14,15 +14,15 @@ export const SlamIn: React.FC<{
     config: { damping: 14, stiffness: 180 },
   });
 
-  const scale = 2.5 - 1.5 * Math.max(0, progress);
-  const opacity = Math.max(0, progress);
-  const rotation = (1 - Math.max(0, progress)) * -3;
+  const p = Math.max(0, progress);
+  const scale = 1.6 - 0.6 * p;
+  const opacity = p;
 
   return (
     <div style={{
-      transform: `scale(${scale}) rotate(${rotation}deg)`,
+      transform: `scale(${scale})`,
       opacity,
-      transformOrigin: 'left center',
+      transformOrigin: 'center center',
     }}>
       {children}
     </div>

@@ -13,7 +13,10 @@ import { ParticleBurst } from './components/effects/ParticleBurst';
 import { CoralVignette } from './components/effects/CoralVignette';
 import { FilmGrain } from './components/effects/FilmGrain';
 import { ScreenShake } from './components/effects/ScreenShake';
+import { BeatPulse } from './components/effects/BeatPulse';
 import { LightLeak } from './components/effects/LightLeak';
+import { PreDropBuild } from './components/effects/PreDropBuild';
+import { PostDropDecay } from './components/effects/PostDropDecay';
 
 export const ReleaseClip: React.FC<ReleaseClipProps> = ({
   genre, djName, serieName, hookText, genreTags, videoSrc, videoStartSec, dropTimestamp, coverArtSrc, durationSec,
@@ -22,6 +25,7 @@ export const ReleaseClip: React.FC<ReleaseClipProps> = ({
   const totalFrames = durationSec * fps;
   const endCardStart = totalFrames - 150;
   const dropFrame = 240;
+  const preDropStart = dropFrame - 60; // 2s before drop
 
   const safePad = `${SAFE.top}px ${SAFE.right}px ${SAFE.bottom}px ${SAFE.left}px`;
 
@@ -36,41 +40,54 @@ export const ReleaseClip: React.FC<ReleaseClipProps> = ({
         />
       )}
 
-      {/* === LAYER 1: Video background === */}
+      {/* === LAYER 1: Video background with beat pulse === */}
       <Sequence durationInFrames={endCardStart}>
-        <VideoBackground src={videoSrc} startFromSec={videoStartSec} />
+        <BeatPulse>
+          <VideoBackground src={videoSrc} startFromSec={videoStartSec} />
+        </BeatPulse>
       </Sequence>
 
-      {/* === LAYER 2: Vignette builds tension during build-up === */}
-      <Sequence from={90} durationInFrames={dropFrame - 90}>
+      {/* === LAYER 2: Vignette during build-up === */}
+      <Sequence from={90} durationInFrames={preDropStart - 90}>
         <CoralVignette genre={genre} />
       </Sequence>
 
-      {/* === LAYER 3: Hook — text + pills only, no SoundCloud text === */}
+      {/* === LAYER 3: Hook — text + pills, clean === */}
       <Sequence durationInFrames={90}>
         <HookSection hookText={hookText} genreTags={genreTags} genre={genre} />
       </Sequence>
 
-      {/* === LAYER 4: Light leak sweep at hook exit === */}
+      {/* === LAYER 4: Light leak at hook exit === */}
       <Sequence from={82} durationInFrames={30}>
         <LightLeak genre={genre} />
       </Sequence>
 
-      {/* === LAYER 5: THE DROP — everything fires at once === */}
+      {/* ========================================== */}
+      {/* === PRE-DROP: tension builds (2s before) = */}
+      {/* ========================================== */}
+      <Sequence from={preDropStart} durationInFrames={60}>
+        <PreDropBuild genre={genre}>
+          <VideoBackground src={videoSrc} startFromSec={videoStartSec + preDropStart / fps} />
+        </PreDropBuild>
+      </Sequence>
 
-      {/* 5a: Freeze frame — time stops for 6 frames */}
+      {/* ========================================== */}
+      {/* === THE DROP: everything fires             */}
+      {/* ========================================== */}
+
+      {/* Freeze — time stops */}
       <Sequence from={dropFrame} durationInFrames={6}>
         <Freeze frame={0}>
           <VideoBackground src={videoSrc} startFromSec={videoStartSec + dropFrame / fps} />
         </Freeze>
       </Sequence>
 
-      {/* 5b: Bass flash — full screen coral blast */}
+      {/* Bass flash — HARD */}
       <Sequence from={dropFrame} durationInFrames={10}>
         <BassFlash genre={genre} />
       </Sequence>
 
-      {/* 5c: Screen shake + zoom punch — the physical impact */}
+      {/* Screen shake + zoom punch */}
       <Sequence from={dropFrame} durationInFrames={20}>
         <ScreenShake intensity={18} durationFrames={18}>
           <ZoomPunch>
@@ -79,22 +96,31 @@ export const ReleaseClip: React.FC<ReleaseClipProps> = ({
         </ScreenShake>
       </Sequence>
 
-      {/* 5d: Particle explosion */}
+      {/* Particles */}
       <Sequence from={dropFrame} durationInFrames={24}>
         <ParticleBurst genre={genre} />
       </Sequence>
 
-      {/* 5e: DJ name slam */}
-      <Sequence from={dropFrame} durationInFrames={60}>
+      {/* DJ name slam — 3 seconds on screen */}
+      <Sequence from={dropFrame} durationInFrames={90}>
         <DropMoment djName={djName} serieName={serieName} genre={genre} />
       </Sequence>
 
-      {/* 5f: Second bass flash at drop + 0.5s for double-hit feel */}
+      {/* Double bass flash */}
       <Sequence from={dropFrame + 15} durationInFrames={8}>
         <BassFlash genre={genre} />
       </Sequence>
 
-      {/* === LAYER 6: Light leak at drop exit === */}
+      {/* ========================================== */}
+      {/* === POST-DROP: aftershock decay (1.5s)     */}
+      {/* ========================================== */}
+      <Sequence from={dropFrame + 20} durationInFrames={45}>
+        <PostDropDecay>
+          <VideoBackground src={videoSrc} startFromSec={videoStartSec + (dropFrame + 20) / fps} />
+        </PostDropDecay>
+      </Sequence>
+
+      {/* Light leak at drop exit */}
       <Sequence from={290} durationInFrames={30}>
         <LightLeak genre={genre} />
       </Sequence>
@@ -102,11 +128,11 @@ export const ReleaseClip: React.FC<ReleaseClipProps> = ({
       {/* === LAYER 7: CTA bar during vibe === */}
       <Sequence from={360} durationInFrames={endCardStart - 360}>
         <AbsoluteFill style={{ padding: safePad, justifyContent: 'flex-end', zIndex: 10 }}>
-          <CTABar genre={genre} />
+          <CTABar genre={genre} djName={djName} />
         </AbsoluteFill>
       </Sequence>
 
-      {/* === LAYER 8: Light leak at vibe → end card transition === */}
+      {/* === Light leak at vibe → end card === */}
       <Sequence from={endCardStart - 10} durationInFrames={30}>
         <LightLeak genre={genre} />
       </Sequence>

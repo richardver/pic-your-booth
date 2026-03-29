@@ -1,31 +1,25 @@
 import React from 'react';
 import { TOKENS, GENRE_TOKENS } from '../lib/tokens';
 import { Genre } from '../lib/types';
-import { GlitchText } from './effects/GlitchText';
 import { SlamIn } from './effects/SlamIn';
 
 /**
- * TextHook — The scroll-stopping hook text.
+ * TextHook — Clean, readable hook text. No glitch effects.
  *
- * Supports accent color on specific words using *word* syntax:
- *   "STUUR JE PLAYLIST\nIK MAAK ER *DIT* VAN"
- *   → "DIT" renders in genre accent color
+ * The GlitchText RGB split created ghost copies of words floating
+ * around the screen. Removed. The SlamIn + accent color is enough.
+ * Bass flash + zoom punch provide the visual energy.
  *
- * Strategist hook rules:
- *   - First line must stop the scroll
- *   - Accent color on the curiosity/key word only
- *   - Bebas Neue, centered, maximum size
+ * Supports *word* syntax for accent color.
  */
 export const TextHook: React.FC<{ text: string; genre: Genre }> = ({ text, genre }) => {
   const { accent } = GENRE_TOKENS[genre];
   const lines = text.split('\n');
 
   const renderLine = (line: string) => {
-    // Split on *word* to find accent words
     const parts = line.split(/(\*[^*]+\*)/);
     return parts.map((part, j) => {
       if (part.startsWith('*') && part.endsWith('*')) {
-        // Accent word
         return (
           <span key={j} style={{ color: accent }}>
             {part.slice(1, -1)}
@@ -37,7 +31,7 @@ export const TextHook: React.FC<{ text: string; genre: Genre }> = ({ text, genre
   };
 
   return (
-    <GlitchText>
+    <div>
       {lines.map((line, i) => (
         <SlamIn key={i} delay={i * 6}>
           <div style={{
@@ -46,13 +40,13 @@ export const TextHook: React.FC<{ text: string; genre: Genre }> = ({ text, genre
             letterSpacing: '0.04em',
             color: TOKENS.white,
             textShadow: '0 4px 24px rgba(0,0,0,0.9)',
-            lineHeight: 1.0,
+            lineHeight: 1.05,
             textAlign: 'center',
           }}>
             {renderLine(line)}
           </div>
         </SlamIn>
       ))}
-    </GlitchText>
+    </div>
   );
 };
