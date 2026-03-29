@@ -1,12 +1,12 @@
 # PicYourBooth
 
-Premium photobooth & DJ entertainment brand. Standalone brand under Pic Your Moment BV (legal entity, invoices only). Randstad, Netherlands.
+Premium photobooth & DJ entertainment brand. Standalone brand under PicYourBooth B.V. (legal entity, invoices only). Randstad, Netherlands.
 
 ## Services
 
 - **Party Booth** - Digital photobooth, vanaf €199
 - **Magic Mirror XL** - Premium DSLR photobooth, vanaf €599
-- **DJs** - DJ Gianni (Afro Beats, Caribbean, Nederlands Hits) & Milø (Tech House, House, Deep), vanaf €149
+- **DJs** - DJ Gianni (Afro Beats, Caribbean, NL Urban) & Milø (Tech House, House, Deep), vanaf €149
 
 ## Team
 
@@ -96,7 +96,7 @@ pic-your-booth/
 │   │   │   ├── _index.md                - Sub-topic router
 │   │   │   ├── knowledge-design-system.md - Colors, tokens, typography, visual modes
 │   │   │   ├── knowledge-website.md     - Page templates, forms, CRO checklist
-│   │   │   └── knowledge-ux.md          - Accessibility, responsive, visual hierarchy
+│   │   │   └── knowledge-ux-principles.md - Accessibility, responsive, visual hierarchy
 │   │   ├── dj-promoter.md                 - DJ talent brand management
 │   │   ├── dj-promoter/                   - DJ Promoter knowledge directory
 │   │   │   ├── _index.md                - Sub-topic router
@@ -156,6 +156,7 @@ pic-your-booth/
 │   │   ├── product-info/SKILL.md         - /product-info
 │   │   ├── design-page/SKILL.md          - /design-page (full page design workflow)
 │   │   ├── design-landingpage/SKILL.md   - /design-landingpage (conversion-optimized landing page)
+│   │   ├── generate-asset/SKILL.md       - /generate-asset (Gemini AI + Pillow image processing)
 │   │   └── impeccable/                   - 21 Impeccable design skills (designer agent)
 │   │       ├── frontend-design/          - Enhanced frontend design + references
 │   │       ├── audit, critique           - Diagnostic
@@ -181,6 +182,7 @@ pic-your-booth/
 - `/product-info` - Look up product specs, packages, and pricing
 - `/design-page` - Design a complete website page using full knowledge stack
 - `/design-landingpage` - Design a conversion-optimized landing page for Meta Ads traffic
+- `/generate-asset` - Generate or enhance image assets using Gemini AI + Pillow processing
 - `/seo-audit` - SEO & LLM optimization audit with scoring
 - `/release-clip` - Interactive TikTok release clip production pipeline
 

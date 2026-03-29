@@ -1,6 +1,6 @@
 ---
 name: release-clip
-description: Interactive TikTok release clip production — analyze audio, auto-cut two angles, render via Remotion for DJ Gianni or Milo
+description: Interactive TikTok release clip production — analyze audio, auto-cut two angles, render via Remotion for DJ Gianni or Milø
 ---
 
 # Release Clip Production
@@ -17,8 +17,8 @@ Ask these questions one at a time:
 
 ### Step 1: Which DJ?
 Ask: "Which DJ is this for?"
-- DJ Gianni (Luca) — coral, Afro Beats/Caribbean/Nederlands
-- Milo (Milo) — cyan, Tech House/House/Deep
+- DJ Gianni (Luca) — coral, Afro Beats/Caribbean/NL Urban
+- Milø (Milo) — cyan, Tech House/House/Deep
 
 ### Step 2: Video files
 Ask: "Path to angle 1 video? (main shot)"
@@ -29,7 +29,7 @@ Verify both files exist before proceeding.
 ### Step 3: Genre
 Ask based on DJ:
 - Gianni: "Genre? Afro Beats / Caribbean / Nederlands Urban"
-- Milo: "Genre? Tech House / House / Deep"
+- Milø: "Genre? Tech House / House / Deep"
 
 ### Step 4: Series name
 Ask: "Series name? (e.g. 'Tech House Sessions Vol 1')"
@@ -68,7 +68,7 @@ cp "<angle2-path>" video/templates/tiktok/release-clip/public/footage/angle2.mp4
 ### 4. Copy cover art
 Find the appropriate cover art:
 - Gianni: `images/dj-gianni/mixtape/<genre>-mixtape-cover.png`
-- Milo: `images/dj-milo/mixtape/<genre>-mixtape-cover.png` or `*-gemini.png`
+- Milø: `images/dj-milo/mixtape/<genre>-mixtape-cover.png` or `*-gemini.png`
 
 ```bash
 cp "<cover-path>" video/templates/tiktok/release-clip/public/covers/cover.png
@@ -117,9 +117,9 @@ Show the user:
 | Gianni | afro | Afro Beats | Afro Beats, Amapiano, Afro House |
 | Gianni | caribbean | Caribbean | Caribbean, Reggaeton, Dancehall |
 | Gianni | urban | Nederlands Urban | Nederlands, Urban, Hits |
-| Milo | house | Tech House | Tech House, House, Deep |
-| Milo | techno | Tech House | Tech House, House, Deep |
-| Milo | deep | Deep | Deep, House, Atmospheric |
+| Milø | house | Tech House | Tech House, House, Deep |
+| Milø | techno | Tech House | Tech House, House, Deep |
+| Milø | deep | Deep | Deep, House, Atmospheric |
 
 ## Output Structure
 ```

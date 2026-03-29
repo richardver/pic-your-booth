@@ -8,7 +8,7 @@ Platform-specific bios. Keep consistent across all channels. Contact always via 
 
 ```
 DJ Gianni
-Afro Beats | Caribbean | Nederlands Hits
+Afro Beats | Caribbean | NL Urban
 Pure Vibes
 Boekingen via link in bio
 ```
@@ -17,7 +17,7 @@ Boekingen via link in bio
 
 ```
 DJ Gianni
-Afro Beats | Caribbean | Nederlands Hits
+Afro Beats | Caribbean | NL Urban
 Elke set een feest, elk feest een herinnering
 info@picyourbooth.nl
 ```
@@ -25,5 +25,5 @@ info@picyourbooth.nl
 ## SoundCloud
 
 ```
-DJ Gianni - Afro Beats, Caribbean vibes en populaire hits. Elke set een feest, elk feest een herinnering. Stuur je Spotify playlist, ik bouw er een set van. Boekingen: info@picyourbooth.nl
+DJ Gianni - Afro Beats, Caribbean vibes en NL Urban. Elke set een feest, elk feest een herinnering. Stuur je Spotify playlist, ik bouw er een set van. Boekingen: info@picyourbooth.nl
 ```

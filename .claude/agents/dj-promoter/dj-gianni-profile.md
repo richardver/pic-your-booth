@@ -5,7 +5,7 @@ Photobooth operator & DJ at PicYourBooth. Richard's son.
 
 ## DJ Brand
 - **DJ name:** DJ Gianni
-- **Music style:** Afro Beats, Caribbean, Nederlands Hits
+- **Music style:** Afro Beats, Caribbean, NL Urban
 - **Tagline:** "Elke set een feest, elk feest een herinnering"
 - **Sub-tagline:** Pure Vibes
 - **Color:** Coral #f0654a
@@ -24,16 +24,16 @@ Photobooth operator & DJ at PicYourBooth. Richard's son.
 
 ### TikTok
 DJ Gianni
-Afro Beats | Caribbean | Nederlands Hits
+Afro Beats | Caribbean | NL Urban
 Elke set een feest, elk feest een herinnering
 info@picyourbooth.nl
 
 ### SoundCloud
-DJ Gianni - Afro Beats, Caribbean vibes en populaire hits. Elke set een feest, elk feest een herinnering. Stuur je Spotify playlist, ik bouw er een set van. Boekingen: info@picyourbooth.nl
+DJ Gianni - Afro Beats, Caribbean vibes en NL Urban. Elke set een feest, elk feest een herinnering. Stuur je Spotify playlist, ik bouw er een set van. Boekingen: info@picyourbooth.nl
 
 ### Instagram
 DJ Gianni
-Afro Beats | Caribbean | Nederlands Hits
+Afro Beats | Caribbean | NL Urban
 Pure Vibes
 Boekingen via link in bio
 
@@ -43,4 +43,4 @@ Boekingen via link in bio
 - Voice tags: `.claude/agents/dj-promoter/dj-gianni-voice-tags.md`
 - Profile photo: `images/dj-gianni/profile/profiel.jpeg`
 - Signature shape: Hexagon (clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%))
-- Genre tags: Afro Beats, Caribbean, Nederlands Hits - coral colored
+- Genre tags: Afro Beats, Caribbean, NL Urban - coral colored

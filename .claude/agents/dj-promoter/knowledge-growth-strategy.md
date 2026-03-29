@@ -16,7 +16,7 @@ Build each DJ's personal brand and following to drive organic bookings and stren
 
 ## DJ Gianni: Sweet 16 als Startmarkt
 
-Luca is zelf tiener — zijn leeftijd, muziek (Afro Beats, Caribbean, Nederlands Hits) en energie resoneren diep bij sweet 16 feesten. Dit is zijn initiële niche. Andere verjaardagen en events volgen later.
+Luca is zelf tiener — zijn leeftijd, muziek (Afro Beats, Caribbean, NL Urban) en energie resoneren diep bij sweet 16 feesten. Dit is zijn initiële niche. Andere verjaardagen en events volgen later.
 
 **Strategie:** Word de go-to sweet 16 DJ in de Randstad. Content gericht op tiener-verjaardagen, TikTok als primair ontdekkingskanaal (doelgroep leeft daar), YouTube Shorts voor SEO ("dj sweet 16", "dj huren verjaardag").
 

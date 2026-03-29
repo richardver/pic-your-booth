@@ -12,7 +12,7 @@ Two DJs with distinct styles. Unique selling point: Spotify playlist optimizatio
 |---|---|
 | Real name | Luca (Richard's son) |
 | DJ name | DJ Gianni |
-| Style | Afro Beats, Caribbean, Nederlands Hits |
+| Style | Afro Beats, Caribbean, NL Urban |
 | Vibe | Warm energy, party fire, sunset vibes |
 | Tagline | "Elke set een feest, elk feest een herinnering" |
 | Sub-tagline | Pure Vibes |

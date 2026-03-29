@@ -14,7 +14,7 @@ When creating ANY marketing content for PicYourBooth:
 ## Products
 - **Party Booth** (not "iPad Photobooth") - accessible, fun, every party
 - **Magic Mirror XL** - premium, VIP, experience
-- **DJs** - DJ Gianni (coral, afro beats/caribbean/nederlands/hits) & Milø (cyan, tech house/house/deep)
+- **DJs** - DJ Gianni (coral, afro beats/caribbean/NL urban) & Milø (cyan, tech house/house/deep)
 
 ## Pricing (charm pricing)
 - Party Booth: €199 (not €200)
@@ -34,7 +34,7 @@ When creating ANY marketing content for PicYourBooth:
 - Sound corporate, stiff, or boring
 - Sound desperate or overly salesy
 - Use "iPad Photobooth" in customer-facing content - always "Party Booth"
-- Reference "Pic Your Moment" in marketing - only on invoices
+- Reference "Pic Your Moment" in marketing - legal entity is PicYourBooth B.V., only on invoices
 - Use red (#ff494a) or pink (#e839a0) - removed from brand
 - Use translated-from-English Dutch - write native NL
 - Mix segment tones (premium copy for Party Booth or vice versa)

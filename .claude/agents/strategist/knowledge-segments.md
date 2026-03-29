@@ -49,7 +49,7 @@ Kopersprofielen met psychografie, pijnpunten, Jobs-to-be-Done en aanbod-match. A
 - DJ Gianni is zelf tiener — authentieke connectie, geen "oom die draait"
 - Sweet 16 is een groeiende trend in NL, geïnspireerd door US/social media
 - Tieners kiezen zelf hun DJ, ouders betalen. Twee doelgroepen, één boeking.
-- Afro Beats, Caribbean, Nederlands Hits = exact de playlist van een sweet 16
+- Afro Beats, Caribbean, NL Urban = exact de playlist van een sweet 16
 - Tiener-gasten zijn de meest actieve social media users = maximale virale waarde
 
 **Pijnpunten:**

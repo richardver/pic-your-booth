@@ -136,4 +136,4 @@ After setup, these should all be available:
 
 ## Legal
 
-**PicYourBooth** is a standalone brand. Legal entity: Pic Your Moment BV (invoices only, never in marketing).
+**PicYourBooth** is a standalone brand. Legal entity: PicYourBooth B.V. (invoices only, never in marketing).

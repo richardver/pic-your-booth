@@ -12,7 +12,7 @@ Complete brand identity for DJ Gianni. Source files in `.claude/agents/dj-promot
 | DJ name | DJ Gianni |
 | Role | Photobooth operator & DJ at PicYourBooth. Richard's son. |
 | Age group | Tiener — zelfde leeftijd als zijn doelgroep |
-| Music style | Afro Beats, Caribbean, Nederlands Hits |
+| Music style | Afro Beats, Caribbean, NL Urban |
 | Tagline | "Elke set een feest, elk feest een herinnering" |
 | Sub-tagline | Pure Vibes |
 | Contact | info@picyourbooth.nl |
@@ -33,7 +33,7 @@ Complete brand identity for DJ Gianni. Source files in `.claude/agents/dj-promot
 | Clip-path | polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%) |
 | Display font | Bebas Neue (heavy, condensed, uppercase, letter-spacing 0.04em) |
 | Body font | Space Grotesk (geometric sans-serif) |
-| Genre tags | Afro Beats, Caribbean, Nederlands, Hits — pill-shaped, genre-accented |
+| Genre tags | Afro Beats, Caribbean, NL Urban — pill-shaped, genre-accented |
 | Motif | Hexagon, EQ-bar (5 thin vertical bars, varying heights) |
 | Mood | Dark, minimal, premium, confident — "less is more" nightlife aesthetic |
 
@@ -73,7 +73,7 @@ DJ Gianni uses warm-palette accents per genre. All accents are in the warm spect
 **Instagram:**
 ```
 DJ Gianni
-Afro Beats | Caribbean | Nederlands Hits
+Afro Beats | Caribbean | NL Urban
 Pure Vibes
 Boekingen via link in bio
 ```
@@ -81,14 +81,14 @@ Boekingen via link in bio
 **TikTok:**
 ```
 DJ Gianni
-Afro Beats | Caribbean | Nederlands Hits
+Afro Beats | Caribbean | NL Urban
 Elke set een feest, elk feest een herinnering
 info@picyourbooth.nl
 ```
 
 **SoundCloud:**
 ```
-DJ Gianni - Afro Beats, Caribbean vibes en populaire hits. Elke set een feest, elk feest een herinnering. Stuur je Spotify playlist, ik bouw er een set van. Boekingen: info@picyourbooth.nl
+DJ Gianni - Afro Beats, Caribbean vibes en NL Urban. Elke set een feest, elk feest een herinnering. Stuur je Spotify playlist, ik bouw er een set van. Boekingen: info@picyourbooth.nl
 ```
 
 ---
@@ -99,7 +99,7 @@ DJ Gianni's leeftijd, muziekstijl en energie sluiten perfect aan bij sweet 16 fe
 
 **Waarom sweet 16:**
 - Luca is zelf tiener — authentieke connectie, geen "volwassene die doet alsof"
-- Afro Beats, Caribbean en Nederlands Hits zijn exact de genres die op 16e feesten draaien
+- Afro Beats, Caribbean en NL Urban zijn exact de genres die op 16e feesten draaien
 - Tieners kiezen een DJ die ze "cool" vinden — Gianni's leeftijd is een USP
 - Sweet 16 gasten zijn de meest actieve social media users — maximale virale verspreiding
 - Ouders boeken, tieners kiezen — Gianni spreekt beide aan
@@ -162,9 +162,9 @@ Voice tags for mixtapes, sets, and videos. Short, punchy, recognizable.
 - "DJ Gianni... Afro Beats edition"
 - "Caribbean vibes... DJ Gianni"
 
-**Nederlands Hits set:**
-- "DJ Gianni... Nederlandse Hits"
-- "Gianni draait Nederlands"
+**NL Urban set:**
+- "DJ Gianni... NL Urban edition"
+- "Gianni draait NL Urban"
 
 **Party/Festival:**
 - "DJ Gianni... elke set een feest"
@@ -219,7 +219,6 @@ Key specs:
 | Brand guide (HTML) | `.claude/agents/designer/dj-gianni-brand-guide.html` |
 | CSS reference | `.claude/agents/designer/dj-gianni-component-css-reference.html` |
 | Component library | `.claude/agents/designer/dj-gianni-component-css-reference.html` |
-| Social templates | `images/dj-gianni/social/social-templates.html` |
 | Mixtape cover | `images/dj-gianni/mixtape/afro-mixtape-cover.png` (1400x1400) |
 | Profile photo | `images/dj-gianni/profile/profiel.jpeg` |
 | Preview photo | `images/dj-gianni/profile/preview.jpg` |

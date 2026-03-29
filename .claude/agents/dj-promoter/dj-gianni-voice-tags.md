@@ -20,9 +20,9 @@ Voice tags voor in mixtapes, sets en video's. Kort, punchy, herkenbaar.
 - "DJ Gianni... Afro Beats edition"
 - "Caribbean vibes... DJ Gianni"
 
-**Nederlands Hits set:**
-- "DJ Gianni... Nederlandse Hits"
-- "Gianni draait Nederlands"
+**NL Urban set:**
+- "DJ Gianni... NL Urban edition"
+- "Gianni draait NL Urban"
 
 **Party/Festival:**
 - "DJ Gianni... elke set een feest"

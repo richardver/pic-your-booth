@@ -91,7 +91,7 @@ Premium DSLR photobooth with professional lighting and direct printing.
 
 | DJ | Style | Vibe |
 |---|-------|------|
-| DJ Gianni (Luca) | Afro Beats, Caribbean, Nederlands, Hits | Warm energy, party fire, sunset vibes |
+| DJ Gianni (Luca) | Afro Beats, Caribbean, NL Urban | Warm energy, party fire, sunset vibes |
 | Milø | Tech House, House, Deep | Deep, underwater, immersive, late-night |
 
 **Unique selling point:** Spotify playlist optimization - give us your playlist, we build an optimized set tailored to your event.
@@ -118,11 +118,11 @@ PicYourBooth (standalone premium entertainment brand)
 ├── Magic Mirror XL (premium photobooth - populair)
 │   └── Upgrades: VIP, Wedding Keychain Station, Photobooth Host, Live DJ Set
 └── DJs (separate service section)
-    ├── DJ Gianni (Luca) - coral accent - afro beats, caribbean, nederlands, hits
+    ├── DJ Gianni (Luca) - coral accent - afro beats, caribbean, NL urban
     └── Milø - cyan accent - tech house, house, deep
 ```
 
-**Note:** PicYourBooth is one word. Legal entity is Pic Your Moment BV (only appears on invoices, never in marketing).
+**Note:** PicYourBooth is one word. Legal entity is PicYourBooth B.V. (only appears on invoices, never in marketing).
 
 ### DJ Personal Brands
 The DJs maintain personal profiles (Instagram, SoundCloud, TikTok) promoted alongside the business. Cross-promotion flywheel: events → content → followers → more bookings.
@@ -144,7 +144,7 @@ The DJs maintain personal profiles (Instagram, SoundCloud, TikTok) promoted alon
 | Name | Role | DJ Style |
 |------|------|----------|
 | Richard | Owner - business, tech, marketing | - |
-| Luca | Photobooth operator & DJ | DJ Gianni: afro beats, caribbean, nederlands, hits - coral accent |
+| Luca | Photobooth operator & DJ | DJ Gianni: afro beats, caribbean, NL urban - coral accent |
 | Milo | Photobooth operator & DJ | Milø: tech house, house, deep - cyan accent |
 
 ---
