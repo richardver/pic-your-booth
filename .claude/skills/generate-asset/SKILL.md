@@ -81,7 +81,7 @@ python .claude/agents/designer/scripts/asset-generator/asset-generator.py resize
 3. Gemini generates/enhances the image
 4. Raw output saved to `docs/images/pyb/`
 5. Python resizes to all needed dimensions
-6. WebP files saved to `docs/images/web/`
+6. WebP files saved to `docs/pyb/website/deployment/assets/images/`
 7. Report file paths for use in HTML
 
 ## Pages
@@ -102,13 +102,13 @@ python .claude/agents/designer/scripts/asset-generator/asset-generator.py resize
 
 ```
 docs/images/
-├── photos-generated/              ← Raw AI output (organized by product)
+├── pyb/                           ← Raw AI output + PYB brand assets
 │   ├── INDEX.md                  ← Generated photos catalogue with approval status
-│   ├── homepage/hero/
-│   ├── magicmirror/{hero,usp,modal,upgrade}/
-│   ├── partybooth/{hero,usp,modal,upgrade}/
-│   └── dj/{hero,gianni,milo}/
-└── web/                           ← Web-ready approved files
+│   ├── heroes/
+│   ├── usps/
+│   └── modals/
+docs/pyb/website/deployment/
+└── assets/images/                 ← Web-ready approved files (served by website)
     ├── magic-mirror-hero-1920x1080.webp
     ├── magic-mirror-hero-1280x720.webp
     └── magic-mirror-hero-768x432.webp
@@ -120,7 +120,7 @@ docs/images/
 2. **Update** `docs/images/pyb/INDEX.md` — add a row with status `pending`
 3. **Review** with Richard — show the generated image for approval
 4. **Approve/Reject** — update status in INDEX.md to `approved` or `rejected`
-5. **If approved** — resize to web dimensions and save to `docs/images/web/`
+5. **If approved** — resize to web dimensions and save to `docs/pyb/website/deployment/assets/images/`
 
 ## Brand Style
 

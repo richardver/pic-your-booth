@@ -38,6 +38,6 @@ Deep beats, strakke sets
 Boekingen via link in bio
 
 ## Brand Assets
-- Visual brand guide: `.claude/agents/dj-promoter/dj-milo-brand-guide.html`
+- Visual brand guide: `.claude/agents/designer/dj-milo-brand-guide.html`
 - Signature shape: Diamond (clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%))
 - Genre tags: House, Techno, Deep - cyan colored

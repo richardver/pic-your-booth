@@ -220,7 +220,7 @@ Key specs:
 | CSS reference | `.claude/agents/designer/dj-gianni-component-css-reference.html` |
 | Component library | `.claude/agents/designer/dj-gianni-component-css-reference.html` |
 | Social templates | `docs/images/dj-gianni/social/social-templates.html` |
-| Mixtape cover | `docs/images/dj-gianni/mixtape/afro-mixtape-cover-v2.png` (1400x1400) |
+| Mixtape cover | `docs/images/dj-gianni/mixtape/afro-mixtape-cover.png` (1400x1400) |
 | Profile photo | `docs/images/dj-gianni/profile/profiel.jpeg` |
 | Preview photo | `docs/images/dj-gianni/profile/preview.jpg` |
 | Voice tags | `.claude/agents/dj-promoter/dj-gianni-voice-tags.md` |

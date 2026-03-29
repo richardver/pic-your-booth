@@ -86,6 +86,6 @@ python3 video/tools/audio-analyzer/analyze.py \
 
 1. **9:16 vertical** — All TikTok/Reels/YouTube Shorts clips are 1080x1920 at 30fps
 2. **DJ Gianni design tokens** — Coral (afro), Golden Amber (caribbean), Warm Purple (urban). Never cool tones.
-3. **Remotion only** — No CapCut, no manual editing. Everything programmatic.
+3. **Remotion only** — No manual editing tools. Everything programmatic.
 4. **Props-driven** — Every clip is configurable via inputProps. No hardcoded content.
 5. **Components are reusable** — Build once, use across genres and volumes.

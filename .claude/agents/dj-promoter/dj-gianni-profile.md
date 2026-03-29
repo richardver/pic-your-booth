@@ -38,7 +38,7 @@ Pure Vibes
 Boekingen via link in bio
 
 ## Brand Assets
-- Visual brand guide: `.claude/agents/dj-promoter/dj-gianni-brand-guide.html`
+- Visual brand guide: `.claude/agents/designer/dj-gianni-brand-guide.html`
 - Social media templates: `docs/images/dj-gianni/social/social-templates.html`
 - Voice tags: `.claude/agents/dj-promoter/dj-gianni-voice-tags.md`
 - Profile photo: `docs/images/dj-gianni/profile/profiel.jpeg`

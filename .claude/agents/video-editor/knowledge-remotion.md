@@ -123,6 +123,10 @@ const TOKENS = {
 | **SlowZoomDrift** | `SlowZoomDrift.tsx` | Subtle zoom 1.0x→1.06x over time | Hook + build-up (kills static camera) |
 | **SlowPan** | `SlowPan.tsx` | Horizontal drift + slight scale | Vibe section (visual variety) |
 | **DeckHits** | `DeckHits.tsx` | 5 repeating zoom punches 1.12x + flash per hit | Deck action moments (16-20s) |
+| **BeatPulse** | `BeatPulse.tsx` | Rhythmic scale pulse synced to beat | Hook + build-up + vibe (subtle energy) |
+| **PreDropBuild** | `PreDropBuild.tsx` | Shake 0-4px + brightness dip + vignette | Pre-drop tension build (6-8s) |
+| **PostDropDecay** | `PostDropDecay.tsx` | Aftershock shake + scale settle | Post-drop release (10-12s) |
+| **GlitchText** | `GlitchText.tsx` | RGB split + offset glitch on text | Available but NOT used in current clips |
 
 ### Cinematic Color Grade
 

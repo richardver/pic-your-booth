@@ -15,32 +15,35 @@ Both files must be updated when agents, skills, or repo structure changes.
 
 ## Folder Structure
 
-> **Note:** `docs/templates/` has been removed — content moved to `docs/` (DJ docs moved to `.claude/agents/dj-promoter/`), `docs/pyb/website/`, `docs/images/`, `docs/images/`.
+> **Note:** `docs/templates/` has been removed — content moved to `docs/pyb/website/`, `docs/images/`, and `.claude/agents/dj-promoter/` (DJ docs).
 > **Note:** Website not yet deployed to picyourbooth.nl — HTML pages exist in `docs/pyb/website/deployment/`.
 
 ```
 docs/
   plans/                         Brainstorm sessions, design documents, implementation plans
-  djs/                           DJ brand guides & assets
-    dj-gianni/                   Brand guide, social/, photos/, mixtape strategy
-    milo/                        Brand guide, profile
-  website/                       Website & design assets
-    deployment/                  Live website HTML pages (index, magic-mirror, party-booth, djs, offerte)
-      assets/images/             Optimized images for website
-    design-system/               HTML design systems, tokens JSON
   images/                        All image assets
+    pyb/                         PYB brand (logo, heroes, USPs, modals, meta-ads, screenshots)
+    dj-gianni/                   DJ Gianni (profile, social, mixtape covers + PROMPTS.md)
+    dj-milo/                     DJ Milo (profile)
     photos-source/               Original photos (by product/category) — INDEX.md has full catalogue + Gemini picks
-    generated/                   AI-generated & processed images
     web/                         Optimized WebP for website
-    screenshots/                 Dev screenshots
-  ads/                           Ad design & assets
-    meta/                        Meta Ads design system HTML
+  pyb/website/                   Website pages & design systems
+    deployment/                  Live HTML pages served by TransIP (DO NOT MOVE)
+      assets/images/             Optimized images for website
+    homepage/                    Homepage design system
+    magic-mirror/                Magic Mirror page design system
+    party-booth/                 Party Booth page design system
+    djs/                         DJs page design system
+    offerte/                     Offerte page design system
   kpi/                           Historical KPI Excel reports (Vizibooth 2025, 2026)
   funnel/                        Funnel strategy & campaign management
     campaigns/                   Campaign specs per month
-    creatives/                   Creative briefs, HTML mockups
     tracking/                    Pixel setup, KPIs, conversion tracking
     results/                     Test results, optimization logs
+video/                           Video production (Remotion) — at project root, NOT in docs/
+  templates/tiktok/release-clip/ Shared Release Clip template (React)
+  output/<dj>/tiktok/...         Per-DJ rendered output (MP4 + analysis)
+  tools/audio-analyzer/          Audio analysis tool (ffmpeg + numpy)
 ```
 
 ---
@@ -74,7 +77,7 @@ docs/
 | Output images (DJ Milo) | `docs/images/dj-milo/` | Profile photos |
 | KPI reports | `docs/kpi/` | Vizibooth 2025/2026 Excel reports |
 | Funnel campaigns | `docs/funnel/campaigns/` | Campaign specs per month |
-| Creative briefs | `docs/funnel/creatives/` | HTML mockups, creative briefs |
+| Creative briefs | `docs/funnel/` | HTML mockups, creative briefs |
 | Tracking & pixels | `docs/funnel/tracking/` | Pixel setup, KPIs, conversion tracking |
 | Test results | `docs/funnel/results/` | Optimization logs |
 
@@ -110,7 +113,6 @@ Project-root `.venv/` provides tooling for image processing and AI automation. N
 4. **HTML design systems are visual references** — exportable via Playwright
 5. **Markdown for text, HTML for visual design systems**
 6. **DJ brand docs live with dj-promoter** — `.claude/agents/dj-promoter/dj-<name>-*`
-7. **DJ brand assets moved from `docs/pyb/website/djs/` to `docs/` (DJ docs moved to `.claude/agents/dj-promoter/`)** — they are not website pages
 7. **`pyb-design-tokens.json` is PYM mobile, not PYB web** — see knowledge-design-systems.md
-8. **`docs/templates/` is deprecated** — all content moved to `docs/pyb/website/`, `docs/images/`, `docs/images/`
-9. **Website not yet deployed** — HTML pages in `docs/pyb/website/deployment/`, not live on picyourbooth.nl
+8. **`docs/templates/` is deprecated** — all content moved to `docs/pyb/website/` and `docs/images/`
+9. **Video production lives at project root** — `video/`, not `docs/video/`

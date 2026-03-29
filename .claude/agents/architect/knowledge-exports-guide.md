@@ -72,5 +72,5 @@ cd /tmp && node export.mjs
 - Always use `clip` with exact dimensions - never `fullPage: true`
 - Export as PNG (no compression artifacts)
 - Source HTML files stay in `/tmp/` (not committed)
-- Exported PNGs go in the relevant `docs/` subfolder (e.g. `docs/` (DJ docs moved to `.claude/agents/dj-promoter/`))
+- Exported PNGs go in the relevant `docs/images/` subfolder (e.g. `docs/images/dj-gianni/mixtape/`)
 - Each export HTML is a standalone file with inline CSS, no external deps except Google Fonts

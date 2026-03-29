@@ -29,7 +29,7 @@ Python 3.14 venv at project root for image processing (Pillow), Gemini AI (googl
 ## Knowledge Architecture
 
 Three layers in `.claude/`:
-- **`agents/`** — 6 domain agents with routing registry (`_registry.md`), strategist orchestrates
+- **`agents/`** — 9 domain agents with routing registry (`_registry.md`), strategist orchestrates
 - **`skills/`** — Actionable workflows invoked via `/commands`
 - **`rules/`** — Always-active rules (brand voice)
 
@@ -47,36 +47,32 @@ pic-your-booth/
 ├── .venv/                                 ← Python 3.14 tooling (Pillow, Gemini, etc.)
 ├── docs/
 │   ├── plans/                            - PRD, brainstorm sessions, design documents
-│   ├── djs/                              - DJ brand guides & strategy docs
-│   │   ├── dj-gianni/                   - Brand guide, playbooks (SoundCloud, TikTok)
-│   │   └── milo/                        - Brand guide, profile
-│   ├── images/                           - All images (source, generated, output)
+│   ├── images/                           - All image assets
 │   │   ├── pyb/                         - PYB brand (logo, heroes, USPs, modals, meta-ads, screenshots)
 │   │   ├── dj-gianni/                   - DJ Gianni (profile, social, mixtape covers + PROMPTS.md)
 │   │   ├── dj-milo/                     - DJ Milo (profile)
 │   │   ├── photos-source/              - Original photos + INDEX.md (catalogue with Gemini picks)
+│   │   │   ├── magicmirror/           - Magic Mirror XL source photos
+│   │   │   ├── partybooth/            - Party Booth source photos
+│   │   │   └── dj/                    - DJ source photos
 │   │   └── web/                        - Optimized WebP pipeline output
 │   ├── pyb/website/                      - Website pages & design systems
 │   │   ├── deployment/                  - Live HTML pages served by TransIP (DO NOT MOVE)
 │   │   │   └── assets/images/          - Optimized images served by website
-│   │   ├── homepage/                    - Homepage design system (pyb-design-system-web.html)
+│   │   ├── homepage/                    - Homepage design system
 │   │   ├── magic-mirror/               - Magic Mirror page design system
 │   │   ├── party-booth/                - Party Booth page design system
 │   │   ├── djs/                        - DJs page design system
 │   │   └── offerte/                    - Offerte page design system
-│   │   │   ├── magicmirror/           - Magic Mirror XL source photos
-│   │   │   ├── partybooth/            - Party Booth source photos
-│   │   │   └── dj/                    - DJ source photos
-│   ├── video/                            - Video production
-│   │   ├── templates/tiktok/release-clip/ - Shared Release Clip template (Remotion)
-│   │   ├── output/<dj>/tiktok/...        - Per-DJ rendered output (MP4 + analysis)
-│   │   └── tools/audio-analyzer/         - Audio analysis tool (ffmpeg + numpy)
 │   ├── kpi/                             - Historical KPI Excel reports (Vizibooth 2025, 2026)
 │   └── funnel/                          - Funnel strategy & campaign management
 │       ├── campaigns/                 - Campaign specs, audiences, ad copy per month
-│       ├── creatives/                 - Creative briefs, HTML mockups
 │       ├── tracking/                  - Pixel setup, KPIs, conversion tracking
 │       └── results/                   - Test results, optimization logs, winner data
+├── video/                                 - Video production (Remotion)
+│   ├── templates/tiktok/release-clip/   - Shared Release Clip template (React)
+│   ├── output/<dj>/tiktok/...           - Per-DJ rendered output (MP4 + analysis)
+│   └── tools/audio-analyzer/            - Audio analysis tool (ffmpeg + numpy)
 ├── .claude/
 │   ├── agents/
 │   │   ├── _registry.md                  - Master routing table (all agents)
@@ -127,19 +123,19 @@ pic-your-booth/
 │   │   │   ├── knowledge-pricing-strategy.md - Why we price this way
 │   │   │   └── knowledge-growth.md      - Growth priorities, phased roadmap
 │   │   ├── ad-specialist.md              - Paid ads (Meta + Google)
-│   │   └── ad-specialist/                 - Ad specialist knowledge directory
-│   │       ├── _index.md                - Sub-topic router + 17 ads skills index
-│   │       ├── knowledge-pyb-campaigns.md - PYB campaign architecture, budgets, targets
-│   │       ├── knowledge-meta-ads.md    - Meta Ads strategy, audiences, benchmarks
-│   │       ├── knowledge-google-ads.md  - Google Ads search, PMax, keywords
-│   │       ├── knowledge-ad-copy.md     - Hooks, frameworks, testing
-│   │       └── knowledge-creative-testing.md - Fatigue, lifecycle, refresh
+│   │   ├── ad-specialist/                 - Ad specialist knowledge directory
+│   │   │   ├── _index.md                - Sub-topic router + 17 ads skills index
+│   │   │   ├── knowledge-pyb-campaigns.md - PYB campaign architecture, budgets, targets
+│   │   │   ├── knowledge-meta-ads.md    - Meta Ads strategy, audiences, benchmarks
+│   │   │   ├── knowledge-google-ads.md  - Google Ads search, PMax, keywords
+│   │   │   ├── knowledge-ad-copy.md     - Hooks, frameworks, testing
+│   │   │   └── knowledge-creative-testing.md - Fatigue, lifecycle, refresh
 │   │   ├── video-editor.md                - Programmatic video (Remotion)
 │   │   ├── video-editor/                  - Video editor knowledge
 │   │   │   ├── _index.md                - Sub-topic router
 │   │   │   └── knowledge-remotion.md    - Remotion API, patterns, tokens
 │   │   ├── seo.md                         - SEO & LLM optimization
-│   │   └── seo/                           - SEO knowledge (6 files)
+│   │   └── seo/                           - SEO knowledge (7 files)
 │   │       ├── _index.md                - Keyword map, audit rules
 │   │       ├── knowledge-keywords.md    - Focus keywords per page, long-tail
 │   │       ├── knowledge-technical-seo.md - Meta tags, schema, performance
