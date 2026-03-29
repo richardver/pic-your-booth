@@ -26,6 +26,12 @@
   --gi-light: #f4826c;
   --gi-dim: rgba(240,101,74,0.10);
 
+  /* Genre accents (warm palette) */
+  --gi-caribbean: #f5b731;
+  --gi-caribbean-dim: rgba(245,183,49,0.10);
+  --gi-nl-urban: #c084fc;
+  --gi-nl-urban-dim: rgba(192,132,252,0.10);
+
   --mi: #34d399;
   --mi-light: #5ae0f0;
   --mi-dim: rgba(34,211,238,0.10);
@@ -583,6 +589,18 @@ ul li::before {
   border-color: rgba(139,92,246,0.15);
 }
 
+.genre-tag.genre-caribbean {
+  background: rgba(245,183,49,0.10);
+  color: #f5b731;
+  border-color: rgba(245,183,49,0.15);
+}
+
+.genre-tag.genre-nl-urban {
+  background: rgba(192,132,252,0.10);
+  color: #c084fc;
+  border-color: rgba(192,132,252,0.15);
+}
+
 .dj-card-desc {
   font-size: 14px;
   color: rgba(237,237,240,0.55);
@@ -916,7 +934,7 @@ footer p {
     <div class="split-divider"></div>
     <div class="split-note-mi">
       <span class="split-dot"></span>
-      DJ Milø  - Cyan #34d399  - House, Techno, Deep
+      Milø  - Cyan #34d399  - Tech House, House, Deep
     </div>
   </div>
 
@@ -1072,6 +1090,23 @@ footer p {
     </div>
   </div>
 
+  <div class="color-group-label">Genre Accents (Warm Palette)</div>
+  <div class="palette-grid">
+    <div class="swatch">
+      <div class="swatch-color" style="background:#f0654a;"></div>
+      <div class="swatch-info"><div class="swatch-name">Afro Beats</div><div class="swatch-hex">#f0654a (Primary)</div></div>
+    </div>
+    <div class="swatch">
+      <div class="swatch-color" style="background:#f5b731;"></div>
+      <div class="swatch-info"><div class="swatch-name">Caribbean</div><div class="swatch-hex">#f5b731</div></div>
+    </div>
+    <div class="swatch">
+      <div class="swatch-color" style="background:#c084fc;"></div>
+      <div class="swatch-info"><div class="swatch-name">Nederlands Urban</div><div class="swatch-hex">#c084fc</div></div>
+    </div>
+  </div>
+  <p style="margin-top:8px;font-size:13px;color:var(--muted);">Coral is the default accent — used when genre is not specified. Genre accents only appear on genre-specific content (mixtape covers, SoundCloud tags, TikTok clips). Never use cool tones (#34d399 cyan, #38bdf8 blue) — those belong to Milø.</p>
+
   <div class="color-group-label">Shared Brand Accents</div>
   <div class="palette-grid">
     <div class="swatch">
@@ -1086,6 +1121,33 @@ footer p {
       <div class="swatch-color" style="background:#34d399;"></div>
       <div class="swatch-info"><div class="swatch-name">Milo Cyan</div><div class="swatch-hex">#34d399</div></div>
     </div>
+  </div>
+</section>
+
+<!-- ================================================================
+     03b - GENRE TAGS
+     ================================================================ -->
+<section>
+  <span class="section-num">03b</span>
+  <h2>GENRE TAGS</h2>
+  <p class="section-desc">Pill-shaped genre tags in DJ Gianni's warm palette. Default coral for Afro Beats, amber for Caribbean, purple for Nederlands Urban.</p>
+
+  <h3>Default Tags</h3>
+  <div class="component-row" style="margin-bottom:32px;">
+    <div class="component-label">Gianni Tags (Coral Dim BG + Coral Light Text)</div>
+    <span class="genre-tag">Afro Beats</span>
+    <span class="genre-tag">Caribbean</span>
+    <span class="genre-tag">Nederlands</span>
+    <span class="genre-tag">Hits</span>
+  </div>
+
+  <h3>Genre-Accented Tags</h3>
+  <div class="component-row" style="margin-bottom:32px;">
+    <div class="component-label">Each genre gets its own warm-palette accent</div>
+    <span class="genre-tag">Afro Beats</span>
+    <span class="genre-tag genre-caribbean">Caribbean</span>
+    <span class="genre-tag genre-nl-urban">Nederlands Urban</span>
+    <span class="genre-tag">Hits</span>
   </div>
 </section>
 
@@ -1108,7 +1170,7 @@ footer p {
     </div>
     <div class="rule-card">
       <div class="rule-number">03</div>
-      <div class="rule-text">Never mix Gianni coral with DJ Milø cyan on the same component. Each DJ element gets exactly one accent color.</div>
+      <div class="rule-text">Never mix Gianni coral with Milø cyan on the same component. Each DJ element gets exactly one accent color.</div>
     </div>
     <div class="rule-card">
       <div class="rule-number">04</div>

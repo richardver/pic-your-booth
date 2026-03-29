@@ -17,7 +17,7 @@ Tokens, colors, typography, and component specs. Full reference in `.claude/agen
 | Gold | #f59e42 | Photobooth accent, CTAs, prices |
 | Violet | #8b5cf6 | DJ Hub accent, DJ CTAs |
 | Coral | #f0654a | DJ Gianni (profile only) |
-| Cyan | #34d399 | Milo (profile only) |
+| Cyan | #34d399 | Milø (profile only) |
 
 **Removed colors:** No red (#ff494a), no pink (#e839a0).
 
@@ -55,7 +55,7 @@ Each product has its own photography-driven visual DNA. See `prompts.py` for Gem
 ### DJs — Concert Photography
 - **Camera vibe:** Sony A7S III + 35mm f/1.4, high ISO grain
 - **DJ Gianni:** Coral accent lighting, warm/Caribbean energy
-- **DJ Milø:** Mint/cyan accent lighting, minimal underground feel
+- **Milø:** Mint/cyan accent lighting, minimal underground feel
 - **Venue:** Dark with colored stage lighting, fog/haze
 - **Mood:** Immersive, energetic — "you can feel the bass"
 - **Profile photos:** 8mm film aesthetic, cropped from real portraits, brand color graded

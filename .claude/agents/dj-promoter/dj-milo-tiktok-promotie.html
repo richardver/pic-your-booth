@@ -1,0 +1,2333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Milø - TikTok Promotion Playbook</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* ============================================================
+   MILØ - TIKTOK PROMOTION PLAYBOOK
+   Internal strategy document. Milø design system + TikTok energy.
+   Vertical phone-frame mockups, storyboard layouts, script cards.
+   Diamond shapes, sine wave motifs, cool-palette accents.
+   ============================================================ */
+
+/* -- Design Tokens ----------------------------------------- */
+:root {
+  --void: #050508;
+  --surface: #0d0d12;
+  --card: #111116;
+  --card-elevated: #16161d;
+  --border: rgba(255,255,255,0.06);
+  --border-active: rgba(255,255,255,0.14);
+
+  --white: #ededf0;
+  --muted: rgba(237,237,240,0.45);
+  --subtle: rgba(237,237,240,0.08);
+
+  --mi: #34d399;
+  --mi-light: #5ae0f0;
+  --mi-dim: rgba(52,211,153,0.10);
+  --mi-glow: rgba(52,211,153,0.20);
+
+  --tiktok: #fe2c55;
+  --tiktok-dim: rgba(254,44,85,0.10);
+  --tiktok-glow: rgba(254,44,85,0.15);
+
+  --cyan-tt: #25f4ee;
+  --cyan-tt-dim: rgba(37,244,238,0.10);
+
+  --blue: #38bdf8;
+  --blue-dim: rgba(56,189,248,0.10);
+
+  --violet: #8b5cf6;
+  --violet-dim: rgba(139,92,246,0.10);
+
+  --gold: #f59e42;
+  --gold-dim: rgba(245,158,66,0.10);
+
+  --font-display: 'Bebas Neue', Impact, sans-serif;
+  --font-body: 'Space Grotesk', system-ui, sans-serif;
+
+  --ease: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-bounce: cubic-bezier(0.34, 1.56, 0.64, 1);
+
+  --r-sm: 6px;
+  --r-md: 10px;
+  --r-lg: 16px;
+  --r-xl: 24px;
+  --r-pill: 999px;
+  --r-phone: 32px;
+}
+
+/* -- Reset ------------------------------------------------- */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html {
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-body);
+  background: var(--void);
+  color: var(--white);
+  font-size: 15px;
+  line-height: 1.7;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* -- Layout ------------------------------------------------ */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* -- Navigation -------------------------------------------- */
+.nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(5,5,8,0.92);
+  backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--border);
+  padding: 14px 24px;
+}
+
+.nav-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.nav-brand {
+  font-family: var(--font-display);
+  font-size: 20px;
+  letter-spacing: 0.04em;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.nav-brand .mi { color: var(--mi); }
+.nav-brand .sep { color: var(--muted); font-size: 14px; }
+.nav-brand .tt { color: var(--tiktok); }
+
+.nav-links {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+  list-style: none;
+}
+
+.nav-links a {
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--muted);
+  text-decoration: none;
+  padding: 6px 12px;
+  border-radius: var(--r-pill);
+  transition: all 0.2s var(--ease);
+}
+
+.nav-links a:hover {
+  color: var(--white);
+  background: var(--subtle);
+}
+
+/* -- Hero -------------------------------------------------- */
+.hero {
+  text-align: center;
+  padding: 80px 24px 60px;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse at 30% 80%, var(--tiktok-glow) 0%, transparent 50%),
+    radial-gradient(ellipse at 70% 80%, var(--mi-glow) 0%, transparent 50%);
+  pointer-events: none;
+}
+
+.hero-label {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--tiktok);
+  margin-bottom: 16px;
+  position: relative;
+}
+
+.hero-title {
+  font-family: var(--font-display);
+  font-size: clamp(48px, 8vw, 96px);
+  letter-spacing: 0.04em;
+  line-height: 0.95;
+  color: var(--white);
+  position: relative;
+}
+
+.hero-title .tiktok { color: var(--tiktok); }
+.hero-title .cyan { color: var(--mi); }
+
+.hero-sub {
+  font-size: 17px;
+  color: var(--muted);
+  margin-top: 20px;
+  max-width: 640px;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+  font-style: italic;
+}
+
+/* -- Diamond motif ----------------------------------------- */
+.diamond {
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  background: var(--mi);
+  clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+  flex-shrink: 0;
+}
+
+.diamond.sm { width: 8px; height: 8px; }
+.diamond.lg { width: 18px; height: 18px; }
+
+/* -- Sine Wave Visualizer ---------------------------------- */
+.sine-wave {
+  display: flex;
+  align-items: center;
+  height: 24px;
+  gap: 1px;
+  justify-content: center;
+}
+
+.sine-wave span {
+  width: 3px;
+  border-radius: 2px;
+  background: var(--mi);
+  animation: sine-pulse 1.6s ease-in-out infinite;
+}
+
+.sine-wave span:nth-child(1)  { height: 20%; animation-delay: 0s; }
+.sine-wave span:nth-child(2)  { height: 45%; animation-delay: 0.1s; }
+.sine-wave span:nth-child(3)  { height: 70%; animation-delay: 0.2s; }
+.sine-wave span:nth-child(4)  { height: 90%; animation-delay: 0.3s; }
+.sine-wave span:nth-child(5)  { height: 100%; animation-delay: 0.4s; }
+.sine-wave span:nth-child(6)  { height: 90%; animation-delay: 0.5s; }
+.sine-wave span:nth-child(7)  { height: 70%; animation-delay: 0.6s; }
+.sine-wave span:nth-child(8)  { height: 45%; animation-delay: 0.7s; }
+.sine-wave span:nth-child(9)  { height: 20%; animation-delay: 0.8s; }
+.sine-wave span:nth-child(10) { height: 45%; animation-delay: 0.9s; }
+.sine-wave span:nth-child(11) { height: 70%; animation-delay: 1.0s; }
+
+@keyframes sine-pulse {
+  0%, 100% { transform: scaleY(1); }
+  50% { transform: scaleY(0.3); }
+}
+
+/* -- Section ------------------------------------------------ */
+.section {
+  padding: 72px 0;
+  border-top: 1px solid var(--border);
+}
+
+.section-label {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--tiktok);
+  margin-bottom: 12px;
+}
+
+.section-title {
+  font-family: var(--font-display);
+  font-size: clamp(32px, 5vw, 52px);
+  letter-spacing: 0.04em;
+  line-height: 1;
+  margin-bottom: 16px;
+}
+
+.section-intro {
+  font-size: 15px;
+  color: var(--muted);
+  max-width: 700px;
+  margin-bottom: 48px;
+  line-height: 1.7;
+}
+
+/* -- Phone Frame (9:16 TikTok mockup) ---------------------- */
+.phone-frame {
+  width: 240px;
+  aspect-ratio: 9/16;
+  border-radius: var(--r-phone);
+  border: 2px solid var(--border-active);
+  background: var(--surface);
+  position: relative;
+  overflow: hidden;
+  flex-shrink: 0;
+  box-shadow:
+    0 0 0 1px rgba(0,0,0,0.5),
+    0 20px 60px rgba(0,0,0,0.4),
+    inset 0 1px 0 rgba(255,255,255,0.05);
+}
+
+.phone-notch {
+  position: absolute;
+  top: 8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 24px;
+  background: var(--void);
+  border-radius: 0 0 14px 14px;
+  z-index: 10;
+}
+
+.phone-screen {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  padding: 40px 16px 16px;
+}
+
+.phone-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.phone-bg.mixing {
+  background:
+    linear-gradient(180deg, rgba(5,5,8,0.3) 0%, rgba(5,5,8,0.7) 60%, rgba(5,5,8,0.95) 100%),
+    linear-gradient(135deg, var(--mi-glow) 0%, transparent 50%);
+}
+
+.phone-bg.teaser {
+  background:
+    linear-gradient(180deg, var(--void) 0%, rgba(52,211,153,0.08) 50%, var(--void) 100%);
+}
+
+.phone-bg.bts {
+  background:
+    linear-gradient(180deg, rgba(5,5,8,0.2) 0%, rgba(5,5,8,0.85) 100%),
+    linear-gradient(135deg, var(--violet-dim) 0%, transparent 50%);
+}
+
+.phone-bg.tracklist {
+  background:
+    linear-gradient(180deg, var(--void) 20%, rgba(52,211,153,0.06) 100%);
+}
+
+.phone-bg.journey {
+  background:
+    linear-gradient(180deg, rgba(5,5,8,0.2) 0%, rgba(5,5,8,0.85) 100%),
+    linear-gradient(135deg, var(--blue-dim) 0%, transparent 50%);
+}
+
+.phone-bg.venue {
+  background:
+    linear-gradient(180deg, rgba(5,5,8,0.3) 0%, rgba(5,5,8,0.8) 60%, rgba(5,5,8,0.95) 100%),
+    linear-gradient(135deg, rgba(52,211,153,0.12) 0%, transparent 50%);
+}
+
+.phone-content {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: space-between;
+}
+
+/* Phone screen text elements */
+.phone-hook {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--white);
+  text-shadow: 0 2px 8px rgba(0,0,0,0.8);
+  line-height: 1.3;
+  padding: 4px 0;
+}
+
+.phone-center {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.phone-title-big {
+  font-family: var(--font-display);
+  font-size: 28px;
+  letter-spacing: 0.04em;
+  color: var(--white);
+  text-shadow: 0 2px 12px rgba(0,0,0,0.8);
+  text-align: center;
+}
+
+.phone-subtitle {
+  font-size: 11px;
+  color: var(--muted);
+  text-align: center;
+  text-shadow: 0 1px 4px rgba(0,0,0,0.8);
+}
+
+.phone-bottom {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.phone-username {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--white);
+  text-shadow: 0 1px 4px rgba(0,0,0,0.6);
+}
+
+.phone-caption {
+  font-size: 10px;
+  color: rgba(255,255,255,0.8);
+  line-height: 1.4;
+  text-shadow: 0 1px 4px rgba(0,0,0,0.6);
+}
+
+.phone-music {
+  font-size: 9px;
+  color: rgba(255,255,255,0.5);
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.phone-sidebar {
+  position: absolute;
+  right: 10px;
+  bottom: 80px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  align-items: center;
+  z-index: 5;
+}
+
+.phone-sidebar-icon {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.12);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  color: var(--white);
+}
+
+.phone-sidebar-count {
+  font-size: 8px;
+  color: var(--white);
+  text-align: center;
+  margin-top: -8px;
+}
+
+/* Phone diamond indicator */
+.phone-diamond {
+  width: 16px;
+  height: 16px;
+  background: var(--mi);
+  clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+  margin: 0 auto;
+}
+
+/* -- Storyboard Card --------------------------------------- */
+.storyboard {
+  display: grid;
+  grid-template-columns: 240px 1fr;
+  gap: 40px;
+  margin: 48px 0;
+  padding: 40px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--r-xl);
+  align-items: start;
+  position: relative;
+  overflow: hidden;
+}
+
+.storyboard::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+}
+
+.storyboard.day-teaser::before { background: linear-gradient(90deg, var(--tiktok), var(--cyan-tt)); }
+.storyboard.day-release::before { background: var(--mi); }
+.storyboard.day-transition::before { background: var(--cyan-tt); }
+.storyboard.day-trackid::before { background: var(--gold); }
+.storyboard.day-tracklist::before { background: var(--mi); }
+.storyboard.day-bts::before { background: var(--violet); }
+.storyboard.day-journey::before { background: var(--blue); }
+.storyboard.day-venue::before { background: var(--mi); }
+
+.story-details {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.story-header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.story-day-badge {
+  width: 56px;
+  height: 56px;
+  border-radius: var(--r-lg);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.story-day-badge .day-label {
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  opacity: 0.7;
+}
+
+.story-day-badge .day-num {
+  font-family: var(--font-display);
+  font-size: 24px;
+  letter-spacing: 0.04em;
+  line-height: 1;
+}
+
+.storyboard.day-teaser .story-day-badge { background: var(--tiktok-dim); color: var(--tiktok); }
+.storyboard.day-release .story-day-badge { background: var(--mi-dim); color: var(--mi); }
+.storyboard.day-transition .story-day-badge { background: var(--cyan-tt-dim); color: var(--cyan-tt); }
+.storyboard.day-trackid .story-day-badge { background: var(--gold-dim); color: var(--gold); }
+.storyboard.day-tracklist .story-day-badge { background: var(--mi-dim); color: var(--mi); }
+.storyboard.day-bts .story-day-badge { background: var(--violet-dim); color: var(--violet); }
+.storyboard.day-journey .story-day-badge { background: var(--blue-dim); color: var(--blue); }
+.storyboard.day-venue .story-day-badge { background: var(--mi-dim); color: var(--mi); }
+
+.story-title-group h3 {
+  font-family: var(--font-display);
+  font-size: 28px;
+  letter-spacing: 0.04em;
+  color: var(--white);
+}
+
+.story-title-group .story-type {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-top: 2px;
+}
+
+/* Script block */
+.script-block {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--r-lg);
+  overflow: hidden;
+}
+
+.script-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 16px;
+  background: var(--subtle);
+  border-bottom: 1px solid var(--border);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.script-body {
+  padding: 16px;
+}
+
+.script-line {
+  display: grid;
+  grid-template-columns: 56px 1fr;
+  gap: 12px;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--border);
+  align-items: start;
+}
+
+.script-line:last-child {
+  border-bottom: none;
+}
+
+.script-time {
+  font-family: var(--font-display);
+  font-size: 16px;
+  color: var(--mi);
+  letter-spacing: 0.04em;
+  padding-top: 2px;
+}
+
+.script-action {
+  font-size: 13px;
+  color: var(--white);
+  line-height: 1.6;
+}
+
+.script-action .visual {
+  color: var(--cyan-tt);
+  font-weight: 500;
+}
+
+.script-action .audio {
+  color: var(--mi);
+  font-weight: 500;
+}
+
+.script-action .text-overlay {
+  color: var(--gold);
+  font-weight: 500;
+}
+
+.script-action .tip {
+  display: block;
+  font-size: 12px;
+  color: var(--muted);
+  margin-top: 4px;
+  font-style: italic;
+}
+
+/* Caption template */
+.caption-block {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--r-lg);
+  overflow: hidden;
+}
+
+.caption-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 16px;
+  background: var(--subtle);
+  border-bottom: 1px solid var(--border);
+}
+
+.caption-header-title {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.caption-header-platform {
+  font-size: 10px;
+  font-weight: 600;
+  padding: 3px 10px;
+  border-radius: var(--r-pill);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.caption-header-platform.tiktok {
+  background: var(--tiktok-dim);
+  color: var(--tiktok);
+}
+
+.caption-header-platform.instagram {
+  background: linear-gradient(135deg, rgba(131,58,180,0.15), rgba(253,29,29,0.15));
+  color: #e1306c;
+}
+
+.caption-body {
+  padding: 16px;
+  font-size: 13px;
+  color: var(--white);
+  line-height: 1.7;
+  white-space: pre-wrap;
+}
+
+.caption-body em {
+  color: var(--mi);
+  font-style: normal;
+  font-weight: 500;
+}
+
+.caption-body .hashtags {
+  color: var(--cyan-tt);
+  font-size: 12px;
+}
+
+/* -- Specs & Meta ------------------------------------------ */
+.spec-row {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin: 16px 0;
+}
+
+.spec-pill {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 5px 14px;
+  border-radius: var(--r-pill);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.spec-pill.duration { background: var(--mi-dim); color: var(--mi); }
+.spec-pill.format { background: var(--cyan-tt-dim); color: var(--cyan-tt); }
+.spec-pill.goal { background: var(--gold-dim); color: var(--gold); }
+.spec-pill.camera { background: var(--violet-dim); color: var(--violet); }
+
+/* -- Info Cards -------------------------------------------- */
+.info-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 20px;
+  margin: 32px 0;
+}
+
+.info-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--r-lg);
+  padding: 28px;
+  transition: border-color 0.3s var(--ease);
+}
+
+.info-card:hover {
+  border-color: var(--border-active);
+}
+
+.info-card-title {
+  font-family: var(--font-display);
+  font-size: 20px;
+  letter-spacing: 0.04em;
+  color: var(--tiktok);
+  margin-bottom: 10px;
+}
+
+.info-card p {
+  font-size: 13px;
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+/* -- Callout ----------------------------------------------- */
+.callout {
+  background: var(--mi-dim);
+  border-left: 3px solid var(--mi);
+  border-radius: 0 var(--r-md) var(--r-md) 0;
+  padding: 20px 24px;
+  margin: 24px 0;
+}
+
+.callout-title {
+  font-weight: 600;
+  color: var(--mi);
+  font-size: 14px;
+  margin-bottom: 6px;
+}
+
+.callout p {
+  font-size: 14px;
+  color: var(--white);
+  line-height: 1.7;
+}
+
+.callout.tiktok {
+  background: var(--tiktok-dim);
+  border-left-color: var(--tiktok);
+}
+
+.callout.tiktok .callout-title { color: var(--tiktok); }
+
+.callout.gold {
+  background: var(--gold-dim);
+  border-left-color: var(--gold);
+}
+
+.callout.gold .callout-title { color: var(--gold); }
+
+.callout.blue {
+  background: var(--blue-dim);
+  border-left-color: var(--blue);
+}
+
+.callout.blue .callout-title { color: var(--blue); }
+
+.callout.violet {
+  background: var(--violet-dim);
+  border-left-color: var(--violet);
+}
+
+.callout.violet .callout-title { color: var(--violet); }
+
+/* -- Tables ------------------------------------------------ */
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 24px 0;
+  font-size: 14px;
+}
+
+.data-table th {
+  text-align: left;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--border);
+}
+
+.data-table td {
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--border);
+  color: var(--white);
+}
+
+.data-table tr:last-child td { border-bottom: none; }
+.data-table .highlight { color: var(--mi); font-weight: 600; }
+
+/* -- Genre Tabs -------------------------------------------- */
+.genre-tabs {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+
+.genre-tab {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 6px 16px;
+  border-radius: var(--r-pill);
+  border: 1px solid var(--border);
+  cursor: default;
+}
+
+.genre-tab.techhouse { background: var(--mi-dim); color: var(--mi); border-color: var(--mi); }
+.genre-tab.house { background: var(--blue-dim); color: var(--blue); border-color: transparent; }
+.genre-tab.deep { background: var(--violet-dim); color: var(--violet); border-color: transparent; }
+
+/* -- Divider ----------------------------------------------- */
+.divider {
+  height: 1px;
+  background: var(--border);
+  margin: 48px 0;
+}
+
+/* -- Hashtag Cloud ----------------------------------------- */
+.hashtag-cloud {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 16px 0;
+}
+
+.hashtag {
+  font-size: 12px;
+  font-weight: 500;
+  padding: 4px 12px;
+  border-radius: var(--r-pill);
+  background: var(--subtle);
+  color: var(--cyan-tt);
+}
+
+.hashtag.primary {
+  background: var(--tiktok-dim);
+  color: var(--tiktok);
+  font-weight: 600;
+}
+
+.hashtag.brand {
+  background: var(--mi-dim);
+  color: var(--mi);
+  font-weight: 600;
+}
+
+/* -- Checklist --------------------------------------------- */
+.quick-checklist {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 12px;
+  margin: 24px 0;
+}
+
+.quick-checklist li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 16px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--r-md);
+  font-size: 13px;
+}
+
+.quick-checklist .check-icon {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: 2px solid var(--border-active);
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 10px;
+  color: transparent;
+}
+
+/* -- Footer ------------------------------------------------ */
+.footer {
+  text-align: center;
+  padding: 60px 24px;
+  border-top: 1px solid var(--border);
+}
+
+.footer p {
+  font-size: 13px;
+  color: var(--muted);
+}
+
+.footer .brand {
+  font-family: var(--font-display);
+  font-size: 16px;
+  letter-spacing: 0.04em;
+  color: var(--mi);
+}
+
+/* -- Responsive -------------------------------------------- */
+@media (max-width: 768px) {
+  .hero { padding: 56px 16px 40px; }
+  .section { padding: 48px 0; }
+  .storyboard {
+    grid-template-columns: 1fr;
+    padding: 24px;
+  }
+  .storyboard .phone-frame {
+    margin: 0 auto;
+  }
+  .nav-links { display: none; }
+  .script-line { grid-template-columns: 48px 1fr; }
+}
+</style>
+</head>
+<body>
+
+<!-- Navigation -->
+<nav class="nav">
+  <div class="nav-inner">
+    <div class="nav-brand">
+      <span class="mi">MILØ</span>
+      <span class="sep">/</span>
+      <span class="tt">TIKTOK</span>
+    </div>
+    <ul class="nav-links">
+      <li><a href="#strategy">Strategy</a></li>
+      <li><a href="#cycle">7-Day Cycle</a></li>
+      <li><a href="#scripts">Scripts</a></li>
+      <li><a href="#hashtags">Hashtags</a></li>
+      <li><a href="#reels">Instagram</a></li>
+      <li><a href="#remotion">Remotion</a></li>
+      <li><a href="#filming">Filming</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- Hero -->
+<header class="hero">
+  <div class="hero-label">Promotion Playbook</div>
+  <h1 class="hero-title"><span class="tiktok">TIKTOK</span> <span class="cyan">PROMOTION</span></h1>
+  <p class="hero-sub">From SoundCloud mix to TikTok views to bookings. Clip-by-clip scripts, storyboards, and caption templates. Repeatable system for every release.</p>
+</header>
+
+<div class="container">
+
+  <!-- ============================================================ -->
+  <!-- STRATEGY -->
+  <!-- ============================================================ -->
+  <section class="section" id="strategy">
+    <div class="section-label">The System</div>
+    <h2 class="section-title">EVERY MIX = 7 CLIPS</h2>
+    <div class="section-intro">
+      Every SoundCloud mix release gets a 7-day promotion cycle on TikTok. 7 clips that each highlight a different aspect of the set. Film everything during the recording session and at live gigs — that is the most authentic content.
+    </div>
+
+    <div class="info-grid">
+      <div class="info-card">
+        <div class="info-card-title">WHY 7 DAYS?</div>
+        <p>TikTok's algorithm rewards consistent posting. 7 clips in 7 days gives the algorithm enough data to push you. After day 3-4, TikTok knows who wants to see your content.</p>
+      </div>
+      <div class="info-card">
+        <div class="info-card-title">FILM AT GIGS + SESSIONS</div>
+        <p>Phone on a tripod behind or beside the controller. Film the whole session. Cut the best moments later. GetFunky sets, home sessions, soundchecks — all usable material.</p>
+      </div>
+      <div class="info-card">
+        <div class="info-card-title">ALWAYS LINK TO SET</div>
+        <p>Every clip is an ad for the full set on SoundCloud. "link in bio" or "full set on soundcloud" in every caption. Never a clip without a redirect.</p>
+      </div>
+      <div class="info-card">
+        <div class="info-card-title">EDIT WITH REMOTION</div>
+        <p>React-based video templates. Define each clip as a reusable component with Milø's exact design tokens (cyan, Bebas Neue, sine wave, diamond). Same data, new genre = new clip. Export at 1080x1920 (9:16).</p>
+      </div>
+    </div>
+
+    <div class="callout tiktok">
+      <div class="callout-title">Golden Rule: Hook in 1 Second</div>
+      <p>TikTok users scroll past your video in 0.3 seconds. Your first frame must be action: hands on the mixer, a bass drop, text on screen. <strong>Never</strong> start with "hey guys" or a still image. The music IS the hook. Keep it minimal — one word, one vibe, one moment.</p>
+    </div>
+  </section>
+
+  <!-- ============================================================ -->
+  <!-- 7-DAY CYCLE WITH STORYBOARDS -->
+  <!-- ============================================================ -->
+  <section class="section" id="cycle">
+    <div class="section-label">The Clips</div>
+    <h2 class="section-title">7-DAY PROMOTION CYCLE</h2>
+    <div class="section-intro">
+      Below is each clip type with a visual storyboard, second-by-second script, caption template, and technical specs. Use this as the exact playbook.
+    </div>
+
+    <!-- ===================== DAY -1: TEASER ===================== -->
+    <div class="storyboard day-teaser">
+      <div class="phone-frame">
+        <div class="phone-notch"></div>
+        <div class="phone-screen">
+          <div class="phone-bg teaser"></div>
+          <div class="phone-content">
+            <div class="phone-hook" style="color: var(--tiktok);">tomorrow.</div>
+            <div class="phone-center">
+              <div class="phone-title-big" style="font-size: 22px;">MILØ</div>
+              <div style="font-family: var(--font-display); font-size: 14px; color: var(--mi); letter-spacing: 0.08em; text-shadow: 0 2px 8px rgba(0,0,0,0.8);">DEEP IN THE GROOVE VOL. 3</div>
+              <div class="sine-wave">
+                <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+              </div>
+              <div style="font-size: 10px; color: var(--muted); font-style: italic; text-shadow: 0 1px 4px rgba(0,0,0,0.8);">Next Wave</div>
+            </div>
+            <div class="phone-bottom">
+              <div class="phone-username">@milodj__</div>
+              <div class="phone-caption">tomorrow.</div>
+            </div>
+          </div>
+          <div class="phone-sidebar">
+            <div class="phone-sidebar-icon">+</div>
+            <div class="phone-sidebar-icon">&#9825;</div>
+            <div class="phone-sidebar-count">--</div>
+            <div class="phone-sidebar-icon">&#128172;</div>
+            <div class="phone-sidebar-icon">&#10148;</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="story-details">
+        <div class="story-header">
+          <div class="story-day-badge">
+            <span class="day-label">Day</span>
+            <span class="day-num">-1</span>
+          </div>
+          <div class="story-title-group">
+            <h3>TEASER</h3>
+            <div class="story-type">Build hype for tomorrow's drop</div>
+          </div>
+        </div>
+
+        <div class="spec-row">
+          <span class="spec-pill duration">10-15 sec</span>
+          <span class="spec-pill format">9:16 vertical</span>
+          <span class="spec-pill goal">Curiosity</span>
+          <span class="spec-pill camera">Static / cover art</span>
+        </div>
+
+        <div class="script-block">
+          <div class="script-header">Second-by-second script</div>
+          <div class="script-body">
+            <div class="script-line">
+              <div class="script-time">0:00</div>
+              <div class="script-action">
+                <span class="text-overlay">Text on screen:</span> "tomorrow."
+                <span class="tip">Single word, lowercase, center of screen. Fade-in or glitch effect. Diamond wipe.</span>
+              </div>
+            </div>
+            <div class="script-line">
+              <div class="script-time">0:02</div>
+              <div class="script-action">
+                <span class="visual">Cover art</span> of the new mix appears with a subtle zoom-in. Diamond shape clip-path reveal.
+                <span class="audio">Audio:</span> 3-sec snippet of the deepest bassline from the set, low volume, building.
+              </div>
+            </div>
+            <div class="script-line">
+              <div class="script-time">0:06</div>
+              <div class="script-action">
+                <span class="text-overlay">Text:</span> "new mix. [genre]." + date
+                <span class="tip">Genre tags as pill-shapes, matching the cover art style.</span>
+              </div>
+            </div>
+            <div class="script-line">
+              <div class="script-time">0:10</div>
+              <div class="script-action">
+                <span class="visual">Cut to black.</span> Sine wave animation with "MILØ" text.
+                <span class="text-overlay">Text:</span> "tomorrow on soundcloud."
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="caption-block">
+          <div class="caption-header">
+            <span class="caption-header-title">Caption</span>
+            <span class="caption-header-platform tiktok">TikTok</span>
+          </div>
+          <div class="caption-body">tomorrow.
+
+new tech house mix dropping.
+
+<span class="hashtags">#techhouse #house #deep #newmix #comingsoon #djlife #deepinthegroove</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===================== DAY 0: MIX DROP ===================== -->
+    <div class="storyboard day-release">
+      <div class="phone-frame">
+        <div class="phone-notch"></div>
+        <div class="phone-screen">
+          <div class="phone-bg mixing"></div>
+          <div class="phone-content">
+            <div class="phone-hook">new mix. link in bio.</div>
+            <div class="phone-center">
+              <div style="font-size: 10px; color: var(--muted); text-shadow: 0 1px 4px rgba(0,0,0,0.8); letter-spacing: 0.1em; text-transform: uppercase;">behind the decks</div>
+              <div style="width: 100%; height: 1px; background: rgba(255,255,255,0.1); margin: 8px 0;"></div>
+              <div style="font-size: 11px; color: rgba(255,255,255,0.6); text-align: center; text-shadow: 0 1px 4px rgba(0,0,0,0.8);">close-up mixer<br>hands on the groove</div>
+              <div style="width: 100%; height: 1px; background: rgba(255,255,255,0.1); margin: 8px 0;"></div>
+              <div class="sine-wave">
+                <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+              </div>
+            </div>
+            <div class="phone-bottom">
+              <div class="phone-username">@milodj__</div>
+              <div class="phone-caption">new mix. link in bio.</div>
+            </div>
+          </div>
+          <div class="phone-sidebar">
+            <div class="phone-sidebar-icon">+</div>
+            <div class="phone-sidebar-icon">&#9825;</div>
+            <div class="phone-sidebar-count">1.4K</div>
+            <div class="phone-sidebar-icon">&#128172;</div>
+            <div class="phone-sidebar-icon">&#10148;</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="story-details">
+        <div class="story-header">
+          <div class="story-day-badge">
+            <span class="day-label">Day</span>
+            <span class="day-num">0</span>
+          </div>
+          <div class="story-title-group">
+            <h3>MIX DROP</h3>
+            <div class="story-type">The best drop from the set — this is the main clip</div>
+          </div>
+        </div>
+
+        <div class="spec-row">
+          <span class="spec-pill duration">15-30 sec</span>
+          <span class="spec-pill format">9:16 vertical</span>
+          <span class="spec-pill goal">Streams driven</span>
+          <span class="spec-pill camera">Behind the decks</span>
+        </div>
+
+        <div class="script-block">
+          <div class="script-header">Remotion template — auto-rendered by video-editor agent</div>
+          <div class="script-body">
+            <div class="script-line">
+              <div class="script-time">0:00</div>
+              <div class="script-action">
+                <span class="visual">Hook:</span> Minimal text slams in (SlamIn 1.3x). One word in cyan. Genre pills wipe in after 1s.
+                <span class="tip">Camera: SlowZoomDrift 1.0 to 1.04. No static images.</span>
+              </div>
+            </div>
+            <div class="script-line">
+              <div class="script-time">0:03</div>
+              <div class="script-action">
+                <span class="audio">Build-up</span> of the track. Cyan vignette builds tension. SlowZoomDrift 1.0 to 1.06.
+                <span class="visual">Clean footage</span> — no overlays, music dominates. Dark, moody, close-up on mixer.
+              </div>
+            </div>
+            <div class="script-line">
+              <div class="script-time">0:06</div>
+              <div class="script-action">
+                <span class="audio">Pre-drop:</span> Shake grows from 0 to 4px, brightness dips, vignette intensifies.
+                <span class="tip">Visual tension builds with the audio. Something is about to happen.</span>
+              </div>
+            </div>
+            <div class="script-line">
+              <div class="script-time">0:08</div>
+              <div class="script-action">
+                <span class="audio">THE DROP.</span> BassFlash 50% + diamond burst particles + double flash.
+                <span class="visual">MILØ + series name</span> slams in as a block (180px). 4 seconds on screen, fade out.
+                <span class="tip">Everything fires at once. PostDropDecay: aftershock shake + scale settle.</span>
+              </div>
+            </div>
+            <div class="script-line">
+              <div class="script-time">0:10</div>
+              <div class="script-action">
+                <span class="visual">Groove section:</span> SlowPan (drift right), cooler color grade. Music dominates.
+                <span class="text-overlay">Booking CTA (from 12s):</span> "BOOK MILØ" + "next wave" + cyan button.
+                <span class="tip">DeckHits at 16-20s: 5 zoom punches (1.12x) + flash per hit on deck action.</span>
+              </div>
+            </div>
+            <div class="script-line">
+              <div class="script-time">0:20</div>
+              <div class="script-action">
+                <span class="visual">End card:</span> Cover art 680px with Ken Burns zoom + series title + booking CTA.
+                <span class="tip">Audio runs through to the end. No silence.</span>
+              </div>
+            </div>
+          </div>
+          <div class="callout" style="margin-top: 12px; border-left: 3px solid var(--mi); padding: 8px 12px; font-size: 12px;">
+            <strong>Rendering:</strong> The video-editor agent renders this automatically via Remotion with audio analysis for drop timing. Template: <code>video/templates/tiktok/release-clip/</code>
+          </div>
+        </div>
+
+        <div class="caption-block">
+          <div class="caption-header">
+            <span class="caption-header-title">Caption — Tech House example</span>
+            <span class="caption-header-platform tiktok">TikTok</span>
+          </div>
+          <div class="caption-body">new mix. link in bio.
+
+deep in the groove vol. 3. tech house.
+franky rizardo, max dean, josh baker and more.
+
+<span class="hashtags">#techhouse #house #djmix #djset #deepinthegroove #nextwave #djlife</span></div>
+        </div>
+
+        <div class="caption-block" style="margin-top: 12px;">
+          <div class="caption-header">
+            <span class="caption-header-title">Caption — House example</span>
+            <span class="caption-header-platform tiktok">TikTok</span>
+          </div>
+          <div class="caption-body">new mix. link in bio.
+
+house edition. rolling basslines, infectious grooves.
+40 minutes of pure house.
+
+<span class="hashtags">#house #deephouse #housemix #djmix #deepinthegroove #nextwave #djlife</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===================== DAY 1: TRANSITION ===================== -->
+    <div class="storyboard day-transition">
+      <div class="phone-frame">
+        <div class="phone-notch"></div>
+        <div class="phone-screen">
+          <div class="phone-bg mixing"></div>
+          <div class="phone-content">
+            <div class="phone-hook" style="color: var(--cyan-tt);">clean.</div>
+            <div class="phone-center">
+              <div style="font-size: 10px; color: var(--muted); text-shadow: 0 1px 4px rgba(0,0,0,0.8); letter-spacing: 0.1em; text-transform: uppercase;">close-up hands on mixer</div>
+              <div style="width: 60px; height: 60px; clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%); background: var(--mi); display: flex; align-items: center; justify-content: center; margin: 12px 0; opacity: 0.8;">
+                <div style="font-size: 20px; clip-path: none;">&#127911;</div>
+              </div>
+              <div style="font-size: 11px; color: rgba(255,255,255,0.5); text-align: center; text-shadow: 0 1px 4px rgba(0,0,0,0.8);">track A &#8594; track B<br>seamless</div>
+            </div>
+            <div class="phone-bottom">
+              <div class="phone-username">@milodj__</div>
+              <div class="phone-caption">clean.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="story-details">
+        <div class="story-header">
+          <div class="story-day-badge">
+            <span class="day-label">Day</span>
+            <span class="day-num">1</span>
+          </div>
+          <div class="story-title-group">
+            <h3>TRANSITION SHOWCASE</h3>
+            <div class="story-type">Show your DJ skill — smoothest blend from the set</div>
+          </div>
+        </div>
+
+        <div class="spec-row">
+          <span class="spec-pill duration">15-20 sec</span>
+          <span class="spec-pill format">9:16 vertical</span>
+          <span class="spec-pill goal">Skill showcase</span>
+          <span class="spec-pill camera">Close-up hands</span>
+        </div>
+
+        <div class="script-block">
+          <div class="script-header">Second-by-second script</div>
+          <div class="script-body">
+            <div class="script-line">
+              <div class="script-time">0:00</div>
+              <div class="script-action">
+                <span class="text-overlay">Text:</span> "clean." — single word, lowercase, no emoji.
+                <span class="visual">Close-up:</span> Hands on the mixer, end of track A playing. Dark moody lighting, cyan glow on mixer.
+                <span class="tip">The minimal text creates intrigue. Viewer wants to see if it really is clean.</span>
+              </div>
+            </div>
+            <div class="script-line">
+              <div class="script-time">0:04</div>
+              <div class="script-action">
+                <span class="audio">Track A fades out,</span> track B starts coming in. The transition begins.
+                <span class="visual">Extreme close-up</span> of the crossfader or EQ knobs.
+              </div>
+            </div>
+            <div class="script-line">
+              <div class="script-time">0:08</div>
+              <div class="script-action">
+                <span class="audio">Seamless blend</span> — tracks blend perfectly. Rolling bassline continues.
+                <span class="visual">Slow pull-back</span> to wider shot. Milo stays focused, head nodding subtly.
+                <span class="tip">The reveal that it was indeed clean. Satisfying moment.</span>
+              </div>
+            </div>
+            <div class="script-line">
+              <div class="script-time">0:14</div>
+              <div class="script-action">
+                <span class="text-overlay">Text:</span> "full set on soundcloud"
+                <span class="visual">Let it play out</span> or cut to cover art with sine wave overlay.
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="caption-block">
+          <div class="caption-header">
+            <span class="caption-header-title">Caption</span>
+            <span class="caption-header-platform tiktok">TikTok</span>
+          </div>
+          <div class="caption-body">clean.
+
+from my new <em>[genre]</em> mix. full set on soundcloud. link in bio.
+
+<span class="hashtags">#techhouse #djtransition #djskills #deepinthegroove #house #mixing #clean</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===================== DAY 2: TRACK ID ===================== -->
+    <div class="storyboard day-trackid">
+      <div class="phone-frame">
+        <div class="phone-notch"></div>
+        <div class="phone-screen">
+          <div class="phone-bg tracklist"></div>
+          <div class="phone-content">
+            <div class="phone-hook" style="color: var(--gold);">this track. every time.</div>
+            <div class="phone-center">
+              <div class="phone-diamond" style="width: 24px; height: 24px; margin-bottom: 8px;"></div>
+              <div style="font-family: var(--font-display); font-size: 14px; color: var(--gold); letter-spacing: 0.08em; text-shadow: 0 2px 8px rgba(0,0,0,0.8);">TRACK ID</div>
+              <div style="font-size: 10px; color: rgba(255,255,255,0.5); text-align: center; text-shadow: 0 1px 4px rgba(0,0,0,0.8); margin-top: 8px;">the one that gets everyone moving<br>every single time.</div>
+            </div>
+            <div class="phone-bottom">
+              <div class="phone-username">@milodj__</div>
+              <div class="phone-caption">this track. every time.</div>
+            </div>
+          </div>
+          <div class="phone-sidebar">
+            <div class="phone-sidebar-icon">+</div>
+            <div class="phone-sidebar-icon">&#9825;</div>
+            <div class="phone-sidebar-count">947</div>
+            <div class="phone-sidebar-icon">&#128172;</div>
+            <div class="phone-sidebar-count" style="margin-top: -8px; color: var(--gold);">284</div>
+            <div class="phone-sidebar-icon">&#10148;</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="story-details">
+        <div class="story-header">
+          <div class="story-day-badge">
+            <span class="day-label">Day</span>
+            <span class="day-num">2</span>
+          </div>
+          <div class="story-title-group">
+            <h3>TRACK REVEAL</h3>
+            <div class="story-type">Engagement driver — identify the track, spark comments</div>
+          </div>
+        </div>
+
+        <div class="spec-row">
+          <span class="spec-pill duration">10-15 sec</span>
+          <span class="spec-pill format">9:16 vertical</span>
+          <span class="spec-pill goal">Comments driven</span>
+          <span class="spec-pill camera">Behind the decks</span>
+        </div>
+
+        <div class="script-block">
+          <div class="script-header">Second-by-second script</div>
+          <div class="script-body">
+            <div class="script-line">
+              <div class="script-time">0:00</div>
+              <div class="script-action">
+                <span class="text-overlay">Text:</span> "this track. every time."
+                <span class="visual">Behind the decks.</span> The track plays, energy building. Dark room, cyan lighting on hands.
+                <span class="tip">Pick a track that is recognizable and gets people moving. The kind everyone shazams.</span>
+              </div>
+            </div>
+            <div class="script-line">
+              <div class="script-time">0:05</div>
+              <div class="script-action">
+                <span class="audio">The track builds, groove intensifies.</span>
+                Hands working the mixer, adjusting EQ, dialing in the low end.
+                <span class="visual">Close-up on the decks.</span>
+              </div>
+            </div>
+            <div class="script-line">
+              <div class="script-time">0:08</div>
+              <div class="script-action">
+                <span class="visual">Text overlay reveals the track ID:</span>
+                <span class="text-overlay">"[Artist] - [Track Name]"</span>
+                <span class="tip">The reveal is the payoff. Clean text, no clutter. Let the music speak.</span>
+              </div>
+            </div>
+            <div class="script-line">
+              <div class="script-time">0:12</div>
+              <div class="script-action">
+                <span class="text-overlay">Text:</span> "more tracks like this in my new mix. link in bio."
+                <span class="visual">Diamond transition</span> to cover art.
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="caption-block">
+          <div class="caption-header">
+            <span class="caption-header-title">Caption</span>
+            <span class="caption-header-platform tiktok">TikTok</span>
+          </div>
+          <div class="caption-body">this track. every time.
+
+<em>[artist]</em> - <em>[track name]</em>
+
+more in my new <em>[genre]</em> mix. link in bio.
+
+<span class="hashtags">#techhouse #trackid #house #djlife #deepinthegroove #<em>[artist]</em></span></div>
+        </div>
+
+        <div class="callout gold">
+          <div class="callout-title">Engagement Tip</div>
+          <p>Reply to every comment in the first hour. TikTok's algorithm counts replies as engagement. Drop follow-up track IDs in comments to keep the thread going. "if you like this one, wait for the next track in the mix" drives streams.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===================== DAY 3: TRACKLIST ===================== -->
+    <div class="storyboard day-tracklist">
+      <div class="phone-frame">
+        <div class="phone-notch"></div>
+        <div class="phone-screen">
+          <div class="phone-bg tracklist"></div>
+          <div class="phone-content">
+            <div class="phone-hook">tracklist.</div>
+            <div class="phone-center" style="gap: 4px; align-items: flex-start; padding: 0 8px;">
+              <div style="font-size: 9px; color: var(--mi); text-transform: uppercase; letter-spacing: 0.1em; text-shadow: 0 1px 4px rgba(0,0,0,0.8); margin-bottom: 4px;">Deep in the Groove Vol. 3</div>
+              <div style="font-size: 9px; color: rgba(255,255,255,0.7); text-shadow: 0 1px 4px rgba(0,0,0,0.8); line-height: 1.6;">
+                01. Franky Rizardo - Flow<br>
+                02. Max Dean - Pressure<br>
+                03. Josh Baker - Night Ride<br>
+                04. Dennis Cruz - Feeling<br>
+                05. Anotr - ...<br>
+                <span style="color: var(--muted);">... scrolls ...</span>
+              </div>
+            </div>
+            <div class="phone-bottom">
+              <div class="phone-username">@milodj__</div>
+              <div class="phone-caption">every track from this mix.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="story-details">
+        <div class="story-header">
+          <div class="story-day-badge">
+            <span class="day-label">Day</span>
+            <span class="day-num">3</span>
+          </div>
+          <div class="story-title-group">
+            <h3>TRACKLIST REVEAL</h3>
+            <div class="story-type">Scroll through all tracks — save-worthy content</div>
+          </div>
+        </div>
+
+        <div class="spec-row">
+          <span class="spec-pill duration">20-30 sec</span>
+          <span class="spec-pill format">9:16 vertical</span>
+          <span class="spec-pill goal">Saves & shares</span>
+          <span class="spec-pill camera">Screen recording / overlay</span>
+        </div>
+
+        <div class="script-block">
+          <div class="script-header">Second-by-second script</div>
+          <div class="script-body">
+            <div class="script-line">
+              <div class="script-time">0:00</div>
+              <div class="script-action">
+                <span class="text-overlay">Text at top:</span> "every track from my new [genre] mix."
+                <span class="audio">Deep groove instrumental or snippet from the set</span>
+                <span class="visual">Dark background.</span> Cover art with diamond frame at top.
+              </div>
+            </div>
+            <div class="script-line">
+              <div class="script-time">0:03</div>
+              <div class="script-action">
+                <span class="visual">Tracklist scrolls slowly upward.</span> Each track appears as a line:
+                <span class="tip">01. [Artist] - [Track]. Milø style: cyan numbering, white text. Remotion scroll-animation component.</span>
+              </div>
+            </div>
+            <div class="script-line">
+              <div class="script-time">0:15</div>
+              <div class="script-action">
+                <span class="visual">Halfway through:</span> brief <span class="audio">audio switch</span> to a different fragment from the set. Keeps attention.
+              </div>
+            </div>
+            <div class="script-line">
+              <div class="script-time">0:25</div>
+              <div class="script-action">
+                <span class="visual">Last track appears.</span>
+                <span class="text-overlay">Text:</span> "save this for your next session."
+                <span class="tip">The CTA "save" triggers the TikTok algorithm — saves weigh more than likes.</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="caption-block">
+          <div class="caption-header">
+            <span class="caption-header-title">Caption</span>
+            <span class="caption-header-platform tiktok">TikTok</span>
+          </div>
+          <div class="caption-body">every track from my new <em>[genre]</em> mix.
+
+save this. full mix on soundcloud. link in bio.
+
+tag someone who needs these tracks.
+
+<span class="hashtags">#techhouse #tracklist #house #deepinthegroove #djmix #<em>[artist1]</em> #<em>[artist2]</em></span></div>
+        </div>
+
+        <div class="callout">
+          <div class="callout-title">Pro Tip: Tag the artists</div>
+          <p>Tag 3-5 artists from your tracklist in the caption. If one of them reacts or likes the clip, your reach explodes. Even if they don't respond — their fans search those tags.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===================== DAY 4: BTS / SOUNDCHECK ===================== -->
+    <div class="storyboard day-bts">
+      <div class="phone-frame">
+        <div class="phone-notch"></div>
+        <div class="phone-screen">
+          <div class="phone-bg bts"></div>
+          <div class="phone-content">
+            <div class="phone-hook" style="color: var(--violet);">soundcheck at getfunky.</div>
+            <div class="phone-center">
+              <div style="font-size: 10px; color: var(--muted); text-shadow: 0 1px 4px rgba(0,0,0,0.8); letter-spacing: 0.1em; text-transform: uppercase;">behind the scenes</div>
+              <div style="display: flex; gap: 8px; margin: 12px 0;">
+                <div style="width: 36px; height: 36px; clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%); background: rgba(255,255,255,0.06); display: flex; align-items: center; justify-content: center; font-size: 14px;">&#127925;</div>
+                <div style="width: 36px; height: 36px; clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%); background: rgba(255,255,255,0.06); display: flex; align-items: center; justify-content: center; font-size: 14px;">&#10148;</div>
+                <div style="width: 36px; height: 36px; clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%); background: rgba(255,255,255,0.06); display: flex; align-items: center; justify-content: center; font-size: 14px;">&#127911;</div>
+                <div style="width: 36px; height: 36px; clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%); background: rgba(255,255,255,0.06); display: flex; align-items: center; justify-content: center; font-size: 14px;">&#128293;</div>
+              </div>
+              <div style="font-size: 10px; color: rgba(255,255,255,0.5); text-align: center; text-shadow: 0 1px 4px rgba(0,0,0,0.8);">setting up &#8594; soundcheck<br>&#8594; doors open &#8594; showtime</div>
+            </div>
+            <div class="phone-bottom">
+              <div class="phone-username">@milodj__</div>
+              <div class="phone-caption">soundcheck at getfunky. the hague.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="story-details">
+        <div class="story-header">
+          <div class="story-day-badge">
+            <span class="day-label">Day</span>
+            <span class="day-num">4</span>
+          </div>
+          <div class="story-title-group">
+            <h3>SOUNDCHECK / BTS</h3>
+            <div class="story-type">Behind the scenes at the venue — authentic and raw</div>
+          </div>
+        </div>
+
+        <div class="spec-row">
+          <span class="spec-pill duration">30-60 sec</span>
+          <span class="spec-pill format">9:16 vertical</span>
+          <span class="spec-pill goal">Connection</span>
+          <span class="spec-pill camera">POV / selfie cam</span>
+        </div>
+
+        <div class="script-block">
+          <div class="script-header">Second-by-second script</div>
+          <div class="script-body">
+            <div class="script-line">
+              <div class="script-time">0:00</div>
+              <div class="script-action">
+                <span class="text-overlay">Text:</span> "soundcheck at [venue]."
+                <span class="visual">Shot of the venue:</span> empty dancefloor, gear being set up, dim lights.
+                <span class="audio">Ambient venue noise or a low instrumental loop.</span>
+              </div>
+            </div>
+            <div class="script-line">
+              <div class="script-time">0:05</div>
+              <div class="script-action">
+                <span class="visual">Setting up:</span> Plugging in, adjusting monitors, checking levels.
+                <span class="text-overlay">Text:</span> "setting up."
+                <span class="visual">Close-up details:</span> cables, mixer knobs, CDJ screens.
+              </div>
+            </div>
+            <div class="script-line">
+              <div class="script-time">0:12</div>
+              <div class="script-action">
+                <span class="visual">Soundcheck:</span> First track plays through the venue speakers.
+                <span class="text-overlay">Text:</span> "testing the system."
+                <span class="visual">Wide shot</span> of empty venue with sound filling the space.
+              </div>
+            </div>
+            <div class="script-line">
+              <div class="script-time">0:20</div>
+              <div class="script-action">
+                <span class="visual">Quick cuts:</span> Doors open, first people arriving, lights change.
+                <span class="audio">Audio switch:</span> Fragment from the actual set that night.
+              </div>
+            </div>
+            <div class="script-line">
+              <div class="script-time">0:30</div>
+              <div class="script-action">
+                <span class="visual">Behind the decks during the set.</span> Crowd vibing.
+                <span class="text-overlay">Text:</span> "friday nights at getfunky."
+                <span class="tip">End on a high — the payoff of all the setup work.</span>
+              </div>
+            </div>
+            <div class="script-line">
+              <div class="script-time">0:40</div>
+              <div class="script-action">
+                <span class="audio">Audio continues.</span>
+                <span class="text-overlay">Text:</span> "full set on soundcloud. link in bio."
+                <span class="visual">Diamond wipe to cover art.</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="caption-block">
+          <div class="caption-header">
+            <span class="caption-header-title">Caption</span>
+            <span class="caption-header-platform tiktok">TikTok</span>
+          </div>
+          <div class="caption-body">soundcheck at getfunky. the hague.
+
+from empty room to packed floor. friday nights.
+
+full set on soundcloud. link in bio.
+
+<span class="hashtags">#getfunky #behindthedecks #djlife #techhouse #thehague #soundcheck #deepinthegroove</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===================== DAY 5: DEEP IN THE GROOVE ===================== -->
+    <div class="storyboard day-venue">
+      <div class="phone-frame">
+        <div class="phone-notch"></div>
+        <div class="phone-screen">
+          <div class="phone-bg venue"></div>
+          <div class="phone-content">
+            <div class="phone-hook" style="color: var(--mi);">deep in the groove.</div>
+            <div class="phone-center">
+              <div style="font-size: 10px; color: var(--muted); text-shadow: 0 1px 4px rgba(0,0,0,0.8); letter-spacing: 0.1em; text-transform: uppercase;">live set clip</div>
+              <div style="width: 100%; height: 1px; background: rgba(255,255,255,0.1); margin: 12px 0;"></div>
+              <div class="sine-wave">
+                <span style="background: var(--mi);"></span>
+                <span style="background: var(--mi);"></span>
+                <span style="background: var(--mi);"></span>
+                <span style="background: var(--mi);"></span>
+                <span style="background: var(--mi);"></span>
+                <span style="background: var(--mi);"></span>
+                <span style="background: var(--mi);"></span>
+                <span style="background: var(--mi);"></span>
+                <span style="background: var(--mi);"></span>
+                <span style="background: var(--mi);"></span>
+                <span style="background: var(--mi);"></span>
+              </div>
+              <div style="font-size: 10px; color: rgba(255,255,255,0.5); text-align: center; text-shadow: 0 1px 4px rgba(0,0,0,0.8); margin-top: 8px;">"that moment when<br>the whole room locks in"</div>
+            </div>
+            <div class="phone-bottom">
+              <div class="phone-username">@milodj__</div>
+              <div class="phone-caption">deep in the groove. getfunky, the hague.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="story-details">
+        <div class="story-header">
+          <div class="story-day-badge">
+            <span class="day-label">Day</span>
+            <span class="day-num">5</span>
+          </div>
+          <div class="story-title-group">
+            <h3>SET CLIP</h3>
+            <div class="story-type">The best moment from the live set — pure groove</div>
+          </div>
+        </div>
+
+        <div class="spec-row">
+          <span class="spec-pill duration">15-25 sec</span>
+          <span class="spec-pill format">9:16 vertical</span>
+          <span class="spec-pill goal">Vibe & connection</span>
+          <span class="spec-pill camera">Behind the decks / crowd POV</span>
+        </div>
+
+        <div class="script-block">
+          <div class="script-header">Second-by-second script</div>
+          <div class="script-body">
+            <div class="script-line">
+              <div class="script-time">0:00</div>
+              <div class="script-action">
+                <span class="text-overlay">Text:</span> "deep in the groove."
+                <span class="visual">Behind the decks</span> — play the best moment from the set. Dark venue, strobes, crowd moving.
+                <span class="tip">Pick a peak-energy moment: a rolling bassline, a crowd reaction, a perfect blend. This is about the vibe, not the technique.</span>
+              </div>
+            </div>
+            <div class="script-line">
+              <div class="script-time">0:03</div>
+              <div class="script-action">
+                <span class="audio">The moment plays.</span> Let it run for 10-15 seconds uninterrupted.
+                <span class="visual">Milo in the zone.</span> Head nodding, focused, one with the groove.
+                <span class="tip">This is NOT about skill — it is about the feeling. Show that you are immersed in the music.</span>
+              </div>
+            </div>
+            <div class="script-line">
+              <div class="script-time">0:15</div>
+              <div class="script-action">
+                <span class="text-overlay">Text overlay with venue:</span> "[venue], [city]."
+                <span class="tip">Location tag builds local following and venue credibility.</span>
+              </div>
+            </div>
+            <div class="script-line">
+              <div class="script-time">0:20</div>
+              <div class="script-action">
+                <span class="text-overlay">Text:</span> "full set on soundcloud."
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="caption-block">
+          <div class="caption-header">
+            <span class="caption-header-title">Caption</span>
+            <span class="caption-header-platform tiktok">TikTok</span>
+          </div>
+          <div class="caption-body">deep in the groove. getfunky, the hague.
+
+full set on soundcloud. link in bio.
+
+<span class="hashtags">#deepinthegroove #techhouse #getfunky #thehague #djlife #house #livedjset</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===================== DAY 6: THE JOURNEY ===================== -->
+    <div class="storyboard day-journey">
+      <div class="phone-frame">
+        <div class="phone-notch"></div>
+        <div class="phone-screen">
+          <div class="phone-bg journey"></div>
+          <div class="phone-content">
+            <div class="phone-hook" style="color: var(--blue);">16 and already on the decks.</div>
+            <div class="phone-center">
+              <div style="font-size: 10px; color: var(--muted); text-shadow: 0 1px 4px rgba(0,0,0,0.8); letter-spacing: 0.1em; text-transform: uppercase;">the journey</div>
+              <div style="width: 100%; height: 1px; background: rgba(255,255,255,0.1); margin: 8px 0;"></div>
+              <div style="display: flex; flex-direction: column; gap: 4px; width: 100%;">
+                <div style="display: flex; align-items: center; gap: 8px;">
+                  <div style="width: 8px; height: 8px; clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%); background: var(--blue); flex-shrink: 0;"></div>
+                  <div style="font-size: 9px; color: rgba(255,255,255,0.6); text-shadow: 0 1px 4px rgba(0,0,0,0.8);">bedroom sessions</div>
+                </div>
+                <div style="display: flex; align-items: center; gap: 8px;">
+                  <div style="width: 8px; height: 8px; clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%); background: var(--mi); flex-shrink: 0;"></div>
+                  <div style="font-size: 9px; color: rgba(255,255,255,0.6); text-shadow: 0 1px 4px rgba(0,0,0,0.8);">first gig at getfunky</div>
+                </div>
+                <div style="display: flex; align-items: center; gap: 8px;">
+                  <div style="width: 8px; height: 8px; clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%); background: var(--mi-light); flex-shrink: 0;"></div>
+                  <div style="font-size: 9px; color: rgba(255,255,255,0.6); text-shadow: 0 1px 4px rgba(0,0,0,0.8);">next: ade?</div>
+                </div>
+              </div>
+            </div>
+            <div class="phone-bottom">
+              <div class="phone-username">@milodj__</div>
+              <div class="phone-caption">16 and already on the decks at getfunky.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="story-details">
+        <div class="story-header">
+          <div class="story-day-badge">
+            <span class="day-label">Day</span>
+            <span class="day-num">6</span>
+          </div>
+          <div class="story-title-group">
+            <h3>THE JOURNEY</h3>
+            <div class="story-type">Personal story — age reveal, growth, aspirational</div>
+          </div>
+        </div>
+
+        <div class="spec-row">
+          <span class="spec-pill duration">30-45 sec</span>
+          <span class="spec-pill format">9:16 vertical</span>
+          <span class="spec-pill goal">Personal connection</span>
+          <span class="spec-pill camera">Mixed (BTS + set footage)</span>
+        </div>
+
+        <div class="script-block">
+          <div class="script-header">Second-by-second script</div>
+          <div class="script-body">
+            <div class="script-line">
+              <div class="script-time">0:00</div>
+              <div class="script-action">
+                <span class="text-overlay">Text:</span> "16 and already on the decks at [venue]."
+                <span class="visual">Quick montage:</span> bedroom practice, controller at home, headphones on.
+                <span class="audio">Lo-fi beat or deep house instrumental underneath.</span>
+                <span class="tip">The age reveal hook is powerful. Most viewers won't expect it. Use it sparingly — it is your differentiator.</span>
+              </div>
+            </div>
+            <div class="script-line">
+              <div class="script-time">0:06</div>
+              <div class="script-action">
+                <span class="visual">Transition to venue footage:</span> setting up at GetFunky, soundcheck, dark room.
+                <span class="text-overlay">Text:</span> "from bedroom to [venue]."
+              </div>
+            </div>
+            <div class="script-line">
+              <div class="script-time">0:14</div>
+              <div class="script-action">
+                <span class="visual">Live set footage:</span> crowd, lights, behind the decks during a peak moment.
+                <span class="audio">Audio switches to a drop from the set.</span>
+                <span class="tip">The contrast between bedroom and venue is the story. Keep the energy building.</span>
+              </div>
+            </div>
+            <div class="script-line">
+              <div class="script-time">0:24</div>
+              <div class="script-action">
+                <span class="text-overlay">Text:</span> "next: ade?"
+                <span class="visual">Shot of ADE logo, festival crowd, or Amsterdam skyline.</span>
+                <span class="tip">The aspirational ending makes it shareable. People root for the underdog.</span>
+              </div>
+            </div>
+            <div class="script-line">
+              <div class="script-time">0:30</div>
+              <div class="script-action">
+                <span class="text-overlay">Text:</span> "see you at ade."
+                <span class="visual">Diamond wipe to Milø logo.</span>
+                <span class="audio">Audio fades.</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="caption-block">
+          <div class="caption-header">
+            <span class="caption-header-title">Caption</span>
+            <span class="caption-header-platform tiktok">TikTok</span>
+          </div>
+          <div class="caption-body">16 and already on the decks at getfunky.
+
+from bedroom sessions to real gigs. the journey continues.
+next stop: ade.
+
+<span class="hashtags">#nextwave #ade #djlife #youngdj #techhouse #getfunky #behindthedecks #deepinthegroove</span></div>
+        </div>
+
+        <div class="callout blue">
+          <div class="callout-title">The Age Reveal Hook</div>
+          <p>Milø's age is a genuine differentiator. "16 and already on the decks at [venue]" consistently drives high engagement because it breaks expectations. Use this hook once per month maximum — keep it powerful, never overuse it. Pair it with impressive footage to back up the claim.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================ -->
+  <!-- HASHTAG STRATEGY -->
+  <!-- ============================================================ -->
+  <section class="section" id="hashtags">
+    <div class="section-label">Discoverability</div>
+    <h2 class="section-title">HASHTAG STRATEGY</h2>
+    <div class="section-intro">
+      TikTok hashtags work differently than Instagram. Use 5-10 targeted tags, not 30 broad ones. Mix niche (small reach, high relevance) and broad (large reach, more competition). English-first for Milø's international audience.
+    </div>
+
+    <h3 style="font-family: var(--font-display); font-size: 22px; letter-spacing: 0.04em; margin-bottom: 12px; color: var(--mi);">ALWAYS USE (EVERY CLIP)</h3>
+    <div class="hashtag-cloud">
+      <span class="hashtag brand">#deepinthegroove</span>
+      <span class="hashtag brand">#nextwave</span>
+      <span class="hashtag">#djmix</span>
+      <span class="hashtag">#djset</span>
+      <span class="hashtag">#djlife</span>
+    </div>
+
+    <div class="divider" style="margin: 24px 0;"></div>
+
+    <h3 style="font-family: var(--font-display); font-size: 22px; letter-spacing: 0.04em; margin-bottom: 12px; color: var(--mi);">TECH HOUSE CLIPS</h3>
+    <div class="hashtag-cloud">
+      <span class="hashtag primary">#techhouse</span>
+      <span class="hashtag primary">#techhousemix</span>
+      <span class="hashtag">#groovy</span>
+      <span class="hashtag">#bassline</span>
+      <span class="hashtag">#frankyrizardo</span>
+      <span class="hashtag">#maxdean</span>
+      <span class="hashtag">#joshbaker</span>
+      <span class="hashtag">#techhousevibes</span>
+    </div>
+
+    <h3 style="font-family: var(--font-display); font-size: 22px; letter-spacing: 0.04em; margin: 24px 0 12px; color: var(--blue);">HOUSE CLIPS</h3>
+    <div class="hashtag-cloud">
+      <span class="hashtag primary">#house</span>
+      <span class="hashtag primary">#housemix</span>
+      <span class="hashtag">#deephouse</span>
+      <span class="hashtag">#housemusic</span>
+      <span class="hashtag">#groove</span>
+      <span class="hashtag">#undergroundhouse</span>
+      <span class="hashtag">#housevibes</span>
+      <span class="hashtag">#warehouse</span>
+    </div>
+
+    <h3 style="font-family: var(--font-display); font-size: 22px; letter-spacing: 0.04em; margin: 24px 0 12px; color: var(--violet);">DEEP CLIPS</h3>
+    <div class="hashtag-cloud">
+      <span class="hashtag primary">#deep</span>
+      <span class="hashtag primary">#deepinthegroove</span>
+      <span class="hashtag">#deepvibes</span>
+      <span class="hashtag">#hypnotic</span>
+      <span class="hashtag">#latenight</span>
+      <span class="hashtag">#underground</span>
+      <span class="hashtag">#darkroom</span>
+      <span class="hashtag">#afterhours</span>
+    </div>
+
+    <div class="divider" style="margin: 24px 0;"></div>
+
+    <h3 style="font-family: var(--font-display); font-size: 22px; letter-spacing: 0.04em; margin-bottom: 12px; color: var(--gold);">ENGAGEMENT TRIGGERS (ROTATE PER CLIP)</h3>
+    <div class="hashtag-cloud">
+      <span class="hashtag">#djtransition</span>
+      <span class="hashtag">#clean</span>
+      <span class="hashtag">#trackid</span>
+      <span class="hashtag">#djskills</span>
+      <span class="hashtag">#behindthedecks</span>
+      <span class="hashtag">#getfunky</span>
+      <span class="hashtag">#ade</span>
+      <span class="hashtag">#soundcheck</span>
+    </div>
+
+    <div class="callout tiktok">
+      <div class="callout-title">TikTok vs Instagram Hashtag Rules</div>
+      <p><strong>TikTok:</strong> 5-10 hashtags. Less is more. TikTok reads your video content (audio, text, visuals) to categorize — hashtags are an aid, not the only method.<br><br>
+      <strong>Instagram:</strong> 20-30 hashtags. More is more. Instagram leans heavier on hashtags for discovery. Add broader tags (#dj, #music, #netherlands, #nightlife) alongside the niche tags.</p>
+    </div>
+  </section>
+
+  <!-- ============================================================ -->
+  <!-- INSTAGRAM REELS CROSS-POSTING -->
+  <!-- ============================================================ -->
+  <section class="section" id="reels">
+    <div class="section-label">Cross-Platform</div>
+    <h2 class="section-title">INSTAGRAM REELS</h2>
+    <div class="section-intro">
+      Every TikTok clip can go 1-to-1 to Instagram Reels. But the caption needs adjusting. Here are the rules and an example.
+    </div>
+
+    <table class="data-table">
+      <thead>
+        <tr>
+          <th>Aspect</th>
+          <th>TikTok</th>
+          <th>Instagram Reels</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="highlight">Hashtags</td>
+          <td>5-10</td>
+          <td>20-30</td>
+        </tr>
+        <tr>
+          <td class="highlight">Caption length</td>
+          <td>Short (1-2 sentences)</td>
+          <td>Longer (3-5 sentences + context)</td>
+        </tr>
+        <tr>
+          <td class="highlight">Watermark</td>
+          <td>N/A</td>
+          <td>Remove TikTok watermark (SnapTik) or post to IG first</td>
+        </tr>
+        <tr>
+          <td class="highlight">Optimal length</td>
+          <td>15-60 sec</td>
+          <td>15-30 sec (shorter performs better)</td>
+        </tr>
+        <tr>
+          <td class="highlight">Post time</td>
+          <td>20:00-00:00</td>
+          <td>18:00-22:00</td>
+        </tr>
+        <tr>
+          <td class="highlight">CTA</td>
+          <td>"link in bio"</td>
+          <td>"link in bio" + "save for later"</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="caption-block" style="margin-top: 24px;">
+      <div class="caption-header">
+        <span class="caption-header-title">Instagram Reels Caption Example (Mix Drop)</span>
+        <span class="caption-header-platform instagram">Instagram</span>
+      </div>
+      <div class="caption-body">new <em>[genre]</em> mix is live.
+
+<em>[1-2 sentences about the vibe and which artists are in it]</em>
+
+40 minutes of <em>[genre]</em>, mixed by Milø. groovy tech house with depth. rolling basslines and infectious grooves.
+
+full set via link in bio.
+save this for your next session.
+
+<span class="hashtags">#techhouse #house #deep #deepinthegroove #nextwave #djmix #djset #housemusic #groove #dj #music #nightlife #thehague #getfunky #underground #djlife #livedjset #mixing #bassline #picyourbooth</span></div>
+    </div>
+  </section>
+
+  <!-- ============================================================ -->
+  <!-- REMOTION SETUP -->
+  <!-- ============================================================ -->
+  <section class="section" id="remotion">
+    <div class="section-label">Video Tooling</div>
+    <h2 class="section-title">REMOTION WORKFLOW</h2>
+    <div class="section-intro">
+      We use Remotion instead of CapCut. Remotion is a React framework for programmatic videos. That means: make a template once, use it for every release with different data. Consistent, scalable, on-brand.
+    </div>
+
+    <div class="info-grid">
+      <div class="info-card">
+        <div class="info-card-title">WHY REMOTION?</div>
+        <p><strong>Reusable templates:</strong> Make a "Mix Drop" component once with Milø's design tokens (cyan, Bebas Neue, sine wave, diamond). Next time: same template, different genre and tracks. No manual editing.</p>
+      </div>
+      <div class="info-card">
+        <div class="info-card-title">BRAND CONSISTENCY</div>
+        <p>Every clip uses the exact same colors, fonts, and animations as the cover art and website. No "close enough" — pixel-perfect Milø, every time.</p>
+      </div>
+      <div class="info-card">
+        <div class="info-card-title">TIKTOK TEMPLATE</div>
+        <p>Remotion has a dedicated TikTok starter: <code>npx create-video@latest --tiktok</code>. 9:16 format, word-by-word captions via Whisper.cpp, and Tailwind CSS support out of the box.</p>
+      </div>
+      <div class="info-card">
+        <div class="info-card-title">RENDER & EXPORT</div>
+        <p>Render via CLI (<code>npx remotion render</code>), in the browser (Remotion Studio), or server-side. Exports directly to MP4. No watermarks, full control over quality.</p>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <h3 style="font-family: var(--font-display); font-size: 22px; letter-spacing: 0.04em; margin-bottom: 16px; color: var(--mi);">CLIP TEMPLATES AS REACT COMPONENTS</h3>
+    <div class="section-intro" style="margin-bottom: 24px;">
+      Each clip type becomes a reusable React component. Change the props (genre, tracklist, colors) and you have a new clip. Here are the 7 templates you need:
+    </div>
+
+    <table class="data-table">
+      <thead>
+        <tr>
+          <th>Component</th>
+          <th>Props</th>
+          <th>Animations</th>
+          <th>Duration</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="highlight">&lt;TeaserClip /&gt;</td>
+          <td>genre, seriesName, coverArt, audioSnippet</td>
+          <td>Fade-in text, cover art zoom, sine wave pulse, diamond reveal</td>
+          <td>10-15s (300-450 frames)</td>
+        </tr>
+        <tr>
+          <td class="highlight">&lt;MixDropClip /&gt;</td>
+          <td>genre, seriesName, videoFile, dropTimestamp</td>
+          <td>Text overlay, speed ramp on drop, diamond burst, fade-to-cover</td>
+          <td>15-30s (450-900 frames)</td>
+        </tr>
+        <tr>
+          <td class="highlight">&lt;TransitionClip /&gt;</td>
+          <td>genre, videoFile, hookText</td>
+          <td>Text hook animation, pull-back reveal, sine wave overlay</td>
+          <td>15-20s (450-600 frames)</td>
+        </tr>
+        <tr>
+          <td class="highlight">&lt;TrackRevealClip /&gt;</td>
+          <td>genre, videoFile, trackArtist, trackName</td>
+          <td>Text build, track ID reveal, diamond transition</td>
+          <td>10-15s (300-450 frames)</td>
+        </tr>
+        <tr>
+          <td class="highlight">&lt;TracklistClip /&gt;</td>
+          <td>genre, seriesName, tracks[], accentColor</td>
+          <td>Scroll-up tracklist, cyan numbering, staggered appear</td>
+          <td>20-30s (600-900 frames)</td>
+        </tr>
+        <tr>
+          <td class="highlight">&lt;BTSClip /&gt;</td>
+          <td>genre, videoFile, venue, steps[]</td>
+          <td>Step-by-step text overlays, audio switches, diamond wipes</td>
+          <td>30-60s (900-1800 frames)</td>
+        </tr>
+        <tr>
+          <td class="highlight">&lt;JourneyClip /&gt;</td>
+          <td>videoFiles[], milestones[], aspirationalTarget</td>
+          <td>Montage cuts, diamond timeline, aspirational end card</td>
+          <td>30-45s (900-1350 frames)</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="callout">
+      <div class="callout-title">Design Tokens in Remotion</div>
+      <p>Use Milø's design tokens as CSS variables or a shared config in your Remotion project:<br><br>
+      <code>--mi: #34d399</code> (cyan/Tech House), <code>--blue: #38bdf8</code> (House), <code>--violet: #8b5cf6</code> (Deep)<br>
+      <code>font-family: 'Bebas Neue'</code> (titles), <code>'Space Grotesk'</code> (body)<br><br>
+      The accent color is determined by the <code>genre</code> prop. Same component works for all three series. Diamond shapes replace hexagons, sine waves replace EQ bars.</p>
+    </div>
+
+    <div class="callout gold">
+      <div class="callout-title">Behind-the-Decks Footage + Remotion Overlay</div>
+      <p>The workflow is hybrid: film the behind-the-decks footage with your phone (raw video), import into Remotion as <code>&lt;OffthreadVideo /&gt;</code>, and add the branded text overlays, sine waves, and cover art programmatically. This combines authentic footage with pixel-perfect branding.</p>
+    </div>
+  </section>
+
+  <!-- ============================================================ -->
+  <!-- FILMING GUIDE -->
+  <!-- ============================================================ -->
+  <section class="section" id="filming">
+    <div class="section-label">Production</div>
+    <h2 class="section-title">FILMING SETUP</h2>
+    <div class="section-intro">
+      You don't need more than a phone and a tripod. Here is exactly how to film during sets and sessions so you have enough material for all 7 clips.
+    </div>
+
+    <div class="info-grid">
+      <div class="info-card">
+        <div class="info-card-title">CAMERA SETUP</div>
+        <p><strong>Position 1 (main):</strong> Phone on tripod, behind or beside you. Aimed at your hands + controller. This is your "behind the decks" angle — 80% of your clips come from here. Dark, moody, close.</p>
+      </div>
+      <div class="info-card">
+        <div class="info-card-title">SECOND ANGLE (OPTIONAL)</div>
+        <p><strong>Position 2:</strong> Second phone or GoPro on the table, low angle looking up. Gives variety in your edits. Not required for the first mixes, but makes the content stronger.</p>
+      </div>
+      <div class="info-card">
+        <div class="info-card-title">LIGHTING</div>
+        <p>Dark room + 1 light source (LED strip, cyan/blue gel or smart bulb). It should feel like a nightclub, not an office. The controller can glow, you stay in shadow. Cyan/blue tints only — never warm light.</p>
+      </div>
+      <div class="info-card">
+        <div class="info-card-title">AUDIO</div>
+        <p>Film with phone audio (the controller/speakers give enough sound). In the edit: replace audio with the WAV/FLAC of the set for optimal quality. Sync on the drop.</p>
+      </div>
+    </div>
+
+    <div class="callout">
+      <div class="callout-title">Minimal Setup Checklist</div>
+      <p>
+        &#9744; Phone (iPhone 13+ or similar)<br>
+        &#9744; Phone tripod or gorillapod<br>
+        &#9744; Dark room / dark venue<br>
+        &#9744; 1 light source (cyan/blue tint)<br>
+        &#9744; Controller + laptop + speakers<br>
+        &#9744; Remotion project set up (<code>npx create-video@latest --tiktok</code>)<br>
+        &#9744; SoundCloud + TikTok apps logged in
+      </p>
+    </div>
+
+    <div class="divider"></div>
+
+    <h3 style="font-family: var(--font-display); font-size: 22px; letter-spacing: 0.04em; margin-bottom: 16px; color: var(--mi);">POST TIMING</h3>
+
+    <div class="section-intro" style="margin-bottom: 16px;">
+      Posting 3-5x per week. Peak times for the house/electronic music audience are later in the evening — 20:00-00:00 on TikTok. The 7-day cycle can be spread across 2 weeks if needed.
+    </div>
+
+    <table class="data-table">
+      <thead>
+        <tr>
+          <th>Day</th>
+          <th>Clip</th>
+          <th>Post Time</th>
+          <th>Why</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="highlight">D-1 (Thu)</td>
+          <td>Teaser</td>
+          <td>20:00-22:00</td>
+          <td>Evening, pre-weekend energy building</td>
+        </tr>
+        <tr>
+          <td class="highlight">D0 (Fri)</td>
+          <td>Mix Drop</td>
+          <td>20:00</td>
+          <td>Synced with SoundCloud release, Friday night energy</td>
+        </tr>
+        <tr>
+          <td class="highlight">D1 (Sat)</td>
+          <td>Transition</td>
+          <td>22:00-00:00</td>
+          <td>Late night, electronic music audience is active</td>
+        </tr>
+        <tr>
+          <td class="highlight">D2 (Sun)</td>
+          <td>Track Reveal</td>
+          <td>16:00-18:00</td>
+          <td>Afternoon wind-down, discovery mode</td>
+        </tr>
+        <tr>
+          <td class="highlight">D3 (Mon)</td>
+          <td>Tracklist</td>
+          <td>20:00-22:00</td>
+          <td>Monday evening, saves for weekend playlists</td>
+        </tr>
+        <tr>
+          <td class="highlight">D4 (Tue)</td>
+          <td>Soundcheck / BTS</td>
+          <td>20:00-22:00</td>
+          <td>Quiet evening, longer content works</td>
+        </tr>
+        <tr>
+          <td class="highlight">D5 (Wed)</td>
+          <td>Set Clip</td>
+          <td>21:00-23:00</td>
+          <td>Mid-week groove, builds anticipation for weekend</td>
+        </tr>
+        <tr>
+          <td class="highlight">Bonus</td>
+          <td>The Journey</td>
+          <td>20:00-22:00</td>
+          <td>1x/month max. Personal story content.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="callout gold">
+      <div class="callout-title">GetFunky Content Gold</div>
+      <p>Every GetFunky gig is a content goldmine. Film BTS (soundcheck, setup, crowd), set clips, transitions, and venue atmosphere. One gig = multiple weeks of content. Always film the venue name/logo for location tagging.</p>
+    </div>
+  </section>
+
+  <!-- ============================================================ -->
+  <!-- SUMMARY -->
+  <!-- ============================================================ -->
+  <section class="section">
+    <div class="section-label">TL;DR</div>
+    <h2 class="section-title">QUICK REFERENCE</h2>
+
+    <div class="info-grid" style="grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));">
+      <div class="info-card" style="border-top: 3px solid var(--tiktok);">
+        <div class="info-card-title" style="color: var(--tiktok);">D-1</div>
+        <p><strong>Teaser</strong><br>10-15s. Cover art + audio snippet. "tomorrow."</p>
+      </div>
+      <div class="info-card" style="border-top: 3px solid var(--mi);">
+        <div class="info-card-title" style="color: var(--mi);">D0</div>
+        <p><strong>Mix Drop</strong><br>25s Remotion template. Hook, drop, booking CTA. Video-editor agent renders.</p>
+      </div>
+      <div class="info-card" style="border-top: 3px solid var(--cyan-tt);">
+        <div class="info-card-title" style="color: var(--cyan-tt);">D1</div>
+        <p><strong>Transition</strong><br>15-20s. DJ skill showcase. "clean."</p>
+      </div>
+      <div class="info-card" style="border-top: 3px solid var(--gold);">
+        <div class="info-card-title" style="color: var(--gold);">D2</div>
+        <p><strong>Track Reveal</strong><br>10-15s. "this track. every time." + track ID.</p>
+      </div>
+      <div class="info-card" style="border-top: 3px solid var(--mi);">
+        <div class="info-card-title" style="color: var(--mi);">D3</div>
+        <p><strong>Tracklist</strong><br>20-30s. Scroll through tracks. Save trigger.</p>
+      </div>
+      <div class="info-card" style="border-top: 3px solid var(--violet);">
+        <div class="info-card-title" style="color: var(--violet);">D4</div>
+        <p><strong>Soundcheck / BTS</strong><br>30-60s. "soundcheck at [venue]." Raw and authentic.</p>
+      </div>
+      <div class="info-card" style="border-top: 3px solid var(--mi);">
+        <div class="info-card-title" style="color: var(--mi);">D5</div>
+        <p><strong>Set Clip</strong><br>15-25s. "deep in the groove." Pure vibe.</p>
+      </div>
+      <div class="info-card" style="border-top: 3px solid var(--blue);">
+        <div class="info-card-title" style="color: var(--blue);">Bonus</div>
+        <p><strong>The Journey</strong><br>30-45s. "16 and already on the decks." 1x/month.</p>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<!-- Footer -->
+<footer class="footer">
+  <p class="brand">MILØ / TIKTOK</p>
+  <p style="margin-top: 8px;">Internal promotion playbook — Do not share outside the team</p>
+  <p style="margin-top: 4px;">PicYourBooth &middot; Last updated: March 2026</p>
+  <p style="margin-top: 8px; font-size: 12px; color: var(--muted);">See also: <code>dj-milo-soundcloud-strategie.html</code> for SoundCloud optimization, cover art and upload specs</p>
+</footer>
+
+</body>
+</html>

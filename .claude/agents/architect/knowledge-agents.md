@@ -78,7 +78,7 @@ Read `.claude/agents/<name>/_index.md` before executing any task.
 | Product Specialist | Product Knowledge | Deep (7 knowledge files) | product, specs, equipment, package, upgrade, pricing |
 | Designer | Website & Visual Design | Deep (8 knowledge files) | design, UI, landing page, website, CRO, form, components |
 | Social Media | Social & Creative | Deep (7 knowledge files) | social, Instagram, TikTok, DJ profiles, video, content |
-| DJ Promoter | DJ Talent Brands & Growth | Deep (3 knowledge files) | DJ brand, DJ Gianni, DJ Milø, voice tags, mixtape art, photo direction, talent, growth |
+| DJ Promoter | DJ Talent Brands & Growth | Deep (3 knowledge files) | DJ brand, DJ Gianni, Milø, voice tags, mixtape art, photo direction, talent, growth |
 | Ad Specialist | Paid Advertising | Deep (6 knowledge files + 17 skills) | Meta Ads, Google Ads, campaign, audience, ROAS, PMax, RSA |
 | Video Editor | Programmatic Video | Deep (2 knowledge files) | video, Remotion, TikTok, Reels, clip, render, template, 9:16 |
 | SEO | Search & LLM Optimization | Deep (7 knowledge files) | SEO, keywords, meta tags, schema, ranking, search, LLM, local SEO |

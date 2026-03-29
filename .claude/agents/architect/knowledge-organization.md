@@ -24,7 +24,7 @@ docs/
   images/                        All image assets
     pyb/                         PYB brand (logo, heroes, USPs, modals, meta-ads, screenshots)
     dj-gianni/                   DJ Gianni (profile, social, mixtape covers + PROMPTS.md)
-    dj-milo/                     DJ Milo (profile)
+    dj-milo/                     Milø (profile)
     photos-source/               Original photos (by product/category) — INDEX.md has full catalogue + Gemini picks
     web/                         Optimized WebP for website
   pyb/website/                   Website pages & design systems
@@ -74,7 +74,7 @@ video/                           Video production (Remotion) — at project root
 | Source photos | `docs/images/photos-source/` | `magicmirror/`, `partybooth/`, `dj/` — see `INDEX.md` for catalogue + Gemini picks |
 | Output images (PYB) | `docs/images/pyb/` | Generated heroes, USPs, modals, logos, screenshots |
 | Output images (DJ Gianni) | `docs/images/dj-gianni/` | Profile, social, mixtape covers + PROMPTS.md |
-| Output images (DJ Milo) | `docs/images/dj-milo/` | Profile photos |
+| Output images (Milø) | `docs/images/dj-milo/` | Profile photos |
 | KPI reports | `docs/kpi/` | Vizibooth 2025/2026 Excel reports |
 | Funnel campaigns | `docs/funnel/campaigns/` | Campaign specs per month |
 | Creative briefs | `docs/funnel/` | HTML mockups, creative briefs |

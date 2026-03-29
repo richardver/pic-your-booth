@@ -25,10 +25,10 @@ Two DJs with distinct styles. Unique selling point: Spotify playlist optimizatio
 | Attribute | Detail |
 |---|---|
 | Real name | Milo (Richard's son) |
-| DJ name | DJ Milø |
-| Style | House, Techno, Deep |
-| Vibe | Deep, underwater, immersive, late-night |
-| Tagline | "Je voelt de bass, je vergeet de tijd" |
+| DJ name | Milø |
+| Style | Tech House, House, Deep |
+| Vibe | Groove-driven, cool, composed — the music speaks |
+| Tagline | "Deep in the groove" |
 | Color | Cyan #34d399 |
 | Logo mark | Diamond (M) — rotated square |
 | Platforms | TikTok, SoundCloud |

@@ -14,7 +14,7 @@ How PYB's design systems are layered and which inherits from which.
   +-- .claude/agents/ad-specialist/pyb-design-system-meta-ads.html                  <- Layer 2: Meta Ads
       |
       +-- .claude/agents/designer/dj-gianni-brand-guide.html               <- Layer 3: DJ Gianni
-      +-- .claude/agents/designer/dj-milo-brand-guide.html                     <- Layer 3: Milo
+      +-- .claude/agents/designer/dj-milo-brand-guide.html                     <- Layer 3: Milø
 ```
 
 ---
@@ -33,7 +33,7 @@ How PYB's design systems are layered and which inherits from which.
 
 ### Layer 3: Individual Brand Guides
 - **DJ Gianni** — Coral accent (#FF6B35), Bebas Neue + Space Grotesk, hexagon motif, split-energy system
-- **DJ Milø** — Cyan accent, diamond motif, house/techno aesthetic
+- **Milø** — Cyan accent, diamond motif, tech house/house/deep aesthetic
 
 ---
 

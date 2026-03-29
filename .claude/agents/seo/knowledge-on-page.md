@@ -21,7 +21,7 @@ H1: Primair keyword (1x per pagina, nooit meer)
 | Homepage | Photobooth Huren in de Randstad | Ons Aanbod, Waarom PicYourBooth |
 | Magic Mirror | Fotospiegel Huren. Magic Mirror XL | Waarom Magic Mirror XL, Bouw Jouw Perfecte Avond, Veelgestelde Vragen |
 | Party Booth | Photobooth Huren Goedkoop. Party Booth | Geen Gedoe Wel Een Feestje, AI Foto's + Filters, Bouw Jouw Feestpakket |
-| DJs | DJ Huren. DJ Gianni & DJ Milø | DJ Gianni, DJ Milø, Jouw Playlist Onze Set, Boek Je DJ |
+| DJs | DJ Huren. DJ Gianni & Milø | DJ Gianni, Milø, Jouw Playlist Onze Set, Boek Je DJ |
 | Offerte | Photobooth Offerte Aanvragen | (minimale koppen, focus op formulier) |
 
 ## Keyword Plaatsing

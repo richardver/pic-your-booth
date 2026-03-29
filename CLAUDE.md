@@ -6,13 +6,13 @@ Premium photobooth & DJ entertainment brand. Standalone brand under Pic Your Mom
 
 - **Party Booth** - Digital photobooth, vanaf €199
 - **Magic Mirror XL** - Premium DSLR photobooth, vanaf €599
-- **DJs** - DJ Gianni (Afro Beats, Caribbean, Nederlands Hits) & DJ Milø (House, Techno), vanaf €149
+- **DJs** - DJ Gianni (Afro Beats, Caribbean, Nederlands Hits) & Milø (Tech House, House, Deep), vanaf €149
 
 ## Team
 
 - **Richard** - Owner (business, tech, marketing)
 - **Luca** - Photobooth operator & DJ (DJ Gianni)
-- **Milo** - Photobooth operator & DJ (DJ Milø)
+- **Milo** - Photobooth operator & DJ (Milø)
 
 ## Funnel
 
@@ -50,7 +50,7 @@ pic-your-booth/
 │   ├── images/                           - All image assets
 │   │   ├── pyb/                         - PYB brand (logo, heroes, USPs, modals, meta-ads, screenshots)
 │   │   ├── dj-gianni/                   - DJ Gianni (profile, social, mixtape covers + PROMPTS.md)
-│   │   ├── dj-milo/                     - DJ Milo (profile)
+│   │   ├── dj-milo/                     - Milø (profile)
 │   │   ├── photos-source/              - Original photos + INDEX.md (catalogue with Gemini picks)
 │   │   │   ├── magicmirror/           - Magic Mirror XL source photos
 │   │   │   ├── partybooth/            - Party Booth source photos
@@ -89,7 +89,7 @@ pic-your-booth/
 │   │   │   ├── _index.md                - Sub-topic router
 │   │   │   ├── knowledge-party-booth.md - Party Booth specs, upgrades
 │   │   │   ├── knowledge-magic-mirror.md - Magic Mirror XL specs, upgrades
-│   │   │   ├── knowledge-dj-services.md - DJ Gianni, DJ Milø, Spotify, equipment
+│   │   │   ├── knowledge-dj-services.md - DJ Gianni, Milø, Spotify, equipment
 │   │   │   └── knowledge-pricing.md     - All pricing, combos, rules
 │   │   ├── designer.md                    - Website + visual design, CRO, frontend
 │   │   ├── designer/                      - Designer knowledge directory
@@ -101,7 +101,7 @@ pic-your-booth/
 │   │   ├── dj-promoter/                   - DJ Promoter knowledge directory
 │   │   │   ├── _index.md                - Sub-topic router
 │   │   │   ├── knowledge-dj-gianni.md   - DJ Gianni full brand identity, assets
-│   │   │   └── knowledge-dj-milo.md     - DJ Milø full brand identity, assets
+│   │   │   └── knowledge-dj-milo.md     - Milø full brand identity, assets
 │   │   ├── social-media.md                - Social content, posting, video scripts (IG + TikTok + YouTube Shorts)
 │   │   ├── social-media/                  - Social media knowledge directory
 │   │   │   ├── _index.md                - Sub-topic router (DJ knowledge -> dj-promoter)

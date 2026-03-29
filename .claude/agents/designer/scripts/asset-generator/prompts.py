@@ -134,7 +134,7 @@ Photography style:
 - Colored LED wash on faces — not natural skin tones, that's OK for this context
 - Mood: immersive, energetic, "you can feel the bass"
 - DJ Gianni scenes: coral accent lighting, warm Caribbean/tropical energy
-- DJ Milo scenes: mint/cyan accent lighting, minimal underground techno feel
+- Milø scenes: mint/cyan accent lighting, minimal underground tech house feel
 """,
 
     "homepage": """You are creating a wide hero image for PicYourBooth,
@@ -217,7 +217,7 @@ SCENES = {
     "djs": {
         "hero": "DJ behind a Pioneer controller at an intimate venue. Purple and amber stage lighting cuts through fog/haze. The DJ is focused, one hand on the jogwheel, headphones on one ear. Crowd silhouettes in the foreground, some hands raised. Laser beams cutting through the haze above. The energy is immersive — you can almost hear the music. Shot at f/1.4, high ISO, slight grain.",
         "gianni": "DJ Gianni performing at a warm, tropical-themed party. Coral and amber lighting. The DJ is energetic, one fist raised, smiling. Crowd is dancing, some singing along. Decorative palm leaves and warm Edison bulbs in the background. Caribbean/afrobeats energy. Shot at f/2.0 with warm tones.",
-        "milo": "DJ Milo performing a deep house set in a minimal, underground setting. Cool mint/cyan lighting with fog. The DJ is focused and in the zone, headphones on, adjusting levels. Small, intimate crowd moving to the rhythm. Dark concrete walls, minimal decor. The mood is hypnotic. Shot at f/1.4, moody.",
+        "milo": "Milø performing a deep house set in a minimal, underground setting. Cool mint/cyan lighting with fog. The DJ is focused and in the zone, headphones on, adjusting levels. Small, intimate crowd moving to the rhythm. Dark concrete walls, minimal decor. The mood is hypnotic. Shot at f/1.4, moody.",
     },
     "homepage": {
         "hero": "Wide shot of a premium event space with both the Magic Mirror XL photobooth (left side, LED-lit, guests posing) and a DJ setup (right side, purple/amber lighting, crowd dancing) visible. The venue is dark with warm pockets of light. Multiple groups of people — some posing at the photobooth, some dancing, some chatting with drinks. It feels like one cohesive party experience. Shot at f/4.0, wide angle, showing the full scene.",

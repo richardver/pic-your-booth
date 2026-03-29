@@ -34,7 +34,7 @@ Elke productpagina moet een FAQ sectie hebben met schema markup. LLMs citeren FA
 **DJs FAQ:**
 - Wat kost een DJ huren? → Vanaf €149 per avond inclusief speakers, licht en rookmachine.
 - Wat is Spotify playlist-optimalisatie? → Stuur je playlist, onze DJ bouwt er een professionele set van.
-- Welke DJ-stijlen zijn er? → DJ Gianni (Afro Beats, Caribbean, Hits) of DJ Milø (House, Techno).
+- Welke DJ-stijlen zijn er? → DJ Gianni (Afro Beats, Caribbean, Hits) of Milø (Tech House, House, Deep).
 
 ### 2. Entity Clarity
 

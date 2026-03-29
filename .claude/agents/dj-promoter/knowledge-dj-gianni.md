@@ -39,7 +39,7 @@ Complete brand identity for DJ Gianni. Source files in `.claude/agents/dj-promot
 
 ### Genre Accent Colors
 
-DJ Gianni uses warm-palette accents per genre. All accents are in the warm spectrum — never use cool tones (those belong to DJ Milo).
+DJ Gianni uses warm-palette accents per genre. All accents are in the warm spectrum — never use cool tones (those belong to Milø).
 
 | Genre | Accent | Hex | Dim (10%) | Usage |
 |---|---|---|---|---|
@@ -50,7 +50,7 @@ DJ Gianni uses warm-palette accents per genre. All accents are in the warm spect
 **Rules:**
 - Coral remains the default/primary — used when genre is not specified
 - Genre accents only appear on genre-specific content (mixtape covers, SoundCloud tags, TikTok clips)
-- Never use `#34d399` (Milo's cyan), `#00b4d8`, or any cool blue/green for DJ Gianni
+- Never use `#34d399` (Milø's cyan), `#00b4d8`, or any cool blue/green for DJ Gianni
 - EQ-bar and hexagon logo use the genre accent color on genre-specific content
 
 ---

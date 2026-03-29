@@ -1,6 +1,6 @@
 # DJ Growth Strategy
 
-Strategy for growing DJ Gianni and DJ Milø's following on social platforms, starting in the Netherlands.
+Strategy for growing DJ Gianni and Milø's following on social platforms, starting in the Netherlands.
 
 ---
 
@@ -24,7 +24,7 @@ Luca is zelf tiener — zijn leeftijd, muziek (Afro Beats, Caribbean, Nederlands
 
 ## Platform Priority
 
-| Platform | DJ Gianni | DJ Milø | Purpose |
+| Platform | DJ Gianni | Milø | Purpose |
 |---|---|---|---|
 | Instagram | Primary | Primary | Visual brand, event highlights, Reels |
 | TikTok | Primary (sweet 16 doelgroep) | High | Reach, virality, behind-the-scenes |
@@ -42,7 +42,7 @@ Every PYB event = content opportunity. Record sets, film reactions, capture BTS.
 ### 2. Mixtape Strategy
 Regular mixtape releases build audio credibility and give followers a reason to share.
 - DJ Gianni: Afro Beats / Caribbean themed mixtapes (monthly)
-- DJ Milø: Deep House / Techno themed mixes (monthly)
+- Milø: "Deep in the Groove Vol. X" mix series — Tech House / House / Deep (monthly)
 - Publish on SoundCloud, promote clips on Instagram/TikTok
 
 ### 3. Local Scene Presence
@@ -58,7 +58,7 @@ Regular mixtape releases build audio credibility and give followers a reason to 
 
 ## Milestones
 
-| Milestone | DJ Gianni | DJ Milø | Timeframe |
+| Milestone | DJ Gianni | Milø | Timeframe |
 |---|---|---|---|
 | 500 Instagram followers | Target | Target | Q2 2026 |
 | First mixtape release | Target | Target | Q2 2026 |
@@ -71,18 +71,26 @@ Regular mixtape releases build audio credibility and give followers a reason to 
 
 ## Differentiation
 
-| DJ Gianni | DJ Milø |
+| DJ Gianni | Milø |
 |---|---|
-| Warm, high-energy, party vibes | Deep, immersive, underground |
-| Meezingers, Afro Beats, Caribbean | House, Techno, Deep |
-| Crowd interaction, sing-alongs | Hypnotic transitions, bass |
-| **Sweet 16 & verjaardagen (initial focus)** | Older crowd, longer events |
+| Warm, high-energy, party vibes | Groove-driven, cool, composed |
+| Meezingers, Afro Beats, Caribbean | Tech House, House, Deep |
+| Crowd interaction, sing-alongs | Naadloze transities, strategische trackkeuze |
+| **Sweet 16 & verjaardagen (initial focus)** | Electro scene, house heads, students |
 | Coral visual identity | Cyan visual identity |
-| "Elke set een feest" | "Je voelt de bass, je vergeet de tijd" |
+| "Elke set een feest" | "Deep in the groove" |
+| — | Sound references: Franky Rizardo, Max Dean, Josh Baker |
 
 They are complementary, not competing. PYB offers both vibes — pick the energy that fits your event.
 
 **DJ Gianni growth path:** Sweet 16 specialist → verjaardagen breed → party DJ Randstad
+
+**Milø growth milestones:**
+1. GetFunky regular slot
+2. First SoundCloud mix release ("Deep in the Groove Vol. 1")
+3. 500 followers on TikTok/Instagram
+4. First booking outside PYB
+5. ADE appearance (stretch goal)
 
 ## Collaboration with Other Agents
 

@@ -159,7 +159,7 @@ Kopersprofielen met psychografie, pijnpunten, Jobs-to-be-Done en aanbod-match. A
 - Magic Mirror XL (€599) + Live DJ Set (+€149) = €748 — of —
 - Party Booth (€199) + Live DJ Set (+€149) = €348
 - Spotify playlist-optimalisatie — stuur je playlist, krijg een professionele set
-- Twee DJ-stijlen: DJ Gianni (Afro/Caribbean/Hits) of DJ Milø (House/Techno)
+- Twee DJ-stijlen: DJ Gianni (Afro/Caribbean/Hits) of Milø (Tech House/House/Deep)
 - Eén team, één contactpersoon, geen coördinatie-stress
 
 **Waarom dit segment groeit:**

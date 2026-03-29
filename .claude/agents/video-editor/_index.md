@@ -66,11 +66,11 @@ npx remotion render src/index.ts ReleaseClip \
   --props='{"genre":"afro","djName":"DJ GIANNI","serieName":"AFRO BEATS VOL. 2","hookText":"STUUR JE PLAYLIST\nIK MAAK ER DIT VAN","genreTags":["Afro Beats","Amapiano","Afro House"],"videoSrc":"footage/dj-gianni-set-recording.mov","videoStartSec":10.0,"dropTimestamp":540,"coverArtSrc":"covers/afro-mixtape-cover.png","durationSec":25}'
 ```
 
-Render for DJ Milo:
+Render for Milø:
 ```bash
 npx remotion render src/index.ts ReleaseClip \
   ../../output/dj-milo/tiktok/release-clip/house-vol-1/release-clip.mp4 \
-  --props='{"genre":"house","djName":"DJ MILØ","serieName":"HOUSE VOL. 1",...}'
+  --props='{"genre":"house","djName":"MILØ","serieName":"HOUSE VOL. 1",...}'
 ```
 
 ## Audio Analysis (before rendering)

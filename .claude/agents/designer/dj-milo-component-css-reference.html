@@ -1,0 +1,1485 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Milø - Component & CSS Reference</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* ============================================================
+   MILØ - COMPONENT & CSS REFERENCE
+   Diamond shapes, sine waves, cool cyan palette.
+   Same structure as DJ Gianni component library.
+   ============================================================ */
+
+/* -- Design Tokens ----------------------------------------- */
+:root {
+  --void: #050508;
+  --surface: #111116;
+  --card: #111116;
+  --border: rgba(255,255,255,0.06);
+
+  --white: #ededf0;
+  --muted: rgba(237,237,240,0.40);
+  --subtle: rgba(237,237,240,0.10);
+
+  --mi: #34d399;
+  --mi-light: #5ae0f0;
+  --mi-dim: rgba(52,211,153,0.10);
+
+  --mi-house: #38bdf8;
+  --mi-house-dim: rgba(56,189,248,0.10);
+
+  --mi-deep: #8b5cf6;
+  --mi-deep-dim: rgba(139,92,246,0.10);
+
+  --gi: #f0654a;
+  --gi-light: #f4826c;
+  --gi-dim: rgba(240,101,74,0.10);
+
+  --violet: #8b5cf6;
+  --violet-dim: rgba(139,92,246,0.12);
+
+  --font-display: 'Bebas Neue', Impact, sans-serif;
+  --font-body: 'Space Grotesk', system-ui, sans-serif;
+
+  --ease: cubic-bezier(0.16, 1, 0.3, 1);
+
+  --r-sm: 6px;
+  --r-md: 10px;
+  --r-lg: 16px;
+  --r-xl: 24px;
+  --r-pill: 999px;
+}
+
+/* -- Reset ------------------------------------------------- */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html {
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-body);
+  background: var(--void);
+  color: var(--white);
+  font-size: 15px;
+  line-height: 1.7;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+  html { scroll-behavior: auto; }
+}
+
+/* -- Layout ------------------------------------------------ */
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* -- Hero -------------------------------------------------- */
+.hero {
+  text-align: center;
+  padding: 96px 24px 72px;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 50% 80%, rgba(52,211,153,0.08) 0%, transparent 60%);
+  pointer-events: none;
+}
+
+.hero-title {
+  font-family: var(--font-display);
+  font-size: clamp(48px, 8vw, 96px);
+  letter-spacing: 0.04em;
+  line-height: 1;
+  background: linear-gradient(135deg, var(--mi) 0%, var(--mi-house) 50%, var(--mi-deep) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 12px;
+  position: relative;
+}
+
+.hero-subtitle {
+  font-family: var(--font-body);
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: var(--muted);
+  font-weight: 400;
+}
+
+/* -- Sine Wave Decoration ---------------------------------- */
+.sine-wave-deco {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2px;
+  margin-top: 48px;
+  height: 32px;
+  opacity: 0.06;
+}
+
+.sine-wave-deco span {
+  display: block;
+  width: 3px;
+  border-radius: 2px;
+  background: linear-gradient(to top, var(--mi), var(--mi-house));
+  animation: sineWave 2.4s ease-in-out infinite;
+}
+
+@keyframes sineWave {
+  0%, 100% { transform: scaleY(0.2) translateY(0); }
+  25% { transform: scaleY(1) translateY(-4px); }
+  50% { transform: scaleY(0.2) translateY(0); }
+  75% { transform: scaleY(0.8) translateY(2px); }
+}
+
+/* -- Section Dividers -------------------------------------- */
+section {
+  padding: 72px 0;
+  border-top: 1px solid var(--border);
+}
+
+section:first-of-type { border-top: none; }
+
+.section-num {
+  font-family: var(--font-display);
+  font-size: 14px;
+  letter-spacing: 0.15em;
+  color: var(--mi);
+  margin-bottom: 8px;
+  display: block;
+}
+
+h2 {
+  font-family: var(--font-display);
+  font-size: 42px;
+  letter-spacing: 0.06em;
+  color: var(--white);
+  margin-bottom: 8px;
+}
+
+.section-desc {
+  font-size: 14px;
+  color: var(--muted);
+  margin-bottom: 40px;
+  max-width: 640px;
+  line-height: 1.7;
+}
+
+h3 {
+  font-family: var(--font-display);
+  font-size: 22px;
+  letter-spacing: 0.04em;
+  color: var(--white);
+  margin-bottom: 16px;
+}
+
+p, li {
+  font-size: 15px;
+  color: rgba(237,237,240,0.55);
+  line-height: 1.7;
+}
+
+/* -- Component Row ----------------------------------------- */
+.component-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  align-items: center;
+  margin-bottom: 28px;
+}
+
+.component-label {
+  width: 100%;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--muted);
+  margin-bottom: 4px;
+}
+
+/* -- DJ Card ----------------------------------------------- */
+.dj-card-demo {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--r-lg);
+  overflow: hidden;
+  width: 320px;
+  transition: border-color 0.3s;
+}
+
+.dj-card-demo:hover {
+  border-color: rgba(255,255,255,0.12);
+}
+
+.dj-card-photo {
+  height: 120px;
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(135deg, rgba(52,211,153,0.12) 0%, transparent 60%);
+}
+
+.dj-card-body {
+  padding: 24px;
+}
+
+.dj-card-accent {
+  width: 12px;
+  height: 12px;
+  background: var(--mi);
+  clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+  margin-bottom: 14px;
+}
+
+.dj-card-name {
+  font-family: var(--font-display);
+  font-size: 48px;
+  letter-spacing: 0.04em;
+  line-height: 1;
+  color: var(--mi);
+  margin-bottom: 4px;
+}
+
+.dj-card-tagline {
+  font-size: 14px;
+  color: var(--muted);
+  font-style: italic;
+  margin-bottom: 16px;
+}
+
+.dj-card-desc {
+  font-size: 14px;
+  color: rgba(237,237,240,0.55);
+  line-height: 1.7;
+  margin-bottom: 20px;
+}
+
+.dj-card-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* -- Genre Tags -------------------------------------------- */
+.genre-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.genre-tag {
+  padding: 4px 12px;
+  border-radius: var(--r-pill);
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  background: var(--mi-dim);
+  color: var(--mi-light);
+  border: 1px solid rgba(52,211,153,0.15);
+}
+
+.genre-tag.lg {
+  padding: 6px 18px;
+  font-size: 13px;
+}
+
+.genre-tag.sm {
+  padding: 2px 8px;
+  font-size: 9px;
+}
+
+.genre-tag.house {
+  background: var(--mi-house-dim);
+  color: var(--mi-house);
+  border-color: rgba(56,189,248,0.15);
+}
+
+.genre-tag.deep {
+  background: var(--mi-deep-dim);
+  color: var(--mi-deep);
+  border-color: rgba(139,92,246,0.15);
+}
+
+/* -- Sine Wave Bars ---------------------------------------- */
+.sine-bars {
+  position: absolute;
+  bottom: 12px;
+  right: 12px;
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  height: 28px;
+}
+
+.sine-bars span {
+  display: block;
+  width: 4px;
+  border-radius: 2px;
+  background: var(--mi);
+  animation: sineBar 2.0s ease-in-out infinite;
+}
+
+@keyframes sineBar {
+  0%, 100% { height: 6px; transform: translateY(0); }
+  25% { height: 22px; transform: translateY(-4px); }
+  50% { height: 6px; transform: translateY(0); }
+  75% { height: 16px; transform: translateY(2px); }
+}
+
+/* Sine Bars standalone demo */
+.sine-bars-standalone {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  height: 28px;
+}
+
+.sine-bars-standalone span {
+  display: block;
+  width: 4px;
+  border-radius: 2px;
+  background: var(--mi);
+  animation: sineBar 2.0s ease-in-out infinite;
+}
+
+/* -- Socials ----------------------------------------------- */
+.dj-socials {
+  display: flex;
+  gap: 8px;
+}
+
+.dj-social-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: 600;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid var(--border);
+  color: var(--muted);
+  cursor: pointer;
+  transition: all 0.25s;
+  text-decoration: none;
+}
+
+.dj-social-icon:hover {
+  background: var(--mi-dim);
+  border-color: rgba(52,211,153,0.3);
+  color: var(--mi);
+}
+
+/* -- Play Button ------------------------------------------- */
+.dj-play-btn {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: none;
+  background: var(--mi);
+  color: var(--void);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: transform 0.25s var(--ease);
+}
+
+.dj-play-btn:hover {
+  transform: scale(1.06);
+}
+
+.play-icon {
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 8px 0 8px 14px;
+  border-color: transparent transparent transparent var(--void);
+  margin-left: 3px;
+}
+
+/* -- Profile Demo ------------------------------------------ */
+.profile-demo {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--r-lg);
+  padding: 40px;
+  margin-bottom: 32px;
+}
+
+.profile-header {
+  display: flex;
+  gap: 32px;
+  align-items: flex-start;
+}
+
+.profile-avatar {
+  width: 140px;
+  height: 140px;
+  border-radius: var(--r-xl);
+  flex-shrink: 0;
+  background: linear-gradient(135deg, rgba(52,211,153,0.15) 0%, transparent 60%);
+  border: 1px solid rgba(52,211,153,0.15);
+  position: relative;
+  overflow: hidden;
+}
+
+.profile-avatar.diamond-clip {
+  border-radius: 0;
+  clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+  border: none;
+  width: 160px;
+  height: 160px;
+}
+
+.profile-avatar-initials {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-display);
+  font-size: 48px;
+  letter-spacing: 0.04em;
+  opacity: 0.15;
+}
+
+.profile-info { flex: 1; }
+
+.profile-name {
+  font-family: var(--font-display);
+  font-size: clamp(48px, 6vw, 72px);
+  letter-spacing: 0.04em;
+  line-height: 1;
+  color: var(--mi);
+  margin-bottom: 6px;
+}
+
+.profile-tagline {
+  font-size: 16px;
+  color: var(--muted);
+  font-style: italic;
+  margin-bottom: 12px;
+}
+
+.profile-bio {
+  font-size: 14px;
+  color: rgba(237,237,240,0.55);
+  line-height: 1.8;
+  max-width: 480px;
+  margin-bottom: 16px;
+}
+
+/* -- Set List ---------------------------------------------- */
+.set-item {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 14px 0;
+  border-bottom: 1px solid var(--border);
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.set-item:last-child { border-bottom: none; }
+
+.set-item:hover { background: rgba(255,255,255,0.02); border-radius: var(--r-sm); padding-left: 8px; padding-right: 8px; }
+
+.set-play {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: none;
+  background: var(--mi-dim);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: background 0.25s;
+}
+
+.set-play:hover { background: var(--mi); }
+
+.set-play-icon {
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 5px 0 5px 9px;
+  border-color: transparent transparent transparent var(--mi);
+  margin-left: 2px;
+}
+
+.set-play:hover .set-play-icon { border-color: transparent transparent transparent var(--void); }
+
+.set-info { flex: 1; }
+.set-info strong { display: block; font-size: 14px; color: var(--white); margin-bottom: 2px; }
+.set-info span { font-size: 12px; color: var(--muted); }
+
+.set-duration {
+  font-size: 12px;
+  color: var(--muted);
+  min-width: 48px;
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+/* -- Buttons ----------------------------------------------- */
+.btn-demo {
+  padding: 10px 28px;
+  font-family: var(--font-display);
+  font-size: 15px;
+  letter-spacing: 0.06em;
+  border: none;
+  border-radius: var(--r-pill);
+  cursor: pointer;
+  transition: transform 0.25s, background 0.25s;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.btn-demo:hover { transform: translateY(-1px); }
+
+.btn-cyan { background: var(--mi); color: var(--void); }
+.btn-violet { background: var(--mi-deep); color: #fff; }
+.btn-house { background: var(--mi-house); color: var(--void); }
+.btn-ghost {
+  background: transparent;
+  color: var(--white);
+  border: 1px solid var(--border);
+}
+.btn-ghost:hover {
+  border-color: rgba(255,255,255,0.15);
+  background: rgba(255,255,255,0.03);
+}
+
+/* -- Diamond Logo Mark ------------------------------------- */
+.diamond-mark {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.diamond-shape {
+  clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-display);
+  letter-spacing: 0.04em;
+}
+
+.diamond-shape.cyan-on-dark {
+  width: 80px;
+  height: 80px;
+  background: var(--mi);
+  color: var(--void);
+  font-size: 36px;
+}
+
+.diamond-shape.outline {
+  width: 80px;
+  height: 80px;
+  background: transparent;
+  border: 2px solid var(--mi);
+  color: var(--mi);
+  font-size: 36px;
+  /* outline diamond uses box-shadow trick since clip-path clips border */
+  clip-path: none;
+  transform: rotate(45deg);
+}
+
+.diamond-shape.outline span {
+  transform: rotate(-45deg);
+}
+
+.diamond-shape.white-on-dark {
+  width: 80px;
+  height: 80px;
+  background: var(--white);
+  color: var(--void);
+  font-size: 36px;
+}
+
+.diamond-shape.small {
+  width: 40px;
+  height: 40px;
+  background: var(--mi);
+  color: var(--void);
+  font-size: 18px;
+}
+
+/* -- Brand Text Lock --------------------------------------- */
+.brand-text-lock {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.brand-text-lock .brand-mark {
+  width: 48px;
+  height: 48px;
+  background: var(--mi);
+  border-radius: var(--r-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-display);
+  font-size: 24px;
+  color: var(--void);
+  flex-shrink: 0;
+}
+
+.brand-text-lock .brand-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.brand-text-lock .brand-name {
+  font-family: var(--font-display);
+  font-size: 28px;
+  letter-spacing: 0.06em;
+  line-height: 1;
+  color: var(--white);
+}
+
+.brand-text-lock .brand-tagline {
+  font-size: 11px;
+  color: var(--muted);
+  font-style: italic;
+  letter-spacing: 0.04em;
+  margin-top: 2px;
+}
+
+/* -- Mixtape Cover Template -------------------------------- */
+.mixtape-cover {
+  width: 320px;
+  height: 320px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--r-lg);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.mixtape-cover::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 50% 100%, rgba(52,211,153,0.08) 0%, transparent 60%);
+  pointer-events: none;
+}
+
+.mixtape-diamond {
+  width: 48px;
+  height: 48px;
+  clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+  background: var(--mi);
+  margin-bottom: 24px;
+  position: relative;
+}
+
+.mixtape-title {
+  font-family: var(--font-display);
+  font-size: 36px;
+  letter-spacing: 0.06em;
+  line-height: 1;
+  color: var(--white);
+  margin-bottom: 8px;
+  position: relative;
+}
+
+.mixtape-subtitle {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--mi);
+  margin-bottom: 4px;
+  position: relative;
+}
+
+.mixtape-artist {
+  font-family: var(--font-display);
+  font-size: 18px;
+  letter-spacing: 0.08em;
+  color: var(--muted);
+  position: relative;
+}
+
+/* -- Bio Cards --------------------------------------------- */
+.bio-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--r-lg);
+  padding: 24px;
+  max-width: 400px;
+  margin-bottom: 16px;
+}
+
+.bio-card-platform {
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--mi);
+  font-weight: 600;
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.bio-card-platform .platform-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--mi);
+}
+
+.bio-card-handle {
+  font-family: var(--font-display);
+  font-size: 22px;
+  letter-spacing: 0.04em;
+  color: var(--white);
+  margin-bottom: 8px;
+}
+
+.bio-card-text {
+  font-size: 13px;
+  color: rgba(237,237,240,0.55);
+  line-height: 1.7;
+  margin-bottom: 12px;
+}
+
+.bio-card-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+/* -- CSS Variable Reference -------------------------------- */
+.token-grid {
+  display: grid;
+  grid-template-columns: 200px 160px 1fr;
+  gap: 0;
+  font-size: 13px;
+  margin-bottom: 32px;
+}
+
+.token-grid .token-header {
+  padding: 8px 12px;
+  font-weight: 600;
+  color: var(--white);
+  background: rgba(255,255,255,0.03);
+  border-bottom: 1px solid var(--border);
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.token-grid .token-cell {
+  padding: 8px 12px;
+  border-bottom: 1px solid var(--border);
+  color: rgba(237,237,240,0.55);
+  font-family: 'SF Mono', 'Fira Code', monospace;
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.token-swatch {
+  width: 16px;
+  height: 16px;
+  border-radius: 4px;
+  border: 1px solid rgba(255,255,255,0.1);
+  flex-shrink: 0;
+}
+
+/* -- Footer ------------------------------------------------ */
+footer {
+  text-align: center;
+  padding: 48px 24px;
+  border-top: 1px solid var(--border);
+}
+
+.footer-logo {
+  font-family: var(--font-display);
+  font-size: 16px;
+  letter-spacing: 0.1em;
+  color: rgba(237,237,240,0.15);
+  margin-bottom: 8px;
+}
+
+footer p {
+  font-size: 12px;
+  color: var(--muted);
+}
+
+/* -- Responsive -------------------------------------------- */
+@media (max-width: 768px) {
+  .hero-title { font-size: 48px; }
+  .profile-header { flex-direction: column; align-items: center; text-align: center; }
+  .profile-bio { margin-left: auto; margin-right: auto; }
+  .dj-card-demo { width: 100%; }
+  .mixtape-cover { width: 100%; height: auto; aspect-ratio: 1; }
+  .token-grid { grid-template-columns: 1fr; }
+  .token-grid .token-header:nth-child(2),
+  .token-grid .token-header:nth-child(3),
+  .token-grid .token-cell:nth-child(3n+2),
+  .token-grid .token-cell:nth-child(3n) { display: none; }
+}
+</style>
+</head>
+<body>
+
+<!-- ================================================================
+     HERO
+     ================================================================ -->
+<header class="hero">
+  <div class="container">
+    <h1 class="hero-title">MILØ</h1>
+    <div class="hero-subtitle">Component & CSS Reference - PicYourBooth DJ System</div>
+    <div class="sine-wave-deco" id="heroWave"></div>
+  </div>
+</header>
+
+<div class="container">
+
+<!-- ================================================================
+     01 - DJ CARD
+     ================================================================ -->
+<section>
+  <span class="section-num">01</span>
+  <h2>DJ CARD</h2>
+  <p class="section-desc">The DJ Card is the primary component for presenting a DJ on the PYB website. Cyan accent, diamond mark, genre tags (Tech House, House, Deep), sine wave animation, and "Deep in the groove" tagline.</p>
+
+  <div class="component-row">
+    <div class="component-label">DJ Card - Full</div>
+  </div>
+
+  <div class="dj-card-demo">
+    <div class="dj-card-photo">
+      <div class="sine-bars" id="sineCard"></div>
+    </div>
+    <div class="dj-card-body">
+      <div class="dj-card-accent"></div>
+      <div class="dj-card-name">MILØ</div>
+      <div class="dj-card-tagline">Deep in the groove</div>
+      <div class="genre-tags">
+        <span class="genre-tag">Tech House</span>
+        <span class="genre-tag house">House</span>
+        <span class="genre-tag deep">Deep</span>
+      </div>
+      <div class="dj-card-desc">Strakke beats, hypnotische drops en een set die je meeneemt op reis. Milø creëert de perfecte groove voor elk moment.</div>
+      <div class="dj-card-footer">
+        <div class="dj-socials">
+          <a class="dj-social-icon" title="Instagram">IG</a>
+          <a class="dj-social-icon" title="TikTok">TT</a>
+          <a class="dj-social-icon" title="SoundCloud">SC</a>
+        </div>
+        <button class="dj-play-btn" aria-label="Play mix">
+          <span class="play-icon"></span>
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================
+     02 - GENRE TAGS
+     ================================================================ -->
+<section>
+  <span class="section-num">02</span>
+  <h2>GENRE TAGS</h2>
+  <p class="section-desc">Pill-shaped genre tags. Default cyan for Milø, with House (blue) and Deep (violet) genre accents. Three sizes: default, lg, and sm.</p>
+
+  <div class="component-row">
+    <div class="component-label">Default Tags (Cyan)</div>
+  </div>
+  <div class="genre-tags" style="margin-bottom:32px;">
+    <span class="genre-tag">Tech House</span>
+    <span class="genre-tag">Minimal</span>
+    <span class="genre-tag">Progressive</span>
+  </div>
+
+  <div class="component-row">
+    <div class="component-label">Genre-Accented Tags</div>
+  </div>
+  <div class="genre-tags" style="margin-bottom:32px;">
+    <span class="genre-tag house">House</span>
+    <span class="genre-tag house">Afro House</span>
+    <span class="genre-tag deep">Deep</span>
+    <span class="genre-tag deep">Melodic Techno</span>
+  </div>
+
+  <div class="component-row">
+    <div class="component-label">Large Size (.lg)</div>
+  </div>
+  <div class="genre-tags" style="margin-bottom:32px;">
+    <span class="genre-tag lg">Tech House</span>
+    <span class="genre-tag lg house">House</span>
+    <span class="genre-tag lg deep">Deep</span>
+  </div>
+
+  <div class="component-row">
+    <div class="component-label">Small Size (.sm)</div>
+  </div>
+  <div class="genre-tags">
+    <span class="genre-tag sm">Tech House</span>
+    <span class="genre-tag sm house">House</span>
+    <span class="genre-tag sm deep">Deep</span>
+  </div>
+</section>
+
+<!-- ================================================================
+     03 - PROFILE LAYOUT
+     ================================================================ -->
+<section>
+  <span class="section-num">03</span>
+  <h2>PROFILE LAYOUT</h2>
+  <p class="section-desc">Full profile component with avatar (rounded or diamond clip-path), large name, tagline, genre tags, social icons, and bio. Used on the DJ detail page.</p>
+
+  <div class="component-row">
+    <div class="component-label">Profile - Rounded Avatar</div>
+  </div>
+  <div class="profile-demo">
+    <div class="profile-header">
+      <div class="profile-avatar">
+        <div class="profile-avatar-initials">M</div>
+      </div>
+      <div class="profile-info">
+        <div class="profile-name">MILØ</div>
+        <div class="profile-tagline">Deep in the groove</div>
+        <div class="profile-bio">Milø brengt de underground vibes naar jouw event. Van strakke tech house tot deep melodische sets - hij leest de vloer en bouwt langzaam op naar het perfecte moment. Stuur je Spotify playlist, hij weeft het in zijn set.</div>
+        <div class="genre-tags">
+          <span class="genre-tag">Tech House</span>
+          <span class="genre-tag house">House</span>
+          <span class="genre-tag deep">Deep</span>
+        </div>
+        <div class="dj-socials" style="margin-top:8px;">
+          <a class="dj-social-icon" title="Instagram">IG</a>
+          <a class="dj-social-icon" title="TikTok">TT</a>
+          <a class="dj-social-icon" title="SoundCloud">SC</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="component-row">
+    <div class="component-label">Profile - Diamond Clip Avatar</div>
+  </div>
+  <div class="profile-demo">
+    <div class="profile-header">
+      <div class="profile-avatar diamond-clip">
+        <div class="profile-avatar-initials">M</div>
+      </div>
+      <div class="profile-info">
+        <div class="profile-name">MILØ</div>
+        <div class="profile-tagline">Deep in the groove</div>
+        <div class="genre-tags">
+          <span class="genre-tag">Tech House</span>
+          <span class="genre-tag house">House</span>
+          <span class="genre-tag deep">Deep</span>
+        </div>
+        <div class="dj-socials" style="margin-top:8px;">
+          <a class="dj-social-icon" title="Instagram">IG</a>
+          <a class="dj-social-icon" title="TikTok">TT</a>
+          <a class="dj-social-icon" title="SoundCloud">SC</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================
+     04 - SET LIST
+     ================================================================ -->
+<section>
+  <span class="section-num">04</span>
+  <h2>SET LIST</h2>
+  <p class="section-desc">Set list items with play buttons, set titles, genre labels, and durations. Cyan accent on hover and play state.</p>
+
+  <h3>RECENTE SETS</h3>
+  <div class="set-item">
+    <button class="set-play" aria-label="Play set"><span class="set-play-icon"></span></button>
+    <div class="set-info">
+      <strong>Deep Sessions Vol. 7</strong>
+      <span>Tech House, Deep</span>
+    </div>
+    <div class="set-duration">1:02:18</div>
+  </div>
+  <div class="set-item">
+    <button class="set-play" aria-label="Play set"><span class="set-play-icon"></span></button>
+    <div class="set-info">
+      <strong>Midnight Groove - Live @ Amsterdam</strong>
+      <span>House, Melodic Techno</span>
+    </div>
+    <div class="set-duration">58:45</div>
+  </div>
+  <div class="set-item">
+    <button class="set-play" aria-label="Play set"><span class="set-play-icon"></span></button>
+    <div class="set-info">
+      <strong>Sunday Morning House Mix</strong>
+      <span>Afro House, Deep House</span>
+    </div>
+    <div class="set-duration">1:15:33</div>
+  </div>
+  <div class="set-item">
+    <button class="set-play" aria-label="Play set"><span class="set-play-icon"></span></button>
+    <div class="set-info">
+      <strong>Milø's Selection 2026</strong>
+      <span>Mixed genres, Tech House</span>
+    </div>
+    <div class="set-duration">47:12</div>
+  </div>
+</section>
+
+<!-- ================================================================
+     05 - BUTTONS
+     ================================================================ -->
+<section>
+  <span class="section-num">05</span>
+  <h2>BUTTONS</h2>
+  <p class="section-desc">Button variants for Milø. Cyan primary (BOEK MILØ), ghost for secondary, violet for deep/Spotify actions, and house blue variant.</p>
+
+  <div class="component-row">
+    <div class="component-label">Primary Buttons</div>
+  </div>
+  <div class="component-row" style="margin-bottom:32px;">
+    <button class="btn-demo btn-cyan">BOEK MILØ</button>
+    <button class="btn-demo btn-violet">LUISTER OP SPOTIFY</button>
+    <button class="btn-demo btn-house">BEKIJK SETS</button>
+    <button class="btn-demo btn-ghost">MEER INFO</button>
+  </div>
+
+  <div class="component-row">
+    <div class="component-label">Play Button (Circle)</div>
+  </div>
+  <div class="component-row" style="gap:24px;">
+    <button class="dj-play-btn" aria-label="Play">
+      <span class="play-icon"></span>
+    </button>
+    <div class="dj-socials">
+      <a class="dj-social-icon" title="Instagram">IG</a>
+      <a class="dj-social-icon" title="TikTok">TT</a>
+      <a class="dj-social-icon" title="SoundCloud">SC</a>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================
+     06 - SOCIAL ICONS
+     ================================================================ -->
+<section>
+  <span class="section-num">06</span>
+  <h2>SOCIAL ICONS</h2>
+  <p class="section-desc">Circular social icons for Instagram, TikTok, and SoundCloud. Subtle border on rest, cyan glow on hover.</p>
+
+  <div class="component-row">
+    <div class="component-label">Default State</div>
+  </div>
+  <div class="dj-socials" style="margin-bottom:32px;">
+    <a class="dj-social-icon" title="Instagram">IG</a>
+    <a class="dj-social-icon" title="TikTok">TT</a>
+    <a class="dj-social-icon" title="SoundCloud">SC</a>
+  </div>
+
+  <div class="component-row">
+    <div class="component-label">Hover any icon to see cyan accent</div>
+  </div>
+  <p style="font-size:13px; color:var(--muted);">Icons transition to cyan background tint and cyan text color on hover. Border shifts to rgba(52,211,153,0.3).</p>
+</section>
+
+<!-- ================================================================
+     07 - PLAY BUTTON
+     ================================================================ -->
+<section>
+  <span class="section-num">07</span>
+  <h2>PLAY BUTTON</h2>
+  <p class="section-desc">Solid cyan circle with dark play triangle. Scales up 6% on hover. Used inline in cards, set lists, and as standalone audio triggers.</p>
+
+  <div class="component-row" style="gap:24px; align-items:center;">
+    <div>
+      <div class="component-label">48px (Default)</div>
+      <button class="dj-play-btn" aria-label="Play" style="margin-top:8px;">
+        <span class="play-icon"></span>
+      </button>
+    </div>
+    <div>
+      <div class="component-label">36px (Set List)</div>
+      <button class="set-play" aria-label="Play" style="margin-top:8px;">
+        <span class="set-play-icon"></span>
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================
+     08 - DIAMOND LOGO MARK
+     ================================================================ -->
+<section>
+  <span class="section-num">08</span>
+  <h2>DIAMOND LOGO MARK</h2>
+  <p class="section-desc">Four diamond mark variants. The diamond shape (clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%)) is Milø's signature form, replacing hexagons.</p>
+
+  <div class="component-row" style="gap:32px; align-items:center;">
+    <div style="text-align:center;">
+      <div class="component-label">Cyan on Dark</div>
+      <div class="diamond-mark" style="margin-top:12px;">
+        <div class="diamond-shape cyan-on-dark">M</div>
+      </div>
+    </div>
+    <div style="text-align:center;">
+      <div class="component-label">Outline</div>
+      <div class="diamond-mark" style="margin-top:12px;">
+        <div class="diamond-shape outline"><span>M</span></div>
+      </div>
+    </div>
+    <div style="text-align:center;">
+      <div class="component-label">White on Dark</div>
+      <div class="diamond-mark" style="margin-top:12px;">
+        <div class="diamond-shape white-on-dark">M</div>
+      </div>
+    </div>
+    <div style="text-align:center;">
+      <div class="component-label">Small (40px)</div>
+      <div class="diamond-mark" style="margin-top:12px;">
+        <div class="diamond-shape small">M</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================
+     09 - BRAND TEXT LOCK
+     ================================================================ -->
+<section>
+  <span class="section-num">09</span>
+  <h2>BRAND TEXT LOCK</h2>
+  <p class="section-desc">Rounded square M mark + "MILØ" name + "Deep in the groove" tagline. Used in headers, footers, and promotional materials.</p>
+
+  <div class="component-row">
+    <div class="component-label">Full Brand Lock</div>
+  </div>
+  <div class="brand-text-lock" style="margin-bottom:32px;">
+    <div class="brand-mark">M</div>
+    <div class="brand-text">
+      <div class="brand-name">MILØ</div>
+      <div class="brand-tagline">Deep in the groove</div>
+    </div>
+  </div>
+
+  <div class="component-row">
+    <div class="component-label">Compact (without tagline)</div>
+  </div>
+  <div class="brand-text-lock">
+    <div class="brand-mark" style="width:36px; height:36px; font-size:18px; border-radius:var(--r-sm);">M</div>
+    <div class="brand-text">
+      <div class="brand-name" style="font-size:22px;">MILØ</div>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================
+     10 - MIXTAPE COVER TEMPLATE
+     ================================================================ -->
+<section>
+  <span class="section-num">10</span>
+  <h2>MIXTAPE COVER TEMPLATE</h2>
+  <p class="section-desc">Typography-only cover layout for mixtapes and social media. Diamond mark, title in Bebas Neue, artist name, and subtle radial gradient. No photos - pure type.</p>
+
+  <div class="component-row" style="gap:24px; flex-wrap:wrap;">
+    <div class="mixtape-cover">
+      <div class="mixtape-diamond"></div>
+      <div class="mixtape-subtitle">MILØ PRESENTS</div>
+      <div class="mixtape-title">DEEP SESSIONS</div>
+      <div class="mixtape-artist">VOL. 7</div>
+    </div>
+
+    <div class="mixtape-cover" style="background:linear-gradient(180deg, var(--surface) 0%, #0a0a12 100%);">
+      <div class="mixtape-diamond" style="background:var(--mi-house);"></div>
+      <div class="mixtape-subtitle" style="color:var(--mi-house);">HOUSE COLLECTION</div>
+      <div class="mixtape-title">MIDNIGHT<br>GROOVE</div>
+      <div class="mixtape-artist">MILØ</div>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================
+     11 - BIO CARDS
+     ================================================================ -->
+<section>
+  <span class="section-num">11</span>
+  <h2>BIO CARDS</h2>
+  <p class="section-desc">Platform-specific social bio display cards. Each card shows the platform, handle, bio text, and relevant genre tags.</p>
+
+  <div class="component-row">
+    <div class="component-label">Instagram Bio</div>
+  </div>
+  <div class="bio-card">
+    <div class="bio-card-platform"><span class="platform-dot"></span> INSTAGRAM</div>
+    <div class="bio-card-handle">@djmilo.official</div>
+    <div class="bio-card-text">House. Techno. Deep. Boekingen via picyourbooth.nl. Stuur je Spotify playlist, ik doe de rest.</div>
+    <div class="bio-card-tags">
+      <span class="genre-tag sm">Tech House</span>
+      <span class="genre-tag sm house">House</span>
+      <span class="genre-tag sm deep">Deep</span>
+    </div>
+  </div>
+
+  <div class="component-row">
+    <div class="component-label">TikTok Bio</div>
+  </div>
+  <div class="bio-card">
+    <div class="bio-card-platform"><span class="platform-dot"></span> TIKTOK</div>
+    <div class="bio-card-handle">@djmilo.official</div>
+    <div class="bio-card-text">Deep in the groove. Sets, drops en behind the scenes. Boek via link in bio.</div>
+    <div class="bio-card-tags">
+      <span class="genre-tag sm">Sets</span>
+      <span class="genre-tag sm house">Drops</span>
+      <span class="genre-tag sm deep">BTS</span>
+    </div>
+  </div>
+
+  <div class="component-row">
+    <div class="component-label">SoundCloud Bio</div>
+  </div>
+  <div class="bio-card">
+    <div class="bio-card-platform"><span class="platform-dot"></span> SOUNDCLOUD</div>
+    <div class="bio-card-handle">MILØ</div>
+    <div class="bio-card-text">Full-length mixes en live sets. Van strakke tech house tot deep melodische journeys. PicYourBooth DJ.</div>
+    <div class="bio-card-tags">
+      <span class="genre-tag sm">Mixes</span>
+      <span class="genre-tag sm house">Live Sets</span>
+      <span class="genre-tag sm deep">Melodic</span>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================
+     12 - CSS VARIABLE REFERENCE
+     ================================================================ -->
+<section>
+  <span class="section-num">12</span>
+  <h2>CSS VARIABLE REFERENCE</h2>
+  <p class="section-desc">Complete design token reference for the Milø component system. All values ready for copy-paste into any CSS file.</p>
+
+  <h3>PRIMARY COLORS</h3>
+  <div class="token-grid">
+    <div class="token-header">Variable</div>
+    <div class="token-header">Value</div>
+    <div class="token-header">Usage</div>
+
+    <div class="token-cell">--mi</div>
+    <div class="token-cell"><span class="token-swatch" style="background:#34d399;"></span> #34d399</div>
+    <div class="token-cell" style="font-family:var(--font-body);">Primary accent, buttons, name, tags</div>
+
+    <div class="token-cell">--mi-light</div>
+    <div class="token-cell"><span class="token-swatch" style="background:#5ae0f0;"></span> #5ae0f0</div>
+    <div class="token-cell" style="font-family:var(--font-body);">Tag text color, lighter accents</div>
+
+    <div class="token-cell">--mi-dim</div>
+    <div class="token-cell"><span class="token-swatch" style="background:rgba(52,211,153,0.10);"></span> rgba(52,211,153,0.10)</div>
+    <div class="token-cell" style="font-family:var(--font-body);">Tag backgrounds, hover tints</div>
+  </div>
+
+  <h3>GENRE ACCENTS</h3>
+  <div class="token-grid">
+    <div class="token-header">Variable</div>
+    <div class="token-header">Value</div>
+    <div class="token-header">Usage</div>
+
+    <div class="token-cell">--mi-house</div>
+    <div class="token-cell"><span class="token-swatch" style="background:#38bdf8;"></span> #38bdf8</div>
+    <div class="token-cell" style="font-family:var(--font-body);">House genre accent (blue)</div>
+
+    <div class="token-cell">--mi-house-dim</div>
+    <div class="token-cell"><span class="token-swatch" style="background:rgba(56,189,248,0.10);"></span> rgba(56,189,248,0.10)</div>
+    <div class="token-cell" style="font-family:var(--font-body);">House tag background</div>
+
+    <div class="token-cell">--mi-deep</div>
+    <div class="token-cell"><span class="token-swatch" style="background:#8b5cf6;"></span> #8b5cf6</div>
+    <div class="token-cell" style="font-family:var(--font-body);">Deep genre accent (violet)</div>
+
+    <div class="token-cell">--mi-deep-dim</div>
+    <div class="token-cell"><span class="token-swatch" style="background:rgba(139,92,246,0.10);"></span> rgba(139,92,246,0.10)</div>
+    <div class="token-cell" style="font-family:var(--font-body);">Deep tag background</div>
+  </div>
+
+  <h3>BACKGROUNDS</h3>
+  <div class="token-grid">
+    <div class="token-header">Variable</div>
+    <div class="token-header">Value</div>
+    <div class="token-header">Usage</div>
+
+    <div class="token-cell">--void</div>
+    <div class="token-cell"><span class="token-swatch" style="background:#050508;"></span> #050508</div>
+    <div class="token-cell" style="font-family:var(--font-body);">Page background, deepest layer</div>
+
+    <div class="token-cell">--surface</div>
+    <div class="token-cell"><span class="token-swatch" style="background:#111116;"></span> #111116</div>
+    <div class="token-cell" style="font-family:var(--font-body);">Cards, panels, elevated surfaces</div>
+
+    <div class="token-cell">--card</div>
+    <div class="token-cell"><span class="token-swatch" style="background:#111116;"></span> #111116</div>
+    <div class="token-cell" style="font-family:var(--font-body);">Card backgrounds (alias for surface)</div>
+
+    <div class="token-cell">--border</div>
+    <div class="token-cell"><span class="token-swatch" style="background:rgba(255,255,255,0.06);border-color:rgba(255,255,255,0.2);"></span> rgba(255,255,255,0.06)</div>
+    <div class="token-cell" style="font-family:var(--font-body);">Borders, dividers</div>
+  </div>
+
+  <h3>TEXT</h3>
+  <div class="token-grid">
+    <div class="token-header">Variable</div>
+    <div class="token-header">Value</div>
+    <div class="token-header">Usage</div>
+
+    <div class="token-cell">--white</div>
+    <div class="token-cell"><span class="token-swatch" style="background:#ededf0;"></span> #ededf0</div>
+    <div class="token-cell" style="font-family:var(--font-body);">Primary text, headings</div>
+
+    <div class="token-cell">--muted</div>
+    <div class="token-cell"><span class="token-swatch" style="background:rgba(237,237,240,0.40);"></span> rgba(237,237,240,0.40)</div>
+    <div class="token-cell" style="font-family:var(--font-body);">Secondary text, labels, taglines</div>
+
+    <div class="token-cell">--subtle</div>
+    <div class="token-cell"><span class="token-swatch" style="background:rgba(237,237,240,0.10);"></span> rgba(237,237,240,0.10)</div>
+    <div class="token-cell" style="font-family:var(--font-body);">Decorative text, ghost elements</div>
+  </div>
+
+  <h3>TYPOGRAPHY</h3>
+  <div class="token-grid">
+    <div class="token-header">Variable</div>
+    <div class="token-header">Value</div>
+    <div class="token-header">Usage</div>
+
+    <div class="token-cell">--font-display</div>
+    <div class="token-cell" style="font-family:var(--font-body);font-size:12px;">'Bebas Neue'</div>
+    <div class="token-cell" style="font-family:var(--font-body);">Headings, names, buttons, section numbers</div>
+
+    <div class="token-cell">--font-body</div>
+    <div class="token-cell" style="font-family:var(--font-body);font-size:12px;">'Space Grotesk'</div>
+    <div class="token-cell" style="font-family:var(--font-body);">Body text, descriptions, labels</div>
+  </div>
+
+  <h3>RADII & MOTION</h3>
+  <div class="token-grid">
+    <div class="token-header">Variable</div>
+    <div class="token-header">Value</div>
+    <div class="token-header">Usage</div>
+
+    <div class="token-cell">--r-sm</div>
+    <div class="token-cell">6px</div>
+    <div class="token-cell" style="font-family:var(--font-body);">Small radius (set list hover)</div>
+
+    <div class="token-cell">--r-md</div>
+    <div class="token-cell">10px</div>
+    <div class="token-cell" style="font-family:var(--font-body);">Medium radius (brand mark)</div>
+
+    <div class="token-cell">--r-lg</div>
+    <div class="token-cell">16px</div>
+    <div class="token-cell" style="font-family:var(--font-body);">Large radius (cards, panels)</div>
+
+    <div class="token-cell">--r-xl</div>
+    <div class="token-cell">24px</div>
+    <div class="token-cell" style="font-family:var(--font-body);">Extra-large radius (avatars)</div>
+
+    <div class="token-cell">--r-pill</div>
+    <div class="token-cell">999px</div>
+    <div class="token-cell" style="font-family:var(--font-body);">Full pill shape (tags, buttons)</div>
+
+    <div class="token-cell">--ease</div>
+    <div class="token-cell" style="font-size:11px;">cubic-bezier(0.16,1,0.3,1)</div>
+    <div class="token-cell" style="font-family:var(--font-body);">Spring-like easing for interactions</div>
+  </div>
+
+  <h3>KEY SHAPES</h3>
+  <div class="token-grid">
+    <div class="token-header">Property</div>
+    <div class="token-header">Value</div>
+    <div class="token-header">Usage</div>
+
+    <div class="token-cell" style="font-size:11px;">clip-path (diamond)</div>
+    <div class="token-cell" style="font-size:10px;">polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%)</div>
+    <div class="token-cell" style="font-family:var(--font-body);">Diamond marks, avatar clips, accents</div>
+  </div>
+</section>
+
+</div>
+
+<!-- ================================================================
+     FOOTER
+     ================================================================ -->
+<footer>
+  <div class="footer-logo">PICYOURBOOTH</div>
+  <p>Milø - Component & CSS Reference - 2026</p>
+</footer>
+
+<!-- ================================================================
+     JAVASCRIPT
+     ================================================================ -->
+<script>
+(function() {
+  'use strict';
+
+  /* -- Sine wave generator (hero decoration) ----------------- */
+  function createSineWave(container, count) {
+    if (!container) return;
+    for (var i = 0; i < count; i++) {
+      var bar = document.createElement('span');
+      var h = 6 + Math.sin(i * 0.3) * 14 + Math.random() * 8;
+      bar.style.height = h + 'px';
+      bar.style.animationDelay = (i * 0.05) + 's';
+      bar.style.animationDuration = (1.8 + Math.random() * 1.2) + 's';
+      container.appendChild(bar);
+    }
+  }
+
+  /* -- Sine bars generator (card/standalone) ------------------ */
+  function createSineBars(container, count) {
+    if (!container) return;
+    for (var i = 0; i < count; i++) {
+      var bar = document.createElement('span');
+      bar.style.height = (4 + Math.sin(i * 0.8) * 10 + Math.random() * 8) + 'px';
+      bar.style.animationDelay = (i * 0.12 + Math.random() * 0.2) + 's';
+      bar.style.animationDuration = (1.4 + Math.random() * 1.0) + 's';
+      container.appendChild(bar);
+    }
+  }
+
+  /* -- Initialize hero sine wave ----------------------------- */
+  createSineWave(document.getElementById('heroWave'), 50);
+
+  /* -- Initialize sine bars in DJ Card ----------------------- */
+  createSineBars(document.getElementById('sineCard'), 5);
+
+})();
+</script>
+
+</body>
+</html>

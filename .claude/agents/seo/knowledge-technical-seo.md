@@ -11,7 +11,7 @@ Meta tags, structured data, sitemap, performance en technische vereisten.
 | Homepage | Photobooth Huren \| Premium Entertainment \| PicYourBooth | Photobooth en DJ huren in de Randstad. Magic Mirror XL vanaf €599, Party Booth vanaf €199. Vraag vrijblijvend een voorstel aan. |
 | Magic Mirror | Fotospiegel Huren \| AI Photobooth \| Magic Mirror XL | Premium fotospiegel met professionele camera. Tot 5 uur, bezorging inbegrepen. Vanaf €599 per event. |
 | Party Booth | Photobooth Huren Goedkoop \| Party Booth vanaf €199 | Digitale photobooth voor elk feest. Zelf ophalen, 5 minuten opzetten. AI achtergrond beschikbaar. Vanaf €199 per dag. |
-| DJs | DJ Huren \| DJ Gianni & DJ Milø \| Vanaf €149 | DJ huren met Spotify playlist-optimalisatie. Speakers, licht en rookmachine inbegrepen. Vanaf €149 per avond. |
+| DJs | DJ Huren \| DJ Gianni & Milø \| Vanaf €149 | DJ huren met Spotify playlist-optimalisatie. Speakers, licht en rookmachine inbegrepen. Vanaf €149 per avond. |
 | Offerte | Photobooth Offerte Aanvragen \| PicYourBooth | Ontvang binnen 24 uur een vrijblijvend voorstel. Party Booth, Magic Mirror XL of DJ. Geen verplichtingen. |
 
 ## Structured Data (JSON-LD)

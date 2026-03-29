@@ -23,7 +23,7 @@ Google Business, lokale zoekresultaten, stadspagina's en review strategie.
 - Event foto's (photobooth in actie)
 - Magic Mirror XL setup
 - Party Booth setup
-- DJ Gianni en DJ Milø in actie
+- DJ Gianni en Milø in actie
 - Resultaat foto's (wat gasten krijgen)
 
 ### Posts (Wekelijks)
