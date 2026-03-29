@@ -39,7 +39,69 @@ Kopersprofielen met psychografie, pijnpunten, Jobs-to-be-Done en aanbod-match. A
 
 ---
 
-## Segment 2: De Slimme Feestganger (Party Booth)
+## Segment 5: Sweet 16 (DJ Gianni + Party Booth / Magic Mirror)
+
+**Wie:** Ouders die een sweet 16 organiseren, of tieners die hun ouders overtuigen
+**Leeftijd:** Ouder 35-50 (beslisser/betaler), tiener 15-17 (beïnvloeder/kiezer)
+**Budget:** €200-600 | **Beslisperiode:** 2-6 weken
+
+**Waarom dit een apart segment is:**
+- DJ Gianni is zelf tiener — authentieke connectie, geen "oom die draait"
+- Sweet 16 is een groeiende trend in NL, geïnspireerd door US/social media
+- Tieners kiezen zelf hun DJ, ouders betalen. Twee doelgroepen, één boeking.
+- Afro Beats, Caribbean, Nederlands Hits = exact de playlist van een sweet 16
+- Tiener-gasten zijn de meest actieve social media users = maximale virale waarde
+
+**Pijnpunten:**
+
+*Ouder (betaler):*
+- "Ik wil dat mijn kind een onvergetelijke verjaardag heeft"
+- "Het moet veilig en betrouwbaar zijn — geen rare types"
+- "Niet te duur, maar wel indrukwekkend"
+- "Ik wil het makkelijk regelen, geen gedoe met meerdere leveranciers"
+- "De muziek moet gepast zijn maar ook leuk"
+
+*Tiener (kiezer):*
+- "Ik wil dat mijn feest er cool uitziet op TikTok/Instagram"
+- "Geen saaie DJ die liedjes draait die niemand kent"
+- "Mijn vrienden moeten jaloers zijn"
+- "Ik wil mijn eigen playlist kunnen opgeven"
+
+**Job-to-be-Done:**
+> Als ouder wil ik mijn kind een epic sweet 16 geven die al hun vrienden onthouden, zodat mijn kind zich speciaal voelt en ik een relaxte avond heb.
+>
+> Als tiener wil ik een DJ die mijn muziek draait en er cool uitziet op socials, zodat iedereen weet dat mijn feest de beste was.
+
+**PYB Aanbod-match:**
+- Party Booth (€199) + DJ Gianni (€149) = €348 — perfecte sweet 16 combo
+- Magic Mirror XL (€599) + DJ Gianni (€149) = €748 — premium sweet 16
+- AI Foto's + Filters (+€49) — tieners delen alles, AI backgrounds = viral
+- Premium Fotostrip Design (+€25) — gepersonaliseerd met naam/datum van jarige
+- Spotify playlist-optimalisatie — jarige stuurt playlist, Gianni bouwt de set
+
+**Virale kracht:** Elk sweet 16 feest = 20-40 tieners met smartphones die filmen en delen. Eén goed feest levert potentieel 20+ TikToks/Stories op van gasten. DJ Gianni getagd = organische groei.
+
+**Wat ze nodig hebben als bewijs:**
+- Video van tieners die losgaan op een feest met DJ Gianni
+- "Stuur je playlist" angle — tiener heeft controle over de muziek
+- Leeftijd/relatability van DJ Gianni — "hij snapt wat wij willen"
+- Party Booth foto's van een sweet 16 (herkenbare setting)
+- Combo-prijs transparant: DJ + Photobooth vanaf €348
+- Reviews van andere ouders of jarigen
+
+**Ontdekkingskanalen:**
+- TikTok (tiener ziet DJ Gianni clip → "mam, ik wil deze DJ")
+- YouTube Shorts (ouder zoekt "dj huren sweet 16" of "dj verjaardag")
+- Instagram (ouder ziet event foto's, leest reviews)
+- Word of mouth (vriend was op vorig sweet 16 feest)
+
+**Toon:** Energiek, cool, relatable voor tieners. Betrouwbaar en professioneel voor ouders.
+**Primaire hook (tiener):** "Jouw verjaardag, jouw playlist, jouw DJ"
+**Primaire hook (ouder):** "Een verjaardag die ze nooit vergeten — DJ én photobooth vanaf €348"
+
+---
+
+
 
 **Wie:** Verjaardagsorganisatoren, casual feestgangers, budgetbewuste vierders
 **Leeftijd:** 20-50 | **Budget:** €150-350 | **Beslisperiode:** 1-4 weken
@@ -163,14 +225,15 @@ Kopersprofielen met psychografie, pijnpunten, Jobs-to-be-Done en aanbod-match. A
 | Slimme Feestganger | Party Booth €199 | AI Foto's + Filters, Premium Ontwerp, Bezorging | €250-350 |
 | Alles-in-één Zoeker | Magic Mirror/Party + DJ | DJ Set, VIP | €350-900 |
 | Zakelijke Organisator | Magic Mirror XL €599 | AI Photo Experience, Photobooth Host, VIP | €900-1.500 |
+| Sweet 16 | Party Booth €199 + DJ Gianni €149 | AI Foto's, Premium Ontwerp, Magic Mirror upgrade | €348-600 |
 
 ---
 
 ## Klantreis per Segment
 
-| Fase | Perfectionist | Slimme Feestganger | Alles-in-één | Zakelijk |
-|---|---|---|---|---|
-| **Ontdekking** | Google "photobooth bruiloft" + Instagram | Meta Ad + TikTok | Meta Ad / Google "dj + photobooth" | Google "photobooth bedrijfsevent" + netwerk |
-| **Overweging** | Website, reviews, vergelijking | Prijs check, reviews | Combo-prijs, Spotify uitleg | Website, AI demo, BTW-factuur |
-| **Beslissing** | Persoonlijk voorstel, beschikbaarheid | Direct boeken als prijs klopt | Totaalprijs + "geen gedoe" belofte | Offerte op maat, AI voorbeelden |
-| **Trigger** | "Datum is nog vrij" + testimonial | "€199, klaar in 5 min" | "Eén boeking, alles geregeld" | "AI maakt het uniek" |
+| Fase | Perfectionist | Slimme Feestganger | Alles-in-één | Zakelijk | Sweet 16 |
+|---|---|---|---|---|---|
+| **Ontdekking** | Google "photobooth bruiloft" + Instagram | Meta Ad + TikTok | Meta Ad / Google "dj + photobooth" | Google "photobooth bedrijfsevent" + netwerk | TikTok (tiener) / YouTube "dj sweet 16" (ouder) |
+| **Overweging** | Website, reviews, vergelijking | Prijs check, reviews | Combo-prijs, Spotify uitleg | Website, AI demo, BTW-factuur | DJ Gianni socials, sweet 16 video's, combo-prijs |
+| **Beslissing** | Persoonlijk voorstel, beschikbaarheid | Direct boeken als prijs klopt | Totaalprijs + "geen gedoe" belofte | Offerte op maat, AI voorbeelden | Tiener overtuigt ouder, combo-voorstel |
+| **Trigger** | "Datum is nog vrij" + testimonial | "€199, klaar in 5 min" | "Eén boeking, alles geregeld" | "AI maakt het uniek" | "Jouw playlist, jouw DJ" + event video |

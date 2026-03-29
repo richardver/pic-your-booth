@@ -47,7 +47,8 @@ export const ReleaseClip: React.FC<ReleaseClipProps> = ({
         <CoralVignette genre={genre} />
       </Sequence>
 
-      {/* === LAYER 3: Hook text + genre pills (0:00-0:03) === */}
+      {/* === LAYER 3: Hook sequence — staggered reveal === */}
+      {/* 3a: Hook text ONLY (0:00-0:03) — the scroll stopper */}
       <Sequence durationInFrames={90}>
         <AbsoluteFill style={{
           padding: safePad,
@@ -58,12 +59,39 @@ export const ReleaseClip: React.FC<ReleaseClipProps> = ({
           alignItems: 'center',
         }}>
           <TextHook text={hookText} genre={genre} />
+        </AbsoluteFill>
+      </Sequence>
+
+      {/* 3b: Genre pills appear AFTER hook lands (0:01-0:03) */}
+      <Sequence from={30} durationInFrames={60}>
+        <AbsoluteFill style={{
+          padding: safePad,
+          zIndex: 10,
+          display: 'flex',
+          flexDirection: 'column',
+          justifyContent: 'center',
+          alignItems: 'center',
+          paddingTop: SAFE.top + 240,
+        }}>
           <GenrePills tags={genreTags} genre={genre} />
+        </AbsoluteFill>
+      </Sequence>
+
+      {/* 3c: Sub-hook last (0:02-0:03) */}
+      <Sequence from={55} durationInFrames={35}>
+        <AbsoluteFill style={{
+          padding: safePad,
+          zIndex: 10,
+          display: 'flex',
+          flexDirection: 'column',
+          justifyContent: 'center',
+          alignItems: 'center',
+          paddingTop: SAFE.top + 300,
+        }}>
           <div style={{
             fontFamily: TOKENS.fontBody,
             fontSize: 32,
-            color: 'rgba(255,255,255,0.7)',
-            marginTop: 16,
+            color: 'rgba(255,255,255,0.6)',
             textShadow: '0 2px 8px rgba(0,0,0,0.9)',
             textAlign: 'center',
           }}>

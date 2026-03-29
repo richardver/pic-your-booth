@@ -11,10 +11,12 @@ Complete brand identity for DJ Gianni. Source files in `.claude/agents/dj-promot
 | Real name | Luca |
 | DJ name | DJ Gianni |
 | Role | Photobooth operator & DJ at PicYourBooth. Richard's son. |
+| Age group | Tiener — zelfde leeftijd als zijn doelgroep |
 | Music style | Afro Beats, Caribbean, Nederlands Hits |
 | Tagline | "Elke set een feest, elk feest een herinnering" |
 | Sub-tagline | Pure Vibes |
 | Contact | info@picyourbooth.nl |
+| **Initial focus** | **Sweet 16 feesten** — zijn leeftijd, zijn vibe, zijn publiek |
 
 ---
 
@@ -91,10 +93,40 @@ DJ Gianni - Afro Beats, Caribbean vibes en populaire hits. Elke set een feest, e
 
 ---
 
+## Sweet 16 Focus (Fase 1 Niche)
+
+DJ Gianni's leeftijd, muziekstijl en energie sluiten perfect aan bij sweet 16 feesten. Dit is zijn startmarkt.
+
+**Waarom sweet 16:**
+- Luca is zelf tiener — authentieke connectie, geen "volwassene die doet alsof"
+- Afro Beats, Caribbean en Nederlands Hits zijn exact de genres die op 16e feesten draaien
+- Tieners kiezen een DJ die ze "cool" vinden — Gianni's leeftijd is een USP
+- Sweet 16 gasten zijn de meest actieve social media users — maximale virale verspreiding
+- Ouders boeken, tieners kiezen — Gianni spreekt beide aan
+
+**Content angles voor sweet 16:**
+- "POV: Je sweet 16 begint en DJ Gianni zet je favoriete nummer op"
+- Behind-the-decks clips van verjaardagsfeesten
+- Crowd reactions van tieners die losgaan
+- "Wat ik draai op een sweet 16" — setlist reveal
+- Transition clips met populaire TikTok-nummers
+- Before/after: lege ruimte → vol feest met DJ setup
+
+**Hooks specifiek voor sweet 16:**
+- "Jouw verjaardag, jouw playlist, jouw DJ"
+- "Sweet 16 met een echte DJ — niet een Spotify speaker"
+- "Je vrienden vergeten dit feest niet"
+- "Stuur je playlist, ik maak er een set van"
+
+**Cross-sell:** Sweet 16 boekingen komen bijna altijd met Party Booth (€199) of Magic Mirror XL — ouders willen foto-herinneringen. DJ + Photobooth combo is de natuurlijke upsell.
+
+---
+
 ## Content Angles (Social Media)
 
+- **Sweet 16 feesten** — #1 content angle: verjaardagsfeest clips, crowd reactions, setup, playlist reveals
 - **Event energy** — BTS footage from events, crowd reactions, setup moments
-- **Set clips** — Short clips from live sets, drops, transitions (15-30s for Reels/TikTok)
+- **Set clips** — Short clips from live sets, drops, transitions (15-30s for Reels/TikTok/YouTube Shorts)
 - **Studio sessions** — Recording voice tags, building playlists, prepping sets
 - **Lifestyle** — Behind the scenes, travel to events, personal moments
 - **Spotify playlist** — Promoting the "stuur je playlist" angle, showing how he builds custom sets
@@ -103,7 +135,8 @@ DJ Gianni - Afro Beats, Caribbean vibes en populaire hits. Elke set een feest, e
 ## Platform Notes
 
 - **Instagram:** Visual-first, polished Reels and carousel posts. Use coral visual mode.
-- **TikTok:** Raw, authentic, trending sounds. Behind-the-decks clips perform best.
+- **TikTok:** Raw, authentic, trending sounds. Behind-the-decks clips perform best. Sweet 16 content = viral potential bij tiener publiek.
+- **YouTube Shorts:** Same content as TikTok, SEO-waarde ("dj sweet 16", "dj huren verjaardag"). Langere shelf life.
 
 ---
 

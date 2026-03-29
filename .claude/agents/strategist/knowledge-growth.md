@@ -50,7 +50,7 @@ Waar PYB nu op moet focussen, en wat later kan.
 |---|---|---|
 | 1 | Google Ads — "dj huren" search toevoegen | Ad Specialist |
 | 2 | Retargeting campagnes (website bezoekers) | Ad Specialist |
-| 3 | DJ Gianni & Milo social media opbouwen | Social Media |
+| 3 | DJ Gianni & Milo social media opbouwen (Gianni: sweet 16 niche) | Social Media |
 | 4 | Referral programma lanceren (€50 voor beiden) | Strategist |
 | 5 | Post-event email sequenties automatiseren | Designer (HubSpot) |
 | 6 | Eerste bruiloft-seizoen testimonials verzamelen | — |
