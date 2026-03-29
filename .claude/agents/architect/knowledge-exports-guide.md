@@ -81,11 +81,9 @@ cd /tmp && node export.mjs
 | Tech House Mixtape Cover | 1400 x 1400 | Playwright | `/tmp/milo-cover-export.html?series=...&accent=34d399` | `docs/images/dj-milo/mixtape/tech-house-mixtape-cover.png` |
 | House Mixtape Cover | 1400 x 1400 | Playwright | `/tmp/milo-cover-export.html?series=...&accent=38bdf8` | `docs/images/dj-milo/mixtape/house-mixtape-cover.png` |
 | Deep Mixtape Cover | 1400 x 1400 | Playwright | `/tmp/milo-cover-export.html?series=...&accent=8b5cf6` | `docs/images/dj-milo/mixtape/deep-mixtape-cover.png` |
-| Tech House (Gemini) | 1:1 | Imagen 4.0 | `.claude/agents/dj-promoter/dj-milo-mixtape-gemini-prompt.md` | `docs/images/dj-milo/mixtape/tech-house-mixtape-cover-gemini.png` |
-| House (Gemini) | 1:1 | Imagen 4.0 | same | `docs/images/dj-milo/mixtape/house-mixtape-cover-gemini.png` |
-| Deep (Gemini) | 1:1 | Imagen 4.0 | same | `docs/images/dj-milo/mixtape/deep-mixtape-cover-gemini.png` |
-
 Milø's Playwright template accepts query params: `?series=SERIES+NAME&genre=GENRE&accent=hexcolor`
+
+**Note:** Imagen 4.0 cannot reliably render the "ø" character or precise typography. Use Playwright for all mixtape cover exports. Gemini prompt template (`.claude/agents/dj-promoter/dj-milo-mixtape-gemini-prompt.md`) kept for reference but Playwright is the production method.
 
 ### Standard Sizes
 
