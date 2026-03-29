@@ -18,7 +18,7 @@ Complete brand identity for Milø. Source files in `.claude/agents/dj-promoter/d
 | Sound description | Groovy tech house with depth — polished transitions, rolling basslines, infectious grooves |
 | Sound references | Franky Rizardo, Max Dean, Josh Baker |
 | Personality | Cool, composed — lets the music do the talking |
-| Starting scene | GetFunky (The Hague), electro parties Randstad |
+| Starting scene | Bedroom studio, first gigs coming |
 | Aspirational target | ADE |
 | Contact | info@picyourbooth.nl |
 | **PYB role** | **Supports PicYourBooth for regular party DJ bookings** |
@@ -102,19 +102,19 @@ Six content pillars for Milø:
 
 | Pillar | Frequency | Description |
 |---|---|---|
-| **Set clips** | 3x/week | Short clips from live sets — transitions, drops, building energy (15-30s for Reels/TikTok/YouTube Shorts) |
-| **Behind the decks** | 1-2x/week | BTS footage, setup moments, controller close-ups, dark/moody atmosphere shots |
+| **Set clips** | 3x/week | Short clips from bedroom sessions — transitions, drops, building energy (15-30s for Reels/TikTok/YouTube Shorts) |
+| **Behind the decks** | 1-2x/week | BTS footage, practice sessions, controller close-ups, bedroom studio atmosphere shots |
 | **Mix drops** | 1-2x/month | New mixtape announcements, SoundCloud links, cover art reveals |
-| **The journey / Next Wave** | 1x/week | Personal growth story, learning moments, studio sessions, aspirational content (ADE goal) |
+| **The journey / Next Wave** | 1x/week | Personal growth story, learning moments, bedroom practice sessions, documenting the rise (first gigs, ADE dream) |
 | **Track IDs** | 2x/week | Track identification clips, "what I'm playing", playlist reveals, discovery content |
 | **PYB crossover** | As needed | Photobooth + DJ combo content, event recaps, PicYourBooth brand collaborations |
 
 ## Platform Notes
 
-- **TikTok:** Primary growth platform. Raw, authentic clips. English captions. Behind-the-decks and set clips perform best. Trending sounds when relevant.
+- **TikTok:** Primary growth platform. Raw, authentic clips from bedroom sessions. English captions. Practice clips and transition showcases perform best. Trending sounds when relevant.
 - **Instagram:** Brand credibility. Polished reels and carousel posts. Use cyan visual mode. Curated feed aesthetic.
-- **YouTube Shorts:** SEO longevity. Same content as TikTok, longer shelf life. Keywords: "tech house dj", "house music mix", "dj set clips".
-- **SoundCloud:** Audio credibility. Full mixtapes, "Deep in the Groove Vol. X" series. Cover art and banner in brand style.
+- **YouTube Shorts:** SEO longevity. Same content as TikTok, longer shelf life. Keywords: "tech house dj", "house music mix", "bedroom dj set".
+- **SoundCloud:** Audio credibility. Full mixtapes (bedroom recordings), "Deep in the Groove Vol. X" series. Cover art and banner in brand style.
 
 ---
 

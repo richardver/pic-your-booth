@@ -20,11 +20,11 @@
 | Tagline | "Deep in the groove" |
 | Sub-tagline | Next Wave |
 | Personality | Cool, composed — lets the music do the talking |
-| Starting scene | GetFunky (The Hague), electro parties Randstad |
+| Starting scene | Bedroom studio, first gigs coming |
 | Aspirational target | ADE (Amsterdam Dance Event) |
 | PYB role | Supports PicYourBooth for regular party DJ bookings when needed |
 
-**Brand narrative:** Milo is the next wave of Dutch house. At 16, he plays with the precision and groove of DJs twice his age. He doesn't shout about it — he lets the set speak. Follow the journey from GetFunky to the biggest stages.
+**Brand narrative:** Milo is the next wave of Dutch house. At 16, he plays with the precision and groove of DJs twice his age. He doesn't shout about it — he lets the set speak. Follow the journey from the bedroom studio to the biggest stages.
 
 **Contrast with Gianni:**
 
@@ -87,7 +87,7 @@
 
 | Principle | What it means | Example |
 |---|---|---|
-| **Let the music talk** | Minimal words, maximum impact | "GetFunky. Last Friday." + clip |
+| **Let the music talk** | Minimal words, maximum impact | "late night session." + clip |
 | **Show, don't tell** | A 15-second transition clip > any caption about skill | Post the set, not a paragraph |
 | **Confident, not arrogant** | State facts calmly. No hype words, no "!!!" | "New mix out." not "INSANE NEW MIX DROP!!!" |
 | **English-first** | International house scene speaks English | Tagline, bios, captions in English |
@@ -138,7 +138,7 @@
 **TikTok (primary growth engine)**
 - Raw, authentic clips — behind-the-decks POV
 - Trending sounds with house/tech house twist
-- "What I'm playing at GetFunky tonight" format
+- "What I'm mixing tonight" format
 - Tech house transition challenges
 - Target: electro/house community, 16-25 age bracket
 
@@ -150,7 +150,7 @@
 
 **YouTube Shorts (SEO longevity)**
 - Same clips as TikTok — longer shelf life
-- SEO titles: "tech house transition", "dj set amsterdam", "getfunky the hague"
+- SEO titles: "tech house transition", "bedroom dj set", "young dj the hague"
 
 **SoundCloud (audio credibility)**
 - Monthly mix series: "Deep in the Groove Vol. X"
@@ -163,12 +163,12 @@
 |---|---|
 | Transition clip | "clean." |
 | Set clip | "deep in the groove" |
-| Behind the scenes | "soundcheck at [venue]" |
+| Behind the scenes | "late night practice session." |
 | Track reveal | "this track. every time." |
-| Journey content | "16 and already on the decks at [venue]" |
+| Journey content | "building the set." |
 | Mix drop | "new mix. link in bio." |
-| GetFunky content | "friday nights at getfunky" |
-| Aspirational | "see you at ADE" |
+| Practice | "this transition took me 3 hours." |
+| Aspirational | "bedroom to stage. soon." |
 
 ---
 
@@ -190,8 +190,8 @@
 **Set Clip Post (TikTok/Reels):**
 ```
 [15-30s clip of transition or groove moment]
-Caption: "deep in the groove. [venue], [city]."
-Tags: #techhouse #house #deep #dj #[venue]
+Caption: "deep in the groove. bedroom session."
+Tags: #techhouse #house #deep #dj #bedroomdj
 ```
 
 **Mix Drop Post:**
@@ -204,8 +204,8 @@ Tags: #techhouse #djmix #newmusic #deepgroove
 **Behind The Decks:**
 ```
 [POV footage from behind the mixer]
-Caption: "[venue]. tonight."
-Tags: #behindthedecks #djlife #techhouse
+Caption: "late night session. the grind."
+Tags: #behindthedecks #djlife #techhouse #bedroomdj
 ```
 
 ### Mixtape/Set Cover Art

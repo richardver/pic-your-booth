@@ -86,11 +86,11 @@ They are complementary, not competing. PYB offers both vibes — pick the energy
 **DJ Gianni growth path:** Sweet 16 specialist → verjaardagen breed → party DJ Randstad
 
 **Milø growth milestones:**
-1. GetFunky regular slot
-2. First SoundCloud mix release ("Deep in the Groove Vol. 1")
-3. 500 followers on TikTok/Instagram
-4. First booking outside PYB
-5. ADE appearance (stretch goal)
+1. First SoundCloud mix release ("Deep in the Groove Vol. 1")
+2. 100 followers on TikTok/Instagram
+3. First venue booking
+4. Regular venue slot
+5. ADE appearance (long-term dream)
 
 ## Collaboration with Other Agents
 

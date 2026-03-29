@@ -12,7 +12,7 @@ Photobooth operator & DJ at PicYourBooth. Richard's son.
 - **Sound references:** Franky Rizardo, Max Dean, Josh Baker
 - **Sound description:** Groovy tech house with depth — polished transitions, rolling basslines, infectious grooves
 - **Personality:** Cool, composed — lets the music do the talking
-- **Starting scene:** GetFunky (The Hague), electro parties Randstad
+- **Starting scene:** Bedroom studio, first gigs coming
 - **Aspirational:** ADE
 - **Color:** Cyan #34d399
 - **Logo mark:** Diamond (M) - rotated square, angular, geometric
