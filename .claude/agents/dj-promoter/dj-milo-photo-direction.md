@@ -41,5 +41,5 @@ Deep — Underwater — Immersive — Architectural — Late-night — Groove
 
 ## Source Photos
 
-- `docs/images/dj-milo/profile/milo-portrait.jpg`
-- `docs/images/dj-milo/profile/dj-milo-1.jpg`
+- `images/dj-milo/profile/milo-portrait.jpg`
+- `images/dj-milo/profile/dj-milo-1.jpg`

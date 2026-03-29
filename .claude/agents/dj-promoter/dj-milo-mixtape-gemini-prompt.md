@@ -125,12 +125,12 @@ Each mixtape series uses a different accent color from Milø's cool palette. Swa
 
 | Cover | Path |
 |-------|------|
-| Tech House | `docs/images/dj-milo/mixtape/tech-house-mixtape-cover-gemini.png` |
-| House | `docs/images/dj-milo/mixtape/house-mixtape-cover-gemini.png` |
-| Deep | `docs/images/dj-milo/mixtape/deep-mixtape-cover-gemini.png` |
-| Tech House (Playwright) | `docs/images/dj-milo/mixtape/tech-house-mixtape-cover.png` |
-| House (Playwright) | `docs/images/dj-milo/mixtape/house-mixtape-cover.png` |
-| Deep (Playwright) | `docs/images/dj-milo/mixtape/deep-mixtape-cover.png` |
+| Tech House | `images/dj-milo/mixtape/tech-house-mixtape-cover-gemini.png` |
+| House | `images/dj-milo/mixtape/house-mixtape-cover-gemini.png` |
+| Deep | `images/dj-milo/mixtape/deep-mixtape-cover-gemini.png` |
+| Tech House (Playwright) | `images/dj-milo/mixtape/tech-house-mixtape-cover.png` |
+| House (Playwright) | `images/dj-milo/mixtape/house-mixtape-cover.png` |
+| Deep (Playwright) | `images/dj-milo/mixtape/deep-mixtape-cover.png` |
 
 ---
 

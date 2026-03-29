@@ -15,7 +15,7 @@ Both files must be updated when agents, skills, or repo structure changes.
 
 ## Folder Structure
 
-> **Note:** `docs/templates/` has been removed — content moved to `docs/pyb/website/`, `docs/images/`, and `.claude/agents/dj-promoter/` (DJ docs).
+> **Note:** `docs/templates/` has been removed — content moved to `docs/pyb/website/`, `images/`, and `.claude/agents/dj-promoter/` (DJ docs).
 > **Note:** Website not yet deployed to picyourbooth.nl — HTML pages exist in `docs/pyb/website/deployment/`.
 
 ```
@@ -55,7 +55,7 @@ video/                           Video production (Remotion) — at project root
 - HTML design systems: `pyb-design-system-<scope>.html` (web, photobooth, dj, meta-ads)
 - DJ brand docs: `.claude/agents/dj-promoter/dj-<name>-*.md` (profiles, voice tags, bios)
 - DJ design assets: `.claude/agents/designer/dj-<name>-*.html` (brand guides, component refs)
-- DJ images: `docs/images/dj-<name>/` (profile photos, mixtape covers, social assets)
+- DJ images: `images/dj-<name>/` (profile photos, mixtape covers, social assets)
 
 ---
 
@@ -70,11 +70,11 @@ video/                           Video production (Remotion) — at project root
 | Website HTML pages | `docs/pyb/website/deployment/` | `index.html`, `magic-mirror.html`, `party-booth.html`, `djs.html`, `offerte.html` |
 | Website images | `docs/pyb/website/deployment/assets/images/` | `homepage-hero-1920x1080.webp` |
 | DJ templates & assets | `.claude/agents/dj-promoter/dj-gianni-` | `brand-guide.html` |
-| Ad creative templates | `docs/images/pyb/meta-ads/` | `pyb-design-system-meta-ads.html` |
-| Source photos | `docs/images/photos-source/` | `magicmirror/`, `partybooth/`, `dj/` — see `INDEX.md` for catalogue + Gemini picks |
-| Output images (PYB) | `docs/images/pyb/` | Generated heroes, USPs, modals, logos, screenshots |
-| Output images (DJ Gianni) | `docs/images/dj-gianni/` | Profile, social, mixtape covers + PROMPTS.md |
-| Output images (Milø) | `docs/images/dj-milo/` | Profile photos |
+| Ad creative templates | `images/pyb/meta-ads/` | `pyb-design-system-meta-ads.html` |
+| Source photos | `images/photos-source/` | `magicmirror/`, `partybooth/`, `dj/` — see `INDEX.md` for catalogue + Gemini picks |
+| Output images (PYB) | `images/pyb/` | Generated heroes, USPs, modals, logos, screenshots |
+| Output images (DJ Gianni) | `images/dj-gianni/` | Profile, social, mixtape covers + PROMPTS.md |
+| Output images (Milø) | `images/dj-milo/` | Profile photos |
 | KPI reports | `docs/kpi/` | Vizibooth 2025/2026 Excel reports |
 | Funnel campaigns | `docs/funnel/campaigns/` | Campaign specs per month |
 | Creative briefs | `docs/funnel/` | HTML mockups, creative briefs |
@@ -114,5 +114,5 @@ Project-root `.venv/` provides tooling for image processing and AI automation. N
 5. **Markdown for text, HTML for visual design systems**
 6. **DJ brand docs live with dj-promoter** — `.claude/agents/dj-promoter/dj-<name>-*`
 7. **`pyb-design-tokens.json` is PYM mobile, not PYB web** — see knowledge-design-systems.md
-8. **`docs/templates/` is deprecated** — all content moved to `docs/pyb/website/` and `docs/images/`
+8. **`docs/templates/` is deprecated** — all content moved to `docs/pyb/website/` and `images/`
 9. **Video production lives at project root** — `video/`, not `docs/video/`

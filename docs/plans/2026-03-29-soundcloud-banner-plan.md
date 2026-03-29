@@ -15,15 +15,15 @@
 ### Task 1: Create output directory
 
 **Files:**
-- Create: `docs/images/dj-gianni/soundcloud/` (directory)
+- Create: `images/dj-gianni/soundcloud/` (directory)
 
 **Step 1: Create the directory**
 
-Run: `mkdir -p /Users/richardversluis/code/pic-your-booth/docs/images/dj-gianni/soundcloud`
+Run: `mkdir -p /Users/richardversluis/code/pic-your-booth/images/dj-gianni/soundcloud`
 
 **Step 2: Verify**
 
-Run: `ls -la /Users/richardversluis/code/pic-your-booth/docs/images/dj-gianni/soundcloud/`
+Run: `ls -la /Users/richardversluis/code/pic-your-booth/images/dj-gianni/soundcloud/`
 Expected: Empty directory exists
 
 ---
@@ -460,7 +460,7 @@ Verify:
 
 **Files:**
 - Create: `/tmp/export-banner.mjs`
-- Create: `docs/images/dj-gianni/soundcloud/banner-2480x520.png`
+- Create: `images/dj-gianni/soundcloud/banner-2480x520.png`
 
 **Step 1: Write the Playwright export script**
 
@@ -475,23 +475,23 @@ await page.goto('file:///tmp/dj-gianni-soundcloud-banner.html', { waitUntil: 'ne
 await page.waitForTimeout(3000); // Extra time for Google Fonts
 
 await page.screenshot({
-  path: '/Users/richardversluis/code/pic-your-booth/docs/images/dj-gianni/soundcloud/banner-2480x520.png',
+  path: '/Users/richardversluis/code/pic-your-booth/images/dj-gianni/soundcloud/banner-2480x520.png',
   fullPage: false,
   clip: { x: 0, y: 0, width: 2480, height: 520 }
 });
 
-console.log('Banner exported: docs/images/dj-gianni/soundcloud/banner-2480x520.png');
+console.log('Banner exported: images/dj-gianni/soundcloud/banner-2480x520.png');
 await browser.close();
 ```
 
 **Step 2: Run the export**
 
 Run: `cd /tmp && node export-banner.mjs`
-Expected: `Banner exported: docs/images/dj-gianni/soundcloud/banner-2480x520.png`
+Expected: `Banner exported: images/dj-gianni/soundcloud/banner-2480x520.png`
 
 **Step 3: Verify the output**
 
-Run: `ls -la /Users/richardversluis/code/pic-your-booth/docs/images/dj-gianni/soundcloud/banner-2480x520.png`
+Run: `ls -la /Users/richardversluis/code/pic-your-booth/images/dj-gianni/soundcloud/banner-2480x520.png`
 Expected: File exists, reasonable file size (100KB-1MB range for PNG at this resolution)
 
 **Step 4: Visual check**
@@ -522,7 +522,7 @@ Re-export after each adjustment until the design is production-ready.
 ### Task 5: Update PROMPTS.md with banner section
 
 **Files:**
-- Modify: `docs/images/dj-gianni/PROMPTS.md:119-126`
+- Modify: `images/dj-gianni/PROMPTS.md:119-126`
 
 **Step 1: Replace the empty banner stub with full documentation**
 
@@ -594,12 +594,12 @@ DO NOT: realistic faces, photographs, musical notes, neon, cool blue/cyan tones,
 
 **Step 2: Verify the file**
 
-Read `docs/images/dj-gianni/PROMPTS.md` and confirm the banner section is complete with specs, safe zones, and Gemini prompt.
+Read `images/dj-gianni/PROMPTS.md` and confirm the banner section is complete with specs, safe zones, and Gemini prompt.
 
 **Step 3: Commit**
 
 ```bash
-git add docs/images/dj-gianni/PROMPTS.md
+git add images/dj-gianni/PROMPTS.md
 git commit -m "docs: add SoundCloud banner specs and Gemini prompt to PROMPTS.md"
 ```
 
@@ -666,7 +666,7 @@ git commit -m "docs: add banner specs and mobile optimization to SoundCloud know
 Add a new row to the "DJ Gianni" table in the Current Assets section:
 
 ```markdown
-| SoundCloud Banner | 2480 x 520 | `/tmp/dj-gianni-soundcloud-banner.html` | `docs/images/dj-gianni/soundcloud/banner-2480x520.png` |
+| SoundCloud Banner | 2480 x 520 | `/tmp/dj-gianni-soundcloud-banner.html` | `images/dj-gianni/soundcloud/banner-2480x520.png` |
 ```
 
 Also add to the Standard Sizes table:
@@ -687,12 +687,12 @@ git commit -m "docs: add SoundCloud banner to exports guide"
 ### Task 8: Commit the banner image and final push
 
 **Files:**
-- Stage: `docs/images/dj-gianni/soundcloud/banner-2480x520.png`
+- Stage: `images/dj-gianni/soundcloud/banner-2480x520.png`
 
 **Step 1: Stage and commit the banner**
 
 ```bash
-git add docs/images/dj-gianni/soundcloud/banner-2480x520.png
+git add images/dj-gianni/soundcloud/banner-2480x520.png
 git commit -m "feat: DJ Gianni SoundCloud profile banner — tri-genre gradient flow
 
 2480x520px header with mobile-first safe zones.

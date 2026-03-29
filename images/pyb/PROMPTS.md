@@ -80,6 +80,6 @@ Alle AI-gegenereerde en verwerkte afbeeldingen voor PicYourBooth. Assets gegener
 ## WebP Pipeline
 
 Gegenereerde PNGs worden via de asset-generator resize mode omgezet naar WebP:
-- **Output:** `docs/images/website/` (pipeline output) en `docs/pyb/website/deployment/assets/images/` (live website)
+- **Output:** `images/website/` (pipeline output) en `docs/pyb/website/deployment/assets/images/` (live website)
 - **Quality:** 85
 - **Responsive breakpoints:** hero 1920x1080, 1280x720, 768x432 | usp 400x400 | modal 800x600 | og 1200x630

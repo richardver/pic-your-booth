@@ -38,7 +38,7 @@ You do NOT own paid ads (ad-specialist), website pages (designer), brand complia
 | Milø — all DJ knowledge | `dj-promoter/knowledge-dj-milo.md` | Brand, content angles, platform notes, bios, visual identity. Owned by dj-promoter agent. |
 | Viral loops — summary | `knowledge-viral-retention.md` | Quick-reference: viral loop, referral, post-event |
 | Viral loops — full reference | `knowledge-viral-retention-full.md` | K-factor, referral program, Hook Model, WOM amplification |
-| **Photo library index** | `docs/images/photos-source/INDEX.md` | Full catalogue of 98 source photos with ratings, descriptions, and Gemini AI reference picks — use for social content |
+| **Photo library index** | `images/photos-source/INDEX.md` | Full catalogue of 98 source photos with ratings, descriptions, and Gemini AI reference picks — use for social content |
 
 ## Hard Rules
 

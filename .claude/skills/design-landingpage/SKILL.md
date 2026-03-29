@@ -42,7 +42,7 @@ The user specifies:
    - `.claude/agents/designer/pyb-design-system-photobooth.html` — page-specific design system (if photobooth)
    - `.claude/agents/designer/pyb-design-system-dj.html` — page-specific design system (if DJ)
 
-5. **Photo library** — Read `docs/images/photos-source/INDEX.md` for available source photos per product/USP, quality ratings, and Gemini AI reference picks. Use best-rated photos for image selection and `/generate-asset` input.
+5. **Photo library** — Read `images/photos-source/INDEX.md` for available source photos per product/USP, quality ratings, and Gemini AI reference picks. Use best-rated photos for image selection and `/generate-asset` input.
 
 6. **Ad context** — Read:
    - `.claude/agents/ad-specialist/knowledge-meta-ads-full.md` — campaign structure, creative specs

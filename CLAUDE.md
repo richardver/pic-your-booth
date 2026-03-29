@@ -45,17 +45,17 @@ Agent registry: `.claude/agents/_registry.md`
 pic-your-booth/
 ├── CLAUDE.md                              ← You are here
 ├── .venv/                                 ← Python 3.14 tooling (Pillow, Gemini, etc.)
+├── images/                                - All image assets
+│   ├── pyb/                              - PYB brand (logo, heroes, USPs, modals, meta-ads, screenshots)
+│   ├── dj-gianni/                        - DJ Gianni (profile, social, mixtape covers + PROMPTS.md)
+│   ├── dj-milo/                          - Milø (profile, mixtape covers)
+│   ├── photos-source/                    - Original photos + INDEX.md (catalogue with Gemini picks)
+│   │   ├── magicmirror/                 - Magic Mirror XL source photos
+│   │   ├── partybooth/                  - Party Booth source photos
+│   │   └── dj/                          - DJ source photos
+│   └── web/                              - Optimized WebP pipeline output
 ├── docs/
 │   ├── plans/                            - PRD, brainstorm sessions, design documents
-│   ├── images/                           - All image assets
-│   │   ├── pyb/                         - PYB brand (logo, heroes, USPs, modals, meta-ads, screenshots)
-│   │   ├── dj-gianni/                   - DJ Gianni (profile, social, mixtape covers + PROMPTS.md)
-│   │   ├── dj-milo/                     - Milø (profile)
-│   │   ├── photos-source/              - Original photos + INDEX.md (catalogue with Gemini picks)
-│   │   │   ├── magicmirror/           - Magic Mirror XL source photos
-│   │   │   ├── partybooth/            - Party Booth source photos
-│   │   │   └── dj/                    - DJ source photos
-│   │   └── web/                        - Optimized WebP pipeline output
 │   ├── pyb/website/                      - Website pages & design systems
 │   │   ├── deployment/                  - Live HTML pages served by TransIP (DO NOT MOVE)
 │   │   │   └── assets/images/          - Optimized images served by website

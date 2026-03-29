@@ -264,7 +264,7 @@ SoundCloud crops the profile banner on mobile to the **center ~1400x520px**. Eve
 3. Center-darken gradient in HTML ensures text readability over background
 4. Export at exact 2480x520px via Playwright `clip`
 
-See `docs/images/dj-gianni/PROMPTS.md` for the full Gemini prompt and Python script.
+See `images/dj-gianni/PROMPTS.md` for the full Gemini prompt and Python script.
 
 ### Banner Update Cadence
 

@@ -21,7 +21,7 @@ You do NOT own visual asset creation, landing page design, organic social conten
 | Creative testing — full reference | `knowledge-creative-testing-full.md` | 10-step methodology, decay curves, lifecycle phases |
 | A/B testing framework | `knowledge-ab-testing.md` | ICE framework, sample sizes, test documentation |
 | PYB campaign architecture | `knowledge-pyb-campaigns.md` | PYB-specific campaign structure, segments, budgets, targets |
-| **Photo library index** | `docs/images/photos-source/INDEX.md` | Full catalogue of 98 source photos with ratings, descriptions, and Gemini AI reference picks — use for creative briefs |
+| **Photo library index** | `images/photos-source/INDEX.md` | Full catalogue of 98 source photos with ratings, descriptions, and Gemini AI reference picks — use for creative briefs |
 
 ## Available Skills (17 ads skills)
 

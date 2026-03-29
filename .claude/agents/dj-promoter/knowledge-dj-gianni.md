@@ -63,8 +63,8 @@ DJ Gianni uses warm-palette accents per genre. All accents are in the warm spect
 - Cinematic, not commercial
 - Headphones around neck, black hoodie, clean minimal styling
 - Square-safe composition — works at avatar and banner sizes
-- Source: `docs/images/dj-gianni/profile/profiel.jpeg`
-- Preview: `docs/images/dj-gianni/profile/preview.jpg`
+- Source: `images/dj-gianni/profile/profiel.jpeg`
+- Preview: `images/dj-gianni/profile/preview.jpg`
 
 ---
 
@@ -219,10 +219,10 @@ Key specs:
 | Brand guide (HTML) | `.claude/agents/designer/dj-gianni-brand-guide.html` |
 | CSS reference | `.claude/agents/designer/dj-gianni-component-css-reference.html` |
 | Component library | `.claude/agents/designer/dj-gianni-component-css-reference.html` |
-| Social templates | `docs/images/dj-gianni/social/social-templates.html` |
-| Mixtape cover | `docs/images/dj-gianni/mixtape/afro-mixtape-cover.png` (1400x1400) |
-| Profile photo | `docs/images/dj-gianni/profile/profiel.jpeg` |
-| Preview photo | `docs/images/dj-gianni/profile/preview.jpg` |
+| Social templates | `images/dj-gianni/social/social-templates.html` |
+| Mixtape cover | `images/dj-gianni/mixtape/afro-mixtape-cover.png` (1400x1400) |
+| Profile photo | `images/dj-gianni/profile/profiel.jpeg` |
+| Preview photo | `images/dj-gianni/profile/preview.jpg` |
 | Voice tags | `.claude/agents/dj-promoter/dj-gianni-voice-tags.md` |
 | Social bios | `.claude/agents/dj-promoter/dj-gianni-social-bios.md` |
 | Photo direction | `.claude/agents/dj-promoter/dj-gianni-photo-direction.md` |

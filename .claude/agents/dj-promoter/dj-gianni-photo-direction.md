@@ -25,4 +25,4 @@ Guidance for DJ Gianni profile photography across all platforms and brand materi
 
 ## Source Photo
 
-- `docs/images/dj-gianni/profile/profiel.jpeg`
+- `images/dj-gianni/profile/profiel.jpeg`

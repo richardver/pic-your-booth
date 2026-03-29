@@ -71,16 +71,16 @@ cd /tmp && node export.mjs
 
 | Asset | Dimensions | Source HTML | Output |
 |-------|-----------|------------|--------|
-| Afro Mixtape Cover | 1400 x 1400 | `/tmp/gianni-cover-export.html` | `docs/images/dj-gianni/mixtape/afro-mixtape-cover.png` |
-| SoundCloud Banner | 2480 x 520 | `/tmp/dj-gianni-soundcloud-banner.html` | `docs/images/dj-gianni/soundcloud/banner-2480x520.png` |
+| Afro Mixtape Cover | 1400 x 1400 | `/tmp/gianni-cover-export.html` | `images/dj-gianni/mixtape/afro-mixtape-cover.png` |
+| SoundCloud Banner | 2480 x 520 | `/tmp/dj-gianni-soundcloud-banner.html` | `images/dj-gianni/soundcloud/banner-2480x520.png` |
 
 ### Milø
 
 | Asset | Dimensions | Method | Source | Output |
 |-------|-----------|--------|--------|--------|
-| Tech House Mixtape Cover | 1400 x 1400 | Playwright | `/tmp/milo-cover-export.html?series=...&accent=34d399` | `docs/images/dj-milo/mixtape/tech-house-mixtape-cover.png` |
-| House Mixtape Cover | 1400 x 1400 | Playwright | `/tmp/milo-cover-export.html?series=...&accent=38bdf8` | `docs/images/dj-milo/mixtape/house-mixtape-cover.png` |
-| Deep Mixtape Cover | 1400 x 1400 | Playwright | `/tmp/milo-cover-export.html?series=...&accent=8b5cf6` | `docs/images/dj-milo/mixtape/deep-mixtape-cover.png` |
+| Tech House Mixtape Cover | 1400 x 1400 | Playwright | `/tmp/milo-cover-export.html?series=...&accent=34d399` | `images/dj-milo/mixtape/tech-house-mixtape-cover.png` |
+| House Mixtape Cover | 1400 x 1400 | Playwright | `/tmp/milo-cover-export.html?series=...&accent=38bdf8` | `images/dj-milo/mixtape/house-mixtape-cover.png` |
+| Deep Mixtape Cover | 1400 x 1400 | Playwright | `/tmp/milo-cover-export.html?series=...&accent=8b5cf6` | `images/dj-milo/mixtape/deep-mixtape-cover.png` |
 Milø's Playwright template accepts query params: `?series=SERIES+NAME&genre=GENRE&accent=hexcolor`
 
 **Note:** Imagen 4.0 cannot reliably render the "ø" character or precise typography. Use Playwright for all mixtape cover exports. Gemini prompt template (`.claude/agents/dj-promoter/dj-milo-mixtape-gemini-prompt.md`) kept for reference but Playwright is the production method.
@@ -104,5 +104,5 @@ Milø's Playwright template accepts query params: `?series=SERIES+NAME&genre=GEN
 - Always use `clip` with exact dimensions - never `fullPage: true`
 - Export as PNG (no compression artifacts)
 - Source HTML files stay in `/tmp/` (not committed)
-- Exported PNGs go in the relevant `docs/images/` subfolder (e.g. `docs/images/dj-gianni/mixtape/`)
+- Exported PNGs go in the relevant `images/` subfolder (e.g. `images/dj-gianni/mixtape/`)
 - Each export HTML is a standalone file with inline CSS, no external deps except Google Fonts

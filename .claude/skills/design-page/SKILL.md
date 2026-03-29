@@ -41,7 +41,7 @@ The user specifies which page to build:
      - Photobooth pages → `.claude/agents/designer/pyb-design-system-photobooth.html`
      - DJ page → `.claude/agents/designer/pyb-design-system-dj.html`
 
-4. **Photo library** — Read `docs/images/photos-source/INDEX.md` for available source photos per product/USP, quality ratings, and Gemini AI reference picks. Use best-rated photos for image placeholders and `/generate-asset` input.
+4. **Photo library** — Read `images/photos-source/INDEX.md` for available source photos per product/USP, quality ratings, and Gemini AI reference picks. Use best-rated photos for image placeholders and `/generate-asset` input.
 
 5. **CRO & conversion knowledge** — Read these files:
    - `.claude/agents/designer/knowledge-landing-pages.md` — page structure, hero formulas, CTAs

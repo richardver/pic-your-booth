@@ -20,7 +20,7 @@ You do NOT own marketing copy, campaign strategy, visual design, or brand tone �
 | DSLRBooth / LumaBooth — booth software, setup, troubleshooting | `knowledge-dslrbooth-software.md` | Software config, troubleshooting, printing, sharing, camera settings, LumaSoft support |
 | Fotoshare — post-event photo delivery, branded portal | `knowledge-fotoshare.md` | Photo sharing links, yourphotos URL format, post-event customer workflow |
 | TemplatesBooth — template selection, branded portal | `knowledge-templatesbooth.md` | Design selection widget, yourdesign URL format, submission workflow |
-| **Photo library index** | `docs/images/photos-source/INDEX.md` | Full catalogue of 98 source photos per product/USP with ratings and Gemini AI reference picks |
+| **Photo library index** | `images/photos-source/INDEX.md` | Full catalogue of 98 source photos per product/USP with ratings and Gemini AI reference picks |
 
 ## When to Use This Agent
 

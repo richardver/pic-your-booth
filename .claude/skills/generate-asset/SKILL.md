@@ -23,7 +23,7 @@ Create web-ready image assets for PicYourBooth pages using AI generation or phot
 
 ## Photo Reference Library
 
-**Before generating, check `docs/images/photos-source/INDEX.md`** for the best source photos per product/USP.
+**Before generating, check `images/photos-source/INDEX.md`** for the best source photos per product/USP.
 
 Best source photos for enhance mode (ALWAYS use venue shots for correct product scale):
 - **Party Booth:** `partybooth/product/party-booth-venue-setup-stringlights.png` (PREFERRED — correct floor-standing scale)
@@ -48,7 +48,7 @@ Takes a source photo and enhances environment/lighting while keeping the product
 
 ```bash
 python3 .claude/agents/designer/scripts/asset-generator/asset-generator.py enhance \
-  --source docs/images/photos-source/partybooth/product/party-booth-product-clean-studio.png \
+  --source images/photos-source/partybooth/product/party-booth-product-clean-studio.png \
   --page party-booth \
   --usage usp \
   --name "direct-delen"
@@ -79,7 +79,7 @@ python .claude/agents/designer/scripts/asset-generator/asset-generator.py resize
 1. User specifies: mode + page + usage type + source photo (if enhance)
 2. Script builds PYB-branded prompt from `prompts.py`
 3. Gemini generates/enhances the image
-4. Raw output saved to `docs/images/pyb/`
+4. Raw output saved to `images/pyb/`
 5. Python resizes to all needed dimensions
 6. WebP files saved to `docs/pyb/website/deployment/assets/images/`
 7. Report file paths for use in HTML
@@ -101,7 +101,7 @@ python .claude/agents/designer/scripts/asset-generator/asset-generator.py resize
 ## Output
 
 ```
-docs/images/
+images/
 ├── pyb/                           ← Raw AI output + PYB brand assets
 │   ├── INDEX.md                  ← Generated photos catalogue with approval status
 │   ├── heroes/
@@ -116,8 +116,8 @@ docs/pyb/website/deployment/
 
 ## Post-Generation Workflow
 
-1. **Save** raw output to the correct subfolder in `docs/images/pyb/`
-2. **Update** `docs/images/pyb/INDEX.md` — add a row with status `pending`
+1. **Save** raw output to the correct subfolder in `images/pyb/`
+2. **Update** `images/pyb/INDEX.md` — add a row with status `pending`
 3. **Review** with Richard — show the generated image for approval
 4. **Approve/Reject** — update status in INDEX.md to `approved` or `rejected`
 5. **If approved** — resize to web dimensions and save to `docs/pyb/website/deployment/assets/images/`

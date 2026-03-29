@@ -2,7 +2,7 @@
 
 ## Photo Reference Library
 
-**Always check `docs/images/photos-source/INDEX.md` before generating images.** The index contains:
+**Always check `images/photos-source/INDEX.md` before generating images.** The index contains:
 - 98 catalogued source photos with quality ratings and descriptions
 - **Tier 1 picks** — the 8 best photos to embed as Gemini reference images
 - **Tier 2 picks** — 18 secondary references for specific use cases

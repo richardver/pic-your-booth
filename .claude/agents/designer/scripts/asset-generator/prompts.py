@@ -6,7 +6,7 @@ CRITICAL RULE: ALWAYS use enhance mode with a real source photo when our product
 (Party Booth or Magic Mirror) should be visible. Generate mode invents fake hardware.
 Only use generate mode for concept images with NO PYB products in frame.
 
-Photo reference library: docs/images/photos-source/INDEX.md
+Photo reference library: images/photos-source/INDEX.md
 - 98 source photos catalogued with quality ratings
 - Tier 1 picks: 8 best photos for Gemini reference input
 

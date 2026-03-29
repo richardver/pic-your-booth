@@ -20,7 +20,7 @@ You do NOT own social media content, paid ad creatives, brand voice rules, or pr
 | Landing page frameworks | `knowledge-landing-pages.md` | Hero formulas, CTA patterns, page structure templates |
 | Form optimization | `knowledge-forms.md` | Form UX, personalization, message match frameworks |
 | UX principles, accessibility, responsive | `knowledge-ux-principles.md` | 10-category UX guide, 25 best practices, testing checklists |
-| **Photo library index** | `docs/images/photos-source/INDEX.md` | Full catalogue of 98 source photos with ratings, descriptions, and Gemini AI reference picks per product/USP |
+| **Photo library index** | `images/photos-source/INDEX.md` | Full catalogue of 98 source photos with ratings, descriptions, and Gemini AI reference picks per product/USP |
 | **Asset generation** | `/generate-asset` skill + `scripts/asset-generator/` | ALWAYS use enhance mode with real source photo when product is visible. Generate mode invents fake hardware. |
 
 ## The Funnel

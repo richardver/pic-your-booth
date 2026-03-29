@@ -13,7 +13,7 @@ import { ReleaseClipProps } from './lib/types';
  *   - genre + accent colors (from dj-promoter agent)
  *   - hookText + sub-hook (from strategist agent)
  *   - videoSrc1 + videoSrc2 + videoStartSec (from audio analyzer)
- *   - coverArtSrc (from docs/images/<dj>/mixtape/)
+ *   - coverArtSrc (from images/<dj>/mixtape/)
  *
  * Output goes to: video/output/<dj>/tiktok/release-clip/<serie-name>/
  */

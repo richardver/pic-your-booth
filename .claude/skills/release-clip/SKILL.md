@@ -67,8 +67,8 @@ cp "<angle2-path>" video/templates/tiktok/release-clip/public/footage/angle2.mp4
 
 ### 4. Copy cover art
 Find the appropriate cover art:
-- Gianni: `docs/images/dj-gianni/mixtape/<genre>-mixtape-cover.png`
-- Milo: `docs/images/dj-milo/mixtape/<genre>-mixtape-cover.png` or `*-gemini.png`
+- Gianni: `images/dj-gianni/mixtape/<genre>-mixtape-cover.png`
+- Milo: `images/dj-milo/mixtape/<genre>-mixtape-cover.png` or `*-gemini.png`
 
 ```bash
 cp "<cover-path>" video/templates/tiktok/release-clip/public/covers/cover.png

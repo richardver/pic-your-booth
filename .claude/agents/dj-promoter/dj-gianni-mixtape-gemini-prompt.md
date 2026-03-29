@@ -62,6 +62,6 @@ Each mixtape series uses a different accent color from DJ Gianni's warm palette.
 
 ## Exported Covers
 
-- Afro mixtape cover: `docs/images/dj-gianni/mixtape/afro-mixtape-cover.png` (1400x1400)
-- Caribbean mixtape cover: `docs/images/dj-gianni/mixtape/caribbean-mixtape-cover.png` (1400x1400)
-- NL Urban mixtape cover: `docs/images/dj-gianni/mixtape/nl-urban-mixtape-cover.png` (1400x1400)
+- Afro mixtape cover: `images/dj-gianni/mixtape/afro-mixtape-cover.png` (1400x1400)
+- Caribbean mixtape cover: `images/dj-gianni/mixtape/caribbean-mixtape-cover.png` (1400x1400)
+- NL Urban mixtape cover: `images/dj-gianni/mixtape/nl-urban-mixtape-cover.png` (1400x1400)

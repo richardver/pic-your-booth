@@ -59,5 +59,5 @@ How PYB's design systems are layered and which inherits from which.
 1. **Changes cascade down** — updating Layer 1 affects all children
 2. **Individual brand guides override parent tokens** — DJ Gianni's coral overrides the default accent
 3. **Each DJ gets their own brand guide** — never mix DJ identities in one file
-4. **Social templates live with their DJ profile** — `docs/images/dj-gianni/social/`
+4. **Social templates live with their DJ profile** — `images/dj-gianni/social/`
 5. **Do not treat `pyb-design-tokens.json` as PYB web source** — it's PYM mobile tokens, kept for reference only
