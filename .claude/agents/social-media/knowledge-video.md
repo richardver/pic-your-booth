@@ -45,18 +45,21 @@ Tier 1 — Phone + Remotion (best for TikTok, Reels, Stories):
 | TikTok | 15-60s | 10 min |
 | Instagram Reels | 15-30s | 90s |
 | Instagram Stories | 15s/slide | 60s |
+| YouTube Shorts | 30-60s | 3 min |
 | Facebook Feed | 30-120s | 240 min |
 
 ## Content Repurposing Waterfall
 
 ```
 Event Highlight Video (2-3 min)
-├─→ 3-5 Short Clips → TikTok, Reels, Shorts
+├─→ 3-5 Short Clips → TikTok, Reels, YouTube Shorts
 ├─→ Key Frames → Quote graphics for Instagram
 ├─→ BTS clips → Stories, TikTok
-├─→ DJ set clips → DJ personal accounts
+├─→ DJ set clips → DJ personal accounts (IG, TikTok, YouTube)
 ├─→ Best photos → Instagram carousel
 └─→ Testimonial clips → Website, ads, social proof
+
+Distribution order: TikTok first → Reels 12-24h later → YouTube Shorts 24-48h later
 ```
 
 For full video specs and distribution workflow, load `.claude/agents/social-media/knowledge-video-full.md`.

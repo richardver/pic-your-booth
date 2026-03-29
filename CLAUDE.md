@@ -67,8 +67,10 @@ pic-your-booth/
 │   │   │   ├── magicmirror/           - Magic Mirror XL source photos
 │   │   │   ├── partybooth/            - Party Booth source photos
 │   │   │   └── dj/                    - DJ source photos
-│   ├── video/                            - Remotion video projects
-│   │   └── dj-gianni/tiktok/release-clip/ - Release Clip POC (Remotion)
+│   ├── video/                            - Video production
+│   │   ├── templates/tiktok/release-clip/ - Shared Release Clip template (Remotion)
+│   │   ├── output/<dj>/tiktok/...        - Per-DJ rendered output (MP4 + analysis)
+│   │   └── tools/audio-analyzer/         - Audio analysis tool (ffmpeg + numpy)
 │   ├── kpi/                             - Historical KPI Excel reports (Vizibooth 2025, 2026)
 │   └── funnel/                          - Funnel strategy & campaign management
 │       ├── campaigns/                 - Campaign specs, audiences, ad copy per month
@@ -104,10 +106,11 @@ pic-your-booth/
 │   │   │   ├── _index.md                - Sub-topic router
 │   │   │   ├── knowledge-dj-gianni.md   - DJ Gianni full brand identity, assets
 │   │   │   └── knowledge-dj-milo.md     - DJ Milø full brand identity, assets
-│   │   ├── social-media.md                - Social content, posting, video scripts
+│   │   ├── social-media.md                - Social content, posting, video scripts (IG + TikTok + YouTube Shorts)
 │   │   ├── social-media/                  - Social media knowledge directory
 │   │   │   ├── _index.md                - Sub-topic router (DJ knowledge -> dj-promoter)
 │   │   │   ├── knowledge-platforms.md   - Platform strategy, specs, content pillars, Google Business
+│   │   │   ├── knowledge-youtube.md       - YouTube Shorts: algorithm, API, SEO, Content ID, DJ channel
 │   │   │   ├── knowledge-video.md       - Video scripting, hooks, production
 │   │   │   └── knowledge-viral-retention.md - Viral loops, referrals, post-event
 │   │   ├── strategist.md                  - Strategy, brand, orchestration

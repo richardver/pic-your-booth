@@ -1,6 +1,6 @@
 # Social Creatives - Platform-by-Platform Guide
 
-**PYB actieve platformen: Instagram + TikTok only.** LinkedIn, Facebook, YouTube secties hieronder zijn generieke referentie — niet actief voor PYB.
+**PYB actieve platformen: Instagram + TikTok + YouTube Shorts.** LinkedIn, Facebook, YouTube long-form secties hieronder zijn generieke referentie — niet actief voor PYB.
 
 ---
 
@@ -150,13 +150,14 @@ Use 10 niche, 10 medium, 5 large, 5 mega as a starting mix.
 
 ## Content Repurposing Matrix
 
-| Original | → Instagram | → TikTok | → LinkedIn | → Facebook |
-|----------|------------|----------|-----------|-----------|
-| Event video | Reel (30s highlights) | Native clip (15-60s) | Behind-scenes post | Full video + album |
-| Photo shoot | Carousel + single | Slideshow with music | Professional post | Album + story |
-| Blog post | Quote cards | Key tips video | Long-form text | Link post |
-| Testimonial | Quote graphic + reel | Customer story clip | Case study post | Review post |
-| BTS footage | Stories + reels | Raw authentic clip | Process post | Live or video |
+| Original | → Instagram | → TikTok | → YouTube Shorts | → LinkedIn | → Facebook |
+|----------|------------|----------|----------------|-----------|-----------|
+| Event video | Reel (30s highlights) | Native clip (15-60s) | Same clip, no watermark | Behind-scenes post | Full video + album |
+| Photo shoot | Carousel + single | Slideshow with music | Before/after Short | Professional post | Album + story |
+| Blog post | Quote cards | Key tips video | — | Long-form text | Link post |
+| Testimonial | Quote graphic + reel | Customer story clip | Testimonial Short | Case study post | Review post |
+| BTS footage | Stories + reels | Raw authentic clip | Behind the decks | Process post | Live or video |
+| DJ release clip | Reel teaser | Release clip (Remotion) | Same clip + SoundCloud CTA | — | — |
 
 ---
 

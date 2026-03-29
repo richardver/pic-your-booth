@@ -61,6 +61,7 @@ Waar PYB nu op moet focussen, en wat later kan.
 - 10+ events/maand
 - 20% herhaalboeking of referral
 - DJ Gianni 500+ Instagram volgers
+- DJ Gianni 200+ YouTube subscribers
 - 25+ Google Reviews
 
 ---
@@ -90,17 +91,21 @@ Waar PYB nu op moet focussen, en wat later kan.
 
 **Fase 1 regel:** 0% ad budget op DJ. DJ is upgrade in photobooth-campagnes. ROAS target >4.0x.
 
-### Organisch (Social — Instagram + TikTok only)
+### Organisch (Social — Instagram + TikTok + YouTube Shorts)
 | Account | Fase 1 | Fase 2-3 |
 |---|---|---|
 | **PYB Instagram** | 3x/week — event highlights, social proof, BTS | Schalen, meer video |
 | **PYB TikTok** | 2-3x/week — viral event clips, BTS | Trending content |
 | **DJ Gianni IG** | 1-2x/week — set clips, studio, lifestyle | 3-5x/week, eigen merk |
 | **DJ Gianni TikTok** | 1-2x/week — behind the decks, trending | Dagelijks voor groei |
+| **DJ Gianni YouTube Shorts** | 2-3x/week — release clips, set clips, transitions | Dagelijks, SEO-gedreven groei |
 | **Milo IG** | 1-2x/week — set clips, studio | 3-5x/week, eigen merk |
 | **Milo TikTok** | 1-2x/week — behind the decks | Dagelijks voor groei |
+| **Milo YouTube Shorts** | 1-2x/week — set clips, behind the decks | 3-5x/week |
 
-**Niet actief:** Facebook, LinkedIn, YouTube, Pinterest.
+**Niet actief:** Facebook, LinkedIn, YouTube long-form, Pinterest.
+
+**YouTube Shorts voordeel:** Zelfde 9:16 content als TikTok/Reels, zero extra productie. YouTube API maakt uploads automatiseerbaar. Langere shelf life dan TikTok + SEO waarde.
 
 ### Overig
 | Kanaal | Fase 1 | Fase 2-3 |

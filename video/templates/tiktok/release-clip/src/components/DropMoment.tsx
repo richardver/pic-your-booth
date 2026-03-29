@@ -5,7 +5,7 @@ import { Genre } from '../lib/types';
 import { GlitchText } from './effects/GlitchText';
 import { SlamIn } from './effects/SlamIn';
 
-export const DropMoment: React.FC<{ serieName: string; genre: Genre }> = ({ serieName, genre }) => {
+export const DropMoment: React.FC<{ djName: string; serieName: string; genre: Genre }> = ({ djName, serieName, genre }) => {
   const { accent } = GENRE_TOKENS[genre];
 
   return (
@@ -25,7 +25,7 @@ export const DropMoment: React.FC<{ serieName: string; genre: Genre }> = ({ seri
             textAlign: 'center',
             lineHeight: 1,
           }}>
-            DJ GIANNI
+            {djName}
           </div>
         </SlamIn>
       </GlitchText>

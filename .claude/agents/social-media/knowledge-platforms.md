@@ -24,7 +24,7 @@ Platform-specific guides. Full reference in `.claude/agents/social-media/knowled
 | Event energy | 15% | Crowd reactions, dance floors |
 | Collaborations | 5% | Other DJs, artists, venues |
 
-## Active Platforms (Instagram + TikTok only)
+## Active Platforms (Instagram + TikTok + YouTube Shorts)
 
 | Platform | Primary Format | Cadence | Tone |
 |---|---|---|---|
@@ -32,8 +32,9 @@ Platform-specific guides. Full reference in `.claude/agents/social-media/knowled
 | Instagram Stories | Polls, BTS | Daily | Casual, real-time |
 | Instagram Reels | Short video | 3-5x/week | Discovery, viral |
 | TikTok | Short video | 1-3x/day (growth) | Authentic, native |
+| YouTube Shorts | Short video (DJ only) | 2-3x/week → daily | SEO, discovery, long shelf life |
 
-**Not active:** Facebook, LinkedIn, YouTube, Pinterest.
+**Not active:** Facebook, LinkedIn, YouTube long-form, Pinterest.
 
 ## Caption Formula
 
@@ -50,6 +51,7 @@ Platform-specific guides. Full reference in `.claude/agents/social-media/knowled
 | Instagram Feed | Image/Carousel | 1:1 or 4:5 | 1080x1080 / 1080x1350 |
 | Instagram Stories/Reels | Video | 9:16 | 1080x1920 |
 | TikTok | Video | 9:16 | 1080x1920 |
+| YouTube Shorts | Video | 9:16 | 1080x1920 |
 | SoundCloud | Banner | Custom | 2480x520 |
 | SoundCloud | Track cover | 1:1 | 1400x1400 |
 
@@ -58,6 +60,7 @@ Platform-specific guides. Full reference in `.claude/agents/social-media/knowled
 ```
 PYB Event → Content → PYB accounts + DJ accounts
 DJ posts own perspective → Tags PYB → New audience
+DJ Shorts on YouTube → SEO discovery → SoundCloud traffic
 → More bookings → More events → More content
 ```
 

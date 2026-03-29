@@ -112,7 +112,8 @@ SoundCloud heeft geautomatiseerde content-identificatie. Mixes met mainstream/ma
 2. **Serie format** — "Vol. 1, 2, 3..." bouwt anticipatie en terugkerende luisteraars
 3. **Thema mixes** — "Summer Afro Beats", "Caribbean Party Mix" — zoekbaar, duidelijke waardepropositie
 4. **Snel uploaden na gigs** — Neem live sets op en upload binnen 24 uur
-5. **Short-form teasers** — 15-60 sec clips van beste drops/transitions op TikTok/Reels met "Full mix on SoundCloud" CTA
+5. **Short-form teasers** — 15-60 sec clips van beste drops/transitions op TikTok/Reels/YouTube Shorts met "Full mix on SoundCloud" CTA
+6. **YouTube Shorts SEO** — Shorts ranken in YouTube zoekresultaten, waardoor "DJ Gianni" + genre zoekbaar wordt. Description altijd SoundCloud link.
 
 **Marktcontext:** Afrobeats groeit 48% jaar-op-jaar op SoundCloud. Afrobeat-electronic fusion: 700% groei 2024-2026. DJ Gianni zit in exact het juiste segment.
 

@@ -1,6 +1,6 @@
 # Video Marketing - Format & Distribution Guide
 
-**PYB actieve platformen: Instagram + TikTok only.** YouTube, Facebook specs hieronder zijn generieke referentie — niet actief voor PYB.
+**PYB actieve platformen: Instagram + TikTok + YouTube Shorts.** YouTube long-form en Facebook specs hieronder zijn generieke referentie — niet actief voor PYB.
 
 ---
 
@@ -112,13 +112,16 @@ Event Highlight Video (2-3 min, Facebook/YouTube)
 
 | Step | Action | Timeline |
 |---|---|---|
-| 1 | Upload full video to YouTube/Facebook | Day 0 |
-| 2 | Post 3-5 short clips (Reels, TikTok, Shorts) | Days 1-5 (stagger) |
-| 3 | Share best clip on DJ personal accounts | Day 1 |
-| 4 | Embed on website (event gallery or blog) | Day 0-1 |
-| 5 | Include in email follow-up to leads | Next send |
-| 6 | Pin best-performing clip to profiles | Ongoing |
-| 7 | Use top clips as ad creative | When proven organic |
+| 1 | Post short clip on TikTok (test the hook) | Day 0 |
+| 2 | Post same clip on Instagram Reels | Day 0-1 (12-24h after TikTok) |
+| 3 | Post same clip on YouTube Shorts (no TikTok watermark!) | Day 1-2 (24-48h after TikTok) |
+| 4 | Share on DJ personal accounts (all platforms) | Day 0-1 |
+| 5 | Embed on website (event gallery or blog) | Day 0-1 |
+| 6 | Include in email follow-up to leads | Next send |
+| 7 | Pin best-performing clip to profiles | Ongoing |
+| 8 | Use top clips as ad creative | When proven organic |
+
+**Important:** Always upload original video to YouTube — never re-upload with TikTok watermark. YouTube deprioritizes videos with competitor watermarks.
 
 ---
 

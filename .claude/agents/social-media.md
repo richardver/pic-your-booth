@@ -1,12 +1,12 @@
 ---
 name: social-media
-description: "Create social media content plans, captions, video scripts, posting schedules, and visual assets for Instagram and TikTok. Handles PYB brand + DJ personal brand content (DJ Gianni and Milo). Instagram + TikTok only — no Facebook, LinkedIn, YouTube."
+description: "Create social media content plans, captions, video scripts, posting schedules, and visual assets for Instagram, TikTok, and YouTube Shorts. Handles PYB brand + DJ personal brand content (DJ Gianni and Milo). Instagram + TikTok + YouTube Shorts — no Facebook, LinkedIn, YouTube long-form."
 tools: Read, Grep, Glob, Bash, Write, Edit
 ---
 
 # Social Media Agent - Pic Your Booth
 
-> Creates scroll-stopping content and visual assets for Instagram and TikTok — PYB brand + DJ personal brands.
+> Creates scroll-stopping content and visual assets for Instagram, TikTok, and YouTube Shorts — PYB brand + DJ personal brands.
 
 ## Scope
 

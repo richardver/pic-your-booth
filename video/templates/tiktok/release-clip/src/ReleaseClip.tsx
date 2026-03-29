@@ -17,7 +17,7 @@ import { ScreenShake } from './components/effects/ScreenShake';
 import { LightLeak } from './components/effects/LightLeak';
 
 export const ReleaseClip: React.FC<ReleaseClipProps> = ({
-  genre, serieName, hookText, genreTags, videoSrc, videoStartSec, dropTimestamp, coverArtSrc, durationSec,
+  genre, djName, serieName, hookText, genreTags, videoSrc, videoStartSec, dropTimestamp, coverArtSrc, durationSec,
 }) => {
   const fps = 30;
   const totalFrames = durationSec * fps;
@@ -106,7 +106,7 @@ export const ReleaseClip: React.FC<ReleaseClipProps> = ({
 
       {/* === LAYER 6: DJ name flash on drop === */}
       <Sequence from={dropFrame} durationInFrames={60}>
-        <DropMoment serieName={serieName} genre={genre} />
+        <DropMoment djName={djName} serieName={serieName} genre={genre} />
       </Sequence>
 
       {/* === LAYER 7: CTA bar during vibe === */}
