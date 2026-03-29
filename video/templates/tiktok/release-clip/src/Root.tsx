@@ -20,6 +20,7 @@ import { ReleaseClipProps } from './lib/types';
  */
 export const RemotionRoot: React.FC = () => {
   return (
+    <>
     <Composition<ReleaseClipProps>
       id="ReleaseClip"
       component={ReleaseClip}
@@ -79,5 +80,6 @@ export const RemotionRoot: React.FC = () => {
         durationSec: 25,
       }}
     />
+    </>
   );
 };
