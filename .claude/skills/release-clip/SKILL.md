@@ -161,13 +161,23 @@ npx remotion render src/index.ts ReleaseClip \
 
 ### 9. Export full set audio for SoundCloud
 
-Always export the full normalized set as a standalone audio file (320kbps MP3):
+Always export the full normalized set as a standalone audio file (320kbps MP3).
+Trim silence from start/end and add a clean fade out.
 
 ```bash
+# Detect silence at start and end
+ffmpeg -i "<normalized-angle1>" -af "silencedetect=n=-30dB:d=3" -f null /dev/null 2>&1 | grep -E "silence_start|silence_end"
+
+# Export with trim + 3-second fade out (adjust -t and afade:st based on silence detection)
 ffmpeg -y -i "<normalized-angle1>" \
+  -ss <silence-end-at-start> \
+  -t <last-silence-start> \
   -vn -c:a libmp3lame -b:a 320k \
+  -af "afade=t=in:st=0:d=1,afade=t=out:st=<fade-start>:d=3" \
   video/output/<dj>/tiktok/release-clip/<series-slug>/full-set-audio.mp3
 ```
+
+If no silence detected at start, omit `-ss`. Always add fade out at the end for a clean finish.
 
 ### 10. Report results
 Show the user:

@@ -197,11 +197,32 @@ def generate_html(energy: list, peaks: list, clip: dict, window_sec: float, sour
         is_drop = any(abs(i - p["index"]) < 2 for p in peaks[:3])
 
         if is_drop:
+            # Peak/drop: coral red
             color = "#f0654a"
         elif in_clip:
+            # Inside clip window: cyan green
             color = "#34d399"
         else:
-            color = "rgba(237,237,240,0.25)"
+            # Outside clip: energy-based gradient (low=dim, high=bright)
+            # Low energy (0-0.3): dim blue-gray
+            # Mid energy (0.3-0.6): muted cyan
+            # High energy (0.6-1.0): bright amber/warm
+            if e < 0.3:
+                r, g, b = 100, 100, 130
+                a = 0.25 + e * 0.5
+            elif e < 0.6:
+                t = (e - 0.3) / 0.3
+                r = int(100 + t * 52)
+                g = int(100 + t * 111)
+                b = int(130 + t * 69)
+                a = 0.4 + t * 0.3
+            else:
+                t = (e - 0.6) / 0.4
+                r = int(152 + t * 93)
+                g = int(211 - t * 50)
+                b = int(199 - t * 150)
+                a = 0.7 + t * 0.3
+            color = f"rgba({r},{g},{b},{a:.2f})"
 
         time = round(i * window_sec, 1)
         bars_html += f'<div class="bar" style="width:{bar_width}px;height:{height}px;background:{color}" title="{time}s | energy: {e:.2f}"></div>\n'
@@ -262,7 +283,8 @@ h1 {{ font-size: 20px; font-weight: 700; color: #f0654a; margin-bottom: 4px; }}
 <div class="legend">
   <div><span class="legend-dot" style="background:#34d399"></span> Recommended clip window</div>
   <div><span class="legend-dot" style="background:#f0654a"></span> Drop / peak</div>
-  <div><span class="legend-dot" style="background:rgba(237,237,240,0.25)"></span> Outside clip</div>
+  <div><span class="legend-dot" style="background:rgba(152,211,199,0.5)"></span> Low-mid energy</div>
+  <div><span class="legend-dot" style="background:rgba(245,183,49,0.9)"></span> High energy</div>
 </div>
 
 <div class="info">
