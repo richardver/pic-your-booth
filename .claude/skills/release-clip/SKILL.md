@@ -47,11 +47,44 @@ mkdir -p video/output/<dj>/tiktok/release-clip/<series-slug>/
 ```
 Where `<dj>` is `dj-gianni` or `dj-milo` and `<series-slug>` is the kebab-case series name.
 
-### 2. Analyze audio
+### 2. Audio check & normalize
+
+Always check volume levels first and normalize to broadcast standards.
+
+```bash
+# Check current levels
+ffmpeg -i "<angle1-path>" -af "volumedetect" -vn -f null /dev/null 2>&1 | grep -E "mean_volume|max_volume"
+```
+
+**Target levels:** mean_volume around -14 dB, max_volume around -1.5 dB.
+
+| Measured mean | Action |
+|---|---|
+| Above -10 dB | Too loud — reduce with `volume=-XdB` |
+| -10 to -16 dB | Good — minor adjustment or leave as-is |
+| -16 to -25 dB | Quiet — boost with `volume=+XdB` |
+| Below -25 dB | Very quiet — boost + loudnorm |
+
+```bash
+# Normalize audio to broadcast standard (adjust volume=+XdB based on measurement)
+ffmpeg -y -i "<angle1-path>" \
+  -af "volume=<BOOST>dB,loudnorm=I=-14:TP=-1.5:LRA=11" \
+  -c:v copy \
+  video/output/<dj>/tiktok/release-clip/<series-slug>/angle1-normalized.<ext>
+```
+
+Use the normalized file for all subsequent steps (analysis, clip extraction, audio export).
+
+Verify after normalization:
+```bash
+ffmpeg -i "<normalized-file>" -af "volumedetect" -vn -f null /dev/null 2>&1 | grep -E "mean_volume|max_volume"
+```
+
+### 3. Analyze audio
 ```bash
 source .venv/bin/activate
 python video/tools/audio-analyzer/analyze.py \
-  --input "<angle1-path>" \
+  --input "<normalized-angle1>" \
   --clip-duration 25 \
   --output video/output/<dj>/tiktok/release-clip/<series-slug>/
 ```
@@ -59,13 +92,43 @@ python video/tools/audio-analyzer/analyze.py \
 Check that `analysis.json` and `waveform.html` are created.
 Report the detected drop time and recommended clip window.
 
-### 3. Copy footage to Remotion public
+### 4. Sync angles (if started at different times)
+
+If the two video files were not started simultaneously, find the time offset:
+
+```bash
+# Extract audio fingerprints and cross-correlate
+# Use the analyzer's drop timestamp as the reference point
+# Search a wide window in angle 2 to find the matching moment
+```
+
+Use numpy cross-correlation on audio from both files. The offset tells you how to align angle 2's extraction timestamp with angle 1.
+
+### 5. Extract clips around drop
+
+Extract ~35s clips (5s buffer around the 25s window) instead of copying full files:
+
+```bash
+# Angle 1 (has audio)
+ffmpeg -y -ss <start-5s> -t 35 -i "<normalized-angle1>" \
+  -c:v libx264 -preset fast -crf 18 -c:a aac -b:a 192k \
+  video/templates/tiktok/release-clip/public/footage/angle1.mp4
+
+# Angle 2 (adjust timestamp by sync offset)
+ffmpeg -y -ss <start-5s-adjusted> -t 35 -i "<angle2-path>" \
+  -c:v libx264 -preset fast -crf 18 -an \
+  video/templates/tiktok/release-clip/public/footage/angle2.mp4
+```
+
+**Important:** `videoStartSec` in props.json must be relative to the extracted clip (typically ~5.8s), NOT the absolute timestamp in the original recording.
+
+### 6. Copy cover art
 ```bash
 cp "<angle1-path>" video/templates/tiktok/release-clip/public/footage/angle1.mp4
 cp "<angle2-path>" video/templates/tiktok/release-clip/public/footage/angle2.mp4
 ```
 
-### 4. Copy cover art
+### 6. Copy cover art
 Find the appropriate cover art:
 - Gianni: `images/dj-gianni/mixtape/<genre>-mixtape-cover.png`
 - Milø: `images/dj-milo/mixtape/<genre>-mixtape-cover.png` or `*-gemini.png`
@@ -74,7 +137,7 @@ Find the appropriate cover art:
 cp "<cover-path>" video/templates/tiktok/release-clip/public/covers/cover.png
 ```
 
-### 5. Generate props
+### 7. Generate props
 ```bash
 python video/tools/generate-props.py \
   --analysis video/output/<dj>/tiktok/release-clip/<series-slug>/analysis.json \
@@ -88,7 +151,7 @@ python video/tools/generate-props.py \
   --output video/output/<dj>/tiktok/release-clip/<series-slug>/props.json
 ```
 
-### 6. Render
+### 8. Render
 ```bash
 cd video/templates/tiktok/release-clip
 npx remotion render src/index.ts ReleaseClip \
@@ -96,12 +159,24 @@ npx remotion render src/index.ts ReleaseClip \
   ../../../../video/output/<dj>/tiktok/release-clip/<series-slug>/release-clip.mp4
 ```
 
-### 7. Report results
+### 9. Export full set audio for SoundCloud
+
+Always export the full normalized set as a standalone audio file (320kbps MP3):
+
+```bash
+ffmpeg -y -i "<normalized-angle1>" \
+  -vn -c:a libmp3lame -b:a 320k \
+  video/output/<dj>/tiktok/release-clip/<series-slug>/full-set-audio.mp3
+```
+
+### 10. Report results
 Show the user:
-- Output path
-- File size
+- Output path and all files
+- File sizes
+- Audio levels (before/after normalization)
 - Detected drop time
 - Clip window used
+- Sync offset between angles (if applicable)
 - Link to waveform.html for review
 
 ## Agents & Knowledge Used
@@ -124,8 +199,9 @@ Show the user:
 ## Output Structure
 ```
 video/output/<dj>/tiktok/release-clip/<series-slug>/
-  analysis.json
-  waveform.html
-  props.json
-  release-clip.mp4
+  analysis.json          <- Energy analysis (reusable)
+  waveform.html          <- Interactive energy visualization
+  props.json             <- Remotion render props
+  release-clip.mp4       <- 25s TikTok clip
+  full-set-audio.mp3     <- Full set 320kbps (SoundCloud upload)
 ```
