@@ -24,7 +24,7 @@ export const PreDropBuild: React.FC<{ genre: Genre; children: React.ReactNode }>
   const brightness = interpolate(frame, [0, 50, 60], [1.0, 0.8, 0.7], { extrapolateRight: 'clamp' });
 
   // Vignette builds
-  const vignetteOpacity = interpolate(frame, [0, 60], [0.05, 0.35], { extrapolateRight: 'clamp' });
+  const vignetteOpacity = interpolate(frame, [0, 60], [0.02, 0.15], { extrapolateRight: 'clamp' });
 
   return (
     <AbsoluteFill>

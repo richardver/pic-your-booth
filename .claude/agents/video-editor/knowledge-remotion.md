@@ -210,6 +210,54 @@ python3 video/tools/audio-analyzer/analyze.py \
 
 ---
 
+## MANDATORY: Visual Review Before Delivery
+
+**Every video MUST go through visual review before delivery.** This is not optional.
+
+### Process
+
+1. **Render 15-20 still frames** across the entire clip at key moments:
+   - Frame 1 (first frame — is it impactful?)
+   - Every scene transition (hook→build-up→pre-drop→drop→post-drop→vibe→end card)
+   - Mid-scene frames (is the scene boring/static?)
+   - Effects frames (are effects visible and working?)
+
+2. **Review each frame** against this checklist:
+   - Text readable? Within safe zones?
+   - Effects visible? Not too strong/weak?
+   - Video static? (Same angle for too long → add zoom drift or pan)
+   - Color consistent? (Unwanted dark/orange tint?)
+   - Transitions smooth? (No empty frames between scenes)
+   - Any duplicate/ghost elements? (Multiple renders of same component)
+
+3. **Report issues** with specific frame numbers and fixes
+
+4. **Fix and re-render** before delivering
+
+### Key Frames to Always Check
+
+| Frame | What to Check |
+|---|---|
+| 1 | First impression — is text readable immediately? |
+| Hook mid-point | Is the layout clean? No overlap? |
+| Build-up mid | Is it static/boring? Need zoom drift? |
+| Pre-drop peak | Is tension building visually? |
+| Drop + 2 frames | Is the DJ name visible? No empty gap? |
+| Drop + 30 frames | Is the name still on screen? |
+| Vibe + CTA | Is the CTA readable and in safe zone? |
+| End card entry | Is the transition smooth? |
+| End card mid | Is cover art centered and clear? |
+
+### Red Flags
+
+- Same exact frame composition for >3 seconds → add movement (zoom drift, pan)
+- Text appears and disappears in <1 second → extend duration
+- Multiple copies of same text → check for overlapping Sequences with same component
+- Dark wash over entire video → reduce gradient/vignette opacity
+- Empty frames between scenes → reduce delays
+
+---
+
 ## Scene Brief Format
 
 Clips are briefed by other agents, not created by the video-editor:

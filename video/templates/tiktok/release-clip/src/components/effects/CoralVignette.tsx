@@ -6,7 +6,7 @@ import { Genre } from '../../lib/types';
 export const CoralVignette: React.FC<{ genre: Genre }> = ({ genre }) => {
   const frame = useCurrentFrame();
   const { accent } = GENRE_TOKENS[genre];
-  const intensity = interpolate(frame, [0, 150], [0.03, 0.25], { extrapolateRight: 'clamp' });
+  const intensity = interpolate(frame, [0, 150], [0.02, 0.12], { extrapolateRight: 'clamp' });
 
   return (
     <AbsoluteFill style={{

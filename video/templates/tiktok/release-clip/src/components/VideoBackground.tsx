@@ -23,7 +23,7 @@ export const VideoBackground: React.FC<{ src: string; startFromSec?: number }> =
       {/* Lighter gradient — just enough for text readability, not a dark wash */}
       <AbsoluteFill
         style={{
-          background: 'linear-gradient(180deg, rgba(5,5,8,0.08) 0%, rgba(5,5,8,0.25) 50%, rgba(5,5,8,0.55) 100%)',
+          background: 'linear-gradient(180deg, rgba(5,5,8,0.03) 0%, rgba(5,5,8,0.12) 40%, rgba(5,5,8,0.65) 100%)',
         }}
       />
     </AbsoluteFill>

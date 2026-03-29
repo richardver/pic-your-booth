@@ -15,7 +15,7 @@ export const SlamIn: React.FC<{
   });
 
   const p = Math.max(0, progress);
-  const scale = 1.6 - 0.6 * p;
+  const scale = 1.3 - 0.3 * p;
   const opacity = p;
 
   return (
