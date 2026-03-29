@@ -14,7 +14,7 @@ import { SpeedRamp } from './components/effects/SpeedRamp';
  * ReleaseClipMilo — DJ Milø release clip composition.
  *
  * Timeline (750 frames at 30fps = 25 seconds):
- *   0-90   (0-3s)    HOOK — LumaRevealText over ColorGraded angle 1 video
+ *   0-120  (0-4s)    HOOK — MILØ name + tagline slam over ColorGraded angle 1 video
  *   90-570 (3-19s)   SET  — Beat-synced angle cuts with BlackoutLumaTransition, ColorGraded
  *   570-630 (19-21s) RAMP — SpeedRamp dim-to-black on last angle
  *   630-750 (21-25s) END CARD — EndCard component (reused)
@@ -33,7 +33,7 @@ export const ReleaseClipMilo: React.FC<ReleaseClipProps> = (props) => {
 
   const fps = 30;
   const totalFrames = durationSec * fps;
-  const hookEnd = 90;       // 3s
+  const hookEnd = 120;      // 4s (extended for MILØ + tagline sequence)
   const setEnd = 570;       // 19s
   const rampEnd = 630;      // 21s
   // endCard: 630-750
@@ -86,7 +86,7 @@ export const ReleaseClipMilo: React.FC<ReleaseClipProps> = (props) => {
         </ColorGradeFilter>
       </Sequence>
       <Sequence from={0} durationInFrames={hookEnd}>
-        <LumaRevealText text={hookText} genreTags={genreTags} />
+        <LumaRevealText text={hookText} djName={djName} genreTags={genreTags} />
       </Sequence>
 
       {/* === SET (3-19s): Beat-synced angle segments === */}

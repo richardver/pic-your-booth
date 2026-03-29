@@ -3,74 +3,72 @@ import { AbsoluteFill, useCurrentFrame, interpolate, spring, useVideoConfig } fr
 import { TOKENS, SAFE } from '../../lib/tokens';
 
 /**
- * LumaRevealText — Premium hook text for Milø.
+ * LumaRevealText — Premium hook for Milø.
  *
- * Animation sequence:
- * 0-12f:  Thin cyan line sweeps across (editorial reveal)
- * 8-20f:  "DEEP" slams in (scale 1.5→1.0, spring)
- * 16-28f: "IN THE" slams in
- * 24-36f: "GROOVE" slams in
- * 40-55f: Genre pills fade in below the line
- * 70-90f: Everything fades out
+ * Sequence (120 frames / 4 seconds):
+ *   0-15f:   "MILØ" fades in large (200px, gradient, neon glow)
+ *   20-35f:  "deep in the" fades in small above "GROOVE"
+ *   28-40f:  "GROOVE" slams in huge with spring + neon glow
+ *   50-65f:  Genre pills fade in
+ *   95-120f: Everything fades out
  */
 export const LumaRevealText: React.FC<{
   text: string;
+  djName: string;
   genreTags: string[];
-}> = ({ text, genreTags }) => {
+}> = ({ text, djName, genreTags }) => {
   const frame = useCurrentFrame();
   const { fps } = useVideoConfig();
 
-  // Split text into words for staggered slam
-  const words = text.toUpperCase().replace('.', '').trim().split(/\s+/);
+  // Split tagline into prefix + last word
+  const words = text.replace('.', '').trim().split(/\s+/);
+  const lastWord = words[words.length - 1].toUpperCase();
+  const prefix = words.slice(0, -1).join(' ').toLowerCase();
 
-  // Overall fade out at end
-  const fadeOut = interpolate(frame, [70, 90], [1, 0], {
+  // --- DJ NAME ("MILØ") ---
+  const nameOpacity = interpolate(frame, [0, 12, 55, 70], [0, 1, 1, 0], {
+    extrapolateLeft: 'clamp',
+    extrapolateRight: 'clamp',
+  });
+  const nameScale = interpolate(
+    spring({ fps, frame, config: { damping: 14, stiffness: 160, mass: 0.8 } }),
+    [0, 1],
+    [1.1, 1.0],
+  );
+
+  // --- PREFIX ("deep in the") ---
+  const prefixOpacity = interpolate(frame, [20, 32, 95, 115], [0, 1, 1, 0], {
     extrapolateLeft: 'clamp',
     extrapolateRight: 'clamp',
   });
 
-  // --- EDITORIAL LINE ---
-  // Thin cyan line sweeps from left to right
-  const lineWidth = interpolate(frame, [0, 12], [0, 100], {
-    extrapolateLeft: 'clamp',
-    extrapolateRight: 'clamp',
+  // --- MAIN WORD ("GROOVE") slam ---
+  const slamProgress = spring({
+    fps,
+    frame: Math.max(0, frame - 28),
+    config: { damping: 10, stiffness: 200, mass: 0.7 },
   });
-  const lineOpacity = interpolate(frame, [0, 4, 60, 75], [0, 0.8, 0.8, 0], {
+  const mainScale = interpolate(slamProgress, [0, 1], [1.6, 1.0]);
+  const mainOpacity = interpolate(frame, [28, 34, 95, 115], [0, 1, 1, 0], {
     extrapolateLeft: 'clamp',
     extrapolateRight: 'clamp',
   });
 
-  // --- WORD SLAMS ---
-  // Each word slams in with 8-frame stagger
-  const wordAnimations = words.map((_, i) => {
-    const wordStart = 8 + i * 8;
-    const slamScale = spring({
-      fps,
-      frame: Math.max(0, frame - wordStart),
-      config: { damping: 12, stiffness: 180, mass: 0.8 },
-    });
-    const wordOpacity = interpolate(frame, [wordStart, wordStart + 4], [0, 1], {
-      extrapolateLeft: 'clamp',
-      extrapolateRight: 'clamp',
-    });
-    return {
-      scale: interpolate(slamScale, [0, 1], [1.5, 1.0]),
-      opacity: wordOpacity,
-    };
-  });
+  // --- NEON GLOW (pulsing) ---
+  const glowPulse = interpolate(
+    Math.sin(frame * 0.2),
+    [-1, 1],
+    [0.6, 1.0],
+  );
+  const glowSize = 20 + glowPulse * 15;
+  const glowCyan = `rgba(52,211,153,${0.5 * glowPulse})`;
+  const glowViolet = `rgba(139,92,246,${0.3 * glowPulse})`;
 
   // --- GENRE PILLS ---
-  const pillsOpacity = interpolate(frame, [40, 55], [0, 1], {
+  const pillsOpacity = interpolate(frame, [50, 65, 95, 115], [0, 1, 1, 0], {
     extrapolateLeft: 'clamp',
     extrapolateRight: 'clamp',
   });
-
-  // --- GLOW PULSE (subtle breathing) ---
-  const glowIntensity = interpolate(
-    Math.sin(frame * 0.15),
-    [-1, 1],
-    [0.15, 0.35],
-  );
 
   return (
     <AbsoluteFill style={{
@@ -80,60 +78,64 @@ export const LumaRevealText: React.FC<{
       flexDirection: 'column',
       justifyContent: 'center',
       alignItems: 'center',
-      opacity: fadeOut,
     }}>
 
-      {/* Editorial line */}
+      {/* DJ Name: "MILØ" */}
       <div style={{
-        width: `${lineWidth}%`,
-        height: 1,
-        background: 'linear-gradient(90deg, transparent 0%, #34d399 30%, #8b5cf6 70%, transparent 100%)',
-        opacity: lineOpacity,
-        marginBottom: 32,
-        transition: 'none',
-      }} />
-
-      {/* Word-by-word slam */}
-      <div style={{
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'center',
-        gap: 0,
+        fontFamily: TOKENS.fontDisplay,
+        fontSize: 200,
+        letterSpacing: '0.06em',
+        lineHeight: 0.9,
+        textAlign: 'center',
+        background: 'linear-gradient(135deg, #34d399 0%, #5ae0f0 40%, #8b5cf6 100%)',
+        WebkitBackgroundClip: 'text',
+        WebkitTextFillColor: 'transparent',
+        backgroundClip: 'text',
+        transform: `scale(${nameScale})`,
+        opacity: nameOpacity,
+        filter: `drop-shadow(0 0 ${glowSize}px ${glowCyan}) drop-shadow(0 0 ${glowSize * 2}px ${glowViolet})`,
+        marginBottom: 48,
       }}>
-        {words.map((word, i) => (
-          <div key={i} style={{
-            fontFamily: TOKENS.fontDisplay,
-            fontSize: i === 0 || i === words.length - 1 ? 160 : 80,
-            letterSpacing: '0.06em',
-            lineHeight: 1.0,
-            textAlign: 'center',
-            background: 'linear-gradient(135deg, #34d399 0%, #8b5cf6 100%)',
-            WebkitBackgroundClip: 'text',
-            WebkitTextFillColor: 'transparent',
-            backgroundClip: 'text',
-            transform: `scale(${wordAnimations[i].scale})`,
-            opacity: wordAnimations[i].opacity,
-            filter: `drop-shadow(0 0 ${40 * glowIntensity}px rgba(52,211,153,${glowIntensity}))`,
-          }}>
-            {word}
-          </div>
-        ))}
+        {djName}
       </div>
 
-      {/* Editorial line (below text) */}
+      {/* Prefix: "deep in the" */}
       <div style={{
-        width: `${lineWidth}%`,
-        height: 1,
-        background: 'linear-gradient(90deg, transparent 0%, #34d399 30%, #8b5cf6 70%, transparent 100%)',
-        opacity: lineOpacity * 0.5,
-        marginTop: 32,
-      }} />
+        fontFamily: TOKENS.fontBody,
+        fontSize: 48,
+        fontWeight: 300,
+        fontStyle: 'italic',
+        letterSpacing: '0.12em',
+        color: 'rgba(237,237,240,0.6)',
+        opacity: prefixOpacity,
+        marginBottom: 8,
+      }}>
+        {prefix}
+      </div>
 
-      {/* Genre pills (below bottom line) */}
+      {/* Main word: "GROOVE" with neon glow */}
+      <div style={{
+        fontFamily: TOKENS.fontDisplay,
+        fontSize: 180,
+        letterSpacing: '0.06em',
+        lineHeight: 0.9,
+        textAlign: 'center',
+        background: 'linear-gradient(135deg, #34d399 0%, #5ae0f0 40%, #8b5cf6 100%)',
+        WebkitBackgroundClip: 'text',
+        WebkitTextFillColor: 'transparent',
+        backgroundClip: 'text',
+        transform: `scale(${mainScale})`,
+        opacity: mainOpacity,
+        filter: `drop-shadow(0 0 ${glowSize}px ${glowCyan}) drop-shadow(0 0 ${glowSize * 2}px ${glowViolet})`,
+      }}>
+        {lastWord}
+      </div>
+
+      {/* Genre pills */}
       <div style={{
         display: 'flex',
         gap: 12,
-        marginTop: 24,
+        marginTop: 40,
         opacity: pillsOpacity,
       }}>
         {genreTags.map((tag, i) => (
