@@ -145,6 +145,28 @@ def generate_props(args, analysis: dict) -> dict:
     # Drop timestamp (frame relative to clip start)
     drop_timestamp = calculate_drop_timestamp(clip)
 
+    # Calculate beat-synced cut points for Milø
+    cut_points = []
+    if args.dj == 'milo':
+        transients = analysis.get('transients', [])
+        clip_start = clip.get('start_sec', 0.0)
+
+        # Filter transients to the set section (3s-19s into clip)
+        set_start = clip_start + 3
+        set_end = clip_start + 19
+
+        set_transients = [t for t in transients if set_start <= t <= set_end]
+
+        # Pick every Nth transient to get cuts every 4-8 seconds
+        if set_transients:
+            target_cuts = 4  # aim for 4-5 cuts in 16 seconds
+            step = max(1, len(set_transients) // target_cuts)
+            selected = set_transients[::step][:5]
+
+            # Convert to frame numbers relative to clip start
+            cut_points = [int((t - clip_start) * 30) for t in selected]
+            print(f"  Cut points: {cut_points} ({len(cut_points)} angle switches)")
+
     # Hook text
     hook_text = args.hook if args.hook else DEFAULT_HOOKS.get(args.dj, "feel the music.")
 
@@ -162,6 +184,7 @@ def generate_props(args, analysis: dict) -> dict:
         "energyData": clipped_energy,
         "coverArtSrc": args.cover,
         "durationSec": duration_sec,
+        "cutPoints": cut_points,
     }
 
 

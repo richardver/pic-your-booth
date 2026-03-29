@@ -152,12 +152,27 @@ python video/tools/generate-props.py \
 ```
 
 ### 8. Render
+
+Route to the correct Remotion composition:
+
+**For DJ Gianni:**
 ```bash
 cd video/templates/tiktok/release-clip
 npx remotion render src/index.ts ReleaseClip \
   --props="$(cat ../../../../video/output/<dj>/tiktok/release-clip/<series-slug>/props.json)" \
   ../../../../video/output/<dj>/tiktok/release-clip/<series-slug>/release-clip.mp4
 ```
+
+**For Milø:**
+```bash
+cd video/templates/tiktok/release-clip
+npx remotion render src/index.ts ReleaseClipMilo \
+  --props="$(cat ../../../../video/output/<dj>/tiktok/release-clip/<series-slug>/props.json)" \
+  ../../../../video/output/<dj>/tiktok/release-clip/<series-slug>/release-clip.mp4
+```
+
+Gianni uses `ReleaseClip` (effects-heavy, Dutch text, CTAs).
+Milø uses `ReleaseClipMilo` (clean, beat-synced cuts, no mid-clip effects).
 
 ### 9. Export full set audio for SoundCloud
 

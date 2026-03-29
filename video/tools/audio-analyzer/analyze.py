@@ -136,6 +136,26 @@ def find_peaks(energy: list, window_sec: float, min_distance_sec: float = 3.0) -
     return peaks
 
 
+def detect_transients(samples: np.ndarray, sample_rate: int, threshold: float = 0.3) -> list:
+    """Detect transients (kick drums, sharp attacks) using spectral flux."""
+    hop = int(sample_rate * 0.01)  # 10ms hops
+    window = int(sample_rate * 0.02)  # 20ms analysis window
+    transients = []
+    prev_energy = 0
+    min_distance = int(sample_rate * 0.2)  # minimum 200ms between transients
+    last_transient = -min_distance
+    for i in range(0, len(samples) - window, hop):
+        chunk = samples[i:i + window]
+        energy = np.sqrt(np.mean(chunk ** 2))
+        flux = max(0, energy - prev_energy)
+        if flux > threshold and (i - last_transient) > min_distance:
+            time_sec = round(i / sample_rate, 3)
+            transients.append(time_sec)
+            last_transient = i
+        prev_energy = energy
+    return transients
+
+
 def recommend_clip(energy: list, peaks: list, window_sec: float, clip_duration: float, total_duration: float) -> dict:
     """Recommend the best clip window centered on the drop."""
     if not peaks:
@@ -368,7 +388,12 @@ def main():
     print(f"  Start: {clip['start_sec']}s | Drop: {clip['drop_at_sec']}s | End: {clip['end_sec']}s")
     print(f"  {clip['reason']}")
 
-    # Step 5: Write JSON
+    # Step 5: Detect transients
+    print("5. Detecting transients (kicks)...")
+    transients = detect_transients(samples, args.sample_rate)
+    print(f"  {len(transients)} transients detected")
+
+    # Step 6: Write JSON
     json_path = output_dir / "analysis.json"
     analysis = {
         "source": source_name,
@@ -377,13 +402,14 @@ def main():
         "window_sec": args.window,
         "energy_data": [round(e, 4) for e in energy],
         "peaks": peaks,
+        "transients": transients,
         "recommended_clip": clip,
     }
     with open(json_path, "w") as f:
         json.dump(analysis, f, indent=2)
     print(f"\n  JSON: {json_path}")
 
-    # Step 6: Generate HTML
+    # Step 7: Generate HTML
     html_path = output_dir / "waveform.html"
     generate_html(energy, peaks, clip, args.window, source_name, total_duration, str(html_path))
     print(f"  HTML: {html_path}")

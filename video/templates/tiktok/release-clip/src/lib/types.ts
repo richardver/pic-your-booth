@@ -22,6 +22,9 @@ export interface ReleaseClipProps {
   // Energy data from analyzer
   energyData: number[];    // RMS energy per 0.5s window
 
+  // Beat-synced cut points (Milø v2)
+  cutPoints?: number[];      // frame numbers for angle switches
+
   // Assets
   coverArtSrc: string;
 
