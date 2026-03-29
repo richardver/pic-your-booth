@@ -4,41 +4,32 @@ import { GENRE_TOKENS } from '../../lib/tokens';
 import { Genre } from '../../lib/types';
 
 /**
- * PreDropBuild — Tension builder before the drop.
- *
- * 60 frames (2s) of escalating effects:
- * - Increasing vignette
- * - Subtle growing shake
- * - Brightness dip (gets darker before the explosion)
+ * PreDropBuild — Pure overlay. Darkening vignette + brightness dip.
+ * Applied on top of the continuous video layer.
  */
-export const PreDropBuild: React.FC<{ genre: Genre; children: React.ReactNode }> = ({ genre, children }) => {
+export const PreDropBuild: React.FC<{ genre: Genre; children?: React.ReactNode }> = ({ genre }) => {
   const frame = useCurrentFrame();
   const { accent } = GENRE_TOKENS[genre];
 
-  // Shake builds from 0 to 4px
-  const shakeIntensity = interpolate(frame, [0, 60], [0, 4], { extrapolateRight: 'clamp' });
-  const x = Math.sin(frame * 4.3) * shakeIntensity;
-  const y = Math.cos(frame * 5.7) * shakeIntensity;
-
-  // Brightness dips — gets darker before the drop explodes
   const brightness = interpolate(frame, [0, 50, 60], [1.0, 0.8, 0.7], { extrapolateRight: 'clamp' });
-
-  // Vignette builds
   const vignetteOpacity = interpolate(frame, [0, 60], [0.02, 0.15], { extrapolateRight: 'clamp' });
 
   return (
-    <AbsoluteFill>
+    <>
+      {/* Brightness dip overlay */}
       <AbsoluteFill style={{
-        transform: `translate(${x}px, ${y}px)`,
-        filter: `brightness(${brightness})`,
-      }}>
-        {children}
-      </AbsoluteFill>
+        backgroundColor: 'black',
+        opacity: 1 - brightness,
+        pointerEvents: 'none' as const,
+        zIndex: 3,
+      }} />
+      {/* Vignette */}
       <AbsoluteFill style={{
         background: `radial-gradient(ellipse at 50% 50%, transparent 30%, ${accent} 150%)`,
         opacity: vignetteOpacity,
         pointerEvents: 'none' as const,
+        zIndex: 3,
       }} />
-    </AbsoluteFill>
+    </>
   );
 };
