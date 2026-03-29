@@ -1,0 +1,1083 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Release Clip - Production Pipeline</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* ============================================================
+   RELEASE CLIP — PRODUCTION PIPELINE
+   Internal reference document. Shared design system (void + accents).
+   ============================================================ */
+
+/* -- Design Tokens ----------------------------------------- */
+:root {
+  --void: #050508;
+  --surface: #111116;
+  --card: #111116;
+  --border: rgba(255,255,255,0.06);
+
+  --white: #ededf0;
+  --muted: rgba(237,237,240,0.40);
+  --subtle: rgba(237,237,240,0.10);
+
+  --accent: #8b5cf6;
+  --accent-dim: rgba(139,92,246,0.10);
+  --accent-mid: rgba(139,92,246,0.25);
+
+  --coral: #f0654a;
+  --coral-dim: rgba(240,101,74,0.10);
+  --cyan: #34d399;
+  --cyan-dim: rgba(52,211,153,0.10);
+  --amber: #f5b731;
+  --amber-dim: rgba(245,183,49,0.10);
+  --purple: #c084fc;
+  --purple-dim: rgba(192,132,252,0.10);
+  --violet: #8b5cf6;
+  --violet-dim: rgba(139,92,246,0.10);
+  --blue: #38bdf8;
+  --blue-dim: rgba(56,189,248,0.10);
+
+  --font-display: 'Bebas Neue', Impact, sans-serif;
+  --font-body: 'Space Grotesk', system-ui, sans-serif;
+
+  --ease: cubic-bezier(0.16, 1, 0.3, 1);
+
+  --r-sm: 6px;
+  --r-md: 10px;
+  --r-lg: 16px;
+  --r-xl: 24px;
+  --r-pill: 999px;
+}
+
+/* -- Reset ------------------------------------------------- */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html {
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-body);
+  background: var(--void);
+  color: var(--white);
+  font-size: 15px;
+  line-height: 1.7;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+  html { scroll-behavior: auto; }
+}
+
+/* -- Layout ------------------------------------------------ */
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* -- Navigation -------------------------------------------- */
+.nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(5,5,8,0.92);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--border);
+  padding: 14px 24px;
+}
+
+.nav-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.nav-brand {
+  font-family: var(--font-display);
+  font-size: 20px;
+  letter-spacing: 0.04em;
+  color: var(--accent);
+}
+
+.nav-links {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  list-style: none;
+}
+
+.nav-links a {
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--muted);
+  text-decoration: none;
+  padding: 6px 12px;
+  border-radius: var(--r-pill);
+  transition: all 0.2s var(--ease);
+}
+
+.nav-links a:hover {
+  color: var(--white);
+  background: var(--subtle);
+}
+
+/* -- Hero -------------------------------------------------- */
+.hero {
+  text-align: center;
+  padding: 96px 24px 72px;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 50% 80%, rgba(139,92,246,0.08) 0%, transparent 60%);
+  pointer-events: none;
+}
+
+.hero-label {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 16px;
+  position: relative;
+}
+
+.hero-title {
+  font-family: var(--font-display);
+  font-size: clamp(48px, 8vw, 96px);
+  letter-spacing: 0.04em;
+  line-height: 0.95;
+  color: var(--white);
+  position: relative;
+}
+
+.hero-title span {
+  color: var(--accent);
+}
+
+.hero-sub {
+  font-size: 18px;
+  color: var(--muted);
+  margin-top: 20px;
+  position: relative;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* -- Sections ---------------------------------------------- */
+.section {
+  padding: 80px 0;
+  border-top: 1px solid var(--border);
+}
+
+.section-number {
+  font-family: var(--font-display);
+  font-size: 14px;
+  letter-spacing: 0.14em;
+  color: var(--accent);
+  margin-bottom: 8px;
+}
+
+.section-title {
+  font-family: var(--font-display);
+  font-size: clamp(32px, 5vw, 56px);
+  letter-spacing: 0.04em;
+  line-height: 1;
+  color: var(--white);
+  margin-bottom: 32px;
+}
+
+.section-desc {
+  color: var(--muted);
+  font-size: 16px;
+  max-width: 700px;
+  margin-bottom: 40px;
+}
+
+/* -- Cards ------------------------------------------------- */
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--r-lg);
+  padding: 32px;
+  margin-bottom: 16px;
+}
+
+.card-label {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 12px;
+}
+
+.card-title {
+  font-family: var(--font-display);
+  font-size: 28px;
+  letter-spacing: 0.03em;
+  margin-bottom: 16px;
+}
+
+/* -- Spec Grid --------------------------------------------- */
+.spec-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 16px;
+  margin-bottom: 40px;
+}
+
+.spec-item {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--r-md);
+  padding: 24px;
+}
+
+.spec-item .label {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 8px;
+}
+
+.spec-item .value {
+  font-family: var(--font-display);
+  font-size: 24px;
+  letter-spacing: 0.02em;
+}
+
+/* -- Flow Steps -------------------------------------------- */
+.flow {
+  display: flex;
+  gap: 0;
+  align-items: stretch;
+  flex-wrap: wrap;
+  margin-bottom: 40px;
+}
+
+.flow-step {
+  flex: 1;
+  min-width: 160px;
+  position: relative;
+  padding: 28px 20px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  text-align: center;
+}
+
+.flow-step:first-child {
+  border-radius: var(--r-lg) 0 0 var(--r-lg);
+}
+
+.flow-step:last-child {
+  border-radius: 0 var(--r-lg) var(--r-lg) 0;
+}
+
+.flow-step:not(:last-child)::after {
+  content: '';
+  position: absolute;
+  right: -1px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 0;
+  height: 0;
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid transparent;
+  border-left: 10px solid var(--accent);
+  z-index: 2;
+}
+
+.flow-num {
+  font-family: var(--font-display);
+  font-size: 32px;
+  color: var(--accent);
+  line-height: 1;
+  margin-bottom: 8px;
+}
+
+.flow-label {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--white);
+}
+
+.flow-detail {
+  font-size: 11px;
+  color: var(--muted);
+  margin-top: 4px;
+}
+
+/* -- Pipeline Steps ---------------------------------------- */
+.pipeline {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-bottom: 40px;
+}
+
+.pipe-step {
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--r-md);
+  padding: 24px;
+}
+
+.pipe-num {
+  font-family: var(--font-display);
+  font-size: 36px;
+  color: var(--accent);
+  line-height: 1;
+  min-width: 40px;
+}
+
+.pipe-content {
+  flex: 1;
+}
+
+.pipe-title {
+  font-weight: 600;
+  font-size: 15px;
+  margin-bottom: 6px;
+}
+
+.pipe-output {
+  font-size: 13px;
+  color: var(--muted);
+}
+
+/* -- Code Blocks ------------------------------------------- */
+.code-block {
+  background: rgba(0,0,0,0.4);
+  border: 1px solid var(--border);
+  border-radius: var(--r-md);
+  padding: 16px 20px;
+  margin-top: 12px;
+  font-family: 'SF Mono', 'Fira Code', monospace;
+  font-size: 13px;
+  color: var(--muted);
+  overflow-x: auto;
+  line-height: 1.6;
+  white-space: pre;
+}
+
+.code-block .cmd {
+  color: var(--accent);
+}
+
+.code-block .flag {
+  color: var(--coral);
+}
+
+.code-block .path {
+  color: var(--cyan);
+}
+
+.code-block .comment {
+  color: rgba(237,237,240,0.25);
+  font-style: italic;
+}
+
+/* -- Tables ------------------------------------------------ */
+.table-wrap {
+  overflow-x: auto;
+  margin-bottom: 40px;
+  border-radius: var(--r-lg);
+  border: 1px solid var(--border);
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+
+th {
+  font-family: var(--font-display);
+  font-size: 13px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-align: left;
+  padding: 14px 16px;
+  background: var(--surface);
+  color: var(--accent);
+  border-bottom: 1px solid var(--border);
+}
+
+td {
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--border);
+  color: var(--muted);
+}
+
+tr:last-child td {
+  border-bottom: none;
+}
+
+tr:hover td {
+  background: rgba(139,92,246,0.03);
+}
+
+/* -- Comparison Grid --------------------------------------- */
+.compare-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  margin-bottom: 40px;
+}
+
+@media (max-width: 700px) {
+  .compare-grid { grid-template-columns: 1fr; }
+  .flow { flex-direction: column; }
+  .flow-step { border-radius: var(--r-md) !important; }
+  .flow-step:not(:last-child)::after { display: none; }
+}
+
+.compare-col {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--r-lg);
+  overflow: hidden;
+}
+
+.compare-header {
+  font-family: var(--font-display);
+  font-size: 24px;
+  letter-spacing: 0.04em;
+  padding: 20px 24px;
+  text-align: center;
+}
+
+.compare-header.gianni {
+  background: var(--coral-dim);
+  color: var(--coral);
+  border-bottom: 2px solid var(--coral);
+}
+
+.compare-header.milo {
+  background: var(--cyan-dim);
+  color: var(--cyan);
+  border-bottom: 2px solid var(--cyan);
+}
+
+.compare-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 12px 24px;
+  border-bottom: 1px solid var(--border);
+  font-size: 14px;
+}
+
+.compare-row:last-child {
+  border-bottom: none;
+}
+
+.compare-row .prop {
+  color: var(--muted);
+  font-weight: 500;
+}
+
+.compare-row .val {
+  color: var(--white);
+  text-align: right;
+}
+
+/* -- Tag Badges -------------------------------------------- */
+.tag {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  padding: 3px 10px;
+  border-radius: var(--r-pill);
+  text-transform: uppercase;
+}
+
+.tag-coral { background: var(--coral-dim); color: var(--coral); }
+.tag-amber { background: var(--amber-dim); color: var(--amber); }
+.tag-purple { background: var(--purple-dim); color: var(--purple); }
+.tag-cyan { background: var(--cyan-dim); color: var(--cyan); }
+.tag-violet { background: var(--violet-dim); color: var(--violet); }
+
+/* -- File Tree --------------------------------------------- */
+.tree {
+  background: rgba(0,0,0,0.4);
+  border: 1px solid var(--border);
+  border-radius: var(--r-md);
+  padding: 24px;
+  font-family: 'SF Mono', 'Fira Code', monospace;
+  font-size: 13px;
+  line-height: 1.8;
+  color: var(--muted);
+  overflow-x: auto;
+}
+
+.tree .dir {
+  color: var(--accent);
+  font-weight: 600;
+}
+
+.tree .file {
+  color: var(--white);
+}
+
+.tree .desc {
+  color: rgba(237,237,240,0.30);
+  font-style: italic;
+}
+
+/* -- Tools List -------------------------------------------- */
+.tool-item {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+  padding: 20px 24px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--r-md);
+  margin-bottom: 12px;
+}
+
+.tool-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: var(--r-sm);
+  background: var(--accent-dim);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-display);
+  font-size: 18px;
+  color: var(--accent);
+  flex-shrink: 0;
+}
+
+.tool-name {
+  font-weight: 600;
+  font-size: 15px;
+  margin-bottom: 4px;
+}
+
+.tool-path {
+  font-family: 'SF Mono', 'Fira Code', monospace;
+  font-size: 12px;
+  color: var(--muted);
+}
+
+/* -- Footer ------------------------------------------------ */
+.footer {
+  text-align: center;
+  padding: 48px 24px;
+  border-top: 1px solid var(--border);
+  color: var(--muted);
+  font-size: 12px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+</style>
+</head>
+<body>
+
+<!-- Navigation -->
+<nav class="nav">
+  <div class="nav-inner">
+    <div class="nav-brand">RELEASE CLIP</div>
+    <ul class="nav-links">
+      <li><a href="#overview">Overview</a></li>
+      <li><a href="#flow">Flow</a></li>
+      <li><a href="#pipeline">Pipeline</a></li>
+      <li><a href="#angles">Angles</a></li>
+      <li><a href="#profiles">DJ Profiles</a></li>
+      <li><a href="#genres">Genres</a></li>
+      <li><a href="#output">Output</a></li>
+      <li><a href="#tools">Tools</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- Hero -->
+<header class="hero">
+  <div class="hero-label">Video Editor Agent / Skill Reference</div>
+  <h1 class="hero-title">RELEASE <span>CLIP</span></h1>
+  <h1 class="hero-title" style="font-size: clamp(24px, 4vw, 42px); margin-top: 8px; color: var(--muted);">PRODUCTION PIPELINE</h1>
+  <p class="hero-sub">Interactive TikTok release clip skill for DJ Gianni & Milo</p>
+</header>
+
+<!-- 01: OVERVIEW -->
+<section class="section" id="overview">
+  <div class="container">
+    <div class="section-number">01</div>
+    <h2 class="section-title">OVERVIEW</h2>
+    <p class="section-desc">Takes two raw set recordings, analyzes audio peaks and energy, auto-cuts between angles, and renders a punchy 25-second TikTok clip ready to post.</p>
+
+    <div class="spec-grid">
+      <div class="spec-item">
+        <div class="label">Format</div>
+        <div class="value">1080 x 1920</div>
+        <div style="font-size: 12px; color: var(--muted); margin-top: 4px;">9:16 vertical / TikTok</div>
+      </div>
+      <div class="spec-item">
+        <div class="label">Framerate</div>
+        <div class="value">30 FPS</div>
+        <div style="font-size: 12px; color: var(--muted); margin-top: 4px;">H.264 / CRF 18</div>
+      </div>
+      <div class="spec-item">
+        <div class="label">Duration</div>
+        <div class="value">25 SEC</div>
+        <div style="font-size: 12px; color: var(--muted); margin-top: 4px;">750 frames total</div>
+      </div>
+      <div class="spec-item">
+        <div class="label">Output Files</div>
+        <div class="value">4 FILES</div>
+        <div style="font-size: 12px; color: var(--muted); margin-top: 4px;">mp4 + analysis.json + waveform.html + props.json</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 02: INTERACTIVE FLOW -->
+<section class="section" id="flow">
+  <div class="container">
+    <div class="section-number">02</div>
+    <h2 class="section-title">INTERACTIVE FLOW</h2>
+    <p class="section-desc">The skill walks through 5 interactive steps before triggering the render pipeline.</p>
+
+    <div class="flow">
+      <div class="flow-step">
+        <div class="flow-num">1</div>
+        <div class="flow-label">Select DJ</div>
+        <div class="flow-detail">Gianni or Milo</div>
+      </div>
+      <div class="flow-step">
+        <div class="flow-num">2</div>
+        <div class="flow-label">Two Angles</div>
+        <div class="flow-detail">Provide video files</div>
+      </div>
+      <div class="flow-step">
+        <div class="flow-num">3</div>
+        <div class="flow-label">Genre</div>
+        <div class="flow-detail">Maps to effects profile</div>
+      </div>
+      <div class="flow-step">
+        <div class="flow-num">4</div>
+        <div class="flow-label">Series Name</div>
+        <div class="flow-detail">e.g. "Summer Sets"</div>
+      </div>
+      <div class="flow-step">
+        <div class="flow-num">5</div>
+        <div class="flow-label">Hook Text</div>
+        <div class="flow-detail">Optional overlay</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 03: PIPELINE -->
+<section class="section" id="pipeline">
+  <div class="container">
+    <div class="section-number">03</div>
+    <h2 class="section-title">PIPELINE</h2>
+    <p class="section-desc">Six automated steps from raw footage to final output.</p>
+
+    <div class="pipeline">
+      <div class="pipe-step">
+        <div class="pipe-num">1</div>
+        <div class="pipe-content">
+          <div class="pipe-title">Analyze Audio</div>
+          <div class="pipe-output">Extracts peaks, BPM, energy curve. Outputs analysis.json + waveform.html</div>
+          <div class="code-block"><span class="cmd">python</span> <span class="path">video/tools/audio-analyzer/analyze.py</span> \
+  <span class="flag">--input</span> angle1.mp4 \
+  <span class="flag">--output</span> <span class="path">video/output/&lt;dj&gt;/tiktok/&lt;series&gt;/</span></div>
+        </div>
+      </div>
+
+      <div class="pipe-step">
+        <div class="pipe-num">2</div>
+        <div class="pipe-content">
+          <div class="pipe-title">Copy Footage to Remotion</div>
+          <div class="pipe-output">Both angles placed in public/ for Remotion access</div>
+          <div class="code-block"><span class="cmd">cp</span> angle1.mp4 <span class="path">video/templates/tiktok/release-clip/public/angle1.mp4</span>
+<span class="cmd">cp</span> angle2.mp4 <span class="path">video/templates/tiktok/release-clip/public/angle2.mp4</span></div>
+        </div>
+      </div>
+
+      <div class="pipe-step">
+        <div class="pipe-num">3</div>
+        <div class="pipe-content">
+          <div class="pipe-title">Copy Cover Art</div>
+          <div class="pipe-output">DJ cover image placed in public/ for end card</div>
+          <div class="code-block"><span class="cmd">cp</span> cover.jpg <span class="path">video/templates/tiktok/release-clip/public/cover.jpg</span></div>
+        </div>
+      </div>
+
+      <div class="pipe-step">
+        <div class="pipe-num">4</div>
+        <div class="pipe-content">
+          <div class="pipe-title">Generate Props</div>
+          <div class="pipe-output">Creates props.json with DJ profile, genre config, scene cuts, hook text</div>
+          <div class="code-block"><span class="cmd">python</span> <span class="path">video/tools/generate-props.py</span> \
+  <span class="flag">--dj</span> gianni \
+  <span class="flag">--genre</span> afro \
+  <span class="flag">--series</span> "Summer Sets" \
+  <span class="flag">--hook</span> "This drop hit different" \
+  <span class="flag">--analysis</span> <span class="path">analysis.json</span></div>
+        </div>
+      </div>
+
+      <div class="pipe-step">
+        <div class="pipe-num">5</div>
+        <div class="pipe-content">
+          <div class="pipe-title">Render via Remotion</div>
+          <div class="pipe-output">Renders 750 frames at 1080x1920, H.264, CRF 18</div>
+          <div class="code-block"><span class="cmd">npx</span> remotion render \
+  <span class="path">video/templates/tiktok/release-clip/src/index.ts</span> \
+  ReleaseClip \
+  <span class="flag">--props</span> <span class="path">props.json</span> \
+  <span class="flag">--output</span> <span class="path">release-clip.mp4</span></div>
+        </div>
+      </div>
+
+      <div class="pipe-step">
+        <div class="pipe-num">6</div>
+        <div class="pipe-content">
+          <div class="pipe-title">Output to Final Location</div>
+          <div class="pipe-output">All artifacts moved to the DJ's output directory</div>
+          <div class="code-block"><span class="cmd">mv</span> release-clip.mp4 analysis.json waveform.html props.json \
+  <span class="path">video/output/&lt;dj&gt;/tiktok/&lt;series&gt;/&lt;clip-name&gt;/</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 04: ANGLE ASSIGNMENT -->
+<section class="section" id="angles">
+  <div class="container">
+    <div class="section-number">04</div>
+    <h2 class="section-title">ANGLE ASSIGNMENT</h2>
+    <p class="section-desc">Auto-cut logic maps each scene to an angle based on energy phase. The drop always uses Angle 2 for maximum impact.</p>
+
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Scene</th>
+            <th>Frames</th>
+            <th>Time</th>
+            <th>Angle</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td style="color: var(--white); font-weight: 500;">Hook</td>
+            <td>0 - 90</td>
+            <td>0 - 3s</td>
+            <td><span class="tag tag-violet">Angle 1</span></td>
+          </tr>
+          <tr>
+            <td style="color: var(--white); font-weight: 500;">Build-up</td>
+            <td>90 - 180</td>
+            <td>3 - 6s</td>
+            <td><span class="tag tag-violet">Angle 1</span></td>
+          </tr>
+          <tr>
+            <td style="color: var(--white); font-weight: 500;">Pre-drop</td>
+            <td>180 - 240</td>
+            <td>6 - 8s</td>
+            <td><span class="tag tag-coral">Angle 2</span></td>
+          </tr>
+          <tr>
+            <td style="color: var(--white); font-weight: 500;">Drop</td>
+            <td>240 - 360</td>
+            <td>8 - 12s</td>
+            <td><span class="tag tag-coral">Angle 2</span></td>
+          </tr>
+          <tr>
+            <td style="color: var(--white); font-weight: 500;">Vibe</td>
+            <td>360 - 600</td>
+            <td>12 - 20s</td>
+            <td><span class="tag tag-violet">Angle 1</span></td>
+          </tr>
+          <tr>
+            <td style="color: var(--white); font-weight: 500;">End card</td>
+            <td>600 - 750</td>
+            <td>20 - 25s</td>
+            <td><span class="tag tag-amber">Cover art</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- 05: DJ PROFILES -->
+<section class="section" id="profiles">
+  <div class="container">
+    <div class="section-number">05</div>
+    <h2 class="section-title">DJ PROFILES</h2>
+    <p class="section-desc">Each DJ has a tuned effects profile. Gianni is high-energy and explosive; Milo is controlled and hypnotic.</p>
+
+    <div class="compare-grid">
+      <!-- Gianni -->
+      <div class="compare-col">
+        <div class="compare-header gianni">DJ GIANNI</div>
+        <div class="compare-row">
+          <span class="prop">Text entrance</span>
+          <span class="val">Slam</span>
+        </div>
+        <div class="compare-row">
+          <span class="prop">BeatPulse</span>
+          <span class="val">8% / 20%</span>
+        </div>
+        <div class="compare-row">
+          <span class="prop">Bass flash</span>
+          <span class="val">50%</span>
+        </div>
+        <div class="compare-row">
+          <span class="prop">Particles</span>
+          <span class="val">Yes</span>
+        </div>
+        <div class="compare-row">
+          <span class="prop">Screen shake</span>
+          <span class="val">18px</span>
+        </div>
+        <div class="compare-row">
+          <span class="prop">Camera</span>
+          <span class="val">Zoom 6% + pan</span>
+        </div>
+        <div class="compare-row">
+          <span class="prop">Hits</span>
+          <span class="val">5 @ 1.12x</span>
+        </div>
+        <div class="compare-row">
+          <span class="prop">Color grade</span>
+          <span class="val">Warm shift</span>
+        </div>
+        <div class="compare-row">
+          <span class="prop">CTA</span>
+          <span class="val">"BOEK DJ GIANNI" + scarcity</span>
+        </div>
+      </div>
+
+      <!-- Milø -->
+      <div class="compare-col">
+        <div class="compare-header milo">DJ MILO</div>
+        <div class="compare-row">
+          <span class="prop">Text entrance</span>
+          <span class="val">Fade</span>
+        </div>
+        <div class="compare-row">
+          <span class="prop">BeatPulse</span>
+          <span class="val">6% / 15%</span>
+        </div>
+        <div class="compare-row">
+          <span class="prop">Bass flash</span>
+          <span class="val">30%</span>
+        </div>
+        <div class="compare-row">
+          <span class="prop">Particles</span>
+          <span class="val">No</span>
+        </div>
+        <div class="compare-row">
+          <span class="prop">Screen shake</span>
+          <span class="val">8px</span>
+        </div>
+        <div class="compare-row">
+          <span class="prop">Camera</span>
+          <span class="val">Zoom 3% only</span>
+        </div>
+        <div class="compare-row">
+          <span class="prop">Hits</span>
+          <span class="val">3 @ 1.06x</span>
+        </div>
+        <div class="compare-row">
+          <span class="prop">Color grade</span>
+          <span class="val">Cool throughout</span>
+        </div>
+        <div class="compare-row">
+          <span class="prop">CTA</span>
+          <span class="val">"MILO" + "bookings: link in bio"</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 06: GENRE MAPPINGS -->
+<section class="section" id="genres">
+  <div class="container">
+    <div class="section-number">06</div>
+    <h2 class="section-title">GENRE MAPPINGS</h2>
+    <p class="section-desc">Each genre key maps to a display name, tags, and accent color used in overlays and end cards.</p>
+
+    <div class="card" style="margin-bottom: 32px;">
+      <div class="card-label" style="color: var(--coral);">DJ Gianni</div>
+      <div class="table-wrap" style="margin-bottom: 0;">
+        <table>
+          <thead>
+            <tr>
+              <th>Key</th>
+              <th>Display Name</th>
+              <th>Tags</th>
+              <th>Accent</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td style="color: var(--white); font-weight: 500; font-family: 'SF Mono', monospace; font-size: 13px;">afro</td>
+              <td>Afro Beats</td>
+              <td><span class="tag tag-coral">Afro</span> <span class="tag tag-coral">Beats</span></td>
+              <td><span style="display:inline-block; width:14px; height:14px; border-radius:50%; background: var(--coral); vertical-align: middle;"></span> <span style="font-family: monospace; font-size: 12px;">#f0654a</span></td>
+            </tr>
+            <tr>
+              <td style="color: var(--white); font-weight: 500; font-family: 'SF Mono', monospace; font-size: 13px;">caribbean</td>
+              <td>Caribbean</td>
+              <td><span class="tag tag-amber">Caribbean</span> <span class="tag tag-amber">Dancehall</span></td>
+              <td><span style="display:inline-block; width:14px; height:14px; border-radius:50%; background: var(--amber); vertical-align: middle;"></span> <span style="font-family: monospace; font-size: 12px;">#f5b731</span></td>
+            </tr>
+            <tr>
+              <td style="color: var(--white); font-weight: 500; font-family: 'SF Mono', monospace; font-size: 13px;">urban</td>
+              <td>NL Urban</td>
+              <td><span class="tag tag-purple">Urban</span> <span class="tag tag-purple">NL Hits</span></td>
+              <td><span style="display:inline-block; width:14px; height:14px; border-radius:50%; background: var(--purple); vertical-align: middle;"></span> <span style="font-family: monospace; font-size: 12px;">#c084fc</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-label" style="color: var(--cyan);">DJ Milo</div>
+      <div class="table-wrap" style="margin-bottom: 0;">
+        <table>
+          <thead>
+            <tr>
+              <th>Key</th>
+              <th>Display Name</th>
+              <th>Tags</th>
+              <th>Accent</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td style="color: var(--white); font-weight: 500; font-family: 'SF Mono', monospace; font-size: 13px;">house</td>
+              <td>Tech House</td>
+              <td><span class="tag tag-cyan">House</span> <span class="tag tag-cyan">Tech</span></td>
+              <td><span style="display:inline-block; width:14px; height:14px; border-radius:50%; background: var(--cyan); vertical-align: middle;"></span> <span style="font-family: monospace; font-size: 12px;">#34d399</span></td>
+            </tr>
+            <tr>
+              <td style="color: var(--white); font-weight: 500; font-family: 'SF Mono', monospace; font-size: 13px;">techno</td>
+              <td>Tech House</td>
+              <td><span class="tag tag-cyan">Techno</span> <span class="tag tag-cyan">Driving</span></td>
+              <td><span style="display:inline-block; width:14px; height:14px; border-radius:50%; background: var(--cyan); vertical-align: middle;"></span> <span style="font-family: monospace; font-size: 12px;">#34d399</span></td>
+            </tr>
+            <tr>
+              <td style="color: var(--white); font-weight: 500; font-family: 'SF Mono', monospace; font-size: 13px;">deep</td>
+              <td>Deep</td>
+              <td><span class="tag tag-violet">Deep</span> <span class="tag tag-violet">Melodic</span></td>
+              <td><span style="display:inline-block; width:14px; height:14px; border-radius:50%; background: var(--violet); vertical-align: middle;"></span> <span style="font-family: monospace; font-size: 12px;">#8b5cf6</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 07: OUTPUT STRUCTURE -->
+<section class="section" id="output">
+  <div class="container">
+    <div class="section-number">07</div>
+    <h2 class="section-title">OUTPUT STRUCTURE</h2>
+    <p class="section-desc">Each render produces a self-contained directory with all artifacts for review and publishing.</p>
+
+    <div class="tree">
+<span class="dir">video/output/</span>
+<span class="dir">  &lt;dj&gt;/</span>                        <span class="desc">-- gianni or milo</span>
+<span class="dir">    tiktok/</span>
+<span class="dir">      &lt;series-name&gt;/</span>            <span class="desc">-- e.g. "summer-sets"</span>
+<span class="dir">        &lt;clip-name&gt;/</span>           <span class="desc">-- e.g. "afro-drop-01"</span>
+<span class="file">          release-clip.mp4</span>     <span class="desc">-- Final rendered clip (1080x1920, 25s)</span>
+<span class="file">          analysis.json</span>        <span class="desc">-- Audio peaks, BPM, energy data</span>
+<span class="file">          waveform.html</span>        <span class="desc">-- Visual waveform with marked cuts</span>
+<span class="file">          props.json</span>           <span class="desc">-- Remotion input props (DJ, genre, scenes, hook)</span>
+    </div>
+  </div>
+</section>
+
+<!-- 08: TOOLS -->
+<section class="section" id="tools">
+  <div class="container">
+    <div class="section-number">08</div>
+    <h2 class="section-title">TOOLS</h2>
+    <p class="section-desc">Key files that power the release clip pipeline.</p>
+
+    <div class="tool-item">
+      <div class="tool-icon">A</div>
+      <div>
+        <div class="tool-name">Audio Analyzer</div>
+        <div class="tool-path">video/tools/audio-analyzer/analyze.py</div>
+      </div>
+    </div>
+
+    <div class="tool-item">
+      <div class="tool-icon">P</div>
+      <div>
+        <div class="tool-name">Props Generator</div>
+        <div class="tool-path">video/tools/generate-props.py</div>
+      </div>
+    </div>
+
+    <div class="tool-item">
+      <div class="tool-icon">R</div>
+      <div>
+        <div class="tool-name">Remotion Template</div>
+        <div class="tool-path">video/templates/tiktok/release-clip/</div>
+      </div>
+    </div>
+
+    <div class="tool-item">
+      <div class="tool-icon">D</div>
+      <div>
+        <div class="tool-name">DJ Profiles</div>
+        <div class="tool-path">video/templates/tiktok/release-clip/src/lib/dj-profiles.ts</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+  PicYourBooth / Video Editor Agent / Release Clip Skill / maart 2026
+</footer>
+
+</body>
+</html>
