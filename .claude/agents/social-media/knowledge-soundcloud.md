@@ -232,3 +232,43 @@ SoundCloud heeft geautomatiseerde content-identificatie. Mixes met mainstream/ma
 - Alleen uploaden en wachten op organische ontdekking
 - Pro betalen voor algoritmische voordeel (Pro boost niet)
 - Generieke mass-appeal content (niche specificiteit wint)
+
+---
+
+## Visual Assets
+
+### Asset Specs
+
+| Asset | Dimensions | Description |
+|-------|-----------|-------------|
+| Track cover | 3000x3000px (min 1400x1400) | Per-track/set artwork in feed and player |
+| Profile banner | 2480x520px | Header of your SoundCloud profile |
+| Profile photo | 1000x1000px | Round avatar — B&W portrait photo |
+
+### Mobile Crop Rules
+
+SoundCloud crops the profile banner on mobile to the **center ~1400x520px**. Everything outside this area disappears.
+
+**Safe zone layout (2480px wide):**
+- Left 540px: Desktop-only — atmosphere/gradient only
+- Center 1400px: **Always visible** — name, tagline, genre pills, branding
+- Right 540px: Desktop-only — atmosphere/gradient only
+- Bottom-left 280px: Avatar overlay zone — place no content here
+
+**Rule:** NEVER place text, logos, or important branding outside the center 1400px zone.
+
+### Banner Production Method
+
+1. Generate abstract background with Gemini AI (`gemini-2.5-flash-image`)
+2. Overlay typography via HTML template + Playwright export
+3. Center-darken gradient in HTML ensures text readability over background
+4. Export at exact 2480x520px via Playwright `clip`
+
+See `docs/images/dj-gianni/PROMPTS.md` for the full Gemini prompt and Python script.
+
+### Banner Update Cadence
+
+- Update when genre offering changes (new series added)
+- Seasonal variant optional (summer/winter mood)
+- Refresh at least once every 6 months for fresh profile
+- After every update: check on mobile AND desktop how it looks

@@ -118,10 +118,73 @@ DO NOT: realistic faces, photographs, watermarks, cool blue/cyan tones.
 
 ---
 
+## SoundCloud Profiel Banner (`soundcloud/banner-2480x520.png`)
 
-**Methode:** Playwright export vanuit HTML template
+**Methode:** Gemini AI achtergrond + Playwright typography overlay
 **Afmetingen:** 2480x520px
-**Bron HTML:** `.claude/agents/dj-promoter/dj-gianni-social/social-templates.html` (niet gecommit, /tmp/ export)
+**Bron HTML:** `/tmp/dj-gianni-soundcloud-banner.html` (niet gecommit)
+**Achtergrond:** `/tmp/banner-bg-gemini.png` (Gemini 2.5 Flash Image)
+
+### Design: Tri-Genre Gradient Flow
+
+Gemini-gegenereerde abstracte achtergrond met drie genre-kleuren die van links naar rechts vloeien:
+- Links (0-700px): Coral (#f0654a) — concentric rings, hexagons (Afro Beats motief)
+- Midden (~1240px): Golden Amber (#f5b731) — golvende lijnen, palmblad silhouetten (Caribbean motief)
+- Rechts (1780-2480px): Warm Purple (#c084fc) — diagonale lijnen, trapezoid geometry (NL Urban motief)
+
+Typography overlay via HTML/Playwright voor pixel-perfect tekst en safe zones.
+
+### Mobile Safe Zone
+
+Alleen het midden ~1400px is zichtbaar op mobiel. Alle tekst en branding zit in deze zone:
+- "DJ GIANNI" — Bebas Neue, 130px, centered, met subtiele text-shadow
+- "Pure Vibes" — Space Grotesk italic, 26px, 45% opacity
+- Genre pills: AFRO BEATS (coral), CARIBBEAN (amber), NL URBAN (purple) met backdrop-filter blur
+- EQ bars (12 stuks, tri-color, 30% opacity) en hexagon G logo
+- Center-darken gradient zorgt voor tekstleesbaarheid over de achtergrond
+
+### Avatar Dead Zone
+
+SoundCloud plaatst het ronde profielfoto links-onder (~280px). Geen content in dat gebied.
+
+### Gemini Achtergrond Prompt
+
+Model: `gemini-2.5-flash-image` via `generate_content` met `response_modalities=['IMAGE']`
+Output: 1024x1024 → resize naar 2480px breed → center-crop naar 520px hoog
+
+```
+Generate an image: A stunning ultra-wide abstract background for a premium DJ profile banner.
+
+DIMENSIONS: Ultra-wide landscape format, approximately 4.8:1 ratio (very wide, very short — like a panoramic strip).
+
+TRI-COLOR GRADIENT FLOW (left to right across the width):
+- LEFT ZONE: Deep coral/warm orange (#f0654a) glow with concentric circular ring patterns, tribal-inspired hexagonal geometry, rising ember-like particles. African sunset energy.
+- CENTER ZONE: Golden amber (#f5b731) glow with flowing organic wave forms, subtle palm frond silhouettes, tropical warmth. Caribbean golden hour.
+- RIGHT ZONE: Warm purple (#c084fc) glow with sharp diagonal slash lines, angular trapezoid geometry, rising purple smoke/mist. Amsterdam 2AM urban nightlife.
+
+The three color zones should BLEND smoothly into each other — no hard edges. The transition should feel like a panoramic nightclub lighting sweep.
+
+BACKGROUND: Very dark, near-black (#050508). The colored glows emerge from the darkness like concert lighting.
+
+STYLE:
+- Abstract, geometric, atmospheric — NO text, NO faces, NO musical instruments, NO DJ equipment
+- Premium, cinematic, minimal — like a high-end event production visual
+- Motifs and patterns at 15-30% opacity — texture and depth, not competing for attention
+- Subtle film grain aesthetic
+- The center area should be slightly darker/cleaner (text will be overlaid there later)
+
+MOOD: Dark nightclub panorama. Three genre identities flowing into one cinematic sweep. Premium, confident, warm.
+
+DO NOT INCLUDE: Any text, letters, words, numbers, logos, realistic faces, photographs, musical notes, cool blue/cyan tones, bright neon, busy textures, or cluttered elements. ONLY abstract geometric patterns and atmospheric light on a near-black background.
+```
+
+### Python Script
+
+Generatie script: `/tmp/generate-banner-bg.py`
+- Laadt API key uit `.env` (`GOOGLE_AI_API_KEY`)
+- Genereert met `gemini-2.5-flash-image` model
+- Resize naar 2480px breed, center-crop naar 520px hoog
+- Output: `/tmp/banner-bg-gemini.png`
 
 ---
 
