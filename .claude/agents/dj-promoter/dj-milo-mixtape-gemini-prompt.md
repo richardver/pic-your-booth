@@ -1,67 +1,143 @@
-# DJ Milo - Mixtape Cover Gemini Prompt
+# Milø - Mixtape Cover Gemini Prompt
 
-Prompt template for generating mixtape and SoundCloud cover art via Gemini. Swap the **highlighted** parts for each variation.
+Prompt workflow for generating mixtape and SoundCloud cover art via Gemini. Two-step process: generate base with Imagen, then edit text with Flash Image.
 
 ---
 
-## Prompt
+## Method: Two-Step (Imagen + Flash Image Edit)
+
+Imagen 4.0 cannot render the Ø character. The working method:
+
+1. **Step 1:** Generate base cover with `imagen-4.0-generate-001` using "MILO" (regular O)
+2. **Step 2:** Edit text from MILO → MILØ using `gemini-2.5-flash-image` with the base as reference
+
+Once you have one good base cover, use it as the reference image for all genre variants.
+
+---
+
+## Step 1: Base Cover Prompt (Imagen 4.0)
+
+Use `imagen-4.0-generate-001` with `aspect_ratio='1:1'`:
 
 ```
-Design a minimal, premium DJ social media graphic for "MILO" - [EVENT/SET NAME e.g. Tech House Set at Club Rotterdam].
+Minimalist vinyl record sleeve mockup. A light matte white cardboard record sleeve standing upright with a black vinyl record partially sliding out from behind it to the right. The vinyl grooves catch subtle [ACCENT COLOR] light reflections. Dark moody studio background.
 
-Layout:
-- Square format (1:1), 3000x3000px
-- "MILO" as dominant title in Bebas Neue style (heavy, condensed, uppercase, letter-spacing 0.04em)
-- "TECH HOUSE" / "HOUSE" / "DEEP" as genre tags - small, pill-shaped, uppercase, Space Grotesk Bold
-- "Deep in the groove" in italic Space Grotesk below the name
-- Clean, structured typography hierarchy - no clutter
+On the front of the sleeve:
+- "MILO" in large bold condensed sans-serif black text, left-aligned
+- "[SERIES NAME]" below in smaller uppercase text
+- "Deep in the groove" in small italic text below
+- Small diamond shape logo bottom left corner
 
-Visual style:
-- Very dark background (#050508) with subtle cyan (#34d399) gradient glow at bottom or side
-- MINIMAL design: no patterns, no textures, no noise - pure typography and whitespace
-- If photo included: B&W studio portrait, 200x200px area, rounded corners (24px radius)
-- Sine wave motif: 3-4 thin horizontal wave lines in accent color, as a subtle decorative element
-- Cyan diamond with letter "M" as the DJ brand logo mark (clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%)) - top-left or bottom-right corner
+Ultra-minimal. Dark moody studio lighting from above. White matte cardboard sleeve texture. Premium underground DJ vinyl pressing aesthetic. Lots of negative space on the sleeve. The vinyl record has a subtle [ACCENT COLOR] colored center label.
 
-Color palette:
-- Background: #050508 (void)
-- Primary accent: #34d399 (cyan) - for name, sine waves, tags
-- Text: #ededf0 (white) for headings, rgba(237,237,240,0.40) for secondary text
-- Subtle: rgba(52,211,153,0.10) for tag backgrounds
-
-Typography:
-- Display: Bebas Neue (or similar heavy condensed sans-serif)
-- Body: Space Grotesk (or similar geometric sans-serif)
-- NO Oswald, NO Montserrat, NO serif fonts
-
-Mood: Deep, immersive, groove-driven - dark club aesthetic
-Brand reference: PicYourBooth DJ page design system
-
-Do NOT include: warm tones, coral, golden amber, realistic human faces, watermarks, busy backgrounds
+No people. No bright backgrounds. No busy elements. Dark studio photography style.
 ```
+
+## Step 2: Text Edit Prompt (Gemini 2.5 Flash Image)
+
+Use `gemini-2.5-flash-image` with the Step 1 output as reference image:
+
+**For the base genre (Tech House):**
+```
+Edit this vinyl sleeve image. Change the text MILO to MILØ — the last letter should be the Scandinavian letter Ø (an O with a diagonal stroke through it). Keep everything else exactly the same — same sleeve, same vinyl, same composition, same lighting, same other text.
+```
+
+**For other genres (use the Tech House base as reference):**
+```
+Edit this vinyl sleeve image. Change the text MILO to MILØ — the last letter should be the Scandinavian letter Ø (an O with a diagonal stroke through it). Also change [OLD SERIES] to [NEW SERIES]. Change the vinyl center label color from [OLD COLOR] to [NEW COLOR]. Keep everything else the same.
+```
+
+---
+
+## Python Implementation
+
+```python
+from google import genai
+from google.genai import types
+from dotenv import load_dotenv
+import os
+
+load_dotenv()
+client = genai.Client(api_key=os.getenv('GOOGLE_AI_API_KEY'))
+
+# Step 1: Generate base cover with Imagen
+response = client.models.generate_images(
+    model='imagen-4.0-generate-001',
+    prompt=base_prompt,  # See template above
+    config=types.GenerateImagesConfig(number_of_images=1, aspect_ratio='1:1')
+)
+response.generated_images[0].image.save('base-cover.png')
+
+# Step 2: Edit text MILO → MILØ with Flash Image
+with open('base-cover.png', 'rb') as f:
+    ref_bytes = f.read()
+
+response = client.models.generate_content(
+    model='gemini-2.5-flash-image',
+    contents=[
+        types.Part.from_bytes(data=ref_bytes, mime_type='image/png'),
+        edit_prompt  # See template above
+    ],
+    config=types.GenerateContentConfig(response_modalities=['IMAGE'])
+)
+
+for part in response.candidates[0].content.parts:
+    if hasattr(part, 'inline_data') and part.inline_data is not None:
+        with open('final-cover.png', 'wb') as f:
+            f.write(part.inline_data.data)
+        break
+```
+
+---
 
 ## Genre Accent Colors
 
-Each mixtape series uses a different accent color from DJ Milo's cool palette. Swap the accent color in the prompt accordingly.
+Each mixtape series uses a different accent color from Milø's cool palette. Swap the accent color and series name accordingly.
 
-| Genre | Accent | Hex | Gradient Glow | Mood |
-|-------|--------|-----|---------------|------|
-| **Tech House** | Cyan | `#34d399` | `rgba(52,211,153,0.12)` | Groovy, rhythmic, infectious energy |
-| **House** | Electric Blue | `#38bdf8` | `rgba(56,189,248,0.12)` | Uplifting, warm house, rolling basslines |
-| **Deep** | Violet | `#8b5cf6` | `rgba(139,92,246,0.12)` | Atmospheric, hypnotic, late-night immersion |
+| Genre | Accent | Hex | Vinyl Label Color | Series Name |
+|-------|--------|-----|-------------------|-------------|
+| **Tech House** | Cyan | `#34d399` | Cyan/green | TECH HOUSE SESSIONS VOL X |
+| **House** | Electric Blue | `#38bdf8` | Electric blue | HOUSE GROOVES VOL X |
+| **Deep** | Violet | `#8b5cf6` | Violet/purple | DEEP CUTS VOL X |
 
 **Never use:** `#f0654a` (Gianni's coral), `#f5b731`, or any warm orange/amber/red tones.
 
-## Variables to Swap
+---
 
-| Variable | Example |
-|----------|---------|
-| Event/set name | "Tech House Set at Club Rotterdam" |
-| Genre tags | Pick from: Tech House, House, Deep |
-| Accent color | Pick from: `#34d399` (Tech House), `#38bdf8` (House), `#8b5cf6` (Deep) |
+## Cover Style: Vinyl Minimalist
+
+| Attribute | Specification |
+|-----------|--------------|
+| Style | Vinyl record sleeve product photography mockup |
+| Sleeve | Light/white matte cardboard, standing upright |
+| Vinyl | Black record partially visible behind sleeve, genre-colored center label |
+| Background | Dark moody studio, grey/black |
+| Typography | "MILØ" large bold condensed sans-serif, black on white sleeve |
+| Series name | Smaller uppercase below MILØ |
+| Tagline | "Deep in the groove" small italic |
+| Logo | Diamond (M) shape, bottom-left corner |
+| Composition | Left-aligned text, vinyl sliding out right |
+| Mood | Premium, collectible, underground DJ vinyl pressing |
+
+---
 
 ## Exported Covers
 
-- Tech House mixtape cover: `docs/images/dj-milo/mixtape/tech-house-mixtape-cover.png` (1400x1400)
-- House mixtape cover: `docs/images/dj-milo/mixtape/house-mixtape-cover.png` (1400x1400)
-- Deep mixtape cover: `docs/images/dj-milo/mixtape/deep-mixtape-cover.png` (1400x1400)
+| Cover | Path |
+|-------|------|
+| Tech House | `docs/images/dj-milo/mixtape/tech-house-mixtape-cover-gemini.png` |
+| House | `docs/images/dj-milo/mixtape/house-mixtape-cover-gemini.png` |
+| Deep | `docs/images/dj-milo/mixtape/deep-mixtape-cover-gemini.png` |
+| Tech House (Playwright) | `docs/images/dj-milo/mixtape/tech-house-mixtape-cover.png` |
+| House (Playwright) | `docs/images/dj-milo/mixtape/house-mixtape-cover.png` |
+| Deep (Playwright) | `docs/images/dj-milo/mixtape/deep-mixtape-cover.png` |
+
+---
+
+## Key Learnings
+
+- `imagen-4.0-generate-001` cannot render Ø — always outputs Ö, Á, or garbage
+- `gemini-2.5-flash-image` with a reference image can edit MILO → MILØ reliably
+- Keep prompts simple and descriptive — avoid CSS/hex codes in Imagen prompts (it renders them as text)
+- The vinyl sleeve mockup style produces the most consistent results
+- Always generate the base Tech House cover first, then use it as reference for other genres
