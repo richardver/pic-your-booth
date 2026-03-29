@@ -9,7 +9,7 @@ export const ColorGradeFilter: React.FC<{ children: React.ReactNode }> = ({ chil
   return (
     <AbsoluteFill>
       <AbsoluteFill style={{
-        filter: 'brightness(0.85) contrast(1.2) saturate(0.7)',
+        filter: 'brightness(0.65) contrast(1.3) saturate(0.6)',
       }}>
         {children}
       </AbsoluteFill>

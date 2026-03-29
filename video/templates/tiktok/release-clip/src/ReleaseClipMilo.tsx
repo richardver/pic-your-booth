@@ -2,7 +2,7 @@ import React from 'react';
 import { AbsoluteFill, Audio, Sequence, staticFile } from 'remotion';
 import { ReleaseClipProps } from './lib/types';
 import { TOKENS } from './lib/tokens';
-import { VideoBackground } from './components/VideoBackground';
+import { VideoBackgroundMilo } from './components/VideoBackgroundMilo';
 import { EndCard } from './components/EndCard';
 import { FilmGrain } from './components/effects/FilmGrain';
 import { ColorGradeFilter } from './components/effects/ColorGradeFilter';
@@ -82,7 +82,7 @@ export const ReleaseClipMilo: React.FC<ReleaseClipProps> = (props) => {
       {/* === HOOK (0-3s): Big text over color-graded video === */}
       <Sequence from={0} durationInFrames={hookEnd}>
         <ColorGradeFilter>
-          <VideoBackground src={videoSrc1} startFromSec={videoStartSec} />
+          <VideoBackgroundMilo src={videoSrc1} startFromSec={videoStartSec} />
         </ColorGradeFilter>
       </Sequence>
       <Sequence from={0} durationInFrames={hookEnd}>
@@ -93,7 +93,7 @@ export const ReleaseClipMilo: React.FC<ReleaseClipProps> = (props) => {
       {segments.map((seg, i) => (
         <Sequence key={i} from={seg.from} durationInFrames={seg.duration}>
           <ColorGradeFilter>
-            <VideoBackground
+            <VideoBackgroundMilo
               src={seg.src}
               startFromSec={videoStartSec + seg.from / fps}
             />
@@ -112,7 +112,7 @@ export const ReleaseClipMilo: React.FC<ReleaseClipProps> = (props) => {
       <Sequence from={setEnd} durationInFrames={rampEnd - setEnd}>
         <SpeedRamp durationFrames={rampEnd - setEnd}>
           <ColorGradeFilter>
-            <VideoBackground
+            <VideoBackgroundMilo
               src={lastSrc}
               startFromSec={videoStartSec + setEnd / fps}
             />
