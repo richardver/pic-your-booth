@@ -5,19 +5,21 @@ import { TOKENS } from './lib/tokens';
 import { VideoBackgroundMilo } from './components/VideoBackgroundMilo';
 import { EndCard } from './components/EndCard';
 import { FilmGrain } from './components/effects/FilmGrain';
-import { ColorGradeFilter } from './components/effects/ColorGradeFilter';
 import { LumaRevealText } from './components/effects/LumaRevealText';
 import { SpeedRamp } from './components/effects/SpeedRamp';
 
 /**
  * ReleaseClipMilo — DJ Milø release clip composition.
  *
+ * Visual approach: CLEAN & BRIGHT — near-original colors with light teal tint,
+ * gentle contrast, no heavy dark grades. Let the footage breathe.
+ *
  * Timeline (750 frames at 30fps = 25 seconds):
- *   0-150  (0-5s)    HOOK — MILØ name + tagline slam over ColorGraded angle 1 video
- *   120-570 (4-19s)  SET  — Beat-synced angle cuts with BlackoutLumaTransition, ColorGraded
+ *   0-150  (0-5s)    HOOK — MILØ name + tagline over clean bright angle 1 video
+ *   120-570 (4-19s)  SET  — Beat-synced angle cuts, clean bright grade
  *   570-630 (19-21s) RAMP — SpeedRamp dim-to-black on last angle
  *   630-750 (21-25s) END CARD — EndCard component (reused)
- *   0-750            FilmGrain at 7%
+ *   0-750            FilmGrain at 4%
  *
  * NOTE: VideoBackground internally uses `startFrom={Math.round(startFromSec * 24)}`
  * which assumes 24fps. This is a known bug in the shared component — do not change
@@ -82,40 +84,45 @@ export const ReleaseClipMilo: React.FC<ReleaseClipProps> = (props) => {
         />
       )}
 
-      {/* === HOOK (0-5s): Big text over color-graded video (angle 1, strong tunnel) === */}
+      {/* === HOOK (0-5s): Big text over clean bright video (angle 1) === */}
       <Sequence from={0} durationInFrames={hookEnd}>
-        <ColorGradeFilter genre={genre} angle={1}>
+        <CleanGrade>
           <VideoBackgroundMilo src={videoSrc1} startFromSec={videoStartSec} angle={1} />
-        </ColorGradeFilter>
+        </CleanGrade>
+        {/* Soft bottom fade for text readability only */}
+        <AbsoluteFill style={{
+          background: 'linear-gradient(180deg, transparent 50%, rgba(5,5,8,0.4) 100%)',
+          pointerEvents: 'none',
+        }} />
       </Sequence>
       <Sequence from={0} durationInFrames={hookEnd}>
         <LumaRevealText text={hookText} djName={djName} />
       </Sequence>
 
-      {/* === SET (3-19s): Beat-synced angle segments === */}
+      {/* === SET (3-19s): Beat-synced angle segments, clean bright === */}
       {segments.map((seg, i) => (
         <Sequence key={i} from={seg.from} durationInFrames={seg.duration}>
-          <ColorGradeFilter genre={genre} angle={seg.angle}>
+          <CleanGrade>
             <VideoBackgroundMilo
               src={seg.src}
               startFromSec={videoStartSec + seg.from / fps}
               angle={seg.angle}
             />
-          </ColorGradeFilter>
+          </CleanGrade>
         </Sequence>
       ))}
 
-      {/* Flash-whip transitions removed — hard cuts only for underground feel */}
+      {/* Hard cuts only — clean and precise */}
 
       {/* === SPEED RAMP (19-21s): Dim to black === */}
       <Sequence from={setEnd} durationInFrames={rampEnd - setEnd}>
         <SpeedRamp durationFrames={rampEnd - setEnd}>
-          <ColorGradeFilter genre={genre}>
+          <CleanGrade>
             <VideoBackgroundMilo
               src={lastSrc}
               startFromSec={videoStartSec + setEnd / fps}
             />
-          </ColorGradeFilter>
+          </CleanGrade>
         </SpeedRamp>
       </Sequence>
 
@@ -124,8 +131,25 @@ export const ReleaseClipMilo: React.FC<ReleaseClipProps> = (props) => {
         <EndCard serieName={serieName} genre={genre} coverArtSrc={coverArtSrc} />
       </Sequence>
 
-      {/* === FILM GRAIN (always, 7%) === */}
-      <FilmGrain opacity={0.07} />
+      {/* === FILM GRAIN (always, 4% — subtle, clean default) === */}
+      <FilmGrain opacity={0.04} />
     </AbsoluteFill>
   );
 };
+
+/** Clean & Bright grade: light teal tint, gentle contrast, near-original colors */
+const CleanGrade: React.FC<{ children: React.ReactNode }> = ({ children }) => (
+  <AbsoluteFill>
+    <AbsoluteFill style={{
+      filter: 'brightness(0.95) contrast(1.12) saturate(0.85)',
+    }}>
+      {children}
+    </AbsoluteFill>
+    {/* Very light teal wash */}
+    <AbsoluteFill style={{
+      background: 'rgba(52,211,153,0.06)',
+      mixBlendMode: 'overlay',
+      pointerEvents: 'none',
+    }} />
+  </AbsoluteFill>
+);

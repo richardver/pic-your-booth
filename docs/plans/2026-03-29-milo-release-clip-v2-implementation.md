@@ -2,7 +2,7 @@
 
 > **For Claude:** REQUIRED SUB-SKILL: Use superpowers:executing-plans to implement this plan task-by-task.
 
-**Goal:** Build a separate Remotion composition for Milø with underground aesthetic — beat-synced blackout+luma cuts, uniform color grade, big hook text, clean end card. Gianni's pipeline untouched.
+**Goal:** Build a separate Remotion composition for Milø with clean & bright aesthetic — beat-synced cuts, light teal color grade (near-original colors), big hook text, clean end card. Gianni's pipeline untouched.
 
 **Architecture:** New `ReleaseClipMilo.tsx` composition alongside existing `ReleaseClip.tsx`. New effect components for Milø-specific visuals. Transient detection added to audio analyzer. Props generator extended with cut points.
 
@@ -146,52 +146,29 @@ git commit -m "feat: add cut points to props generator for Milø beat-synced cut
 
 ---
 
-### Task 3: Create ColorGradeFilter component
+### Task 3: CleanGrade (inline in ReleaseClipMilo.tsx)
 
-**Files:**
-- Create: `video/templates/tiktok/release-clip/src/components/effects/ColorGradeFilter.tsx`
-
-**Step 1: Create the component**
+**Note (2026-03-30):** ColorGradeFilter was replaced by an inline `CleanGrade` component in `ReleaseClipMilo.tsx`. The Clean & Bright approach uses:
 
 ```tsx
-import React from 'react';
-import { AbsoluteFill } from 'remotion';
-
-/**
- * ColorGradeFilter — Uniform dark/cyan color grade for Milø.
- * Applied to video content so both angles look identical.
- * Uses CSS filters + SVG feColorMatrix for cyan shadow tint.
- */
-export const ColorGradeFilter: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-  return (
-    <AbsoluteFill>
-      <AbsoluteFill style={{
-        filter: 'brightness(0.85) contrast(1.2) saturate(0.7)',
-      }}>
-        {children}
-      </AbsoluteFill>
-      {/* Cyan underlight tint in shadows */}
-      <AbsoluteFill style={{
-        background: 'linear-gradient(0deg, rgba(52,211,153,0.08) 0%, transparent 40%)',
-        mixBlendMode: 'screen',
-        pointerEvents: 'none',
-      }} />
-      {/* Crush blacks overlay */}
-      <AbsoluteFill style={{
-        background: 'radial-gradient(ellipse at 50% 50%, transparent 30%, rgba(5,5,8,0.3) 100%)',
-        pointerEvents: 'none',
-      }} />
+/** Clean & Bright grade: light teal tint, gentle contrast, near-original colors */
+const CleanGrade: React.FC<{ children: React.ReactNode }> = ({ children }) => (
+  <AbsoluteFill>
+    <AbsoluteFill style={{
+      filter: 'brightness(0.95) contrast(1.12) saturate(0.85)',
+    }}>
+      {children}
     </AbsoluteFill>
-  );
-};
+    <AbsoluteFill style={{
+      background: 'rgba(52,211,153,0.06)',
+      mixBlendMode: 'overlay',
+      pointerEvents: 'none',
+    }} />
+  </AbsoluteFill>
+);
 ```
 
-**Step 2: Commit**
-
-```bash
-git add video/templates/tiktok/release-clip/src/components/effects/ColorGradeFilter.tsx
-git commit -m "feat: add ColorGradeFilter component for Milø uniform dark/cyan grade"
-```
+No tunnel gradients, no vignettes, no crush-blacks overlay. `ColorGradeFilter.tsx` still exists (shared, used by Gianni genres) but is no longer used by Milø's main composition.
 
 ---
 
@@ -426,18 +403,18 @@ Read: `ReleaseClip.tsx`, `VideoBackground.tsx`, `EndCard.tsx`, `FilmGrain.tsx`
 The composition structure:
 
 ```
-0-90 (0-3s):      Hook — LumaRevealText over ColorGraded video (angle 1)
-90-570 (3-19s):   Set — Beat-synced angle cuts with BlackoutLumaTransition
+0-150 (0-5s):     Hook — LumaRevealText over CleanGrade video (angle 1) + soft bottom fade
+150-570 (5-19s):  Set — Beat-synced angle cuts, clean bright grade, hard cuts
 570-630 (19-21s): Ramp — SpeedRamp (dim to black) on last angle
-630-750 (21-25s): End — EndCardMilo (reuse EndCard with no CTA text)
-0-750:            FilmGrain at 7%
+630-750 (21-25s): End — EndCard (reuse EndCard with no CTA text)
+0-750:            FilmGrain at 4%
 ```
 
 Key implementation details:
 
 - The set section iterates over `cutPoints` to create `<Sequence>` blocks for each angle segment
 - Each cut point gets a `<BlackoutLumaTransition>` overlay
-- Both angles wrapped in `<ColorGradeFilter>` for uniform look
+- Both angles wrapped in `<CleanGrade>` for uniform clean & bright look
 - VideoBackground uses `startFromSec` offset correctly (relative to extracted clip)
 - Audio from angle 1, using `videoStartSec` prop
 - `startFrom` in OffthreadVideo uses 30fps (fix the 24fps bug from v1)
@@ -458,7 +435,7 @@ cd video/templates/tiktok/release-clip && npx tsc --noEmit
 
 ```bash
 git add video/templates/tiktok/release-clip/src/ReleaseClipMilo.tsx
-git commit -m "feat: add ReleaseClipMilo composition — underground aesthetic"
+git commit -m "feat: add ReleaseClipMilo composition — clean & bright aesthetic"
 ```
 
 ---
@@ -567,7 +544,7 @@ npx remotion render src/index.ts ReleaseClipMilo \
 
 **Step 4: Verify**
 
-- Video plays with consistent dark/cyan color grade
+- Video plays with consistent clean & bright color grade (light teal tint)
 - Hook text appears big with gradient at start
 - Angle switches happen on beats with blackout transitions
 - No mid-clip effects (no bounce, flash, shake)

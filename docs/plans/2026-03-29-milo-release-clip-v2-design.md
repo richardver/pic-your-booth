@@ -7,7 +7,9 @@
 
 ## Goal
 
-Rebuild Milø's release clip as a separate Remotion composition with an underground, slick aesthetic: no mid-clip effects, beat-synced blackout+luma angle cuts, uniform dark color grade, bigger brand hook text, and a clean end card. Gianni's pipeline stays completely untouched.
+Rebuild Milø's release clip as a separate Remotion composition with a clean & bright aesthetic: no mid-clip effects, beat-synced angle cuts, clean bright color grade (near-original colors + light teal tint), bigger brand hook text, and a clean end card. Gianni's pipeline stays completely untouched.
+
+**Visual direction update (2026-03-30):** Milø chose Clean & Bright as the primary approach — near-original colors, gentle contrast, no heavy dark grades or tunnel gradients.
 
 ## Architecture
 
@@ -34,18 +36,18 @@ Rebuild Milø's release clip as a separate Remotion composition with an undergro
 4. Alternate angle 1 and angle 2
 5. More switches than v1 (4-5 cuts vs 1)
 
-## Color Grade (both angles)
+## Color Grade — Clean & Bright (both angles)
 
-Applied as CSS/SVG filter to all video content — both angles get identical treatment:
+Applied as CSS filter to all video content — both angles get identical clean treatment:
 
 ```
-brightness(0.85)    — darker overall
-contrast(1.2)       — deeper blacks, crushed to #050508
-saturate(0.7)       — desaturated mids
-+ SVG feColorMatrix — cyan tint in shadows, underlight feel
+brightness(0.95)    — near-original brightness
+contrast(1.12)      — gentle contrast boost
+saturate(0.85)      — slight desaturation, natural look
++ rgba(52,211,153,0.06) overlay — very light teal wash
 ```
 
-Solves the color mismatch between iPhone and GoPro.
+No tunnel gradients, no vignettes, no heavy dark grades. Soft bottom fade for text readability only. Solves the color mismatch between iPhone and GoPro while keeping footage bright and open.
 
 ## Hook Text (0-3s)
 
@@ -70,7 +72,7 @@ Solves the color mismatch between iPhone and GoPro.
 
 - Transient detection (kick drums) for precise cut timing — new output from analyzer
 - Subtle audio duck: -3dB for 100ms on each blackout cut
-- Film grain at 7% (heavier than Gianni's 5%)
+- Film grain at 4% (subtle, clean default)
 
 ## Effects Comparison: Gianni vs Milø v2
 
@@ -86,11 +88,11 @@ Solves the color mismatch between iPhone and GoPro.
 | PreDropBuild | Shake + darken | OFF |
 | DeckHits | 5 zoom kicks | OFF |
 | LightLeak | 30% at transitions | OFF |
-| FilmGrain | 5% | 7% |
+| FilmGrain | 5% | 4% |
 | Text entrance | SlamIn (spring) | LumaReveal (mask) |
 | Angle switches | 1 (at scene boundary) | 4-5 (beat-synced) |
-| Transitions | Hard cut | Blackout + luma fade |
-| Color grade | Warm shift in vibe | Dark uniform cyan tint |
+| Transitions | Hard cut | Hard cut, clean & precise |
+| Color grade | Warm shift in vibe | Clean & Bright — light teal tint, near-original colors |
 | CTA | "BOEK DJ GIANNI" + scarcity | None |
 | Speed ramp | None | 80% before end card |
 | Audio duck | None | -3dB on cuts |
@@ -101,7 +103,7 @@ Solves the color mismatch between iPhone and GoPro.
 |---|---|---|
 | ReleaseClipMilo | `src/ReleaseClipMilo.tsx` | Main composition |
 | BlackoutLumaTransition | `src/components/effects/BlackoutLumaTransition.tsx` | 2-frame black + 3-frame luma fade |
-| ColorGradeFilter | `src/components/effects/ColorGradeFilter.tsx` | Uniform dark/cyan grade via SVG filter |
+| CleanGrade | Inline in `ReleaseClipMilo.tsx` | Clean & Bright grade — light teal tint, gentle contrast |
 | LumaRevealText | `src/components/effects/LumaRevealText.tsx` | Text emerges through bright parts of video |
 | SpeedRamp | `src/components/effects/SpeedRamp.tsx` | 80% slowdown before end card |
 
