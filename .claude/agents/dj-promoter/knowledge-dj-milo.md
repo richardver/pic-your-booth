@@ -74,13 +74,14 @@ Milø uses cool-palette accents per genre. All accents are in the cool spectrum 
 
 ## Social Bios
 
-**TikTok:**
+**TikTok:** `@milo.groove` (live as of 2026-03-30)
 ```
 Milø
 Tech House . House . Deep
-Deep in the groove
 Bookings: info@picyourbooth.nl
+SoundCloud: Milø
 ```
+> Note: TikTok requires 1000+ followers for a clickable bio link. Until then, SoundCloud is referenced by name so viewers can search it. Once 1000 followers is reached, replace SoundCloud line with a Linktree link (SoundCloud + IG + bookings).
 
 **Instagram:**
 ```
@@ -90,10 +91,28 @@ Deep in the groove
 Bookings via link in bio
 ```
 
-**SoundCloud:**
+**SoundCloud:** `soundcloud.com/milo-dj` (update URL slug from default)
 ```
-Milø — Next wave Dutch house. Groovy tech house with depth. Seamless transitions, every track strategic. Bookings: info@picyourbooth.nl
+Tech House . House . Deep
+Deep in the groove
+
+Bookings: info@picyourbooth.nl
 ```
+
+### SoundCloud Upload Rules
+
+Always apply when publishing a new mix:
+
+| Field | Rule |
+|---|---|
+| **Genre** | Pick `House` — SoundCloud has no "Tech House" option. Use tags for sub-genre specificity. |
+| **Title format** | `Milø - [Name] Vol [X]` (always use ø, e.g. "Milø - Tech House Sessions Vol 1") |
+| **Tags** | Genre + "mix" + "set" + year + "milø" + "milo dj" + "deep in the groove" + vibe words. Min 10 tags. |
+| **Description** | Simple language. Repeat key search terms naturally. End with bookings email + hashtags. |
+| **Cover art** | Brand-styled cover from `images/dj-milo/mixtape/` |
+| **Output file** | Save publish-ready metadata to `video/output/dj-milo/soundcloud/` |
+| **Downloads** | No |
+| **Comments** | Yes |
 
 ---
 

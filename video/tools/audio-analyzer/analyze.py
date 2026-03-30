@@ -247,12 +247,17 @@ def generate_html(energy: list, peaks: list, clip: dict, window_sec: float, sour
         time = round(i * window_sec, 1)
         bars_html += f'<div class="bar" style="width:{bar_width}px;height:{height}px;background:{color}" title="{time}s | energy: {e:.2f}"></div>\n'
 
-    # Peak markers
+    # Peak markers — best drop gets a prominent marker
     markers_html = ""
     for p in peaks[:5]:
         left = p["index"] * (bar_width + 1)
-        color = "#f0654a" if p.get("label") == "drop" else "#f5b731"
-        markers_html += f'<div class="marker" style="left:{left}px;border-color:{color}"><span>{p["time_sec"]}s<br>{p.get("label", "peak")}</span></div>\n'
+        is_best_drop = p.get("label") == "drop"
+        if is_best_drop:
+            color = "#f0654a"
+            markers_html += f'<div class="marker best-drop" style="left:{left}px;border-color:{color}"><span class="drop-label">&#9733; BEST DROP<br>{p["time_sec"]}s<br>energy: {p["energy"]}</span></div>\n'
+        else:
+            color = "#f5b731"
+            markers_html += f'<div class="marker" style="left:{left}px;border-color:{color}"><span>{p["time_sec"]}s<br>{p.get("label", "peak")}</span></div>\n'
 
     # Clip window overlay
     clip_left = clip_start_idx * (bar_width + 1)
@@ -277,6 +282,8 @@ h1 {{ font-size: 20px; font-weight: 700; color: #f0654a; margin-bottom: 4px; }}
 .clip-label {{ position: absolute; bottom: -20px; left: 50%; transform: translateX(-50%); font-size: 10px; color: #34d399; white-space: nowrap; }}
 .marker {{ position: absolute; bottom: 0; height: 100%; border-left: 2px dashed; z-index: 5; }}
 .marker span {{ position: absolute; top: -4px; left: 6px; font-size: 9px; line-height: 1.3; white-space: nowrap; padding: 2px 6px; border-radius: 4px; background: rgba(5,5,8,0.9); }}
+.marker.best-drop {{ border-left: 3px solid #f0654a; z-index: 10; }}
+.marker.best-drop .drop-label {{ font-size: 11px; font-weight: 700; color: #f0654a; padding: 4px 10px; border: 1px solid rgba(240,101,74,0.4); background: rgba(240,101,74,0.12); backdrop-filter: blur(8px); }}
 .info {{ margin-top: 32px; display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; }}
 .info-card {{ background: #111116; border: 1px solid rgba(255,255,255,0.06); border-radius: 10px; padding: 16px; }}
 .info-card .label {{ font-size: 10px; color: rgba(237,237,240,0.45); text-transform: uppercase; letter-spacing: 0.1em; }}
