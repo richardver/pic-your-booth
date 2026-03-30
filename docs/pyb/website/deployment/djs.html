@@ -745,7 +745,7 @@ a { color: inherit; text-decoration: none; }
 /* SoundCloud Player */
 .sc-player {
   padding: 0 32px 48px;
-  max-width: 720px;
+  max-width: 800px;
   margin: 0 auto;
 }
 .sc-player-wrap {
@@ -755,6 +755,7 @@ a { color: inherit; text-decoration: none; }
   background: rgba(255,255,255,0.03);
   border: 1px solid var(--border);
 }
+.sc-player-wrap--coral { border-color: rgba(240,101,74,0.2); }
 .sc-player-wrap--cyan { border-color: rgba(0,212,255,0.2); }
 .sc-player-title {
   font-family: var(--ff-head);
@@ -763,9 +764,11 @@ a { color: inherit; text-decoration: none; }
   letter-spacing: 0.1em;
   margin-bottom: 16px;
 }
+.sc-player-title--coral { color: var(--coral); }
 .sc-player-title--cyan { color: var(--cyan); }
 .sc-player iframe {
   border-radius: 8px;
+  filter: invert(1) hue-rotate(180deg);
 }
 
 .spotify {
@@ -1790,9 +1793,27 @@ a { color: inherit; text-decoration: none; }
       </div>
       <div class="dj-socials">
         <a href="#" class="dj-social dj-social--coral">TikTok</a>
-        <a href="#" class="dj-social dj-social--coral">SoundCloud</a>
+        <a href="https://soundcloud.com/djgianni_nl" target="_blank" rel="noopener" class="dj-social dj-social--coral">SoundCloud</a>
       </div>
     </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     DJ GIANNI SOUNDCLOUD PLAYER
+     ============================================================ -->
+<section class="sc-player reveal">
+  <div class="sc-player-wrap sc-player-wrap--coral">
+    <h3 class="sc-player-title sc-player-title--coral">Luister DJ Gianni</h3>
+    <iframe
+      width="100%"
+      height="80"
+      scrolling="no"
+      frameborder="no"
+      allow="autoplay"
+      src="https://w.soundcloud.com/player/?url=https%3A%2F%2Fapi.soundcloud.com%2Ftracks%2F2273751980&color=%23f0654a&auto_play=false&hide_related=true&show_comments=false&show_user=true&show_reposts=false&show_teaser=false&show_artwork=false"
+      loading="lazy"
+    ></iframe>
   </div>
 </section>
 
@@ -1836,11 +1857,11 @@ a { color: inherit; text-decoration: none; }
     <h3 class="sc-player-title sc-player-title--cyan">Luister Milø</h3>
     <iframe
       width="100%"
-      height="166"
+      height="80"
       scrolling="no"
       frameborder="no"
       allow="autoplay"
-      src="https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/milo_groove/milo-tech-house-sessions-vol-1&color=%2300d4ff&auto_play=false&hide_related=true&show_comments=false&show_user=true&show_reposts=false&show_teaser=false"
+      src="https://w.soundcloud.com/player/?url=https%3A%2F%2Fapi.soundcloud.com%2Ftracks%2F2293452527&color=%2300d4ff&auto_play=false&hide_related=true&show_comments=false&show_user=true&show_reposts=false&show_teaser=false&show_artwork=false"
       loading="lazy"
     ></iframe>
   </div>
