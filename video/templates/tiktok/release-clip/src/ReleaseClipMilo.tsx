@@ -6,7 +6,6 @@ import { VideoBackgroundMilo } from './components/VideoBackgroundMilo';
 import { EndCard } from './components/EndCard';
 import { FilmGrain } from './components/effects/FilmGrain';
 import { ColorGradeFilter } from './components/effects/ColorGradeFilter';
-import { BlackoutLumaTransition } from './components/effects/BlackoutLumaTransition';
 import { LumaRevealText } from './components/effects/LumaRevealText';
 import { SpeedRamp } from './components/effects/SpeedRamp';
 
@@ -14,8 +13,8 @@ import { SpeedRamp } from './components/effects/SpeedRamp';
  * ReleaseClipMilo — DJ Milø release clip composition.
  *
  * Timeline (750 frames at 30fps = 25 seconds):
- *   0-120  (0-4s)    HOOK — MILØ name + tagline slam over ColorGraded angle 1 video
- *   90-570 (3-19s)   SET  — Beat-synced angle cuts with BlackoutLumaTransition, ColorGraded
+ *   0-150  (0-5s)    HOOK — MILØ name + tagline slam over ColorGraded angle 1 video
+ *   120-570 (4-19s)  SET  — Beat-synced angle cuts with BlackoutLumaTransition, ColorGraded
  *   570-630 (19-21s) RAMP — SpeedRamp dim-to-black on last angle
  *   630-750 (21-25s) END CARD — EndCard component (reused)
  *   0-750            FilmGrain at 7%
@@ -26,14 +25,14 @@ import { SpeedRamp } from './components/effects/SpeedRamp';
  */
 export const ReleaseClipMilo: React.FC<ReleaseClipProps> = (props) => {
   const {
-    genre, djName, serieName, hookText, genreTags,
+    genre, djName, serieName, hookText,
     videoSrc1, videoSrc2, videoStartSec, cutPoints = [],
     coverArtSrc, durationSec,
   } = props;
 
   const fps = 30;
   const totalFrames = durationSec * fps;
-  const hookEnd = 120;      // 4s (extended for MILØ + tagline sequence)
+  const hookEnd = 150;      // 5s — breathing room for name + tagline
   const setEnd = 570;       // 19s
   const rampEnd = 630;      // 21s
   // endCard: 630-750
@@ -43,25 +42,29 @@ export const ReleaseClipMilo: React.FC<ReleaseClipProps> = (props) => {
   const cuts = cutPoints.length > 0 ? cutPoints : [180, 300, 420];
 
   // Create segments: each segment alternates between angle 1 and angle 2
-  const segments: Array<{ from: number; duration: number; src: string }> = [];
+  const segments: Array<{ from: number; duration: number; src: string; angle: 1 | 2 }> = [];
   let segStart = hookEnd; // set section starts after hook
 
   for (let i = 0; i < cuts.length; i++) {
     const cutFrame = Math.min(cuts[i], setEnd);
     if (cutFrame <= segStart) continue;
+    const angle: 1 | 2 = i % 2 === 0 ? 1 : 2;
     segments.push({
       from: segStart,
       duration: cutFrame - segStart,
-      src: i % 2 === 0 ? videoSrc1 : videoSrc2,
+      src: angle === 1 ? videoSrc1 : videoSrc2,
+      angle,
     });
     segStart = cutFrame;
   }
   // Final segment to end of set section
   if (segStart < setEnd) {
+    const angle: 1 | 2 = segments.length % 2 === 0 ? 1 : 2;
     segments.push({
       from: segStart,
       duration: setEnd - segStart,
-      src: segments.length % 2 === 0 ? videoSrc1 : videoSrc2,
+      src: angle === 1 ? videoSrc1 : videoSrc2,
+      angle,
     });
   }
 
@@ -79,39 +82,35 @@ export const ReleaseClipMilo: React.FC<ReleaseClipProps> = (props) => {
         />
       )}
 
-      {/* === HOOK (0-3s): Big text over color-graded video === */}
+      {/* === HOOK (0-5s): Big text over color-graded video (angle 1, strong tunnel) === */}
       <Sequence from={0} durationInFrames={hookEnd}>
-        <ColorGradeFilter>
-          <VideoBackgroundMilo src={videoSrc1} startFromSec={videoStartSec} />
+        <ColorGradeFilter genre={genre} angle={1}>
+          <VideoBackgroundMilo src={videoSrc1} startFromSec={videoStartSec} angle={1} />
         </ColorGradeFilter>
       </Sequence>
       <Sequence from={0} durationInFrames={hookEnd}>
-        <LumaRevealText text={hookText} djName={djName} genreTags={genreTags} />
+        <LumaRevealText text={hookText} djName={djName} />
       </Sequence>
 
       {/* === SET (3-19s): Beat-synced angle segments === */}
       {segments.map((seg, i) => (
         <Sequence key={i} from={seg.from} durationInFrames={seg.duration}>
-          <ColorGradeFilter>
+          <ColorGradeFilter genre={genre} angle={seg.angle}>
             <VideoBackgroundMilo
               src={seg.src}
               startFromSec={videoStartSec + seg.from / fps}
+              angle={seg.angle}
             />
           </ColorGradeFilter>
         </Sequence>
       ))}
 
-      {/* === BLACKOUT TRANSITIONS at each cut point === */}
-      {cuts.filter(c => c > hookEnd && c < setEnd).map((cutFrame, i) => (
-        <Sequence key={`t-${i}`} from={cutFrame - 2} durationInFrames={7}>
-          <BlackoutLumaTransition startFrame={2} />
-        </Sequence>
-      ))}
+      {/* Flash-whip transitions removed — hard cuts only for underground feel */}
 
       {/* === SPEED RAMP (19-21s): Dim to black === */}
       <Sequence from={setEnd} durationInFrames={rampEnd - setEnd}>
         <SpeedRamp durationFrames={rampEnd - setEnd}>
-          <ColorGradeFilter>
+          <ColorGradeFilter genre={genre}>
             <VideoBackgroundMilo
               src={lastSrc}
               startFromSec={videoStartSec + setEnd / fps}

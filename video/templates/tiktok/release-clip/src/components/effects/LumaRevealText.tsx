@@ -5,18 +5,16 @@ import { TOKENS, SAFE } from '../../lib/tokens';
 /**
  * LumaRevealText — Premium hook for Milø.
  *
- * Sequence (120 frames / 4 seconds):
- *   0-15f:   "MILØ" fades in large (200px, gradient, neon glow)
- *   20-35f:  "deep in the" fades in small above "GROOVE"
- *   28-40f:  "GROOVE" slams in huge with spring + neon glow
- *   50-65f:  Genre pills fade in
- *   95-120f: Everything fades out
+ * Sequence (150 frames / 5 seconds at 30fps):
+ *   0-15f:    "MILØ" scales in large with neon glow
+ *   25-40f:   "deep in the" fades in small above main word
+ *   35-48f:   "GROOVE" slams in huge with spring + neon glow
+ *   120-150f: Everything fades out
  */
 export const LumaRevealText: React.FC<{
   text: string;
   djName: string;
-  genreTags: string[];
-}> = ({ text, djName, genreTags }) => {
+}> = ({ text, djName }) => {
   const frame = useCurrentFrame();
   const { fps } = useVideoConfig();
 
@@ -26,7 +24,7 @@ export const LumaRevealText: React.FC<{
   const prefix = words.slice(0, -1).join(' ').toLowerCase();
 
   // --- DJ NAME ("MILØ") ---
-  const nameOpacity = interpolate(frame, [0, 12, 55, 70], [0, 1, 1, 0], {
+  const nameOpacity = interpolate(frame, [0, 12, 70, 90], [0, 1, 1, 0], {
     extrapolateLeft: 'clamp',
     extrapolateRight: 'clamp',
   });
@@ -37,7 +35,7 @@ export const LumaRevealText: React.FC<{
   );
 
   // --- PREFIX ("deep in the") ---
-  const prefixOpacity = interpolate(frame, [20, 32, 95, 115], [0, 1, 1, 0], {
+  const prefixOpacity = interpolate(frame, [25, 38, 120, 145], [0, 1, 1, 0], {
     extrapolateLeft: 'clamp',
     extrapolateRight: 'clamp',
   });
@@ -45,11 +43,11 @@ export const LumaRevealText: React.FC<{
   // --- MAIN WORD ("GROOVE") slam ---
   const slamProgress = spring({
     fps,
-    frame: Math.max(0, frame - 28),
+    frame: Math.max(0, frame - 35),
     config: { damping: 10, stiffness: 200, mass: 0.7 },
   });
   const mainScale = interpolate(slamProgress, [0, 1], [1.6, 1.0]);
-  const mainOpacity = interpolate(frame, [28, 34, 95, 115], [0, 1, 1, 0], {
+  const mainOpacity = interpolate(frame, [35, 42, 120, 145], [0, 1, 1, 0], {
     extrapolateLeft: 'clamp',
     extrapolateRight: 'clamp',
   });
@@ -63,12 +61,6 @@ export const LumaRevealText: React.FC<{
   const glowSize = 20 + glowPulse * 15;
   const glowCyan = `rgba(52,211,153,${0.5 * glowPulse})`;
   const glowViolet = `rgba(139,92,246,${0.3 * glowPulse})`;
-
-  // --- GENRE PILLS ---
-  const pillsOpacity = interpolate(frame, [50, 65, 95, 115], [0, 1, 1, 0], {
-    extrapolateLeft: 'clamp',
-    extrapolateRight: 'clamp',
-  });
 
   return (
     <AbsoluteFill style={{
@@ -131,30 +123,6 @@ export const LumaRevealText: React.FC<{
         {lastWord}
       </div>
 
-      {/* Genre pills */}
-      <div style={{
-        display: 'flex',
-        gap: 12,
-        marginTop: 40,
-        opacity: pillsOpacity,
-      }}>
-        {genreTags.map((tag, i) => (
-          <div key={i} style={{
-            fontFamily: TOKENS.fontBody,
-            fontSize: 20,
-            fontWeight: 600,
-            letterSpacing: '0.08em',
-            textTransform: 'uppercase' as const,
-            padding: '8px 20px',
-            borderRadius: 999,
-            background: 'rgba(52,211,153,0.10)',
-            color: '#5ae0f0',
-            border: '1px solid rgba(52,211,153,0.15)',
-          }}>
-            {tag}
-          </div>
-        ))}
-      </div>
     </AbsoluteFill>
   );
 };
