@@ -25,6 +25,9 @@ export interface ReleaseClipProps {
   // Beat-synced cut points (Milø v2)
   cutPoints?: number[];      // frame numbers for angle switches
 
+  // B-roll sources (for templates with multi-cut support)
+  brollSources?: string[];   // paths to B-roll clips in public/footage/broll/
+
   // Assets
   coverArtSrc: string;
 

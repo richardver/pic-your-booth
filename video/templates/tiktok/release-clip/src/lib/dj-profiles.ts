@@ -80,10 +80,15 @@ const GIANNI_PROFILE: EffectProfile = {
   ctaText: 'BOEK DJ GIANNI',
   ctaSubtext: 'Populaire data gaan snel',
   ctaStyle: 'bold',
+  // Hook rules:
+  // - *word* renders in genre accent color (afro=coral, caribbean=gold, urban=purple)
+  // - First line must STOP the scroll — bold claim, recognizable situation
+  // - Dutch must sound native, not translated
+  // - Each genre gets its own hook identity
   defaultHooks: {
-    afro: 'POV: *DIT* IS HOE\\nJOUW FEEST KLINKT',
-    caribbean: 'POV: *DIT* IS HOE\\nJOUW FEEST KLINKT',
-    urban: 'POV: *DIT* IS HOE\\nJOUW FEEST KLINKT',
+    afro: 'JE VOELT *DE BASS*\nOF JE VOELT NIKS',
+    caribbean: 'ZOMER *HET HELE*\n*JAAR* DOOR',
+    urban: 'NIEMAND STAAT\n*STIL* HIEROP',
   },
 };
 

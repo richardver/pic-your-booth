@@ -36,7 +36,7 @@ export const TextHook: React.FC<{ text: string; genre: Genre }> = ({ text, genre
         <SlamIn key={i} delay={i * 6}>
           <div style={{
             fontFamily: TOKENS.fontDisplay,
-            fontSize: 96,
+            fontSize: 192,
             letterSpacing: '0.04em',
             color: TOKENS.white,
             textShadow: '0 4px 24px rgba(0,0,0,0.9)',

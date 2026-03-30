@@ -198,6 +198,54 @@ ffmpeg -y -ss <start-5s-adjusted> -t 35 -i "<angle2-path>" \
 
 **Important:** `videoStartSec` in props.json must be relative to the extracted clip (typically ~5.0s), NOT the absolute timestamp in the original recording.
 
+### 5b. Extract B-roll clips (if extra clips available)
+
+If extra clips exist, extract the best 2-3 second snippets from visually interesting ones (close-ups of hands, knobs, deck) for use as B-roll cutaways:
+
+```bash
+mkdir -p video/templates/tiktok/release-clip/public/footage/broll/
+
+# For each selected extra clip, extract a 3s snippet at its most interesting moment
+ffmpeg -y -ss <best-moment> -t 3 -i "<extra-clip>" \
+  -vf "scale=1080:1920:force_original_aspect_ratio=increase,crop=1080:1920,<UNIFIED_GRADE>" \
+  -c:v libx264 -preset fast -crf 20 -pix_fmt yuv420p -movflags +faststart -an \
+  video/templates/tiktok/release-clip/public/footage/broll/<descriptive-name>.mp4
+```
+
+Best candidates for B-roll: close-up hands on mixer, knob detail shots, overhead deck views, side-angle mixing. NOT behind-the-scenes or wide shots.
+
+### 5c. Unified color grade (REQUIRED — default behavior)
+
+**Always do this step.** Different cameras (iPhone, GoPro, extra phone clips) have different color science, exposure, and white balance. All footage must be graded to a consistent look before any template touches it.
+
+Apply a unified grade pass to ALL extracted clips (angle 1, angle 2, and B-roll):
+
+```bash
+# Unified grade filter chain — normalizes all sources to the same baseline
+# 1. eq: normalize brightness + contrast across cameras
+# 2. colorbalance: push shadows/midtones to consistent tone
+# 3. unsharp: compensate for GoPro softness
+
+UNIFIED_GRADE="eq=brightness=0.02:contrast=1.05:saturation=1.08,unsharp=5:5:0.3"
+```
+
+Apply during the Stage 2 resize by appending to the `-vf` filter chain:
+
+```bash
+# Example: angle 2 with unified grade
+ffmpeg -y -ss <start> -t 35 -i "<angle2-path>" \
+  -vf "scale=1080:1920:force_original_aspect_ratio=increase,crop=1080:1920,$UNIFIED_GRADE" \
+  -c:v libx264 -preset fast -crf 20 -pix_fmt yuv420p -movflags +faststart -an \
+  video/templates/tiktok/release-clip/public/footage/angle2.mp4
+```
+
+**Rules:**
+- Angle 1 (main camera) is the reference — apply lighter grade (it already has the best audio/video)
+- Angle 2 (GoPro) needs more correction — typically darker, wider lens, different color temp
+- Extra clips get the same grade as angle 2 (usually same phone/camera type)
+- Verify visual match by extracting a frame from each graded clip and comparing side by side
+- The unified grade is a **baseline normalization**, not a creative look — creative grading is done in the Remotion template per composition
+
 ### 6. Copy cover art
 Find the appropriate cover art:
 - Gianni: `images/dj-gianni/mixtape/<genre>-mixtape-cover.png`

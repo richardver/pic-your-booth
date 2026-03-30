@@ -32,17 +32,17 @@ export const CTABar: React.FC<{ genre: Genre; djName?: string }> = ({ genre, djN
       opacity: enter,
     }}>
       <div>
-        <div style={{ fontFamily: TOKENS.fontDisplay, fontSize: 36, letterSpacing: '0.04em', color: TOKENS.white }}>
+        <div style={{ fontFamily: TOKENS.fontDisplay, fontSize: 64, letterSpacing: '0.04em', color: TOKENS.white }}>
           BOEK {djName}
         </div>
-        <div style={{ fontFamily: TOKENS.fontBody, fontSize: 22, color: accent, marginTop: 2 }}>
+        <div style={{ fontFamily: TOKENS.fontBody, fontSize: 36, color: accent, marginTop: 4 }}>
           Populaire data gaan snel
         </div>
       </div>
       <div style={{
         marginLeft: 'auto',
         fontFamily: TOKENS.fontBody,
-        fontSize: 20,
+        fontSize: 32,
         fontWeight: 700,
         color: TOKENS.void,
         background: accent,

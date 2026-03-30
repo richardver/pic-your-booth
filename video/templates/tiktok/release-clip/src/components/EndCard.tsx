@@ -49,7 +49,7 @@ export const EndCard: React.FC<{
       )}
       <div style={{
         fontFamily: TOKENS.fontDisplay,
-        fontSize: 80,
+        fontSize: 120,
         letterSpacing: '0.06em',
         color: TOKENS.white,
         textAlign: 'center',
@@ -60,7 +60,7 @@ export const EndCard: React.FC<{
       </div>
       <div style={{
         fontFamily: TOKENS.fontBody,
-        fontSize: 32,
+        fontSize: 48,
         color: TOKENS.muted,
         marginTop: 8,
         opacity: enter,
@@ -69,7 +69,7 @@ export const EndCard: React.FC<{
       </div>
       <div style={{
         fontFamily: TOKENS.fontBody,
-        fontSize: 36,
+        fontSize: 56,
         fontWeight: 700,
         color: accent,
         letterSpacing: '0.1em',

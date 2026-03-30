@@ -1,28 +1,25 @@
 import React from 'react';
-import { AbsoluteFill, interpolate, useCurrentFrame } from 'remotion';
+import { AbsoluteFill } from 'remotion';
 import { SAFE } from '../lib/tokens';
 import { Genre } from '../lib/types';
 import { TextHook } from './TextHook';
-import { GenrePills } from './GenrePills';
 
 /**
- * HookSection — Hook text + genre pills. Nothing else.
+ * HookSection — Hook text only. No genre pills.
  *
- * The SoundCloud info goes in the TikTok caption, not on screen.
- * Less is more. Hook stops the scroll, pills give context.
+ * Genre pills removed — they add clutter without stopping power.
+ * The hook text communicates vibe through word choice + accent color.
+ *
+ * Genre accent color is applied to *starred* words via TextHook:
+ * - Afro: coral (#f0654a)
+ * - Caribbean: gold (#f5b731)
+ * - Urban NL: purple (#c084fc)
  */
 export const HookSection: React.FC<{
   hookText: string;
   genreTags: string[];
   genre: Genre;
-}> = ({ hookText, genreTags, genre }) => {
-  const frame = useCurrentFrame();
-
-  const pillsOpacity = interpolate(frame, [35, 45], [0, 1], {
-    extrapolateLeft: 'clamp',
-    extrapolateRight: 'clamp',
-  });
-
+}> = ({ hookText, genre }) => {
   return (
     <AbsoluteFill style={{
       padding: `${SAFE.top}px ${SAFE.right}px ${SAFE.bottom}px ${SAFE.left}px`,
@@ -33,10 +30,6 @@ export const HookSection: React.FC<{
       alignItems: 'center',
     }}>
       <TextHook text={hookText} genre={genre} />
-
-      <div style={{ opacity: pillsOpacity, marginTop: 32 }}>
-        <GenrePills tags={genreTags} genre={genre} />
-      </div>
     </AbsoluteFill>
   );
 };

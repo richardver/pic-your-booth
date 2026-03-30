@@ -28,7 +28,7 @@ export const DropMoment: React.FC<{ djName: string; serieName: string; genre: Ge
         <div style={{ textAlign: 'center' }}>
           <div style={{
             fontFamily: TOKENS.fontDisplay,
-            fontSize: 180,
+            fontSize: 280,
             letterSpacing: '0.06em',
             color: TOKENS.white,
             textShadow: `0 4px 30px rgba(0,0,0,0.9), 0 0 ${glowSize}px ${accent}88`,
@@ -38,7 +38,7 @@ export const DropMoment: React.FC<{ djName: string; serieName: string; genre: Ge
           </div>
           <div style={{
             fontFamily: TOKENS.fontDisplay,
-            fontSize: 60,
+            fontSize: 96,
             letterSpacing: '0.1em',
             color: accent,
             textShadow: '0 2px 12px rgba(0,0,0,0.9)',
