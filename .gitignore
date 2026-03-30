@@ -24,6 +24,7 @@ docs/assets/web/
 video/**/public/footage/
 video/**/out/
 video/output/
+video/source/
 
 # Playwright MCP
 .playwright-mcp/

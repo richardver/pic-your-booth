@@ -20,7 +20,7 @@ Once you have one good base cover, use it as the reference image for all genre v
 Use `imagen-4.0-generate-001` with `aspect_ratio='1:1'`:
 
 ```
-Minimalist vinyl record sleeve mockup. A light matte white cardboard record sleeve standing upright with a black vinyl record partially sliding out from behind it to the right. The vinyl grooves catch subtle [ACCENT COLOR] light reflections. Dark moody studio background.
+Minimalist vinyl record sleeve mockup. A light matte white cardboard record sleeve standing upright with a black vinyl record partially sliding out from behind it to the right. The vinyl grooves catch subtle [ACCENT COLOR] light reflections. Clean bright studio background with soft natural lighting.
 
 On the front of the sleeve:
 - "MILO" in large bold condensed sans-serif black text, left-aligned
@@ -28,9 +28,9 @@ On the front of the sleeve:
 - "Deep in the groove" in small italic text below
 - Small diamond shape logo bottom left corner
 
-Ultra-minimal. Dark moody studio lighting from above. White matte cardboard sleeve texture. Premium underground DJ vinyl pressing aesthetic. Lots of negative space on the sleeve. The vinyl record has a subtle [ACCENT COLOR] colored center label.
+Ultra-minimal. Bright clean studio lighting from above. White matte cardboard sleeve texture. Premium underground DJ vinyl pressing aesthetic. Lots of negative space on the sleeve. The vinyl record has a subtle [ACCENT COLOR] colored center label.
 
-No people. No bright backgrounds. No busy elements. Dark studio photography style.
+No people. No busy elements. Clean, bright studio photography style.
 ```
 
 ## Step 2: Text Edit Prompt (Gemini 2.5 Flash Image)
@@ -111,13 +111,13 @@ Each mixtape series uses a different accent color from Milø's cool palette. Swa
 | Style | Vinyl record sleeve product photography mockup |
 | Sleeve | Light/white matte cardboard, standing upright |
 | Vinyl | Black record partially visible behind sleeve, genre-colored center label |
-| Background | Dark moody studio, grey/black |
+| Background | Clean bright studio, soft natural light |
 | Typography | "MILØ" large bold condensed sans-serif, black on white sleeve |
 | Series name | Smaller uppercase below MILØ |
 | Tagline | "Deep in the groove" small italic |
 | Logo | Diamond (M) shape, bottom-left corner |
 | Composition | Left-aligned text, vinyl sliding out right |
-| Mood | Premium, collectible, underground DJ vinyl pressing |
+| Mood | Premium, collectible, clean & bright vinyl pressing |
 
 ---
 

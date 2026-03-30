@@ -39,8 +39,8 @@ Complete brand identity for Milø. Source files in `.claude/agents/dj-promoter/d
 | Display font | Bebas Neue (heavy, condensed, uppercase, letter-spacing 0.04em) |
 | Body font | Space Grotesk (geometric sans-serif) |
 | Genre tags | Tech House, House, Deep — pill-shaped, genre-accented |
-| Motif | Diamond, underwater/immersive aesthetic |
-| Mood | Deep, immersive, hypnotic — underwater nightlife aesthetic |
+| Motif | Diamond, clean geometric aesthetic |
+| Mood | Clean, bright, groove-driven — effortless precision, let the footage breathe |
 
 ### Genre Accent Colors
 
@@ -62,10 +62,11 @@ Milø uses cool-palette accents per genre. All accents are in the cool spectrum 
 
 ## Photo Direction
 
-- Moody, blue-tinted studio portrait
+- Clean, bright studio portrait — natural light or soft even lighting
 - Headphones, dark clothing
-- Cool single light source with subtle cyan/blue glow
-- Dark background with depth, underwater/immersive feel — not harsh, but deep
+- Light teal wash over near-original colors — gentle, not heavy
+- Airy backgrounds with depth — let the subject breathe, not drown in darkness
+- Bright, open composition — minimal color grading, natural look
 - Clean crop for profile picture use across all platforms
 - Square-safe composition
 

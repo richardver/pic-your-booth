@@ -21,11 +21,11 @@ Photobooth operator & DJ at PicYourBooth. Richard's son.
 - **PYB role:** Supports PicYourBooth for regular party DJ bookings
 
 ## Profile Photo Direction
-- Moody, blue-tinted studio portrait
+- Clean, bright studio portrait — natural light or soft even lighting
 - Headphones, dark clothing
-- Cool single light source with subtle cyan/blue glow
-- Dark background with depth
-- Underwater/immersive feel - not harsh, but deep
+- Light teal wash over near-original colors — gentle, not heavy
+- Airy background with depth — let the subject breathe
+- Bright, open, effortless feel — not dark or moody
 - Clean crop for profile picture use across all platforms
 
 ## Social Bios

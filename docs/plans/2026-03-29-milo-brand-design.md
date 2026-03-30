@@ -55,7 +55,7 @@
 | Body font | Space Grotesk (geometric sans-serif) |
 | Genre tags | Tech House, House, Deep — cyan pill-shaped |
 | Motif | Diamond, waveform (clean sine wave, not jagged EQ bars) |
-| Mood | Deep, immersive, groove-driven — dark club aesthetic |
+| Mood | Clean, bright, groove-driven — effortless precision, let the footage breathe |
 
 ### Genre Accent Colors (Cool Palette)
 
@@ -176,14 +176,17 @@
 
 ### Photography & Video Direction
 
+**Visual approach: Clean & Bright** — near-original colors with light teal tint, gentle contrast, full brightness. No heavy dark grades or moody underwater aesthetic.
+
 | Attribute | Direction |
 |---|---|
-| Color grade | Dark, desaturated base + cyan/teal color grade. Never warm. |
-| Lighting | Single light source. Club lighting, LED strips, cyan/blue glow. No flash. |
-| Composition | Clean, minimal. Negative space. Let the subject breathe. |
+| Color grade | Near-original colors + light teal tint. brightness(0.95) contrast(1.12) saturate(0.85). Never dark/moody. |
+| Lighting | Soft, even lighting. Natural light preferred. Subtle cyan accent. No heavy dramatic single-source. |
+| Composition | Clean, minimal. Negative space. Let the subject breathe. Open, airy. |
 | POV | Behind-the-decks for set clips. Low angle for authority. Close-ups on hands/mixer for craft. |
-| Grain | Subtle film grain for moody shots. Clean for transition clips. |
+| Grain | Very subtle film grain (4% max). Clean is default. |
 | Speed | Normal speed for grooves. Slow-mo only for crowd/atmosphere. |
+| Overlays | Light teal wash only (rgba(52,211,153,0.06) overlay). No vignettes, no tunnel gradients. |
 
 ### Social Post Templates
 
@@ -213,7 +216,7 @@ Tags: #behindthedecks #djlife #techhouse #bedroomdj
 | Attribute | Specification |
 |---|---|
 | Format | 1400x1400px (SoundCloud standard) |
-| Background | `#050508` void with subtle cyan gradient glow |
+| Background | `#050508` void (cover art keeps dark brand background) |
 | Title | "MILO" dominant, Bebas Neue, cyan or gradient (cyan to violet) |
 | Series name | "DEEP IN THE GROOVE VOL. X" — Bebas Neue, white or muted |
 | Genre tags | Pill-shaped, cyan dim background |
@@ -223,10 +226,10 @@ Tags: #behindthedecks #djlife #techhouse #bedroomdj
 
 ### Instagram Grid Aesthetic
 
-- Dominant colors: black, dark gray, cyan accents
-- No bright images — everything dark/moody
-- Consistent cyan color grade on every post
-- Text posts use Bebas Neue on void background
+- Clean, bright feed — natural tones with subtle cyan accents
+- Consistent light teal color grade on every post — never dark/moody
+- Open, airy compositions that let content breathe
+- Text posts use Bebas Neue on void background (brand materials only)
 - Every 3rd post can be cover art / typographic to break up video thumbnails
 
 ---

@@ -31,7 +31,11 @@ code { color: var(--mi); font-size: 11px; background: rgba(52,211,153,0.08); pad
 <p>Design reference for Milø release clips. Shared template at <code>video/templates/tiktok/release-clip/</code>. Output to <code>video/output/milo/tiktok/release-clip/&lt;serie&gt;/</code>.</p>
 
 <div class="note">
-<strong>Brand difference from DJ Gianni:</strong> Milø clips are cooler, more composed. Less slam, more groove. Cyan replaces coral. English-first copy. The music carries the energy — effects support but don't dominate. Think: Franky Rizardo set clip, not a birthday party promo.
+<strong>Brand difference from DJ Gianni:</strong> Milø clips are bright, clean, and composed. Less slam, more groove. Cyan replaces coral. English-first copy. The music carries the energy — effects support but don't dominate. Think: Franky Rizardo set clip, not a birthday party promo.
+</div>
+
+<div class="note">
+<strong>Primary visual approach: Clean &amp; Bright.</strong> Near-original colors with a light teal tint. Let the footage breathe — bright, open, clean. No heavy dark grades, no vignettes, no tunnel gradients. Soft bottom fade for text readability only. Very subtle film grain (4% max). Light teal wash: <code>rgba(52,211,153,0.06)</code> overlay blend mode. CSS filter: <code>brightness(0.95) contrast(1.12) saturate(0.85)</code>. Other variants (split screen, luma silhouette, duotone flash, RGB glitch) remain available as creative alternatives but Clean &amp; Bright is the default for all Milø video content.
 </div>
 
 <h2>SPECS</h2>
@@ -42,7 +46,9 @@ code { color: var(--mi); font-size: 11px; background: rgba(52,211,153,0.08); pad
 <tr><td class="accent">Fonts</td><td>Bebas Neue (titles) + Space Grotesk (body) via @remotion/google-fonts</td></tr>
 <tr><td class="accent">Safe zones</td><td>Top 160px, Right 110px, Bottom 280px, Left 40px</td></tr>
 <tr><td class="accent">Accent color</td><td>Cyan #34d399 (default). Genre-specific: House #38bdf8, Deep #8b5cf6</td></tr>
-<tr><td class="accent">Vignette color</td><td>Cyan (not coral) — all vignettes use --mi</td></tr>
+<tr><td class="accent">Visual approach</td><td>Clean &amp; Bright (default) — near-original colors, light teal tint, no heavy grades</td></tr>
+<tr><td class="accent">CSS filter</td><td>brightness(0.95) contrast(1.12) saturate(0.85)</td></tr>
+<tr><td class="accent">Teal wash</td><td>rgba(52,211,153,0.06) overlay blend mode</td></tr>
 <tr><td class="accent">Logo mark</td><td>Diamond (M) — clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%)</td></tr>
 </table>
 
@@ -53,9 +59,9 @@ code { color: var(--mi); font-size: 11px; background: rgba(52,211,153,0.08); pad
 <tr><td class="accent">Drop text</td><td>"DJ GIANNI" + serie name, slam in big</td><td>"MILØ" only, clean fade-in, no slam</td></tr>
 <tr><td class="accent">CTA</td><td>"BOEK DJ GIANNI" + scarcity ("populaire data gaan snel")</td><td>"bookings: link in bio" — understated, no scarcity tricks</td></tr>
 <tr><td class="accent">Effects intensity</td><td>High — big drops, particles, flash</td><td>Moderate — subtler flash, no particles, smoother transitions</td></tr>
-<tr><td class="accent">Color grade</td><td>Warm color shift in vibe section</td><td>Cool/desaturated throughout, cyan color grade</td></tr>
+<tr><td class="accent">Color grade</td><td>Warm color shift in vibe section</td><td>Clean &amp; Bright — near-original colors, light teal tint, no heavy grades</td></tr>
 <tr><td class="accent">Camera</td><td>More movement, SlowPan</td><td>Steadier, subtler zoom only</td></tr>
-<tr><td class="accent">Vignette</td><td>Coral vignette</td><td>Cyan vignette</td></tr>
+<tr><td class="accent">Vignette</td><td>Coral vignette</td><td>None (soft bottom fade for text readability only)</td></tr>
 </table>
 
 <h2>TIMELINE — SCENE BY SCENE</h2>
@@ -67,24 +73,24 @@ code { color: var(--mi); font-size: 11px; background: rgba(52,211,153,0.08); pad
 <tr><td class="accent">Hook text</td><td>"deep in the groove." — Space Grotesk 42px, italic, cyan, fade-in (no slam). OR "clean." / "this track." / "late night practice session."</td></tr>
 <tr><td class="accent">Genre pills</td><td>TECH HOUSE | HOUSE | DEEP — Space Grotesk 28px, wipe reveal, cyan dim bg</td></tr>
 <tr><td class="accent">Camera</td><td>SlowZoomDrift 1.0→1.03</td></tr>
-<tr><td class="accent">Effects</td><td><span class="tag effect">FadeIn 12f</span> <span class="tag effect">SlowZoomDrift</span> <span class="tag effect">BeatPulse (6%)</span> <span class="tag effect">FilmGrain</span></td></tr>
+<tr><td class="accent">Effects</td><td><span class="tag effect">FadeIn 12f</span> <span class="tag effect">SlowZoomDrift</span> <span class="tag effect">BeatPulse (6%)</span> <span class="tag effect">FilmGrain (4%)</span></td></tr>
 </table>
 
 <h3>0:03-0:06 — BUILD-UP (frames 90-180)</h3>
-<p>Clean footage. No overlays. SlowZoomDrift 1.0→1.04 (less than Gianni's 1.06). Cyan vignette builds subtly. Beat pulse at reduced intensity — the groove carries, not the effects. Smooth light leak at transition.</p>
+<p>Clean footage. No overlays, no vignettes. SlowZoomDrift 1.0→1.04 (less than Gianni's 1.06). Clean &amp; Bright grade lets footage breathe. Beat pulse at reduced intensity — the groove carries, not the effects. Smooth light leak at transition.</p>
 <table>
 <tr><th>Element</th><th>Detail</th></tr>
-<tr><td class="accent">Overlays</td><td>None — footage dominates</td></tr>
+<tr><td class="accent">Overlays</td><td>None — footage dominates, bright and open</td></tr>
 <tr><td class="accent">Camera</td><td>SlowZoomDrift 1.0→1.04</td></tr>
-<tr><td class="accent">Effects</td><td><span class="tag effect">SlowZoomDrift</span> <span class="tag effect">CyanVignette</span> <span class="tag effect">BeatPulse (6%)</span> <span class="tag effect">LightLeak (cyan)</span> <span class="tag effect">FilmGrain</span></td></tr>
+<tr><td class="accent">Effects</td><td><span class="tag effect">SlowZoomDrift</span> <span class="tag effect">BeatPulse (6%)</span> <span class="tag effect">LightLeak (cyan)</span> <span class="tag effect">FilmGrain (4%)</span></td></tr>
 </table>
 
 <h3>0:06-0:08 — PRE-DROP (frames 180-240)</h3>
-<p>Tension builds through groove, not aggression. Subtle shake grows from 0 to 2px only (half of Gianni). Slight brightness dip. Vignette intensifies. Restrained — the drop is a groove shift, not an explosion.</p>
+<p>Tension builds through groove, not aggression. Subtle shake grows from 0 to 2px only (half of Gianni). Slight brightness dip. Restrained — the drop is a groove shift, not an explosion. No vignette buildup.</p>
 <table>
 <tr><th>Element</th><th>Detail</th></tr>
 <tr><td class="accent">Overlays</td><td>None — tension through effects only</td></tr>
-<tr><td class="accent">Effects</td><td><span class="tag effect">PreDropBuild (lite)</span> (growing shake 0-2px + 15% brightness dip + vignette) <span class="tag effect">BeatPulse</span> <span class="tag effect">FilmGrain</span></td></tr>
+<tr><td class="accent">Effects</td><td><span class="tag effect">PreDropBuild (lite)</span> (growing shake 0-2px + 15% brightness dip) <span class="tag effect">BeatPulse</span> <span class="tag effect">FilmGrain (4%)</span></td></tr>
 </table>
 
 <h3>0:08-0:12 — THE DROP (frames 240-360)</h3>
@@ -103,38 +109,38 @@ code { color: var(--mi); font-size: 11px; background: rgba(52,211,153,0.08); pad
 <table>
 <tr><th>Element</th><th>Detail</th></tr>
 <tr><td class="accent">Camera</td><td>SlowZoomDrift 1.0→1.03 (steady, minimal movement)</td></tr>
-<tr><td class="accent">Color</td><td>Cool/desaturated color grade maintained — no warm shift</td></tr>
+<tr><td class="accent">Color</td><td>Clean &amp; Bright grade maintained — near-original colors, light teal tint, no warm shift</td></tr>
 <tr><td class="accent">GrooveHits</td><td>16-20s (frames 480-600): 3 subtle zoom pulses 1.06x + soft flash per hit</td></tr>
 <tr><td class="accent">CTA</td><td>"MILØ" (Bebas Neue 36px, cyan) + "bookings: link in bio" (Space Grotesk 22px, muted)</td></tr>
 <tr><td class="accent">Psychology</td><td>Understated — no scarcity, no urgency. Cool confidence. The music sells itself.</td></tr>
-<tr><td class="accent">Effects</td><td><span class="tag effect">SlowZoomDrift</span> <span class="tag effect">BeatPulse (6%)</span> <span class="tag effect">GrooveHits (3x)</span> <span class="tag effect">FilmGrain</span></td></tr>
+<tr><td class="accent">Effects</td><td><span class="tag effect">SlowZoomDrift</span> <span class="tag effect">BeatPulse (6%)</span> <span class="tag effect">GrooveHits (3x)</span> <span class="tag effect">FilmGrain (4%)</span></td></tr>
 </table>
 
 <h3>0:20-0:25 — END CARD (frames 600-750)</h3>
-<p>Smooth fade to void. Cover art 680px with Ken Burns zoom (0.97x→1.03x — less range than Gianni). Serie name. Booking CTA. Audio continues through end card. Diamond mark (M) in corner.</p>
+<p>Smooth fade to dark. Cover art 680px with Ken Burns zoom (0.97x→1.03x — less range than Gianni). Serie name. Booking CTA. Audio continues through end card. Diamond mark (M) in corner.</p>
 <table>
 <tr><th>Element</th><th>Detail</th></tr>
 <tr><td class="accent">Cover art</td><td>680px, rounded 48px, cyan border + glow shadow, Ken Burns 0.97x→1.03x</td></tr>
 <tr><td class="accent">Title</td><td>Bebas Neue 80px, white</td></tr>
 <tr><td class="accent">CTA</td><td>Space Grotesk 36px, cyan, "bookings: link in bio"</td></tr>
 <tr><td class="accent">Diamond mark</td><td>Small diamond (M) bottom-right, 32px, cyan on void</td></tr>
-<tr><td class="accent">Effects</td><td><span class="tag effect">KenBurns (6%)</span> <span class="tag effect">LightLeak (cyan)</span> <span class="tag effect">FilmGrain</span></td></tr>
+<tr><td class="accent">Effects</td><td><span class="tag effect">KenBurns (6%)</span> <span class="tag effect">LightLeak (cyan)</span> <span class="tag effect">FilmGrain (4%)</span></td></tr>
 </table>
 
 <h2>EFFECTS LIBRARY — MILØ ADAPTATIONS</h2>
 
 <div class="note">
-<strong>Core principle:</strong> Same effect system as Gianni, but dialed back. The groove carries the energy, not the effects. Milø clips should feel smooth, not aggressive.
+<strong>Core principle:</strong> Clean &amp; Bright is the default. Same effect system as Gianni, but dialed back significantly. Let the footage breathe — bright, open, clean. The groove carries the energy, not the effects. No heavy dark grades, no vignettes, no tunnel gradients.
 </div>
 
 <table>
 <tr><th>Effect</th><th>What</th><th>Milø Intensity</th><th>Gianni Intensity</th></tr>
 <tr><td class="accent">BeatPulse</td><td>Video scale + brightness synced to audio energy</td><td>6% scale, 15% brightness</td><td>8% scale, 20% brightness</td></tr>
-<tr><td class="accent">FilmGrain</td><td>Animated SVG noise, overlay blend</td><td>5% opacity (same)</td><td>5% opacity</td></tr>
+<tr><td class="accent">FilmGrain</td><td>Animated SVG noise, overlay blend</td><td>4% opacity max (very subtle)</td><td>5% opacity</td></tr>
 <tr><td class="accent">FadeIn</td><td>Smooth opacity 0→1, ease-out</td><td>10-14 frames</td><td>N/A (uses SlamIn)</td></tr>
 <tr><td class="accent">SlamIn</td><td>Scale 1.6x > 1x, center origin, spring</td><td>NOT USED for Milø — use FadeIn instead</td><td>0.6x range</td></tr>
-<tr><td class="accent">CyanVignette</td><td>Dark edges with cyan color, builds over time</td><td>3% > 20% opacity</td><td>3% > 25% (coral)</td></tr>
-<tr><td class="accent">PreDropBuild</td><td>Growing shake + brightness dip + vignette</td><td>2px shake, 15% brightness dip</td><td>4px shake, 30% brightness dip</td></tr>
+<tr><td class="accent">CyanVignette</td><td>Dark edges with cyan color, builds over time</td><td>NOT USED by default (Clean &amp; Bright) — soft bottom fade for text only. Available in alternative variants.</td><td>3% > 25% (coral)</td></tr>
+<tr><td class="accent">PreDropBuild</td><td>Growing shake + brightness dip</td><td>2px shake, 15% brightness dip (no vignette)</td><td>4px shake, 30% brightness dip + vignette</td></tr>
 <tr><td class="accent">BassFlash</td><td>Full-screen cyan, overlay blend</td><td>30% peak opacity</td><td>50% peak opacity</td></tr>
 <tr><td class="accent">ZoomPunch</td><td>Video zoom 1.3x > 1x, spring</td><td>0.3x range (gentler)</td><td>0.6x range</td></tr>
 <tr><td class="accent">ScreenShake</td><td>Random xy offset with decay</td><td>8px, 12 frames</td><td>18px, 18 frames</td></tr>
@@ -152,8 +158,9 @@ code { color: var(--mi); font-size: 11px; background: rgba(52,211,153,0.08); pad
 <tr><th>Z</th><th>Layer</th><th>Frames</th></tr>
 <tr><td>1</td><td><span class="tag layer">Video + BeatPulse (6%)</span> footage with reduced pulse</td><td>0-600</td></tr>
 <tr><td>2</td><td><span class="tag layer">SlowZoomDrift (3%)</span> subtle camera movement</td><td>0-600</td></tr>
-<tr><td>3</td><td><span class="tag layer">CyanVignette</span></td><td>90-180</td></tr>
-<tr><td>4</td><td><span class="tag layer">PreDropBuild (lite)</span> 2px shake + 15% darken</td><td>180-240</td></tr>
+<tr><td>3</td><td><span class="tag layer">Teal Wash</span> rgba(52,211,153,0.06) overlay blend</td><td>0-600</td></tr>
+<tr><td>4</td><td><span class="tag layer">Soft Bottom Fade</span> text readability only (no full vignette)</td><td>0-600</td></tr>
+<tr><td>5</td><td><span class="tag layer">PreDropBuild (lite)</span> 2px shake + 15% darken (no vignette)</td><td>180-240</td></tr>
 <tr><td>5</td><td><span class="tag layer">Drop effects</span> BassFlash 30% (no particles)</td><td>240-250</td></tr>
 <tr><td>6</td><td><span class="tag layer">PostDropDecay (lite)</span> 3px aftershock</td><td>300-345</td></tr>
 <tr><td>8</td><td><span class="tag layer">GrooveHits</span> 3 subtle zoom pulses</td><td>480-600</td></tr>
@@ -163,7 +170,7 @@ code { color: var(--mi); font-size: 11px; background: rgba(52,211,153,0.08); pad
 <tr><td>10</td><td><span class="tag layer">Booking CTA</span> (understated)</td><td>360-600</td></tr>
 <tr><td>30</td><td><span class="tag layer">LightLeaks (cyan)</span> (3x)</td><td>82, 290, 590</td></tr>
 <tr><td>50</td><td><span class="tag layer">BassFlash (30%)</span></td><td>240, 255</td></tr>
-<tr><td>100</td><td><span class="tag layer">FilmGrain</span></td><td>0-750 (always)</td></tr>
+<tr><td>100</td><td><span class="tag layer">FilmGrain (4% max)</span></td><td>0-750 (always)</td></tr>
 <tr><td>-</td><td><span class="tag layer">Audio</span></td><td>0-750 (full duration)</td></tr>
 </table>
 
@@ -184,10 +191,10 @@ code { color: var(--mi); font-size: 11px; background: rgba(52,211,153,0.08); pad
 <h2>GENRE-SPECIFIC ACCENT COLORS</h2>
 <p>The release clip accent color changes based on the mixtape genre. Default is cyan (tech house).</p>
 <table>
-<tr><th>Genre</th><th>Accent</th><th>Hex</th><th>Flash</th><th>Vignette</th></tr>
-<tr><td class="accent">Tech House</td><td>Cyan</td><td>#34d399</td><td>30% cyan flash</td><td>Cyan vignette</td></tr>
-<tr><td class="accent">House</td><td>Electric Blue</td><td>#38bdf8</td><td>30% blue flash</td><td>Blue vignette</td></tr>
-<tr><td class="accent">Deep</td><td>Violet</td><td>#8b5cf6</td><td>30% violet flash</td><td>Violet vignette</td></tr>
+<tr><th>Genre</th><th>Accent</th><th>Hex</th><th>Flash</th><th>Teal Wash</th></tr>
+<tr><td class="accent">Tech House</td><td>Cyan</td><td>#34d399</td><td>30% cyan flash</td><td>rgba(52,211,153,0.06) overlay</td></tr>
+<tr><td class="accent">House</td><td>Electric Blue</td><td>#38bdf8</td><td>30% blue flash</td><td>rgba(56,189,248,0.06) overlay</td></tr>
+<tr><td class="accent">Deep</td><td>Violet</td><td>#8b5cf6</td><td>30% violet flash</td><td>rgba(139,92,246,0.06) overlay</td></tr>
 </table>
 
 <h2>CTA — UNDERSTATED</h2>
