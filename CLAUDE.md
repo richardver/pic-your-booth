@@ -160,6 +160,7 @@ pic-your-booth/
 │   │   ├── design-landingpage/SKILL.md   - /design-landingpage (conversion-optimized landing page)
 │   │   ├── generate-asset/SKILL.md       - /generate-asset (Gemini AI + Pillow image processing)
 │   │   ├── hubspot-deal/SKILL.md         - /hubspot-deal (parse text → create contact + deal)
+│   │   ├── forecast/SKILL.md             - /forecast (HubSpot revenue forecast report)
 │   │   └── impeccable/                   - 21 Impeccable design skills (designer agent)
 │   │       ├── frontend-design/          - Enhanced frontend design + references
 │   │       ├── audit, critique           - Diagnostic
@@ -189,6 +190,7 @@ pic-your-booth/
 - `/seo-audit` - SEO & LLM optimization audit with scoring
 - `/release-clip` - Interactive TikTok release clip production pipeline
 - `/hubspot-deal` - Parse text and create contact + deal in HubSpot CRM
+- `/forecast` - Generate revenue forecast report from live HubSpot deals
 
 ## Design Asset Exports
 

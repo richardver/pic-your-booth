@@ -1,0 +1,693 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PicYourBooth Omzet Prognose 2026</title>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #ffffff;
+      --surface: #f5f5f5;
+      --surface-up: #ebebeb;
+      --text: #1a1a1a;
+      --text-muted: #6b6b6b;
+      --gold: #d4882e;
+      --gold-light: #f59e42;
+      --border: #e0e0e0;
+      --won: #d4882e;
+      --pipeline: #c8c8c8;
+      --lost: #e0e0e0;
+      --font-display: 'Bebas Neue', sans-serif;
+      --font-body: 'Space Grotesk', sans-serif;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: var(--font-body);
+      font-size: 14px;
+      color: var(--text);
+      background: var(--bg);
+      line-height: 1.5;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 40px 24px;
+    }
+
+    /* Header */
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 48px;
+      padding-bottom: 24px;
+      border-bottom: 3px solid var(--gold);
+    }
+
+    .header-left h1 {
+      font-family: var(--font-display);
+      font-size: 48px;
+      color: var(--gold);
+      line-height: 1;
+      letter-spacing: 1px;
+    }
+
+    .header-left .subtitle {
+      font-size: 16px;
+      color: var(--text-muted);
+      margin-top: 4px;
+    }
+
+    .header-right {
+      text-align: right;
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+
+    .header-right .brand {
+      font-family: var(--font-display);
+      font-size: 28px;
+      color: var(--text);
+      letter-spacing: 1px;
+    }
+
+    /* Summary Cards */
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+      margin-bottom: 48px;
+    }
+
+    .card {
+      background: var(--surface);
+      border-radius: 12px;
+      padding: 24px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+    }
+
+    .card-label {
+      font-size: 12px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--text-muted);
+      margin-bottom: 8px;
+    }
+
+    .card-value {
+      font-size: 32px;
+      font-weight: 700;
+      color: var(--text);
+      line-height: 1.1;
+    }
+
+    .card-value.gold { color: var(--gold); }
+
+    .card-sub {
+      font-size: 12px;
+      color: var(--text-muted);
+      margin-top: 6px;
+    }
+
+    /* Section headers */
+    .section-title {
+      font-family: var(--font-display);
+      font-size: 28px;
+      color: var(--text);
+      margin-bottom: 20px;
+      letter-spacing: 0.5px;
+    }
+
+    /* Chart */
+    .chart-section {
+      margin-bottom: 48px;
+    }
+
+    .chart {
+      display: flex;
+      align-items: flex-end;
+      gap: 8px;
+      height: 280px;
+      padding: 20px 0 0 0;
+      border-bottom: 2px solid var(--border);
+    }
+
+    .chart-bar-group {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      height: 100%;
+      justify-content: flex-end;
+    }
+
+    .chart-bar-stack {
+      width: 100%;
+      max-width: 60px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .chart-value {
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 4px;
+      white-space: nowrap;
+    }
+
+    .bar-won {
+      width: 100%;
+      background: var(--won);
+      border-radius: 4px 4px 0 0;
+      min-height: 0;
+    }
+
+    .bar-pipeline {
+      width: 100%;
+      background: var(--pipeline);
+      border-radius: 4px 4px 0 0;
+      min-height: 0;
+    }
+
+    .bar-won + .bar-pipeline {
+      border-radius: 0;
+    }
+
+    .bar-pipeline:first-child {
+      border-radius: 4px 4px 0 0;
+    }
+
+    .chart-month {
+      font-size: 12px;
+      font-weight: 500;
+      color: var(--text-muted);
+      margin-top: 8px;
+    }
+
+    .chart-bar-group.current .chart-month {
+      color: var(--gold);
+      font-weight: 700;
+    }
+
+    .chart-bar-group.current .chart-bar-stack {
+      outline: 2px solid var(--gold);
+      outline-offset: 2px;
+      border-radius: 4px;
+    }
+
+    /* Legend */
+    .chart-legend {
+      display: flex;
+      gap: 24px;
+      margin-top: 16px;
+      justify-content: center;
+    }
+
+    .legend-item {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+
+    .legend-dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 3px;
+    }
+
+    /* Tables */
+    .table-section {
+      margin-bottom: 48px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 14px;
+    }
+
+    th {
+      font-weight: 600;
+      text-align: left;
+      padding: 12px 16px;
+      background: var(--surface);
+      border-bottom: 2px solid var(--border);
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: var(--text-muted);
+    }
+
+    th.right, td.right {
+      text-align: right;
+    }
+
+    td {
+      padding: 10px 16px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    tr:last-child td {
+      border-bottom: none;
+    }
+
+    tr.total td {
+      font-weight: 700;
+      border-top: 2px solid var(--text);
+      border-bottom: none;
+      padding-top: 14px;
+    }
+
+    /* Badges */
+    .badge {
+      display: inline-block;
+      padding: 3px 10px;
+      border-radius: 20px;
+      font-size: 11px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .badge-won {
+      background: var(--gold);
+      color: #fff;
+    }
+
+    .badge-pipeline {
+      background: var(--pipeline);
+      color: var(--text);
+    }
+
+    .badge-lost {
+      background: var(--lost);
+      color: var(--text-muted);
+    }
+
+    /* Deal list */
+    .deal-list-section {
+      margin-bottom: 48px;
+    }
+
+    .month-group {
+      margin-bottom: 24px;
+    }
+
+    .month-group-title {
+      font-family: var(--font-display);
+      font-size: 20px;
+      color: var(--text);
+      margin-bottom: 8px;
+      padding-bottom: 4px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .deal-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 8px 0;
+      border-bottom: 1px solid #f0f0f0;
+    }
+
+    .deal-name {
+      font-weight: 500;
+    }
+
+    .deal-right {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .deal-amount {
+      font-weight: 600;
+      min-width: 80px;
+      text-align: right;
+    }
+
+    /* Footer */
+    .footer {
+      text-align: center;
+      padding-top: 24px;
+      border-top: 1px solid var(--border);
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .cards { grid-template-columns: repeat(2, 1fr); }
+      .header { flex-direction: column; gap: 16px; }
+      .header-right { text-align: left; }
+      .card-value { font-size: 24px; }
+    }
+
+    @media print {
+      body { font-size: 12px; }
+      .container { padding: 20px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+
+    <!-- Header -->
+    <div class="header">
+      <div class="header-left">
+        <h1>Omzet Prognose 2026</h1>
+        <div class="subtitle">Januari – December 2026</div>
+      </div>
+      <div class="header-right">
+        <div class="brand">PICYOURBOOTH</div>
+        <div>Gegenereerd: 2 april 2026</div>
+        <div>Bron: HubSpot CRM</div>
+      </div>
+    </div>
+
+    <!-- Summary Cards -->
+    <div class="cards">
+      <div class="card">
+        <div class="card-label">Totale Omzet</div>
+        <div class="card-value gold">&euro; 299</div>
+        <div class="card-sub">1 deal gewonnen</div>
+      </div>
+      <div class="card">
+        <div class="card-label">Pipeline</div>
+        <div class="card-value">&euro; 748</div>
+        <div class="card-sub">1 deal te winnen</div>
+      </div>
+      <div class="card">
+        <div class="card-label">Prognose</div>
+        <div class="card-value gold">&euro; 1 047</div>
+        <div class="card-sub">Gewonnen + pipeline &times; win rate</div>
+      </div>
+      <div class="card">
+        <div class="card-label">Win Rate</div>
+        <div class="card-value">100%</div>
+        <div class="card-sub">1 van 1 deals gewonnen</div>
+      </div>
+    </div>
+
+    <!-- Monthly Revenue Chart -->
+    <div class="chart-section">
+      <div class="section-title">Maandelijks Overzicht</div>
+      <div class="chart">
+        <!-- Jan -->
+        <div class="chart-bar-group">
+          <div class="chart-bar-stack">
+            <div class="chart-value">&nbsp;</div>
+          </div>
+          <div class="chart-month">Jan</div>
+        </div>
+        <!-- Feb -->
+        <div class="chart-bar-group">
+          <div class="chart-bar-stack">
+            <div class="chart-value">&nbsp;</div>
+          </div>
+          <div class="chart-month">Feb</div>
+        </div>
+        <!-- Mrt -->
+        <div class="chart-bar-group">
+          <div class="chart-bar-stack">
+            <div class="chart-value">&nbsp;</div>
+          </div>
+          <div class="chart-month">Mrt</div>
+        </div>
+        <!-- Apr (current month) -->
+        <div class="chart-bar-group current">
+          <div class="chart-bar-stack">
+            <div class="chart-value">&euro; 299</div>
+            <div class="bar-won" style="height: 107px;"></div>
+          </div>
+          <div class="chart-month">Apr</div>
+        </div>
+        <!-- Mei -->
+        <div class="chart-bar-group">
+          <div class="chart-bar-stack">
+            <div class="chart-value">&nbsp;</div>
+          </div>
+          <div class="chart-month">Mei</div>
+        </div>
+        <!-- Jun -->
+        <div class="chart-bar-group">
+          <div class="chart-bar-stack">
+            <div class="chart-value">&euro; 748</div>
+            <div class="bar-pipeline" style="height: 240px;"></div>
+          </div>
+          <div class="chart-month">Jun</div>
+        </div>
+        <!-- Jul -->
+        <div class="chart-bar-group">
+          <div class="chart-bar-stack">
+            <div class="chart-value">&nbsp;</div>
+          </div>
+          <div class="chart-month">Jul</div>
+        </div>
+        <!-- Aug -->
+        <div class="chart-bar-group">
+          <div class="chart-bar-stack">
+            <div class="chart-value">&nbsp;</div>
+          </div>
+          <div class="chart-month">Aug</div>
+        </div>
+        <!-- Sep -->
+        <div class="chart-bar-group">
+          <div class="chart-bar-stack">
+            <div class="chart-value">&nbsp;</div>
+          </div>
+          <div class="chart-month">Sep</div>
+        </div>
+        <!-- Okt -->
+        <div class="chart-bar-group">
+          <div class="chart-bar-stack">
+            <div class="chart-value">&nbsp;</div>
+          </div>
+          <div class="chart-month">Okt</div>
+        </div>
+        <!-- Nov -->
+        <div class="chart-bar-group">
+          <div class="chart-bar-stack">
+            <div class="chart-value">&nbsp;</div>
+          </div>
+          <div class="chart-month">Nov</div>
+        </div>
+        <!-- Dec -->
+        <div class="chart-bar-group">
+          <div class="chart-bar-stack">
+            <div class="chart-value">&nbsp;</div>
+          </div>
+          <div class="chart-month">Dec</div>
+        </div>
+      </div>
+      <div class="chart-legend">
+        <div class="legend-item">
+          <div class="legend-dot" style="background: var(--won);"></div>
+          Gewonnen
+        </div>
+        <div class="legend-item">
+          <div class="legend-dot" style="background: var(--pipeline);"></div>
+          Te Winnen
+        </div>
+      </div>
+    </div>
+
+    <!-- Product Breakdown Table -->
+    <div class="table-section">
+      <div class="section-title">Product Overzicht</div>
+      <table>
+        <thead>
+          <tr>
+            <th>Product</th>
+            <th class="right">Deals Won</th>
+            <th class="right">Won Revenue</th>
+            <th class="right">Pipeline</th>
+            <th class="right">Gem. Deal Waarde</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Magic Mirror XL</td>
+            <td class="right">1</td>
+            <td class="right">&euro; 299</td>
+            <td class="right">&euro; 748</td>
+            <td class="right">&euro; 299</td>
+          </tr>
+          <tr class="total">
+            <td>Totaal</td>
+            <td class="right">1</td>
+            <td class="right">&euro; 299</td>
+            <td class="right">&euro; 748</td>
+            <td class="right">&euro; 299</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Monthly Detail Table -->
+    <div class="table-section">
+      <div class="section-title">Maandelijks Detail</div>
+      <table>
+        <thead>
+          <tr>
+            <th>Maand</th>
+            <th class="right">Gewonnen</th>
+            <th class="right">Te Winnen</th>
+            <th class="right">Verloren</th>
+            <th class="right">Win Rate</th>
+            <th class="right">Cumulatief</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Januari</td>
+            <td class="right">&euro; 0</td>
+            <td class="right">&euro; 0</td>
+            <td class="right">&euro; 0</td>
+            <td class="right">&ndash;</td>
+            <td class="right">&euro; 0</td>
+          </tr>
+          <tr>
+            <td>Februari</td>
+            <td class="right">&euro; 0</td>
+            <td class="right">&euro; 0</td>
+            <td class="right">&euro; 0</td>
+            <td class="right">&ndash;</td>
+            <td class="right">&euro; 0</td>
+          </tr>
+          <tr>
+            <td>Maart</td>
+            <td class="right">&euro; 0</td>
+            <td class="right">&euro; 0</td>
+            <td class="right">&euro; 0</td>
+            <td class="right">&ndash;</td>
+            <td class="right">&euro; 0</td>
+          </tr>
+          <tr>
+            <td><strong>April</strong></td>
+            <td class="right"><strong>&euro; 299</strong></td>
+            <td class="right">&euro; 0</td>
+            <td class="right">&euro; 0</td>
+            <td class="right">100%</td>
+            <td class="right"><strong>&euro; 299</strong></td>
+          </tr>
+          <tr>
+            <td>Mei</td>
+            <td class="right">&euro; 0</td>
+            <td class="right">&euro; 0</td>
+            <td class="right">&euro; 0</td>
+            <td class="right">&ndash;</td>
+            <td class="right">&euro; 299</td>
+          </tr>
+          <tr>
+            <td>Juni</td>
+            <td class="right">&euro; 0</td>
+            <td class="right">&euro; 748</td>
+            <td class="right">&euro; 0</td>
+            <td class="right">&ndash;</td>
+            <td class="right">&euro; 299</td>
+          </tr>
+          <tr>
+            <td>Juli</td>
+            <td class="right">&euro; 0</td>
+            <td class="right">&euro; 0</td>
+            <td class="right">&euro; 0</td>
+            <td class="right">&ndash;</td>
+            <td class="right">&euro; 299</td>
+          </tr>
+          <tr>
+            <td>Augustus</td>
+            <td class="right">&euro; 0</td>
+            <td class="right">&euro; 0</td>
+            <td class="right">&euro; 0</td>
+            <td class="right">&ndash;</td>
+            <td class="right">&euro; 299</td>
+          </tr>
+          <tr>
+            <td>September</td>
+            <td class="right">&euro; 0</td>
+            <td class="right">&euro; 0</td>
+            <td class="right">&euro; 0</td>
+            <td class="right">&ndash;</td>
+            <td class="right">&euro; 299</td>
+          </tr>
+          <tr>
+            <td>Oktober</td>
+            <td class="right">&euro; 0</td>
+            <td class="right">&euro; 0</td>
+            <td class="right">&euro; 0</td>
+            <td class="right">&ndash;</td>
+            <td class="right">&euro; 299</td>
+          </tr>
+          <tr>
+            <td>November</td>
+            <td class="right">&euro; 0</td>
+            <td class="right">&euro; 0</td>
+            <td class="right">&euro; 0</td>
+            <td class="right">&ndash;</td>
+            <td class="right">&euro; 299</td>
+          </tr>
+          <tr>
+            <td>December</td>
+            <td class="right">&euro; 0</td>
+            <td class="right">&euro; 0</td>
+            <td class="right">&euro; 0</td>
+            <td class="right">&ndash;</td>
+            <td class="right">&euro; 299</td>
+          </tr>
+          <tr class="total">
+            <td>Totaal</td>
+            <td class="right">&euro; 299</td>
+            <td class="right">&euro; 748</td>
+            <td class="right">&euro; 0</td>
+            <td class="right">100%</td>
+            <td class="right">&euro; 299</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Deal List -->
+    <div class="deal-list-section">
+      <div class="section-title">Alle Deals</div>
+
+      <div class="month-group">
+        <div class="month-group-title">April 2026</div>
+        <div class="deal-row">
+          <div class="deal-name">MAGIC/Nivin - Rijswijk</div>
+          <div class="deal-right">
+            <div class="deal-amount">&euro; 299</div>
+            <span class="badge badge-won">Gewonnen</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="month-group">
+        <div class="month-group-title">Juni 2026</div>
+        <div class="deal-row">
+          <div class="deal-name">Magic/ADO Den Haag</div>
+          <div class="deal-right">
+            <div class="deal-amount">&euro; 748</div>
+            <span class="badge badge-pipeline">Te Winnen</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+      PicYourBooth B.V. &middot; Omzet Prognose &middot; Gegenereerd op 2 april 2026 vanuit HubSpot CRM
+    </div>
+
+  </div>
+</body>
+</html>
