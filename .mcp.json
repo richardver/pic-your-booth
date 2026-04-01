@@ -1,15 +1,9 @@
 {
   "mcpServers": {
-    "hubspot": {
+    "hubspot-crm": {
       "type": "stdio",
-      "command": "npx",
-      "args": [
-        "-y",
-        "@hubspot/mcp-server"
-      ],
-      "env": {
-        "HUBSPOT_ACCESS_TOKEN": "${HUBSPOT_ACCESS_TOKEN}"
-      }
+      "command": "./scripts/hubspot-mcp.sh",
+      "args": []
     },
     "remotion": {
       "type": "stdio",

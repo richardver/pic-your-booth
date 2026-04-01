@@ -55,6 +55,8 @@ pic-your-booth/
 │   │   └── dj/                          - DJ source photos
 │   └── web/                              - Optimized WebP pipeline output
 ├── docs/
+│   ├── facturen/                         - Invoice output (year subfolders)
+│   │   └── 2026/                        - 2026 invoices (PYB-2026-XXX.html)
 │   ├── plans/                            - PRD, brainstorm sessions, design documents
 │   ├── pyb/website/                      - Website pages & design systems
 │   │   ├── deployment/                  - Live HTML pages served by TransIP (DO NOT MOVE)
@@ -157,6 +159,7 @@ pic-your-booth/
 │   │   ├── design-page/SKILL.md          - /design-page (full page design workflow)
 │   │   ├── design-landingpage/SKILL.md   - /design-landingpage (conversion-optimized landing page)
 │   │   ├── generate-asset/SKILL.md       - /generate-asset (Gemini AI + Pillow image processing)
+│   │   ├── hubspot-deal/SKILL.md         - /hubspot-deal (parse text → create contact + deal)
 │   │   └── impeccable/                   - 21 Impeccable design skills (designer agent)
 │   │       ├── frontend-design/          - Enhanced frontend design + references
 │   │       ├── audit, critique           - Diagnostic
@@ -185,6 +188,7 @@ pic-your-booth/
 - `/generate-asset` - Generate or enhance image assets using Gemini AI + Pillow processing
 - `/seo-audit` - SEO & LLM optimization audit with scoring
 - `/release-clip` - Interactive TikTok release clip production pipeline
+- `/hubspot-deal` - Parse text and create contact + deal in HubSpot CRM
 
 ## Design Asset Exports
 
