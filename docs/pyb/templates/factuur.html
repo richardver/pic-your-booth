@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Factuur {{factuurnummer}} - PicYourBooth</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #ffffff;
+      --surface: #f5f5f5;
+      --surface-up: #ebebeb;
+      --text: #1a1a1a;
+      --text-muted: #6b6b6b;
+      --gold: #d4882e;
+      --gold-light: #f59e42;
+      --border: #e0e0e0;
+      --font-display: 'Bebas Neue', sans-serif;
+      --font-body: 'Space Grotesk', sans-serif;
+    }
+
+    @page {
+      size: A4;
+      margin: 0;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      width: 210mm;
+      min-height: 297mm;
+      margin: 0 auto;
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--font-body);
+      font-size: 15px;
+      line-height: 1.5;
+      padding: 40px 48px;
+      position: relative;
+      print-color-adjust: exact;
+      -webkit-print-color-adjust: exact;
+    }
+
+    /* ── Header ── */
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 32px;
+    }
+
+    .header img {
+      height: 48px;
+      width: auto;
+    }
+
+    .title {
+      font-family: var(--font-display);
+      font-size: 48px;
+      color: var(--gold);
+      letter-spacing: 2px;
+      line-height: 1;
+    }
+
+    /* ── Invoice Meta ── */
+    .meta {
+      margin-bottom: 28px;
+    }
+
+    .meta-row {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 4px;
+    }
+
+    .meta-label {
+      font-family: var(--font-display);
+      font-size: 16px;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      width: 150px;
+      flex-shrink: 0;
+    }
+
+    .meta-value {
+      color: var(--text);
+    }
+
+    /* ── Client Card ── */
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 20px 24px;
+      margin-bottom: 28px;
+    }
+
+    .card-title {
+      font-family: var(--font-display);
+      font-size: 18px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 10px;
+    }
+
+    .card-row {
+      margin-bottom: 2px;
+    }
+
+    .card-label {
+      color: var(--text-muted);
+      font-size: 13px;
+    }
+
+    .card-value {
+      color: var(--text);
+    }
+
+    /* ── Line Items Table ── */
+    .table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 20px;
+    }
+
+    .table thead th {
+      font-family: var(--font-display);
+      font-size: 16px;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      text-align: left;
+      padding: 10px 0;
+      border-bottom: 2px solid var(--gold);
+    }
+
+    .table thead th:last-child {
+      text-align: right;
+    }
+
+    .table tbody td {
+      padding: 12px 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .table tbody td:last-child {
+      text-align: right;
+      white-space: nowrap;
+    }
+
+    /* ── Totals ── */
+    .totals {
+      display: flex;
+      justify-content: flex-end;
+      margin-bottom: 28px;
+    }
+
+    .totals-block {
+      width: 260px;
+    }
+
+    .totals-row {
+      display: flex;
+      justify-content: space-between;
+      padding: 6px 0;
+    }
+
+    .totals-row.total {
+      border-top: 2px solid var(--gold);
+      margin-top: 4px;
+      padding-top: 10px;
+    }
+
+    .totals-label {
+      color: var(--text-muted);
+    }
+
+    .totals-value {
+      text-align: right;
+    }
+
+    .totals-row.total .totals-label,
+    .totals-row.total .totals-value {
+      color: var(--gold);
+      font-weight: 700;
+      font-size: 18px;
+    }
+
+    /* ── Payment Card ── */
+    .payment-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 20px 24px;
+      margin-bottom: 28px;
+    }
+
+    .payment-intro {
+      margin-bottom: 14px;
+      line-height: 1.6;
+    }
+
+    .payment-details {
+      display: grid;
+      grid-template-columns: 140px 1fr;
+      gap: 4px 8px;
+    }
+
+    .payment-details .card-label {
+      font-size: 13px;
+    }
+
+    /* ── Footer ── */
+    .footer {
+      position: absolute;
+      bottom: 32px;
+      left: 48px;
+      right: 48px;
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 12px;
+      line-height: 1.6;
+      border-top: 1px solid var(--border);
+      padding-top: 12px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <div class="header">
+    <img src="../../../images/pyb/logo/logo-navbar-dark.png" alt="PicYourBooth">
+    <div class="title">FACTUUR</div>
+  </div>
+
+  <!-- Invoice Meta -->
+  <div class="meta">
+    <div class="meta-row">
+      <span class="meta-label">Factuurdatum</span>
+      <span class="meta-value">{{factuurdatum}}</span>
+    </div>
+    <div class="meta-row">
+      <span class="meta-label">Factuurnummer</span>
+      <span class="meta-value">{{factuurnummer}}</span>
+    </div>
+    <div class="meta-row">
+      <span class="meta-label">Betreft</span>
+      <span class="meta-value">{{betreft}}</span>
+    </div>
+  </div>
+
+  <!-- Client Card -->
+  <div class="card">
+    <div class="card-title">Klantgegevens</div>
+    <div class="card-row">
+      <span class="card-value">{{klant_naam}}</span>
+    </div>
+    <div class="card-row" style="{{klant_bedrijf_display}}">
+      <span class="card-value">{{klant_bedrijf}}</span>
+    </div>
+    <div class="card-row">
+      <span class="card-value">{{email}}</span>
+    </div>
+  </div>
+
+  <!-- Line Items -->
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Omschrijving</th>
+        <th>Bedrag</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>{{line_item_1_omschrijving}}</td>
+        <td>€ {{line_item_1_bedrag}}</td>
+      </tr>
+      <tr>
+        <td>{{line_item_2_omschrijving}}</td>
+        <td>€ {{line_item_2_bedrag}}</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- Totals -->
+  <div class="totals">
+    <div class="totals-block">
+      <div class="totals-row">
+        <span class="totals-label">Subtotaal</span>
+        <span class="totals-value">€ {{subtotaal}}</span>
+      </div>
+      <div class="totals-row">
+        <span class="totals-label">BTW 21%</span>
+        <span class="totals-value">€ {{btw}}</span>
+      </div>
+      <div class="totals-row total">
+        <span class="totals-label">Totaal</span>
+        <span class="totals-value">€ {{totaal}}</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Payment Details -->
+  <div class="payment-card">
+    <div class="card-title">Betaalgegevens</div>
+    <div class="payment-intro">
+      Gelieve het totaalbedrag van <strong style="color: var(--gold);">€ {{totaal}}</strong> binnen 30 dagen over te maken op onderstaand rekeningnummer o.v.v. <strong>{{factuurnummer}}</strong>.
+    </div>
+    <div class="payment-details">
+      <span class="card-label">Bank</span>
+      <span class="card-value">Rabobank</span>
+      <span class="card-label">IBAN</span>
+      <span class="card-value">NL22 RABO 0142 1467 57</span>
+      <span class="card-label">Ten name van</span>
+      <span class="card-value">PicYourBooth B.V.</span>
+      <span class="card-label">Kenmerk</span>
+      <span class="card-value">{{factuurnummer}}</span>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <div class="footer">
+    PicYourBooth B.V. · Koekoekzoom 35 · 2643 KP · Pijnacker · 06-42 22 88 22 · KvK: 59400080 · BTW: NL853461776B01
+  </div>
+
+</body>
+</html>

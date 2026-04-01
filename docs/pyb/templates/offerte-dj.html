@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Offerte DJ - PicYourBooth</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    /* ── Design Tokens (shared with factuur.html) ── */
+    :root {
+      --bg: #ffffff;
+      --surface: #f5f5f5;
+      --surface-up: #ebebeb;
+      --text: #1a1a1a;
+      --text-muted: #6b6b6b;
+      --gold: #d4882e;
+      --gold-light: #f59e42;
+      --border: #e0e0e0;
+      --font-display: 'Bebas Neue', sans-serif;
+      --font-body: 'Space Grotesk', sans-serif;
+    }
+
+    @page {
+      size: A4;
+      margin: 0;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--font-body);
+      font-size: 15px;
+      line-height: 1.5;
+      print-color-adjust: exact;
+      -webkit-print-color-adjust: exact;
+    }
+
+    /* ── Page Wrapper (multi-page) ── */
+    .page {
+      width: 210mm;
+      min-height: 297mm;
+      padding: 40px 48px;
+      position: relative;
+      margin: 0 auto;
+      background: var(--bg);
+      page-break-after: always;
+    }
+
+    .page:last-child {
+      page-break-after: avoid;
+    }
+
+    /* ── Header ── */
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 32px;
+    }
+
+    .header img {
+      height: 48px;
+      width: auto;
+    }
+
+    .title {
+      font-family: var(--font-display);
+      font-size: 48px;
+      color: var(--gold);
+      letter-spacing: 2px;
+      line-height: 1;
+    }
+
+    /* ── Meta Rows ── */
+    .meta {
+      margin-bottom: 28px;
+    }
+
+    .meta-row {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 4px;
+    }
+
+    .meta-label {
+      font-family: var(--font-display);
+      font-size: 16px;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      width: 140px;
+      flex-shrink: 0;
+    }
+
+    .meta-value {
+      color: var(--text);
+    }
+
+    /* ── Cards ── */
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 20px 24px;
+      margin-bottom: 28px;
+    }
+
+    .card-title {
+      font-family: var(--font-display);
+      font-size: 18px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 10px;
+    }
+
+    .card-row {
+      margin-bottom: 2px;
+    }
+
+    .card-label {
+      color: var(--text-muted);
+      font-size: 13px;
+    }
+
+    .card-value {
+      color: var(--text);
+    }
+
+    /* ── Two-Column Cards ── */
+    .cards-row {
+      display: flex;
+      gap: 20px;
+      margin-bottom: 28px;
+    }
+
+    .cards-row .card {
+      flex: 1;
+      margin-bottom: 0;
+    }
+
+    /* ── Table ── */
+    .table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 20px;
+    }
+
+    .table thead th {
+      font-family: var(--font-display);
+      font-size: 16px;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      text-align: left;
+      padding: 10px 0;
+      border-bottom: 2px solid var(--gold);
+    }
+
+    .table thead th:last-child {
+      text-align: right;
+    }
+
+    .table tbody td {
+      padding: 12px 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .table tbody td:last-child {
+      text-align: right;
+      white-space: nowrap;
+    }
+
+    /* ── Totals ── */
+    .totals {
+      display: flex;
+      justify-content: flex-end;
+      margin-bottom: 28px;
+    }
+
+    .totals-block {
+      width: 320px;
+    }
+
+    .totals-row {
+      display: flex;
+      justify-content: space-between;
+      padding: 6px 0;
+    }
+
+    .totals-row.total {
+      border-top: 2px solid var(--gold);
+      margin-top: 4px;
+      padding-top: 10px;
+    }
+
+    .totals-label {
+      color: var(--text-muted);
+    }
+
+    .totals-value {
+      text-align: right;
+    }
+
+    .totals-row.total .totals-label,
+    .totals-row.total .totals-value {
+      color: var(--gold);
+      font-weight: 700;
+      font-size: 18px;
+      white-space: nowrap;
+    }
+
+    /* ── Page 2: Section Headings ── */
+    .section-heading {
+      font-family: var(--font-display);
+      font-size: 32px;
+      color: var(--gold);
+      letter-spacing: 1.5px;
+      line-height: 1;
+      margin-bottom: 20px;
+    }
+
+    .section-subheading {
+      font-family: var(--font-display);
+      font-size: 20px;
+      color: var(--text);
+      letter-spacing: 1px;
+      margin-bottom: 14px;
+    }
+
+    /* ── Features List ── */
+    .features-list {
+      list-style: none;
+      margin-bottom: 28px;
+    }
+
+    .features-list li {
+      padding: 8px 0;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: baseline;
+      gap: 10px;
+      font-size: 15px;
+      line-height: 1.5;
+    }
+
+    .features-list li::before {
+      content: "\2713";
+      color: var(--gold);
+      font-weight: 700;
+      font-size: 15px;
+      flex-shrink: 0;
+    }
+
+    /* ── Social Proof ── */
+    .social-proof {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 8px 20px;
+      font-size: 12px;
+      color: var(--text-muted);
+      margin-bottom: 28px;
+    }
+
+    .social-proof span {
+      color: var(--gold);
+      font-weight: 600;
+    }
+
+    .social-proof .divider {
+      width: 1px;
+      height: 14px;
+      background: var(--border);
+    }
+
+    /* ── Upgrade Rows ── */
+    .upgrades-section {
+      margin-bottom: 20px;
+    }
+
+    .upgrade-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 14px 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .upgrade-info {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .upgrade-name {
+      font-weight: 600;
+      font-size: 14px;
+    }
+
+    .upgrade-badge {
+      background: var(--gold);
+      color: var(--bg);
+      font-family: var(--font-display);
+      font-size: 12px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      padding: 3px 10px;
+      border-radius: 4px;
+      font-weight: 700;
+    }
+
+    .upgrade-price {
+      color: var(--gold);
+      font-weight: 600;
+      font-size: 14px;
+      white-space: nowrap;
+    }
+
+    /* ── Page 3: USP Section ── */
+    .usp-block {
+      margin-bottom: 28px;
+    }
+
+    .usp-block p {
+      margin-bottom: 12px;
+      line-height: 1.7;
+      font-size: 13.5px;
+    }
+
+    .usp-block .highlight-quote {
+      font-family: var(--font-display);
+      font-size: 22px;
+      color: var(--gold);
+      letter-spacing: 0.5px;
+      line-height: 1.3;
+      margin: 20px 0;
+    }
+
+    /* ── CTA Block ── */
+    .cta-block {
+      background: var(--surface);
+      border: 2px solid var(--gold);
+      border-radius: 10px;
+      padding: 28px 28px;
+      margin-bottom: 28px;
+    }
+
+    .cta-block .card-title {
+      font-size: 22px;
+      margin-bottom: 14px;
+    }
+
+    .cta-block p {
+      margin-bottom: 10px;
+      line-height: 1.7;
+    }
+
+    .cta-block .cta-action {
+      font-weight: 600;
+      color: var(--gold);
+      font-size: 14px;
+    }
+
+    .cta-block .cta-details {
+      margin-top: 16px;
+      font-size: 12px;
+      color: var(--text-muted);
+      line-height: 1.7;
+    }
+
+    /* ── Signature ── */
+    .signature {
+      margin-bottom: 40px;
+      line-height: 1.7;
+    }
+
+    .signature .greeting {
+      color: var(--gold);
+      font-weight: 600;
+    }
+
+    /* ── Footer ── */
+    .footer {
+      position: absolute;
+      bottom: 32px;
+      left: 48px;
+      right: 48px;
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 12px;
+      line-height: 1.6;
+      border-top: 1px solid var(--border);
+      padding-top: 12px;
+    }
+
+    /* ── DJ Music Style Badge ── */
+    .dj-style-badge {
+      display: inline-block;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 6px 14px;
+      font-size: 12px;
+      color: var(--text-muted);
+      margin-bottom: 28px;
+    }
+
+    .dj-style-badge strong {
+      color: var(--gold);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ════════════════════════════════════════════ -->
+  <!-- PAGE 1: Cover + Pricing                     -->
+  <!-- ════════════════════════════════════════════ -->
+  <div class="page">
+
+    <!-- Header -->
+    <div class="header">
+      <img src="../../../images/pyb/logo/logo-navbar-dark.png" alt="PicYourBooth">
+      <div class="title" style="color: {{dj_accent}};">OFFERTE</div>
+    </div>
+
+    <!-- Offerte Meta -->
+    <div class="meta">
+      <div class="meta-row">
+        <span class="meta-label">Offertedatum</span>
+        <span class="meta-value">{{dealdate}}</span>
+      </div>
+      <div class="meta-row">
+        <span class="meta-label">Service</span>
+        <span class="meta-value">DJ {{dj_naam}}</span>
+      </div>
+    </div>
+
+    <!-- Client + Event Details (side by side) -->
+    <div class="cards-row">
+      <div class="card">
+        <div class="card-title" style="color: {{dj_accent}};">Klantgegevens</div>
+        <div class="card-row">
+          <span class="card-label">Naam</span>
+        </div>
+        <div class="card-row">
+          <span class="card-value">{{lastname}}</span>
+        </div>
+        <div class="card-row" style="margin-top: 6px;">
+          <span class="card-label">E-mail</span>
+        </div>
+        <div class="card-row">
+          <span class="card-value">{{email}}</span>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-title" style="color: {{dj_accent}};">Evenement</div>
+        <div class="card-row">
+          <span class="card-label">Datum</span>
+        </div>
+        <div class="card-row">
+          <span class="card-value">{{evenement_datum}}</span>
+        </div>
+        <div class="card-row" style="margin-top: 6px;">
+          <span class="card-label">Locatie</span>
+        </div>
+        <div class="card-row">
+          <span class="card-value">{{evenement_locatie}}</span>
+        </div>
+        <div class="card-row" style="margin-top: 6px;">
+          <span class="card-label">Starttijd</span>
+        </div>
+        <div class="card-row">
+          <span class="card-value">{{evenement_startijd}}</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Pricing Table -->
+    <table class="table">
+      <thead>
+        <tr>
+          <th style="border-bottom-color: {{dj_accent}};">Omschrijving</th>
+          <th style="border-bottom-color: {{dj_accent}};">Bedrag</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>DJ Set — 3 uur</td>
+          <td>€ 149</td>
+        </tr>
+        <tr>
+          <td>Extra uur(en)</td>
+          <td>€ {{evenement_extraopties}}</td>
+        </tr>
+        <tr>
+          <td>Reiskosten</td>
+          <td>€ {{evenement_reiskosten}}</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- Totals -->
+    <div class="totals">
+      <div class="totals-block">
+        <div class="totals-row total" style="border-top-color: {{dj_accent}};">
+          <span class="totals-label" style="color: {{dj_accent}};">Totaal incl. BTW 21%</span>
+          <span class="totals-value" style="color: {{dj_accent}};">€ {{deal_value}}</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+      PicYourBooth B.V. · Koekoekzoom 35 · 2643 KP · Pijnacker · 06-42 22 88 22 · KvK: 59400080 · BTW: NL853461776B01
+    </div>
+
+  </div>
+
+  <!-- ════════════════════════════════════════════ -->
+  <!-- PAGE 2: Product Showcase + Upgrades         -->
+  <!-- ════════════════════════════════════════════ -->
+  <div class="page">
+
+    <!-- Header -->
+    <div class="header">
+      <img src="../../../images/pyb/logo/logo-navbar-dark.png" alt="PicYourBooth">
+    </div>
+
+    <!-- What's Included -->
+    <div class="section-heading" style="color: {{dj_accent}};">Wat zit er allemaal in?</div>
+
+    <ul class="features-list">
+      <li>Professionele DJ set (3 uur)</li>
+      <li>Pioneer DJ apparatuur</li>
+      <li>Spotify playlist optimalisatie vooraf</li>
+      <li>Lichtshow basispakket</li>
+      <li>Op- en afbouw door DJ</li>
+      <li>Reiskosten inclusief tot 50 km vanaf 2643 KP</li>
+    </ul>
+
+    <!-- DJ Music Style -->
+    <div class="dj-style-badge">
+      Muziekstijl: <strong style="color: {{dj_accent}};">{{dj_stijl}}</strong>
+    </div>
+
+    <!-- Social Proof -->
+    <div class="social-proof">
+      <span style="color: {{dj_accent}};">237+ events</span>
+      <div class="divider"></div>
+      <span style="color: {{dj_accent}};">5-star rating</span>
+    </div>
+
+    <!-- Upgrades -->
+    <div class="section-heading" style="color: {{dj_accent}}; margin-top: 8px;">Voor wie net dat beetje extra wil</div>
+
+    <div class="upgrades-section">
+      <div class="upgrade-row">
+        <div class="upgrade-info">
+          <span class="upgrade-name">Extra uur</span>
+        </div>
+        <span class="upgrade-price" style="color: {{dj_accent}};">+ € 49 per uur (max 3 extra)</span>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+      PicYourBooth B.V. · Koekoekzoom 35 · 2643 KP · Pijnacker · 06-42 22 88 22 · KvK: 59400080 · BTW: NL853461776B01
+    </div>
+
+  </div>
+
+  <!-- ════════════════════════════════════════════ -->
+  <!-- PAGE 3: Why PYB + Confirmation              -->
+  <!-- ════════════════════════════════════════════ -->
+  <div class="page">
+
+    <!-- Header -->
+    <div class="header">
+      <img src="../../../images/pyb/logo/logo-navbar-dark.png" alt="PicYourBooth">
+    </div>
+
+    <!-- Why PicYourBooth -->
+    <div class="section-heading" style="color: {{dj_accent}};">Waarom PicYourBooth?</div>
+
+    <div class="usp-block">
+      <div class="highlight-quote" style="color: {{dj_accent}};">Geen bureau, geen tussenpersoon. Direct boeken, direct contact met je DJ.</div>
+
+      <p>
+        Je boekt niet via een uitzendbureau of bemiddelaar. Bij PicYourBooth heb je rechtstreeks contact met je DJ. Dat betekent snelle afstemming, persoonlijke aandacht en een set die precies past bij jouw feest.
+      </p>
+
+      <p>
+        Onze DJ's draaien op professionele Pioneer apparatuur. Geen compromissen op geluidskwaliteit. En met Spotify playlist optimalisatie vooraf weten we precies wat jouw gasten willen horen.
+      </p>
+
+      <p>
+        Je feest, jouw sound. Wij zorgen voor de muziek, jij geniet van het feest.
+      </p>
+    </div>
+
+    <!-- Confirmation CTA -->
+    <div class="cta-block" style="border-color: {{dj_accent}};">
+      <div class="card-title" style="color: {{dj_accent}};">Bevestig je boeking</div>
+      <p>
+        Stuur <span class="cta-action" style="color: {{dj_accent}};">'AKKOORD'</span> terug per e-mail en wij zetten alles voor je klaar.
+      </p>
+      <p>
+        Of stuur een berichtje via <span class="cta-action" style="color: {{dj_accent}};">WhatsApp: 06-42 22 88 22</span>
+      </p>
+      <div class="cta-details">
+        Betaling: contant bij aankomst of vooraf per bank (uiterlijk 24 uur voor het event).<br>
+        Op deze offerte zijn onze algemene voorwaarden van toepassing.<br>
+        Foto's kunnen door PicYourBooth worden gebruikt voor promotie, tenzij je vooraf aangeeft dit niet te willen.
+      </div>
+    </div>
+
+    <!-- Signature -->
+    <div class="signature">
+      <span class="greeting" style="color: {{dj_accent}};">Op naar iets moois!</span><br>
+      Richard — PicYourBooth
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+      PicYourBooth B.V. · Koekoekzoom 35 · 2643 KP · Pijnacker · 06-42 22 88 22 · KvK: 59400080 · BTW: NL853461776B01
+    </div>
+
+  </div>
+
+</body>
+</html>
