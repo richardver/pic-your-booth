@@ -38,6 +38,7 @@ When creating ANY marketing content for PicYourBooth:
 - Use red (#ff494a) or pink (#e839a0) - removed from brand
 - Use translated-from-English Dutch - write native NL
 - Mix segment tones (premium copy for Party Booth or vice versa)
+- **NEVER disparage iPads, tablets, or digital photobooths** — Party Booth IS an iPad-based photobooth. Any copy that mocks "iPads on sticks", "cheap iPad alternatives", or similar harms our own product. When promoting Magic Mirror XL, highlight what it IS (DSLR, studio lighting, printing), never what others AREN'T
 - Compare prices to competitors or agencies — focus on own quality, never position as "cheap"
 - Mention specific prices in FAQ answers — direct visitors to the pricing on the page
 - Write euro amounts without space — always use `€ 199` (with space), never `€199`
